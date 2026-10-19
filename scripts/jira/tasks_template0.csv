@@ -1,0 +1,16 @@
+ref,type,summary,description,assignee_email,parent_ref,labels,duedate
+T0,Epic,Template 0 - Project Proposal,"Hoàn thiện Project Proposal (Template 0) theo file đặc tả và Phụ lục A-J. Hạn nộp nội bộ 31/10/2026.",<email_A>,,DOC,2026-10-31
+W-A,Task,[T0] Viết Bìa + Mục 1 + Mục 2 + Mục 3.2,"Nguyên liệu: Phụ lục A, C, F trong SRS-master. Chỉ viết mức sơ lược, không chép nguyên đặc tả.",<email_A>,T0,DOC;REQ,2026-10-25
+W-B,Task,[T0] Viết Mục 3.1.1 bảng chức năng,"Nguyên liệu: Phụ lục D trong SRS-master (30 dòng user story). Có thể bỏ cột tham chiếu khi cần gọn.",<email_B>,T0,DOC;REQ,2026-10-25
+W-C,Task,[T0] Viết Mục 3.1.2 kiến trúc + Mục 4 kế hoạch phát triển,"Nguyên liệu: Phụ lục E và G trong SRS-master. Ngày tháng lấy đúng từ Phụ lục G.",<email_C>,T0,DOC;DES,2026-10-25
+W-D,Task,[T0] Viết Mục 5.1 nhân sự + Mục 5.2 chi phí,"Nguyên liệu: Phụ lục H và I trong SRS-master. Số liệu thời gian lấy từ Phụ lục G.",<email_D>,T0,DOC;REQ,2026-10-25
+R-A,Task,[T0] Review chéo: A review phần của B (Mục 3.1.1),"Ghi nhận xét vào PR hoặc comment trên task của B.",<email_A>,T0,DOC,2026-10-28
+R-B,Task,[T0] Review chéo: B review phần của C (Mục 3.1.2 + 4),"Ghi nhận xét vào PR hoặc comment trên task của C.",<email_B>,T0,DOC,2026-10-28
+R-C,Task,[T0] Review chéo: C review phần của D (Mục 5),"Ghi nhận xét vào PR hoặc comment trên task của D.",<email_C>,T0,DOC,2026-10-28
+R-D,Task,[T0] Review chéo: D review phần của A (Bìa + Mục 1 + 2 + 3.2),"Ghi nhận xét vào PR hoặc comment trên task của A.",<email_D>,T0,DOC,2026-10-28
+F-A,Task,[T0] Sửa phần của A theo nhận xét,"Sửa theo nhận xét của D.",<email_A>,T0,DOC,2026-10-29
+F-B,Task,[T0] Sửa phần của B theo nhận xét,"Sửa theo nhận xét của A.",<email_B>,T0,DOC,2026-10-29
+F-C,Task,[T0] Sửa phần của C theo nhận xét,"Sửa theo nhận xét của B.",<email_C>,T0,DOC,2026-10-29
+F-D,Task,[T0] Sửa phần của D theo nhận xét,"Sửa theo nhận xét của C.",<email_D>,T0,DOC,2026-10-29
+M-D,Task,[T0] Hợp nhất và rà nhất quán toàn bộ,"Đối chiếu số liệu, thuật ngữ, ngày tháng, mục lục. Xóa đoạn hướng dẫn in nghiêng của file mẫu.",<email_D>,T0,DOC,2026-10-30
+S-A,Task,[T0] Kiểm tra format và nộp GroupID.zip,"Kiểm tra giới hạn 20 file / 20 MB, tên file zip xác nhận với GVTH, nộp trước tối 31/10.",<email_A>,T0,DOC;RELEASE,2026-10-31
