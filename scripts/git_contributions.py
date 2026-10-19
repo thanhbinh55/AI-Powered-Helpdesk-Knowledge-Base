@@ -100,9 +100,18 @@ def generate_markdown(members, commits):
     for commit in commits:
         assigned = False
         for m in members:
-            # Đối chiếu qua email hoặc username/tên
-            if (m["git_email"] and m["git_email"] != "<git_email_a>" and m["git_email"] == commit["author_email"]) or \
-               (m["git_username"] and m["git_username"] != "<git_username_a>" and m["git_username"].lower() == commit["author_name"].lower()):
+            # Đối chiếu linh hoạt qua git_email, jira_email hoặc git_username
+            git_em = m["git_email"]
+            jira_em = m["jira_email"].lower()
+            git_user = m["git_username"].lower()
+            author_em = commit["author_email"]
+            author_nm = commit["author_name"].lower()
+
+            match_git_email = git_em and not git_em.startswith("<") and git_em == author_em
+            match_jira_email = jira_em and not jira_em.startswith("<") and jira_em == author_em
+            match_username = git_user and not git_user.startswith("<") and (git_user == author_nm or git_user in author_nm)
+
+            if match_git_email or match_jira_email or match_username:
                 m["commits"].append(commit)
                 assigned = True
                 break
