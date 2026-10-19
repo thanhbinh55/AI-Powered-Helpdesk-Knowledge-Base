@@ -11,10 +11,10 @@
 - **Phiên bản (Version):** 1.0.0-draft
 - **Ngày tạo (Date):** 2026-10-19
 - **Tác giả & Đóng góp (Authors + Contributions):**
-  - `<mssv_A>` - `<name_A>`: Thiết kế mô hình bảo mật, phân quyền RBAC và bảng CSDL User/Role
-  - `<mssv_B>` - `<name_B>`: Thiết kế CSDL Ticket, Ticket Comments và quy trình State Machine
-  - `<mssv_C>` - `<name_C>`: Thiết kế CSDL Knowledge Base và lưu trữ Vector Embedding (pgvector)
-  - `<mssv_D>` - `<name_D>`: Thiết kế tích hợp AI Service (LLM / RAG Pipeline) và báo cáo SLA
+  - `24120121` - `Lê Quý Phúc`: Thiết kế tích hợp AI Service (LLM / RAG Pipeline) và prompt contract (Module A)
+  - `24120503` - `Phan Gia Phúc`: Thiết kế CSDL Knowledge Base và lưu trữ Vector Embedding (pgvector) (Module B)
+  - `24120083` - `Nguyễn Đức Lãm`: Thiết kế CSDL Ticket, Ticket Comments và quy trình State Machine (Module C)
+  - `24120269` - `Ngô Viết Thanh Bình`: Thiết kế mô hình bảo mật, phân quyền RBAC, bảng CSDL User/Role và báo cáo SLA (Module D) *(Nhóm trưởng)*
 - **Phạm vi (Scope):** Kiến trúc phân tầng (Tiered Architecture), mô hình dữ liệu quan hệ (ERD), thiết kế lớp (Class Diagram) và tích hợp các module.
 
 ---

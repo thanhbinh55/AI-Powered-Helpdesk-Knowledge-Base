@@ -11,10 +11,10 @@
 - **Phiên bản (Version):** 1.0.0-draft
 - **Ngày tạo (Date):** 2026-10-19
 - **Tác giả & Đóng góp (Authors + Contributions):**
-  - `<mssv_A>` - `<name_A>`: Kết quả test Module A (Auth & Users)
-  - `<mssv_B>` - `<name_B>`: Kết quả test Module B (Tickets & Comments)
-  - `<mssv_C>` - `<name_C>`: Kết quả test Module C (Knowledge Base & Vector Search)
-  - `<mssv_D>` - `<name_D>`: Kết quả test Module D (AI Suggestion & Analytics)
+  - `24120121` - `Lê Quý Phúc`: Kết quả test Module A (AI Suggestion & Analytics)
+  - `24120503` - `Phan Gia Phúc`: Kết quả test Module B (Knowledge Base & Vector Search)
+  - `24120083` - `Nguyễn Đức Lãm`: Kết quả test Module C (Tickets & Comments)
+  - `24120269` - `Ngô Viết Thanh Bình`: Kết quả test Module D (Auth & Users) *(Nhóm trưởng)*
 - **Phạm vi (Scope):** Tổng hợp số lượng test cases thực thi, tỷ lệ pass/fail, độ bao phủ mã (Coverage) và danh sách lỗi phát hiện trong quá trình kiểm thử.
 
 ---
@@ -22,10 +22,10 @@
 ## 1. TỔNG HỢP KẾT QUẢ KIỂM THỬ (SUMMARY)
 | Phân hệ / Module | Tổng số Test Cases | Passed | Failed | Skipped | Độ bao phủ (Coverage) |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Module A (Auth & Users)** | 0 (Khởi tạo) | 0 | 0 | 0 | 0% |
-| **Module B (Ticket & Helpdesk)** | 0 (Khởi tạo) | 0 | 0 | 0 | 0% |
-| **Module C (Knowledge Base)** | 0 (Khởi tạo) | 0 | 0 | 0 | 0% |
-| **Module D (AI Service)** | 0 (Khởi tạo) | 0 | 0 | 0 | 0% |
+| **Module A (AI Service & Analytics)** | 0 (Khởi tạo) | 0 | 0 | 0 | 0% |
+| **Module B (Knowledge Base)** | 0 (Khởi tạo) | 0 | 0 | 0 | 0% |
+| **Module C (Ticket & Helpdesk)** | 0 (Khởi tạo) | 0 | 0 | 0 | 0% |
+| **Module D (Auth & Users)** | 0 (Khởi tạo) | 0 | 0 | 0 | 0% |
 | **TỔNG CỘNG** | **0** | **0** | **0** | **0** | **0%** |
 
 *(Bảng này sẽ được cập nhật tự động hoặc điền thủ công sau các đợt chạy test của Sprint)*

@@ -4,24 +4,24 @@
 # ==============================================================================
 
 # Toàn bộ tài liệu báo cáo và quy trình chung: Toàn bộ nhóm
-/reports/             @<git_username_A> @<git_username_B> @<git_username_C> @<git_username_D>
-/scripts/             @<git_username_A> @<git_username_B> @<git_username_C> @<git_username_D>
-.github/              @<git_username_A>
+/reports/             @Shinkiisme @t4lf4n @Lamnguyen-code @thanhbinh55
+/scripts/             @Shinkiisme @t4lf4n @Lamnguyen-code @thanhbinh55
+.github/              @thanhbinh55
 
-# Module A: User Management, Role-Based Access Control & Authentication
-/backend/src/main/java/vn/edu/hcmus/helpdesk/auth/    @<git_username_A>
-/frontend/src/features/auth/                          @<git_username_A>
+# Module A: AI Assistant & LLM Integration (Lê Quý Phúc)
+/backend/src/main/java/vn/edu/hcmus/helpdesk/ai/         @Shinkiisme
 
-# Module B: Ticket Management & Helpdesk Core Workflow
-/backend/src/main/java/vn/edu/hcmus/helpdesk/ticket/  @<git_username_B>
-/frontend/src/features/ticket/                        @<git_username_B>
+# Module B: Knowledge Base & Vector Search (Phan Gia Phúc)
+/backend/src/main/java/vn/edu/hcmus/helpdesk/knowledge/  @t4lf4n
+/frontend/src/features/knowledge/                        @t4lf4n
 
-# Module C: Knowledge Base & Vector Search (RAG)
-/backend/src/main/java/vn/edu/hcmus/helpdesk/knowledge/  @<git_username_C>
-/frontend/src/features/knowledge/                        @<git_username_C>
+# Module C: Ticket Management & Helpdesk Core Workflow (Nguyễn Đức Lãm)
+/backend/src/main/java/vn/edu/hcmus/helpdesk/ticket/     @Lamnguyen-code
+/frontend/src/features/ticket/                           @Lamnguyen-code
 
-# Module D: AI Assistant, LLM Integration & Analytics Dashboard
-/backend/src/main/java/vn/edu/hcmus/helpdesk/ai/         @<git_username_D>
-/backend/src/main/java/vn/edu/hcmus/helpdesk/analytics/  @<git_username_D>
-/frontend/src/features/admin/                            @<git_username_D>
-/infra/                                                  @<git_username_D>
+# Module D: Identity & Access, Authentication & Infrastructure (Ngô Viết Thanh Bình - Lead)
+/backend/src/main/java/vn/edu/hcmus/helpdesk/auth/       @thanhbinh55
+/frontend/src/features/auth/                             @thanhbinh55
+/backend/src/main/java/vn/edu/hcmus/helpdesk/analytics/  @thanhbinh55
+/frontend/src/features/admin/                            @thanhbinh55
+/infra/                                                  @thanhbinh55

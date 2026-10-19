@@ -11,7 +11,7 @@
 - **Phiên bản (Version):** 1.0.0
 - **Ngày tạo (Date):** 2026-10-19
 - **Tác giả & Đóng góp (Authors + Contributions):**
-  - `<mssv_A>` - `<name_A>`: Khởi tạo và giám sát quy trình tuân thủ AI của nhóm
+  - `24120269` - `Ngô Viết Thanh Bình`: Khởi tạo và giám sát quy trình tuân thủ AI của nhóm (Nhóm trưởng)
   - Toàn bộ thành viên nhóm: Ghi nhật ký minh bạch mọi hoạt động hỗ trợ từ AI
 - **Phạm vi (Scope):** Minh bạch toàn bộ việc sử dụng các công cụ AI (LLMs, Trợ lý lập trình, Tạo sinh mã nguồn/tài liệu) trong suốt vòng đời dự án theo yêu cầu bắt buộc của giảng viên.
 
@@ -28,7 +28,7 @@
 
 | Ngày | Công cụ / Model | Mục đích | Input tóm tắt | Output được dùng | Cách kiểm tra | Phần bị sửa / bỏ | Người chịu trách nhiệm |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 2026-10-19 | Google Gemini (Antigravity) | Dựng khung repository, kịch bản CI, githooks và các tài liệu chuẩn | Yêu cầu cấu trúc đồ án NMCNPM Group 4 HCMUS, các ràng buộc giảng viên | Bộ khung thư mục, git hook kiểm tra Jira key, scripts tự động hóa và templates | Chạy thử dry-run, kiểm tra shell script, verify format markdownlint và kiểm tra git hook | Tinh chỉnh thông báo lỗi tiếng Việt, bổ sung xử lý an toàn đường dẫn và regex Jira | `<name_A>` (DevOps / Lead) |
+| 2026-10-19 | Google Gemini (Antigravity) | Dựng khung repository, kịch bản CI, githooks và các tài liệu chuẩn | Yêu cầu cấu trúc đồ án NMCNPM Group 4 HCMUS, các ràng buộc giảng viên | Bộ khung thư mục, git hook kiểm tra Jira key, scripts tự động hóa và templates | Chạy thử dry-run, kiểm tra shell script, verify format markdownlint và kiểm tra git hook | Tinh chỉnh thông báo lỗi tiếng Việt, bổ sung xử lý an toàn đường dẫn và regex Jira | `Ngô Viết Thanh Bình` (DevOps / Lead) |
 
 *(Mọi thành viên tiếp tục bổ sung dòng mới vào bảng trên ngay khi phát sinh việc sử dụng AI trong các Sprint tiếp theo)*
 

@@ -11,10 +11,10 @@
 - **Phiên bản (Version):** 1.0.0-draft
 - **Ngày tạo (Date):** 2026-10-19
 - **Tác giả & Đóng góp (Authors + Contributions):**
-  - `<mssv_A>` - `<name_A>`: Kế hoạch kiểm thử bảo mật & xác thực (Auth Test Suites)
-  - `<mssv_B>` - `<name_B>`: Kế hoạch kiểm thử nghiệp vụ Ticket (Ticket Workflow Test Cases)
-  - `<mssv_C>` - `<name_C>`: Kế hoạch kiểm thử tìm kiếm Knowledge Base & Vector Accuracy
-  - `<mssv_D>` - `<name_D>`: Kế hoạch kiểm thử AI Fallback/Mock Mode & Tích hợp E2E
+  - `24120121` - `Lê Quý Phúc`: Kế hoạch kiểm thử AI Fallback/Mock Mode & Prompt Accuracy (Module A)
+  - `24120503` - `Phan Gia Phúc`: Kế hoạch kiểm thử tìm kiếm Knowledge Base & Vector Accuracy (Module B)
+  - `24120083` - `Nguyễn Đức Lãm`: Kế hoạch kiểm thử nghiệp vụ Ticket (Ticket Workflow Test Cases) (Module C)
+  - `24120269` - `Ngô Viết Thanh Bình`: Kế hoạch kiểm thử bảo mật, phân quyền RBAC & Tích hợp E2E (Module D) *(Nhóm trưởng)*
 - **Phạm vi (Scope):** Chiến lược kiểm thử, cấp độ kiểm thử (Unit Test, Integration Test, E2E), môi trường kiểm thử và tiêu chí dừng/chấp nhận.
 
 ---

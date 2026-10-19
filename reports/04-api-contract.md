@@ -11,10 +11,10 @@
 - **Phiên bản (Version):** 1.0.0-draft
 - **Ngày tạo (Date):** 2026-10-19
 - **Tác giả & Đóng góp (Authors + Contributions):**
-  - `<mssv_A>` - `<name_A>`: API Authentication & Profile (`/api/v1/auth/*`, `/api/v1/users/*`)
-  - `<mssv_B>` - `<name_B>`: API Ticket Management (`/api/v1/tickets/*`)
-  - `<mssv_C>` - `<name_C>`: API Knowledge Base & Semantic Search (`/api/v1/articles/*`)
-  - `<mssv_D>` - `<name_D>`: API AI Suggestion & Analytics (`/api/v1/ai/*`, `/api/v1/analytics/*`)
+  - `24120121` - `Lê Quý Phúc`: API AI Suggestion & LLM Inference (`/api/v1/ai/*`) (Module A)
+  - `24120503` - `Phan Gia Phúc`: API Knowledge Base & Semantic Search (`/api/v1/articles/*`) (Module B)
+  - `24120083` - `Nguyễn Đức Lãm`: API Ticket Management (`/api/v1/tickets/*`) (Module C)
+  - `24120269` - `Ngô Viết Thanh Bình`: API Authentication, Profile & Analytics (`/api/v1/auth/*`, `/api/v1/users/*`, `/api/v1/analytics/*`) (Module D) *(Nhóm trưởng)*
 - **Phạm vi (Scope):** Định nghĩa cấu trúc Endpoint, HTTP Method, Request Header, Request Body, Response Code và JSON Schema chuẩn cho toàn bộ hệ thống.
 
 ---
