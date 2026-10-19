@@ -1,0 +1,45 @@
+#!/bin/sh
+# Hook kiểm tra nội dung commit message (commit-msg)
+# Đảm bảo mọi commit đều gắn với mã Jira dạng SCRUM-<số> để phục vụ truy vết tiến độ và đánh giá đóng góp.
+
+COMMIT_MSG_FILE="$1"
+
+if [ ! -f "$COMMIT_MSG_FILE" ]; then
+    echo "❌ Lỗi githook: Không tìm thấy file commit message: $COMMIT_MSG_FILE"
+    exit 1
+fi
+
+COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
+
+# Cho phép các commit tự động từ Git (Merge branch, Revert commit, v.v.)
+if echo "$COMMIT_MSG" | grep -qE "^(Merge|Revert) "; then
+    exit 0
+fi
+
+# Biểu thức chính quy kiểm tra Jira key (SCRUM-<số>)
+JIRA_PATTERN="SCRUM-[0-9]+"
+
+if ! echo "$COMMIT_MSG" | grep -qE "$JIRA_PATTERN"; then
+    echo "================================================================================"
+    echo "❌ LỖI COMMIT: Thông điệp commit không chứa Jira Issue Key (SCRUM-<số>)!"
+    echo "--------------------------------------------------------------------------------"
+    echo "📌 Quy định của dự án (HCMUS - Group 4):"
+    echo "   - Mọi commit phải truy vết được tới task Jira để giảng viên xét đóng góp cá nhân."
+    echo "   - Cú pháp chuẩn (Conventional Commits + Jira key ở cuối):"
+    echo "       <type>(<scope>): <mô tả ngắn> SCRUM-<số>"
+    echo ""
+    echo "   - Các loại <type> hợp lệ: feat, fix, docs, test, chore, refactor, ci"
+    echo "   - Ví dụ hợp lệ:"
+    echo "       docs(proposal): viết mục 3.1.1 bảng chức năng SCRUM-12"
+    echo "       feat(auth): thêm API xác thực JWT SCRUM-24"
+    echo "       chore(config): cập nhật .env.example SCRUM-6"
+    echo "--------------------------------------------------------------------------------"
+    echo "💡 Cách khắc phục:"
+    echo "   1. Tra cứu mã task trên Jira (ví dụ: SCRUM-6)."
+    echo "   2. Cập nhật lại thông điệp commit:"
+    echo "      git commit --amend -m \"<type>(<scope>): <nội dung> SCRUM-<số>\""
+    echo "================================================================================"
+    exit 1
+fi
+
+exit 0

@@ -1,0 +1,105 @@
+name: "Documentation & Reports Quality Assurance"
+
+on:
+  push:
+    branches:
+      - main
+      - 'feat/**'
+      - 'docs/**'
+      - 'fix/**'
+      - 'chore/**'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  verify-reports:
+    name: "Check Required Reports & Markdown Lint"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v4
+
+      - name: "Verify Required Report Files Exist"
+        run: |
+          echo "🔍 Kiểm tra sự tồn tại của các báo cáo bắt buộc..."
+          REQUIRED_FILES=(
+            "reports/00-project-proposal.md"
+            "reports/01-requirements.md"
+            "reports/02-use-cases.md"
+            "reports/03-system-design.md"
+            "reports/04-api-contract.md"
+            "reports/05-test-plan.md"
+            "reports/06-test-results.md"
+            "reports/07-ai-usage.md"
+            "reports/08-git-contributions.md"
+            "reports/SRS-master.md"
+          )
+
+          MISSING_COUNT=0
+          for file in "${REQUIRED_FILES[@]}"; do
+            if [ -f "$file" ]; then
+              echo "  ✅ Đã tìm thấy: $file"
+            else
+              echo "  ❌ THIẾU FILE: $file"
+              MISSING_COUNT=$((MISSING_COUNT + 1))
+            fi
+          done
+
+          if [ $MISSING_COUNT -gt 0 ]; then
+            echo "❌ Lỗi: Có $MISSING_COUNT file báo cáo bắt buộc bị thiếu!"
+            exit 1
+          fi
+          echo "🎉 Tất cả 10 file báo cáo bắt buộc đều hiện diện hợp lệ."
+
+      - name: "Verify Git Contributions Markers"
+        run: |
+          echo "🔍 Kiểm tra cặp marker trong reports/08-git-contributions.md..."
+          if ! grep -q "<!-- GENERATED:START -->" reports/08-git-contributions.md || ! grep -q "<!-- GENERATED:END -->" reports/08-git-contributions.md; then
+            echo "❌ Lỗi: Không tìm thấy cặp thẻ <!-- GENERATED:START --> và <!-- GENERATED:END --> trong reports/08-git-contributions.md!"
+            exit 1
+          fi
+          echo "✅ Cặp thẻ GENERATED tồn tại đúng vị trí."
+
+      - name: "Set up Node.js for Markdown Linting"
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: "Run markdownlint"
+        run: |
+          echo "🧹 Chạy kiểm tra chuẩn định dạng Markdown..."
+          npx -y markdownlint-cli "reports/*.md" "README.md" "CONTRIBUTING.md" --ignore reports/SRS-master.md || echo "⚠️ Cảnh báo linting được ghi nhận."
+
+  # ============================================================================
+  # FUTURE CI PIPELINES (PLACEHOLDER FOR BACKEND & FRONTEND)
+  # ============================================================================
+  # backend-ci:
+  #   name: "Backend CI (Spring Boot 3 + Java 21)"
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Set up JDK 21
+  #       uses: actions/setup-java@v4
+  #       with:
+  #         java-version: '21'
+  #         distribution: 'temurin'
+  #     - name: Build with Maven
+  #       run: cd backend && ./mvnw clean verify
+  #
+  # frontend-ci:
+  #   name: "Frontend CI (React + Vite + TypeScript)"
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Set up Node.js
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 20
+  #     - name: Install dependencies & run tests
+  #       run: |
+  #         cd frontend
+  #         npm ci
+  #         npm run lint
+  #         npm run test
