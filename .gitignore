@@ -1,0 +1,48 @@
+# Environment variables
+.env
+.env.local
+*.env
+
+# Submission archives
+*.zip
+*.tar.gz
+*.rar
+
+# Dependencies & Build artifacts
+node_modules/
+target/
+build/
+dist/
+out/
+.gradle/
+bin/
+
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# IDE & OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Jira bulk create cache (created mapping to prevent duplicates)
+scripts/jira/tasks_created.csv
+
+# Rendered temporary outputs (keep directory with .gitkeep)
+reports/rendered/*.html
+reports/rendered/*.pdf
+!reports/rendered/.gitkeep
