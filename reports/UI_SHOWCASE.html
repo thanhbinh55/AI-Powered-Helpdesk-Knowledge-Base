@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Showcase Gallery — AI-Powered Helpdesk & Knowledge Base</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4384F5;
+      --primary-dark: #2563EB;
+      --bg: #0F172A;
+      --card-bg: #1E293B;
+      --border: #334155;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      --amber: #F59E0B;
+      --purple: #8B5CF6;
+      --emerald: #10B981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 30px 20px;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .badge-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(67, 132, 245, 0.15);
+      border: 1px solid rgba(67, 132, 245, 0.3);
+      color: #93C5FD;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #94A3B8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: 15px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Quick Filter Nav */
+    .filter-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+      position: sticky;
+      top: 15px;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      padding: 10px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .filter-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #FFFFFF;
+      transform: translateY(-1px);
+    }
+
+    /* Section Styling */
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 20px;
+    }
+
+    .section-title span.role-pill {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    .pill-agent { background: rgba(67, 132, 245, 0.2); color: #60A5FA; border: 1px solid #3B82F6; }
+    .pill-customer { background: rgba(16, 185, 129, 0.2); color: #34D399; border: 1px solid #10B981; }
+    .pill-admin { background: rgba(139, 92, 246, 0.2); color: #A78BFA; border: 1px solid #8B5CF6; }
+
+    /* Grid & Cards */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .screen-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .screen-card:hover {
+      border-color: rgba(67, 132, 245, 0.5);
+    }
+
+    .card-header {
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .card-meta {
+      text-align: right;
+    }
+
+    .owner-tag {
+      font-size: 12px;
+      font-weight: 700;
+      color: #F8FAFC;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 4px 10px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    .card-body {
+      padding: 20px;
+      background: #090D16;
+      text-align: center;
+    }
+
+    .card-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      cursor: zoom-in;
+      transition: opacity 0.2s;
+    }
+
+    .card-body img:hover {
+      opacity: 0.95;
+    }
+
+    /* Modal for Full Image Zoom */
+    .image-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .image-modal.active {
+      display: flex;
+    }
+
+    .image-modal img {
+      max-width: 95vw;
+      max-height: 95vh;
+      border-radius: 12px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #FFF;
+      font-size: 32px;
+      font-weight: bold;
+      cursor: pointer;
+      background: rgba(255,255,255,0.1);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0 20px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="badge-group">
+        <span>🚀 ĐỒ ÁN NMCNPM — NHÓM 04 (HCMUS)</span>
+      </div>
+      <h1>Bộ Sưu Tập Giao Diện Helpdesk & Knowledge Base</h1>
+      <p class="subtitle">
+        Tài liệu tổng hợp toàn bộ 11 trạng thái màn hình thực tế (Đã triển khai bằng React 18 + TypeScript + Tailwind CSS). Click vào ảnh để phóng to toàn màn hình.
+      </p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="filter-nav">
+      <a href="#sec-agent" class="filter-btn">1. Support Agent (Module C & A)</a>
+      <a href="#sec-customer" class="filter-btn">2. Customer Portal (Module C)</a>
+      <a href="#sec-kb" class="filter-btn">3. Knowledge Base RAG (Module B)</a>
+      <a href="#sec-admin" class="filter-btn">4. Quản trị & SLA (Module D & A)</a>
+    </nav>
+
+    <!-- 1. Support Agent Section -->
+    <section id="sec-agent">
+      <h2 class="section-title">
+        <span>1. Phân hệ Nhân viên hỗ trợ (Support Agent Workspace)</span>
+        <span class="role-pill pill-agent">Agent / Support Lead</span>
+      </h2>
+
+      <div class="gallery-grid">
+        <!-- Screen 1: Default Workspace -->
+        <div class="screen-card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Màn hình 01: Không gian làm việc chính (3 Cột)</h3>
+              <p class="card-desc">Hàng đợi ticket OPEN, Khung trao đổi rộng rãi, dải thông tin khách hàng và hạn SLA đếm ngược.</p>
+            </div>
+            <div class="card-meta">
+              <span class="owner-tag">Phan Gia Phúc (Ticket)</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <img src="./assets/ui/01_agent_workspace.png" alt="Agent Workspace Default" onclick="openZoom(this.src)">
+          </div>
+        </div>
+
+        <!-- Screen 2: Floating AI Copilot -->
+        <div class="screen-card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Màn hình 02: Trợ lý AI Copilot nổi ở góc dưới phải</h3>
+              <p class="card-desc">Cửa sổ trợ lý AI trôi nổi hiển thị câu trả lời mẫu, tỷ lệ tin cậy, trích dẫn Citations và nút "Áp dụng vào khung trả lời".</p>
+            </div>
+            <div class="card-meta">
+              <span class="owner-tag">Lê Quý Phúc (AI)</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <img src="./assets/ui/02_agent_ai_copilot.png" alt="Floating AI Copilot Dock" onclick="openZoom(this.src)">
+          </div>
+        </div>
+
+        <!-- Screen 3: Internal Note -->
+        <div class="screen-card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Màn hình 03: Ghi chú nội bộ màu vàng (Internal Note)</h3>
+              <p class="card-desc">Tab ghi chú màu vàng amber có khóa, hoàn toàn bảo mật chỉ dành cho Agent và Admin xem trao đổi kỹ thuật.</p>
+            </div>
+            <div class="card-meta">
+              <span class="owner-tag">Phan Gia Phúc (Ticket)</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <img src="./assets/ui/03_agent_internal_note.png" alt="Internal Note Active" onclick="openZoom(this.src)">
+          </div>
+        </div>
+
+        <!-- Screen 4: Focus Mode -->
+        <div class="screen-card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Màn hình 04: Chế độ tập trung (Thu gọn Sidebar & Hàng đợi)</h3>
+              <p class="card-desc">Sidebar co lại thành mini-icon, Hàng đợi co lại thành ruy-băng mỏng, nhường 100% diện tích cho việc đọc & gõ phản hồi.</p>
+            </div>
+            <div class="card-meta">
+              <span class="owner-tag">Ngô Viết Thanh Bình (Layout)</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <img src="./assets/ui/04_agent_focus_mode.png" alt="Focus Mode Collapsed" onclick="openZoom(this.src)">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Customer Portal Section -->
+    <section id="sec-customer">
+      <h2 class="section-title">
+        <span>2. Phân hệ Cổng Khách hàng (Customer Portal)</span>
+        <span class="role-pill pill-customer">Customer / Sinh viên</span>
+      </h2>
+
+      <div class="gallery-grid">
+        <!-- Screen 5: Customer Portal -->
+        <div class="screen-card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Màn hình 05: Danh sách ticket của tôi & Chi tiết trao đổi</h3>
+              <p class="card-desc">Giao diện khách hàng chỉ nhìn thấy tin nhắn công khai, không thấy thanh chức năng của nhân viên và không thấy ghi chú nội bộ.</p>
+            </div>
+            <div class="card-meta">
+              <span class="owner-tag">Phan Gia Phúc (Ticket)</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <img src="./assets/ui/05_customer_portal.png" alt="Customer Portal" onclick="openZoom(this.src)">
+          </div>
+        </div>
+
+        <!-- Screen 6: New Ticket Modal with AI -->
+        <div class="screen-card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Màn hình 06: Form gửi yêu cầu mới & AI gợi ý bài viết tức thì</h3>
+              <p class="card-desc">Khi khách vừa gõ tiêu đề, hệ thống RAG tự động đề xuất ngay bài viết tri thức giúp giải quyết vấn đề tức thì (FR-AI-01).</p>
+            </div>
+            <div class="card-meta">
+              <span class="owner-tag">Phúc (Ticket) & Quý Phúc (AI)</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <img src="./assets/ui/06_customer_new_ticket_modal.png" alt="Customer New Ticket Modal" onclick="openZoom(this.src)">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Knowledge Base Section -->
+    <section id="sec-kb">
+      <h2 class="section-title">
+        <span>3. Phân hệ Kho Tri thức & Vector Search (Module B)</span>
+        <span class="role-pill pill-admin">Knowledge Base / RAG</span>
+      </h2>
+
+      <div class="gallery-grid">
+        <!-- Screen 7: KB Explorer -->
+        <div class="screen-card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Màn hình 07: Bảng quản lý tài liệu & Thống kê pgvector Chunks</h3>
+              <p class="card-desc">Theo dõi tài liệu PDF/TXT/MD, số lượng vector embeddings đã nạp, trạng thái READY/PROCESSING và nút Publish/Archive.</p>
+            </div>
+            <div class="card-meta">
+              <span class="owner-tag">Nguyễn Đức Lãm (KB)</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <img src="./assets/ui/07_knowledge_base_explorer.png" alt="Knowledge Base Explorer" onclick="openZoom(this.src)">
+          </div>
+        </div>
+
+        <!-- Screen 8: Upload Modal -->
+        <div class="screen-card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Màn hình 08: Modal tải lên tài liệu tri thức mới</h3>
+              <p class="card-desc">Form nhập tiêu đề, chọn chuyên mục và vùng kéo thả file PDF hỗ trợ cắt chunk 500 tokens tự động.</p>
+            </div>
+            <div class="card-meta">
+              <span class="owner-tag">Nguyễn Đức Lãm (KB)</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <img src="./assets/ui/08_knowledge_upload_modal.png" alt="KB Upload Modal" onclick="openZoom(this.src)">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Admin & Analytics Section -->
+    <section id="sec-admin">
+      <h2 class="section-title">
+        <span>4. Phân hệ Quản trị & Báo cáo SLA (Module D & A)</span>
+        <span class="role-pill pill-admin">Admin / System Manager</span>
+      </h2>
+
+      <div class="gallery-grid">
+        <!-- Screen 9: Admin User Management -->
+        <div class="screen-card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Màn hình 09: Quản lý nhân sự Agent & Phân quyền RBAC</h3>
+              <p class="card-desc">Bảng phân quyền, trạng thái hoạt động và nút kích hoạt/vô hiệu hóa (Enable/Disable) tài khoản theo tiêu chuẩn bảo mật.</p>
+            </div>
+            <div class="card-meta">
+              <span class="owner-tag">Ngô Viết Thanh Bình (Lead)</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <img src="./assets/ui/09_admin_agent_management.png" alt="Admin User Management" onclick="openZoom(this.src)">
+          </div>
+        </div>
+
+        <!-- Screen 10: Add Agent Modal -->
+        <div class="screen-card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Màn hình 10: Modal tạo tài khoản Agent mới</h3>
+              <p class="card-desc">Biểu mẫu cấp phát quyền Support Agent hoặc Admin mới cho nhân viên nhà trường.</p>
+            </div>
+            <div class="card-meta">
+              <span class="owner-tag">Ngô Viết Thanh Bình (Lead)</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <img src="./assets/ui/10_admin_add_agent_modal.png" alt="Add Agent Modal" onclick="openZoom(this.src)">
+          </div>
+        </div>
+
+        <!-- Screen 11: SLA Stats -->
+        <div class="screen-card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Màn hình 11: Báo cáo phân tích AI & Thống kê SLA</h3>
+              <p class="card-desc">Tỷ lệ chấp nhận AI (88.4%), thời gian phản hồi TB, độ trễ pgvector (42ms), Bảng xếp hạng tài liệu được trích dẫn nhiều nhất và nút chuyển Mock AI Offline (NFR-AVAIL-01).</p>
+            </div>
+            <div class="card-meta">
+              <span class="owner-tag">Lê Quý Phúc (AI)</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <img src="./assets/ui/11_ai_insights_sla_stats.png" alt="AI SLA Analytics" onclick="openZoom(this.src)">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Dự án AI-Powered Helpdesk & Knowledge Base — Trường ĐH Khoa học Tự nhiên (HCMUS)</p>
+      <p style="margin-top: 6px; color: #64748B;">Group 04: Bình (Lead/DevOps) • Lãm (KB) • Gia Phúc (Ticket) • Quý Phúc (AI)</p>
+    </footer>
+  </div>
+
+  <!-- Zoom Modal -->
+  <div class="image-modal" id="zoomModal" onclick="closeZoom()">
+    <div class="modal-close">&times;</div>
+    <img id="modalImg" src="" alt="Zoomed UI">
+  </div>
+
+  <script>
+    function openZoom(src) {
+      document.getElementById('modalImg').src = src;
+      document.getElementById('zoomModal').classList.add('active');
+    }
+    function closeZoom() {
+      document.getElementById('zoomModal').classList.remove('active');
+    }
+  </script>
+</body>
+</html>
