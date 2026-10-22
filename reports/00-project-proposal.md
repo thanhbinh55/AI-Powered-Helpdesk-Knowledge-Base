@@ -8,13 +8,13 @@
 
 ## THÔNG TIN TÀI LIỆU
 - **Tiêu đề (Title):** Project Proposal - AI-Powered Helpdesk & Knowledge Base
-- **Phiên bản (Version):** 1.0.0-draft
+- **Phiên bản (Version):** 1.0.0
 - **Ngày tạo (Date):** 2026-10-19
 - **Tác giả & Phân công (Authors + Assignments):**
-  - `24120121` - `Lê Quý Phúc`: Trang Bìa, Mục 1 (Bảng đánh giá), Mục 2 (Phát biểu bài toán), Mục 3.2 (Phần cứng) — *Jira: `SCRUM-8`*
-  - `24120503` - `Phan Gia Phúc`: Mục 3.1.1 (Danh sách chức năng phần mềm) — *Jira: `SCRUM-9`*
-  - `24120083` - `Nguyễn Đức Lãm`: Mục 3.1.2 (Kiến trúc tổng thể phần mềm) và Mục 4 (Kế hoạch phát triển) — *Jira: `SCRUM-10`*
-  - `24120269` - `Ngô Viết Thanh Bình` *(Lead)*: Mục 5 (Kế hoạch nhân sự & chi phí: 5.1 & 5.2) — *Jira: `SCRUM-11`*
+  - `24120121` - `Lê Quý Phúc`: Trang Bìa, Mục 1 (Bảng đánh giá), Mục 2 (Phát biểu bài toán), Mục 3.2 (Phần cứng)
+  - `24120503` - `Phan Gia Phúc`: Mục 3.1.1 (Danh sách chức năng phần mềm)
+  - `24120083` - `Nguyễn Đức Lãm`: Mục 3.1.2 (Kiến trúc tổng thể phần mềm) và Mục 4 (Kế hoạch phát triển)
+  - `24120269` - `Ngô Viết Thanh Bình` *(Lead)*: Mục 5 (Kế hoạch nhân sự & chi phí: 5.1 & 5.2)
 
 ---
 
@@ -49,12 +49,12 @@
 
 | MSSV | Họ Tên | % đóng góp (tối đa 100%) | Chữ ký |
 | :--- | :--- | :---: | :---: |
-| 24120121 | Lê Quý Phúc | *Chờ đánh giá* | *(Bổ sung khi nộp)* |
-| 24120503 | Phan Gia Phúc | *Chờ đánh giá* | *(Bổ sung khi nộp)* |
-| 24120083 | Nguyễn Đức Lãm | *Chờ đánh giá* | *(Bổ sung khi nộp)* |
-| 24120269 | Ngô Viết Thanh Bình | *Chờ đánh giá* | *(Bổ sung khi nộp)* |
+| 24120121 | Lê Quý Phúc | 100% | |
+| 24120503 | Phan Gia Phúc | 100% | |
+| 24120083 | Nguyễn Đức Lãm | 100% | |
+| 24120269 | Ngô Viết Thanh Bình | 100% | |
 
-*Tỷ lệ đóng góp và chữ ký sẽ được từng thành viên và nhóm trưởng xác nhận chính thức trước khi nộp đồ án.*
+*Tỷ lệ đóng góp và chữ ký được các thành viên và nhóm trưởng đồng thuận xác nhận.*
 
 ---
 
@@ -117,7 +117,6 @@ Giá trị kỳ vọng của hệ thống là **giúp người dùng theo dõi y
 ## 3.1. Phần mềm
 
 ### 3.1.1. Danh sách các chức năng phần mềm
-> *Ghi chú nguồn nguyên liệu:* Bảng câu chuyện người dùng (User Story) lý giải sự cần thiết và liệt kê danh sách chức năng cùng quy định liên quan. Tham khảo Mục 3.3, Mục 4, 5, 7 và **Phụ lục D** trong `reports/SRS-master.md`.
 
 | STT | Nhu cầu | Yêu cầu | Tham chiếu | Mức |
 |---:|---|---|---|---|
@@ -274,9 +273,7 @@ Các lời gọi dịch vụ AI được thực hiện ngoài giao dịch xử l
 
 # 4. Kế hoạch phát triển
 
-Dự án bắt đầu vào Thứ Hai, ngày 12/10/2026, khi các template được mở, và kết thúc vào Chủ Nhật, ngày 13/12/2026, theo hạn nộp Template 3 và lịch trình bày sản phẩm. Tổng thời gian thực hiện là 9 tuần, gồm lộ trình 8 tuần tại Mục 17 của SRS và một tuần dự phòng để diễn tập, hoàn thiện và đóng gói sản phẩm.
-
-Nội dung chi tiết của Template 1, 2 và 3 hiện chưa có trong SRS. Khi có hướng dẫn, nhóm sẽ đối chiếu và cập nhật các mốc công việc tương ứng theo DEC-16.
+Dự án bắt đầu vào Thứ Hai, ngày 12/10/2026, khi các template được mở, và kết thúc vào Chủ Nhật, ngày 13/12/2026, theo hạn nộp Template 3 và lịch trình bày sản phẩm. Tổng thời gian thực hiện là 9 tuần, gồm 8 tuần triển khai các giai đoạn phát triển chính và một tuần dự phòng để diễn tập, hoàn thiện và đóng gói sản phẩm.
 
 ### Tổng quan theo tuần
 
@@ -292,8 +289,6 @@ Nội dung chi tiết của Template 1, 2 và 3 hiện chưa có trong SRS. Khi 
 | W8 | 30/11 đến 06/12 | Triển khai, hoàn thiện tài liệu và báo cáo | |
 | W9 | 07/12 đến 13/12 | Dự phòng, diễn tập demo và đóng gói sản phẩm | Template 3 và App Demo: hạn nội bộ 12/12; trình bày ngày 13/12 |
 
-Template 0 được nộp trong tuần W3, nhưng nhóm cần hoàn tất SRS và thiết kế trong hai tuần W1, W2 để tránh dồn công việc sang giai đoạn cài đặt.
-
 ### 4.1. Phân tích yêu cầu
 
 Cả bốn thành viên cùng thực hiện giai đoạn này từ ngày 12/10/2026 đến ngày 18/10/2026, trong một tuần.
@@ -303,9 +298,9 @@ Cả bốn thành viên cùng thực hiện giai đoạn này từ ngày 12/10/2
 | 1 | Xác định các bên liên quan, vai trò người dùng và phạm vi của bốn nhóm chức năng | 12/10/2026 | 13/10/2026 |
 | 2 | Làm rõ yêu cầu chức năng, phi chức năng và các quy tắc nghiệp vụ | 13/10/2026 | 16/10/2026 |
 | 3 | Xây dựng danh mục use case, ma trận phân quyền và máy trạng thái ticket | 15/10/2026 | 17/10/2026 |
-| 4 | Viết user story, lập backlog trên Jira và tổ chức rà soát SRS với cả nhóm | 17/10/2026 | 18/10/2026 |
+| 4 | Viết user story, lập backlog trên Jira và tổ chức rà soát đặc tả yêu cầu với cả nhóm | 17/10/2026 | 18/10/2026 |
 
-Thành phẩm dự kiến gồm SRS kèm thiết kế kỹ thuật ở mức tổng thể, danh mục use case, user story và backlog đã được cả nhóm rà soát.
+Thành phẩm dự kiến gồm tài liệu đặc tả yêu cầu, thiết kế kỹ thuật ở mức tổng thể, danh mục use case, user story và backlog đã được cả nhóm rà soát.
 
 ### 4.2. Thiết kế phần mềm
 
@@ -316,7 +311,7 @@ Giai đoạn thiết kế diễn ra từ ngày 19/10/2026 đến ngày 25/10/202
 | 1 | Thiết kế sơ đồ ERD và lập kế hoạch migration cơ sở dữ liệu | 19/10/2026 | 21/10/2026 |
 | 2 | Xây dựng API contract, quy định mã lỗi và bản nháp OpenAPI | 20/10/2026 | 22/10/2026 |
 | 3 | Vẽ sơ đồ kiến trúc tổng thể và sequence diagram cho luồng nhận ticket, sinh gợi ý bằng RAG | 21/10/2026 | 23/10/2026 |
-| 4 | Thiết kế wireframe cho các màn hình chính theo Mục 13.1 của SRS | 22/10/2026 | 24/10/2026 |
+| 4 | Thiết kế wireframe cho các màn hình chính của hệ thống | 22/10/2026 | 24/10/2026 |
 | 5 | Thử nghiệm công cụ trích xuất văn bản PDF, mô hình và số chiều embedding; xây dựng khung kho mã nguồn | 19/10/2026 | 24/10/2026 |
 | 6 | Rà soát thiết kế và chốt contract của các endpoint cốt lõi | 25/10/2026 | 25/10/2026 |
 
@@ -324,7 +319,7 @@ Kết thúc giai đoạn, nhóm cần có tài liệu thiết kế gồm kiến 
 
 ### 4.3. Cài đặt phần mềm
 
-Giai đoạn cài đặt kéo dài bốn tuần, từ ngày 26/10/2026 đến ngày 22/11/2026. Công việc được phân chia theo module như Mục 16 của SRS; cả bốn thành viên đều trực tiếp viết mã nguồn.
+Giai đoạn cài đặt kéo dài bốn tuần, từ ngày 26/10/2026 đến ngày 22/11/2026. Công việc được phân chia theo bốn phân hệ nghiệp vụ chính; cả bốn thành viên đều trực tiếp viết mã nguồn.
 
 | STT | Công việc | Bắt đầu | Kết thúc |
 |---:|---|---|---|
@@ -333,7 +328,7 @@ Giai đoạn cài đặt kéo dài bốn tuần, từ ngày 26/10/2026 đến ng
 | 3 | Cài đặt tải tài liệu, worker trích xuất văn bản, chia đoạn và tạo embedding; công bố, lưu trữ và tìm kiếm tài liệu; xây dựng giao diện Admin | 09/11/2026 | 15/11/2026 |
 | 4 | Cài đặt RAG, kiểm tra trích dẫn, từ chối khi thiếu căn cứ và dịch vụ AI giả lập; xây dựng chức năng xem, sửa, gửi gợi ý cùng khung giao diện AI | 16/11/2026 | 22/11/2026 |
 
-Thành phẩm là mã nguồn hoàn chỉnh cho các chức năng P0, chạy được luồng demo tại Mục 13.2 của SRS. Kiểm thử đơn vị và kiểm thử tích hợp được viết song song với quá trình xây dựng từng module.
+Thành phẩm là mã nguồn hoàn chỉnh cho các chức năng P0, chạy thông suốt kịch bản demo hoàn chỉnh của hệ thống. Kiểm thử đơn vị và kiểm thử tích hợp được viết song song với quá trình xây dựng từng module.
 
 ### 4.4. Kiểm thử phần mềm
 
@@ -341,15 +336,15 @@ Cả bốn thành viên tham gia đợt kiểm thử tập trung từ ngày 23/1
 
 | STT | Công việc | Bắt đầu | Kết thúc |
 |---:|---|---|---|
-| 1 | Hoàn thiện kế hoạch và các ca kiểm thử theo ma trận tại Mục 14.2 của SRS | 23/11/2026 | 24/11/2026 |
+| 1 | Hoàn thiện kế hoạch kiểm thử và các ca kiểm thử theo ma trận chức năng | 23/11/2026 | 24/11/2026 |
 | 2 | Kiểm tra phân quyền theo vai trò, quyền sở hữu dữ liệu và việc bảo vệ ghi chú nội bộ | 23/11/2026 | 24/11/2026 |
 | 3 | Kiểm thử nhận ticket đồng thời và các quy tắc chuyển trạng thái | 24/11/2026 | 25/11/2026 |
 | 4 | Kiểm thử quá trình nạp tài liệu và truy xuất nội dung | 25/11/2026 | 26/11/2026 |
-| 5 | Đánh giá AI bằng bộ tối thiểu 30 câu hỏi theo Mục 12.4 của SRS; kiểm tra các tình huống lỗi và hết thời gian chờ | 25/11/2026 | 28/11/2026 |
+| 5 | Đánh giá AI bằng bộ tối thiểu 30 câu hỏi chuẩn hóa; kiểm tra các tình huống lỗi và hết thời gian chờ | 25/11/2026 | 28/11/2026 |
 | 6 | Kiểm thử hiệu năng cơ bản theo nhóm yêu cầu NFR-PERF | 27/11/2026 | 28/11/2026 |
 | 7 | Ghi nhận, theo dõi và sửa lỗi phát hiện trong quá trình kiểm thử | 23/11/2026 | 29/11/2026 |
 
-Kết quả cần đạt là báo cáo kiểm thử có minh chứng và các lỗi P0 đã được sửa. Số liệu đo phải ghi rõ điều kiện thực hiện theo Mục 8 của SRS.
+Kết quả cần đạt là báo cáo kiểm thử có minh chứng và các lỗi P0 đã được sửa. Số liệu đo phải ghi rõ điều kiện môi trường thực hiện.
 
 ### 4.5. Triển khai, bảo trì và hoàn thiện tài liệu
 
@@ -429,3 +424,4 @@ Dự án dự kiến thực hiện trong 9 tuần, từ ngày 12/10/2026 đến 
 | `1.0.2` | 2026-10-22 | Phan Gia Phúc | Hoàn thiện Mục 3.1.1 Danh sách chức năng (30 User Stories truy vết) | SCRUM-9 |
 | `1.0.3` | 2026-10-22 | Nguyễn Đức Lãm | Hoàn thiện Mục 3.1.2 Kiến trúc tổng thể và Mục 4 Kế hoạch phát triển 5 giai đoạn | SCRUM-10 |
 | `1.0.4` | 2026-10-22 | Ngô Viết Thanh Bình | Hoàn thiện Mục 5 Kế hoạch nhân sự & chi phí chuyên nghiệp, chuẩn hóa kiểm chứng nguồn thực tế | SCRUM-11 |
+| `1.0.5` | 2026-10-22 | Ngô Viết Thanh Bình | Rà soát và loại bỏ các dòng ghi chú nội bộ, placeholder bản nháp; hoàn thiện bản đề xuất chính thức | SCRUM-11 |
