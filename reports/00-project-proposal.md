@@ -122,9 +122,91 @@ Giá trị kỳ vọng của hệ thống là **giúp người dùng theo dõi y
 *(Nội dung do `Phan Gia Phúc` biên soạn theo Jira `SCRUM-9`)*
 
 ### 3.1.2. Kiến trúc tổng thể phần mềm
-> *Ghi chú nguồn nguyên liệu:* Trình bày kiến trúc tổng thể đáp ứng danh sách chức năng ở mục 3.1.1 (sơ đồ kiến trúc + giải thích các thành phần và luồng vận hành). Tham khảo Mục 9.1, 9.3, 9.4, 12.2 và **Phụ lục E** trong `reports/SRS-master.md`.
+### 3.1.2. Kiến trúc tổng thể phần mềm
 
-*(Nội dung do `Nguyễn Đức Lãm` biên soạn theo Jira `SCRUM-10`)*
+Hệ thống được thiết kế theo kiến trúc Modular Monolith, với backend là một ứng dụng Spring Boot gồm bốn module nghiệp vụ: `identity`, `ticket`, `knowledge` và `ai`. Các module tương ứng với bốn nhóm chức năng của phần mềm và có ranh giới trách nhiệm riêng. Cách tổ chức này phù hợp với phạm vi MVP phục vụ một đơn vị và quy mô nhóm bốn người, giúp nhóm phát triển, kiểm thử và triển khai trên cùng một ứng dụng.
+
+#### a. Sơ đồ kiến trúc tổng thể
+
+```mermaid
+flowchart TB
+    UI["Giao diện web React + TypeScript"]
+
+    subgraph Backend["Backend Spring Boot: Modular Monolith"]
+        API["REST API và kiểm tra quyền truy cập"]
+        ID["identity<br/>Tài khoản và phân quyền"]
+        TK["ticket<br/>Quản lý yêu cầu hỗ trợ"]
+        KB["knowledge<br/>Quản lý kho tri thức"]
+        AI["ai<br/>Gợi ý phản hồi"]
+        WR["Document worker<br/>Xử lý tài liệu nền"]
+
+        API --> ID
+        API --> TK
+        API --> KB
+        API --> AI
+        AI -->|"Lấy ngữ cảnh ticket"| TK
+        AI -->|"Truy xuất nguồn"| KB
+        WR -->|"Xử lý tài liệu"| KB
+    end
+
+    UI -->|"HTTPS / JSON"| API
+
+    PG[("PostgreSQL + pgvector")]
+    FS[("Kho tệp riêng tư")]
+    MODEL["Dịch vụ LLM và Embedding API"]
+
+    ID --> PG
+    TK --> PG
+    KB --> PG
+    AI --> PG
+    KB --> FS
+    AI -->|"Sinh bản nháp"| MODEL
+    WR -->|"Tạo embedding"| MODEL
+```
+<p align="center" style="font-size: 0.85em;">
+  <em>Kiến trúc tổng thể hệ thống</em>
+</p>
+
+#### b. Các thành phần và trách nhiệm
+
+| Thành phần | Trách nhiệm |
+|---|---|
+| Giao diện web | Sử dụng React và TypeScript, cung cấp các màn hình theo vai trò Customer, Agent và Admin. Frontend tổ chức theo tính năng `auth`, `tickets`, `knowledge`, `ai`; gửi yêu cầu REST/JSON qua HTTPS và đính kèm access token với các thao tác cần xác thực. |
+| Module `identity` | Xử lý đăng ký, đăng nhập, làm mới token, đăng xuất, quản lý hồ sơ và tài khoản Agent. Backend kiểm tra vai trò và quyền sở hữu dữ liệu trước khi thực hiện nghiệp vụ. |
+| Module `ticket` | Quản lý ticket, phân công nhân viên, tin nhắn công khai, ghi chú nội bộ, mức ưu tiên và lịch sử xử lý. Module kiểm soát việc nhận ticket đồng thời và các bước chuyển trạng thái. |
+| Module `knowledge` | Quản lý tải lên, xử lý, công bố và lưu trữ tài liệu; cung cấp chức năng tìm kiếm các đoạn nội dung liên quan. |
+| Module `ai` | Lấy ngữ cảnh ticket, truy xuất tài liệu, dựng yêu cầu gửi mô hình, kiểm tra nguồn trích dẫn và lưu lịch sử gợi ý. |
+| Document worker | Chạy trong cùng ứng dụng backend, nhận công việc từ bảng tác vụ trong cơ sở dữ liệu để trích xuất văn bản, chia đoạn và tạo vector biểu diễn nội dung. |
+| PostgreSQL và kho tệp | PostgreSQL lưu dữ liệu nghiệp vụ, tác vụ xử lý và các gợi ý AI; phần mở rộng pgvector lưu vector phục vụ tìm kiếm theo ngữ nghĩa. Tài liệu gốc được lưu trong kho riêng tư trên Docker volume, không công khai qua URL. |
+| Dịch vụ AI bên ngoài | Cung cấp mô hình tạo embedding và mô hình sinh ngôn ngữ qua API. Hệ thống có chế độ giả lập (mock) để phục vụ kiểm thử và trình diễn. |
+
+Bên trong mỗi module, mã nguồn được chia thành các phần `api`, `application`, `domain` và `infrastructure`, lần lượt phụ trách giao tiếp HTTP, điều phối ca sử dụng, quy tắc nghiệp vụ và tích hợp hạ tầng.
+
+Các module trao đổi qua application service hoặc interface có kiểm soát. Cụ thể, `ai` lấy ngữ cảnh ticket qua `TicketContextProvider` và truy xuất tri thức qua `KnowledgeRetriever`. Dữ liệu ticket do module `ticket` quản lý; dữ liệu tài liệu và quá trình tìm kiếm thuộc trách nhiệm của `knowledge`.
+
+#### c. Luồng vận hành
+
+##### Xử lý ticket
+
+Customer tạo ticket hoặc gửi phản hồi trên giao diện web. Backend tiếp nhận yêu cầu, xác thực tài khoản, kiểm tra quyền truy cập và các quy tắc nghiệp vụ trước khi ghi dữ liệu. Thay đổi quan trọng và sự kiện lịch sử được lưu trong cùng một giao dịch cơ sở dữ liệu.
+
+Ticket mới xuất hiện trong hàng đợi để Agent tiếp nhận hoặc Admin phân công. Khi nhiều Agent cùng nhận một ticket, hệ thống chỉ cho phép một người nhận thành công. Trong quá trình xử lý, Agent có thể trao đổi công khai với Customer, thêm ghi chú nội bộ và cập nhật trạng thái theo quyền được cấp. Customer chỉ xem được ticket của mình và các tin nhắn công khai.
+
+##### Xử lý và công bố tài liệu
+
+Admin tải tài liệu lên hệ thống. Backend kiểm tra tệp, lưu vào kho riêng tư và tạo tác vụ xử lý nền rồi trả kết quả tiếp nhận, không chờ hoàn tất việc tạo embedding.
+
+Worker nhận tác vụ, trích xuất văn bản, chia thành các đoạn có thông tin nguồn, gọi dịch vụ embedding và lưu kết quả vào PostgreSQL với pgvector. Tài liệu xử lý thành công chuyển sang trạng thái `READY` nhưng chưa được sử dụng làm nguồn cho AI. Admin xem lại và công bố tài liệu; tài liệu đã lưu trữ (archive) được loại khỏi phạm vi truy xuất.
+
+##### Sinh và sử dụng gợi ý AI
+
+Khi Agent được giao ticket yêu cầu gợi ý phản hồi, backend kiểm tra quyền và lấy ngữ cảnh từ nội dung trao đổi công khai. Ghi chú nội bộ không được đưa vào ngữ cảnh gửi mô hình. Module `ai` truy xuất những đoạn liên quan trong các tài liệu đã xử lý xong, đã công bố và chưa lưu trữ. Nếu không có đủ căn cứ, hệ thống lưu trạng thái `INSUFFICIENT_EVIDENCE` và thông báo cho Agent.
+
+Khi có nguồn phù hợp, hệ thống gửi ngữ cảnh cùng các đoạn tài liệu cho mô hình để tạo bản nháp. Backend kiểm tra các mã nguồn trích dẫn có thuộc tập đoạn đã truy xuất hay không, sau đó lưu gợi ý và bản chụp nội dung nguồn tại thời điểm tạo. Việc kiểm tra mã nguồn giúp xác nhận nguồn trích dẫn hợp lệ; Agent vẫn cần đối chiếu nội dung trước khi sử dụng.
+
+Agent xem, chỉnh sửa và chủ động gửi bản nháp. Thao tác gửi đi qua application service của module `ticket` để tạo tin nhắn công khai; gợi ý chỉ được đánh dấu đã sử dụng khi giao dịch chung thành công. AI không có quyền tự gửi tin nhắn, phân công hay thay đổi trạng thái ticket.
+
+Các lời gọi dịch vụ AI được thực hiện ngoài giao dịch xử lý ticket. Khi dịch vụ AI gặp lỗi hoặc quá tải, hệ thống thông báo cho Agent và vẫn cho phép tạo ticket, trao đổi và xử lý yêu cầu theo quy trình thông thường.
 
 ## 3.2. Phần cứng
 
@@ -161,30 +243,96 @@ Giá trị kỳ vọng của hệ thống là **giúp người dùng theo dõi y
 ---
 
 # 4. Kế hoạch phát triển
-> *Ghi chú nguồn nguyên liệu:* Trình bày cụ thể kế hoạch phát triển phần mềm qua 5 giai đoạn cùng thành phẩm cụ thể của từng giai đoạn. Tham khảo Mục 14, 15, 17, 21 và **Phụ lục G** trong `reports/SRS-master.md` (lấy chuẩn ngày tháng từ 28/09/2026 đến 13/12/2026).
 
-*(Nội dung do `Nguyễn Đức Lãm` biên soạn theo Jira `SCRUM-10`)*
+Dự án bắt đầu vào Thứ Hai, ngày 12/10/2026, khi các template được mở, và kết thúc vào Chủ Nhật, ngày 13/12/2026, theo hạn nộp Template 3 và lịch trình bày sản phẩm. Tổng thời gian thực hiện là 9 tuần, gồm lộ trình 8 tuần tại Mục 17 của SRS và một tuần dự phòng để diễn tập, hoàn thiện và đóng gói sản phẩm.
+
+Nội dung chi tiết của Template 1, 2 và 3 hiện chưa có trong SRS. Khi có hướng dẫn, nhóm sẽ đối chiếu và cập nhật các mốc công việc tương ứng theo DEC-16.
+
+### Tổng quan theo tuần
+
+| Tuần | Thời gian (năm 2026) | Công việc trọng tâm | Mốc nộp liên quan |
+|---|---|---|---|
+| W1 | 12/10 đến 18/10 | Hoàn thiện và thống nhất yêu cầu phần mềm | |
+| W2 | 19/10 đến 25/10 | Hoàn thiện thiết kế hệ thống | |
+| W3 | 26/10 đến 01/11 | Xây dựng nền tảng: Flyway, khung xác thực và CI | Template 0: hạn nội bộ 31/10 |
+| W4 | 02/11 đến 08/11 | Hoàn thiện các chức năng Ticket MVP | |
+| W5 | 09/11 đến 15/11 | Hoàn thiện các chức năng Knowledge Base MVP | Template 1: hạn nội bộ 14/11 |
+| W6 | 16/11 đến 22/11 | Hoàn thiện các chức năng AI MVP | |
+| W7 | 23/11 đến 29/11 | Kiểm thử, sửa lỗi và củng cố hệ thống | Template 2: hạn nội bộ 28/11 |
+| W8 | 30/11 đến 06/12 | Triển khai, hoàn thiện tài liệu và báo cáo | |
+| W9 | 07/12 đến 13/12 | Dự phòng, diễn tập demo và đóng gói sản phẩm | Template 3 và App Demo: hạn nội bộ 12/12; trình bày ngày 13/12 |
+
+Template 0 được nộp trong tuần W3, nhưng nhóm cần hoàn tất SRS và thiết kế trong hai tuần W1, W2 để tránh dồn công việc sang giai đoạn cài đặt.
 
 ### 4.1. Phân tích yêu cầu
-- Thời gian: 28/09/2026 – 11/10/2026
-- Thành phẩm: Tài liệu đặc tả yêu cầu SRS v1.0, User stories, Danh mục Use cases.
+
+Cả bốn thành viên cùng thực hiện giai đoạn này từ ngày 12/10/2026 đến ngày 18/10/2026, trong một tuần.
+
+| STT | Công việc | Bắt đầu | Kết thúc |
+|---:|---|---|---|
+| 1 | Xác định các bên liên quan, vai trò người dùng và phạm vi của bốn nhóm chức năng | 12/10/2026 | 13/10/2026 |
+| 2 | Làm rõ yêu cầu chức năng, phi chức năng và các quy tắc nghiệp vụ | 13/10/2026 | 16/10/2026 |
+| 3 | Xây dựng danh mục use case, ma trận phân quyền và máy trạng thái ticket | 15/10/2026 | 17/10/2026 |
+| 4 | Viết user story, lập backlog trên Jira và tổ chức rà soát SRS với cả nhóm | 17/10/2026 | 18/10/2026 |
+
+Thành phẩm dự kiến gồm SRS kèm thiết kế kỹ thuật ở mức tổng thể, danh mục use case, user story và backlog đã được cả nhóm rà soát.
 
 ### 4.2. Thiết kế phần mềm
-- Thời gian: 12/10/2026 – 25/10/2026
-- Thành phẩm: Kiến trúc hệ thống, ERD CSDL, Đặc tả API Contract, Wireframe UI.
 
-### 4.3. Cài đặt (implement) phần mềm
-- Thời gian: 26/10/2026 – 22/11/2026
-- Thành phẩm: Mã nguồn Backend Spring Boot, Frontend React, PostgreSQL + pgvector, Module Auth, Ticket, KB, AI Gateway.
+Giai đoạn thiết kế diễn ra từ ngày 19/10/2026 đến ngày 25/10/2026, trong một tuần, với sự tham gia của cả bốn thành viên.
+
+| STT | Công việc | Bắt đầu | Kết thúc |
+|---:|---|---|---|
+| 1 | Thiết kế sơ đồ ERD và lập kế hoạch migration cơ sở dữ liệu | 19/10/2026 | 21/10/2026 |
+| 2 | Xây dựng API contract, quy định mã lỗi và bản nháp OpenAPI | 20/10/2026 | 22/10/2026 |
+| 3 | Vẽ sơ đồ kiến trúc tổng thể và sequence diagram cho luồng nhận ticket, sinh gợi ý bằng RAG | 21/10/2026 | 23/10/2026 |
+| 4 | Thiết kế wireframe cho các màn hình chính theo Mục 13.1 của SRS | 22/10/2026 | 24/10/2026 |
+| 5 | Thử nghiệm công cụ trích xuất văn bản PDF, mô hình và số chiều embedding; xây dựng khung kho mã nguồn | 19/10/2026 | 24/10/2026 |
+| 6 | Rà soát thiết kế và chốt contract của các endpoint cốt lõi | 25/10/2026 | 25/10/2026 |
+
+Kết thúc giai đoạn, nhóm cần có tài liệu thiết kế gồm kiến trúc hệ thống, ERD, đặc tả API và wireframe, cùng kết quả thử nghiệm kỹ thuật và các quyết định lựa chọn công nghệ.
+
+### 4.3. Cài đặt phần mềm
+
+Giai đoạn cài đặt kéo dài bốn tuần, từ ngày 26/10/2026 đến ngày 22/11/2026. Công việc được phân chia theo module như Mục 16 của SRS; cả bốn thành viên đều trực tiếp viết mã nguồn.
+
+| STT | Công việc | Bắt đầu | Kết thúc |
+|---:|---|---|---|
+| 1 | Xây dựng khung Spring Boot, PostgreSQL, Flyway và React; thiết lập CI; cài đặt đăng ký, đăng nhập, quản lý token và phân quyền theo vai trò | 26/10/2026 | 01/11/2026 |
+| 2 | Cài đặt tạo, xem, lọc ticket; nhận ticket nguyên tử; quản lý tin nhắn, chuyển trạng thái và lịch sử xử lý; xây dựng giao diện Customer/Agent | 02/11/2026 | 08/11/2026 |
+| 3 | Cài đặt tải tài liệu, worker trích xuất văn bản, chia đoạn và tạo embedding; công bố, lưu trữ và tìm kiếm tài liệu; xây dựng giao diện Admin | 09/11/2026 | 15/11/2026 |
+| 4 | Cài đặt RAG, kiểm tra trích dẫn, từ chối khi thiếu căn cứ và dịch vụ AI giả lập; xây dựng chức năng xem, sửa, gửi gợi ý cùng khung giao diện AI | 16/11/2026 | 22/11/2026 |
+
+Thành phẩm là mã nguồn hoàn chỉnh cho các chức năng P0, chạy được luồng demo tại Mục 13.2 của SRS. Kiểm thử đơn vị và kiểm thử tích hợp được viết song song với quá trình xây dựng từng module.
 
 ### 4.4. Kiểm thử phần mềm
-- Thời gian: 23/11/2026 – 06/12/2026
-- Thành phẩm: Test plan, Test cases, Báo cáo kết quả unit test / integration test / E2E test.
 
-### 4.5. Triển khai, bảo trì
-- Thời gian: 07/12/2026 – 13/12/2026
-- Thành phẩm: Docker image, Hướng dẫn cài đặt triển khai (Deployment guide), Báo cáo tổng kết đồ án.
+Cả bốn thành viên tham gia đợt kiểm thử tập trung từ ngày 23/11/2026 đến ngày 29/11/2026, trong một tuần. Các bộ kiểm thử của từng module được xây dựng từ giai đoạn cài đặt.
 
+| STT | Công việc | Bắt đầu | Kết thúc |
+|---:|---|---|---|
+| 1 | Hoàn thiện kế hoạch và các ca kiểm thử theo ma trận tại Mục 14.2 của SRS | 23/11/2026 | 24/11/2026 |
+| 2 | Kiểm tra phân quyền theo vai trò, quyền sở hữu dữ liệu và việc bảo vệ ghi chú nội bộ | 23/11/2026 | 24/11/2026 |
+| 3 | Kiểm thử nhận ticket đồng thời và các quy tắc chuyển trạng thái | 24/11/2026 | 25/11/2026 |
+| 4 | Kiểm thử quá trình nạp tài liệu và truy xuất nội dung | 25/11/2026 | 26/11/2026 |
+| 5 | Đánh giá AI bằng bộ tối thiểu 30 câu hỏi theo Mục 12.4 của SRS; kiểm tra các tình huống lỗi và hết thời gian chờ | 25/11/2026 | 28/11/2026 |
+| 6 | Kiểm thử hiệu năng cơ bản theo nhóm yêu cầu NFR-PERF | 27/11/2026 | 28/11/2026 |
+| 7 | Ghi nhận, theo dõi và sửa lỗi phát hiện trong quá trình kiểm thử | 23/11/2026 | 29/11/2026 |
+
+Kết quả cần đạt là báo cáo kiểm thử có minh chứng và các lỗi P0 đã được sửa. Số liệu đo phải ghi rõ điều kiện thực hiện theo Mục 8 của SRS.
+
+### 4.5. Triển khai, bảo trì và hoàn thiện tài liệu
+
+Giai đoạn cuối diễn ra trong hai tuần, từ ngày 30/11/2026 đến ngày 13/12/2026, với sự tham gia của cả bốn thành viên.
+
+| STT | Công việc | Bắt đầu | Kết thúc |
+|---:|---|---|---|
+| 1 | Chuẩn bị Docker Compose, `.env.example` và dữ liệu mẫu; triển khai bản demo lên máy chủ hoặc nền tảng đám mây | 30/11/2026 | 02/12/2026 |
+| 2 | Chạy kiểm tra nhanh (smoke test) trên môi trường triển khai | 03/12/2026 | 03/12/2026 |
+| 3 | Hoàn thiện README, báo cáo sử dụng AI và lịch sử commit Git; xuất tài liệu sang PDF/HTML | 03/12/2026 | 08/12/2026 |
+| 4 | Chuẩn bị kịch bản và diễn tập demo | 08/12/2026 | 11/12/2026 |
+| 5 | Đóng gói `GroupID.zip`, kiểm tra giới hạn 20 tệp/20 MB | 12/12/2026 | 12/12/2026 |
+| 6 | Trình bày và demo sản phẩm trong Presentation Day | 13/12/2026 | 13/12/2026 |
 ---
 
 # 5. Kế hoạch nhân sự & chi phí
