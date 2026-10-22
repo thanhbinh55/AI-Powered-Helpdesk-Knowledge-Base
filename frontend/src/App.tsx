@@ -25,12 +25,33 @@ export function App() {
   
   // State management
   const [tickets, setTickets] = useState<Ticket[]>(mockTickets);
-  const [selectedTicketId, setSelectedTicketId] = useState<string>(mockTickets[0]?.id || '');
+  // Default to first OPEN ticket when starting on QUEUE
+  const [selectedTicketId, setSelectedTicketId] = useState<string>(
+    mockTickets.find(t => t.status === 'OPEN')?.id || mockTickets[0]?.id || ''
+  );
   const [messagesMap, setMessagesMap] = useState<Record<string, Message[]>>(mockMessagesByTicketId);
   const [documents, setDocuments] = useState<KnowledgeDocument[]>(mockKnowledgeDocuments);
   const [users, setUsers] = useState<User[]>(mockUsers);
 
-  const selectedTicket = tickets.find(t => t.id === selectedTicketId) || tickets[0];
+  const handleSelectTab = (newTab: NavTab) => {
+    setActiveTab(newTab);
+    if (newTab === 'QUEUE') {
+      const firstOpen = tickets.find(t => t.status === 'OPEN');
+      if (firstOpen) setSelectedTicketId(firstOpen.id);
+    } else if (newTab === 'MY_TICKETS') {
+      const firstMy = tickets.find(t => t.assignee?.id === currentUserMock.id) || tickets.find(t => t.status === 'IN_PROGRESS');
+      if (firstMy) setSelectedTicketId(firstMy.id);
+    }
+  };
+
+  const openTickets = tickets.filter(t => t.status === 'OPEN');
+  const myTickets = tickets.filter(t => t.assignee?.id === currentUserMock.id || t.status === 'IN_PROGRESS');
+
+  const currentTabTickets = activeTab === 'QUEUE' ? openTickets : myTickets;
+  const selectedTicket = currentTabTickets.find(t => t.id === selectedTicketId) 
+    || currentTabTickets[0] 
+    || tickets.find(t => t.id === selectedTicketId) 
+    || tickets[0];
   const currentMessages = messagesMap[selectedTicket?.id] || [];
   const currentAISuggestion = mockAISuggestionsByTicketId[selectedTicket?.id] || null;
 
@@ -74,6 +95,8 @@ export function App() {
           : t
       )
     );
+    setActiveTab('MY_TICKETS');
+    setSelectedTicketId(ticketId);
   };
 
   const handleResolveTicket = (ticketId: string) => {
@@ -212,9 +235,9 @@ export function App() {
         onRoleChange={(newRole) => {
           setRole(newRole);
           if (newRole === 'CUSTOMER') {
-            setActiveTab('MY_TICKETS');
+            handleSelectTab('MY_TICKETS');
           } else {
-            setActiveTab('QUEUE');
+            handleSelectTab('QUEUE');
           }
         }}
         currentUser={currentUserMock}
@@ -239,7 +262,7 @@ export function App() {
             {/* Column 1: Sidebar Navigation (Collapsible) */}
             <Sidebar
               currentTab={activeTab}
-              onSelectTab={setActiveTab}
+              onSelectTab={handleSelectTab}
               role={role}
               openTicketCount={openTicketCount}
               assignedTicketCount={assignedTicketCount}
