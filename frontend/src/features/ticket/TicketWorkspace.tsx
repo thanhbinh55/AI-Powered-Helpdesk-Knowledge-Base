@@ -11,10 +11,8 @@ import {
   Mail,
   Loader2,
   X,
-  Maximize2,
-  Minimize2,
   Clock,
-  FileText
+  Inbox
 } from 'lucide-react';
 import { Ticket, Message, AISuggestion, Citation } from '../../types';
 import { Badge } from '../../components/common/Badge';
@@ -26,6 +24,8 @@ interface TicketWorkspaceProps {
   onClaimTicket: (ticketId: string) => void;
   onResolveTicket: (ticketId: string) => void;
   aiSuggestion?: AISuggestion | null;
+  isQueueCollapsed?: boolean;
+  onToggleQueue?: () => void;
 }
 
 export const TicketWorkspace: React.FC<TicketWorkspaceProps> = ({
@@ -35,12 +35,12 @@ export const TicketWorkspace: React.FC<TicketWorkspaceProps> = ({
   onClaimTicket,
   onResolveTicket,
   aiSuggestion,
+  isQueueCollapsed = false,
+  onToggleQueue,
 }) => {
   const [replyType, setReplyType] = useState<'PUBLIC' | 'INTERNAL'>('PUBLIC');
   const [replyText, setReplyText] = useState('');
   const [isGeneratingAI, setIsGeneratingAI] = useState(false);
-  
-  // Floating AI Copilot Widget state (Bottom Right Dock)
   const [isCopilotOpen, setIsCopilotOpen] = useState(false);
   const [selectedCitation, setSelectedCitation] = useState<Citation | null>(null);
 
@@ -51,29 +51,45 @@ export const TicketWorkspace: React.FC<TicketWorkspaceProps> = ({
     setReplyText('');
   };
 
-  const handleGenerateAI = () => {
-    setIsGeneratingAI(true);
-    setIsCopilotOpen(true);
-    setTimeout(() => {
-      setIsGeneratingAI(false);
-    }, 600);
+  const handleToggleAI = () => {
+    if (!isCopilotOpen) {
+      setIsGeneratingAI(true);
+      setIsCopilotOpen(true);
+      setTimeout(() => {
+        setIsGeneratingAI(false);
+      }, 500);
+    } else {
+      setIsCopilotOpen(false);
+    }
   };
 
   const handleApplyAISuggestion = () => {
     if (aiSuggestion) {
       setReplyText(aiSuggestion.draftReply);
       setReplyType('PUBLIC');
-      setIsCopilotOpen(false); // minimize after applying
+      setIsCopilotOpen(false);
     }
   };
 
   return (
     <div className="flex-1 flex flex-col bg-slate-100 overflow-hidden h-[calc(100vh-3.5rem)] relative">
-      {/* 1. Header: Rộng rãi, mạch lạc, không bị vỡ layout */}
-      <div className="bg-white border-b border-slate-200 px-6 py-3.5 shadow-2xs shrink-0 text-left">
+      {/* 1. Header: Rộng rãi, sạch sẽ */}
+      <div className="bg-white border-b border-slate-200 px-6 py-3 shadow-2xs shrink-0 text-left">
         {/* Top line: Meta & Actions */}
-        <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
           <div className="flex items-center space-x-2">
+            {/* Button to reopen Queue if collapsed */}
+            {isQueueCollapsed && onToggleQueue && (
+              <button
+                onClick={onToggleQueue}
+                title="Mở lại hàng đợi ticket"
+                className="inline-flex items-center space-x-1.5 px-2.5 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-lg transition mr-1"
+              >
+                <Inbox className="w-3.5 h-3.5 text-helpdesk-600" />
+                <span>Mở hàng đợi</span>
+              </button>
+            )}
+
             <span className="font-mono text-xs font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">
               #{ticket.ticketNumber}
             </span>
@@ -113,12 +129,12 @@ export const TicketWorkspace: React.FC<TicketWorkspaceProps> = ({
         </div>
 
         {/* Title */}
-        <h1 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight leading-snug">
+        <h1 className="text-base font-bold text-slate-900 tracking-tight leading-snug">
           {ticket.title}
         </h1>
 
-        {/* Customer Information Strip (Tích hợp ngang tinh gọn) */}
-        <div className="mt-2.5 pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between text-xs text-slate-500 gap-y-1">
+        {/* Customer Information Strip */}
+        <div className="mt-2 pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between text-xs text-slate-500 gap-y-1">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
               <img
@@ -148,20 +164,19 @@ export const TicketWorkspace: React.FC<TicketWorkspaceProps> = ({
         </div>
       </div>
 
-      {/* 2. Message Thread: Rộng rãi, cuộn mượt */}
-      <div className="flex-1 overflow-y-auto px-6 lg:px-12 py-5 space-y-4">
+      {/* 2. Message Thread: Tối ưu diện tích cuộn lớn hơn */}
+      <div className="flex-1 overflow-y-auto px-6 lg:px-12 py-4 space-y-4">
         {messages.map((msg) => {
           if (msg.isInternal) {
-            // INTERNAL NOTE: Vàng amber nhạt, ổ khóa, cách ly trực quan
             return (
               <div
                 key={msg.id}
-                className="max-w-3xl mx-auto bg-amber-50/80 border border-amber-200/90 rounded-2xl p-4 space-y-2 shadow-2xs text-left"
+                className="max-w-3xl mx-auto bg-amber-50/80 border border-amber-200/90 rounded-2xl p-3.5 space-y-1.5 shadow-2xs text-left"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
                     <div className="p-1 bg-amber-200 text-amber-800 rounded-md">
-                      <Lock className="w-3.5 h-3.5" />
+                      <Lock className="w-3 h-3" />
                     </div>
                     <span className="text-xs font-bold text-amber-900">
                       Ghi chú nội bộ (Chỉ Agent & Admin thấy)
@@ -179,7 +194,6 @@ export const TicketWorkspace: React.FC<TicketWorkspaceProps> = ({
             );
           }
 
-          // PUBLIC MESSAGES (Customer vs Agent)
           const isCustomer = msg.sender.role === 'CUSTOMER';
           return (
             <div
@@ -189,7 +203,7 @@ export const TicketWorkspace: React.FC<TicketWorkspaceProps> = ({
               <img
                 src={msg.sender.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80'}
                 alt={msg.sender.name}
-                className="w-8 h-8 rounded-full ring-2 ring-white shadow-xs shrink-0 object-cover"
+                className="w-7 h-7 rounded-full ring-2 ring-white shadow-xs shrink-0 object-cover"
               />
               <div className="space-y-1 text-left">
                 <div className={`flex items-center space-x-2 text-[11px] ${isCustomer ? '' : 'justify-end'}`}>
@@ -201,7 +215,7 @@ export const TicketWorkspace: React.FC<TicketWorkspaceProps> = ({
                 </div>
 
                 <div
-                  className={`p-3.5 rounded-2xl text-xs leading-relaxed shadow-xs whitespace-pre-wrap max-w-xl ${
+                  className={`p-3 rounded-2xl text-xs leading-relaxed shadow-xs whitespace-pre-wrap max-w-xl ${
                     isCustomer
                       ? 'bg-white text-slate-800 border border-slate-200/90 rounded-tl-sm'
                       : 'bg-helpdesk-600 text-white rounded-tr-sm'
@@ -215,49 +229,53 @@ export const TicketWorkspace: React.FC<TicketWorkspaceProps> = ({
         })}
       </div>
 
-      {/* 3. Message Composer: Thiết kế thông thoáng, chuyên nghiệp */}
-      <div className="bg-white border-t border-slate-200 px-6 py-4 shrink-0 shadow-lg">
-        <form onSubmit={handleSend} className="max-w-4xl mx-auto space-y-3">
-          {/* Tabs switch: Public reply vs Internal Note */}
+      {/* 3. Message Composer: Đặt sát đáy, tinh gọn, không chiếm nhiều diện tích */}
+      <div className="bg-white border-t border-slate-200 px-6 py-2.5 shrink-0 shadow-sm">
+        <form onSubmit={handleSend} className="max-w-4xl mx-auto space-y-2">
+          {/* Toolbar: Tabs & NÚT AI DUY NHẤT */}
           <div className="flex items-center justify-between">
             <div className="flex space-x-1 bg-slate-100 p-0.5 rounded-lg border border-slate-200 text-xs">
               <button
                 type="button"
                 onClick={() => setReplyType('PUBLIC')}
-                className={`px-3 py-1.5 rounded-md font-medium transition ${
+                className={`px-3 py-1 rounded-md font-medium transition ${
                   replyType === 'PUBLIC'
                     ? 'bg-white text-slate-900 shadow-xs font-semibold'
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                Trả lời công khai (Khách thấy)
+                Trả lời công khai
               </button>
               <button
                 type="button"
                 onClick={() => setReplyType('INTERNAL')}
-                className={`px-3 py-1.5 rounded-md font-medium transition flex items-center space-x-1.5 ${
+                className={`px-3 py-1 rounded-md font-medium transition flex items-center space-x-1.5 ${
                   replyType === 'INTERNAL'
                     ? 'bg-amber-100 text-amber-900 shadow-xs font-semibold'
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                <Lock className="w-3.5 h-3.5 text-amber-700" />
+                <Lock className="w-3 h-3 text-amber-700" />
                 <span>Ghi chú nội bộ</span>
               </button>
             </div>
 
-            {/* Quick Button to open Floating AI Copilot */}
+            {/* DUY NHẤT 1 VỊ TRÍ MỞ AI COPILOT */}
             <button
               type="button"
-              onClick={handleGenerateAI}
-              className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-xs font-semibold rounded-lg shadow-xs transition active:scale-95"
+              onClick={handleToggleAI}
+              className={`inline-flex items-center space-x-1.5 px-3 py-1 text-xs font-semibold rounded-lg shadow-xs transition active:scale-95 ${
+                isCopilotOpen
+                  ? 'bg-purple-100 text-purple-900 border border-purple-300'
+                  : 'bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white'
+              }`}
             >
               <Sparkles className="w-3.5 h-3.5" />
-              <span>✨ Mở Trợ lý AI Copilot</span>
+              <span>{isCopilotOpen ? 'Đóng AI Copilot' : '✨ AI Gợi ý phản hồi'}</span>
             </button>
           </div>
 
-          {/* Text Area */}
+          {/* Textarea: Chiều cao vừa vặn, không chiếm chỗ */}
           <div className="relative">
             <textarea
               value={replyText}
@@ -267,8 +285,8 @@ export const TicketWorkspace: React.FC<TicketWorkspaceProps> = ({
                   ? 'Nhập nội dung phản hồi gửi đến khách hàng...'
                   : 'Nhập ghi chú nội bộ (chỉ nhân viên hỗ trợ và quản trị viên xem được)...'
               }
-              rows={3}
-              className={`w-full p-3.5 text-xs rounded-xl border focus:outline-none focus:ring-2 transition resize-none ${
+              rows={2}
+              className={`w-full p-2.5 text-xs rounded-xl border focus:outline-none focus:ring-2 transition resize-none ${
                 replyType === 'INTERNAL'
                   ? 'bg-amber-50/60 border-amber-300 focus:ring-amber-400/30 text-amber-950 placeholder-amber-700/50'
                   : 'bg-slate-50 border-slate-200 focus:ring-helpdesk-500/20 focus:border-helpdesk-500 text-slate-800'
@@ -276,16 +294,16 @@ export const TicketWorkspace: React.FC<TicketWorkspaceProps> = ({
             />
           </div>
 
-          {/* Bottom Toolbar */}
-          <div className="flex items-center justify-between text-xs pt-0.5">
+          {/* Bottom Toolbar: Sát đáy, Nút gửi không bị che */}
+          <div className="flex items-center justify-between text-xs">
             <span className="text-[11px] text-slate-400">
-              Nhấn <kbd className="px-1.5 py-0.5 bg-slate-100 border border-slate-200 rounded text-[10px] font-mono">Ctrl + Enter</kbd> để gửi
+              Nhấn <kbd className="px-1 py-0.5 bg-slate-100 border border-slate-200 rounded text-[10px] font-mono">Ctrl + Enter</kbd> để gửi
             </span>
 
             <button
               type="submit"
               disabled={!replyText.trim()}
-              className={`inline-flex items-center space-x-1.5 px-4 py-2 text-xs font-semibold rounded-xl shadow-xs transition ${
+              className={`inline-flex items-center space-x-1.5 px-4 py-1.5 text-xs font-semibold rounded-xl shadow-xs transition ${
                 replyText.trim()
                   ? replyType === 'INTERNAL'
                     ? 'bg-amber-600 hover:bg-amber-700 text-white'
@@ -300,26 +318,11 @@ export const TicketWorkspace: React.FC<TicketWorkspaceProps> = ({
         </form>
       </div>
 
-      {/* 4. FLOATING AI COPILOT DOCK (Góc Dưới Bên Phải) */}
-      {/* Floating Trigger Button (Always visible when minimized) */}
-      {!isCopilotOpen && (
-        <button
-          onClick={() => setIsCopilotOpen(true)}
-          className="fixed bottom-6 right-6 z-40 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-4 py-2.5 rounded-full shadow-xl flex items-center space-x-2 text-xs font-bold transition-all hover:scale-105 active:scale-95 group"
-        >
-          <div className="p-1 bg-white/20 rounded-full">
-            <Sparkles className="w-4 h-4 text-white animate-spin-slow" />
-          </div>
-          <span>AI Copilot</span>
-          <span className="bg-white/20 text-white text-[10px] px-1.5 py-0.2 rounded-full">1 sẵn sàng</span>
-        </button>
-      )}
-
-      {/* Floating Copilot Modal/Drawer (Góc dưới phải khi mở ra) */}
+      {/* 4. AI COPILOT POPUP DOCK (Chỉ mở khi bấm nút, vị trí bottom-24 không bao giờ che nút gửi) */}
       {isCopilotOpen && (
-        <div className="fixed bottom-6 right-6 z-40 w-96 max-w-[90vw] bg-white rounded-2xl shadow-2xl border border-purple-200 flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200 text-left">
+        <div className="absolute bottom-20 right-8 z-40 w-96 max-w-[90vw] bg-white rounded-2xl shadow-2xl border border-purple-200 flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-3 duration-150 text-left">
           {/* Header */}
-          <div className="bg-gradient-to-r from-purple-700 to-indigo-700 px-4 py-3 text-white flex items-center justify-between">
+          <div className="bg-gradient-to-r from-purple-700 to-indigo-700 px-4 py-2.5 text-white flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Sparkles className="w-4 h-4 text-purple-200" />
               <h3 className="font-bold text-xs">Trợ lý AI Copilot</h3>
@@ -330,14 +333,14 @@ export const TicketWorkspace: React.FC<TicketWorkspaceProps> = ({
             <button
               onClick={() => setIsCopilotOpen(false)}
               className="text-white/80 hover:text-white p-1 rounded-md hover:bg-white/10 transition"
-              title="Thu nhỏ ô trợ lý"
+              title="Đóng ô trợ lý"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
 
           {/* Body */}
-          <div className="p-4 space-y-3 max-h-[70vh] overflow-y-auto bg-slate-50/50">
+          <div className="p-3.5 space-y-3 max-h-[60vh] overflow-y-auto bg-slate-50/50">
             {/* Warning tag */}
             <div className="bg-purple-100/70 border border-purple-200 rounded-lg p-2 flex items-center space-x-2 text-[11px] text-purple-900 font-medium">
               <ShieldCheck className="w-4 h-4 text-purple-600 shrink-0" />
@@ -346,19 +349,19 @@ export const TicketWorkspace: React.FC<TicketWorkspaceProps> = ({
 
             {/* AI Draft Text */}
             {isGeneratingAI ? (
-              <div className="py-8 text-center space-y-2 text-slate-500">
-                <Loader2 className="w-6 h-6 animate-spin mx-auto text-purple-600" />
+              <div className="py-6 text-center space-y-2 text-slate-500">
+                <Loader2 className="w-5 h-5 animate-spin mx-auto text-purple-600" />
                 <p className="text-xs font-medium">RAG pgvector đang sinh câu trả lời...</p>
               </div>
             ) : aiSuggestion ? (
-              <div className="space-y-3">
-                <div className="bg-white border border-purple-100 rounded-xl p-3 text-xs text-slate-700 leading-relaxed whitespace-pre-wrap max-h-48 overflow-y-auto shadow-2xs">
+              <div className="space-y-2.5">
+                <div className="bg-white border border-purple-100 rounded-xl p-3 text-xs text-slate-700 leading-relaxed whitespace-pre-wrap max-h-40 overflow-y-auto shadow-2xs">
                   {aiSuggestion.draftReply}
                 </div>
 
                 <button
                   onClick={handleApplyAISuggestion}
-                  className="w-full py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold rounded-xl shadow-xs transition flex items-center justify-center space-x-1.5"
+                  className="w-full py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold rounded-xl shadow-xs transition flex items-center justify-center space-x-1.5"
                 >
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>Áp dụng vào khung trả lời (Apply Draft)</span>

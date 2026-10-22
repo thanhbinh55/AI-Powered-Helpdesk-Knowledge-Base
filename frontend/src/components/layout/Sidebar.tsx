@@ -7,9 +7,7 @@ import {
   Users, 
   Settings,
   Sparkles,
-  HelpCircle,
-  ChevronLeft,
-  ChevronRight
+  HelpCircle
 } from 'lucide-react';
 import { UserRole } from '../../types';
 
@@ -22,7 +20,6 @@ interface SidebarProps {
   openTicketCount: number;
   assignedTicketCount: number;
   isOpen: boolean;
-  onToggle: () => void;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -31,8 +28,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   role,
   openTicketCount,
   assignedTicketCount,
-  isOpen,
-  onToggle
+  isOpen
 }) => {
   return (
     <aside 
@@ -41,21 +37,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
       }`}
     >
       <div className="p-2 space-y-4">
-        {/* Toggle / Header */}
-        <div className="flex items-center justify-between px-2 pt-2">
-          {isOpen && (
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider truncate">
+        {/* Workspace Title (Only visible when expanded) */}
+        {isOpen && (
+          <div className="px-3 pt-2">
+            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
               {role === 'ADMIN' ? 'Admin Portal' : 'Agent Workspace'}
             </span>
-          )}
-          <button
-            onClick={onToggle}
-            title={isOpen ? "Thu gọn thanh chức năng" : "Mở rộng thanh chức năng"}
-            className="p-1 hover:bg-slate-100 rounded-md text-slate-400 hover:text-slate-700 mx-auto transition"
-          >
-            {isOpen ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4 text-helpdesk-600" />}
-          </button>
-        </div>
+          </div>
+        )}
 
         {/* Navigation Links */}
         <nav className="space-y-1">
@@ -161,7 +150,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             </button>
           </div>
 
-          {/* Module D: Identity & Users (Visible to Admin) */}
+          {/* Module D: Identity & Users (Admin only) */}
           {role === 'ADMIN' && (
             <div className="pt-2">
               {isOpen && (
@@ -196,7 +185,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           }`}
         >
           <Settings className="w-4 h-4 text-slate-400" />
-          {isOpen && <span>Cấu hình hệ thống</span>}
+          {isOpen && <span>Cấu hình</span>}
         </button>
         {isOpen && (
           <div className="px-3 py-1 flex items-center justify-between text-[10px] text-slate-400">

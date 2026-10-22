@@ -244,7 +244,6 @@ export function App() {
               openTicketCount={openTicketCount}
               assignedTicketCount={assignedTicketCount}
               isOpen={isSidebarOpen}
-              onToggle={() => setIsSidebarOpen(!isSidebarOpen)}
             />
 
             {/* View Switching based on active tab */}
@@ -269,6 +268,8 @@ export function App() {
                     onClaimTicket={handleClaimTicket}
                     onResolveTicket={handleResolveTicket}
                     aiSuggestion={currentAISuggestion}
+                    isQueueCollapsed={isQueueCollapsed}
+                    onToggleQueue={() => setIsQueueCollapsed(!isQueueCollapsed)}
                   />
                 ) : (
                   <div className="flex-1 flex items-center justify-center text-slate-400 text-xs">
@@ -299,6 +300,8 @@ export function App() {
                     onClaimTicket={handleClaimTicket}
                     onResolveTicket={handleResolveTicket}
                     aiSuggestion={currentAISuggestion}
+                    isQueueCollapsed={isQueueCollapsed}
+                    onToggleQueue={() => setIsQueueCollapsed(!isQueueCollapsed)}
                   />
                 ) : (
                   <div className="flex-1 flex items-center justify-center text-slate-400 text-xs">
