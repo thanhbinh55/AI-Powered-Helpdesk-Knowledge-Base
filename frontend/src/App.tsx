@@ -20,6 +20,8 @@ import { AIInsightsView } from './features/analytics/AIInsightsView';
 export function App() {
   const [role, setRole] = useState<UserRole>('AGENT');
   const [activeTab, setActiveTab] = useState<NavTab>('QUEUE');
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isQueueCollapsed, setIsQueueCollapsed] = useState(false);
   
   // State management
   const [tickets, setTickets] = useState<Ticket[]>(mockTickets);
@@ -216,6 +218,8 @@ export function App() {
           }
         }}
         currentUser={currentUserMock}
+        isSidebarOpen={isSidebarOpen}
+        onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
       />
 
       {/* Main Content Area */}
@@ -230,34 +234,37 @@ export function App() {
             onCloseTicket={handleCloseTicket}
           />
         ) : (
-          // Phân hệ Agent & Admin (HelpDesk 3-Column Layout)
+          // Phân hệ Agent & Admin (HelpDesk Workspace)
           <>
-            {/* Column 1: Sidebar Navigation */}
+            {/* Column 1: Sidebar Navigation (Collapsible) */}
             <Sidebar
               currentTab={activeTab}
               onSelectTab={setActiveTab}
               role={role}
               openTicketCount={openTicketCount}
               assignedTicketCount={assignedTicketCount}
+              isOpen={isSidebarOpen}
+              onToggle={() => setIsSidebarOpen(!isSidebarOpen)}
             />
 
             {/* View Switching based on active tab */}
             {activeTab === 'QUEUE' && (
               <>
-                {/* Column 2: Ticket Queue */}
+                {/* Column 2: Ticket Queue (Collapsible) */}
                 <TicketQueue
                   tickets={tickets.filter(t => t.status === 'OPEN')}
                   selectedTicketId={selectedTicket?.id}
                   onSelectTicket={(t) => setSelectedTicketId(t.id)}
                   title="Hàng đợi Ticket OPEN"
+                  isCollapsed={isQueueCollapsed}
+                  onToggleCollapse={() => setIsQueueCollapsed(!isQueueCollapsed)}
                 />
 
-                {/* Column 3 & 4: Ticket Workspace & AI Copilot */}
+                {/* Column 3: Redesigned Spacious Ticket Workspace */}
                 {selectedTicket ? (
                   <TicketWorkspace
                     ticket={selectedTicket}
                     messages={currentMessages}
-                    currentUser={currentUserMock}
                     onSendMessage={handleSendMessage}
                     onClaimTicket={handleClaimTicket}
                     onResolveTicket={handleResolveTicket}
@@ -273,20 +280,21 @@ export function App() {
 
             {activeTab === 'MY_TICKETS' && (
               <>
-                {/* Column 2: Assigned Tickets */}
+                {/* Column 2: Assigned Tickets (Collapsible) */}
                 <TicketQueue
                   tickets={tickets.filter(t => t.assignee?.id === currentUserMock.id)}
                   selectedTicketId={selectedTicket?.id}
                   onSelectTicket={(t) => setSelectedTicketId(t.id)}
                   title="Ticket tôi đang xử lý"
+                  isCollapsed={isQueueCollapsed}
+                  onToggleCollapse={() => setIsQueueCollapsed(!isQueueCollapsed)}
                 />
 
-                {/* Column 3 & 4: Workspace */}
+                {/* Column 3: Workspace */}
                 {selectedTicket ? (
                   <TicketWorkspace
                     ticket={selectedTicket}
                     messages={currentMessages}
-                    currentUser={currentUserMock}
                     onSendMessage={handleSendMessage}
                     onClaimTicket={handleClaimTicket}
                     onResolveTicket={handleResolveTicket}

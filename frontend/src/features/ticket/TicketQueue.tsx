@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Clock, AlertCircle } from 'lucide-react';
+import { Search, Clock, AlertCircle, ChevronLeft, ChevronRight, Inbox } from 'lucide-react';
 import { Ticket, TicketStatus } from '../../types';
 import { Badge } from '../../components/common/Badge';
 
@@ -8,13 +8,17 @@ interface TicketQueueProps {
   selectedTicketId: string | null;
   onSelectTicket: (ticket: Ticket) => void;
   title?: string;
+  isCollapsed?: boolean;
+  onToggleCollapse?: () => void;
 }
 
 export const TicketQueue: React.FC<TicketQueueProps> = ({
   tickets,
   selectedTicketId,
   onSelectTicket,
-  title = 'Danh sách Ticket'
+  title = 'Danh sách Ticket',
+  isCollapsed = false,
+  onToggleCollapse,
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filterStatus, setFilterStatus] = useState<TicketStatus | 'ALL'>('ALL');
@@ -30,15 +34,54 @@ export const TicketQueue: React.FC<TicketQueueProps> = ({
     return matchesSearch && matchesStatus;
   });
 
+  // Collapsed Mode: Minimal slim ribbon
+  if (isCollapsed) {
+    return (
+      <div className="w-12 bg-white border-r border-slate-200 flex flex-col items-center py-3 select-none h-[calc(100vh-3.5rem)] shrink-0 transition-all">
+        <button
+          onClick={onToggleCollapse}
+          title="Mở rộng hàng đợi ticket"
+          className="p-2 text-slate-500 hover:text-helpdesk-600 hover:bg-slate-100 rounded-lg transition mb-4"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+
+        <div className="relative mb-4">
+          <Inbox className="w-5 h-5 text-slate-400" />
+          {tickets.length > 0 && (
+            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-helpdesk-500 rounded-full ring-2 ring-white"></span>
+          )}
+        </div>
+
+        <div className="writing-vertical text-xs font-bold text-slate-400 tracking-wider uppercase rotate-180 py-4">
+          {title} ({filteredTickets.length})
+        </div>
+      </div>
+    );
+  }
+
+  // Expanded Mode
   return (
-    <div className="w-80 sm:w-96 bg-white border-r border-slate-200 flex flex-col h-[calc(100vh-3.5rem)] shrink-0">
+    <div className="w-80 sm:w-88 bg-white border-r border-slate-200 flex flex-col h-[calc(100vh-3.5rem)] shrink-0 transition-all">
       {/* Header & Search */}
       <div className="p-3 border-b border-slate-200 space-y-2.5">
         <div className="flex items-center justify-between">
-          <h2 className="text-sm font-bold text-slate-900 tracking-tight">{title}</h2>
-          <span className="text-xs bg-slate-100 text-slate-600 font-medium px-2 py-0.5 rounded-full">
-            {filteredTickets.length} tickets
-          </span>
+          <div className="flex items-center space-x-2">
+            <h2 className="text-sm font-bold text-slate-900 tracking-tight">{title}</h2>
+            <span className="text-[11px] bg-slate-100 text-slate-600 font-semibold px-2 py-0.5 rounded-full">
+              {filteredTickets.length}
+            </span>
+          </div>
+
+          {onToggleCollapse && (
+            <button
+              onClick={onToggleCollapse}
+              title="Thu gọn hàng đợi để mở rộng khung chat"
+              className="p-1 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-md transition"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+          )}
         </div>
 
         {/* Search Bar */}
@@ -117,7 +160,7 @@ export const TicketQueue: React.FC<TicketQueueProps> = ({
                   <div className="flex items-center space-x-1.5">
                     <span className="font-medium text-slate-600">{ticket.customer.name}</span>
                     <span>•</span>
-                    <span className="truncate max-w-[100px]">{ticket.customer.organization || 'Khách hàng'}</span>
+                    <span className="truncate max-w-[90px]">{ticket.customer.organization || 'Khách hàng'}</span>
                   </div>
 
                   <div className="flex items-center space-x-1 text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded font-medium">
