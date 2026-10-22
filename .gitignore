@@ -46,3 +46,7 @@ scripts/jira/tasks_created.csv
 reports/rendered/*.html
 reports/rendered/*.pdf
 !reports/rendered/.gitkeep
+
+# Local personal notes
+PROJECT_EXECUTION_ROADMAP.md
+

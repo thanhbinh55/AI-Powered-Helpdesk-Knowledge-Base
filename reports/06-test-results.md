@@ -12,8 +12,8 @@
 - **Ngày tạo (Date):** 2026-10-19
 - **Tác giả & Đóng góp (Authors + Contributions):**
   - `24120121` - `Lê Quý Phúc`: Kết quả test Module A (AI Suggestion & Analytics)
-  - `24120503` - `Phan Gia Phúc`: Kết quả test Module B (Knowledge Base & Vector Search)
-  - `24120083` - `Nguyễn Đức Lãm`: Kết quả test Module C (Tickets & Comments)
+  - `24120083` - `Nguyễn Đức Lãm`: Kết quả test Module B (Knowledge Base & Vector Search)
+  - `24120503` - `Phan Gia Phúc`: Kết quả test Module C (Tickets & Comments)
   - `24120269` - `Ngô Viết Thanh Bình`: Kết quả test Module D (Auth & Users) *(Nhóm trưởng)*
 - **Phạm vi (Scope):** Tổng hợp số lượng test cases thực thi, tỷ lệ pass/fail, độ bao phủ mã (Coverage) và danh sách lỗi phát hiện trong quá trình kiểm thử.
 

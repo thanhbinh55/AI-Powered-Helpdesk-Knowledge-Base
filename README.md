@@ -17,8 +17,8 @@ Thông tin chi tiết được quản lý tại tệp [members.csv](file:///User
 | MSSV | Họ và tên | Git Username | Phân hệ phụ trách (Module) |
 | :--- | :--- | :--- | :--- |
 | `24120121` | Lê Quý Phúc | Shinkiisme | **Module A:** Trợ lý AI (AI Assistance) |
-| `24120503` | Phan Gia Phúc | t4lf4n | **Module B:** Kho tri thức (Knowledge Base) |
-| `24120083` | Nguyễn Đức Lãm | Lamnguyen-code | **Module C:** Quản lý Ticket (Ticket Management) |
+| `24120083` | Nguyễn Đức Lãm | Lamnguyen-code | **Module B:** Kho tri thức (Knowledge Base) |
+| `24120503` | Phan Gia Phúc | t4lf4n | **Module C:** Quản lý Ticket (Ticket Management) |
 | `24120269` | Ngô Viết Thanh Bình | thanhbinh55 | **Module D:** Quản trị & Xác thực (Identity & Access) *(Nhóm trưởng)* |
 
 ---
