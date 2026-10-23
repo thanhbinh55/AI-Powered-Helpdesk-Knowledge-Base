@@ -8,14 +8,12 @@ import {
   mockAISuggestionsByTicketId, 
   mockUsers 
 } from './mock/data';
-import { Navbar } from './components/layout/Navbar';
-import { Sidebar, NavTab } from './components/layout/Sidebar';
-import { TicketQueue } from './features/ticket/TicketQueue';
-import { TicketWorkspace } from './features/ticket/TicketWorkspace';
-import { KnowledgeBaseView } from './features/knowledge/KnowledgeBaseView';
-import { CustomerPortal } from './features/customer/CustomerPortal';
-import { AdminUserView } from './features/admin/AdminUserView';
-import { AIInsightsView } from './features/analytics/AIInsightsView';
+import { Navbar, Sidebar, NavTab } from './components/layout';
+import { TicketQueue, TicketWorkspace } from './features/ticket';
+import { KnowledgeBaseView } from './features/knowledge';
+import { CustomerPortal } from './features/customer';
+import { AdminUserView } from './features/admin';
+import { AIInsightsView } from './features/analytics';
 
 export function App() {
   const [role, setRole] = useState<UserRole>('AGENT');
