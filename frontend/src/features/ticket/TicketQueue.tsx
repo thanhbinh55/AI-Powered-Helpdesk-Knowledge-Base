@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Clock, AlertCircle, ChevronLeft } from 'lucide-react';
+import { Search, Clock, AlertCircle, ChevronLeft, ChevronRight, Inbox } from 'lucide-react';
 import { Ticket, TicketStatus } from '../../types';
 import { Badge } from '../../components/common/Badge';
 
@@ -34,9 +34,42 @@ export const TicketQueue: React.FC<TicketQueueProps> = ({
     return matchesSearch && matchesStatus;
   });
 
-  // Khi thu gọn: Ẩn hoàn toàn (không để lại dải hẹp chữ xoay dọc gây rối mắt)
+  // Khi thu gọn: Hiển thị thanh hẹp (rail) tiện lợi kèm nút mở rộng, icon và số lượng ticket
   if (isCollapsed) {
-    return null;
+    return (
+      <div 
+        className="w-11 bg-white border-r border-slate-200 flex flex-col items-center py-3 select-none h-[calc(100vh-3.5rem)] shrink-0 transition-all cursor-pointer hover:bg-slate-50 group"
+        onClick={onToggleCollapse}
+        title="Nhấn để mở rộng hàng đợi ticket"
+      >
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            onToggleCollapse?.();
+          }}
+          title="Mở rộng hàng đợi ticket"
+          className="p-1.5 text-slate-500 hover:text-helpdesk-600 hover:bg-slate-100 rounded-lg transition active:scale-95"
+        >
+          <ChevronRight className="w-4 h-4" />
+        </button>
+
+        <div className="relative mt-4 p-1.5 text-slate-400 group-hover:text-helpdesk-600 transition">
+          <Inbox className="w-4 h-4" />
+          {filteredTickets.length > 0 && (
+            <span className="absolute -top-1 -right-1.5 bg-helpdesk-600 text-white text-[9px] font-bold px-1 py-0.2 rounded-full leading-tight shadow-2xs">
+              {filteredTickets.length}
+            </span>
+          )}
+        </div>
+
+        <div className="mt-8 flex items-center justify-center">
+          <span className="[writing-mode:vertical-lr] rotate-180 text-[10px] font-bold text-slate-400 group-hover:text-slate-700 tracking-wider uppercase whitespace-nowrap">
+            {title} ({filteredTickets.length})
+          </span>
+        </div>
+      </div>
+    );
   }
 
   return (
