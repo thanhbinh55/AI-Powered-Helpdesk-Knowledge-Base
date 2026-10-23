@@ -139,25 +139,7 @@ export const TicketWorkspace: React.FC<TicketWorkspaceProps> = ({
   };
 
   return (
-    <div className="relative flex-1 flex overflow-hidden h-[calc(100vh-3.5rem)] bg-slate-100 select-none">
-      {/* Floating Edge Tab khi hàng đợi thu gọn (Chuẩn Linear / Notion / Raycast) */}
-      {isQueueCollapsed && onToggleQueue && (
-        <button
-          type="button"
-          onClick={onToggleQueue}
-          title={`Mở lại hàng đợi ticket ${queueTicketCount ? `(${queueTicketCount})` : ''}`}
-          className="absolute left-0 top-3.5 z-30 flex items-center space-x-1.5 pl-2.5 pr-3 py-1.5 bg-white hover:bg-helpdesk-50 border border-slate-200 hover:border-helpdesk-300 rounded-r-xl shadow-md text-slate-700 hover:text-helpdesk-700 text-xs font-semibold transition group active:scale-95 animate-in fade-in slide-in-from-left-2 duration-150"
-        >
-          <PanelLeftOpen className="w-4 h-4 text-helpdesk-600 group-hover:scale-110 transition-transform" />
-          <span className="hidden sm:inline">Hàng đợi</span>
-          {typeof queueTicketCount === 'number' && (
-            <span className="bg-helpdesk-100 text-helpdesk-700 text-[10px] font-bold px-1.5 py-0.2 rounded-full">
-              {queueTicketCount}
-            </span>
-          )}
-        </button>
-      )}
-
+    <div className="flex-1 flex overflow-hidden h-[calc(100vh-3.5rem)] bg-slate-100 select-none">
       {/* ========================================================
           CỘT TRÁI: TICKET DETAIL & ISSUE WORKSPACE (RỘNG RÃI, THOÁNG MẮT, ĐỠ NÉN CHỮ)
           ======================================================== */}
@@ -171,11 +153,11 @@ export const TicketWorkspace: React.FC<TicketWorkspaceProps> = ({
                   type="button"
                   onClick={onToggleQueue}
                   title="Mở lại danh sách hàng đợi ticket"
-                  className="hidden md:inline-flex items-center space-x-1.5 px-3 py-1.5 bg-helpdesk-50 hover:bg-helpdesk-100 text-helpdesk-700 border border-helpdesk-200/90 text-xs font-semibold rounded-lg transition mr-2 shadow-2xs active:scale-95"
+                  className="inline-flex items-center space-x-1.5 px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-lg transition mr-1 border border-slate-200/80 shadow-2xs active:scale-95"
                 >
                   <PanelLeftOpen className="w-3.5 h-3.5 text-helpdesk-600" />
                   <span>Mở hàng đợi</span>
-                  {typeof queueTicketCount === 'number' && (
+                  {typeof queueTicketCount === 'number' && queueTicketCount > 0 && (
                     <span className="bg-helpdesk-600 text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full">
                       {queueTicketCount}
                     </span>
