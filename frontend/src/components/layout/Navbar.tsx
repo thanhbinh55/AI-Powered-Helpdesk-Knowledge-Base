@@ -49,11 +49,14 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Role Switcher & Environment Indicator */}
       <div className="flex items-center space-x-3">
-        <div className="hidden lg:flex items-center space-x-1.5 text-xs text-slate-500 bg-slate-50 border border-slate-200/80 px-2.5 py-1 rounded-full">
-          <Bot className="w-3.5 h-3.5 text-emerald-600 animate-pulse" />
-          <span className="font-medium text-slate-600">RAG Engine:</span>
-          <span className="text-emerald-700 font-semibold">pgvector Connected</span>
-        </div>
+        {currentRole === 'ADMIN' && (
+          <div className="hidden lg:flex items-center space-x-1.5 text-xs text-slate-500 bg-slate-50 border border-slate-200/80 px-2.5 py-1 rounded-full">
+            <Bot className="w-3.5 h-3.5 text-emerald-600 animate-pulse" />
+            <span className="font-medium text-slate-600">RAG Engine:</span>
+            <span className="text-emerald-700 font-semibold">pgvector Connected</span>
+          </div>
+        )}
+
 
         {/* Live Role Switcher (Dành cho việc chuyển đổi kiểm thử vai trò) */}
         <div className="bg-slate-100 p-0.5 rounded-lg border border-slate-200 flex items-center">

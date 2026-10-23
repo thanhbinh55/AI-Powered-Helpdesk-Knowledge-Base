@@ -292,5 +292,44 @@ Nếu cần hỗ trợ thêm, bạn có thể phản hồi trực tiếp tại t
     ],
     confidence: 0.98,
     generatedAt: '2026-10-22T08:20:00Z',
+  },
+  'tck-003': {
+    ticketId: 'tck-003',
+    draftReply: `Chào bạn Long,
+
+Theo Quy chế hạ tầng CNTT và Cổng thông tin nộp bài (Mục 4.1):
+1. **Giới hạn dung lượng:** Hệ thống portal giới hạn dung lượng tải lên trực tiếp tối đa là **25 MB** cho mỗi tệp tin. Tệp zip 45MB của bạn vượt quá ngưỡng nên bị máy chủ từ chối (Mã lỗi 500).
+2. **Giải pháp khắc phục ngay:** Bạn hãy nén nhỏ tệp tin (loại bỏ thư mục build/node_modules không cần thiết) hoặc tải file lên Google Drive trường (đuôi @student.hcmus.edu.vn) rồi dán liên kết chia sẻ công khai vào phần ghi chú nộp bài trước 23h59 nhé!`,
+    citations: [
+      {
+        documentId: 'doc-002',
+        documentTitle: 'Hướng dẫn khắc phục lỗi xác thực tài khoản & JWT Token Expired',
+        chunkSnippet: 'Quy định tải tệp Mục 4.1: Dung lượng tải lên tối đa là 25MB cho tệp nộp bài tập lớn...',
+        score: 0.92,
+        pageOrSection: 'Mục 4.1 - Giới hạn dung lượng tải lên',
+      }
+    ],
+    confidence: 0.93,
+    generatedAt: '2026-10-22T10:12:00Z',
+  },
+  'tck-004': {
+    ticketId: 'tck-004',
+    draftReply: `Chào bạn Kiệt,
+
+Yêu cầu cấp quyền VPN truy cập máy chủ AI Lab đã được duyệt và cấu hình hoàn tất:
+1. **Thông tin truy cập:** Bạn sử dụng tài khoản email sinh viên đăng nhập qua OpenVPN Client theo máy chủ vpn.lab.hcmus.edu.vn (cổng 1194).
+2. **Quy định sử dụng:** Chỉ sử dụng cho mục đích huấn luyện mô hình môn học/nghiên cứu; tài khoản sẽ tự động hết hạn sau khi kết thúc học kỳ.`,
+    citations: [
+      {
+        documentId: 'doc-003',
+        documentTitle: 'Quy trình cấp phát tài khoản VPN & Máy chủ thực hành AI Lab',
+        chunkSnippet: 'Mục 2.3: Thời gian cấp phát tài khoản VPN nghiên cứu là trong vòng 24 giờ sau khi có xác nhận...',
+        score: 0.95,
+        pageOrSection: 'Mục 2.3 - Quy trình kích hoạt VPN',
+      }
+    ],
+    confidence: 0.96,
+    generatedAt: '2026-10-21T14:30:00Z',
   }
 };
+
