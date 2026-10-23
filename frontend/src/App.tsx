@@ -34,7 +34,13 @@ export function App() {
   const [users, setUsers] = useState<User[]>(mockUsers);
 
   const handleSelectTab = (newTab: NavTab) => {
+    // Nếu đang ở tab hiện tại mà hàng đợi bị thu gọn, click lại vào tab sẽ mở lại hàng đợi (chuẩn Slack/Notion)
+    if (newTab === activeTab && isQueueCollapsed) {
+      setIsQueueCollapsed(false);
+      return;
+    }
     setActiveTab(newTab);
+    setIsQueueCollapsed(false);
     if (newTab === 'QUEUE') {
       const firstOpen = tickets.find(t => t.status === 'OPEN');
       if (firstOpen) setSelectedTicketId(firstOpen.id);
@@ -293,10 +299,19 @@ export function App() {
                     aiSuggestion={currentAISuggestion}
                     isQueueCollapsed={isQueueCollapsed}
                     onToggleQueue={() => setIsQueueCollapsed(!isQueueCollapsed)}
+                    queueTicketCount={openTickets.length}
                   />
                 ) : (
-                  <div className="flex-1 flex items-center justify-center text-slate-400 text-xs">
-                    Không có ticket nào trong hàng đợi
+                  <div className="flex-1 flex flex-col items-center justify-center text-slate-400 text-xs space-y-3 bg-slate-50">
+                    <p>Không có ticket nào trong hàng đợi</p>
+                    {isQueueCollapsed && (
+                      <button
+                        onClick={() => setIsQueueCollapsed(false)}
+                        className="px-3 py-1.5 bg-white border border-slate-200 text-helpdesk-600 font-semibold rounded-lg shadow-2xs hover:bg-helpdesk-50 transition"
+                      >
+                        Mở lại hàng đợi ({openTickets.length})
+                      </button>
+                    )}
                   </div>
                 )}
               </>
@@ -325,10 +340,19 @@ export function App() {
                     aiSuggestion={currentAISuggestion}
                     isQueueCollapsed={isQueueCollapsed}
                     onToggleQueue={() => setIsQueueCollapsed(!isQueueCollapsed)}
+                    queueTicketCount={myTickets.length}
                   />
                 ) : (
-                  <div className="flex-1 flex items-center justify-center text-slate-400 text-xs">
-                    Bạn chưa nhận ticket nào
+                  <div className="flex-1 flex flex-col items-center justify-center text-slate-400 text-xs space-y-3 bg-slate-50">
+                    <p>Bạn chưa nhận ticket nào</p>
+                    {isQueueCollapsed && (
+                      <button
+                        onClick={() => setIsQueueCollapsed(false)}
+                        className="px-3 py-1.5 bg-white border border-slate-200 text-helpdesk-600 font-semibold rounded-lg shadow-2xs hover:bg-helpdesk-50 transition"
+                      >
+                        Mở lại hàng đợi ({myTickets.length})
+                      </button>
+                    )}
                   </div>
                 )}
               </>
