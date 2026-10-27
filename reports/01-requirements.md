@@ -12,8 +12,8 @@
 - **Ngày tạo (Date):** 2026-10-19
 - **Tác giả & Đóng góp (Authors + Contributions):**
   - `24120121` - `Lê Quý Phúc`: Yêu cầu phân hệ Trợ lý AI & Báo cáo phân tích (Module A)
-  - `24120503` - `Phan Gia Phúc`: Yêu cầu phân hệ Kho tri thức (Knowledge Base) & Vector Search (Module B)
-  - `24120083` - `Nguyễn Đức Lãm`: Yêu cầu phân hệ Quản lý Ticket & Luồng xử lý sự cố (Module C)
+  - `24120083` - `Nguyễn Đức Lãm`: Yêu cầu phân hệ Kho tri thức (Knowledge Base) & Vector Search (Module B)
+  - `24120503` - `Phan Gia Phúc`: Yêu cầu phân hệ Quản lý Ticket & Luồng xử lý sự cố (Module C)
   - `24120269` - `Ngô Viết Thanh Bình`: Yêu cầu phân hệ Quản trị & Xác thực người dùng (Module D) *(Nhóm trưởng)*
 - **Phạm vi (Scope):** Chi tiết hóa các yêu cầu chức năng, phi chức năng, ràng buộc kỹ thuật và tiêu chuẩn nghiệm thu của toàn bộ hệ thống.
 

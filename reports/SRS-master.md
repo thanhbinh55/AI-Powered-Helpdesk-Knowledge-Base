@@ -1376,8 +1376,8 @@ Trước khi chuyển tài liệu từ `PROPOSED` sang `APPROVED`, nhóm cần x
 | MSSV | Họ và tên | Vai trò chính | % đóng góp (tối đa 100%) | Chữ ký |
 |---|---|---|---|---|
 | `24120121` | Lê Quý Phúc | Module A — Trợ lý AI (AI Assistance) | 100% | |
-| `24120503` | Phan Gia Phúc | Module B — Kho tri thức (Knowledge Base) | 100% | |
-| `24120083` | Nguyễn Đức Lãm | Module C — Quản lý Ticket (Ticket Management) | 100% | |
+| `24120083` | Nguyễn Đức Lãm | Module B — Kho tri thức (Knowledge Base) | 100% | |
+| `24120503` | Phan Gia Phúc | Module C — Quản lý Ticket (Ticket Management) | 100% | |
 | `24120269` | Ngô Viết Thanh Bình | Module D — Quản trị & Xác thực (Identity & Access) *(Nhóm trưởng)* | 100% | |
 
 > Ghi chú: Git username của từng người cũng cần thu thập ngay để dùng cho Git Commit History Report (Mục 19).

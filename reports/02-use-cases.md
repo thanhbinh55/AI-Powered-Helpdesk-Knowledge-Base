@@ -12,8 +12,8 @@
 - **Ngày tạo (Date):** 2026-10-19
 - **Tác giả & Đóng góp (Authors + Contributions):**
   - `24120121` - `Lê Quý Phúc`: Use Cases hỏi đáp với trợ lý AI và đề xuất thông minh (Module A)
-  - `24120503` - `Phan Gia Phúc`: Use Cases tạo bài viết tri thức, duyệt bài và tra cứu (Module B)
-  - `24120083` - `Nguyễn Đức Lãm`: Use Cases tạo, cập nhật, trao đổi và đóng ticket (Module C)
+  - `24120083` - `Nguyễn Đức Lãm`: Use Cases tạo bài viết tri thức, duyệt bài và tra cứu (Module B)
+  - `24120503` - `Phan Gia Phúc`: Use Cases tạo, cập nhật, trao đổi và đóng ticket (Module C)
   - `24120269` - `Ngô Viết Thanh Bình`: Use Cases quản trị tài khoản, phân quyền, xác thực và báo cáo SLA (Module D) *(Nhóm trưởng)*
 - **Phạm vi (Scope):** Mô tả chi tiết danh sách tác nhân (Actors), sơ đồ Use Case tổng thể và kịch bản tương tác chính/phụ (Main/Alternative Flows).
 

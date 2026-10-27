@@ -11,13 +11,13 @@
 # Module A: AI Assistant & LLM Integration (Lê Quý Phúc)
 /backend/src/main/java/vn/edu/hcmus/helpdesk/ai/         @Shinkiisme
 
-# Module B: Knowledge Base & Vector Search (Phan Gia Phúc)
-/backend/src/main/java/vn/edu/hcmus/helpdesk/knowledge/  @t4lf4n
-/frontend/src/features/knowledge/                        @t4lf4n
+# Module B: Knowledge Base & Vector Search (Nguyễn Đức Lãm)
+/backend/src/main/java/vn/edu/hcmus/helpdesk/knowledge/  @Lamnguyen-code
+/frontend/src/features/knowledge/                        @Lamnguyen-code
 
-# Module C: Ticket Management & Helpdesk Core Workflow (Nguyễn Đức Lãm)
-/backend/src/main/java/vn/edu/hcmus/helpdesk/ticket/     @Lamnguyen-code
-/frontend/src/features/ticket/                           @Lamnguyen-code
+# Module C: Ticket Management & Helpdesk Core Workflow (Phan Gia Phúc)
+/backend/src/main/java/vn/edu/hcmus/helpdesk/ticket/     @t4lf4n
+/frontend/src/features/ticket/                           @t4lf4n
 
 # Module D: Identity & Access, Authentication & Infrastructure (Ngô Viết Thanh Bình - Lead)
 /backend/src/main/java/vn/edu/hcmus/helpdesk/auth/       @thanhbinh55

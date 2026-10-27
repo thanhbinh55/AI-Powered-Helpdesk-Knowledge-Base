@@ -10,8 +10,8 @@
 | Thành viên | Phân hệ (Module) | Mã Task Jira | Phần việc chính phụ trách | Nguồn tài liệu (`reports/SRS-master.md`) |
 | :--- | :--- | :---: | :--- | :--- |
 | **Lê Quý Phúc**<br>`24120121` | **Module A**<br>AI Assistance | **`SCRUM-8`** | - Trang Bìa<br>- Mục 1: Bảng đánh giá thành viên<br>- Mục 2: Phát biểu bài toán sơ lược<br>- Mục 3.2: Phần cứng | Phụ lục A, C, F *(chỉ viết mức sơ lược, không sao chép nguyên văn)* |
-| **Phan Gia Phúc**<br>`24120503` | **Module B**<br>Knowledge Base | **`SCRUM-9`** | - Mục 3.1.1: Danh sách các chức năng phần mềm (User Stories) | Phụ lục D *(bảng câu chuyện người dùng, kèm quy định liên quan)* |
-| **Nguyễn Đức Lãm**<br>`24120083` | **Module C**<br>Ticket Management | **`SCRUM-10`** | - Mục 3.1.2: Kiến trúc tổng thể phần mềm<br>- Mục 4: Kế hoạch phát triển (5 giai đoạn) | Phụ lục E và Phụ lục G *(lấy chuẩn ngày tháng)* |
+| **Phan Gia Phúc**<br>`24120503` | **Module C**<br>Ticket Management | **`SCRUM-9`** | - Mục 3.1.1: Danh sách các chức năng phần mềm (User Stories) | Phụ lục D *(bảng câu chuyện người dùng, kèm quy định liên quan)* |
+| **Nguyễn Đức Lãm**<br>`24120083` | **Module B**<br>Knowledge Base | **`SCRUM-10`** | - Mục 3.1.2: Kiến trúc tổng thể phần mềm<br>- Mục 4: Kế hoạch phát triển (5 giai đoạn) | Phụ lục E và Phụ lục G *(lấy chuẩn ngày tháng)* |
 | **Ngô Viết Thanh Bình**<br>`24120269` *(Lead)* | **Module D**<br>Identity & Access | **`SCRUM-11`** | - Mục 5.1: Cấu trúc nhân sự<br>- Mục 5.2: Kế hoạch chi phí dự án | Phụ lục H và Phụ lục I |
 
 ---

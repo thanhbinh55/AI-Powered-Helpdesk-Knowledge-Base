@@ -21,24 +21,32 @@
 > Vui lòng **KHÔNG CHỈNH SỬA THỦ CÔNG** khu vực giữa hai thẻ đánh dấu `<!-- GENERATED:START -->
 ### 📊 Tổng Hợp Lịch Sử Commit Theo Thành Viên (Tự Động Sinh)
 
-> **Tổng số commit ghi nhận trong repository:** 7
+> **Tổng số commit ghi nhận trong repository:** 18
 
 | MSSV - Git username | Họ và tên | Vai trò / Phân hệ | Số lượng commit |
 | :--- | :--- | :--- | :---: |
-| **24120269 - thanhbinh55** | Ngô Viết Thanh Bình | D - Identity & Access (nhom truong) | 7 |
-| **24120083 - Lamnguyen-code** | Nguyễn Đức Lãm | C - Ticket Management | 0 |
-| **24120503 - t4lf4n** | Phan Gia Phúc | B - Knowledge Base | 0 |
-| **24120121 - Shinkiisme** | Lê Quý Phúc | A - AI Assistance | 0 |
+| **24120269 - thanhbinh55** | Ngô Viết Thanh Bình | D - Identity & Access (nhom truong) | 15 |
+| **24120083 - Lamnguyen-code** | Nguyễn Đức Lãm | B - Knowledge Base | 1 |
+| **24120503 - t4lf4n** | Phan Gia Phúc | C - Ticket Management | 1 |
+| **24120121 - Shinkiisme** | Lê Quý Phúc | A - AI Assistance | 1 |
 
 ---
 
 #### 👤 24120269 - thanhbinh55 (Ngô Viết Thanh Bình)
 - **Phân hệ phụ trách:** D - Identity & Access (nhom truong)
-- **Tổng số commit:** 7
+- **Tổng số commit:** 15
 
 | Hash | Ngày commit | Thông điệp commit (Jira Key) | Các tệp thay đổi |
 | :--- | :--- | :--- | :--- |
-| `[a16f25f6]` | 2026-10-19 | docs(members): cập nhật thông tin thành viên, phân công module và deadline Template 0 SCRUM-7 | <code>.github/CODEOWNERS</code><br><code>README.md</code><br><code>members.csv</code><br><code>reports/00-project-proposal.md</code><br>*(và 10 tệp khác...)* |
+| `[f5da77da]` | 2026-10-22 | docs(proposal): loai bo cac ghi chu noi bo va tham chieu SRS hoan thien proposal 1.0.0 SCRUM-11 | <code>reports/00-project-proposal.md</code> |
+| `[61fc89f1]` | 2026-10-22 | Merge pull request #4 from thanhbinh55/docs/SCRUM-11-nhan-su-chi-phi | *(không có tệp thay đổi)* |
+| `[e571f12b]` | 2026-10-22 | docs(proposal): hoan thien muc 5 ke hoach nhan su va chi phi SCRUM-11 | <code>reports/00-project-proposal.md</code><br><code>reports/07-ai-usage.md</code> |
+| `[09955a82]` | 2026-10-22 | Merge branch 'docs/SCRUM-10-kien-truc-ke-hoach' into main SCRUM-10 | *(không có tệp thay đổi)* |
+| `[f57f60e1]` | 2026-10-22 | Merge branch 'docs/SCRUM-9-bang-chuc-nang' into main SCRUM-9 | *(không có tệp thay đổi)* |
+| `[a89f1e22]` | 2026-10-22 | docs(proposal): chuẩn hóa mục lục theo template của Thầy và tích hợp nội dung SCRUM-7 | <code>TEAM_GUIDE_TEMPLATE0.md</code><br><code>reports/00-project-proposal.md</code> |
+| `[72212cb5]` | 2026-10-19 | docs(guide): bổ sung tài liệu hướng dẫn quy trình làm việc Template 0 cho thành viên SCRUM-7 | <code>TEAM_GUIDE_TEMPLATE0.md</code> |
+| `[d65cc260]` | 2026-10-20 | Merge pull request #1 from thanhbinh55/docs/SCRUM-8-viet-muc-1-2-3.2 | *(không có tệp thay đổi)* |
+| `[407a5930]` | 2026-10-19 | docs(members): cập nhật thông tin thành viên, phân công module và deadline Template 0 SCRUM-7 | <code>.github/CODEOWNERS</code><br><code>README.md</code><br><code>members.csv</code><br><code>reports/00-project-proposal.md</code><br>*(và 10 tệp khác...)* |
 | `[334f5c28]` | 2026-10-19 | docs(guide): hoàn thiện README và CONTRIBUTING hướng dẫn quy trình SCRUM-6 | <code>CONTRIBUTING.md</code><br><code>README.md</code><br><code>reports/08-git-contributions.md</code><br><code>scripts/git_contributions.py</code> |
 | `[4e2cf4b8]` | 2026-10-19 | feat(jira): bổ sung kịch bản tạo task tự động và kịch bản tasks template 0 SCRUM-6 | <code>scripts/jira/README.md</code><br><code>scripts/jira/jira_bulk_create.py</code><br><code>scripts/jira/tasks_template0.csv</code> |
 | `[c4496214]` | 2026-10-19 | feat(scripts): bổ sung công cụ render báo cáo, đóng gói và tổng hợp đóng góp SCRUM-6 | <code>scripts/git_contributions.py</code><br><code>scripts/package_submission.py</code><br><code>scripts/render_reports.py</code><br><code>scripts/render_reports.sh</code> |
@@ -47,19 +55,28 @@
 | `[2da10f72]` | 2026-10-19 | chore(repo): khởi tạo cấu trúc cơ bản và cấu hình môi trường SCRUM-6 | <code>.editorconfig</code><br><code>.env.example</code><br><code>.gitattributes</code><br><code>.gitignore</code><br>*(và 1 tệp khác...)* |
 
 #### 👤 24120083 - Lamnguyen-code (Nguyễn Đức Lãm)
-- **Phân hệ phụ trách:** C - Ticket Management
-- **Tổng số commit:** 0
-*(Chưa có commit nào được ghi nhận với thông tin tác giả này)*
+- **Phân hệ phụ trách:** B - Knowledge Base
+- **Tổng số commit:** 1
+
+| Hash | Ngày commit | Thông điệp commit (Jira Key) | Các tệp thay đổi |
+| :--- | :--- | :--- | :--- |
+| `[5405de76]` | 2026-10-22 | docs(proposal): bo sung so do kien truc va ke hoach sprint SCRUM-10 | <code>reports/00-project-proposal.md</code><br><code>reports/07-ai-usage.md</code> |
 
 #### 👤 24120503 - t4lf4n (Phan Gia Phúc)
-- **Phân hệ phụ trách:** B - Knowledge Base
-- **Tổng số commit:** 0
-*(Chưa có commit nào được ghi nhận với thông tin tác giả này)*
+- **Phân hệ phụ trách:** C - Ticket Management
+- **Tổng số commit:** 1
+
+| Hash | Ngày commit | Thông điệp commit (Jira Key) | Các tệp thay đổi |
+| :--- | :--- | :--- | :--- |
+| `[0bbf775e]` | 2026-10-22 | docs(proposal): cap nhat bang chuc nang functional matrix SCRUM-9 | <code>reports/00-project-proposal.md</code><br><code>reports/07-ai-usage.md</code> |
 
 #### 👤 24120121 - Shinkiisme (Lê Quý Phúc)
 - **Phân hệ phụ trách:** A - AI Assistance
-- **Tổng số commit:** 0
-*(Chưa có commit nào được ghi nhận với thông tin tác giả này)*
+- **Tổng số commit:** 1
+
+| Hash | Ngày commit | Thông điệp commit (Jira Key) | Các tệp thay đổi |
+| :--- | :--- | :--- | :--- |
+| `[520a0f44]` | 2026-10-19 | docs(proposal): hoan thien noi dung muc 1, 2 va 3.2 SCRUM-8 | <code>reports/00-project-proposal.md</code><br><code>reports/07-ai-usage.md</code> |
 
 <!-- GENERATED:END -->`.
 
