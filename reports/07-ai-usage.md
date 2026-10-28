@@ -54,7 +54,7 @@ Bảng dưới đây tổng hợp toàn bộ các phiên tương tác với AI t
 | **#08** | 21h30 22/10<br>- 00h30 23/10 | Ngô Viết Thanh Bình<br>`24120269` | Google Gemini (Gemini 3.8 Flash Medium)<br>Google via Antigravity IDE | Xây dựng Prototype Giao diện 3 cột HelpDesk với React & Tailwind CSS (SCRUM-10) | AI sinh các React components mẫu (Queue, Workspace, Chat, Copilot); sinh viên tự cấu hình Tailwind, tối ưu layout Zalo/Linear, tinh chỉnh responsive | [Chi tiết #08](#entry-08) |
 | **#09** | 07h30<br>28/10/2026 | Ngô Viết Thanh Bình<br>`24120269` | Google Gemini (Gemini 3.8 Flash Medium)<br>Google via Antigravity IDE | Rà soát nhất quán đề xuất dự án và tạo bản nộp hoàn thiện tại `reports/submit/` (SCRUM-11) | AI hỗ trợ kiểm tra ngữ pháp tiếng Việt, tính nhất quán của thuật ngữ kỹ thuật; sinh viên kiểm tra chéo với SRS-master.md và tạo file nộp | [Chi tiết #09](#entry-09) |
 | **#10** | 08h20<br>28/10/2026 | Ngô Viết Thanh Bình<br>`24120269` | Google Gemini (Gemini 3.8 Flash Medium)<br>Google via Antigravity IDE | Tái cấu trúc Báo cáo sử dụng AI theo Quy định của Khoa CNTT - HCMUS (SCRUM-11) | AI đối chiếu cấu trúc 7 trường thông tin của Khoa; sinh viên biên soạn bảng ma trận và hệ thống trích dẫn chuẩn cho toàn nhóm | [Chi tiết #10](#entry-10) |
-
+| **#11** | 19h30<br>28/10/2026 | Nguyễn Đức Lãm<br>`24120083` | ChatGPT (GPT-6.1 Sol)<br>OpenAI via chat.openai.com | Rà soát, kiểm tra nội dung của phần 5 | AI kiểm tra và đưa ra những điểm còn chưa rõ ràng, mâu thuẫn với tài liệu gốc(SCRUM-14) | [Chi tiết #11](#entry-11) |
 ---
 
 ## 3. CHI TIẾT CÁC PHIÊN SỬ DỤNG AI (CHUẨN TRÍCH DẪN QUY ĐỊNH)
@@ -182,6 +182,39 @@ Mỗi mục dưới đây tuân thủ nghiêm ngặt **Mục 5.B (Ghi chú sử 
   - *Nội dung AI tạo:* Cấu trúc phân cấp tài liệu và gợi ý định dạng bảng Markdown tương thích bộ sinh HTML.
   - *Nội dung tự thực hiện & kiểm chứng:* Bóc tách các prompt dài trước đây khỏi ô bảng, trích lục lịch sử commit của cả 4 thành viên, chạy script `render_reports.py` để xác thực tính tương thích hiển thị trên trình duyệt và bản in PDF.
   - *Minh chứng:* Tệp [reports/07-ai-usage.md](file:///reports/07-ai-usage.md) và commit Git `[b952c039]` ngày 28/10/2026.
+
+---
+
+### <a id="entry-11"></a>📌 Phiên ghi nhận #11: Rà soát, kiểm tra nội dung của phần 5
+- **Trích dẫn chuẩn:**
+  > **ChatGPT.** *GPT-6.1 Sol, OpenAI, chat.openai.com*, truy cập *09h30 ngày 22/10/2026*, prompt: *“đây là nội dung phần 5 do bạn tôi viết bạn hãy đọc, và kiểm tra lại thật kỹ xem 1. có chỗ nào bị mâu thuẫn so với file SRS không theo nội dung tham khảo như sau: # 5. Kế hoạch nhân sự & chi phí\
+   \> \*Ghi chú nguồn nguyên liệu:\* Cấu trúc nhân sự toàn dự án và liệt kê các khoản chi phí dự kiến. Tham khảo Mục 16, 16.1, \*\*Phụ lục H\*\* và \*\*Phụ lục I\*\* trong \`reports/SRS-master.md\`.\
+   \
+   \*(Nội dung do \`Ngô Viết Thanh Bình\` biên soạn theo Jira \`SCRUM-11\`)\*\
+   \
+   \### 5.1. Cấu trúc nhân sự\
+   \> \*Ghi chú nguồn nguyên liệu:\* Ma trận vai trò, mô tả trách nhiệm và người phụ trách. Tham khảo \*\*Phụ lục H\*\* trong \`reports/SRS-master.md\`.\
+   \
+   \### 5.2. Kế hoạch chi phí\
+   \> \*Ghi chú nguồn nguyên liệu:\* Bảng tổng hợp chi phí nhân sự, hạ tầng cloud, API LLM, công cụ và dự phòng rủi ro. Tham khảo \*\*Phụ lục I\*\* trong \`reports/SRS-master.md\`. 2. &#x20;có chỗ nào cách viết bị quá máy móc, theo kiẻu của AI quá không, dùng skill [$humanizer:humanizer](/home/lam/.codex/skills/humanizer/SKILL.md) để gợi ý cho tôi các sửa(chỉ gợi ý chỗ bị lỗi và cách sửa, không tự sửa)
+
+- **Thành viên chịu trách nhiệm:** `24120083` - Nguyễn Đức Lãm (Phân hệ Knowledge Base)
+- **Chi tiết các câu prompt nguyên văn do thành viên khai báo:**
+  1. *"- đây là nội dung phần 5 do bạn tôi viết bạn hãy đọc, và kiểm tra lại thật kỹ xem có chỗ nào bị mâu thuẫn so với file SRS không theo nội dung tham khảo như sau: # 5. Kế hoạch nhân sự & chi phí\
+   \> \*Ghi chú nguồn nguyên liệu:\* Cấu trúc nhân sự toàn dự án và liệt kê các khoản chi phí dự kiến. Tham khảo Mục 16, 16.1, \*\*Phụ lục H\*\* và \*\*Phụ lục I\*\* trong \`reports/SRS-master.md\`.\
+   \
+   \*(Nội dung do \`Ngô Viết Thanh Bình\` biên soạn theo Jira \`SCRUM-11\`)\*\
+   \
+   \### 5.1. Cấu trúc nhân sự\
+   \> \*Ghi chú nguồn nguyên liệu:\* Ma trận vai trò, mô tả trách nhiệm và người phụ trách. Tham khảo \*\*Phụ lục H\*\* trong \`reports/SRS-master.md\`.\
+   \
+   \### 5.2. Kế hoạch chi phí\
+   \> \*Ghi chú nguồn nguyên liệu:\* Bảng tổng hợp chi phí nhân sự, hạ tầng cloud, API LLM, công cụ và dự phòng rủi ro. Tham khảo \*\*Phụ lục I\*\* trong \`reports/SRS-master.md\`.
+&#x20;có chỗ nào cách viết bị quá máy móc, theo kiẻu của AI quá không, dùng skill [$humanizer:humanizer](/home/lam/.codex/skills/humanizer/SKILL.md) để gợi ý cho tôi các sửa(chỉ gợi ý chỗ bị lỗi và cách sửa, không tự sửa)"*
+  2. *"nhìn chung, thì phần 5.1 đang mô tả quá chi tiết, mở rộng so với bản SRS đúng không"*
+- **Chi tiết đối soát:**
+  - *Nội dung AI tạo:* Nhận xét cho phần 5.
+  - *Nội dung tự thực hiện & kiểm chứng:* Kiểm chứng và đối chiếu với mục 16., 16.1, phụ lục H, phụ lục I trong file SRS-master.md.
 
 ---
 
