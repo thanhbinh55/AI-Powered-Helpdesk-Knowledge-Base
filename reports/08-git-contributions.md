@@ -21,11 +21,11 @@
 > Vui lòng **KHÔNG CHỈNH SỬA THỦ CÔNG** khu vực giữa hai thẻ đánh dấu `<!-- GENERATED:START -->
 ### 📊 Tổng Hợp Lịch Sử Commit Theo Thành Viên (Tự Động Sinh)
 
-> **Tổng số commit ghi nhận trong repository:** 35
+> **Tổng số commit ghi nhận trong repository:** 36
 
 | MSSV - Git username | Họ và tên | Vai trò / Phân hệ | Số lượng commit |
 | :--- | :--- | :--- | :---: |
-| **24120269 - thanhbinh55** | Ngô Viết Thanh Bình | D - Identity & Access (nhom truong) | 32 |
+| **24120269 - thanhbinh55** | Ngô Viết Thanh Bình | D - Identity & Access (nhom truong) | 33 |
 | **24120083 - Lamnguyen-code** | Nguyễn Đức Lãm | B - Knowledge Base | 1 |
 | **24120503 - t4lf4n** | Phan Gia Phúc | C - Ticket Management | 1 |
 | **24120121 - Shinkiisme** | Lê Quý Phúc | A - AI Assistance | 1 |
@@ -34,11 +34,12 @@
 
 #### 👤 24120269 - thanhbinh55 (Ngô Viết Thanh Bình)
 - **Phân hệ phụ trách:** D - Identity & Access (nhom truong)
-- **Tổng số commit:** 32
+- **Tổng số commit:** 33
 
 | Hash | Ngày commit | Thông điệp commit (Jira Key) | Các tệp thay đổi |
 | :--- | :--- | :--- | :--- |
-| `[7a03e703]` | 2026-10-28 | docs(reports): tai cau truc bao cao su dung AI theo quy dinh Khoa CNTT va cap nhat git log SCRUM-11 | <code>reports/07-ai-usage.md</code><br><code>reports/08-git-contributions.md</code> |
+| `[228fc4a6]` | 2026-10-28 | docs(ai-usage): cap nhat day du tat ca phien su dung AI cua Thanh Binh SCRUM-11 | <code>reports/07-ai-usage.md</code> |
+| `[b952c039]` | 2026-10-28 | docs(reports): tai cau truc bao cao su dung AI theo quy dinh Khoa CNTT va cap nhat git log SCRUM-11 | <code>reports/07-ai-usage.md</code><br><code>reports/08-git-contributions.md</code> |
 | `[9f7b9920]` | 2026-10-28 | docs(proposal): chuan hoa noi dung de xuat do an va tao ban nop submit SCRUM-11 | <code>reports/00-project-proposal.md</code><br><code>reports/submit/00-project-proposal.md</code> |
 | `[ef74acb2]` | 2026-10-23 | merge: dong bo origin/main vao feat/frontend-ui-prototype SCRUM-10 | *(không có tệp thay đổi)* |
 | `[d82788cd]` | 2026-10-23 | refactor(frontend): clean code, tach subcomponents modular va barrel exports SCRUM-10 | <code>frontend/src/App.tsx</code><br><code>frontend/src/components/common/index.ts</code><br><code>frontend/src/components/layout/index.ts</code><br><code>frontend/src/features/admin/index.ts</code><br>*(và 9 tệp khác...)* |
