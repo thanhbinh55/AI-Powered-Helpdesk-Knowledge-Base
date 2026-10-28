@@ -54,8 +54,6 @@
 | 24120083 | Nguyễn Đức Lãm | 100% | |
 | 24120269 | Ngô Viết Thanh Bình | 100% | |
 
-*Tỷ lệ đóng góp và chữ ký được các thành viên và nhóm trưởng đồng thuận xác nhận.*
-
 ---
 
 # 2. Phát biểu bài toán sơ lược
@@ -74,7 +72,7 @@ Một tình huống sử dụng điển hình: (1) quản trị viên tải lên
 
 ### 2.3. Môi trường hoạt động dự kiến
 - **Người dùng:** Truy cập bằng trình duyệt web hiện đại trên máy tính hoặc thiết bị di động (Chrome, Edge, Firefox, Safari); giao diện responsive, không yêu cầu cài ứng dụng riêng.
-- **Máy chủ:** Backend Java 21 / Spring Boot cung cấp REST API; frontend React / TypeScript; PostgreSQL lưu dữ liệu nghiệp vụ và hỗ trợ truy xuất vector với pgvector; tài liệu gốc được lưu ở vùng lưu trữ riêng tư.
+- **Máy chủ:** Backend Java 21 / Spring Boot cung cấp REST API; frontend React / TypeScript; PostgreSQL lưu dữ liệu nghiệp vụ và hỗ trợ truy xuất vector với pgvector; tài liệu gốc được lưu ở phân vùng lưu trữ an toàn/cục bộ của máy chủ.
 - **Tích hợp AI:** Dịch vụ tạo embedding và sinh ngôn ngữ qua API; có chế độ mock để kiểm thử hoặc trình diễn khi không có dịch vụ bên ngoài.
 - **Triển khai:** Hướng đến môi trường Docker Compose, cấu hình qua biến môi trường và hướng dẫn chạy lại trên máy phát triển mới.
 
@@ -92,8 +90,6 @@ Một tình huống sử dụng điển hình: (1) quản trị viên tải lên
 | **OBJ-05** | AI đề xuất phản hồi có trích dẫn, đồng thời từ chối khi thiếu bằng chứng. | Kiểm tra nguồn trích dẫn bằng bộ câu hỏi đánh giá; thử các tình huống không có nguồn. |
 | **OBJ-06** | Dự án có thể cài đặt lại, kiểm thử và truy vết đóng góp. | Docker Compose, README, kết quả kiểm thử, Git commit/PR và Jira. |
 
-*Các tiêu chí trên là mục tiêu nghiệm thu của dự án, không phải kết quả đã được xác nhận.*
-
 ### 2.6. Đối tượng sử dụng
 
 | Đối tượng | Vai trò và nhu cầu chính |
@@ -106,9 +102,16 @@ Một tình huống sử dụng điển hình: (1) quản trị viên tải lên
 Ngoài các vai trò người dùng, hệ thống có tiến trình xử lý tài liệu nền và sử dụng dịch vụ AI bên ngoài. Đây là **thành phần kỹ thuật**, không phải tài khoản người dùng có quyền độc lập trong hệ thống.
 
 ### 2.7. Phạm vi MVP và giá trị sử dụng
-MVP tập trung vào bốn nhóm chức năng: (1) tài khoản và phân quyền; (2) quy trình ticket có trao đổi hai chiều; (3) quản lý kho tài liệu và tìm kiếm; (4) trợ lý AI gợi ý phản hồi có dẫn nguồn và bước duyệt của nhân viên. Sản phẩm được thiết kế để chứng minh một luồng sử dụng thực tế, tránh mở rộng sang các nghiệp vụ ít liên quan như CRM, thanh toán hoặc quản lý SLA phức tạp.
+MVP tập trung vào bốn nhóm chức năng chính:
 
-Giá trị kỳ vọng của hệ thống là **giúp người dùng theo dõi yêu cầu rõ ràng**, **giúp nhân viên tìm căn cứ nhanh hơn** và **giữ được trách nhiệm của con người đối với nội dung gửi đi**. Mức độ cải thiện thời gian xử lý hoặc chất lượng phản hồi chỉ được kết luận sau khi nhóm tiến hành đo đạc, không giả định sẵn.
+- **Tài khoản và phân quyền:** Quản lý tài khoản người dùng và quyền truy cập hệ thống.
+- **Quản lý ticket:** Tiếp nhận, xử lý yêu cầu hỗ trợ và trao đổi hai chiều giữa khách hàng và nhân viên.
+- **Quản lý kho tri thức:** Quản lý tài liệu và hỗ trợ tìm kiếm thông tin.
+- **Trợ lý AI:** Gợi ý phản hồi có dẫn nguồn và cho phép nhân viên kiểm tra, chỉnh sửa trước khi gửi.
+
+Sản phẩm được thiết kế để chứng minh một luồng sử dụng thực tế, tránh mở rộng sang các nghiệp vụ ít liên quan như quản lý quan hệ khách hàng (Customer Relationship Management – CRM), thanh toán hoặc quản lý thỏa thuận mức dịch vụ (Service Level Agreement – SLA) phức tạp.
+
+Giá trị kỳ vọng của hệ thống là **giúp người dùng gửi yêu cầu hỗ trợ rõ ràng**, **giúp nhân viên tìm căn cứ nhanh hơn** và **giữ được trách nhiệm của con người đối với nội dung gửi đi**.
 
 ---
 
@@ -118,44 +121,10 @@ Giá trị kỳ vọng của hệ thống là **giúp người dùng theo dõi y
 
 ### 3.1.1. Danh sách các chức năng phần mềm
 
-## Bảng đầy đủ
-| STT | Nhu cầu | Yêu cầu | Tham chiếu | Mức |
-|---:|---|---|---|---|
-| 1 | Là khách chưa có tài khoản, tôi muốn đăng ký để gửi yêu cầu hỗ trợ. | Đăng ký tài khoản Customer bằng email, tên và mật khẩu; vai trò mặc định là Customer. | FR-ID-01, UC-01, BR-01 | P0 |
-| 2 | Là người dùng đã có tài khoản, tôi muốn đăng nhập vào hệ thống. | Đăng nhập bằng email và mật khẩu; cấp access token và refresh token. | FR-ID-02/03, UC-01 | P0 |
-| 3 | Là người dùng đã đăng nhập, tôi muốn giữ phiên làm việc và đăng xuất an toàn. | Làm mới token có xoay vòng; đăng xuất thu hồi phiên hiện tại. | FR-ID-04/05, UC-02 | P0 |
-| 4 | Là người dùng đã đăng nhập, tôi muốn xem và cập nhật thông tin cá nhân. | Xem/sửa hồ sơ của chính mình; đổi mật khẩu có kiểm tra mật khẩu cũ. | FR-ID-06, UC-03 | P0 |
-| 5 | Là quản trị viên, tôi muốn quản lý tài khoản nhân viên hỗ trợ. | Tạo Agent; vô hiệu hóa hoặc kích hoạt lại; tài khoản bị vô hiệu không đăng nhập mới được. | FR-ID-08, UC-04, BR-02/16 | P0 |
-| 6 | Là quản trị viên, tôi muốn mỗi vai trò chỉ truy cập đúng dữ liệu được phép. | Phân quyền theo vai trò và theo quyền sở hữu, kiểm tra ở backend. | FR-ID-07, BR-03/04/14 | P0 |
-| 7 | Là khách hàng, tôi muốn tạo yêu cầu hỗ trợ để được giúp đỡ. | Tạo ticket gồm tiêu đề và mô tả; hệ thống tạo mã ticket và tin nhắn công khai đầu tiên. | FR-TK-01, UC-05 | P0 |
-| 8 | Là khách hàng, tôi muốn xem danh sách và tiến độ các ticket của mình. | Xem danh sách, chi tiết, trạng thái và các tin nhắn công khai; không thấy ghi chú nội bộ. | FR-TK-02/03, UC-06, BR-08 | P0 |
-| 9 | Là khách hàng, tôi muốn bổ sung thông tin hoặc trả lời nhân viên trong ticket. | Gửi tin nhắn công khai; khi ticket đang chờ khách phản hồi thì trả lời sẽ chuyển ticket về đang xử lý. | FR-TK-06/08, UC-08/09, BR-07 | P0 |
-| 10 | Là khách hàng, tôi muốn xác nhận đóng hoặc yêu cầu mở lại ticket đã giải quyết. | Đóng hoặc mở lại ticket từ trạng thái đã giải quyết. | FR-TK-08, BR-09, UC-09 | P0 |
-| 11 | Là nhân viên hỗ trợ, tôi muốn xem hàng đợi và nhận ticket chưa phân công. | Xem ticket OPEN; nhận ticket nguyên tử, chỉ một người nhận được khi nhiều người nhận đồng thời. | FR-TK-04, BR-05/06, UC-07 | P0 |
-| 12 | Là quản trị viên, tôi muốn phân công hoặc chuyển ticket cho nhân viên phù hợp. | Gán/chuyển Agent đang hoạt động; ghi lại người cũ và người mới. | FR-TK-05, UC-07, BR-15 | P0 |
-| 13 | Là nhân viên được giao ticket, tôi muốn trao đổi công khai với khách hàng. | Gửi phản hồi công khai trên ticket được giao. | FR-TK-06, UC-08, BR-04/07 | P0 |
-| 14 | Là nhân viên được giao ticket, tôi muốn ghi chú nội bộ. | Ghi chú nội bộ chỉ Agent được giao và Admin thấy. | FR-TK-07, BR-08, UC-08 | P0 |
-| 15 | Là nhân viên được giao ticket, tôi muốn cập nhật trạng thái và mức ưu tiên. | Yêu cầu thêm thông tin, đánh dấu đã giải quyết; đặt ưu tiên LOW/NORMAL/HIGH; chuyển trạng thái theo quy trình, từ chối chuyển không hợp lệ. | FR-TK-08, UC-09; Gợi ý bổ sung FR về việc đặt ưu tiên cụ thể hơn là chỉ nêu ra trong Field MVP | P0 |
-| 16 | Là nhân viên nhận ticket hoặc quản trị viên, tôi muốn xem lịch xử lý ticket. | Xem sự kiện nhận, phân công, đổi trạng thái (ai, lúc nào, làm gì). | FR-TK-09, BR-15, UC-10 | P0 |
-| 17 | Là người dùng, tôi muốn tìm và lọc ticket nhanh. | Lọc theo trạng thái, người phụ trách, ngày tạo; phân trang và sắp xếp. | FR-TK-10, UC-06 | P0 |
-| 18 | Là quản trị viên, tôi muốn đưa tài liệu chính sách vào kho tri thức. | Tải lên PDF văn bản, TXT, MD (≤ 10 MiB); hệ thống kiểm tra file và tạo tác vụ xử lý nền. | FR-KB-01/02, UC-11 | P0 |
-| 19 | Là quản trị viên, tôi muốn biết tài liệu đã xử lý xong hay lỗi. | Theo dõi trạng thái UPLOADED/PROCESSING/READY/FAILED; thử lại có giới hạn khi lỗi. | FR-KB-03/04/05/09, UC-11 | P0 |
-| 20 | Là quản trị viên, tôi muốn kiểm duyệt tài liệu trước khi AI được dùng. | Công bố tài liệu READY; lưu trữ (archive) tài liệu để AI không dùng nữa. | FR-KB-06/08, BR-11, UC-12 | P0 |
-| 21 | Là nhân viên hoặc quản trị viên, tôi muốn tra cứu tài liệu đã công bố. | Tìm kiếm trong tài liệu đã công bố, hiển thị đoạn liên quan. | FR-KB-07, UC-13 | P0 |
-| 22 | Là nhân viên nhận ticket, tôi muốn AI gợi ý câu trả lời có dẫn nguồn. | Truy xuất đoạn tài liệu liên quan, sinh bản nháp kèm trích dẫn đã được kiểm chứng. | FR-AI-01..05, BR-11/12, UC-14 | P0 |
-| 23 | Là nhân viên, tôi muốn AI cho biết khi không đủ căn cứ. | Trả về "không đủ bằng chứng" thay vì tự bịa chính sách. | FR-AI-06, BR-13, UC-14 | P0 |
-| 24 | Là nhân viên, tôi muốn giữ quyền kiểm soát nội dung gửi cho khách. | Xem, chỉnh sửa bản nháp rồi mới gửi thủ công; AI không tự gửi. | FR-AI-07, BR-10, UC-15 | P0 |
-| 25 | Là nhân viên hoặc quản trị viên, tôi muốn xem lại các gợi ý AI đã tạo. | Lưu lịch sử gợi ý kèm ảnh chụp nguồn trích dẫn tại thời điểm tạo. | FR-AI-08, BR-12; Gợi ý bổ sung FR/UC về logging/interface cho các gợi ý của AI | P0 |
-| 26 | Là nhân viên, tôi muốn hệ thống vẫn dùng được khi AI gặp sự cố. | AI lỗi/quá tải trả thông báo rõ; ticket vẫn tạo, xử lý, trả lời bình thường; giới hạn số lần gọi AI. | FR-AI-09, NFR-REL-01 | P0 |
-| 27 | Là người dùng quên mật khẩu, tôi muốn đặt lại mật khẩu. | Đặt lại mật khẩu qua token dùng một lần có thời hạn. | FR-ID-09, UC-16 | P1 |
-| 28 | Là quản trị viên, tôi muốn xem thống kê tổng quan. | Dashboard số ticket theo trạng thái và theo nhân viên. | FR-TK-12, UC-17 | P1 |
-| 29 | Là khách hàng, tôi muốn đính kèm tệp vào ticket. | Tải tệp đính kèm có giới hạn và kiểm tra quyền tải xuống. | FR-TK-11; Gợi ý bổ sung UC về attactchment lúc Customer tạo/phản hồi ticket  | P1 |
-| 30 | Là nhân viên, tôi muốn đánh giá chất lượng gợi ý của AI. | Đánh giá hữu ích/không hữu ích và thống kê chất lượng. | FR-AI-10; Gợi ý bổ sung UC về feedback/evaluation câu trả lời của AI từ Agent | P1 |
+### Bảng thể hiện các chức năng cơ bản của phần mềm
 
----
-### Bảng thu gọn
 | STT | Nhu cầu | Yêu cầu |
-| --- | --- | --- |
+| :---: | :--- | :--- |
 | 1 | Là khách chưa có tài khoản, tôi muốn đăng ký để gửi yêu cầu hỗ trợ. | Đăng ký tài khoản Customer bằng email, tên và mật khẩu; vai trò mặc định là Customer. |
 | 2 | Là người dùng đã có tài khoản, tôi muốn đăng nhập vào hệ thống. | Đăng nhập bằng email và mật khẩu; cấp access token và refresh token. |
 | 3 | Là người dùng đã đăng nhập, tôi muốn giữ phiên làm việc và đăng xuất an toàn. | Làm mới token có xoay vòng; đăng xuất thu hồi phiên hiện tại. |
@@ -171,16 +140,16 @@ Giá trị kỳ vọng của hệ thống là **giúp người dùng theo dõi y
 | 13 | Là nhân viên được giao ticket, tôi muốn trao đổi công khai với khách hàng. | Gửi phản hồi công khai trên ticket được giao. |
 | 14 | Là nhân viên được giao ticket, tôi muốn ghi chú nội bộ. | Ghi chú nội bộ chỉ Agent được giao và Admin thấy. |
 | 15 | Là nhân viên được giao ticket, tôi muốn cập nhật trạng thái và mức ưu tiên. | Yêu cầu thêm thông tin, đánh dấu đã giải quyết; đặt ưu tiên LOW/NORMAL/HIGH; chuyển trạng thái theo quy trình, từ chối chuyển không hợp lệ. |
-| 16 | Là nhân viên nhận ticket hoặc quản trị viên, tôi muốn xem lịch xử lý ticket. | Xem sự kiện nhận, phân công, đổi trạng thái (ai, lúc nào, làm gì). |
-| 17 | Là người dùng, tôi muốn tìm và lọc ticket nhanh. | Lọc theo trạng thái, người phụ trách, ngày tạo; phân trang và sắp xếp. |
+| 16 | Là nhân viên nhận ticket hoặc quản trị viên, tôi muốn xem lịch sử xử lý ticket. | Xem sự kiện nhận, phân công, đổi trạng thái (ai, lúc nào, làm gì). |
+| 17 | Là người dùng đã đăng nhập, tôi muốn tìm và lọc những ticket mình có quyền xem. | Lọc theo trạng thái, người phụ trách, ngày tạo; phân trang và sắp xếp. Kết quả chỉ bao gồm các ticket người dùng được phép truy cập theo vai trò và quyền sở hữu. |
 | 18 | Là quản trị viên, tôi muốn đưa tài liệu chính sách vào kho tri thức. | Tải lên PDF văn bản, TXT, MD (≤ 10 MiB); hệ thống kiểm tra file và tạo tác vụ xử lý nền. |
-| 19 | Là quản trị viên, tôi muốn biết tài liệu đã xử lý xong hay lỗi. | Theo dõi trạng thái UPLOADED/PROCESSING/READY/FAILED; thử lại có giới hạn khi lỗi. |
+| 19 | Là quản trị viên, tôi muốn biết tài liệu đã xử lý xong hay gặp lỗi. | Theo dõi trạng thái UPLOADED/PROCESSING/READY/FAILED; thử lại có giới hạn khi lỗi. |
 | 20 | Là quản trị viên, tôi muốn kiểm duyệt tài liệu trước khi AI được dùng. | Công bố tài liệu READY; lưu trữ (archive) tài liệu để AI không dùng nữa. |
 | 21 | Là nhân viên hoặc quản trị viên, tôi muốn tra cứu tài liệu đã công bố. | Tìm kiếm trong tài liệu đã công bố, hiển thị đoạn liên quan. |
-| 22 | Là nhân viên nhận ticket, tôi muốn AI gợi ý câu trả lời có dẫn nguồn. | Truy xuất đoạn tài liệu liên quan, sinh bản nháp kèm trích dẫn đã được kiểm chứng. |
-| 23 | Là nhân viên, tôi muốn AI cho biết khi không đủ căn cứ. | Trả về "không đủ bằng chứng" thay vì tự bịa chính sách. |
-| 24 | Là nhân viên, tôi muốn giữ quyền kiểm soát nội dung gửi cho khách. | Xem, chỉnh sửa bản nháp rồi mới gửi thủ công; AI không tự gửi. |
-| 25 | Là nhân viên hoặc quản trị viên, tôi muốn xem lại các gợi ý AI đã tạo. | Lưu lịch sử gợi ý kèm ảnh chụp nguồn trích dẫn tại thời điểm tạo. |
+| 22 | Là nhân viên nhận hoặc được giao ticket, tôi muốn AI gợi ý câu trả lời có dẫn nguồn. | Truy xuất đoạn tài liệu liên quan, sinh bản nháp kèm trích dẫn đã được kiểm chứng. |
+| 23 | Là nhân viên nhận hoặc được giao ticket hoặc quản trị viên, tôi muốn AI cho biết khi không đủ căn cứ. | Trả về trạng thái INSUFFICIENT_EVIDENCE thay vì tạo câu trả lời không có căn cứ. |
+| 24 | Là nhân viên nhận hoặc được giao ticket hoặc quản trị viên, tôi muốn giữ quyền kiểm soát nội dung phản hồi do AI đề xuất. | Xem, chỉnh sửa bản nháp rồi mới gửi thủ công; AI không tự gửi phản hồi cho khách hàng. |
+| 25 | Là nhân viên nhận hoặc được giao ticket hoặc quản trị viên, tôi muốn xem lại các gợi ý AI đã tạo. | Lưu lịch sử gợi ý và bản lưu nội dung nguồn trích dẫn tại thời điểm tạo; chỉ cho phép người có quyền truy cập ticket xem lịch sử. |
 | 26 | Là nhân viên, tôi muốn hệ thống vẫn dùng được khi AI gặp sự cố. | AI lỗi/quá tải trả thông báo rõ; ticket vẫn tạo, xử lý, trả lời bình thường; giới hạn số lần gọi AI. |
 | 27 | Là người dùng quên mật khẩu, tôi muốn đặt lại mật khẩu. | Đặt lại mật khẩu qua token dùng một lần có thời hạn. |
 | 28 | Là quản trị viên, tôi muốn xem thống kê tổng quan. | Dashboard số ticket theo trạng thái và theo nhân viên. |
@@ -394,20 +363,20 @@ Giai đoạn cuối diễn ra trong hai tuần, từ ngày 30/11/2026 đến ng�
 | 4 | Chuẩn bị kịch bản và diễn tập demo | 08/12/2026 | 11/12/2026 |
 | 5 | Đóng gói `GroupID.zip`, kiểm tra giới hạn 20 tệp/20 MB | 12/12/2026 | 12/12/2026 |
 | 6 | Trình bày và demo sản phẩm trong Presentation Day | 13/12/2026 | 13/12/2026 |
+
 ---
 
 # 5. Kế hoạch nhân sự & chi phí
 
 ### 5.1. Cấu trúc nhân sự
+Dự án áp dụng mô hình tổ chức đa năng (cross-functional), trong đó toàn bộ nhân sự kỹ thuật đều tham gia đầy đủ 5 công đoạn phát triển phần mềm (SDLC): Phân tích yêu cầu, Thiết kế, Cài đặt, Kiểm thử và Viết tài liệu kỹ thuật. Mỗi thành viên phụ trách một nghiệp vụ chính, đồng thời đảm nhận vai trò quản trị hoặc điều phối kỹ thuật liên quan:
 
-Dự án áp dụng mô hình tổ chức đa năng (cross-functional), trong đó toàn bộ nhân sự kỹ thuật đều tham gia đầy đủ 5 công đoạn phát triển phần mềm (SDLC): Phân tích yêu cầu, Thiết kế, Cài đặt, Kiểm thử và Viết tài liệu kỹ thuật. Mỗi thành viên đóng vai trò hạt nhân phụ trách một nghiệp vụ chính, đồng thời đảm nhận vai trò quản trị hoặc điều phối kỹ thuật liên quan:
-
-| STT | Thành viên | Vai trò chính trong dự án | Phân hệ phụ trách chính | Mô tả công việc chi tiết (Xuyên suốt vòng đời dự án SDLC) |
+| STT | Thành viên | Vai trò chính trong dự án | Module phụ trách chính | Mô tả công việc chi tiết (Xuyên suốt vòng đời dự án SDLC) |
 | :---: | :--- | :--- | :--- | :--- |
-| 1 | **Ngô Viết Thanh Bình** | Project Manager & DevOps Lead | **Xác thực & Phân quyền (Identity & Access)** | - **Quản trị & DevOps:** Thiết lập hạ tầng repository, chuẩn hóa luồng Git (Branching Strategy, Commit Hooks), xây dựng CI/CD pipeline tự động hóa kiểm thử mã nguồn, cấu hình Docker Compose môi trường Staging/Production và điều phối tiến độ Sprint trên Jira.<br>- **Phân tích & Thiết kế:** Khảo sát yêu cầu bảo mật, thiết kế mô hình phân quyền đa tầng (RBAC/ABAC), thiết kế luồng xác thực JWT/OAuth2, sơ đồ CSDL quan hệ cho bảng người dùng/phiên/quyền và kiến trúc Audit Logging ghi vết truy cập hệ thống.<br>- **Cài đặt:** Hiện thực hóa các API đăng ký, đăng nhập, thu hồi/làm mới Token, phân quyền Middleware trên Backend; phát triển giao diện quản lý tài khoản, phân quyền và lịch sử hoạt động trên Frontend.<br>- **Kiểm thử & Tài liệu:** Viết kịch bản kiểm thử bảo mật (Security/Auth Testing), kiểm thử phân quyền các vai trò; soạn thảo tài liệu đặc tả kiến trúc bảo mật và hướng dẫn triển khai/vận hành hệ thống. |
-| 2 | **Nguyễn Đức Lãm** | Backend Engineer & Quality Control | **Quản lý Tri thức (Knowledge Base)** | - **Phân tích & Thiết kế:** Thu thập yêu cầu nghiệp vụ quản trị kho bài viết hỗ trợ, thiết kế cấu trúc dữ liệu chuyên mục/cây thư mục bài viết, mô hình quan hệ bài viết - thẻ nhãn - tác giả, quy trình kiểm soát phiên bản (Article Versioning) và luồng phê duyệt xuất bản bài viết.<br>- **Cài đặt:** Xây dựng hệ thống RESTful API cho các tác vụ CRUD bài viết, danh mục tri thức, quản lý tệp đính kèm và tìm kiếm phân loại; tích hợp trình biên soạn nội dung Markdown/WYSIWYG ở trang quản trị và giao diện hiển thị bài viết thân thiện với người dùng.<br>- **Kiểm định chất lượng (QC):** Chuẩn hóa bộ quy tắc mã nguồn (Code Style/Linting), rà soát chất lượng code backend, viết Unit Test cho tầng nghiệp vụ và tối ưu hóa hiệu năng truy vấn CSDL bài viết.<br>- **Kiểm thử & Tài liệu:** Xây dựng kịch bản kiểm thử API/chức năng phân hệ Knowledge Base, kiểm thử luồng duyệt/xuất bản và soạn thảo tài liệu hướng dẫn kỹ thuật API (OpenAPI/Swagger). |
-| 3 | **Phan Gia Phúc** | Full-stack Engineer & Testing Lead | **Quản lý Phiếu hỗ trợ (Ticket Management)** | - **Phân tích & Thiết kế:** Khảo sát luồng nghiệp vụ tiếp nhận, phân loại mức độ ưu tiên và định tuyến phiếu hỗ trợ; thiết kế sơ đồ máy trạng thái vòng đời Ticket (State Machine), quy định cam kết thời hạn phản hồi/xử lý SLA và cấu trúc CSDL lưu trữ lịch sử trao đổi, bình luận.<br>- **Cài đặt:** Phát triển API xử lý vòng đời phiếu hỗ trợ, tính toán hạn xử lý theo SLA, bộ lọc tìm kiếm đa tiêu chí; xây dựng giao diện tương tác động cho nhân viên kỹ thuật (Agent Workspace) và cổng gửi yêu cầu thuận tiện cho khách hàng.<br>- **Quản lý kiểm thử (Testing Lead):** Thiết lập ma trận kiểm thử (Test Matrix), xây dựng kịch bản kiểm thử tự động E2E (End-to-End) luồng xử lý ticket, kiểm tra tính toán vi phạm SLA và xử lý xung đột dữ liệu đồng thời.<br>- **Kiểm thử & Tài liệu:** Thực hiện kiểm thử tích hợp (Integration Testing) phân hệ Ticket, xây dựng tài liệu hướng dẫn sử dụng cho người dùng (User Guide) và báo cáo đánh giá độ bao phủ kiểm thử. |
-| 4 | **Lê Quý Phúc** | AI Integration & Frontend Specialist | **Trợ lý Trí tuệ nhân tạo (AI Assistance)** | - **Phân tích & Thiết kế:** Khảo sát bài toán tích hợp mô hình ngôn ngữ lớn (LLM), thiết kế đường ống xử lý dữ liệu (Data Ingestion Pipeline) từ Knowledge Base sang Vector Database, thiết kế luồng tìm kiếm ngữ nghĩa tăng cường (RAG) và kỹ thuật thiết kế câu lệnh gợi ý (Prompt Engineering).<br>- **Cài đặt:** Xây dựng dịch vụ trích xuất vector embedding, tìm kiếm tương đồng (Similarity Search); phát triển giao diện Chatbot thông minh hỗ trợ khách hàng theo thời gian thực (Streaming Response) và widget AI gợi ý câu trả lời nhanh cho nhân viên xử lý ticket.<br>- **Kiểm thử chuyên sâu:** Đánh giá độ chính xác, tính nhất quán ngữ cảnh và tốc độ phản hồi của AI (Hallucination & Latency Benchmarks); kiểm thử tích hợp API AI với phân hệ Knowledge Base và Ticket.<br>- **Kiểm thử & Tài liệu:** Viết test case kiểm thử giao diện tương tác AI, soạn thảo tài liệu kiến trúc kỹ thuật RAG, ghi nhật ký minh bạch sử dụng AI và hướng dẫn tối ưu hạn mức token. |
+| 1 | **Ngô Viết Thanh Bình** | Project Manager & DevOps Lead | **Xác thực & Phân quyền (Identity & Access)** | - **Quản trị & DevOps:** Thiết lập hạ tầng repository, chuẩn hóa quy trình Git (Branching, Commit Hooks), xây dựng CI/CD pipeline kiểm thử tự động, cấu hình Docker Compose môi trường phát triển và điều phối tiến độ Sprint.<br>- **Phân tích & Thiết kế:** Thu thập yêu cầu xác thực và phân quyền (US/FR-ID, UC-01..04); thiết kế luồng xác thực JWT (Auth Sequence), sơ đồ CSDL bảng người dùng và phiên đăng nhập (users/session tables), ma trận phân quyền RBAC cho 3 vai trò (Admin, Agent, Customer).<br>- **Cài đặt:** Xây dựng API và giao diện cho các chức năng: đăng ký Customer, đăng nhập, cấp mới token (Refresh Token), đăng xuất, thông tin cá nhân và tính năng Admin tạo/vô hiệu hóa tài khoản Agent; kiểm tra phân quyền RBAC nghiêm ngặt tại backend.<br>- **Kiểm thử & Tài liệu:** Viết kịch bản kiểm thử tự động cho luồng xác thực và phân quyền (Auth & RBAC tests); soạn thảo tài liệu module Identity & Access và ghi nhật ký sử dụng AI minh bạch. |
+| 2 | **Nguyễn Đức Lãm** | Backend Engineer & Quality Control | **Kho tri thức (Knowledge Base)** | - **Phân tích & Thiết kế:** Thu thập yêu cầu module Knowledge Base (US/FR-KB, UC-11..13); thiết kế quy trình quản lý trạng thái tài liệu (`PROCESSING`, `READY`, `FAILED`, `ARCHIVED`) và luồng duyệt/xuất bản (Publish/Archive theo US-07); thiết kế đường ống Ingestion Pipeline, CSDL lưu trữ văn bản và chỉ mục vector (`pgvector`).<br>- **Cài đặt:** Xây dựng cổng tải lên và lưu trữ file tài liệu (PDF text-based, TXT, Markdown); xây dựng background worker để parse và chunk tài liệu; tích hợp trích xuất vector embedding lưu vào `pgvector`; xây dựng service truy xuất vector (`KnowledgeRetriever.search`) cung cấp dữ liệu cho module AI; phát triển giao diện Admin quản lý danh sách tài liệu và trạng thái xử lý.<br>- **Kiểm định chất lượng & Kiểm thử:** Chuẩn hóa quy tắc mã nguồn backend; viết kịch bản kiểm thử tự động cho bộ parser tài liệu (Parser tests) và kiểm thử độ chính xác truy xuất vector (Retrieval tests); đo lường benchmark hiệu năng xử lý tài liệu.<br>- **Tài liệu:** Soạn thảo tài liệu kỹ thuật module Knowledge Base, báo cáo benchmark hiệu năng xử lý tài liệu và chuẩn bị dữ liệu mẫu (Data seeding). |
+| 3 | **Phan Gia Phúc** | Full-stack Engineer & Testing Lead | **Quản lý Ticket (Ticket Management)** | - **Phân tích & Thiết kế:** Thu thập yêu cầu quản lý ticket (US/FR-TK, UC-05..10); thiết kế luồng chuyển trạng thái Ticket (State Machine: Open  Assigned  In Progress  Resolved  Closed); thiết kế mô hình CSDL quan hệ (Ticket ERD), luồng phản hồi công khai (Public Reply), trao đổi nội bộ giữa nhân viên (Internal Note) và lịch sử ghi vết (Audit History).<br>- **Cài đặt:** Xây dựng API và giao diện quản lý ticket: tiếp nhận yêu cầu từ Customer, hàng đợi ticket (Ticket Queue), cơ chế nhân viên nhận xử lý (Claim Ticket) hoặc phân công, luồng chuyển trạng thái ticket, phản hồi khách hàng và ghi chú nội bộ, bộ lọc và phân trang ticket.<br>- **Quản lý kiểm thử (Testing Lead):** Thiết lập ma trận kiểm thử tổng thể; xây dựng kịch bản kiểm thử tự động cho luồng xử lý tranh chấp nhận ticket đồng thời (Concurrent claim tests) và kiểm thử tính toàn vẹn của máy trạng thái chuyển đổi ticket (State transition tests).<br>- **Kiểm thử & Tài liệu:** Thực hiện kiểm thử tích hợp (Integration Testing) luồng nghiệp vụ ticket; rà soát ràng buộc toàn vẹn CSDL (DB constraints); soạn thảo tài liệu module Ticket và hồ sơ minh chứng kiểm thử (Test evidence). |
+| 4 | **Lê Quý Phúc** | AI Integration & Frontend Specialist | **Trợ lý AI (AI Assistance)** | - **Phân tích & Thiết kế:** Thu thập yêu cầu module trợ lý AI (US/FR-AI, UC-14..15); thiết kế luồng xử lý RAG (Retrieval-Augmented Generation) tiếp nhận ngữ cảnh từ module Knowledge Base; thiết kế cấu trúc Prompt, định dạng trích dẫn nguồn (Citation Contract), cơ chế từ chối trả lời khi thiếu chứng cứ (Abstention) và quy trình hỗ trợ nhân viên duyệt/chỉnh sửa thủ công trước khi gửi (Human-in-the-loop).<br>- **Cài đặt:** Xây dựng dịch vụ tích hợp API mô hình ngôn ngữ lớn (LLM Provider); phát triển giao diện tiện ích AI (AI Suggestion Widget) trong màn hình làm việc của nhân viên hỗ trợ (Agent Workspace) để gợi ý câu trả lời kèm trích dẫn tài liệu; xây dựng tính năng lưu lịch sử gợi ý và xử lý lỗi timeout.<br>- **Kiểm thử chuyên sâu:** Xây dựng bộ giả lập mô hình (Mock model contract); thực hiện đánh giá thực nghiệm chất lượng RAG (tỷ lệ trích dẫn chính xác, phát hiện trường hợp thiếu chứng cứ); kiểm thử khả năng chịu lỗi khi dịch vụ AI gặp sự cố (Fault tests).<br>- **Kiểm thử & Tài liệu:** Rà soát rủi ro an toàn câu lệnh và bảo mật dữ liệu riêng tư (Privacy & Prompt Risk Review); soạn thảo tài liệu kỹ thuật module AI và báo cáo đánh giá thực nghiệm RAG (Evaluation Report). |
 
 ---
 
@@ -424,17 +393,18 @@ Dự án dự kiến thực hiện trong 9 tuần, từ ngày 12/10/2026 đến 
 
 | STT | Hạng mục | Định mức | Thành tiền (VNĐ) | Ghi chú / Nguồn tham chiếu |
 | :---: | :--- | :--- | :---: | :--- |
-| **1** | **Nhân lực kỹ thuật** | 4 người × 80 giờ/tháng × 2,1 tháng × 60.000 VNĐ/giờ | **40.320.000** | Tham khảo chi phí trung bình từ các website. |
+| **1** | **Nhân lực kỹ thuật** | 4 người × 80 giờ/tháng × 2 tháng × 60.000 VNĐ/giờ | **38.400.000** | Chi phí quy đổi nhân sự lập trình trong 2 tháng (12/10 – 13/12/2026). |
 | **2** | **Cloud VPS** | 48 USD/tháng × 3 tháng | **~3.672.000** | DigitalOcean, gói Basic 4 vCPU, 8 GiB RAM, 160 GiB SSD; giá tham khảo tại thời điểm lập dự toán (quy đổi theo tỷ giá ~25.500 VNĐ/USD). |
 | **3** | **Tên miền .com** | 11,48 USD/năm | **~300.000** | Giá tham khảo từ Namecheap (~292.740 VNĐ, làm tròn lên ~300.000 VNĐ gồm phí đăng ký và ICANN); giá thực tế tùy thời điểm và nhà cung cấp. |
-| **4** | **API mô hình ngôn ngữ (LLM)** | Kịch bản 3.000 lượt gọi; 12 triệu token đầu vào và 1,5 triệu token đầu ra | **~60.000** | Ước tính theo model tham khảo chi phí thấp trên bảng giá OpenAI (ví dụ GPT-6 Luna: 0,10 USD/1M token input, 0,50 USD/1M token output $\to$ 1,95 USD ~ 49.725 VNĐ, làm tròn lên ~60.000 VNĐ để dự phòng). Chi phí thực tế phụ thuộc model được lựa chọn khi triển khai. |
+| **4** | **API mô hình ngôn ngữ (LLM)** | Kịch bản 3.000 lượt gọi; 12 triệu token đầu vào và 1,5 triệu token đầu ra | **~60.000** | Ước tính theo model tham khảo chi phí thấp trên bảng giá OpenAI (ví dụ GPT-6 Luna: 0,10 USD/1M token input, 0,50 USD/1M token output  1,95 USD ~ 49.725 VNĐ, làm tròn lên ~60.000 VNĐ để dự phòng). Chi phí thực tế phụ thuộc model được lựa chọn khi triển khai. |
 | **5** | **API Embedding** | 15 triệu token × 0,02 USD/triệu token | **~10.000** | Tham khảo model text-embedding-3-small của OpenAI (0,30 USD ~ 7.650 VNĐ, làm tròn lên ~10.000 VNĐ). |
-| **6** | **PostgreSQL + pgvector** | Chạy trên VPS | **0** | Không thuê dịch vụ cơ sở dữ liệu riêng. |
-| **7** | **Lưu trữ tệp tin** | Docker Volume trên VPS | **0** | Sử dụng dung lượng ổ đĩa của VPS, không thuê dịch vụ lưu trữ ngoài. |
-| **8** | **SSL/TLS** | Cloudflare Universal SSL, gói miễn phí | **0** | Không tính phí chứng chỉ theo phương án sử dụng gói miễn phí; cần cấu hình tên miền phù hợp. |
-| — | **Tổng chi phí** | — | **~44.362.000** | Bao gồm giá trị nhân lực quy đổi và chi phí hạ tầng (đã làm tròn các hạng mục lẻ). |
-| **9** | **Dự phòng rủi ro (10%)** | 10% tổng chi phí trực tiếp | **~4.438.000** | Dự phòng biến động giá, tỷ giá và mức sử dụng API (làm tròn lên). |
-| **TỔNG** | **TỔNG NGÂN SÁCH DỰ TOÁN** | — | **~48.800.000** | *(Bằng chữ: Khoảng bốn mươi tám triệu tám trăm nghìn đồng)* |
+| **6** | **Công cụ AI hỗ trợ** | 1 tài khoản ChatGPT Plus (tích hợp Codex) × 2 tháng | **~1.045.000** | Gói trả phí hỗ trợ phân tích, thiết kế, code và test; giá chính thức từ OpenAI: 522.500 VNĐ/tháng × 2 tháng = 1.045.000 VNĐ. |
+| **7** | **PostgreSQL + pgvector** | Chạy trên VPS | **0** | Không thuê dịch vụ cơ sở dữ liệu riêng. |
+| **8** | **Lưu trữ tệp tin** | Docker Volume trên VPS | **0** | Sử dụng dung lượng ổ đĩa của VPS, không thuê dịch vụ lưu trữ ngoài. |
+| **9** | **SSL/TLS** | Cloudflare Universal SSL, gói miễn phí | **0** | Không tính phí chứng chỉ theo phương án sử dụng gói miễn phí; cần cấu hình tên miền phù hợp. |
+| — | **Tổng chi phí trực tiếp** | — | **~43.487.000** | Bao gồm giá trị nhân lực quy đổi, hạ tầng cloud, API và công cụ AI hỗ trợ. |
+| **10** | **Dự phòng rủi ro (10%)** | 10% tổng chi phí trực tiếp | **~4.353.000** | Dự phòng biến động giá, tỷ giá và mức sử dụng API (làm tròn lên). |
+| **TỔNG** | **TỔNG NGÂN SÁCH DỰ TOÁN** | — | **~47.840.000** | *(Bằng chữ: Khoảng bốn mươi bảy triệu tám trăm bốn mươi nghìn đồng)* |
 
 > **Ghi chú:**
 > • Các chi phí được tính toán dựa trên quy mô nhóm nhỏ (4 thành viên) và mô hình triển khai thử nghiệm (prototype / MVP).
@@ -447,7 +417,8 @@ Dự án dự kiến thực hiện trong 9 tuần, từ ngày 12/10/2026 đến 
 2. Namecheap. .COM Domain Registration Pricing. https://www.namecheap.com/domains/registration/gtld/com/
 3. OpenAI. API Pricing. https://developers.openai.com/api/docs/pricing
 4. OpenAI. text-embedding-3-small. https://developers.openai.com/api/docs/models/text-embedding-3-small
-5. Cloudflare. Universal SSL/TLS Certificates. https://developers.cloudflare.com/ssl/edge-certificates/universal-ssl/
+5. OpenAI. ChatGPT Pricing (Codex / Plus). https://chatgpt.com/vi-VN/pricing
+6. Cloudflare. Universal SSL/TLS Certificates. https://developers.cloudflare.com/ssl/edge-certificates/universal-ssl/
 
 ---
 
@@ -461,3 +432,4 @@ Dự án dự kiến thực hiện trong 9 tuần, từ ngày 12/10/2026 đến 
 | `1.0.3` | 2026-10-22 | Nguyễn Đức Lãm | Hoàn thiện Mục 3.1.2 Kiến trúc tổng thể và Mục 4 Kế hoạch phát triển 5 giai đoạn | SCRUM-10 |
 | `1.0.4` | 2026-10-22 | Ngô Viết Thanh Bình | Hoàn thiện Mục 5 Kế hoạch nhân sự & chi phí chuyên nghiệp, chuẩn hóa kiểm chứng nguồn thực tế | SCRUM-11 |
 | `1.0.5` | 2026-10-22 | Ngô Viết Thanh Bình | Rà soát và loại bỏ các dòng ghi chú nội bộ, placeholder bản nháp; hoàn thiện bản đề xuất chính thức | SCRUM-11 |
+| `1.0.6` | 2026-10-26 | Ngô Viết Thanh Bình | Chuẩn hóa Mục 5.1 Cấu trúc nhân sự bám sát 100% SRS-master (Mục 2 & 16), loại bỏ tính năng ngoài phạm vi MVP theo review của Lãm | SCRUM-11 |
