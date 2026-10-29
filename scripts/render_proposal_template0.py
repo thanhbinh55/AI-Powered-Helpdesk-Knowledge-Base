@@ -19,13 +19,19 @@ import base64
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 MD_FILE = os.path.join(REPO_ROOT, "reports", "submit", "project-proposal", "project-proposal.md")
 OUT_HTML = os.path.join(REPO_ROOT, "reports", "submit", "project-proposal", "project-proposal.html")
-LOGO_PNG = os.path.join(REPO_ROOT, "reports", "submit", "Template0-ProjectProposal.docx", "images", "image4.png")
+LOGO_PNG = os.path.join(REPO_ROOT, "reports", "submit", "project-proposal", "hcmus_logo.png")
 
 
 def get_logo_base64():
-    if os.path.exists(LOGO_PNG):
-        with open(LOGO_PNG, "rb") as f:
-            return "data:image/png;base64," + base64.b64encode(f.read()).decode("ascii")
+    candidates = [
+        LOGO_PNG,
+        os.path.join(os.path.dirname(MD_FILE), "hcmus_logo.png"),
+        os.path.join(REPO_ROOT, "reports", "assets", "hcmus_logo.png"),
+    ]
+    for c in candidates:
+        if os.path.exists(c):
+            with open(c, "rb") as f:
+                return "data:image/png;base64," + base64.b64encode(f.read()).decode("ascii")
     return ""
 
 
@@ -33,16 +39,7 @@ def get_logo_html():
     b64 = get_logo_base64()
     if b64:
         return f'<img src="{b64}" alt="HCMUS Logo">'
-    return '''<svg width="55" height="55" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="display:inline-block; vertical-align:middle;">
-      <circle cx="50" cy="50" r="48" fill="#00549a" stroke="#003865" stroke-width="2"/>
-      <circle cx="50" cy="50" r="42" fill="#ffffff"/>
-      <circle cx="50" cy="50" r="38" fill="#00549a"/>
-      <ellipse cx="50" cy="50" rx="28" ry="10" fill="none" stroke="#ffffff" stroke-width="2" transform="rotate(30 50 50)"/>
-      <ellipse cx="50" cy="50" rx="28" ry="10" fill="none" stroke="#ffffff" stroke-width="2" transform="rotate(-30 50 50)"/>
-      <ellipse cx="50" cy="50" rx="28" ry="10" fill="none" stroke="#ffffff" stroke-width="2" transform="rotate(90 50 50)"/>
-      <circle cx="50" cy="50" r="6" fill="#ffd700"/>
-      <text x="50" y="82" font-family="'Times New Roman', serif" font-size="9" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="1">KHTN</text>
-    </svg>'''
+    return ""
 
 
 from template0_styles import UNIFIED_TEMPLATE0_CSS as TEMPLATE_CSS
