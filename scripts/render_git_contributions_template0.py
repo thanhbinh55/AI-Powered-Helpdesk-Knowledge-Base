@@ -1,0 +1,404 @@
+#!/usr/bin/env python3
+"""
+scripts/render_git_contributions_template0.py
+Render báo cáo Lịch sử Commit Git (Git Contributions Report) sang định dạng HTML tự chứa (self-contained)
+áp dụng 100% phong cách Template 0 chính thức:
+- Trang bìa chuẩn học thuật với tiêu đề NMCNPM - AI-Powered Helpdesk & Knowledge Base - Group 04,
+  banner lớn và logo HCMUS góc dưới bên trái.
+- Phân trang độc lập với thẻ .doc-page.
+- Header & Footer chuẩn biểu mẫu trên từng trang nội dung.
+- Bảng biểu, typography Times New Roman, line-height 1.5, in ấn A4 chuẩn.
+"""
+
+import os
+import sys
+import re
+import html
+import base64
+
+REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+MD_FILE = os.path.join(REPO_ROOT, "reports", "submit", "git-contributions", "git-contributions.md")
+OUT_HTML = os.path.join(REPO_ROOT, "reports", "submit", "git-contributions", "git-contributions.html")
+LOGO_PNG = os.path.join(REPO_ROOT, "reports", "submit", "git-contributions", "hcmus_logo.png")
+
+
+def get_logo_base64():
+    candidates = [
+        LOGO_PNG,
+        os.path.join(os.path.dirname(MD_FILE), "hcmus_logo.png"),
+        os.path.join(REPO_ROOT, "reports", "assets", "hcmus_logo.png"),
+        os.path.join(REPO_ROOT, "reports", "submit", "project-proposal", "hcmus_logo.png"),
+    ]
+    for c in candidates:
+        if os.path.exists(c):
+            with open(c, "rb") as f:
+                return "data:image/png;base64," + base64.b64encode(f.read()).decode("ascii")
+    return ""
+
+
+def get_logo_html():
+    b64 = get_logo_base64()
+    if b64:
+        return f'<img src="{b64}" alt="HCMUS Logo">'
+    return ""
+
+
+from template0_styles import UNIFIED_TEMPLATE0_CSS as TEMPLATE_CSS
+
+
+def format_inline(text):
+    text = html.escape(text)
+    # Bold
+    text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
+    text = re.sub(r'__(.+?)__', r'<strong>\1</strong>', text)
+    # Italic
+    text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
+    text = re.sub(r'_(.+?)_', r'<em>\1</em>', text)
+
+    # Commit hash badge: `[xxxxxxxx]` -> styled badge
+    def badge_repl(m):
+        raw = m.group(1)
+        if re.match(r'^\[[0-9a-f]{8}\]$', raw):
+            h_code = raw[1:-1]
+            return f'<span class="commit-badge"><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/{h_code}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:none;">[{h_code}]</a></span>'
+        return f'<code>{raw}</code>'
+
+    text = re.sub(r'`([^`]+)`', badge_repl, text)
+
+    # Links [text](url)
+    def replace_link(match):
+        label = match.group(1)
+        href = match.group(2)
+        if href.startswith('#'):
+            return f'<a href="{href}">{label}</a>'
+        return f'<a href="{href}" target="_blank" rel="noopener noreferrer">{label}</a>'
+
+    text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', replace_link, text)
+
+    # Restore safe inline tags
+    text = text.replace("&lt;code&gt;", "<code>").replace("&lt;/code&gt;", "</code>")
+    text = text.replace("&lt;br&gt;", "<br>").replace("&lt;br/&gt;", "<br>").replace("&lt;br /&gt;", "<br>")
+    text = text.replace("&lt;strong&gt;", "<strong>").replace("&lt;/strong&gt;", "</strong>")
+    text = text.replace("&lt;em&gt;", "<em>").replace("&lt;/em&gt;", "</em>")
+    text = re.sub(r'&lt;(p|div|span)\b([^&gt;]*)&gt;', lambda m: f'<{m.group(1)}{html.unescape(m.group(2))}>', text)
+    text = re.sub(r'&lt;/(p|div|span)&gt;', r'</\1>', text)
+    return text
+
+
+def build_slugs(raw_title):
+    s1 = re.sub(r'[^a-zA-Z0-9\u00C0-\u024F\u1EA0-\u1EF9]+', '-', raw_title.lower()).strip('-')
+    s1_collapsed = re.sub(r'-+', '-', s1)
+    return [s1_collapsed] if s1_collapsed else ["heading"]
+
+
+def parse_markdown_snippet_to_html(md_text):
+    lines = md_text.splitlines()
+    html_lines = []
+
+    in_table = False
+    table_buf = []
+    in_ul = False
+    in_ol = False
+
+    def flush_table():
+        nonlocal in_table, table_buf
+        if not table_buf:
+            return ""
+        out = ["<table>"]
+        col_aligns = []
+        for i, row in enumerate(table_buf):
+            cells = [c.strip() for c in row.strip().strip("|").split("|")]
+            if all(re.match(r'^:?-+:?$', c) for c in cells if c):
+                col_aligns = []
+                for c in cells:
+                    if c.startswith(":") and c.endswith(":"):
+                        col_aligns.append("align-center")
+                    elif c.endswith(":"):
+                        col_aligns.append("align-right")
+                    else:
+                        col_aligns.append("align-left")
+                continue
+
+            tag = "th" if i == 0 else "td"
+            out.append("  <tr>")
+            for c_idx, cell in enumerate(cells):
+                align_cls = col_aligns[c_idx] if c_idx < len(col_aligns) else ""
+                if tag == "td" and not align_cls:
+                    if re.match(r'^\d+$', cell) or cell in ["2026-10-28", "2026-10-23", "2026-10-22", "2026-10-20", "2026-10-19"]:
+                        align_cls = "align-center"
+                cls_attr = f' class="{align_cls}"' if align_cls else ""
+                inline = format_inline(cell)
+                out.append(f"    <{tag}{cls_attr}>{inline}</{tag}>")
+            out.append("  </tr>")
+        out.append("</table>")
+        in_table = False
+        table_buf = []
+        return "\n".join(out)
+
+    def flush_lists():
+        nonlocal in_ul, in_ol
+        out = []
+        if in_ul:
+            out.append("</ul>")
+            in_ul = False
+        if in_ol:
+            out.append("</ol>")
+            in_ol = False
+        return "\n".join(out)
+
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        stripped = line.strip()
+
+        # Tables
+        if stripped.startswith("|") and stripped.endswith("|"):
+            if in_ul or in_ol:
+                html_lines.append(flush_lists())
+            in_table = True
+            table_buf.append(stripped)
+            i += 1
+            continue
+        elif in_table:
+            html_lines.append(flush_table())
+
+        # Empty lines
+        if not stripped:
+            if in_ul or in_ol:
+                html_lines.append(flush_lists())
+            i += 1
+            continue
+
+        # Bullet list
+        m_ul = re.match(r'^[-*+]\s+(.*)$', stripped)
+        if m_ul:
+            if in_ol:
+                html_lines.append(flush_lists())
+            if not in_ul:
+                html_lines.append("<ul>")
+                in_ul = True
+            html_lines.append(f"  <li>{format_inline(m_ul.group(1))}</li>")
+            i += 1
+            continue
+
+        # Numbered list
+        m_ol = re.match(r'^\d+\.\s+(.*)$', stripped)
+        if m_ol:
+            if in_ul:
+                html_lines.append(flush_lists())
+            if not in_ol:
+                html_lines.append("<ol>")
+                in_ol = True
+            html_lines.append(f"  <li>{format_inline(m_ol.group(1))}</li>")
+            i += 1
+            continue
+
+        if in_ul or in_ol:
+            html_lines.append(flush_lists())
+
+        # Headings
+        m_h = re.match(r'^(#{1,6})\s+(.*)$', line)
+        if m_h:
+            level = len(m_h.group(1))
+            heading_raw = m_h.group(2).strip()
+            slugs = build_slugs(heading_raw)
+            primary_slug = slugs[0]
+            heading_text = format_inline(heading_raw)
+            html_lines.append(f'<h{level} id="{primary_slug}">{heading_text}</h{level}>')
+            i += 1
+            continue
+
+        # Blockquote
+        if stripped.startswith(">"):
+            quote_text = format_inline(stripped.lstrip("> ").strip())
+            html_lines.append(f"<blockquote><p>{quote_text}</p></blockquote>")
+            i += 1
+            continue
+
+        # Horizontal rule
+        if re.match(r'^(\*{3,}|-{3,}|_{3,})$', stripped):
+            html_lines.append("<hr style='border:0; border-top:1px solid #cbd5e1; margin:20px 0;'>")
+            i += 1
+            continue
+
+        # Regular paragraph
+        html_lines.append(f"<p>{format_inline(stripped)}</p>")
+        i += 1
+
+    if in_table:
+        html_lines.append(flush_table())
+    if in_ul or in_ol:
+        html_lines.append(flush_lists())
+
+    return "\n".join(html_lines)
+
+
+def render_cover_page(logo_b64):
+    return f"""
+<!-- TRANG 1: TRANG BÌA (COVER PAGE) -->
+<section class="doc-page cover-page" id="trang-bia">
+  <div class="cover-top-section">
+    <div class="cover-doc-id">NMCNPM - AI-Powered Helpdesk &amp; Knowledge Base - Group 04</div>
+
+    <div class="proposal-banner">
+      <div class="banner-title">Git Commit History Report</div>
+      <div class="banner-subtitle">Báo cáo Lịch sử Commit &amp; Đóng góp cá nhân (Git Commit History &amp; Contributions Report)</div>
+    </div>
+
+    <div class="cover-meta-box">
+      <div><strong>Học phần:</strong> Nhập môn Công nghệ Phần mềm (CS10014) — Học kỳ 1 / Năm học 2026 - 2027</div>
+      <div><strong>Đề tài đề xuất:</strong> AI-Powered Helpdesk &amp; Knowledge Base</div>
+      <div><strong>Mã nhóm:</strong> Group 04</div>
+      <div><strong>Kho lưu trữ (Repository):</strong> <a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base" target="_blank" rel="noopener noreferrer">https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base</a></div>
+      <div><strong>Chuẩn quy định:</strong> Quy chuẩn đối soát đóng góp cá nhân &amp; Kiểm soát mã nguồn Git Flow</div>
+      <div><strong>Mục đích &amp; Phạm vi tài liệu:</strong> Thống kê minh bạch, chính xác toàn bộ lịch sử commit Git của từng thành viên từ lúc khởi tạo repository đến hiện tại phục vụ công tác đối soát đóng góp cá nhân và thẩm định của Giảng viên.</div>
+      <div><strong>Ngày cập nhật:</strong> 29/10/2026</div>
+      <div style="margin-top: 14px;">
+        <table style="width: 100%; margin: 6px 0 0 0; border-collapse: collapse; font-size: 10.5pt;">
+          <thead>
+            <tr>
+              <th style="padding: 5px 6px; text-align: center; width: 45px;">STT</th>
+              <th style="padding: 5px 6px; text-align: center; width: 85px;">MSSV</th>
+              <th style="padding: 5px 8px; text-align: left;">Họ và Tên</th>
+              <th style="padding: 5px 8px; text-align: center; width: 120px;">GitHub</th>
+              <th style="padding: 5px 8px; text-align: left;">Module phụ trách</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center; padding: 5px 6px;">1</td>
+              <td style="text-align: center; padding: 5px 6px;"><code>24120269</code></td>
+              <td style="padding: 5px 8px;">Ngô Viết Thanh Bình (Lead)</td>
+              <td style="text-align: center; padding: 5px 8px;"><code>thanhbinh55</code></td>
+              <td style="padding: 5px 8px;">D - Identity &amp; Access</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 5px 6px;">2</td>
+              <td style="text-align: center; padding: 5px 6px;"><code>24120083</code></td>
+              <td style="padding: 5px 8px;">Nguyễn Đức Lãm</td>
+              <td style="text-align: center; padding: 5px 8px;"><code>Lamnguyen-code</code></td>
+              <td style="padding: 5px 8px;">B - Knowledge Base</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 5px 6px;">3</td>
+              <td style="text-align: center; padding: 5px 6px;"><code>24120503</code></td>
+              <td style="padding: 5px 8px;">Phan Gia Phúc</td>
+              <td style="text-align: center; padding: 5px 8px;"><code>t4lf4n</code></td>
+              <td style="padding: 5px 8px;">C - Ticket Management</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 4px 6px;">4</td>
+              <td style="text-align: center; padding: 4px 6px;"><code>24120121</code></td>
+              <td style="padding: 5px 8px;">Lê Quý Phúc</td>
+              <td style="text-align: center; padding: 5px 8px;"><code>Shinkiisme</code></td>
+              <td style="padding: 5px 8px;">A - AI Assistance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-bottom-section">
+    <div class="cover-institution-block-bottom">
+      <div class="cover-logo-wrapper">
+        {get_logo_html()}
+      </div>
+      <div class="cover-inst-text">
+        <div class="inst-line-dept">Bộ môn Công nghệ phần mềm</div>
+        <div class="inst-line-faculty">Khoa Công nghệ thông tin</div>
+        <div class="inst-line-school">Đại học Khoa học tự nhiên TP HCM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page-break-divider"></div>
+"""
+
+
+def render_section_page(content_html, page_num_str, section_id=None):
+    id_attr = f' id="{section_id}"' if section_id else ""
+    return f"""
+<section class="doc-page"{id_attr}>
+  <!-- Header Bar -->
+  <div class="template-header-bar">
+    <div class="header-tab">Nhập môn công nghệ phần mềm</div>
+    <div class="header-title">Báo cáo lịch sử Git (Git Contributions Report)</div>
+  </div>
+
+  <!-- Content -->
+  <div class="page-content">
+{content_html}
+  </div>
+
+  <!-- Footer Bar -->
+  <div class="template-footer-bar">
+    <div class="footer-left">ĐH Khoa học tự nhiên TP HCM | Bộ môn Công nghệ phần mềm</div>
+    <div class="footer-tab">Trang {page_num_str}</div>
+  </div>
+</section>
+
+<div class="page-break-divider"></div>
+"""
+
+
+def build_git_contributions_document():
+    with open(MD_FILE, "r", encoding="utf-8") as f:
+        md_text = f.read()
+
+    logo_b64 = get_logo_base64()
+    cover_html = render_cover_page(logo_b64)
+
+    # Chia các phần nội dung của git-contributions:
+    # Trang 1: DANH SÁCH COMMIT CỦA MỖI THÀNH VIÊN - Thành viên 1: Ngô Viết Thanh Bình (35 commits)
+    # Trang 2: Thành viên 2, 3, 4: Nguyễn Đức Lãm (2), Phan Gia Phúc (1), Lê Quý Phúc (1)
+
+    # Tìm phần Thành viên 1: Ngô Viết Thanh Bình
+    tb_match = re.search(r'(## DANH SÁCH COMMIT CỦA MỖI THÀNH VIÊN.*?\n)(?=### 2\. Thành viên:)', md_text, re.DOTALL)
+    tb_md = tb_match.group(1) if tb_match else ""
+    page1_html = parse_markdown_snippet_to_html(tb_md)
+
+    # Tìm phần Thành viên 2, 3, 4
+    rest_match = re.search(r'(### 2\. Thành viên: 24120083 - Lamnguyen-code.*)$', md_text, re.DOTALL)
+    rest_md = rest_match.group(1) if rest_match else ""
+    page2_html = parse_markdown_snippet_to_html(rest_md)
+
+    pages = [
+        render_section_page(page1_html, "1", "sec-thanhbinh"),
+        render_section_page(page2_html, "2", "sec-members"),
+    ]
+
+    all_sections_html = "\n".join(pages)
+
+    full_html = f"""<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NMCNPM - AI-Powered Helpdesk & Knowledge Base - Group 04 | Git Contributions Report</title>
+  <style>
+{TEMPLATE_CSS}
+  </style>
+</head>
+<body>
+
+{cover_html}
+{all_sections_html}
+
+<!-- Floating Back to Top Button -->
+<a href="#trang-bia" class="back-to-top" title="Lên đầu trang">
+  <span>▲ Lên đầu trang</span>
+</a>
+
+</body>
+</html>
+"""
+
+    with open(OUT_HTML, "w", encoding="utf-8") as f_out:
+        f_out.write(full_html)
+    print(f"✅ Đã render thành công bản HTML chuẩn Template 0: {OUT_HTML}")
+
+
+if __name__ == "__main__":
+    build_git_contributions_document()

@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NMCNPM - AI-Powered Helpdesk & Knowledge Base - Group 04 | Project Proposal (Template 0)</title>
+  <style>
+
+:root {
+  --primary-blue: #548dd4;
+  --header-blue: #548dd4;
+  --sub-blue: #4f81bd;
+  --dark-blue: #366091;
+  --text-dark: #000000;
+  --border-dark: #cbd5e1;
+  --table-stripe: #f8fafc;
+  --quote-bg: #f8fafc;
+}
+
+/* Ép buộc 100% tất cả các phần tử trên trang sử dụng font Times New Roman */
+*, *::before, *::after,
+html, body, p, span, div, a, li, ul, ol, blockquote, table, th, td, tr, 
+h1, h2, h3, h4, h5, h6, input, button, select, textarea, b, strong, em, i, 
+code, pre, small, sub, sup, header, footer, section, article, caption {
+  font-family: 'Times New Roman', Times, serif !important;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+body {
+  font-family: 'Times New Roman', Times, serif !important;
+  color: var(--text-dark);
+  background-color: #f1f5f9;
+  margin: 0;
+  padding: 30px 0 60px 0;
+  line-height: 1.5;
+  font-size: 12pt;
+}
+
+/* Document Page Sheet representing each paginated section */
+.doc-page, .report-container, .container {
+  background-color: #ffffff;
+  max-width: 900px;
+  margin: 0 auto 35px auto;
+  padding: 40px 55px 35px 55px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.doc-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cover-page {
+  min-height: 1050px;
+}
+
+.toc-page {
+  min-height: 950px;
+}
+
+.page-content {
+  flex-grow: 1;
+}
+
+/* Page Break Divider for Screen */
+.page-break-divider {
+  height: 20px;
+  page-break-after: always;
+  break-after: page;
+}
+
+/* Running Header strictly matching teacher's Template 0 */
+.template-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2px solid #548dd4;
+  margin-bottom: 24px;
+  padding-bottom: 0;
+  width: 100%;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.template-header-bar .header-tab {
+  background-color: #548dd4 !important;
+  color: #ffffff !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  font-weight: 700 !important;
+  font-size: 11pt !important;
+  line-height: 1.2;
+  padding: 5px 22px 5px 22px;
+  display: inline-block;
+  margin-bottom: -1px;
+  letter-spacing: 0.2px;
+}
+
+.template-header-bar .header-title {
+  color: #000000 !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  font-weight: 700 !important;
+  font-size: 11pt !important;
+  line-height: 1.2;
+  padding-bottom: 4px;
+  padding-right: 2px;
+  text-align: right;
+  letter-spacing: 0.2px;
+}
+
+/* Running Footer strictly matching teacher's Template 0 */
+.template-footer-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-top: 2px solid #548dd4;
+  margin-top: 32px;
+  padding-top: 0;
+  width: 100%;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.template-footer-bar .footer-left {
+  color: #000000 !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 10.5pt !important;
+  padding-top: 6px;
+  line-height: 1.2;
+}
+
+.template-footer-bar .footer-tab {
+  background-color: #548dd4 !important;
+  color: #ffffff !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  font-weight: 700 !important;
+  font-size: 11pt !important;
+  padding: 4px 24px 6px 24px;
+  min-width: 45px;
+  text-align: center;
+  line-height: 1.2;
+  margin-top: -2px;
+  display: inline-block;
+  letter-spacing: 0.2px;
+}
+
+/* Cover Page Specific Styles (Template 0) */
+.cover-page {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  min-height: 297mm;
+  height: 297mm;
+  padding: 30mm 25mm 25mm 25mm !important;
+  box-sizing: border-box !important;
+}
+
+.cover-doc-id {
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 15pt !important;
+  font-weight: 700 !important;
+  color: #000000 !important;
+  line-height: 1.4;
+  margin-bottom: 35px;
+  letter-spacing: 0.5px;
+}
+
+.proposal-banner {
+  background-color: #548dd4;
+  padding: 36px 30px;
+  margin: 15px 0 25px 0;
+  text-align: center;
+}
+
+.banner-title {
+  color: #ffffff !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 32pt !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.banner-subtitle {
+  color: #ffffff !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 13.5pt !important;
+  font-weight: 400 !important;
+  margin-top: 10px;
+  font-style: italic;
+  opacity: 0.95;
+}
+
+.cover-meta-box {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  padding: 16px 22px;
+  margin: 25px 0;
+  border-radius: 4px;
+  font-size: 11.5pt !important;
+  line-height: 1.6;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.cover-meta-box strong {
+  color: #000000 !important;
+}
+
+.cover-institution-block-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-top: auto;
+  margin-bottom: 10px;
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.cover-logo-wrapper {
+  width: 75px;
+  height: 75px;
+  flex-shrink: 0;
+}
+
+.cover-logo-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cover-inst-text {
+  text-align: left;
+  line-height: 1.4;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.inst-line-dept, .inst-line-faculty {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 12pt !important;
+  font-weight: 700 !important;
+  color: #000000 !important;
+}
+
+.inst-line-school {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 12.5pt !important;
+  font-weight: 700 !important;
+  color: #366091 !important;
+}
+
+/* Headings Hierarchy strictly Times New Roman */
+h1 {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 16pt !important;
+  font-weight: 700 !important;
+  color: #366091 !important;
+  margin-top: 26px !important;
+  margin-bottom: 14px !important;
+  padding-bottom: 4px !important;
+  border-bottom: 2px solid #548dd4 !important;
+  line-height: 1.3 !important;
+  page-break-after: avoid;
+}
+
+h2 {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 14pt !important;
+  font-weight: 700 !important;
+  color: #366091 !important;
+  margin-top: 22px !important;
+  margin-bottom: 10px !important;
+  padding-bottom: 3px !important;
+  border-bottom: 1px solid #cbd5e1 !important;
+  line-height: 1.3 !important;
+  page-break-after: avoid;
+}
+
+h3 {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 13pt !important;
+  font-weight: 700 !important;
+  color: #366091 !important;
+  margin-top: 18px !important;
+  margin-bottom: 8px !important;
+  line-height: 1.3 !important;
+  page-break-after: avoid;
+}
+
+h4 {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 12.5pt !important;
+  font-weight: 700 !important;
+  color: #4f81bd !important;
+  margin-top: 14px !important;
+  margin-bottom: 6px !important;
+  line-height: 1.3 !important;
+  page-break-after: avoid;
+}
+
+h5 {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 12pt !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  color: #26215c !important;
+  margin-top: 12px !important;
+  margin-bottom: 4px !important;
+  line-height: 1.3 !important;
+  page-break-after: avoid;
+}
+
+h6 {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 12pt !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  color: #475569 !important;
+  margin-top: 10px !important;
+  margin-bottom: 4px !important;
+  line-height: 1.3 !important;
+  page-break-after: avoid;
+}
+
+p {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 12pt !important;
+  line-height: 1.5 !important;
+  color: #000000 !important;
+  margin-top: 6px !important;
+  margin-bottom: 10px !important;
+  text-align: justify !important;
+}
+
+ul, ol {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 12pt !important;
+  line-height: 1.5 !important;
+  color: #000000 !important;
+  margin-top: 6px !important;
+  margin-bottom: 12px !important;
+  padding-left: 28px !important;
+}
+
+li {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 12pt !important;
+  line-height: 1.5 !important;
+  margin-bottom: 4px !important;
+  text-align: justify !important;
+}
+
+blockquote {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 12pt !important;
+  line-height: 1.55 !important;
+  border: 1px solid #cbd5e1 !important;
+  background-color: #f8fafc !important;
+  padding: 12px 18px !important;
+  margin: 14px 0 !important;
+  color: #1e293b !important;
+  font-style: italic !important;
+  border-radius: 4px !important;
+}
+
+blockquote p {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 12pt !important;
+  font-style: italic !important;
+  margin: 0 !important;
+}
+
+/* Captions for Tables and Figures */
+.table-caption, .figure-caption {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 11.5pt !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  margin: 8px 0 12px 0 !important;
+  color: #000000 !important;
+}
+
+.figure-caption {
+  font-style: italic !important;
+  font-weight: 400 !important;
+}
+
+/* Table of Contents */
+.toc-container {
+  background-color: #fbfcfe;
+  border: 1px solid #dbeafe;
+  border-radius: 6px;
+  padding: 24px 32px;
+  margin: 15px 0 25px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.toc-header-title {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 16pt !important;
+  font-weight: 700 !important;
+  color: #366091 !important;
+  margin-top: 0 !important;
+  margin-bottom: 18px !important;
+  border-bottom: 2px solid #548dd4 !important;
+  padding-bottom: 6px !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.toc-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  font-size: 11.5pt !important;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.toc-item {
+  margin-bottom: 5px;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.toc-link {
+  color: #0f172a;
+  text-decoration: none;
+  display: flex;
+  align-items: baseline;
+  padding: 2px 4px;
+  border-radius: 3px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.toc-link:hover {
+  color: #366091;
+  background-color: #eff6ff;
+  text-decoration: none;
+}
+
+.toc-title-text {
+  font-weight: 700 !important;
+  font-size: 12pt !important;
+  color: #0f172a !important;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.toc-sub-title-text {
+  font-weight: 400 !important;
+  font-size: 11.5pt !important;
+  color: #334155 !important;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.toc-dots {
+  flex-grow: 1;
+  border-bottom: 1px dotted #94a3b8;
+  margin: 0 8px;
+  min-width: 20px;
+}
+
+/* Tables strictly formatted to Template 0 */
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 16px 0 20px 0 !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 11pt !important;
+  line-height: 1.35 !important;
+  page-break-inside: avoid;
+}
+
+th, td {
+  border: 1px solid #cbd5e1 !important;
+  padding: 8px 10px !important;
+  vertical-align: top !important;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+th {
+  background-color: #548dd4 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  font-size: 11pt !important;
+  border: 1px solid #548dd4 !important;
+  vertical-align: middle !important;
+}
+
+td {
+  font-size: 11pt !important;
+  line-height: 1.45 !important;
+  color: #000000 !important;
+}
+
+tr:nth-child(even) td {
+  background-color: #f8fafc !important;
+}
+
+.align-center {
+  text-align: center !important;
+}
+
+.align-right {
+  text-align: right !important;
+}
+
+.align-left {
+  text-align: left !important;
+}
+
+/* Inline Code, Badges, & Pre Blocks */
+code {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 11pt !important;
+  font-weight: 600 !important;
+  background-color: #f1f5f9 !important;
+  padding: 1px 6px !important;
+  border-radius: 3px !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+.commit-badge, .entry-badge {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 11pt !important;
+  font-weight: 700 !important;
+  color: #1e3a8a !important;
+  background-color: #e0f2fe !important;
+  padding: 2px 7px !important;
+  border-radius: 4px !important;
+  border: 1px solid #bae6fd !important;
+  display: inline-block !important;
+}
+
+pre {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  padding: 12px 16px !important;
+  border-radius: 6px !important;
+  overflow-x: auto !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 11pt !important;
+  margin: 14px 0 !important;
+}
+
+pre code {
+  background-color: transparent !important;
+  color: inherit !important;
+  border: none !important;
+  padding: 0 !important;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.mermaid, .svg-diagram-wrapper {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 16px;
+  margin: 20px auto;
+  text-align: center;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.svg-diagram-wrapper svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Floating Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: var(--primary-blue);
+  color: #ffffff !important;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 10pt !important;
+  font-weight: 700 !important;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 112, 192, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+  z-index: 1000;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.back-to-top:hover {
+  background-color: #005a9e;
+  transform: translateY(-2px);
+  color: #ffffff !important;
+}
+
+/* Print Styles for A4 Paper Export */
+@media print {
+  body {
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+  }
+  .doc-page {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    min-height: auto;
+    page-break-after: always;
+    break-after: page;
+  }
+  .doc-page:last-of-type {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+  .page-break-divider {
+    display: none;
+  }
+  .back-to-top {
+    display: none !important;
+  }
+  table, pre, .mermaid, blockquote {
+    page-break-inside: avoid;
+  }
+  @page {
+    size: A4;
+    margin: 18mm 15mm 18mm 15mm;
+  }
+}
+
+  </style>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'neutral',
+      flowchart: { curve: 'linear', useMaxWidth: true }
+    });
+  </script>
+</head>
+<body>
+
+
+<!-- TRANG 1: TRANG BÌA (COVER PAGE) -->
+<section class="doc-page cover-page" id="trang-bia">
+  <div class="cover-top-section">
+    <!-- Dòng tiêu đề chính theo Template 0 -->
+    <div class="cover-doc-id">NMCNPM - AI-Powered Helpdesk &amp; Knowledge Base - Group 04</div>
+
+    <!-- Banner xanh Project Proposal đúng chuẩn Template 0 -->
+    <div class="proposal-banner">
+      <div class="banner-title">Project Proposal</div>
+    </div>
+  </div>
+
+  <div class="cover-bottom-section">
+    <!-- Khối logo + bộ môn, khoa, trường ở góc trái dưới đúng chuẩn Template 0 -->
+    <div class="cover-institution-block-bottom">
+      <div class="cover-logo-wrapper">
+        <img src="data:image/png;base64,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" alt="HCMUS Logo">
+      </div>
+      <div class="cover-inst-text">
+        <div class="inst-line-dept">Bộ môn Công nghệ phần mềm</div>
+        <div class="inst-line-faculty">Khoa Công nghệ thông tin</div>
+        <div class="inst-line-school">Đại học Khoa học tự nhiên TP HCM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page-break-divider"></div>
+
+
+<!-- TRANG 2: MỤC LỤC (TABLE OF CONTENTS) -->
+<section class="doc-page toc-page" id="trang-muc-luc">
+  <div class="page-content">
+    <div class="toc-container" id="muc-luc">
+      <div class="toc-header-title">MỤC LỤC</div>
+      <ul class="toc-list">
+    <li class="toc-item"><a class="toc-link" href="#1-bảng-đánh-giá-thành-viên"><span class="toc-title-text">1. Bảng đánh giá thành viên</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item"><a class="toc-link" href="#2-phát-biểu-bài-toán-sơ-lược"><span class="toc-title-text">2. Phát biểu bài toán sơ lược</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#21-bối-cảnh-và-vấn-đề-đặt-ra"><span class="toc-sub-title-text">2.1. Bối cảnh và vấn đề đặt ra</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#22-ý-tưởng-giải-pháp-đề-xuất"><span class="toc-sub-title-text">2.2. Ý tưởng giải pháp đề xuất</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#23-môi-trường-hoạt-động-dự-kiến"><span class="toc-sub-title-text">2.3. Môi trường hoạt động dự kiến</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#24-ràng-buộc-thiết-kế-và-triển-khai"><span class="toc-sub-title-text">2.4. Ràng buộc thiết kế và triển khai</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#25-mục-tiêu-và-tiêu-chí-thành-công"><span class="toc-sub-title-text">2.5. Mục tiêu và tiêu chí thành công</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#26-đối-tượng-sử-dụng"><span class="toc-sub-title-text">2.6. Đối tượng sử dụng</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#27-phạm-vi-mvp-và-giá-trị-sử-dụng"><span class="toc-sub-title-text">2.7. Phạm vi MVP và giá trị sử dụng</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item"><a class="toc-link" href="#3-giải-pháp-đề-xuất"><span class="toc-title-text">3. Giải pháp đề xuất</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#31-phần-mềm"><span class="toc-sub-title-text">3.1. Phần mềm</span><span class="toc-dots"></span></a></li>
+      <li class="toc-item" style="padding-left: 36px;"><a class="toc-link" href="#311-danh-sách-các-chức-năng-phần-mềm"><span class="toc-sub-title-text">Danh sách các chức năng phần mềm</span><span class="toc-dots"></span></a></li>
+      <li class="toc-item" style="padding-left: 36px;"><a class="toc-link" href="#312-kiến-trúc-tổng-thể-phần-mềm"><span class="toc-sub-title-text">Kiến trúc tổng thể phần mềm</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#32-phần-cứng"><span class="toc-sub-title-text">3.2. Phần cứng</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item"><a class="toc-link" href="#4-kế-hoạch-phát-triển"><span class="toc-title-text">4. Kế hoạch phát triển</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#41-phân-tích-yêu-cầu"><span class="toc-sub-title-text">4.1. Phân tích yêu cầu</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#42-thiết-kế-phần-mềm"><span class="toc-sub-title-text">4.2. Thiết kế phần mềm</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#43-cài-đặt-implement-phần-mềm"><span class="toc-sub-title-text">4.3. Cài đặt (implement) phần mềm</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#44-kiểm-thử-phần-mềm"><span class="toc-sub-title-text">4.4. Kiểm thử phần mềm</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#45-triển-khai-bảo-trì"><span class="toc-sub-title-text">4.5. Triển khai, bảo trì</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item"><a class="toc-link" href="#5-kế-hoạch-nhân-sự-chi-phí"><span class="toc-title-text">5. Kế hoạch nhân sự & chi phí</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#51-cấu-trúc-nhân-sự"><span class="toc-sub-title-text">5.1. Cấu trúc nhân sự</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#52-kế-hoạch-chi-phí"><span class="toc-sub-title-text">5.2. Kế hoạch chi phí</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item"><a class="toc-link" href="#tài-liệu-tham-khảo-references"><span class="toc-title-text">Tài liệu tham khảo (References)</span><span class="toc-dots"></span></a></li>
+    <li class="toc-item"><a class="toc-link" href="#phụ-lục-tuyên-bố-và-ghi-chú-sử-dụng-ai"><span class="toc-title-text">Phụ lục: Tuyên bố và Ghi chú sử dụng AI</span><span class="toc-dots"></span></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="page-break-divider"></div>
+
+
+<section class="doc-page" id="sec-1">
+  <!-- Header Bar -->
+  <div class="template-header-bar">
+    <div class="header-tab">Nhập môn công nghệ phần mềm</div>
+    <div class="header-title">Project Proposal</div>
+  </div>
+
+  <!-- Content -->
+  <div class="page-content">
+<h1 id="1-bảng-đánh-giá-thành-viên">1. Bảng đánh giá thành viên</h1>
+<p class="table-caption" style="text-align: center; font-weight: 700; margin-bottom: 8px; font-size: 12pt;">Bảng 1. Bảng đánh giá đóng góp của thành viên</p>
+<table>
+  <tr>
+    <th>MSSV</th>
+    <th>Họ Tên</th>
+    <th>% đóng góp (tối đa 100%)</th>
+    <th>Chữ ký</th>
+  </tr>
+  <tr>
+    <td class="align-center">24120121</td>
+    <td class="align-center">Lê Quý Phúc</td>
+    <td class="align-center">100%</td>
+    <td class="align-center"></td>
+  </tr>
+  <tr>
+    <td class="align-center">24120503</td>
+    <td class="align-center">Phan Gia Phúc</td>
+    <td class="align-center">100%</td>
+    <td class="align-center"></td>
+  </tr>
+  <tr>
+    <td class="align-center">24120083</td>
+    <td class="align-center">Nguyễn Đức Lãm</td>
+    <td class="align-center">100%</td>
+    <td class="align-center"></td>
+  </tr>
+  <tr>
+    <td class="align-center">24120269</td>
+    <td class="align-center">Ngô Viết Thanh Bình</td>
+    <td class="align-center">100%</td>
+    <td class="align-center"></td>
+  </tr>
+</table>
+  </div>
+
+  <!-- Footer Bar -->
+  <div class="template-footer-bar">
+    <div class="footer-left">ĐH Khoa học tự nhiên TP HCM | Bộ môn Công nghệ phần mềm</div>
+    <div class="footer-tab">1</div>
+  </div>
+</section>
+
+<div class="page-break-divider"></div>
+
+
+<section class="doc-page" id="sec-2">
+  <!-- Header Bar -->
+  <div class="template-header-bar">
+    <div class="header-tab">Nhập môn công nghệ phần mềm</div>
+    <div class="header-title">Project Proposal</div>
+  </div>
+
+  <!-- Content -->
+  <div class="page-content">
+<h1 id="2-phát-biểu-bài-toán-sơ-lược">2. Phát biểu bài toán sơ lược</h1>
+<h3 id="2-1-bối-cảnh-và-vấn-đề-đặt-ra"><span id="21-bối-cảnh-và-vấn-đề-đặt-ra"></span>2.1. Bối cảnh và vấn đề đặt ra</h3>
+<p>Trong một đơn vị cung cấp sản phẩm, dịch vụ hoặc hỗ trợ học tập, người dùng thường cần hỏi về cách sử dụng hệ thống, báo lỗi hoặc tra cứu những quy định đã được công bố. Nếu yêu cầu được tiếp nhận qua nhiều kênh rời rạc, người dùng khó theo dõi tiến độ; người hỗ trợ khó xác định ai đang phụ trách; lịch sử trao đổi và cách xử lý cũng không được lưu trữ nhất quán. Khi tài liệu hướng dẫn phân tán ở nhiều tệp, nhân viên còn phải tự tìm thông tin và đối chiếu nguồn trước khi phản hồi.</p>
+<p>Các mô hình ngôn ngữ lớn (LLM) có thể hỗ trợ diễn đạt câu trả lời, nhưng câu trả lời được sinh trực tiếp từ mô hình có nguy cơ thiếu căn cứ hoặc không phù hợp với quy định riêng của từng đơn vị. Vì vậy, nhóm không đặt mục tiêu xây dựng một chatbot trả lời tự động độc lập, mà kết hợp <strong>quản lý yêu cầu hỗ trợ (ticket)</strong> với <strong>kho tri thức có kiểm duyệt (knowledge base)</strong> để AI chỉ đưa ra <em>gợi ý</em> dựa trên tài liệu được phép sử dụng.</p>
+<h3 id="2-2-ý-tưởng-giải-pháp-đề-xuất"><span id="22-ý-tưởng-giải-pháp-đề-xuất"></span>2.2. Ý tưởng giải pháp đề xuất</h3>
+<p><strong>AI-Powered Helpdesk &amp; Knowledge Base</strong> là ứng dụng web cho phép người dùng tạo và theo dõi ticket; nhân viên hỗ trợ tiếp nhận, trao đổi, phân công và xử lý yêu cầu theo một quy trình thống nhất; quản trị viên quản lý tài khoản nhân viên và tài liệu tri thức. Khi cần phản hồi, nhân viên có thể yêu cầu AI đề xuất nội dung dựa trên các đoạn tài liệu liên quan, kèm nguồn trích dẫn để kiểm tra. <strong>Nhân viên luôn là người xem xét, chỉnh sửa và quyết định gửi phản hồi</strong>; AI không tự gửi tin nhắn hoặc thay đổi trạng thái ticket.</p>
+<p>Phạm vi sản phẩm bao gồm bốn nhóm chức năng chính: <strong>Identity &amp; Access</strong>, <strong>Ticket Management</strong>, <strong>Knowledge Base</strong> và <strong>AI Assistance</strong>. Các chức năng được tổ chức thành một hệ thống thống nhất; thành phần AI là khả năng hỗ trợ bổ sung, không phải điều kiện để quy trình xử lý ticket hoạt động.</p>
+<p>Một tình huống sử dụng điển hình: (1) quản trị viên tải lên tài liệu hướng dẫn và công bố sau khi xử lý; (2) khách hàng gửi ticket; (3) nhân viên nhận ticket từ hàng đợi; (4) nhân viên yêu cầu AI tìm căn cứ trong tài liệu và đề xuất câu trả lời; (5) nhân viên kiểm tra rồi gửi phản hồi; (6) ticket được chuyển sang đã giải quyết và khách hàng xác nhận đóng hoặc yêu cầu mở lại. Hệ thống lưu lịch sử các thay đổi quan trọng để phục vụ tra cứu.</p>
+<h3 id="2-3-môi-trường-hoạt-động-dự-kiến"><span id="23-môi-trường-hoạt-động-dự-kiến"></span>2.3. Môi trường hoạt động dự kiến</h3>
+<ul>
+  <li><strong>Người dùng:</strong> Truy cập bằng trình duyệt web hiện đại trên máy tính hoặc thiết bị di động (Chrome, Edge, Firefox, Safari); giao diện responsive, không yêu cầu cài ứng dụng riêng.</li>
+  <li><strong>Máy chủ:</strong> Backend Java 21 / Spring Boot cung cấp REST API; frontend React / TypeScript; PostgreSQL lưu dữ liệu nghiệp vụ và hỗ trợ truy xuất vector với pgvector; tài liệu gốc được lưu ở phân vùng lưu trữ an toàn/cục bộ của máy chủ.</li>
+  <li><strong>Tích hợp AI:</strong> Dịch vụ tạo embedding và sinh ngôn ngữ qua API; có chế độ mock để kiểm thử hoặc trình diễn khi không có dịch vụ bên ngoài.</li>
+  <li><strong>Triển khai:</strong> Hướng đến môi trường Docker Compose, cấu hình qua biến môi trường và hướng dẫn chạy lại trên máy phát triển mới.</li>
+</ul>
+<h3 id="2-4-ràng-buộc-thiết-kế-và-triển-khai"><span id="24-ràng-buộc-thiết-kế-và-triển-khai"></span>2.4. Ràng buộc thiết kế và triển khai</h3>
+<p>Để bảo đảm tính khả thi trong học kỳ, phiên bản đầu (MVP) chỉ phục vụ <strong>một đơn vị</strong> với ba vai trò <strong>Customer, Agent, Admin</strong>. Hệ thống tiếp nhận tài liệu PDF có văn bản, TXT và Markdown (tối đa 10 MiB/tệp); chưa hỗ trợ OCR cho PDF dạng ảnh. Dự án không phát triển ứng dụng di động native, microservices, tích hợp tổng đài hay AI agent tự xử lý ticket. Việc kiểm tra quyền truy cập được thực hiện tại backend; dữ liệu dùng để trình diễn là dữ liệu giả lập hoặc dữ liệu được phép sử dụng.</p>
+<h3 id="2-5-mục-tiêu-và-tiêu-chí-thành-công"><span id="25-mục-tiêu-và-tiêu-chí-thành-công"></span>2.5. Mục tiêu và tiêu chí thành công</h3>
+<table>
+  <tr>
+    <th>Mã mục tiêu</th>
+    <th>Nội dung mục tiêu</th>
+    <th>Tiêu chí đánh giá / đo lường</th>
+  </tr>
+  <tr>
+    <td class="align-left"><strong>OBJ-01</strong></td>
+    <td class="align-left">Người dùng gửi yêu cầu và theo dõi phản hồi qua giao diện web thống nhất.</td>
+    <td class="align-left">Khách hàng tạo được ticket, nhận câu trả lời và xem lịch sử trao đổi.</td>
+  </tr>
+  <tr>
+    <td class="align-left"><strong>OBJ-02</strong></td>
+    <td class="align-left">Phân quyền rõ ràng giữa Customer, Agent và Admin.</td>
+    <td class="align-left">Kiểm thử phân quyền API: Customer chỉ xem dữ liệu của mình; Agent xử lý ticket được giao; Admin quản trị hệ thống.</td>
+  </tr>
+  <tr>
+    <td class="align-left"><strong>OBJ-03</strong></td>
+    <td class="align-left">Quy trình tiếp nhận, phân công và đóng ticket được ghi nhận đầy đủ.</td>
+    <td class="align-left">Lịch sử trạng thái ticket thể hiện đúng các mốc: tạo mới, gán nhân viên, phản hồi, giải quyết và đóng.</td>
+  </tr>
+  <tr>
+    <td class="align-left"><strong>OBJ-04</strong></td>
+    <td class="align-left">Quản lý kho tài liệu và tìm kiếm đoạn nội dung liên quan theo ngữ nghĩa.</td>
+    <td class="align-left">Tài liệu được tải lên, phân đoạn, tạo embedding và truy xuất được đoạn văn bản liên quan.</td>
+  </tr>
+  <tr>
+    <td class="align-left"><strong>OBJ-05</strong></td>
+    <td class="align-left">AI đề xuất phản hồi có trích dẫn, đồng thời từ chối khi thiếu bằng chứng.</td>
+    <td class="align-left">Kiểm tra nguồn trích dẫn bằng bộ câu hỏi đánh giá; thử các tình huống không có nguồn.</td>
+  </tr>
+  <tr>
+    <td class="align-left"><strong>OBJ-06</strong></td>
+    <td class="align-left">Dự án có thể cài đặt lại, kiểm thử và truy vết đóng góp.</td>
+    <td class="align-left">Docker Compose, README, kết quả kiểm thử, Git commit/PR và Jira.</td>
+  </tr>
+</table>
+<h3 id="2-6-đối-tượng-sử-dụng"><span id="26-đối-tượng-sử-dụng"></span>2.6. Đối tượng sử dụng</h3>
+<table>
+  <tr>
+    <th>Đối tượng</th>
+    <th>Vai trò và nhu cầu chính</th>
+  </tr>
+  <tr>
+    <td class="align-left"><strong>Guest (khách chưa đăng nhập)</strong></td>
+    <td class="align-left">Truy cập chức năng đăng ký tài khoản Customer và đăng nhập.</td>
+  </tr>
+  <tr>
+    <td class="align-left"><strong>Customer (người yêu cầu hỗ trợ)</strong></td>
+    <td class="align-left">Tạo ticket, xem ticket của mình, gửi phản hồi và theo dõi trạng thái; không xem ghi chú nội bộ.</td>
+  </tr>
+  <tr>
+    <td class="align-left"><strong>Agent (nhân viên hỗ trợ)</strong></td>
+    <td class="align-left">Xem hàng đợi chưa phân công, nhận và xử lý ticket được giao; tra cứu tài liệu đã công bố và sử dụng gợi ý AI.</td>
+  </tr>
+  <tr>
+    <td class="align-left"><strong>Admin (quản trị viên)</strong></td>
+    <td class="align-left">Quản lý tài khoản Agent, phân công ticket, quản lý và công bố tài liệu; giám sát hoạt động hỗ trợ theo quyền quản trị.</td>
+  </tr>
+</table>
+<p>Ngoài các vai trò người dùng, hệ thống có tiến trình xử lý tài liệu nền và sử dụng dịch vụ AI bên ngoài. Đây là <strong>thành phần kỹ thuật</strong>, không phải tài khoản người dùng có quyền độc lập trong hệ thống.</p>
+<h3 id="2-7-phạm-vi-mvp-và-giá-trị-sử-dụng"><span id="27-phạm-vi-mvp-và-giá-trị-sử-dụng"></span>2.7. Phạm vi MVP và giá trị sử dụng</h3>
+<p>MVP tập trung vào bốn nhóm chức năng chính:</p>
+<ul>
+  <li><strong>Tài khoản và phân quyền:</strong> Quản lý tài khoản người dùng và quyền truy cập hệ thống.</li>
+  <li><strong>Quản lý ticket:</strong> Tiếp nhận, xử lý yêu cầu hỗ trợ và trao đổi hai chiều giữa khách hàng và nhân viên.</li>
+  <li><strong>Quản lý kho tri thức:</strong> Quản lý tài liệu và hỗ trợ tìm kiếm thông tin.</li>
+  <li><strong>Trợ lý AI:</strong> Gợi ý phản hồi có dẫn nguồn và cho phép nhân viên kiểm tra, chỉnh sửa trước khi gửi.</li>
+</ul>
+<p>Sản phẩm được thiết kế để chứng minh một luồng sử dụng thực tế, tránh mở rộng sang các nghiệp vụ ít liên quan như quản lý quan hệ khách hàng (Customer Relationship Management – CRM), thanh toán hoặc quản lý thỏa thuận mức dịch vụ (Service Level Agreement – SLA) phức tạp.</p>
+<p>Giá trị kỳ vọng của hệ thống là <strong>giúp người dùng gửi yêu cầu hỗ trợ rõ ràng</strong>, <strong>giúp nhân viên tìm căn cứ nhanh hơn</strong> và <strong>giữ được trách nhiệm của con người đối với nội dung gửi đi</strong>.</p>
+  </div>
+
+  <!-- Footer Bar -->
+  <div class="template-footer-bar">
+    <div class="footer-left">ĐH Khoa học tự nhiên TP HCM | Bộ môn Công nghệ phần mềm</div>
+    <div class="footer-tab">2</div>
+  </div>
+</section>
+
+<div class="page-break-divider"></div>
+
+
+<section class="doc-page" id="sec-3">
+  <!-- Header Bar -->
+  <div class="template-header-bar">
+    <div class="header-tab">Nhập môn công nghệ phần mềm</div>
+    <div class="header-title">Project Proposal</div>
+  </div>
+
+  <!-- Content -->
+  <div class="page-content">
+<h1 id="3-giải-pháp-đề-xuất">3. Giải pháp đề xuất</h1>
+<h2 id="3-1-phần-mềm"><span id="31-phần-mềm"></span>3.1. Phần mềm</h2>
+<h3 id="3-1-1-danh-sách-các-chức-năng-phần-mềm"><span id="311-danh-sách-các-chức-năng-phần-mềm"></span>3.1.1. Danh sách các chức năng phần mềm</h3>
+<h3 id="bảng-thể-hiện-các-chức-năng-cơ-bản-của-phần-mềm">Bảng thể hiện các chức năng cơ bản của phần mềm</h3>
+<table>
+  <tr>
+    <th>STT</th>
+    <th>Nhu cầu</th>
+    <th>Yêu cầu</th>
+  </tr>
+  <tr>
+    <td class="align-center">1</td>
+    <td class="align-left">Là khách chưa có tài khoản, tôi muốn đăng ký để gửi yêu cầu hỗ trợ.</td>
+    <td class="align-left">Đăng ký tài khoản Customer bằng email, tên và mật khẩu; vai trò mặc định là Customer.</td>
+  </tr>
+  <tr>
+    <td class="align-center">2</td>
+    <td class="align-left">Là người dùng đã có tài khoản, tôi muốn đăng nhập vào hệ thống.</td>
+    <td class="align-left">Đăng nhập bằng email và mật khẩu; cấp access token và refresh token.</td>
+  </tr>
+  <tr>
+    <td class="align-center">3</td>
+    <td class="align-left">Là người dùng đã đăng nhập, tôi muốn giữ phiên làm việc và đăng xuất an toàn.</td>
+    <td class="align-left">Làm mới token có xoay vòng; đăng xuất thu hồi phiên hiện tại.</td>
+  </tr>
+  <tr>
+    <td class="align-center">4</td>
+    <td class="align-left">Là người dùng đã đăng nhập, tôi muốn xem và cập nhật thông tin cá nhân.</td>
+    <td class="align-left">Xem/sửa hồ sơ của chính mình; đổi mật khẩu có kiểm tra mật khẩu cũ.</td>
+  </tr>
+  <tr>
+    <td class="align-center">5</td>
+    <td class="align-left">Là quản trị viên, tôi muốn quản lý tài khoản nhân viên hỗ trợ.</td>
+    <td class="align-left">Tạo Agent; vô hiệu hóa hoặc kích hoạt lại; tài khoản bị vô hiệu không đăng nhập mới được.</td>
+  </tr>
+  <tr>
+    <td class="align-center">6</td>
+    <td class="align-left">Là quản trị viên, tôi muốn mỗi vai trò chỉ truy cập đúng dữ liệu được phép.</td>
+    <td class="align-left">Phân quyền theo vai trò và theo quyền sở hữu, kiểm tra ở backend.</td>
+  </tr>
+  <tr>
+    <td class="align-center">7</td>
+    <td class="align-left">Là khách hàng, tôi muốn tạo yêu cầu hỗ trợ để được giúp đỡ.</td>
+    <td class="align-left">Tạo ticket gồm tiêu đề và mô tả; hệ thống tạo mã ticket và tin nhắn công khai đầu tiên.</td>
+  </tr>
+  <tr>
+    <td class="align-center">8</td>
+    <td class="align-left">Là khách hàng, tôi muốn xem danh sách và tiến độ các ticket của mình.</td>
+    <td class="align-left">Xem danh sách, chi tiết, trạng thái và các tin nhắn công khai; không thấy ghi chú nội bộ.</td>
+  </tr>
+  <tr>
+    <td class="align-center">9</td>
+    <td class="align-left">Là khách hàng, tôi muốn bổ sung thông tin hoặc trả lời nhân viên trong ticket.</td>
+    <td class="align-left">Gửi tin nhắn công khai; khi ticket đang chờ khách phản hồi thì trả lời sẽ chuyển ticket về đang xử lý.</td>
+  </tr>
+  <tr>
+    <td class="align-center">10</td>
+    <td class="align-left">Là khách hàng, tôi muốn xác nhận đóng hoặc yêu cầu mở lại ticket đã giải quyết.</td>
+    <td class="align-left">Đóng hoặc mở lại ticket từ trạng thái đã giải quyết.</td>
+  </tr>
+  <tr>
+    <td class="align-center">11</td>
+    <td class="align-left">Là nhân viên hỗ trợ, tôi muốn xem hàng đợi và nhận ticket chưa phân công.</td>
+    <td class="align-left">Xem ticket OPEN; nhận ticket nguyên tử, chỉ một người nhận được khi nhiều người nhận đồng thời.</td>
+  </tr>
+  <tr>
+    <td class="align-center">12</td>
+    <td class="align-left">Là quản trị viên, tôi muốn phân công hoặc chuyển ticket cho nhân viên phù hợp.</td>
+    <td class="align-left">Gán/chuyển Agent đang hoạt động; ghi lại người cũ và người mới.</td>
+  </tr>
+  <tr>
+    <td class="align-center">13</td>
+    <td class="align-left">Là nhân viên được giao ticket, tôi muốn trao đổi công khai với khách hàng.</td>
+    <td class="align-left">Gửi phản hồi công khai trên ticket được giao.</td>
+  </tr>
+  <tr>
+    <td class="align-center">14</td>
+    <td class="align-left">Là nhân viên được giao ticket, tôi muốn ghi chú nội bộ.</td>
+    <td class="align-left">Ghi chú nội bộ chỉ Agent được giao và Admin thấy.</td>
+  </tr>
+  <tr>
+    <td class="align-center">15</td>
+    <td class="align-left">Là nhân viên được giao ticket, tôi muốn cập nhật trạng thái và mức ưu tiên.</td>
+    <td class="align-left">Yêu cầu thêm thông tin, đánh dấu đã giải quyết; đặt ưu tiên LOW/NORMAL/HIGH; chuyển trạng thái theo quy trình, từ chối chuyển không hợp lệ.</td>
+  </tr>
+  <tr>
+    <td class="align-center">16</td>
+    <td class="align-left">Là nhân viên nhận ticket hoặc quản trị viên, tôi muốn xem lịch sử xử lý ticket.</td>
+    <td class="align-left">Xem sự kiện nhận, phân công, đổi trạng thái (ai, lúc nào, làm gì).</td>
+  </tr>
+  <tr>
+    <td class="align-center">17</td>
+    <td class="align-left">Là người dùng đã đăng nhập, tôi muốn tìm và lọc những ticket mình có quyền xem.</td>
+    <td class="align-left">Lọc theo trạng thái, người phụ trách, ngày tạo; phân trang và sắp xếp. Kết quả chỉ bao gồm các ticket người dùng được phép truy cập theo vai trò và quyền sở hữu.</td>
+  </tr>
+  <tr>
+    <td class="align-center">18</td>
+    <td class="align-left">Là quản trị viên, tôi muốn đưa tài liệu chính sách vào kho tri thức.</td>
+    <td class="align-left">Tải lên PDF văn bản, TXT, MD (≤ 10 MiB); hệ thống kiểm tra file và tạo tác vụ xử lý nền.</td>
+  </tr>
+  <tr>
+    <td class="align-center">19</td>
+    <td class="align-left">Là quản trị viên, tôi muốn biết tài liệu đã xử lý xong hay gặp lỗi.</td>
+    <td class="align-left">Theo dõi trạng thái UPLOADED/PROCESSING/READY/FAILED; thử lại có giới hạn khi lỗi.</td>
+  </tr>
+  <tr>
+    <td class="align-center">20</td>
+    <td class="align-left">Là quản trị viên, tôi muốn kiểm duyệt tài liệu trước khi AI được dùng.</td>
+    <td class="align-left">Công bố tài liệu READY; lưu trữ (archive) tài liệu để AI không dùng nữa.</td>
+  </tr>
+  <tr>
+    <td class="align-center">21</td>
+    <td class="align-left">Là nhân viên hoặc quản trị viên, tôi muốn tra cứu tài liệu đã công bố.</td>
+    <td class="align-left">Tìm kiếm trong tài liệu đã công bố, hiển thị đoạn liên quan.</td>
+  </tr>
+  <tr>
+    <td class="align-center">22</td>
+    <td class="align-left">Là nhân viên nhận hoặc được giao ticket, tôi muốn AI gợi ý câu trả lời có dẫn nguồn.</td>
+    <td class="align-left">Truy xuất đoạn tài liệu liên quan, sinh bản nháp kèm trích dẫn đã được kiểm chứng.</td>
+  </tr>
+  <tr>
+    <td class="align-center">23</td>
+    <td class="align-left">Là nhân viên nhận hoặc được giao ticket hoặc quản trị viên, tôi muốn AI cho biết khi không đủ căn cứ.</td>
+    <td class="align-left">Trả về trạng thái INSUFFICIENT_EVIDENCE thay vì tạo câu trả lời không có căn cứ.</td>
+  </tr>
+  <tr>
+    <td class="align-center">24</td>
+    <td class="align-left">Là nhân viên nhận hoặc được giao ticket hoặc quản trị viên, tôi muốn giữ quyền kiểm soát nội dung phản hồi do AI đề xuất.</td>
+    <td class="align-left">Xem, chỉnh sửa bản nháp rồi mới gửi thủ công; AI không tự gửi phản hồi cho khách hàng.</td>
+  </tr>
+  <tr>
+    <td class="align-center">25</td>
+    <td class="align-left">Là nhân viên nhận hoặc được giao ticket hoặc quản trị viên, tôi muốn xem lại các gợi ý AI đã tạo.</td>
+    <td class="align-left">Lưu lịch sử gợi ý và bản lưu nội dung nguồn trích dẫn tại thời điểm tạo; chỉ cho phép người có quyền truy cập ticket xem lịch sử.</td>
+  </tr>
+  <tr>
+    <td class="align-center">26</td>
+    <td class="align-left">Là nhân viên, tôi muốn hệ thống vẫn dùng được khi AI gặp sự cố.</td>
+    <td class="align-left">AI lỗi/quá tải trả thông báo rõ; ticket vẫn tạo, xử lý, trả lời bình thường; giới hạn số lần gọi AI.</td>
+  </tr>
+  <tr>
+    <td class="align-center">27</td>
+    <td class="align-left">Là người dùng quên mật khẩu, tôi muốn đặt lại mật khẩu.</td>
+    <td class="align-left">Đặt lại mật khẩu qua token dùng một lần có thời hạn.</td>
+  </tr>
+  <tr>
+    <td class="align-center">28</td>
+    <td class="align-left">Là quản trị viên, tôi muốn xem thống kê tổng quan.</td>
+    <td class="align-left">Dashboard số ticket theo trạng thái và theo nhân viên.</td>
+  </tr>
+  <tr>
+    <td class="align-center">29</td>
+    <td class="align-left">Là khách hàng, tôi muốn đính kèm tệp vào ticket.</td>
+    <td class="align-left">Tải tệp đính kèm có giới hạn và kiểm tra quyền tải xuống.</td>
+  </tr>
+  <tr>
+    <td class="align-center">30</td>
+    <td class="align-left">Là nhân viên, tôi muốn đánh giá chất lượng gợi ý của AI.</td>
+    <td class="align-left">Đánh giá hữu ích/không hữu ích và thống kê chất lượng.</td>
+  </tr>
+</table>
+<h3 id="3-1-2-kiến-trúc-tổng-thể-phần-mềm"><span id="312-kiến-trúc-tổng-thể-phần-mềm"></span>3.1.2. Kiến trúc tổng thể phần mềm</h3>
+<p>Hệ thống được thiết kế theo kiến trúc Modular Monolith, với backend là một ứng dụng Spring Boot gồm bốn module nghiệp vụ: <code>Identity</code>, <code>Ticket</code>, <code>Knowledge</code> và <code>AI</code>. Các module tương ứng với bốn nhóm chức năng của phần mềm và có ranh giới trách nhiệm riêng. Cách tổ chức này phù hợp với phạm vi MVP phục vụ một đơn vị và quy mô nhóm bốn người, giúp nhóm phát triển, kiểm thử và triển khai trên cùng một ứng dụng.</p>
+<h4 id="a-sơ-đồ-kiến-trúc-tổng-thể">a. Sơ đồ kiến trúc tổng thể</h4>
+<div class="svg-diagram-wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="680" height="800" viewBox="0 0 680 800" font-family="Arial, Helvetica, sans-serif" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo2ZTc1N2YxNi1lMDEyLTRlZjgtOTBkNy1mNGE2NTY5ODM4YzcAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaAHqvz5i+yzroaDzeWWgFpgAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo0ZWJhZmZkZS1kOWRiLTQ0NzItOTEyNC0xMThiNzVhZGY1YWVscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoCqDhFlbfroxGG6EYvMdhZgAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggnyqKyLtjq7mu0cPUTlWKt8mKVqCSs+AB8m0pw3gyf/6kZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaKweDMyZkH1MOnssVxegY/kAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCAo4VflVTnPTMCJqa6ODpoKJe0Gr2algbk53v7ksxTaDWRuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBjBZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjZlNzU3ZjE2LWUwMTItNGVmOC05MGQ3LWY0YTY1Njk4MzhjNy9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmUwMWRjYzM1LTc2MzgtNGIwOS05MjcwLWVhMTA5NWQ2NTVjNHJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCCfKorIu2Orua7Rw9ROVYq3yYpWoJKz4AHybSnDeDJ//qJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggV77A9jrTocU2bBMcTivYWk4FLJN0OpHE1RGQWpRDQCqiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggopFdXKdGxkC1ewaY/gyKG4y6QY4PgxkrWlLSTmLhttB0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQESDEwCLXWak/TYpYEUCsyn/a/pmliFoYy6QaOSPcIxgBB6hXIBUc7hNQyi/IgGo02EWEUaeiof6V9pBeN+0Hb8=</c2pa:manifest></metadata><rect width="680" height="800" fill="#FFFFFF"/><title>Kiến trúc tổng thể phần mềm</title><desc>Giao diện web React gọi REST API qua HTTPS/JSON tới backend Spring Boot gồm các module identity, ticket, ai, knowledge và Document worker; backend dùng PostgreSQL với pgvector, kho tệp riêng tư và dịch vụ AI bên ngoài.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5F5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<g><rect x="20" y="60" width="150" height="332" rx="4" fill="#F1EFE8" stroke="#888780" stroke-width="0.8"/><text font-size="14" font-weight="600" fill="#2C2C2A" x="95" y="84" text-anchor="middle">Client</text></g>
+<g><rect x="260" y="60" width="400" height="708" rx="4" fill="#F1EFE8" stroke="#888780" stroke-width="0.8"/><text font-size="14" font-weight="600" fill="#2C2C2A" x="460" y="84" text-anchor="middle">Server</text></g>
+<text font-size="14" font-weight="600" fill="#2C2C2A" x="215" y="84" text-anchor="middle">API</text>
+<g><rect x="32" y="112" width="120" height="252" rx="2" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.8"/><path d="M32 112 L44 100 L164 100 L152 112 Z" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.8"/><path d="M152 112 L164 100 L164 352 L152 364 Z" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.8"/><path d="M32 112 L44 100 L164 100 L152 112 Z" style="fill:#fff;fill-opacity:.35;stroke:none"/><path d="M152 112 L164 100 L164 352 L152 364 Z" style="fill:#000;fill-opacity:.16;stroke:none"/><text font-size="14" font-weight="600" fill="#04342C" x="92" y="134" text-anchor="middle">Giao diện web</text><text font-size="12" fill="#0F6E56" x="92" y="152" text-anchor="middle">React + TypeScript</text><text font-size="12" fill="#0F6E56" x="92" y="180" text-anchor="middle">Theo tính năng</text></g>
+<g><rect x="44" y="198" width="96" height="30" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.8"/><text font-size="14" font-weight="600" fill="#26215C" x="92" y="213.0" text-anchor="middle" dominant-baseline="central">Auth</text></g>
+<g><rect x="44" y="238" width="96" height="30" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.8"/><text font-size="14" font-weight="600" fill="#26215C" x="92" y="253.0" text-anchor="middle" dominant-baseline="central">Tickets</text></g>
+<g><rect x="44" y="278" width="96" height="30" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.8"/><text font-size="14" font-weight="600" fill="#26215C" x="92" y="293.0" text-anchor="middle" dominant-baseline="central">Knowledge</text></g>
+<g><rect x="44" y="318" width="96" height="30" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.8"/><text font-size="14" font-weight="600" fill="#26215C" x="92" y="333.0" text-anchor="middle" dominant-baseline="central">AI</text></g>
+<line x1="166" y1="208" x2="288" y2="208" stroke="#5F5E5A" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<text font-size="12" fill="#5F5E5A" x="213" y="200" text-anchor="middle">HTTPS / JSON</text>
+<line x1="288" y1="238" x2="166" y2="238" stroke="#5F5E5A" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<g><rect x="276" y="112" width="360" height="432" rx="2" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.8"/><path d="M276 112 L288 100 L648 100 L636 112 Z" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.8"/><path d="M636 112 L648 100 L648 532 L636 544 Z" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.8"/><path d="M276 112 L288 100 L648 100 L636 112 Z" style="fill:#fff;fill-opacity:.35;stroke:none"/><path d="M636 112 L648 100 L648 532 L636 544 Z" style="fill:#000;fill-opacity:.16;stroke:none"/><text font-size="14" font-weight="600" fill="#04342C" x="456" y="132" text-anchor="middle">Backend Spring Boot</text><text font-size="12" fill="#0F6E56" x="456" y="150" text-anchor="middle">Modular Monolith</text></g>
+<g><rect x="290" y="172" width="24" height="352" rx="6" fill="#F1EFE8" stroke="#888780" stroke-width="0.8"/><text font-size="14" font-weight="600" fill="#2C2C2A" x="302" y="348" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 302 348)">REST API và kiểm tra quyền truy cập</text></g>
+<g><rect x="346" y="172" width="152" height="48" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.8"/><text font-size="14" font-weight="600" fill="#26215C" x="422" y="187.0" text-anchor="middle" dominant-baseline="central">Identity</text><text font-size="12" fill="#534AB7" x="422" y="205.0" text-anchor="middle" dominant-baseline="central">Tài khoản và phân quyền</text></g>
+<g><rect x="346" y="248" width="152" height="48" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.8"/><text font-size="14" font-weight="600" fill="#26215C" x="422" y="263.0" text-anchor="middle" dominant-baseline="central">Ticket</text><text font-size="12" fill="#534AB7" x="422" y="281.0" text-anchor="middle" dominant-baseline="central">Quản lý yêu cầu hỗ trợ</text></g>
+<g><rect x="346" y="324" width="152" height="48" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.8"/><text font-size="14" font-weight="600" fill="#26215C" x="422" y="339.0" text-anchor="middle" dominant-baseline="central">AI</text><text font-size="12" fill="#534AB7" x="422" y="357.0" text-anchor="middle" dominant-baseline="central">Gợi ý phản hồi</text></g>
+<g><rect x="346" y="400" width="152" height="48" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.8"/><text font-size="14" font-weight="600" fill="#26215C" x="422" y="415.0" text-anchor="middle" dominant-baseline="central">Knowledge</text><text font-size="12" fill="#534AB7" x="422" y="433.0" text-anchor="middle" dominant-baseline="central">Quản lý kho tri thức</text></g>
+<g><rect x="346" y="476" width="152" height="48" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.8"/><text font-size="14" font-weight="600" fill="#26215C" x="422" y="491.0" text-anchor="middle" dominant-baseline="central">Document worker</text><text font-size="12" fill="#534AB7" x="422" y="509.0" text-anchor="middle" dominant-baseline="central">Xử lý tài liệu nền</text></g>
+<line x1="316" y1="196" x2="344" y2="196" stroke="#5F5E5A" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<line x1="316" y1="272" x2="344" y2="272" stroke="#5F5E5A" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<line x1="316" y1="348" x2="344" y2="348" stroke="#5F5E5A" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<line x1="316" y1="424" x2="344" y2="424" stroke="#5F5E5A" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<line x1="422" y1="322" x2="422" y2="298" stroke="#5F5E5A" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/><text font-size="12" fill="#5F5E5A" x="434" y="315">Lấy ngữ cảnh ticket</text>
+<line x1="422" y1="374" x2="422" y2="398" stroke="#5F5E5A" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/><text font-size="12" fill="#5F5E5A" x="434" y="391">Truy xuất nguồn</text>
+<line x1="422" y1="474" x2="422" y2="450" stroke="#5F5E5A" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/><text font-size="12" fill="#5F5E5A" x="434" y="467">Xử lý tài liệu</text>
+<g><rect x="276" y="578" width="360" height="170" rx="2" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.8"/><path d="M276 578 L288 566 L648 566 L636 578 Z" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.8"/><path d="M636 578 L648 566 L648 736 L636 748 Z" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.8"/><path d="M276 578 L288 566 L648 566 L636 578 Z" style="fill:#fff;fill-opacity:.35;stroke:none"/><path d="M636 578 L648 566 L648 736 L636 748 Z" style="fill:#000;fill-opacity:.16;stroke:none"/><text font-size="14" font-weight="600" fill="#04342C" x="292" y="738">PostgreSQL và kho tệp</text></g>
+<g><path d="M296 606 L296 658 A70 8 0 0 0 436 658 L436 606 A70 8 0 0 0 296 606 Z" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.8"/><ellipse cx="366" cy="606" rx="70" ry="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.8"/><text font-size="14" font-weight="600" fill="#26215C" x="366" y="630" text-anchor="middle" dominant-baseline="central">PostgreSQL</text><text font-size="12" fill="#534AB7" x="366" y="648" text-anchor="middle" dominant-baseline="central">+ pgvector</text></g>
+<g><path d="M476 606 L476 658 A70 8 0 0 0 616 658 L616 606 A70 8 0 0 0 476 606 Z" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.8"/><ellipse cx="546" cy="606" rx="70" ry="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.8"/><text font-size="14" font-weight="600" fill="#26215C" x="546" y="630" text-anchor="middle" dominant-baseline="central">Kho tệp riêng tư</text><text font-size="12" fill="#534AB7" x="546" y="648" text-anchor="middle" dominant-baseline="central">Docker volume</text></g>
+<text font-size="12" fill="#5F5E5A" x="366" y="682" text-anchor="middle">Dùng bởi:</text>
+<text font-size="12" fill="#5F5E5A" x="366" y="697" text-anchor="middle">Identity, Ticket,</text>
+<text font-size="12" fill="#5F5E5A" x="366" y="712" text-anchor="middle">Knowledge, AI</text>
+<text font-size="12" fill="#5F5E5A" x="546" y="682" text-anchor="middle">Dùng bởi:</text>
+<text font-size="12" fill="#5F5E5A" x="546" y="697" text-anchor="middle">Knowledge</text>
+<line x1="366" y1="546" x2="366" y2="596" stroke="#5F5E5A" stroke-width="1.5" fill="none" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<line x1="546" y1="546" x2="546" y2="596" stroke="#5F5E5A" stroke-width="1.5" fill="none" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<text font-size="12" fill="#5F5E5A" x="374" y="562">Dữ liệu nghiệp vụ</text><text font-size="12" fill="#5F5E5A" x="554" y="562">Tài liệu gốc</text>
+<path d="M276 536 L100 536 L100 586" stroke="#5F5E5A" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<text font-size="12" fill="#5F5E5A" x="190" y="528" text-anchor="middle">AI: sinh bản nháp</text><text font-size="12" fill="#5F5E5A" x="190" y="554" text-anchor="middle">Document worker:</text><text font-size="12" fill="#5F5E5A" x="190" y="570" text-anchor="middle">tạo embedding</text>
+<g><rect x="20" y="588" width="190" height="72" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="0.8"/><text font-size="14" font-weight="600" fill="#2C2C2A" x="115" y="618" text-anchor="middle">Dịch vụ AI bên ngoài</text><text font-size="12" fill="#5F5E5A" x="115" y="640" text-anchor="middle">LLM và Embedding API</text></g>
+</svg></div>
+<p class="figure-caption" style="text-align: center; font-style: italic; font-size: 11.5pt; margin-top: 8px; margin-bottom: 14px;">Hình 1. Kiến trúc tổng thể phần mềm</p>
+<h4 id="b-các-thành-phần-và-trách-nhiệm">b. Các thành phần và trách nhiệm</h4>
+<table>
+  <tr>
+    <th>Thành phần</th>
+    <th>Trách nhiệm</th>
+  </tr>
+  <tr>
+    <td class="align-left">Giao diện web</td>
+    <td class="align-left">Sử dụng React và TypeScript, cung cấp các màn hình theo vai trò Customer, Agent và Admin. Frontend tổ chức theo tính năng <code>Identity</code>, <code>Ticket</code>, <code>Knowledge</code>, <code>AI</code>; gửi yêu cầu REST/JSON qua HTTPS và đính kèm access token với các thao tác cần xác thực.</td>
+  </tr>
+  <tr>
+    <td class="align-left">Module <code>Identity</code></td>
+    <td class="align-left">Xử lý đăng ký, đăng nhập, làm mới token, đăng xuất, quản lý hồ sơ và tài khoản Agent. Backend kiểm tra vai trò và quyền sở hữu dữ liệu trước khi thực hiện nghiệp vụ.</td>
+  </tr>
+  <tr>
+    <td class="align-left">Module <code>Ticket</code></td>
+    <td class="align-left">Quản lý ticket, phân công nhân viên, tin nhắn công khai, ghi chú nội bộ, mức ưu tiên và lịch sử xử lý. Module kiểm soát việc nhận ticket đồng thời và các bước chuyển trạng thái.</td>
+  </tr>
+  <tr>
+    <td class="align-left">Module <code>Knowledge</code></td>
+    <td class="align-left">Quản lý tải lên, xử lý, công bố và lưu trữ tài liệu; cung cấp chức năng tìm kiếm các đoạn nội dung liên quan.</td>
+  </tr>
+  <tr>
+    <td class="align-left">Module <code>AI</code></td>
+    <td class="align-left">Lấy ngữ cảnh ticket, truy xuất tài liệu, dựng yêu cầu gửi mô hình, kiểm tra nguồn trích dẫn và lưu lịch sử gợi ý.</td>
+  </tr>
+  <tr>
+    <td class="align-left">Document worker</td>
+    <td class="align-left">Chạy trong cùng ứng dụng backend, nhận công việc từ bảng tác vụ trong cơ sở dữ liệu để trích xuất văn bản, chia đoạn và tạo vector biểu diễn nội dung.</td>
+  </tr>
+  <tr>
+    <td class="align-left">PostgreSQL và kho tệp</td>
+    <td class="align-left">PostgreSQL lưu dữ liệu nghiệp vụ, tác vụ xử lý và các gợi ý AI; phần mở rộng pgvector lưu vector phục vụ tìm kiếm theo ngữ nghĩa. Tài liệu gốc được lưu trong kho riêng tư trên Docker volume, không công khai qua URL.</td>
+  </tr>
+  <tr>
+    <td class="align-left">Dịch vụ AI bên ngoài</td>
+    <td class="align-left">Cung cấp mô hình tạo embedding và mô hình sinh ngôn ngữ qua API. Hệ thống có chế độ giả lập (mock) để phục vụ kiểm thử và trình diễn.</td>
+  </tr>
+</table>
+<p>Bên trong mỗi module, mã nguồn được chia thành các phần <code>api</code>, <code>application</code>, <code>domain</code> và <code>infrastructure</code>, lần lượt phụ trách giao tiếp HTTP, điều phối ca sử dụng, quy tắc nghiệp vụ và tích hợp hạ tầng.</p>
+<p>Các module trao đổi qua application service hoặc interface có kiểm soát. Cụ thể, <code>AI</code> lấy ngữ cảnh ticket qua <code>TicketContextProvider</code> và truy xuất tri thức qua <code>KnowledgeRetriever</code>. Dữ liệu ticket do module <code>Ticket</code> quản lý; dữ liệu tài liệu và quá trình tìm kiếm thuộc trách nhiệm của <code>Knowledge</code>.</p>
+<h4 id="c-luồng-vận-hành">c. Luồng vận hành</h4>
+<h5 id="xử-lý-ticket">Xử lý ticket</h5>
+<p>Customer tạo ticket hoặc gửi phản hồi trên giao diện web. Backend tiếp nhận yêu cầu, xác thực tài khoản, kiểm tra quyền truy cập và các quy tắc nghiệp vụ trước khi ghi dữ liệu. Thay đổi quan trọng và sự kiện lịch sử được lưu trong cùng một giao dịch cơ sở dữ liệu.</p>
+<p>Ticket mới xuất hiện trong hàng đợi để Agent tiếp nhận hoặc Admin phân công. Khi nhiều Agent cùng nhận một ticket, hệ thống chỉ cho phép một người nhận thành công. Trong quá trình xử lý, Agent có thể trao đổi công khai với Customer, thêm ghi chú nội bộ và cập nhật trạng thái theo quyền được cấp. Customer chỉ xem được ticket của mình và các tin nhắn công khai.</p>
+<h5 id="xử-lý-và-công-bố-tài-liệu">Xử lý và công bố tài liệu</h5>
+<p>Admin tải tài liệu lên hệ thống. Backend kiểm tra tệp, lưu vào kho riêng tư và tạo tác vụ xử lý nền rồi trả kết quả tiếp nhận, không chờ hoàn tất việc tạo embedding.</p>
+<p>Worker nhận tác vụ, trích xuất văn bản, chia thành các đoạn có thông tin nguồn, gọi dịch vụ embedding và lưu kết quả vào PostgreSQL với pgvector. Tài liệu xử lý thành công chuyển sang trạng thái <code>READY</code> nhưng chưa được sử dụng làm nguồn cho AI. Admin xem lại và công bố tài liệu; tài liệu đã lưu trữ (archive) được loại khỏi phạm vi truy xuất.</p>
+<h5 id="sinh-và-sử-dụng-gợi-ý-ai">Sinh và sử dụng gợi ý AI</h5>
+<p>Khi Agent được giao ticket yêu cầu gợi ý phản hồi, backend kiểm tra quyền và lấy ngữ cảnh từ nội dung trao đổi công khai. Ghi chú nội bộ không được đưa vào ngữ cảnh gửi mô hình. Module <code>AI</code> truy xuất những đoạn liên quan trong các tài liệu đã xử lý xong, đã công bố và chưa lưu trữ. Nếu không có đủ căn cứ, hệ thống lưu trạng thái <code>INSUFFICIENT_EVIDENCE</code> và thông báo cho Agent.</p>
+<p>Khi có nguồn phù hợp, hệ thống gửi ngữ cảnh cùng các đoạn tài liệu cho mô hình để tạo bản nháp. Backend kiểm tra các mã nguồn trích dẫn có thuộc tập đoạn đã truy xuất hay không, sau đó lưu gợi ý và bản chụp nội dung nguồn tại thời điểm tạo. Việc kiểm tra mã nguồn giúp xác nhận nguồn trích dẫn hợp lệ; Agent vẫn cần đối chiếu nội dung trước khi sử dụng.</p>
+<p>Agent xem, chỉnh sửa và chủ động gửi bản nháp. Thao tác gửi đi qua application service của module <code>Ticket</code> để tạo tin nhắn công khai; gợi ý chỉ được đánh dấu đã sử dụng khi giao dịch chung thành công. AI không có quyền tự gửi tin nhắn, phân công hay thay đổi trạng thái ticket.</p>
+<p>Các lời gọi dịch vụ AI được thực hiện ngoài giao dịch xử lý ticket. Khi dịch vụ AI gặp lỗi hoặc quá tải, hệ thống thông báo cho Agent và vẫn cho phép tạo ticket, trao đổi và xử lý yêu cầu theo quy trình thông thường.</p>
+<h2 id="3-2-phần-cứng"><span id="32-phần-cứng"></span>3.2. Phần cứng</h2>
+<h3 id="3-2-1-yêu-cầu-phần-cứng-và-môi-trường-vận-hành-hardware-requirements"><span id="321-yêu-cầu-phần-cứng-và-môi-trường-vận-hành-hardware-requirements"></span>3.2.1. Yêu cầu phần cứng và môi trường vận hành (Hardware Requirements)</h3>
+<table>
+  <tr>
+    <th>Môi trường</th>
+    <th>Cấu hình/điều kiện dự kiến</th>
+  </tr>
+  <tr>
+    <td class="align-left"><strong>Thiết bị người dùng</strong></td>
+    <td class="align-left">Máy tính, máy tính bảng hoặc điện thoại chạy Chrome/Edge/Firefox/Safari tương đối mới; RAM tối thiểu khoảng 4 GB; Internet ổn định; UI hỗ trợ màn hình điện thoại từ khoảng 360 px.</td>
+  </tr>
+  <tr>
+    <td class="align-left"><strong>Máy chủ demo — CPU/RAM</strong></td>
+    <td class="align-left">Tối thiểu 2 vCPU, 4 GB RAM; khuyến nghị 4 vCPU, 8 GB RAM khi chạy backend, PostgreSQL và frontend cùng máy.</td>
+  </tr>
+  <tr>
+    <td class="align-left"><strong>Máy chủ demo — lưu trữ/hệ điều hành</strong></td>
+    <td class="align-left">Khoảng 50 GB SSD; Linux hoặc hệ điều hành hỗ trợ Docker Engine và Docker Compose; dữ liệu tài liệu được lưu riêng tư.</td>
+  </tr>
+  <tr>
+    <td class="align-left"><strong>Kết nối dịch vụ AI</strong></td>
+    <td class="align-left">Máy chủ có khả năng gọi API nhà cung cấp LLM/embedding qua mạng; nếu offline hoặc không có API key, sử dụng chế độ mock phù hợp demo.</td>
+  </tr>
+  <tr>
+    <td class="align-left"><strong>GPU</strong></td>
+    <td class="align-left">Không yêu cầu GPU riêng nếu sử dụng mô hình AI qua API bên ngoài.</td>
+  </tr>
+  <tr>
+    <td class="align-left"><strong>Máy phát triển</strong></td>
+    <td class="align-left">Windows/Linux/macOS; tối thiểu 8 GB RAM, khuyến nghị 16 GB; khoảng 40 GB dung lượng trống; JDK 21, Node.js LTS, Git, Docker và IDE.</td>
+  </tr>
+</table>
+<h3 id="3-2-2-các-yêu-cầu-chất-lượng-và-tiêu-chí-kiểm-chứng-bổ-trợ-nfr"><span id="322-các-yêu-cầu-chất-lượng-và-tiêu-chí-kiểm-chứng-bổ-trợ-nfr"></span>3.2.2. Các yêu cầu chất lượng và tiêu chí kiểm chứng (Bổ trợ NFR)</h3>
+<table>
+  <tr>
+    <th>Mã tham chiếu</th>
+    <th>Nhóm yêu cầu</th>
+    <th>Mục tiêu dự kiến / phương pháp xác minh</th>
+  </tr>
+  <tr>
+    <td class="align-left">NFR-SEC-01, 02</td>
+    <td class="align-left">Bảo mật, phân quyền</td>
+    <td class="align-left">Mật khẩu và refresh token không lưu ở dạng gốc; bí mật cấu hình ngoài mã nguồn; các API bảo vệ có kiểm thử vai trò/quyền sở hữu; Customer không xem được ghi chú <code>INTERNAL</code>.</td>
+  </tr>
+  <tr>
+    <td class="align-left">NFR-SEC-03, 04</td>
+    <td class="align-left">An toàn dữ liệu đầu vào</td>
+    <td class="align-left">Giới hạn tài liệu tải lên 10 MiB, kiểm tra định dạng và nội dung; truy vấn DB được tham số hóa; nội dung được truy xuất cho RAG được xem là dữ liệu không tin cậy.</td>
+  </tr>
+  <tr>
+    <td class="align-left">NFR-PRIV-01</td>
+    <td class="align-left">Quyền riêng tư</td>
+    <td class="align-left">Dùng dữ liệu demo giả lập; hạn chế thông tin cá nhân không cần thiết gửi đến dịch vụ LLM; không ghi log password, token hoặc API key.</td>
+  </tr>
+  <tr>
+    <td class="align-left">NFR-REL-01</td>
+    <td class="align-left">Độ tin cậy</td>
+    <td class="align-left">Khi nhà cung cấp AI lỗi hoặc hết thời gian phản hồi, chức năng tạo, xem và xử lý ticket vẫn hoạt động; kiểm thử bằng cách giả lập lỗi dịch vụ AI.</td>
+  </tr>
+  <tr>
+    <td class="align-left">NFR-CONS-01, 02</td>
+    <td class="align-left">Tính nhất quán</td>
+    <td class="align-left">Thử 20 lần tình huống hai Agent cùng nhận một ticket: mỗi lần chỉ một yêu cầu thành công; cập nhật trạng thái và bản ghi lịch sử cùng một transaction.</td>
+  </tr>
+  <tr>
+    <td class="align-left">NFR-PERF-01</td>
+    <td class="align-left">Hiệu năng REST</td>
+    <td class="align-left">Mục tiêu p95 dưới 800 ms cho API CRUD thông thường với 20 người dùng ảo, trên môi trường và dữ liệu kiểm thử được công bố.</td>
+  </tr>
+  <tr>
+    <td class="align-left">NFR-PERF-02</td>
+    <td class="align-left">Thời gian sinh gợi ý</td>
+    <td class="align-left">Mục tiêu p95 dưới 12 giây khi nhà cung cấp AI ổn định; có timeout và trạng thái lỗi rõ ràng.</td>
+  </tr>
+  <tr>
+    <td class="align-left">NFR-PERF-03</td>
+    <td class="align-left">Xử lý tài liệu</td>
+    <td class="align-left">Mục tiêu xử lý PDF văn bản khoảng 1 MiB trong 60 giây trên môi trường kiểm thử chuẩn; đo thực tế để xác định giới hạn.</td>
+  </tr>
+  <tr>
+    <td class="align-left">NFR-AI-01, 02</td>
+    <td class="align-left">Chất lượng câu trả lời AI</td>
+    <td class="align-left">Đánh giá ít nhất 30 câu hỏi; mục tiêu citation accuracy từ 90% trên tập có bằng chứng và tỷ lệ từ chối phù hợp từ 80% trên tập thiếu bằng chứng.</td>
+  </tr>
+  <tr>
+    <td class="align-left">NFR-AI-03</td>
+    <td class="align-left">An toàn khi sử dụng AI</td>
+    <td class="align-left">Dữ liệu nguồn không được điều khiển API nghiệp vụ; kiểm thử tình huống prompt injection từ nội dung tài liệu; AI không có quyền gửi phản hồi hay cập nhật ticket.</td>
+  </tr>
+  <tr>
+    <td class="align-left">NFR-OBS-01</td>
+    <td class="align-left">Khả năng theo dõi</td>
+    <td class="align-left">Ghi log có request ID, trạng thái xử lý tài liệu và độ trễ AI; thông tin nhạy cảm không được ghi log.</td>
+  </tr>
+  <tr>
+    <td class="align-left">NFR-MAIN-01, NFR-TEST-01</td>
+    <td class="align-left">Bảo trì và kiểm thử</td>
+    <td class="align-left">Phân chia module rõ; quản lý database migration; kiểm thử tự động cho phân quyền, workflow, concurrency, bộ lọc truy xuất; CI chạy trước khi merge.</td>
+  </tr>
+  <tr>
+    <td class="align-left">NFR-DEPLOY-01</td>
+    <td class="align-left">Khả năng triển khai lại</td>
+    <td class="align-left">Docker Compose, <code>.env.example</code>, dữ liệu demo và README đủ để một máy mới chạy hệ thống theo hướng dẫn.</td>
+  </tr>
+  <tr>
+    <td class="align-left">NFR-UX-01</td>
+    <td class="align-left">Khả dụng giao diện</td>
+    <td class="align-left">Giao diện responsive; các trạng thái đang tải, rỗng và lỗi có thông báo rõ ràng; các thao tác chính thực hiện trên trình duyệt hiện đại.</td>
+  </tr>
+</table>
+  </div>
+
+  <!-- Footer Bar -->
+  <div class="template-footer-bar">
+    <div class="footer-left">ĐH Khoa học tự nhiên TP HCM | Bộ môn Công nghệ phần mềm</div>
+    <div class="footer-tab">3</div>
+  </div>
+</section>
+
+<div class="page-break-divider"></div>
+
+
+<section class="doc-page" id="sec-4">
+  <!-- Header Bar -->
+  <div class="template-header-bar">
+    <div class="header-tab">Nhập môn công nghệ phần mềm</div>
+    <div class="header-title">Project Proposal</div>
+  </div>
+
+  <!-- Content -->
+  <div class="page-content">
+<h1 id="4-kế-hoạch-phát-triển">4. Kế hoạch phát triển</h1>
+<p>Dự án bắt đầu vào Thứ Hai, ngày 12/10/2026, khi các template được mở, và kết thúc vào Chủ Nhật, ngày 13/12/2026, theo hạn nộp Template 3 và lịch trình bày sản phẩm. Tổng thời gian thực hiện là 9 tuần, gồm 8 tuần triển khai các giai đoạn phát triển chính và một tuần dự phòng để diễn tập, hoàn thiện và đóng gói sản phẩm.</p>
+<h3 id="tổng-quan-theo-tuần">Tổng quan theo tuần</h3>
+<table>
+  <tr>
+    <th>Tuần</th>
+    <th>Thời gian (năm 2026)</th>
+    <th>Công việc trọng tâm</th>
+    <th>Mốc nộp liên quan</th>
+  </tr>
+  <tr>
+    <td class="align-left">W1</td>
+    <td class="align-left">12/10 đến 18/10</td>
+    <td class="align-left">Hoàn thiện và thống nhất yêu cầu phần mềm</td>
+    <td class="align-left"></td>
+  </tr>
+  <tr>
+    <td class="align-left">W2</td>
+    <td class="align-left">19/10 đến 25/10</td>
+    <td class="align-left">Hoàn thiện thiết kế hệ thống</td>
+    <td class="align-left"></td>
+  </tr>
+  <tr>
+    <td class="align-left">W3</td>
+    <td class="align-left">26/10 đến 01/11</td>
+    <td class="align-left">Xây dựng nền tảng: Flyway, khung xác thực và CI</td>
+    <td class="align-left">Template 0: hạn nội bộ 31/10</td>
+  </tr>
+  <tr>
+    <td class="align-left">W4</td>
+    <td class="align-left">02/11 đến 08/11</td>
+    <td class="align-left">Hoàn thiện các chức năng Ticket MVP</td>
+    <td class="align-left"></td>
+  </tr>
+  <tr>
+    <td class="align-left">W5</td>
+    <td class="align-left">09/11 đến 15/11</td>
+    <td class="align-left">Hoàn thiện các chức năng Knowledge Base MVP</td>
+    <td class="align-left">Template 1: hạn nội bộ 14/11</td>
+  </tr>
+  <tr>
+    <td class="align-left">W6</td>
+    <td class="align-left">16/11 đến 22/11</td>
+    <td class="align-left">Hoàn thiện các chức năng AI MVP</td>
+    <td class="align-left"></td>
+  </tr>
+  <tr>
+    <td class="align-left">W7</td>
+    <td class="align-left">23/11 đến 29/11</td>
+    <td class="align-left">Kiểm thử, sửa lỗi và củng cố hệ thống</td>
+    <td class="align-left">Template 2: hạn nội bộ 28/11</td>
+  </tr>
+  <tr>
+    <td class="align-left">W8</td>
+    <td class="align-left">30/11 đến 06/12</td>
+    <td class="align-left">Triển khai, hoàn thiện tài liệu và báo cáo</td>
+    <td class="align-left"></td>
+  </tr>
+  <tr>
+    <td class="align-left">W9</td>
+    <td class="align-left">07/12 đến 13/12</td>
+    <td class="align-left">Dự phòng, diễn tập demo và đóng gói sản phẩm</td>
+    <td class="align-left">Template 3 và App Demo: hạn nội bộ 12/12; trình bày ngày 13/12</td>
+  </tr>
+</table>
+<h3 id="4-1-phân-tích-yêu-cầu"><span id="41-phân-tích-yêu-cầu"></span>4.1. Phân tích yêu cầu</h3>
+<p>Cả bốn thành viên cùng thực hiện giai đoạn này từ ngày 12/10/2026 đến ngày 18/10/2026, trong một tuần.</p>
+<table>
+  <tr>
+    <th>STT</th>
+    <th>Công việc</th>
+    <th>Bắt đầu</th>
+    <th>Kết thúc</th>
+  </tr>
+  <tr>
+    <td class="align-right">1</td>
+    <td class="align-left">Xác định các bên liên quan, vai trò người dùng và phạm vi của bốn nhóm chức năng</td>
+    <td class="align-left">12/10/2026</td>
+    <td class="align-left">13/10/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">2</td>
+    <td class="align-left">Làm rõ yêu cầu chức năng, phi chức năng và các quy tắc nghiệp vụ</td>
+    <td class="align-left">13/10/2026</td>
+    <td class="align-left">16/10/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">3</td>
+    <td class="align-left">Xây dựng danh mục use case, ma trận phân quyền và máy trạng thái ticket</td>
+    <td class="align-left">15/10/2026</td>
+    <td class="align-left">17/10/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">4</td>
+    <td class="align-left">Viết user story, lập backlog trên Jira và tổ chức rà soát đặc tả yêu cầu với cả nhóm</td>
+    <td class="align-left">17/10/2026</td>
+    <td class="align-left">18/10/2026</td>
+  </tr>
+</table>
+<p>Thành phẩm dự kiến gồm tài liệu đặc tả yêu cầu, thiết kế kỹ thuật ở mức tổng thể, danh mục use case, user story và backlog đã được cả nhóm rà soát.</p>
+<h3 id="4-2-thiết-kế-phần-mềm"><span id="42-thiết-kế-phần-mềm"></span>4.2. Thiết kế phần mềm</h3>
+<p>Giai đoạn thiết kế diễn ra từ ngày 19/10/2026 đến ngày 25/10/2026, trong một tuần, với sự tham gia của cả bốn thành viên.</p>
+<table>
+  <tr>
+    <th>STT</th>
+    <th>Công việc</th>
+    <th>Bắt đầu</th>
+    <th>Kết thúc</th>
+  </tr>
+  <tr>
+    <td class="align-right">1</td>
+    <td class="align-left">Thiết kế sơ đồ ERD và lập kế hoạch migration cơ sở dữ liệu</td>
+    <td class="align-left">19/10/2026</td>
+    <td class="align-left">21/10/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">2</td>
+    <td class="align-left">Xây dựng API contract, quy định mã lỗi và bản nháp OpenAPI</td>
+    <td class="align-left">20/10/2026</td>
+    <td class="align-left">22/10/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">3</td>
+    <td class="align-left">Vẽ sơ đồ kiến trúc tổng thể và sequence diagram cho luồng nhận ticket, sinh gợi ý bằng RAG</td>
+    <td class="align-left">21/10/2026</td>
+    <td class="align-left">23/10/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">4</td>
+    <td class="align-left">Thiết kế wireframe cho các màn hình chính của hệ thống</td>
+    <td class="align-left">22/10/2026</td>
+    <td class="align-left">24/10/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">5</td>
+    <td class="align-left">Thử nghiệm công cụ trích xuất văn bản PDF, mô hình và số chiều embedding; xây dựng khung kho mã nguồn</td>
+    <td class="align-left">19/10/2026</td>
+    <td class="align-left">24/10/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">6</td>
+    <td class="align-left">Rà soát thiết kế và chốt contract của các endpoint cốt lõi</td>
+    <td class="align-left">25/10/2026</td>
+    <td class="align-left">25/10/2026</td>
+  </tr>
+</table>
+<p>Kết thúc giai đoạn, nhóm cần có tài liệu thiết kế gồm kiến trúc hệ thống, ERD, đặc tả API và wireframe, cùng kết quả thử nghiệm kỹ thuật và các quyết định lựa chọn công nghệ.</p>
+<h3 id="4-3-cài-đặt-implement-phần-mềm"><span id="43-cài-đặt-implement-phần-mềm"></span>4.3. Cài đặt (implement) phần mềm</h3>
+<p>Giai đoạn cài đặt kéo dài bốn tuần, từ ngày 26/10/2026 đến ngày 22/11/2026. Công việc được phân chia theo bốn phân hệ nghiệp vụ chính; cả bốn thành viên đều trực tiếp viết mã nguồn.</p>
+<table>
+  <tr>
+    <th>STT</th>
+    <th>Công việc</th>
+    <th>Bắt đầu</th>
+    <th>Kết thúc</th>
+  </tr>
+  <tr>
+    <td class="align-right">1</td>
+    <td class="align-left">Xây dựng khung Spring Boot, PostgreSQL, Flyway và React; thiết lập CI; cài đặt đăng ký, đăng nhập, quản lý token và phân quyền theo vai trò</td>
+    <td class="align-left">26/10/2026</td>
+    <td class="align-left">01/11/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">2</td>
+    <td class="align-left">Cài đặt tạo, xem, lọc ticket; nhận ticket nguyên tử; quản lý tin nhắn, chuyển trạng thái và lịch sử xử lý; xây dựng giao diện Customer/Agent</td>
+    <td class="align-left">02/11/2026</td>
+    <td class="align-left">08/11/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">3</td>
+    <td class="align-left">Cài đặt tải tài liệu, worker trích xuất văn bản, chia đoạn và tạo embedding; công bố, lưu trữ và tìm kiếm tài liệu; xây dựng giao diện Admin</td>
+    <td class="align-left">09/11/2026</td>
+    <td class="align-left">15/11/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">4</td>
+    <td class="align-left">Cài đặt RAG, kiểm tra trích dẫn, từ chối khi thiếu căn cứ và dịch vụ AI giả lập; xây dựng chức năng xem, sửa, gửi gợi ý cùng khung giao diện AI</td>
+    <td class="align-left">16/11/2026</td>
+    <td class="align-left">22/11/2026</td>
+  </tr>
+</table>
+<p>Thành phẩm là mã nguồn hoàn chỉnh cho các chức năng P0, chạy thông suốt kịch bản demo hoàn chỉnh của hệ thống. Kiểm thử đơn vị và kiểm thử tích hợp được viết song song với quá trình xây dựng từng module.</p>
+<h3 id="4-4-kiểm-thử-phần-mềm"><span id="44-kiểm-thử-phần-mềm"></span>4.4. Kiểm thử phần mềm</h3>
+<p>Cả bốn thành viên tham gia đợt kiểm thử tập trung từ ngày 23/11/2026 đến ngày 29/11/2026, trong một tuần. Các bộ kiểm thử của từng module được xây dựng từ giai đoạn cài đặt.</p>
+<table>
+  <tr>
+    <th>STT</th>
+    <th>Công việc</th>
+    <th>Bắt đầu</th>
+    <th>Kết thúc</th>
+  </tr>
+  <tr>
+    <td class="align-right">1</td>
+    <td class="align-left">Hoàn thiện kế hoạch kiểm thử và các ca kiểm thử theo ma trận chức năng</td>
+    <td class="align-left">23/11/2026</td>
+    <td class="align-left">24/11/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">2</td>
+    <td class="align-left">Kiểm tra phân quyền theo vai trò, quyền sở hữu dữ liệu và việc bảo vệ ghi chú nội bộ</td>
+    <td class="align-left">23/11/2026</td>
+    <td class="align-left">24/11/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">3</td>
+    <td class="align-left">Kiểm thử nhận ticket đồng thời và các quy tắc chuyển trạng thái</td>
+    <td class="align-left">24/11/2026</td>
+    <td class="align-left">25/11/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">4</td>
+    <td class="align-left">Kiểm thử quá trình nạp tài liệu và truy xuất nội dung</td>
+    <td class="align-left">25/11/2026</td>
+    <td class="align-left">26/11/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">5</td>
+    <td class="align-left">Đánh giá AI bằng bộ tối thiểu 30 câu hỏi chuẩn hóa; kiểm tra các tình huống lỗi và hết thời gian chờ</td>
+    <td class="align-left">25/11/2026</td>
+    <td class="align-left">28/11/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">6</td>
+    <td class="align-left">Kiểm thử hiệu năng cơ bản theo nhóm yêu cầu NFR-PERF</td>
+    <td class="align-left">27/11/2026</td>
+    <td class="align-left">28/11/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">7</td>
+    <td class="align-left">Ghi nhận, theo dõi và sửa lỗi phát hiện trong quá trình kiểm thử</td>
+    <td class="align-left">23/11/2026</td>
+    <td class="align-left">29/11/2026</td>
+  </tr>
+</table>
+<p>Kết quả cần đạt là báo cáo kiểm thử có minh chứng và các lỗi P0 đã được sửa. Số liệu đo phải ghi rõ điều kiện môi trường thực hiện.</p>
+<h3 id="4-5-triển-khai-bảo-trì"><span id="45-triển-khai-bảo-trì"></span>4.5. Triển khai, bảo trì</h3>
+<p>Giai đoạn cuối diễn ra trong hai tuần, từ ngày 30/11/2026 đến ngày 13/12/2026, với sự tham gia của cả bốn thành viên.</p>
+<table>
+  <tr>
+    <th>STT</th>
+    <th>Công việc</th>
+    <th>Bắt đầu</th>
+    <th>Kết thúc</th>
+  </tr>
+  <tr>
+    <td class="align-right">1</td>
+    <td class="align-left">Chuẩn bị Docker Compose, <code>.env.example</code> và dữ liệu mẫu; triển khai bản demo lên máy chủ hoặc nền tảng đám mây</td>
+    <td class="align-left">30/11/2026</td>
+    <td class="align-left">02/12/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">2</td>
+    <td class="align-left">Chạy kiểm tra nhanh (smoke test) trên môi trường triển khai</td>
+    <td class="align-left">03/12/2026</td>
+    <td class="align-left">03/12/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">3</td>
+    <td class="align-left">Hoàn thiện README, báo cáo sử dụng AI và lịch sử commit Git; xuất tài liệu sang PDF/HTML</td>
+    <td class="align-left">03/12/2026</td>
+    <td class="align-left">08/12/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">4</td>
+    <td class="align-left">Chuẩn bị kịch bản và diễn tập demo</td>
+    <td class="align-left">08/12/2026</td>
+    <td class="align-left">11/12/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">5</td>
+    <td class="align-left">Đóng gói <code>GroupID.zip</code>, kiểm tra giới hạn 20 tệp/20 MB</td>
+    <td class="align-left">12/12/2026</td>
+    <td class="align-left">12/12/2026</td>
+  </tr>
+  <tr>
+    <td class="align-right">6</td>
+    <td class="align-left">Trình bày và demo sản phẩm trong Presentation Day</td>
+    <td class="align-left">13/12/2026</td>
+    <td class="align-left">13/12/2026</td>
+  </tr>
+</table>
+  </div>
+
+  <!-- Footer Bar -->
+  <div class="template-footer-bar">
+    <div class="footer-left">ĐH Khoa học tự nhiên TP HCM | Bộ môn Công nghệ phần mềm</div>
+    <div class="footer-tab">4</div>
+  </div>
+</section>
+
+<div class="page-break-divider"></div>
+
+
+<section class="doc-page" id="sec-5">
+  <!-- Header Bar -->
+  <div class="template-header-bar">
+    <div class="header-tab">Nhập môn công nghệ phần mềm</div>
+    <div class="header-title">Project Proposal</div>
+  </div>
+
+  <!-- Content -->
+  <div class="page-content">
+<h1 id="5-kế-hoạch-nhân-sự-chi-phí"><span id="5-kế-hoạch-nhân-sự----chi-phí"></span>5. Kế hoạch nhân sự &amp; chi phí</h1>
+<h3 id="5-1-cấu-trúc-nhân-sự"><span id="51-cấu-trúc-nhân-sự"></span>5.1. Cấu trúc nhân sự</h3>
+<p>Dự án áp dụng mô hình tổ chức đa năng (cross-functional), trong đó toàn bộ nhân sự kỹ thuật đều tham gia đầy đủ 5 công đoạn phát triển phần mềm (SDLC): Phân tích yêu cầu, Thiết kế, Cài đặt, Kiểm thử và Viết tài liệu kỹ thuật. Mỗi thành viên phụ trách một nghiệp vụ chính, đồng thời đảm nhận vai trò quản trị hoặc điều phối kỹ thuật liên quan:</p>
+<table>
+  <tr>
+    <th>STT</th>
+    <th>Thành viên</th>
+    <th>Vai trò chính trong dự án</th>
+    <th>Module phụ trách chính</th>
+    <th>Mô tả công việc chi tiết (Xuyên suốt vòng đời dự án SDLC)</th>
+  </tr>
+  <tr>
+    <td class="align-center">1</td>
+    <td class="align-left"><strong>Ngô Viết Thanh Bình</strong></td>
+    <td class="align-left">Project Manager &amp; DevOps Lead</td>
+    <td class="align-left"><strong>Xác thực &amp; Phân quyền (Identity &amp; Access)</strong></td>
+    <td class="align-left">- <strong>Quản trị &amp; DevOps:</strong> Thiết lập hạ tầng repository, chuẩn hóa quy trình Git (Branching, Commit Hooks), xây dựng CI/CD pipeline kiểm thử tự động, cấu hình Docker Compose môi trường phát triển và điều phối tiến độ Sprint.<br>- <strong>Phân tích &amp; Thiết kế:</strong> Thu thập yêu cầu xác thực và phân quyền (US/FR-ID, UC-01..04); thiết kế luồng xác thực JWT (Auth Sequence), sơ đồ CSDL bảng người dùng và phiên đăng nhập (users/session tables), ma trận phân quyền RBAC cho 3 vai trò (Admin, Agent, Customer).<br>- <strong>Cài đặt:</strong> Xây dựng API và giao diện cho các chức năng: đăng ký Customer, đăng nhập, cấp mới token (Refresh Token), đăng xuất, thông tin cá nhân và tính năng Admin tạo/vô hiệu hóa tài khoản Agent; kiểm tra phân quyền RBAC nghiêm ngặt tại backend.<br>- <strong>Kiểm thử &amp; Tài liệu:</strong> Viết kịch bản kiểm thử tự động cho luồng xác thực và phân quyền (Auth &amp; RBAC tests); soạn thảo tài liệu module Identity &amp; Access và ghi nhật ký sử dụng AI minh bạch.</td>
+  </tr>
+  <tr>
+    <td class="align-center">2</td>
+    <td class="align-left"><strong>Nguyễn Đức Lãm</strong></td>
+    <td class="align-left">Backend Engineer &amp; Quality Control</td>
+    <td class="align-left"><strong>Kho tri thức (Knowledge Base)</strong></td>
+    <td class="align-left">- <strong>Phân tích &amp; Thiết kế:</strong> Thu thập yêu cầu module Knowledge Base (US/FR-KB, UC-11..13); thiết kế quy trình quản lý trạng thái tài liệu (<code>PROCESSING</code>, <code>READY</code>, <code>FAILED</code>, <code>ARCHIVED</code>) và luồng duyệt/xuất bản (Publish/Archive theo US-07); thiết kế đường ống Ingestion Pipeline, CSDL lưu trữ văn bản và chỉ mục vector (<code>pgvector</code>).<br>- <strong>Cài đặt:</strong> Xây dựng cổng tải lên và lưu trữ file tài liệu (PDF text-based, TXT, Markdown); xây dựng background worker để parse và chunk tài liệu; tích hợp trích xuất vector embedding lưu vào <code>pgvector</code>; xây dựng service truy xuất vector (<code>KnowledgeRetriever.search</code>) cung cấp dữ liệu cho module AI; phát triển giao diện Admin quản lý danh sách tài liệu và trạng thái xử lý.<br>- <strong>Kiểm định chất lượng &amp; Kiểm thử:</strong> Chuẩn hóa quy tắc mã nguồn backend; viết kịch bản kiểm thử tự động cho bộ parser tài liệu (Parser tests) và kiểm thử độ chính xác truy xuất vector (Retrieval tests); đo lường benchmark hiệu năng xử lý tài liệu.<br>- <strong>Tài liệu:</strong> Soạn thảo tài liệu kỹ thuật module Knowledge Base, báo cáo benchmark hiệu năng xử lý tài liệu và chuẩn bị dữ liệu mẫu (Data seeding).</td>
+  </tr>
+  <tr>
+    <td class="align-center">3</td>
+    <td class="align-left"><strong>Phan Gia Phúc</strong></td>
+    <td class="align-left">Full-stack Engineer &amp; Testing Lead</td>
+    <td class="align-left"><strong>Quản lý Ticket (Ticket Management)</strong></td>
+    <td class="align-left">- <strong>Phân tích &amp; Thiết kế:</strong> Thu thập yêu cầu quản lý ticket (US/FR-TK, UC-05..10); thiết kế luồng chuyển trạng thái Ticket (State Machine: Open  Assigned  In Progress  Resolved  Closed); thiết kế mô hình CSDL quan hệ (Ticket ERD), luồng phản hồi công khai (Public Reply), trao đổi nội bộ giữa nhân viên (Internal Note) và lịch sử ghi vết (Audit History).<br>- <strong>Cài đặt:</strong> Xây dựng API và giao diện quản lý ticket: tiếp nhận yêu cầu từ Customer, hàng đợi ticket (Ticket Queue), cơ chế nhân viên nhận xử lý (Claim Ticket) hoặc phân công, luồng chuyển trạng thái ticket, phản hồi khách hàng và ghi chú nội bộ, bộ lọc và phân trang ticket.<br>- <strong>Quản lý kiểm thử (Testing Lead):</strong> Thiết lập ma trận kiểm thử tổng thể; xây dựng kịch bản kiểm thử tự động cho luồng xử lý tranh chấp nhận ticket đồng thời (Concurrent claim tests) và kiểm thử tính toàn vẹn của máy trạng thái chuyển đổi ticket (State transition tests).<br>- <strong>Kiểm thử &amp; Tài liệu:</strong> Thực hiện kiểm thử tích hợp (Integration Testing) luồng nghiệp vụ ticket; rà soát ràng buộc toàn vẹn CSDL (DB constraints); soạn thảo tài liệu module Ticket và hồ sơ minh chứng kiểm thử (Test evidence).</td>
+  </tr>
+  <tr>
+    <td class="align-center">4</td>
+    <td class="align-left"><strong>Lê Quý Phúc</strong></td>
+    <td class="align-left">AI Integration &amp; Frontend Specialist</td>
+    <td class="align-left"><strong>Trợ lý AI (AI Assistance)</strong></td>
+    <td class="align-left">- <strong>Phân tích &amp; Thiết kế:</strong> Thu thập yêu cầu module trợ lý AI (US/FR-AI, UC-14..15); thiết kế luồng xử lý RAG (Retrieval-Augmented Generation) tiếp nhận ngữ cảnh từ module Knowledge Base; thiết kế cấu trúc Prompt, định dạng trích dẫn nguồn (Citation Contract), cơ chế từ chối trả lời khi thiếu chứng cứ (Abstention) và quy trình hỗ trợ nhân viên duyệt/chỉnh sửa thủ công trước khi gửi (Human-in-the-loop).<br>- <strong>Cài đặt:</strong> Xây dựng dịch vụ tích hợp API mô hình ngôn ngữ lớn (LLM Provider); phát triển giao diện tiện ích AI (AI Suggestion Widget) trong màn hình làm việc của nhân viên hỗ trợ (Agent Workspace) để gợi ý câu trả lời kèm trích dẫn tài liệu; xây dựng tính năng lưu lịch sử gợi ý và xử lý lỗi timeout.<br>- <strong>Kiểm thử chuyên sâu:</strong> Xây dựng bộ giả lập mô hình (Mock model contract); thực hiện đánh giá thực nghiệm chất lượng RAG (tỷ lệ trích dẫn chính xác, phát hiện trường hợp thiếu chứng cứ); kiểm thử khả năng chịu lỗi khi dịch vụ AI gặp sự cố (Fault tests).<br>- <strong>Kiểm thử &amp; Tài liệu:</strong> Rà soát rủi ro an toàn câu lệnh và bảo mật dữ liệu riêng tư (Privacy &amp; Prompt Risk Review); soạn thảo tài liệu kỹ thuật module AI và báo cáo đánh giá thực nghiệm RAG (Evaluation Report).</td>
+  </tr>
+</table>
+<hr style='border:0; border-top:1px solid #cbd5e1; margin:20px 0;'>
+<h3 id="5-2-kế-hoạch-chi-phí"><span id="52-kế-hoạch-chi-phí"></span>5.2. Kế hoạch chi phí</h3>
+<h4 id="5-2-1-cơ-sở-lập-dự-toán"><span id="521-cơ-sở-lập-dự-toán"></span>5.2.1. Cơ sở lập dự toán</h4>
+<p>Dựa trên kiến trúc hệ thống <strong>AI-Powered Helpdesk &amp; Knowledge Base</strong> sử dụng React + TypeScript, Spring Boot, PostgreSQL tích hợp pgvector và OpenAI API, nhóm lựa chọn triển khai theo mô hình <strong>Modular Monolith</strong>, đóng gói bằng Docker Compose trên một máy chủ ảo (Cloud VPS). Phương án này phù hợp với quy mô MVP, giúp hạn chế chi phí thuê các dịch vụ hạ tầng riêng biệt.</p>
+<p>Dự án dự kiến thực hiện trong 9 tuần, từ ngày 12/10/2026 đến 13/12/2026. Chi phí nhân lực được quy đổi theo 4 thành viên, mỗi người 80 giờ/tháng, với đơn giá giả định 60.000 VNĐ/giờ. Tỷ giá quy đổi được ước tính ở mức <strong>~25.500 VNĐ/USD</strong> để phục vụ lập dự toán. Các mức giá dịch vụ quốc tế được tham khảo tại thời điểm lập dự toán tháng 10/2026 và có thể thay đổi khi triển khai thực tế. Các khoản chi phí có số lẻ được làm tròn lên mức thuận tiện cho công tác dự toán ngân sách.</p>
+<hr style='border:0; border-top:1px solid #cbd5e1; margin:20px 0;'>
+<h4 id="5-2-2-bảng-dự-toán-ngân-sách"><span id="522-bảng-dự-toán-ngân-sách"></span>5.2.2. Bảng dự toán ngân sách</h4>
+<table>
+  <tr>
+    <th>STT</th>
+    <th>Hạng mục</th>
+    <th>Định mức</th>
+    <th>Thành tiền (VNĐ)</th>
+    <th>Ghi chú / Nguồn tham chiếu</th>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>1</strong></td>
+    <td class="align-left"><strong>Nhân lực kỹ thuật</strong></td>
+    <td class="align-left">4 người × 80 giờ/tháng × 2 tháng × 60.000 VNĐ/giờ</td>
+    <td class="align-center"><strong>38.400.000</strong></td>
+    <td class="align-left">Chi phí quy đổi nhân sự lập trình trong 2 tháng (12/10 – 13/12/2026).</td>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>2</strong></td>
+    <td class="align-left"><strong>Cloud VPS</strong></td>
+    <td class="align-left">48 USD/tháng × 3 tháng</td>
+    <td class="align-center"><strong>~3.672.000</strong></td>
+    <td class="align-left">DigitalOcean, gói Basic 4 vCPU, 8 GiB RAM, 160 GiB SSD; giá tham khảo tại thời điểm lập dự toán (quy đổi theo tỷ giá ~25.500 VNĐ/USD).</td>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>3</strong></td>
+    <td class="align-left"><strong>Tên miền .com</strong></td>
+    <td class="align-left">11,48 USD/năm</td>
+    <td class="align-center"><strong>~300.000</strong></td>
+    <td class="align-left">Giá tham khảo từ Namecheap (~292.740 VNĐ, làm tròn lên ~300.000 VNĐ gồm phí đăng ký và ICANN); giá thực tế tùy thời điểm và nhà cung cấp.</td>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>4</strong></td>
+    <td class="align-left"><strong>API mô hình ngôn ngữ (LLM)</strong></td>
+    <td class="align-left">Kịch bản 3.000 lượt gọi; 12 triệu token đầu vào và 1,5 triệu token đầu ra</td>
+    <td class="align-center"><strong>~60.000</strong></td>
+    <td class="align-left">Ước tính theo model tham khảo chi phí thấp trên bảng giá OpenAI (ví dụ GPT-6 Luna: 0,10 USD/1M token input, 0,50 USD/1M token output  1,95 USD ~ 49.725 VNĐ, làm tròn lên ~60.000 VNĐ để dự phòng). Chi phí thực tế phụ thuộc model được lựa chọn khi triển khai.</td>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>5</strong></td>
+    <td class="align-left"><strong>API Embedding</strong></td>
+    <td class="align-left">15 triệu token × 0,02 USD/triệu token</td>
+    <td class="align-center"><strong>~10.000</strong></td>
+    <td class="align-left">Tham khảo model text-embedding-3-small của OpenAI (0,30 USD ~ 7.650 VNĐ, làm tròn lên ~10.000 VNĐ).</td>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>6</strong></td>
+    <td class="align-left"><strong>Công cụ AI hỗ trợ</strong></td>
+    <td class="align-left">1 tài khoản ChatGPT Plus (tích hợp Codex) × 2 tháng</td>
+    <td class="align-center"><strong>~1.045.000</strong></td>
+    <td class="align-left">Gói trả phí hỗ trợ phân tích, thiết kế, code và test; giá chính thức từ OpenAI: 522.500 VNĐ/tháng × 2 tháng = 1.045.000 VNĐ.</td>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>7</strong></td>
+    <td class="align-left"><strong>PostgreSQL + pgvector</strong></td>
+    <td class="align-left">Chạy trên VPS</td>
+    <td class="align-center"><strong>0</strong></td>
+    <td class="align-left">Không thuê dịch vụ cơ sở dữ liệu riêng.</td>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>8</strong></td>
+    <td class="align-left"><strong>Lưu trữ tệp tin</strong></td>
+    <td class="align-left">Docker Volume trên VPS</td>
+    <td class="align-center"><strong>0</strong></td>
+    <td class="align-left">Sử dụng dung lượng ổ đĩa của VPS, không thuê dịch vụ lưu trữ ngoài.</td>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>9</strong></td>
+    <td class="align-left"><strong>SSL/TLS</strong></td>
+    <td class="align-left">Cloudflare Universal SSL, gói miễn phí</td>
+    <td class="align-center"><strong>0</strong></td>
+    <td class="align-left">Không tính phí chứng chỉ theo phương án sử dụng gói miễn phí; cần cấu hình tên miền phù hợp.</td>
+  </tr>
+  <tr>
+    <td class="align-center">—</td>
+    <td class="align-left"><strong>Tổng chi phí trực tiếp</strong></td>
+    <td class="align-left">—</td>
+    <td class="align-center"><strong>~43.487.000</strong></td>
+    <td class="align-left">Bao gồm giá trị nhân lực quy đổi, hạ tầng cloud, API và công cụ AI hỗ trợ.</td>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>10</strong></td>
+    <td class="align-left"><strong>Dự phòng rủi ro (10%)</strong></td>
+    <td class="align-left">10% tổng chi phí trực tiếp</td>
+    <td class="align-center"><strong>~4.353.000</strong></td>
+    <td class="align-left">Dự phòng biến động giá, tỷ giá và mức sử dụng API (làm tròn lên).</td>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>TỔNG</strong></td>
+    <td class="align-left"><strong>TỔNG NGÂN SÁCH DỰ TOÁN</strong></td>
+    <td class="align-left">—</td>
+    <td class="align-center"><strong>~47.840.000</strong></td>
+    <td class="align-left"><em>(Bằng chữ: Khoảng bốn mươi bảy triệu tám trăm bốn mươi nghìn đồng)</em></td>
+  </tr>
+</table>
+<p><strong>Ghi chú:</strong></p>
+<ul>
+  <li>Các chi phí được tính toán dựa trên quy mô nhóm nhỏ (4 thành viên) và mô hình triển khai thử nghiệm (prototype / MVP).</li>
+  <li>Chi phí thực tế có thể thay đổi tùy theo quy mô hệ thống, số lượng người dùng, và gói dịch vụ hạ tầng được chọn khi triển khai chính thức.</li>
+</ul>
+  </div>
+
+  <!-- Footer Bar -->
+  <div class="template-footer-bar">
+    <div class="footer-left">ĐH Khoa học tự nhiên TP HCM | Bộ môn Công nghệ phần mềm</div>
+    <div class="footer-tab">5</div>
+  </div>
+</section>
+
+<div class="page-break-divider"></div>
+
+
+<section class="doc-page" id="sec-ref">
+  <!-- Header Bar -->
+  <div class="template-header-bar">
+    <div class="header-tab">Nhập môn công nghệ phần mềm</div>
+    <div class="header-title">Project Proposal</div>
+  </div>
+
+  <!-- Content -->
+  <div class="page-content">
+<h2 id="tài-liệu-tham-khảo-references">TÀI LIỆU THAM KHẢO (REFERENCES)</h2>
+<ol>
+  <li>DigitalOcean. Droplet Pricing. https://www.digitalocean.com/pricing/droplets</li>
+  <li>Namecheap. .COM Domain Registration Pricing. https://www.namecheap.com/domains/registration/gtld/com/</li>
+  <li>OpenAI. API Pricing. https://developers.openai.com/api/docs/pricing</li>
+  <li>OpenAI. text-embedding-3-small. https://developers.openai.com/api/docs/models/text-embedding-3-small</li>
+  <li>OpenAI. ChatGPT Pricing (Codex / Plus). https://chatgpt.com/vi-VN/pricing</li>
+  <li>Cloudflare. Universal SSL/TLS Certificates. https://developers.cloudflare.com/ssl/edge-certificates/universal-ssl/</li>
+</ol>
+<h2 id="phụ-lục-tuyên-bố-và-ghi-chú-sử-dụng-ai">PHỤ LỤC: TUYÊN BỐ VÀ GHI CHÚ SỬ DỤNG AI</h2>
+<p><em>(Căn cứ theo Mục 5 Quy định về việc sử dụng AI trong học phần — Khoa Công nghệ Thông tin, Trường Đại học Khoa học Tự Nhiên TP.HCM)</em></p>
+<h3 id="1-tuyên-bố-bắt-buộc-về-việc-sử-dụng-ai-mục-5-b"><span id="1-tuyên-bố-bắt-buộc-về-việc-sử-dụng-ai-mục-5b"></span>1. Tuyên bố bắt buộc về việc sử dụng AI (Mục 5.B)</h3>
+<blockquote><p><em>&quot;Trong suốt quá trình thực hiện đồ án, nhóm có sử dụng các công cụ Trí tuệ nhân tạo (bao gồm ChatGPT của OpenAI, Google Gemini / Antigravity IDE của Google, GitHub Copilot) với mục đích hỗ trợ tra cứu kiến thức, gợi ý cấu trúc báo cáo, rà soát ngữ pháp - chính tả, và gợi ý khung mã nguồn. Tất cả các nội dung do AI đề xuất đều được các thành viên nhóm hiểu rõ bản chất, đối chiếu với tài liệu học thuật chính thống, chỉnh sửa bổ sung bằng năng lực cá nhân, chạy thử nghiệm test case thực tế và chịu hoàn toàn trách nhiệm về tính đúng đắn trước Giảng viên.&quot;</em></p></blockquote>
+<h3 id="2-ghi-chú-sử-dụng-ai-và-tài-liệu-đính-kèm">2. Ghi chú sử dụng AI và Tài liệu đính kèm</h3>
+<p>Để đảm bảo tính minh bạch học thuật theo Điều 2 và Điều 5 của Quy định, toàn bộ nhật ký đối soát chi tiết quá trình tương tác với AI (bao gồm: tên công cụ, phiên bản, thời gian truy cập, câu prompt nguyên văn, mục đích sử dụng, nội dung AI tạo, chi tiết đối soát kiểm chứng và bằng chứng commit git tương ứng của 11 phiên làm việc) được nhóm tổng hợp và trình bày chi tiết trong tài liệu riêng:</p>
+<ul>
+  <li><strong>Tên tài liệu:</strong> <strong>Báo cáo sử dụng AI (AI Usage Transparency &amp; Accountability Report)</strong></li>
+  <li><strong>Định dạng tài liệu đính kèm theo bài nộp:</strong></li>
+  <li><strong>File Markdown (.md) &amp; HTML (.html):</strong> File <code>Báo cáo sử dụng AI</code> (<code>ai-usage.md</code>/<code>ai-usage.html</code> đính kèm trong thư mục nộp bài).</li>
+</ul>
+  </div>
+
+  <!-- Footer Bar -->
+  <div class="template-footer-bar">
+    <div class="footer-left">ĐH Khoa học tự nhiên TP HCM | Bộ môn Công nghệ phần mềm</div>
+    <div class="footer-tab">6</div>
+  </div>
+</section>
+
+<div class="page-break-divider"></div>
+
+
+<!-- Floating Back to Top Button -->
+<a href="#muc-luc" class="back-to-top" title="Lên đầu trang / Mục lục">
+  <span>▲ Mục lục</span>
+</a>
+
+</body>
+</html>
