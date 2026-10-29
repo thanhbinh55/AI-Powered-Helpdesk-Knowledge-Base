@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NMCNPM - AI-Powered Helpdesk & Knowledge Base - Group 04 | AI Usage Report</title>
+  <style>
+
+:root {
+  --primary-blue: #548dd4;
+  --header-blue: #548dd4;
+  --sub-blue: #4f81bd;
+  --dark-blue: #366091;
+  --text-dark: #000000;
+  --border-dark: #cbd5e1;
+  --table-stripe: #f8fafc;
+  --quote-bg: #f8fafc;
+}
+
+/* Ép buộc 100% tất cả các phần tử trên trang sử dụng font Times New Roman */
+*, *::before, *::after,
+html, body, p, span, div, a, li, ul, ol, blockquote, table, th, td, tr, 
+h1, h2, h3, h4, h5, h6, input, button, select, textarea, b, strong, em, i, 
+code, pre, small, sub, sup, header, footer, section, article, caption {
+  font-family: 'Times New Roman', Times, serif !important;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+body {
+  font-family: 'Times New Roman', Times, serif !important;
+  color: var(--text-dark);
+  background-color: #f1f5f9;
+  margin: 0;
+  padding: 30px 0 60px 0;
+  line-height: 1.5;
+  font-size: 12pt;
+}
+
+/* Document Page Sheet representing each paginated section */
+.doc-page, .report-container, .container {
+  background-color: #ffffff;
+  max-width: 900px;
+  margin: 0 auto 35px auto;
+  padding: 40px 55px 35px 55px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.doc-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cover-page {
+  min-height: 1050px;
+}
+
+.toc-page {
+  min-height: 950px;
+}
+
+.page-content {
+  flex-grow: 1;
+}
+
+/* Page Break Divider for Screen */
+.page-break-divider {
+  height: 20px;
+  page-break-after: always;
+  break-after: page;
+}
+
+/* Running Header strictly matching teacher's Template 0 */
+.template-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2px solid #548dd4;
+  margin-bottom: 24px;
+  padding-bottom: 0;
+  width: 100%;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.template-header-bar .header-tab {
+  background-color: #548dd4 !important;
+  color: #ffffff !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  font-weight: 700 !important;
+  font-size: 11pt !important;
+  line-height: 1.2;
+  padding: 5px 22px 5px 22px;
+  display: inline-block;
+  margin-bottom: -1px;
+  letter-spacing: 0.2px;
+}
+
+.template-header-bar .header-title {
+  color: #000000 !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  font-weight: 700 !important;
+  font-size: 11pt !important;
+  line-height: 1.2;
+  padding-bottom: 4px;
+  padding-right: 2px;
+  text-align: right;
+  letter-spacing: 0.2px;
+}
+
+/* Running Footer strictly matching teacher's Template 0 */
+.template-footer-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-top: 2px solid #548dd4;
+  margin-top: 32px;
+  padding-top: 0;
+  width: 100%;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.template-footer-bar .footer-left {
+  color: #000000 !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 10.5pt !important;
+  padding-top: 6px;
+  line-height: 1.2;
+}
+
+.template-footer-bar .footer-tab {
+  background-color: #548dd4 !important;
+  color: #ffffff !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  font-weight: 700 !important;
+  font-size: 11pt !important;
+  padding: 4px 24px 6px 24px;
+  min-width: 45px;
+  text-align: center;
+  line-height: 1.2;
+  margin-top: -2px;
+  display: inline-block;
+  letter-spacing: 0.2px;
+}
+
+/* Cover Page Specific Styles (Template 0) */
+.cover-page {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  min-height: 297mm;
+  height: 297mm;
+  padding: 30mm 25mm 25mm 25mm !important;
+  box-sizing: border-box !important;
+}
+
+.cover-doc-id {
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 15pt !important;
+  font-weight: 700 !important;
+  color: #000000 !important;
+  line-height: 1.4;
+  margin-bottom: 35px;
+  letter-spacing: 0.5px;
+}
+
+.proposal-banner {
+  background-color: #548dd4;
+  padding: 36px 30px;
+  margin: 15px 0 25px 0;
+  text-align: center;
+}
+
+.banner-title {
+  color: #ffffff !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 32pt !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.banner-subtitle {
+  color: #ffffff !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 13.5pt !important;
+  font-weight: 400 !important;
+  margin-top: 10px;
+  font-style: italic;
+  opacity: 0.95;
+}
+
+.cover-meta-box {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  padding: 16px 22px;
+  margin: 25px 0;
+  border-radius: 4px;
+  font-size: 11.5pt !important;
+  line-height: 1.6;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.cover-meta-box strong {
+  color: #000000 !important;
+}
+
+.cover-institution-block-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-top: auto;
+  margin-bottom: 10px;
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.cover-logo-wrapper {
+  width: 75px;
+  height: 75px;
+  flex-shrink: 0;
+}
+
+.cover-logo-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cover-inst-text {
+  text-align: left;
+  line-height: 1.4;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.inst-line-dept, .inst-line-faculty {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 12pt !important;
+  font-weight: 700 !important;
+  color: #000000 !important;
+}
+
+.inst-line-school {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 12.5pt !important;
+  font-weight: 700 !important;
+  color: #366091 !important;
+}
+
+/* Headings Hierarchy strictly Times New Roman */
+h1 {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 16pt !important;
+  font-weight: 700 !important;
+  color: #366091 !important;
+  margin-top: 26px !important;
+  margin-bottom: 14px !important;
+  padding-bottom: 4px !important;
+  border-bottom: 2px solid #548dd4 !important;
+  line-height: 1.3 !important;
+  page-break-after: avoid;
+}
+
+h2 {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 14pt !important;
+  font-weight: 700 !important;
+  color: #366091 !important;
+  margin-top: 22px !important;
+  margin-bottom: 10px !important;
+  padding-bottom: 3px !important;
+  border-bottom: 1px solid #cbd5e1 !important;
+  line-height: 1.3 !important;
+  page-break-after: avoid;
+}
+
+h3 {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 13pt !important;
+  font-weight: 700 !important;
+  color: #366091 !important;
+  margin-top: 18px !important;
+  margin-bottom: 8px !important;
+  line-height: 1.3 !important;
+  page-break-after: avoid;
+}
+
+h4 {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 12.5pt !important;
+  font-weight: 700 !important;
+  color: #4f81bd !important;
+  margin-top: 14px !important;
+  margin-bottom: 6px !important;
+  line-height: 1.3 !important;
+  page-break-after: avoid;
+}
+
+h5 {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 12pt !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  color: #26215c !important;
+  margin-top: 12px !important;
+  margin-bottom: 4px !important;
+  line-height: 1.3 !important;
+  page-break-after: avoid;
+}
+
+h6 {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 12pt !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  color: #475569 !important;
+  margin-top: 10px !important;
+  margin-bottom: 4px !important;
+  line-height: 1.3 !important;
+  page-break-after: avoid;
+}
+
+p {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 12pt !important;
+  line-height: 1.5 !important;
+  color: #000000 !important;
+  margin-top: 6px !important;
+  margin-bottom: 10px !important;
+  text-align: justify !important;
+}
+
+ul, ol {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 12pt !important;
+  line-height: 1.5 !important;
+  color: #000000 !important;
+  margin-top: 6px !important;
+  margin-bottom: 12px !important;
+  padding-left: 28px !important;
+}
+
+li {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 12pt !important;
+  line-height: 1.5 !important;
+  margin-bottom: 4px !important;
+  text-align: justify !important;
+}
+
+blockquote {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 12pt !important;
+  line-height: 1.55 !important;
+  border: 1px solid #cbd5e1 !important;
+  background-color: #f8fafc !important;
+  padding: 12px 18px !important;
+  margin: 14px 0 !important;
+  color: #1e293b !important;
+  font-style: italic !important;
+  border-radius: 4px !important;
+}
+
+blockquote p {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 12pt !important;
+  font-style: italic !important;
+  margin: 0 !important;
+}
+
+/* Captions for Tables and Figures */
+.table-caption, .figure-caption {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 11.5pt !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  margin: 8px 0 12px 0 !important;
+  color: #000000 !important;
+}
+
+.figure-caption {
+  font-style: italic !important;
+  font-weight: 400 !important;
+}
+
+/* Table of Contents */
+.toc-container {
+  background-color: #fbfcfe;
+  border: 1px solid #dbeafe;
+  border-radius: 6px;
+  padding: 24px 32px;
+  margin: 15px 0 25px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.toc-header-title {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 16pt !important;
+  font-weight: 700 !important;
+  color: #366091 !important;
+  margin-top: 0 !important;
+  margin-bottom: 18px !important;
+  border-bottom: 2px solid #548dd4 !important;
+  padding-bottom: 6px !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.toc-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  font-size: 11.5pt !important;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.toc-item {
+  margin-bottom: 5px;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.toc-link {
+  color: #0f172a;
+  text-decoration: none;
+  display: flex;
+  align-items: baseline;
+  padding: 2px 4px;
+  border-radius: 3px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.toc-link:hover {
+  color: #366091;
+  background-color: #eff6ff;
+  text-decoration: none;
+}
+
+.toc-title-text {
+  font-weight: 700 !important;
+  font-size: 12pt !important;
+  color: #0f172a !important;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.toc-sub-title-text {
+  font-weight: 400 !important;
+  font-size: 11.5pt !important;
+  color: #334155 !important;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.toc-dots {
+  flex-grow: 1;
+  border-bottom: 1px dotted #94a3b8;
+  margin: 0 8px;
+  min-width: 20px;
+}
+
+/* Tables strictly formatted to Template 0 */
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 16px 0 20px 0 !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 11pt !important;
+  line-height: 1.35 !important;
+  page-break-inside: avoid;
+}
+
+th, td {
+  border: 1px solid #cbd5e1 !important;
+  padding: 8px 10px !important;
+  vertical-align: top !important;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+th {
+  background-color: #548dd4 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  font-size: 11pt !important;
+  border: 1px solid #548dd4 !important;
+  vertical-align: middle !important;
+}
+
+td {
+  font-size: 11pt !important;
+  line-height: 1.45 !important;
+  color: #000000 !important;
+}
+
+tr:nth-child(even) td {
+  background-color: #f8fafc !important;
+}
+
+.align-center {
+  text-align: center !important;
+}
+
+.align-right {
+  text-align: right !important;
+}
+
+.align-left {
+  text-align: left !important;
+}
+
+/* Inline Code, Badges, & Pre Blocks */
+code {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 11pt !important;
+  font-weight: 600 !important;
+  background-color: #f1f5f9 !important;
+  padding: 1px 6px !important;
+  border-radius: 3px !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+.commit-badge, .entry-badge {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 11pt !important;
+  font-weight: 700 !important;
+  color: #1e3a8a !important;
+  background-color: #e0f2fe !important;
+  padding: 2px 7px !important;
+  border-radius: 4px !important;
+  border: 1px solid #bae6fd !important;
+  display: inline-block !important;
+}
+
+pre {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  padding: 12px 16px !important;
+  border-radius: 6px !important;
+  overflow-x: auto !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 11pt !important;
+  margin: 14px 0 !important;
+}
+
+pre code {
+  background-color: transparent !important;
+  color: inherit !important;
+  border: none !important;
+  padding: 0 !important;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.mermaid, .svg-diagram-wrapper {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 16px;
+  margin: 20px auto;
+  text-align: center;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.svg-diagram-wrapper svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Floating Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: var(--primary-blue);
+  color: #ffffff !important;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 10pt !important;
+  font-weight: 700 !important;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 112, 192, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+  z-index: 1000;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.back-to-top:hover {
+  background-color: #005a9e;
+  transform: translateY(-2px);
+  color: #ffffff !important;
+}
+
+/* Print Styles for A4 Paper Export */
+@media print {
+  body {
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+  }
+  .doc-page {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    min-height: auto;
+    page-break-after: always;
+    break-after: page;
+  }
+  .doc-page:last-of-type {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+  .page-break-divider {
+    display: none;
+  }
+  .back-to-top {
+    display: none !important;
+  }
+  table, pre, .mermaid, blockquote {
+    page-break-inside: avoid;
+  }
+  @page {
+    size: A4;
+    margin: 18mm 15mm 18mm 15mm;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+
+<!-- TRANG 1: TRANG BÌA (COVER PAGE) -->
+<section class="doc-page cover-page" id="trang-bia">
+  <div class="cover-top-section">
+    <div class="cover-doc-id">NMCNPM - AI-Powered Helpdesk &amp; Knowledge Base - Group 04</div>
+
+    <div class="proposal-banner">
+      <div class="banner-title">AI Usage Report</div>
+      <div class="banner-subtitle">Báo cáo Sử dụng Trí tuệ Nhân tạo (AI Usage Transparency &amp; Accountability Report)</div>
+    </div>
+
+    <div class="cover-meta-box">
+      <div><strong>Học phần:</strong> Nhập môn Công nghệ Phần mềm (CS10014) — Học kỳ 1 / Năm học 2026 - 2027</div>
+      <div><strong>Đề tài đề xuất:</strong> AI-Powered Helpdesk &amp; Knowledge Base</div>
+      <div><strong>Mã nhóm:</strong> Group 04</div>
+      <div><strong>Kho lưu trữ (Repository):</strong> <a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base" target="_blank" rel="noopener noreferrer">https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base</a></div>
+      <div><strong>Chuẩn quy định:</strong> Mục 5 Quy định về việc sử dụng AI trong học phần — Khoa Công nghệ Thông tin, HCMUS</div>
+      <div><strong>Mục đích &amp; Phạm vi tài liệu:</strong> Ghi nhận minh bạch toàn bộ quá trình sử dụng các công cụ Trí tuệ nhân tạo (LLM, AI Coding Assistant, Prompt-based generators) trong đồ án theo đúng quy chuẩn bắt buộc của Khoa CNTT - HCMUS.</div>
+      <div><strong>Ngày cập nhật:</strong> 28/10/2026</div>
+      <div style="margin-top: 14px;">
+        <table style="width: 100%; margin: 6px 0 0 0; border-collapse: collapse; font-size: 10.5pt;">
+          <thead>
+            <tr>
+              <th style="padding: 5px 6px; text-align: center; width: 45px;">STT</th>
+              <th style="padding: 5px 6px; text-align: center; width: 85px;">MSSV</th>
+              <th style="padding: 5px 8px; text-align: left;">Họ và Tên</th>
+              <th style="padding: 5px 8px; text-align: center; width: 120px;">GitHub</th>
+              <th style="padding: 5px 8px; text-align: left;">Module phụ trách</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center; padding: 5px 6px;">1</td>
+              <td style="text-align: center; padding: 5px 6px;"><code>24120269</code></td>
+              <td style="padding: 5px 8px;">Ngô Viết Thanh Bình (Lead)</td>
+              <td style="text-align: center; padding: 5px 8px;"><code>thanhbinh55</code></td>
+              <td style="padding: 5px 8px;">D - Identity &amp; Access</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 5px 6px;">2</td>
+              <td style="text-align: center; padding: 4px 6px;"><code>24120083</code></td>
+              <td style="padding: 5px 8px;">Nguyễn Đức Lãm</td>
+              <td style="text-align: center; padding: 5px 8px;"><code>Lamnguyen-code</code></td>
+              <td style="padding: 5px 8px;">B - Knowledge Base</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 5px 6px;">3</td>
+              <td style="text-align: center; padding: 5px 6px;"><code>24120503</code></td>
+              <td style="padding: 5px 8px;">Phan Gia Phúc</td>
+              <td style="text-align: center; padding: 5px 8px;"><code>t4lf4n</code></td>
+              <td style="padding: 5px 8px;">C - Ticket Management</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 5px 6px;">4</td>
+              <td style="text-align: center; padding: 5px 6px;"><code>24120121</code></td>
+              <td style="padding: 5px 8px;">Lê Quý Phúc</td>
+              <td style="text-align: center; padding: 5px 8px;"><code>Shinkiisme</code></td>
+              <td style="padding: 5px 8px;">A - AI Assistance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-bottom-section">
+    <div class="cover-institution-block-bottom">
+      <div class="cover-logo-wrapper">
+        <svg width="55" height="55" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="display:inline-block; vertical-align:middle;">
+      <circle cx="50" cy="50" r="48" fill="#00549a" stroke="#003865" stroke-width="2"/>
+      <circle cx="50" cy="50" r="42" fill="#ffffff"/>
+      <circle cx="50" cy="50" r="38" fill="#00549a"/>
+      <ellipse cx="50" cy="50" rx="28" ry="10" fill="none" stroke="#ffffff" stroke-width="2" transform="rotate(30 50 50)"/>
+      <ellipse cx="50" cy="50" rx="28" ry="10" fill="none" stroke="#ffffff" stroke-width="2" transform="rotate(-30 50 50)"/>
+      <ellipse cx="50" cy="50" rx="28" ry="10" fill="none" stroke="#ffffff" stroke-width="2" transform="rotate(90 50 50)"/>
+      <circle cx="50" cy="50" r="6" fill="#ffd700"/>
+      <text x="50" y="82" font-family="'Times New Roman', serif" font-size="9" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="1">KHTN</text>
+    </svg>
+      </div>
+      <div class="cover-inst-text">
+        <div class="inst-line-dept">Bộ môn Công nghệ phần mềm</div>
+        <div class="inst-line-faculty">Khoa Công nghệ thông tin</div>
+        <div class="inst-line-school">Đại học Khoa học tự nhiên TP HCM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page-break-divider"></div>
+
+
+<section class="doc-page" id="sec-intro-principles">
+  <!-- Header Bar -->
+  <div class="template-header-bar">
+    <div class="header-tab">Nhập môn công nghệ phần mềm</div>
+    <div class="header-title">Báo cáo sử dụng AI (AI Usage Report)</div>
+  </div>
+
+  <!-- Content -->
+  <div class="page-content">
+<h2 id="1-nguyên-tắc-cốt-lõi-tuyên-bố-sử-dụng-ai">1. NGUYÊN TẮC CỐT LÕI &amp; TUYÊN BỐ SỬ DỤNG AI</h2>
+<p>Căn cứ theo văn bản <strong>&quot;Quy định về việc sử dụng AI&quot;</strong> của Khoa CNTT, Trường Đại học Khoa học Tự Nhiên TP.HCM:</p>
+<h3 id="1-1-tuyên-bố-bắt-buộc-của-nhóm-theo-mục-5-yêu-cầu-bắt-buộc">1.1. Tuyên bố bắt buộc của nhóm (Theo Mục 5 - Yêu cầu bắt buộc)</h3>
+<blockquote><p><strong>Tuyên bố sử dụng công cụ AI (Mục 5.B):</strong></p></blockquote>
+<blockquote><p><em>&quot;Trong suốt quá trình thực hiện đồ án, nhóm có sử dụng các công cụ Trí tuệ nhân tạo (bao gồm ChatGPT của OpenAI, Google Gemini / Antigravity IDE của Google, GitHub Copilot) với mục đích hỗ trợ tra cứu kiến thức, gợi ý cấu trúc báo cáo, rà soát ngôn ngữ, và gợi ý khung mã nguồn. Tất cả các nội dung do AI đề xuất đều được các thành viên nhóm hiểu rõ bản chất, đối chiếu với tài liệu học thuật chính thống, chỉnh sửa bổ sung bằng năng lực cá nhân, chạy thử nghiệm test case thực tế và chịu hoàn toàn trách nhiệm về tính đúng đắn trước Giảng viên.&quot;</em></p></blockquote>
+<h3 id="1-2-bốn-nguyên-tắc-cốt-lõi-được-nhóm-cam-kết-thực-hiện">1.2. Bốn nguyên tắc cốt lõi được nhóm cam kết thực hiện</h3>
+<ol>
+  <li><strong>Minh bạch:</strong> Ghi chép đầy đủ tên công cụ, phiên bản, thời gian truy cập, câu prompt, mục đích, kết quả AI sinh và cách sinh viên tự hiệu chỉnh/kiểm chứng.</li>
+  <li><strong>Hiểu rõ nội dung:</strong> Mọi thành viên phải hiểu sâu sắc và có khả năng giải thích, bảo vệ toàn bộ mã nguồn và báo cáo nộp bài trong buổi vấn đáp.</li>
+  <li><strong>Không sao chép máy móc:</strong> Tuyệt đối không dán nguyên văn mã nguồn hoặc văn bản do AI sinh ra mà không qua thẩm định, chỉnh sửa chuyên môn.</li>
+  <li><strong>Đạo đức học thuật &amp; Bảo mật:</strong> Kiểm chứng chéo mọi dữ liệu với giáo trình chuẩn (Russell &amp; Norvig, giáo trình CNPM); không đưa khóa bí mật (API keys, credentials) vào các dịch vụ AI công cộng.</li>
+</ol>
+<hr style='border:0; border-top:1px solid #cbd5e1; margin:20px 0;'>
+  </div>
+
+  <!-- Footer Bar -->
+  <div class="template-footer-bar">
+    <div class="footer-left">ĐH Khoa học tự nhiên TP HCM | Bộ môn Công nghệ phần mềm</div>
+    <div class="footer-tab">Trang 1</div>
+  </div>
+</section>
+
+<div class="page-break-divider"></div>
+
+
+<section class="doc-page" id="sec-summary-matrix">
+  <!-- Header Bar -->
+  <div class="template-header-bar">
+    <div class="header-tab">Nhập môn công nghệ phần mềm</div>
+    <div class="header-title">Báo cáo sử dụng AI (AI Usage Report)</div>
+  </div>
+
+  <!-- Content -->
+  <div class="page-content">
+<h2 id="2-bảng-tổng-hợp-nhật-ký-sử-dụng-ai-summary-log-matrix">2. BẢNG TỔNG HỢP NHẬT KÝ SỬ DỤNG AI (SUMMARY LOG MATRIX)</h2>
+<p>Bảng dưới đây tổng hợp toàn bộ các phiên tương tác với AI trong quá trình triển khai dự án từ giai đoạn khởi tạo đến hiện tại.</p>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Thời gian</th>
+    <th>Thành viên (MSSV)</th>
+    <th>Công cụ &amp; Nền tảng</th>
+    <th>Hạng mục / Vị trí áp dụng</th>
+    <th>Nội dung AI tạo &amp; Tự kiểm chứng</th>
+    <th>Minh chứng</th>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>#01</strong></td>
+    <td class="align-center">09h00 - 17h30<br>19/10/2026</td>
+    <td class="align-left">Ngô Viết Thanh Bình<br><code>24120269</code></td>
+    <td class="align-left">Google Gemini (Gemini 3.8 Flash Medium)<br>Google via Antigravity IDE</td>
+    <td class="align-left">Khung Repository, kịch bản CI, Git hooks &amp; Script đóng gói (SCRUM-6)</td>
+    <td class="align-left">AI gợi ý cấu trúc thư mục, script git hook &amp; đóng gói; sinh viên tự kiểm tra lại regex Jira key, xử lý UTF-8 và chạy dry-run</td>
+    <td class="align-center"><a href="#entry-01">Chi tiết #01</a></td>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>#02</strong></td>
+    <td class="align-center">18h30<br>19/10/2026</td>
+    <td class="align-left">Ngô Viết Thanh Bình<br><code>24120269</code></td>
+    <td class="align-left">Google Gemini (Gemini 3.8 Flash Medium)<br>Google via Antigravity IDE</td>
+    <td class="align-left">Hướng dẫn làm việc nhóm &amp; Quy trình Template 0 (SCRUM-7)</td>
+    <td class="align-left">AI đề xuất cấu trúc tài liệu hướng dẫn nhóm; sinh viên đối chiếu quy định môn học, thiết lập quy chuẩn git branch/commit và deadline nội bộ</td>
+    <td class="align-center"><a href="#entry-02">Chi tiết #02</a></td>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>#03</strong></td>
+    <td class="align-center">14h30<br>19/10/2026</td>
+    <td class="align-left">Lê Quý Phúc<br><code>24120121</code></td>
+    <td class="align-left">ChatGPT (GPT-6)<br>OpenAI via chat.openai.com</td>
+    <td class="align-left">Bản nháp Project Proposal Mục 1, 2, 3.2 (SCRUM-8)</td>
+    <td class="align-left">AI sinh bản nháp tham khảo cho trang bìa, Mục 1, 2 và 3.2 từ tài liệu SRS và hướng dẫn nhóm; sinh viên tự đối chiếu mẫu và kiểm tra nội dung trước khi đưa vào bản nộp</td>
+    <td class="align-center"><a href="#entry-03">Chi tiết #03</a></td>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>#04</strong></td>
+    <td class="align-center">10h15<br>22/10/2026</td>
+    <td class="align-left">Phan Gia Phúc<br><code>24120503</code></td>
+    <td class="align-left">ChatGPT (GPT-6)<br>OpenAI via chat.openai.com</td>
+    <td class="align-left">Rà soát Phụ lục D &amp; Ma trận chức năng (SCRUM-9)</td>
+    <td class="align-left">AI đề xuất các tham chiếu bổ sung từ SRS-master.md; sinh viên đối chiếu với cột Nhu cầu/Yêu cầu, làm rõ nội dung và bổ sung tham chiếu</td>
+    <td class="align-center"><a href="#entry-04">Chi tiết #04</a></td>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>#05</strong></td>
+    <td class="align-center">09h30<br>22/10/2026</td>
+    <td class="align-left">Nguyễn Đức Lãm<br><code>24120083</code></td>
+    <td class="align-left">ChatGPT (GPT-6.1 Sol)<br>OpenAI via chat.openai.com</td>
+    <td class="align-left">Bản nháp Kiến trúc 3.1.2 &amp; Kế hoạch phát triển Mục 4 (SCRUM-10)</td>
+    <td class="align-left">AI sinh bản nháp từ tài liệu kiến trúc và Phụ lục G; sinh viên đối chiếu Phụ lục E &amp; G, tinh chỉnh thuật ngữ và chuẩn hóa mốc ngày tháng</td>
+    <td class="align-center"><a href="#entry-05">Chi tiết #05</a></td>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>#06</strong></td>
+    <td class="align-center">00h30<br>22/10/2026</td>
+    <td class="align-left">Ngô Viết Thanh Bình<br><code>24120269</code></td>
+    <td class="align-left">Google Gemini (Gemini 3.8 Flash Medium)<br>Google via Antigravity IDE</td>
+    <td class="align-left">Chuẩn hóa mục lục Proposal khớp mẫu Word của Giảng viên &amp; Hợp nhất nội dung nhóm (SCRUM-7 &amp; SCRUM-11)</td>
+    <td class="align-left">AI rà soát mục lục đối sánh template Word của Thầy; sinh viên tự tay hợp nhất nội dung từ nhánh các thành viên, sửa xung đột định dạng</td>
+    <td class="align-center"><a href="#entry-06">Chi tiết #06</a></td>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>#07</strong></td>
+    <td class="align-center">15h30<br>22/10/2026</td>
+    <td class="align-left">Ngô Viết Thanh Bình<br><code>24120269</code></td>
+    <td class="align-left">Google Gemini (Gemini 3.8 Flash Medium)<br>Google via Antigravity IDE</td>
+    <td class="align-left">Chuẩn hóa Ma trận nhân sự 5.1 &amp; Dự toán ngân sách 5.2 (SCRUM-11)</td>
+    <td class="align-left">AI tổng hợp bảng chi phí; sinh viên tra cứu biểu giá DigitalOcean/OpenAI, làm tròn số thực tế, chuẩn hóa 4 thành viên xuyên suốt SDLC</td>
+    <td class="align-center"><a href="#entry-07">Chi tiết #07</a></td>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>#08</strong></td>
+    <td class="align-center">21h30 22/10<br>- 00h30 23/10</td>
+    <td class="align-left">Ngô Viết Thanh Bình<br><code>24120269</code></td>
+    <td class="align-left">Google Gemini (Gemini 3.8 Flash Medium)<br>Google via Antigravity IDE</td>
+    <td class="align-left">Xây dựng Prototype Giao diện 3 cột HelpDesk với React &amp; Tailwind CSS (SCRUM-10)</td>
+    <td class="align-left">AI sinh các React components mẫu (Queue, Workspace, Chat, Copilot); sinh viên tự cấu hình Tailwind, tối ưu layout Zalo/Linear, tinh chỉnh responsive</td>
+    <td class="align-center"><a href="#entry-08">Chi tiết #08</a></td>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>#09</strong></td>
+    <td class="align-center">07h30<br>28/10/2026</td>
+    <td class="align-left">Ngô Viết Thanh Bình<br><code>24120269</code></td>
+    <td class="align-left">Google Gemini (Gemini 3.8 Flash Medium)<br>Google via Antigravity IDE</td>
+    <td class="align-left">Rà soát nhất quán đề xuất dự án và tạo bản nộp hoàn thiện tại <code>reports/submit/</code> (SCRUM-11)</td>
+    <td class="align-left">AI hỗ trợ kiểm tra ngữ pháp tiếng Việt, tính nhất quán của thuật ngữ kỹ thuật; sinh viên kiểm tra chéo với SRS-master.md và tạo file nộp</td>
+    <td class="align-center"><a href="#entry-09">Chi tiết #09</a></td>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>#10</strong></td>
+    <td class="align-center">08h20<br>28/10/2026</td>
+    <td class="align-left">Ngô Viết Thanh Bình<br><code>24120269</code></td>
+    <td class="align-left">Google Gemini (Gemini 3.8 Flash Medium)<br>Google via Antigravity IDE</td>
+    <td class="align-left">Tái cấu trúc Báo cáo sử dụng AI theo Quy định của Khoa CNTT - HCMUS (SCRUM-11)</td>
+    <td class="align-left">AI đối chiếu cấu trúc 7 trường thông tin của Khoa; sinh viên biên soạn bảng ma trận và hệ thống trích dẫn chuẩn cho toàn nhóm</td>
+    <td class="align-center"><a href="#entry-10">Chi tiết #10</a></td>
+  </tr>
+  <tr>
+    <td class="align-center"><strong>#11</strong></td>
+    <td class="align-center">19h30<br>28/10/2026</td>
+    <td class="align-left">Nguyễn Đức Lãm<br><code>24120083</code></td>
+    <td class="align-left">ChatGPT (GPT-6.1 Sol)<br>OpenAI via chat.openai.com</td>
+    <td class="align-left">Rà soát, kiểm tra nội dung của phần 5</td>
+    <td class="align-left">AI kiểm tra và đưa ra những điểm còn chưa rõ ràng, mâu thuẫn với tài liệu gốc (SCRUM-14)</td>
+    <td class="align-center"><a href="#entry-11">Chi tiết #11</a></td>
+  </tr>
+</table>
+<hr style='border:0; border-top:1px solid #cbd5e1; margin:20px 0;'>
+  </div>
+
+  <!-- Footer Bar -->
+  <div class="template-footer-bar">
+    <div class="footer-left">ĐH Khoa học tự nhiên TP HCM | Bộ môn Công nghệ phần mềm</div>
+    <div class="footer-tab">Trang 2</div>
+  </div>
+</section>
+
+<div class="page-break-divider"></div>
+
+
+<section class="doc-page" id="sec-entries-p1">
+  <!-- Header Bar -->
+  <div class="template-header-bar">
+    <div class="header-tab">Nhập môn công nghệ phần mềm</div>
+    <div class="header-title">Báo cáo sử dụng AI (AI Usage Report)</div>
+  </div>
+
+  <!-- Content -->
+  <div class="page-content">
+<h2 id="3-chi-tiết-các-phiên-sử-dụng-ai-chuẩn-trích-dẫn-quy-định">3. CHI TIẾT CÁC PHIÊN SỬ DỤNG AI (CHUẨN TRÍCH DẪN QUY ĐỊNH)</h2>
+<p>Mỗi mục dưới đây tuân thủ nghiêm ngặt <strong>Mục 5.B (Ghi chú sử dụng AI)</strong> của Quy định Khoa CNTT - ĐHKHTN, bao gồm đầy đủ 7 yếu tố bắt buộc.</p>
+<hr style='border:0; border-top:1px solid #cbd5e1; margin:20px 0;'>
+<h3 id="phiên-ghi-nhận-01-thiết-lập-cấu-trúc-repository-và-công-cụ-ci-git-hooks"><a id="entry-01"></a>Phiên ghi nhận #01: Thiết lập cấu trúc Repository và Công cụ CI/Git hooks</h3>
+<ul>
+  <li><strong>Trích dẫn chuẩn:</strong></li>
+</ul>
+<blockquote><p><strong>Google Gemini.</strong> <em>Gemini 3.8 Flash Medium, Google, via Antigravity IDE</em>, truy cập <em>09h00 - 17h30 ngày 19/10/2026</em>, prompt: <em>“Tạo bộ khung cấu trúc dự án phần mềm theo mô hình Modular Monolith React + Spring Boot, script commit-msg git hook kiểm tra định dạng commit có chứa Jira Issue Key dạng [A-Z]+-[0-9]+, và kịch bản Python render báo cáo Markdown sang HTML tự chứa kèm script đóng gói đồ án zip”</em>, dùng để hỗ trợ thiết lập hạ tầng dự án ban đầu cho task SCRUM-6, AI sinh đoạn mã shell script git hook và khung cấu trúc thư mục, sinh viên tự kiểm tra, bổ sung logic an toàn đường dẫn, hoàn thiện regex kiểm tra quy cách commit tiếng Việt và chạy kiểm thử dry-run.</p></blockquote>
+<ul>
+  <li><strong>Thành viên chịu trách nhiệm:</strong> <code>24120269</code> - Ngô Viết Thanh Bình (DevOps / Lead)</li>
+  <li><strong>Chi tiết đối soát:</strong></li>
+  <li><em>Nội dung AI tạo:</em> Mẫu shell script <code>commit-msg</code> cơ bản, script <code>render<em>reports.py</code> và kịch bản đóng gói <code>package</em>submission.py</code>.</li>
+  <li><em>Nội dung tự thực hiện &amp; kiểm chứng:</em> Bổ sung xử lý UTF-8 tiếng Việt, tinh chỉnh thông báo lỗi song ngữ Việt - Anh, cấu hình quyền thực thi <code>chmod +x</code> và chạy kiểm thử trực tiếp trên zsh/git client.</li>
+  <li><em>Minh chứng:</em> Nhật ký commit Git <code>[09ae70cf]</code> và <code>[c4496214]</code>.</li>
+</ul>
+<hr style='border:0; border-top:1px solid #cbd5e1; margin:20px 0;'>
+<h3 id="phiên-ghi-nhận-02-soạn-thảo-tài-liệu-hướng-dẫn-làm-việc-nhóm-quy-trình-template-0"><a id="entry-02"></a>Phiên ghi nhận #02: Soạn thảo tài liệu Hướng dẫn làm việc nhóm &amp; Quy trình Template 0</h3>
+<ul>
+  <li><strong>Trích dẫn chuẩn:</strong></li>
+</ul>
+<blockquote><p><strong>Google Gemini.</strong> <em>Gemini 3.8 Flash Medium, Google, via Antigravity IDE</em>, truy cập <em>18h30 ngày 19/10/2026</em>, prompt: <em>“Xây dựng tài liệu hướng dẫn quy trình làm việc Agile Scrum chi tiết cho nhóm sinh viên 4 người thực hiện đồ án NMCNPM theo Template 0, bao gồm quy định đặt tên nhánh git, cú pháp commit kèm Jira key, quy trình Review chéo và các mốc deadline nội bộ”</em>, dùng để hỗ trợ soạn thảo tài liệu <code>TEAM<em>GUIDE</em>TEMPLATE0.md</code> cho task SCRUM-7, AI sinh khung tài liệu hướng dẫn và các bước quy trình, sinh viên đối chiếu lịch trình môn học và phân công cụ thể cho từng thành viên theo ma trận module.</p></blockquote>
+<ul>
+  <li><strong>Thành viên chịu trách nhiệm:</strong> <code>24120269</code> - Ngô Viết Thanh Bình (DevOps / Lead)</li>
+  <li><strong>Chi tiết đối soát:</strong></li>
+  <li><em>Nội dung AI tạo:</em> Khung tài liệu hướng dẫn Scrum cơ bản và quy ước Git Flow.</li>
+  <li><em>Nội dung tự thực hiện &amp; kiểm chứng:</em> Gán chính xác địa chỉ email Jira, tài khoản Git, mã số sinh viên, và phân công vai trò 4 phân hệ (A, B, C, D) cho từng thành viên; thiết lập các mốc thời gian chi tiết từ ngày 19/10 đến 29/10/2026.</li>
+  <li><em>Minh chứng:</em> Nhật ký commit Git <code>[72212cb5]</code>.</li>
+</ul>
+<hr style='border:0; border-top:1px solid #cbd5e1; margin:20px 0;'>
+<h3 id="phiên-ghi-nhận-03-soạn-thảo-bản-nháp-mục-1-2-và-3-2-đề-xuất-dự-án-scrum-8"><a id="entry-03"></a>Phiên ghi nhận #03: Soạn thảo bản nháp Mục 1, 2 và 3.2 Đề xuất dự án (SCRUM-8)</h3>
+<ul>
+  <li><strong>Trích dẫn chuẩn:</strong></li>
+</ul>
+<blockquote><p><strong>ChatGPT.</strong> <em>GPT-6, OpenAI, chat.openai.com</em>, truy cập <em>ngày 19/10/2026</em>, input: <em>“Template 0, hướng dẫn nhóm, SRS và phần được phân công”</em>, dùng để hỗ trợ tạo bản nháp Project Proposal cho SCRUM-8 (Mục 1, Mục 2 và Mục 3.2), AI sinh bản nháp tham khảo cho trang bìa, Mục 1, Mục 2 và Mục 3.2, sinh viên tự đối chiếu mẫu, SRS và kiểm tra nội dung trước khi đưa vào bản nộp.</p></blockquote>
+<ul>
+  <li><strong>Thành viên chịu trách nhiệm:</strong> <code>24120121</code> - Lê Quý Phúc (Phân hệ AI Assistance)</li>
+  <li><strong>Chi tiết đối soát:</strong></li>
+  <li><em>Nội dung AI tạo:</em> Bản nháp tham khảo cho trang bìa, Mục 1, Mục 2 và Mục 3.2.</li>
+  <li><em>Nội dung tự thực hiện &amp; kiểm chứng:</em> Đối chiếu mẫu template giảng viên và SRS-master.md trước khi đưa vào bản nộp.</li>
+  <li><em>Minh chứng:</em> Nhật ký commit Git <code>[520a0f44]</code> ngày 19/10/2026.</li>
+</ul>
+<hr style='border:0; border-top:1px solid #cbd5e1; margin:20px 0;'>
+<h3 id="phiên-ghi-nhận-04-rà-soát-phụ-lục-d-và-bảng-chức-năng-scrum-9"><a id="entry-04"></a>Phiên ghi nhận #04: Rà soát Phụ lục D và Bảng chức năng (SCRUM-9)</h3>
+<ul>
+  <li><strong>Trích dẫn chuẩn:</strong></li>
+</ul>
+<blockquote><p><strong>ChatGPT.</strong> <em>GPT-6, OpenAI, chat.openai.com</em>, truy cập <em>ngày 22/10/2026</em>, input: <em>“Nội dung từ reports/SRS-master.md bao gồm Phụ lục D, Mục 3.3, 4, 5, 7, 8”</em>, dùng để hỗ trợ review Phụ lục D và Mục 3.1.1, AI sinh các tham chiếu bổ sung, sinh viên đối chiếu các tham chiếu với nội dung của các cột Nhu cầu/Yêu cầu, làm rõ một số nội dung của cột Nhu cầu, bổ sung các tham chiếu hiện tại có liên quan, gợi ý bổ sung thêm các tham chiếu chưa có để làm rõ nội dung của 1 số chức năng.</p></blockquote>
+<ul>
+  <li><strong>Thành viên chịu trách nhiệm:</strong> <code>24120503</code> - Phan Gia Phúc (Phân hệ Ticket Management)</li>
+  <li><strong>Chi tiết đối soát:</strong></li>
+  <li><em>Nội dung AI tạo:</em> Các tham chiếu bổ sung.</li>
+  <li><em>Nội dung tự thực hiện &amp; kiểm chứng:</em> Đối chiếu các tham chiếu với nội dung của các cột Nhu cầu/Yêu cầu; làm rõ nội dung cột Nhu cầu, bổ sung tham chiếu có liên quan.</li>
+  <li><em>Minh chứng:</em> Nhật ký commit Git <code>[0bbf775e]</code> ngày 22/10/2026.</li>
+</ul>
+<hr style='border:0; border-top:1px solid #cbd5e1; margin:20px 0;'>
+<h3 id="phiên-ghi-nhận-05-soạn-thảo-bản-nháp-kiến-trúc-và-kế-hoạch-phát-triển-scrum-10"><a id="entry-05"></a>Phiên ghi nhận #05: Soạn thảo bản nháp Kiến trúc và Kế hoạch phát triển (SCRUM-10)</h3>
+<ul>
+  <li><strong>Trích dẫn chuẩn:</strong></li>
+</ul>
+<blockquote><p><strong>ChatGPT.</strong> <em>GPT-6.1 Sol, OpenAI, chat.openai.com</em>, truy cập <em>09h30 ngày 22/10/2026</em>, prompt: <em>“chào bạn, tôi đang cần viết phần 3.1.2, kiến trúc tổng thể phần mềm, với nguồn tài liệu được lấy ở Trình bày kiến trúc tổng thể đáp ứng danh sách chức năng ở mục 3.1.1 (sơ đồ kiến trúc + giải thích các thành phần và luồng vận hành). Tham khảo Mục 9.1, 9.3, 9.4, 12.2 và Phụ lục trong reports/SRS-master.md, hãy dùng skill humanizer viết cho tôi phần này một cách tự nhiên nhất, cho tôi một cell .md để tôi chèn vào file của mình, không tự ý thay đổi bất kì file nào; tiếp tục với phần Kế hoạch phát triển Trình bày cụ thể kế hoạch phát triển phần mềm qua 5 giai đoạn cùng thành phẩm cụ thể của từng giai đoạn. Tham khảo Mục 14, 15, 17, 21 và Phụ lục G trong reports/SRS-master.md (lấy chuẩn ngày tháng theo phụ lục G)”</em>, dùng để hỗ trợ tạo bản nháp Project Proposal cho phần 3.1.2 và phần 4, AI sinh bản nháp cho phần 3.1.2 và phần 4, sinh viên đối chiếu với Phụ lục E và Phụ lục G trước khi đưa vào bản nộp, tinh chỉnh thuật ngữ, chuẩn hóa mốc ngày tháng theo lịch tuần.</p></blockquote>
+<ul>
+  <li><strong>Thành viên chịu trách nhiệm:</strong> <code>24120083</code> - Nguyễn Đức Lãm (Phân hệ Knowledge Base)</li>
+  <li><strong>Chi tiết các câu prompt nguyên văn do thành viên khai báo (trích lục từ commit Git <code>[5405de76]</code>):</strong></li>
+</ul>
+<ol>
+  <li><em>&quot;- chào bạn, tôi đang cần viết phần 3.1.2, kiến trúc tổng thể phần mềm, với nguồn tài liệu được lấy ở Trình bày kiến trúc tổng thể đáp ứng danh sách chức năng ở mục 3.1.1 (sơ đồ kiến trúc + giải thích các thành phần và luồng vận hành). Tham khảo Mục 9.1, 9.3, 9.4, 12.2 và Phụ lục trong reports/SRS-master.md, hãy dùng skill $humanizer:humanizer viết cho tôi phần này một cách tự nhiên nhất, cho tôi một cell .md để tôi chèn vào file của mình, không tự ý thay đổi bất kì file nào&quot;</em></li>
+  <li><em>&quot;- ok, tiếp tục với phần Kế hoạch phát triển Trình bày cụ thể kế hoạch phát triển phần mềm qua 5 giai đoạn cùng thành phẩm cụ thể của từng giai đoạn. Tham khảo Mục 14, 15, 17, 21 và Phụ lục G trong reports/SRS-master.md (lấy chuẩn ngày tháng theo phụ lục G)&quot;</em></li>
+</ol>
+<ul>
+  <li><strong>Chi tiết đối soát:</strong></li>
+  <li><em>Nội dung AI tạo:</em> Bản nháp cho phần 3.1.2 và phần 4.</li>
+  <li><em>Nội dung tự thực hiện &amp; kiểm chứng:</em> Đối chiếu với Phụ lục E và Phụ lục G trước khi đưa vào bản nộp; tinh chỉnh thuật ngữ, chuẩn hóa mốc ngày tháng theo lịch tuần.</li>
+  <li><em>Minh chứng:</em> Nhật ký commit Git <code>[5405de76]</code> ngày 22/10/2026.</li>
+</ul>
+<hr style='border:0; border-top:1px solid #cbd5e1; margin:20px 0;'>
+<h3 id="phiên-ghi-nhận-06-chuẩn-hóa-mục-lục-proposal-theo-mẫu-word-của-giảng-viên-hợp-nhất-nội-dung-nhóm"><a id="entry-06"></a>Phiên ghi nhận #06: Chuẩn hóa mục lục Proposal theo mẫu Word của Giảng viên &amp; Hợp nhất nội dung nhóm</h3>
+<ul>
+  <li><strong>Trích dẫn chuẩn:</strong></li>
+</ul>
+<blockquote><p><strong>Google Gemini.</strong> <em>Gemini 3.8 Flash Medium, Google, via Antigravity IDE</em>, truy cập <em>00h30 ngày 22/10/2026</em>, prompt: <em>“Đối chiếu cấu trúc mục lục của file 00-project-proposal.md với bản mẫu Word chính thức của Giảng viên môn NMCNPM HCMUS, định dạng lại toàn bộ heading từ Mục 1 đến Mục 5 đảm bảo chuẩn phân cấp, và hỗ trợ giải quyết xung đột khi tích hợp nội dung của các thành viên”</em>, dùng để hỗ trợ chuẩn hóa cấu trúc đề xuất dự án cho task SCRUM-7 &amp; SCRUM-11, AI sinh mục lục gợi ý và phát hiện các mục bị lệch cấu trúc, sinh viên tự kiểm tra, hợp nhất nội dung từ nhánh của 3 thành viên và căn chỉnh đúng số thứ tự mục.</p></blockquote>
+<ul>
+  <li><strong>Thành viên chịu trách nhiệm:</strong> <code>24120269</code> - Ngô Viết Thanh Bình (DevOps / Lead)</li>
+  <li><strong>Chi tiết đối soát:</strong></li>
+  <li><em>Nội dung AI tạo:</em> Phân tích đối chiếu cấu trúc mục lục và đề xuất chỉnh sửa tiêu đề mục.</li>
+  <li><em>Nội dung tự thực hiện &amp; kiểm chứng:</em> Trực tiếp giải quyết conflict git, sắp xếp lại các phần Bìa, Mục 1, 2, 3.1.1, 3.1.2, 3.2, 4, 5 đúng theo mẫu chuẩn của trường, kiểm tra việc hiển thị trên file Markdown.</li>
+  <li><em>Minh chứng:</em> Commit Git <code>[a89f1e22]</code> ngày 22/10/2026.</li>
+</ul>
+<hr style='border:0; border-top:1px solid #cbd5e1; margin:20px 0;'>
+  </div>
+
+  <!-- Footer Bar -->
+  <div class="template-footer-bar">
+    <div class="footer-left">ĐH Khoa học tự nhiên TP HCM | Bộ môn Công nghệ phần mềm</div>
+    <div class="footer-tab">Trang 3</div>
+  </div>
+</section>
+
+<div class="page-break-divider"></div>
+
+
+<section class="doc-page" id="sec-entries-p2">
+  <!-- Header Bar -->
+  <div class="template-header-bar">
+    <div class="header-tab">Nhập môn công nghệ phần mềm</div>
+    <div class="header-title">Báo cáo sử dụng AI (AI Usage Report)</div>
+  </div>
+
+  <!-- Content -->
+  <div class="page-content">
+<h3 id="phiên-ghi-nhận-07-kế-hoạch-nhân-sự-và-dự-toán-ngân-sách-thực-tế-có-kiểm-chứng"><a id="entry-07"></a>Phiên ghi nhận #07: Kế hoạch nhân sự và Dự toán ngân sách thực tế có kiểm chứng</h3>
+<ul>
+  <li><strong>Trích dẫn chuẩn:</strong></li>
+</ul>
+<blockquote><p><strong>Google Gemini.</strong> <em>Gemini 3.8 Flash Medium, Google, via Antigravity IDE</em>, truy cập <em>15h30 ngày 22/10/2026</em>, prompt: <em>“Đối chiếu hồ sơ Group 04 kiến trúc Modular Monolith React + Spring Boot + Postgres/pgvector chạy 1 VPS DigitalOcean 48 USD/tháng, Namecheap domain, OpenAI GPT-4o-mini/embedding, Cloudflare SSL 0 đồng; tính toán bảng dự toán chi phí thực tế có nguồn tham chiếu chính thống, làm tròn số lẻ và trình bày ma trận 4 thành viên cùng tham gia 5 công đoạn SDLC”</em>, dùng để hỗ trợ hoàn thiện Mục 5.1 và 5.2 trong <code>00-project-proposal.md</code>, AI sinh khung bảng chi phí và công thức quy đổi tiền tệ, sinh viên tra cứu trực tiếp bảng giá nhà cung cấp, loại bỏ các diễn đạt học đường, chuẩn hóa định mức API thực tế và bổ sung nguồn trích dẫn đầy đủ.</p></blockquote>
+<ul>
+  <li><strong>Thành viên chịu trách nhiệm:</strong> <code>24120269</code> - Ngô Viết Thanh Bình (DevOps / Lead)</li>
+  <li><strong>Chi tiết 8 câu prompt nguyên văn do thành viên khai báo (trích lục từ commit Git <code>[e571f12b]</code>):</strong></li>
+</ul>
+<ol>
+  <li><em>“phần kế hoạch nhân sự &amp; chi phí có trong SRS trước đó là dựa vào đâu mà soạn nên”</em></li>
+  <li><em>“hiện tại ở giai đoạn sau khi hoàn thành template, bước vào giai đoạn triển khai tiếp theo thì sẽ có những module công việc nào, hiện tại đang phân như nào và có mốc thời gian cụ thể không”</em></li>
+  <li><em>“Theo quy định bắt buộc của môn học, dự án không phân chia theo kiểu tách biệt... mà tất cả 4 thành viên đều tham gia đầy đủ 5 công đoạn phát triển phần mềm (SDLC)... không nên có những phần như thế này, tài liệu proposal trình bày như một bản nộp chuyên nghiệp, các phần câu từ như vậy không nên được sử dụng. Phân công công việc: Lãm làm Knowledge Base, Phan Gia Phúc làm Ticket Management, Lê Quý Phúc làm AI Assistance, tôi là Bình làm Identity &amp; Access...”</em></li>
+  <li><em>“ở bảng cấu trúc nhân sự, không cần MSSV, Không ghi Module A hay B hay C,D. Thay Trách nhiệm chuyên môn xuyên suốt SDLC thành Mô tả công việc. Và có thể liệt kê chi tiết hơn để đảm bảo đủ đúng các công việc thực hiện... thêm ghi chú: Các chi phí được tính toán dựa trên quy mô nhóm nhỏ... và ngoài ra với các chi phí, nếu tìm thấy tài liệu tham khảo chính thức từ các trang web chính thống cho các loại chi phí thì càng tốt”</em></li>
+  <li><em>“DỰA TRÊN NGUỒN THÔNG TIN NÀY, CHỈNH SỬA LẠI CHÍNH XÁC CHO TÔI PHẦN CHI PHÍ CHO ĐÚNG THỰC TẾ CÓ KIỂM CHỨNG NGUỒN: đối chiếu hồ sơ Group 04 kiến trúc Modular Monolith React + Spring Boot + Postgres/pgvector chạy 1 VPS DigitalOcean 48 USD/tháng, Namecheap domain, OpenAI GPT-4o-mini/embedding, Cloudflare SSL 0 đồng, phân định rõ dự toán kinh tế 48,82 triệu và thực chi tiền mặt...”</em></li>
+  <li><em>“những con số lẻ thì làm tròn lên một xíu ví dụ 290 thì lên 300”</em></li>
+  <li><em>“Dựa trên nội dung bảng giá chính thức... sửa lại phép tính chi phí LLM: GPT-6 Luna 0,10 USD input / 0,50 USD output -&gt; 1,95 USD = 49.725 VNĐ, làm tròn dự toán 60.000 VNĐ; Embedding text-embedding-3-small 0,30 USD = 7.650 VNĐ, làm tròn 10.000 VNĐ... chỉnh lại hai mục 4, 5 cho phù hợp”</em></li>
+  <li><em>“Với các số lẻ hãy làm tròn nhẹ lên và thêm dấu ~ trước”</em></li>
+</ol>
+<ul>
+  <li><strong>Chi tiết đối soát:</strong></li>
+  <li><em>Nội dung AI tạo:</em> Khung bảng tính ngân sách dự toán, công thức tính chi phí token đầu vào/đầu ra.</li>
+  <li><em>Nội dung tự thực hiện &amp; kiểm chứng:</em> Tra cứu trực tiếp bảng giá DigitalOcean Droplets, Namecheap TLD, OpenAI API docs và Cloudflare SSL; làm tròn số lẻ thực tế (~47.840.000 VNĐ bao gồm dự phòng 10%); đảm bảo cả 4 thành viên tham gia đầy đủ 5 công đoạn SDLC theo yêu cầu bắt buộc của Giảng viên.</li>
+  <li><em>Minh chứng:</em> Nhật ký commit Git <code>[e571f12b]</code> và <code>[f5da77da]</code>.</li>
+</ul>
+<hr style='border:0; border-top:1px solid #cbd5e1; margin:20px 0;'>
+<h3 id="phiên-ghi-nhận-08-xây-dựng-tinh-chỉnh-prototype-giao-diện-3-cột-helpdesk-với-react-tailwind-css"><a id="entry-08"></a>Phiên ghi nhận #08: Xây dựng &amp; Tinh chỉnh Prototype Giao diện 3 cột HelpDesk với React &amp; Tailwind CSS</h3>
+<ul>
+  <li><strong>Trích dẫn chuẩn:</strong></li>
+</ul>
+<blockquote><p><strong>Google Gemini.</strong> <em>Gemini 3.8 Flash Medium, Google, via Antigravity IDE</em>, truy cập <em>21h30 ngày 22/10/2026 đến 00h30 ngày 23/10/2026</em>, prompt: <em>“Khởi tạo ứng dụng React + TypeScript + Tailwind CSS cho hệ thống AI-Powered Helpdesk theo bố cục 3 cột (Sidebar điều hướng, Ticket Queue list hỗ trợ thu phóng kiểu Linear/Notion, Workspace xử lý ticket tích hợp AI Copilot bar góc dưới, Customer Portal chat hỗ trợ phím tắt Enter gửi và Shift+Enter xuống dòng, bộ lọc bài viết Knowledge Base và trang quản trị người dùng Admin)”</em>, dùng để hỗ trợ phát triển nguyên mẫu giao diện nhanh (UI Prototype) phục vụ minh họa cho đề xuất dự án (SCRUM-10), AI sinh mã nguồn khởi tạo các component React và dữ liệu mock mẫu, sinh viên tự cấu hình Tailwind, tối ưu lại trải nghiệm người dùng tương tự Zalo/Facebook Messenger, sửa lỗi chuyển tab ticket, chụp 11 ảnh minh chứng và đóng gói thành trang <code>UI_SHOWCASE.html</code>.</p></blockquote>
+<ul>
+  <li><strong>Thành viên chịu trách nhiệm:</strong> <code>24120269</code> - Ngô Viết Thanh Bình (DevOps / Lead)</li>
+  <li><strong>Chi tiết đối soát:</strong></li>
+  <li><em>Nội dung AI tạo:</em> Khung các component <code>TicketWorkspace.tsx</code>, <code>TicketQueue.tsx</code>, <code>CustomerPortal.tsx</code>, <code>AdminUserView.tsx</code> và file dữ liệu <code>mock/data.ts</code>.</li>
+  <li><em>Nội dung tự thực hiện &amp; kiểm chứng:</em> Tối ưu bố cục responsive, loại bỏ các nút AI trùng lặp, khắc phục lỗi mất thanh rail khi co giãn danh sách ticket, bổ sung xử lý sự kiện bàn phím gửi tin nhắn, tách nhỏ subcomponents theo kiến trúc modular, chạy thử nghiệm trực tiếp trên trình duyệt bằng <code>npm run dev</code>.</li>
+  <li><em>Minh chứng:</em> Chuỗi commit Git <code>[f127d244]</code>, <code>[a9f542d2]</code>, <code>[de9a6ecd]</code>, <code>[e4d5447f]</code>, <code>[dac005cd]</code>, <code>[d82788cd]</code>.</li>
+</ul>
+<hr style='border:0; border-top:1px solid #cbd5e1; margin:20px 0;'>
+<h3 id="phiên-ghi-nhận-09-rà-soát-nhất-quán-đề-xuất-dự-án-và-tạo-bản-nộp-hoàn-thiện"><a id="entry-09"></a>Phiên ghi nhận #09: Rà soát nhất quán đề xuất dự án và tạo bản nộp hoàn thiện</h3>
+<ul>
+  <li><strong>Trích dẫn chuẩn:</strong></li>
+</ul>
+<blockquote><p><strong>Google Gemini.</strong> <em>Gemini 3.8 Flash Medium, Google, via Antigravity IDE</em>, truy cập <em>07h30 ngày 28/10/2026</em>, prompt: <em>“Rà soát toàn bộ văn bản 00-project-proposal.md để phát hiện các lỗi chính tả, câu từ không chuẩn học thuật, các ghi chú nháp còn sót lại; đối chiếu tính nhất quán của số liệu chi phí, ngày tháng các sprint và phân công module với tài liệu SRS-master.md”</em>, dùng để hỗ trợ rà soát chất lượng trước khi nộp đề xuất dự án (SCRUM-11), AI sinh danh sách các điểm cần làm rõ và gợi ý hiệu chỉnh câu từ, sinh viên tự đối chiếu lại từng số liệu, làm sạch các dòng ghi chú nội bộ và tạo bản sao chính thức tại <code>reports/submit/00-project-proposal.md</code>.</p></blockquote>
+<ul>
+  <li><strong>Thành viên chịu trách nhiệm:</strong> <code>24120269</code> - Ngô Viết Thanh Bình (DevOps / Lead)</li>
+  <li><strong>Chi tiết đối soát:</strong></li>
+  <li><em>Nội dung AI tạo:</em> Gợi ý các vị trí câu từ có thể tối ưu diễn đạt và lưu ý định dạng bảng.</li>
+  <li><em>Nội dung tự thực hiện &amp; kiểm chứng:</em> Đọc soát toàn bộ tài liệu hơn 400 dòng, đảm bảo 100% số liệu chi phí khớp với bảng 5.2, đảm bảo 30 User Stories khớp với SRS-master, kiểm tra tính hợp lệ của bản nộp.</li>
+  <li><em>Minh chứng:</em> Nhật ký commit Git <code>[9f7b9920]</code> ngày 28/10/2026.</li>
+</ul>
+<hr style='border:0; border-top:1px solid #cbd5e1; margin:20px 0;'>
+<h3 id="phiên-ghi-nhận-10-tái-cấu-trúc-báo-cáo-sử-dụng-ai-theo-quy-định-của-khoa-cntt-hcmus"><a id="entry-10"></a>Phiên ghi nhận #10: Tái cấu trúc Báo cáo sử dụng AI theo Quy định của Khoa CNTT - HCMUS</h3>
+<ul>
+  <li><strong>Trích dẫn chuẩn:</strong></li>
+</ul>
+<blockquote><p><strong>Google Gemini.</strong> <em>Gemini 3.8 Flash Medium, Google, via Antigravity IDE</em>, truy cập <em>08h20 ngày 28/10/2026</em>, prompt: <em>“Phân tích tài liệu Quy định về việc sử dụng AI của Khoa CNTT Trường ĐHKHTN TP.HCM (học phần Tư duy tính toán CS10014), tái cấu trúc bảng theo dõi AI hiện tại thành bảng ma trận chuẩn không bị vỡ layout khi render HTML/PDF, và trích dẫn chi tiết từng phiên sử dụng tuân thủ đủ 7 yêu cầu bắt buộc”</em>, dùng để chuẩn hóa báo cáo sử dụng AI theo chuẩn bắt buộc của nhà trường (SCRUM-11), AI đề xuất cấu trúc phân chia 2 tầng (Bảng tổng hợp nhanh + Bản ghi trích dẫn chi tiết), sinh viên tự biên soạn nội dung, kiểm tra đối soát với toàn bộ lịch sử commit Git và xây dựng form mẫu cho nhóm.</p></blockquote>
+<ul>
+  <li><strong>Thành viên chịu trách nhiệm:</strong> <code>24120269</code> - Ngô Viết Thanh Bình (DevOps / Lead)</li>
+  <li><strong>Chi tiết đối soát:</strong></li>
+  <li><em>Nội dung AI tạo:</em> Cấu trúc phân cấp tài liệu và gợi ý định dạng bảng Markdown tương thích bộ sinh HTML.</li>
+  <li><em>Nội dung tự thực hiện &amp; kiểm chứng:</em> Bóc tách các prompt dài trước đây khỏi ô bảng, trích lục lịch sử commit của cả 4 thành viên, chạy script <code>render_reports.py</code> để xác thực tính tương thích hiển thị trên trình duyệt và bản in PDF.</li>
+  <li><em>Minh chứng:</em> Nhật ký commit Git <code>[b952c039]</code> ngày 28/10/2026.</li>
+</ul>
+<hr style='border:0; border-top:1px solid #cbd5e1; margin:20px 0;'>
+<h3 id="phiên-ghi-nhận-11-rà-soát-kiểm-tra-nội-dung-của-phần-5"><a id="entry-11"></a>Phiên ghi nhận #11: Rà soát, kiểm tra nội dung của phần 5</h3>
+<ul>
+  <li><strong>Trích dẫn chuẩn:</strong></li>
+</ul>
+<blockquote><p><strong>ChatGPT.</strong> <em>GPT-6.1 Sol, OpenAI, chat.openai.com</em>, truy cập <em>19h30 ngày 28/10/2026</em>, prompt: *“đây là nội dung phần 5 do bạn tôi viết bạn hãy đọc, và kiểm tra lại thật kỹ xem 1. có chỗ nào bị mâu thuẫn so với file SRS không theo nội dung tham khảo như sau: # 5. Kế hoạch nhân sự &amp; chi phí\</p></blockquote>
+<p>\&gt; \<em>Ghi chú nguồn nguyên liệu:\</em> Cấu trúc nhân sự toàn dự án và liệt kê các khoản chi phí dự kiến. Tham khảo Mục 16, 16.1, \<em>\</em>Phụ lục H\<em>\</em> và \<em>\</em>Phụ lục I\<em>\</em> trong \<code>reports/SRS-master.md\</code>.\</p>
+<p>\</p>
+<p>\<em>(Nội dung do \<code>Ngô Viết Thanh Bình\</code> biên soạn theo Jira \<code>SCRUM-11\</code>)\</em>\</p>
+<p>\</p>
+<p>\### 5.1. Cấu trúc nhân sự\</p>
+<p>\&gt; \<em>Ghi chú nguồn nguyên liệu:\</em> Ma trận vai trò, mô tả trách nhiệm và người phụ trách. Tham khảo \<em>\</em>Phụ lục H\<em>\</em> trong \<code>reports/SRS-master.md\</code>.\</p>
+<p>\</p>
+<p>\### 5.2. Kế hoạch chi phí\</p>
+<p>\&gt; \<em>Ghi chú nguồn nguyên liệu:\</em> Bảng tổng hợp chi phí nhân sự, hạ tầng cloud, API LLM, công cụ và dự phòng rủi ro. Tham khảo \<em>\</em>Phụ lục I\<em>\</em> trong \<code>reports/SRS-master.md\</code>. 2. có chỗ nào cách viết bị quá máy móc, theo kiẻu của AI quá không, dùng skill $humanizer:humanizer để gợi ý cho tôi các sửa(chỉ gợi ý chỗ bị lỗi và cách sửa, không tự sửa)”*</p>
+<ul>
+  <li><strong>Thành viên chịu trách nhiệm:</strong> <code>24120083</code> - Nguyễn Đức Lãm (Phân hệ Knowledge Base)</li>
+  <li><strong>Chi tiết các câu prompt nguyên văn do thành viên khai báo:</strong></li>
+</ul>
+<ol>
+  <li>*&quot;- đây là nội dung phần 5 do bạn tôi viết bạn hãy đọc, và kiểm tra lại thật kỹ xem có chỗ nào bị mâu thuẫn so với file SRS không theo nội dung tham khảo như sau: # 5. Kế hoạch nhân sự &amp; chi phí\</li>
+</ol>
+<p>\&gt; \<em>Ghi chú nguồn nguyên liệu:\</em> Cấu trúc nhân sự toàn dự án và liệt kê các khoản chi phí dự kiến. Tham khảo Mục 16, 16.1, \<em>\</em>Phụ lục H\<em>\</em> và \<em>\</em>Phụ lục I\<em>\</em> trong \<code>reports/SRS-master.md\</code>.\</p>
+<p>\</p>
+<p>\<em>(Nội dung do \<code>Ngô Viết Thanh Bình\</code> biên soạn theo Jira \<code>SCRUM-11\</code>)\</em>\</p>
+<p>\</p>
+<p>\### 5.1. Cấu trúc nhân sự\</p>
+<p>\&gt; \<em>Ghi chú nguồn nguyên liệu:\</em> Ma trận vai trò, mô tả trách nhiệm và người phụ trách. Tham khảo \<em>\</em>Phụ lục H\<em>\</em> trong \<code>reports/SRS-master.md\</code>.\</p>
+<p>\</p>
+<p>\### 5.2. Kế hoạch chi phí\</p>
+<p>\&gt; \<em>Ghi chú nguồn nguyên liệu:\</em> Bảng tổng hợp chi phí nhân sự, hạ tầng cloud, API LLM, công cụ và dự phòng rủi ro. Tham khảo \<em>\</em>Phụ lục I\<em>\</em> trong \<code>reports/SRS-master.md\</code>.</p>
+<p>có chỗ nào cách viết bị quá máy móc, theo kiẻu của AI quá không, dùng skill $humanizer:humanizer để gợi ý cho tôi các sửa(chỉ gợi ý chỗ bị lỗi và cách sửa, không tự sửa)&quot;*</p>
+<ol>
+  <li><em>&quot;nhìn chung, thì phần 5.1 đang mô tả quá chi tiết, mở rộng so với bản SRS đúng không&quot;</em></li>
+</ol>
+<ul>
+  <li><strong>Chi tiết đối soát:</strong></li>
+  <li><em>Nội dung AI tạo:</em> Nhận xét cho phần 5.</li>
+  <li><em>Nội dung tự thực hiện &amp; kiểm chứng:</em> Kiểm chứng và đối chiếu với mục 16., 16.1, phụ lục H, phụ lục I trong file SRS-master.md.</li>
+  <li><em>Minh chứng:</em> Phiên rà soát phản biện được thực hiện trực tiếp trên bản thảo Google Docs nội bộ của nhóm (không phát sinh commit mã nguồn riêng trên Git).</li>
+</ul>
+<hr style='border:0; border-top:1px solid #cbd5e1; margin:20px 0;'>
+<h2 id="4-cam-kết-tuân-thủ-quy-chế-và-hành-vi-cấm">4. CAM KẾT TUÂN THỦ QUY CHẾ VÀ HÀNH VI CẤM</h2>
+<p>Mọi thành viên nhóm cam kết tuân thủ nghiêm ngặt Điều 4.5 và Điều 6 của Quy chế học phần:</p>
+<ol>
+  <li><strong>CẤM</strong> dùng AI để viết toàn bộ báo cáo (dù có chỉnh sửa).</li>
+  <li><strong>CẤM</strong> sinh kết quả thực nghiệm giả, số liệu kiểm thử giả.</li>
+  <li><strong>CẤM</strong> sao chép toàn bộ mã nguồn do AI tạo ra mà không chạy thử, không kiểm tra, không hiểu rõ.</li>
+  <li><strong>CẤM</strong> làm sai lệch phần ghi chú sử dụng AI (xóa prompt, che giấu hoặc cung cấp bằng chứng giả).</li>
+  <li><strong>Quy chế kỷ luật:</strong> Vi phạm lần đầu sẽ bị cảnh cáo văn bản và trừ điểm; vi phạm lần hai sẽ bị <strong>chấm 0 điểm toàn bộ học phần</strong>.</li>
+</ol>
+<hr style='border:0; border-top:1px solid #cbd5e1; margin:20px 0;'>
+<h2 id="tài-liệu-tham-khảo-references">TÀI LIỆU THAM KHẢO (REFERENCES)</h2>
+<ol>
+  <li>Khoa Công nghệ Thông tin, Trường Đại học Khoa học Tự Nhiên TP.HCM. <em>Quy định về việc sử dụng AI - Học phần Tư duy tính toán (CS10014)</em>. Cập nhật tháng 10/2025.</li>
+</ol>
+  </div>
+
+  <!-- Footer Bar -->
+  <div class="template-footer-bar">
+    <div class="footer-left">ĐH Khoa học tự nhiên TP HCM | Bộ môn Công nghệ phần mềm</div>
+    <div class="footer-tab">Trang 4</div>
+  </div>
+</section>
+
+<div class="page-break-divider"></div>
+
+
+<!-- Floating Back to Top Button -->
+<a href="#trang-bia" class="back-to-top" title="Lên đầu trang">
+  <span>▲ Lên đầu trang</span>
+</a>
+
+</body>
+</html>
