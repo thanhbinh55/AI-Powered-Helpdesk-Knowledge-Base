@@ -13,7 +13,8 @@ Gia Phúc tổng hợp trong03.2.1, không viết lại phần nghiệp vụ c�
 
 ## Mockup cho Quý Phúc — trước20:00 06/11
 
-- Link Figma file/prototype thật: TODO.
+- Link Figma file/prototype thật: [SE – Figma (Node 49:58)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev) & kho 151 ảnh PNG tại `docs/design/anh/` (đã có sẵn từ Quý Phúc, không cần vẽ lại).
+- Google Docs làm việc: [[SE - Nhóm 4] template1](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0).
 - Quyền người ngoài nhóm xem: Chưa kiểm tra.
 - Ảnh tương đối trong../assets/mockups/: TODO.
 - Màn hình → UC/FR, happy/loading/error/empty/disabled: TODO.

@@ -5,6 +5,8 @@
 > **Trưởng nhóm (Project Manager & DevOps):** Ngô Viết Thanh Bình (MSSV: `24120269`)  
 > **Thời gian áp dụng:** 03/11/2026 – 22/11/2026; **chốt Template 1 lúc 20:00 ngày 08/11/2026**; **bắt đầu code ngày 09/11/2026**, **chốt MVP P0 lúc 20:00 ngày 22/11/2026**; QA & Nộp Template 2: 23/11 – 28/11/2026.  
 > **Tài liệu tham chiếu chuẩn:** [reports/SRS-master.md](reports/SRS-master.md) (v1.1) & [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md)  
+> **Tài liệu soạn thảo nhóm (Google Docs):** [[SE - Nhóm 4] template1 - Google Tài liệu](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0)  
+> **Bản thiết kế giao diện Figma (Redesign v2):** [SE – Figma (Node 49:58)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev) · [Danh mục 151 frames](docs/design/man-hinh.md) · [Mục 5 Template 1](reports/template1/05-prototype-mockup.md)  
 > *LƯU Ý: Đây là tài liệu duy nhất và toàn diện nhất của nhóm, tích hợp toàn bộ Quy chế vận hành (Team Guide), Sổ tay nhận việc từng cá nhân (Playbook), Tư liệu mẫu đặc tả Template 1, Bộ 6 sơ đồ UML, Baseline kỹ thuật mã nguồn và Danh mục Backlog Tasks. Mọi thành viên chỉ cần mở duy nhất file này để tra cứu và thực thi.*
 
 ---
@@ -68,10 +70,11 @@ flowchart LR
 ```
 
 1. **Giai đoạn 1 (03/11 – 06/11): Soạn thảo & Góp ý trực tiếp trên Google Docs**
-   - Trưởng nhóm khởi tạo một file Google Docs chung (đã dựng sẵn cấu trúc đề mục từ Mục 1 đến Mục 5 theo mẫu Template 1).
+   - Link tài liệu làm việc chung: **[[SE - Nhóm 4] template1 - Google Tài liệu](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0)** (đã dựng sẵn cấu trúc đề mục từ Mục 1 đến Mục 5 theo mẫu chuẩn của Khoa).
    - Từng thành viên viết nội dung phần việc của mình trực tiếp trên Google Docs.
+   - **Tư nguyên thiết kế UI đã có sẵn:** Toàn bộ 151 màn hình / 33 nhóm chính đã được Lê Quý Phúc thiết kế tại [Figma SE (Redesign v2)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev) và trích xuất PNG tại `docs/design/anh/`. Các thành viên chỉ việc lấy ảnh và mã Node ID đưa vào đặc tả Use Case, **không phải tự vẽ lại Figma từ đầu**.
    - Các thành viên sử dụng tính năng **Comment** và chế độ **Suggesting** để nhận xét, chỉnh sửa câu chữ, phản biện các kịch bản Use Case của nhau một cách trực quan, nhanh chóng mà không gây áp lực về cú pháp Markdown.
-   - Sơ đồ Use Case được phác thảo và thống nhất các quan hệ include/extend trước khi xuất file đồ họa.
+   - Sơ đồ Use Case được phác thảo và thống nhất các quan hệ include/extend trước khi xuất file đồ họa `.drawio` và `.svg`.
 
 2. **Giai đoạn 2 (06/11 – 07/11): Chốt nội dung, chuyển đổi Markdown & Commit lưu vết Git**
    - Sau khi Trưởng nhóm kiểm duyệt và chốt nội dung trên Google Docs, từng thành viên tự chuyển đổi phần của mình sang file Markdown (`.md`) và đặt vào đúng file trong thư mục `reports/template1/`:
@@ -292,10 +295,10 @@ gantt
 
 | Người giao → người nhận | Artifact phải giao | Hạn / người nhận làm gì trong lúc chờ |
 |---|---|---|
-| Bình → cả nhóm | Rubric, link Docs/Figma, quyền truy cập, tên gói/hạn cổng trong TEAM_READINESS |04/11; vẫn soạn từ SRS, phần chưa xác minh đánh dấu |
-| Bốn owner → Gia Phúc | Mapping FR/US/UC/test module mình trong inputs/<ten>.md |12:00 05/11; Gia Phúc dựng bảng trước, không đợi UC xong |
-| Gia Phúc → Quý Phúc | Phạm vi US-28/FR-TK-12 của Analytics P1 |12:00 05/11; Quý Phúc viết AI UC-14/15 trước |
-| Bốn owner → Quý Phúc | Link Figma, ảnh và mapping màn hình → UC |20:00 06/11; Quý Phúc tổng hợp trước20:00 07/11, không vẽ thay |
+| Bình → cả nhóm | Rubric, link Docs chung, link Figma SE, phân quyền thành viên trong TEAM_READINESS | **Đã hoàn thành 03/11**; link Docs và Figma đã cấp đủ |
+| Bốn owner → Gia Phúc | Mapping FR/US/UC/test module mình trong inputs/<ten>.md | 12:00 05/11; Gia Phúc dựng bảng trước, không đợi UC xong |
+| Gia Phúc → Quý Phúc | Phạm vi US-28/FR-TK-12 của Analytics P1 | 12:00 05/11; Quý Phúc viết AI UC-14/15 trước |
+| Bốn owner → Quý Phúc | Đối soát Node ID và ảnh PNG từ docs/design/man-hinh.md sang UC module mình | 20:00 06/11; Quý Phúc tổng hợp vào Mục 5 trước 20:00 07/11 |
 | Bốn owner/reviewer → Lãm | Tài liệu/sơ đồ/mockup đã review, AI log/chữ ký xác nhận thật |20:00 07/11; Lãm thử render từ 04/11, ghép từng phần |
 | Lãm → Gia Phúc → Bình | Gói cố định + manifest + kiểm tra độc lập |20:00 08/11; Bình nộp và lưu biên nhận trước21:00 08/11, không chờ code |
 | Bình → Quý Phúc/Lãm/cả nhóm | pom/wrapper/config/scaffold chạy tối thiểu |Trong 09/11; soạn CI/SQL/DTO nháp trước khi scaffold xong |
@@ -439,18 +442,18 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 **Owner:** Bình. **Reviewer:** Quý Phúc. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-07.
 
-**Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 4.1, 5, 10 users/auth_sessions, 11.2, 14.2; [PLAN_TEMPLATE1_AND_DEVELOPMENT.md](PLAN_TEMPLATE1_AND_DEVELOPMENT.md) — 4 mẫu chín trường, 5 sơ đồ tham khảo; [reports/template1/04-dac-ta-use-cases/04.2-module-D-identity.md](reports/template1/04-dac-ta-use-cases/04.2-module-D-identity.md) — file nhận đặc tả; [reports/template1/05-prototype-mockup.md](reports/template1/05-prototype-mockup.md) — ma trận màn hình.
+**Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 4.1, 5, 10 users/auth_sessions, 11.2, 14.2; [PLAN_TEMPLATE1_AND_DEVELOPMENT.md](PLAN_TEMPLATE1_AND_DEVELOPMENT.md) — 4 mẫu chín trường, 5 sơ đồ tham khảo; [reports/template1/04-dac-ta-use-cases/04.2-module-D-identity.md](reports/template1/04-dac-ta-use-cases/04.2-module-D-identity.md) — file nhận đặc tả; [reports/template1/05-prototype-mockup.md](reports/template1/05-prototype-mockup.md) — ma trận màn hình; [Google Docs nhóm](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0).
 
 **BẮT ĐẦU:** Viết từ SRS được ngay; không chờ bảng FR tổng hợp hoặc UC module khác để tránh vòng chờ.
 
 1. Đọc 4.1, 5, 10 users/auth_sessions, 11.2, 14.2; lấy UC-01..04,16, FR-ID-01..09, US-01..06,27, actor/BR. Gửi mapping FR/US/UC/test dự kiến vào inputs/binh.md cho Gia Phúc trước 12:00 05/11.
 2. Viết từng UC đủ chín trường theo kế hoạch Mục 4, có trigger, nhánh lỗi và hậu điều kiện; Tách register/login, refresh/logout; Admin quản lý Agent; UC-16 chỉ đặc tả P1. Bình còn vẽ uc-overview.drawio + SVG đủ 17 mã.
-3. Vẽ uc-module-D.drawio + SVG giữ mã UC và tên nghiệp vụ; tự làm mockup module gồm loading/error/empty/disabled, ghi link Figma và ảnh vào inputs/binh.md trước 20:00 06/11.
-4. Mở PR giao Quý Phúc; sửa review 07–08/11. Bàn giao file, ảnh và trạng thái còn thiếu cho Lãm; không để Quý Phúc vẽ lại màn hình của mình.
+3. Vẽ uc-module-D.drawio + SVG giữ mã UC và tên nghiệp vụ. **Không cần tự vẽ lại Figma:** sử dụng trực tiếp 18 frames phân hệ Identity trong `docs/design/man-hinh.md` (Node `62:8214` đến `62:14361`, ảnh PNG tại `docs/design/anh/`) để ánh xạ vào UC-01..04, 16. Soạn thảo trực tiếp trên Google Docs nhóm trước 20:00 06/11.
+4. Mở PR chuyển nội dung vào `04.2-module-D-identity.md`, giao Quý Phúc review 07–08/11. Bàn giao file, ảnh và trạng thái cho Lãm để chuẩn bị nộp bài.
 
-**Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-D-identity.md; assets/diagrams/uc-module-D.drawio và .svg; assets/mockups/binh-*.png; inputs/binh.md`.
+**Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-D-identity.md; assets/diagrams/uc-module-D.drawio và .svg; mapping màn hình Identity; inputs/binh.md`.
 
-**CHỐT / DoD:** Reviewer approve, đủ scope đã giao, drawio/SVG/mockup và mapping; rubric từ READY.  Bản nháp đủ nội dung trước20:00 06/11; bản được review/bàn giao trước20:00 07/11; 08/11 chỉ sửa lỗi đóng gói hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
+**CHỐT / DoD:** Reviewer approve, đủ scope đã giao, drawio/SVG/mockup và mapping; rubric từ READY. Bản nháp đủ nội dung trước 20:00 06/11; bản được review/bàn giao trước 20:00 07/11; 08/11 chỉ sửa lỗi đóng gói hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
 
 **Ai chờ kết quả:** Gia Phúc nhận mapping 05/11; Quý Phúc nhận mockup 06/11; Lãm nhận bản đã review 07/11.
 
@@ -460,18 +463,18 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 **Owner:** Gia Phúc. **Reviewer:** Lãm. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-07.
 
-**Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 4.2, 5.1/5.2, 6 UC-05/07/08/09, 11.3, 14.2; [PLAN_TEMPLATE1_AND_DEVELOPMENT.md](PLAN_TEMPLATE1_AND_DEVELOPMENT.md) — 4 mẫu chín trường, 5 sơ đồ tham khảo; [reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md](reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md) — file nhận đặc tả; [reports/template1/05-prototype-mockup.md](reports/template1/05-prototype-mockup.md) — ma trận màn hình.
+**Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 4.2, 5.1/5.2, 6 UC-05/07/08/09, 11.3, 14.2; [PLAN_TEMPLATE1_AND_DEVELOPMENT.md](PLAN_TEMPLATE1_AND_DEVELOPMENT.md) — 4 mẫu chín trường, 5 sơ đồ tham khảo; [reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md](reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md) — file nhận đặc tả; [reports/template1/05-prototype-mockup.md](reports/template1/05-prototype-mockup.md) — ma trận màn hình; [Google Docs nhóm](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0).
 
 **BẮT ĐẦU:** Viết từ SRS được ngay; không chờ bảng FR tổng hợp hoặc UC module khác để tránh vòng chờ.
 
 1. Đọc 4.2, 5.1/5.2, 6 UC-05/07/08/09, 11.3, 14.2; lấy UC-05..10, FR-TK-01..12, US-07..17,28,29, actor/BR. Gửi mapping FR/US/UC/test dự kiến vào inputs/gia-phuc.md cho Gia Phúc trước 12:00 05/11.
 2. Viết từng UC đủ chín trường theo kế hoạch Mục 4, có trigger, nhánh lỗi và hậu điều kiện; Phân biệt claim của Agent/assign của Admin, public/internal theo quyền, state và 409. UC-17 trong sơ đồ Ticket nhưng Quý Phúc viết file riêng; Gia Phúc review US-28 và gửi Quý Phúc trước 12:00 05/11.
-3. Vẽ uc-module-C.drawio + SVG giữ mã UC và tên nghiệp vụ; tự làm mockup module gồm loading/error/empty/disabled, ghi link Figma và ảnh vào inputs/gia-phuc.md trước 20:00 06/11.
-4. Mở PR giao Lãm; sửa review 07–08/11. Bàn giao file, ảnh và trạng thái còn thiếu cho Lãm; không để Quý Phúc vẽ lại màn hình của mình.
+3. Vẽ uc-module-C.drawio + SVG giữ mã UC và tên nghiệp vụ. **Không cần tự vẽ lại Figma:** sử dụng trực tiếp 41 frames Agent và 29 frames Customer trong `docs/design/man-hinh.md` (Node `55:1992`..`62:14876` và `58:6763`..`62:15156`, ảnh PNG tại `docs/design/anh/`) để ánh xạ vào UC-05..10. Soạn thảo trực tiếp trên Google Docs nhóm trước 20:00 06/11.
+4. Mở PR chuyển nội dung vào `04.2-module-C-ticket.md`, giao Lãm review 07–08/11. Bàn giao file, ảnh và trạng thái cho Lãm để chuẩn bị nộp bài.
 
-**Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md; assets/diagrams/uc-module-C.drawio và .svg; assets/mockups/gia-phuc-*.png; inputs/gia-phuc.md`.
+**Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md; assets/diagrams/uc-module-C.drawio và .svg; mapping màn hình Ticket; inputs/gia-phuc.md`.
 
-**CHỐT / DoD:** Reviewer approve, đủ scope đã giao, drawio/SVG/mockup và mapping; rubric từ READY.  Bản nháp đủ nội dung trước20:00 06/11; bản được review/bàn giao trước20:00 07/11; 08/11 chỉ sửa lỗi đóng gói hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
+**CHỐT / DoD:** Reviewer approve, đủ scope đã giao, drawio/SVG/mockup và mapping; rubric từ READY. Bản nháp đủ nội dung trước 20:00 06/11; bản được review/bàn giao trước 20:00 07/11; 08/11 chỉ sửa lỗi đóng gói hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
 
 **Ai chờ kết quả:** Gia Phúc nhận mapping 05/11; Quý Phúc nhận mockup 06/11; Lãm nhận bản đã review 07/11.
 
@@ -481,18 +484,18 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 **Owner:** Lãm. **Reviewer:** Bình. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-07.
 
-**Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 4.3, 6 UC-11/12, 10 Knowledge, 11.4, 12.1, 14.2; [PLAN_TEMPLATE1_AND_DEVELOPMENT.md](PLAN_TEMPLATE1_AND_DEVELOPMENT.md) — 4 mẫu chín trường, 5 sơ đồ tham khảo; [reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md](reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md) — file nhận đặc tả; [reports/template1/05-prototype-mockup.md](reports/template1/05-prototype-mockup.md) — ma trận màn hình.
+**Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 4.3, 6 UC-11/12, 10 Knowledge, 11.4, 12.1, 14.2; [PLAN_TEMPLATE1_AND_DEVELOPMENT.md](PLAN_TEMPLATE1_AND_DEVELOPMENT.md) — 4 mẫu chín trường, 5 sơ đồ tham khảo; [reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md](reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md) — file nhận đặc tả; [reports/template1/05-prototype-mockup.md](reports/template1/05-prototype-mockup.md) — ma trận màn hình; [Google Docs nhóm](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0).
 
 **BẮT ĐẦU:** Viết từ SRS được ngay; không chờ bảng FR tổng hợp hoặc UC module khác để tránh vòng chờ.
 
 1. Đọc 4.3, 6 UC-11/12, 10 Knowledge, 11.4, 12.1, 14.2; lấy UC-11..13, FR-KB-01..10, US-18..21, actor/BR. Gửi mapping FR/US/UC/test dự kiến vào inputs/lam.md cho Gia Phúc trước 12:00 05/11.
 2. Viết từng UC đủ chín trường theo kế hoạch Mục 4, có trigger, nhánh lỗi và hậu điều kiện; UC-11 READY chưa publish, UC-12 publish/archive riêng; worker là bước nội bộ. Chốt các nhánh PDF scan, file sai và retry có giới hạn.
-3. Vẽ uc-module-B.drawio + SVG giữ mã UC và tên nghiệp vụ; tự làm mockup module gồm loading/error/empty/disabled, ghi link Figma và ảnh vào inputs/lam.md trước 20:00 06/11.
-4. Mở PR giao Bình; sửa review 07–08/11. Bàn giao file, ảnh và trạng thái còn thiếu cho Lãm; không để Quý Phúc vẽ lại màn hình của mình.
+3. Vẽ uc-module-B.drawio + SVG giữ mã UC và tên nghiệp vụ. **Không cần tự vẽ lại Figma:** sử dụng trực tiếp 33 frames Knowledge Base trong `docs/design/man-hinh.md` (Node `62:9092`..`62:11768`, ảnh PNG tại `docs/design/anh/`) để ánh xạ vào UC-11..13. Soạn thảo trực tiếp trên Google Docs nhóm trước 20:00 06/11.
+4. Mở PR chuyển nội dung vào `04.2-module-B-knowledge.md`, giao Bình review 07–08/11. Bàn giao file, ảnh và trạng thái cho Lãm để chuẩn bị nộp bài.
 
-**Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md; assets/diagrams/uc-module-B.drawio và .svg; assets/mockups/lam-*.png; inputs/lam.md`.
+**Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md; assets/diagrams/uc-module-B.drawio và .svg; mapping màn hình KB; inputs/lam.md`.
 
-**CHỐT / DoD:** Reviewer approve, đủ scope đã giao, drawio/SVG/mockup và mapping; rubric từ READY.  Bản nháp đủ nội dung trước20:00 06/11; bản được review/bàn giao trước20:00 07/11; 08/11 chỉ sửa lỗi đóng gói hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
+**CHỐT / DoD:** Reviewer approve, đủ scope đã giao, drawio/SVG/mockup và mapping; rubric từ READY. Bản nháp đủ nội dung trước 20:00 06/11; bản được review/bàn giao trước 20:00 07/11; 08/11 chỉ sửa lỗi đóng gói hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
 
 **Ai chờ kết quả:** Gia Phúc nhận mapping 05/11; Quý Phúc nhận mockup 06/11; Lãm nhận bản đã review 07/11.
 
@@ -502,18 +505,18 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 **Owner:** Quý Phúc. **Reviewer:** Gia Phúc. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-07.
 
-**Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 4.4, 6 UC-14/15, 11.5, 12.2/12.4; FR-TK-12/US-28; [PLAN_TEMPLATE1_AND_DEVELOPMENT.md](PLAN_TEMPLATE1_AND_DEVELOPMENT.md) — 4 mẫu chín trường, 5 sơ đồ tham khảo; [reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md](reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md) — file nhận đặc tả; [reports/template1/05-prototype-mockup.md](reports/template1/05-prototype-mockup.md) — ma trận màn hình.
+**Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 4.4, 6 UC-14/15, 11.5, 12.2/12.4; FR-TK-12/US-28; [PLAN_TEMPLATE1_AND_DEVELOPMENT.md](PLAN_TEMPLATE1_AND_DEVELOPMENT.md) — 4 mẫu chín trường, 5 sơ đồ tham khảo; [reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md](reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md) — file nhận đặc tả; [reports/template1/05-prototype-mockup.md](reports/template1/05-prototype-mockup.md) — ma trận màn hình; [Google Docs nhóm](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0).
 
 **BẮT ĐẦU:** Viết từ SRS được ngay; không chờ bảng FR tổng hợp hoặc UC module khác để tránh vòng chờ.
 
 1. Đọc 4.4, 6 UC-14/15, 11.5, 12.2/12.4; FR-TK-12/US-28; lấy UC-14/15 và UC-17 P1 riêng, FR-AI-01..10 và FR-TK-12, US-22..26,28,30, actor/BR. Gửi mapping FR/US/UC/test dự kiến vào inputs/quy-phuc.md cho Gia Phúc trước 12:00 05/11.
 2. Viết từng UC đủ chín trường theo kế hoạch Mục 4, có trigger, nhánh lỗi và hậu điều kiện; UC-14 không tạo message, UC-15 phải duyệt text rồi send; có insufficient/timeout/citation sai. UC-17 viết file 04.2-uc-17-analytics.md, thuộc Ticket P1, lấy phạm vi US-28 từ Gia Phúc.
-3. Vẽ uc-module-A.drawio + SVG giữ mã UC và tên nghiệp vụ; tự làm mockup module gồm loading/error/empty/disabled, ghi link Figma và ảnh vào inputs/quy-phuc.md trước 20:00 06/11.
-4. Mở PR giao Gia Phúc; sửa review 07–08/11. Bàn giao file, ảnh và trạng thái còn thiếu cho Lãm; không để Quý Phúc vẽ lại màn hình của mình.
+3. Vẽ uc-module-A.drawio + SVG giữ mã UC và tên nghiệp vụ. Ánh xạ các frames AI (`A03`, `A05`, `A08`, `A-AIError`, `A-AIInsufficient`, `A-Replace`, `A-Inserted`, `A-AISent`) và mockup Analytics P1 vào UC-14, 15 và UC-17. Soạn thảo trực tiếp trên Google Docs nhóm trước 20:00 06/11.
+4. Mở PR chuyển nội dung vào `04.2-module-A-ai.md`, giao Gia Phúc review 07–08/11. Bàn giao file, ảnh và trạng thái cho Lãm để chuẩn bị nộp bài.
 
-**Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md và 04.2-uc-17-analytics.md; assets/diagrams/uc-module-A.drawio/.svg; assets/mockups/quy-phuc-*.png; inputs/quy-phuc.md`.
+**Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md và 04.2-uc-17-analytics.md; assets/diagrams/uc-module-A.drawio/.svg; mapping màn hình AI; inputs/quy-phuc.md`.
 
-**CHỐT / DoD:** Gia Phúc review UC-14/15 và UC-17 P1 riêng, đủ drawio/SVG/ảnh AI/mapping phần mình. Bản nháp20:00 06/11; bảnreview20:00 07/11; tổng hợp màn hình của cả nhóm là task T1-UI-01 riêng.
+**CHỐT / DoD:** Gia Phúc review UC-14/15 và UC-17 P1 riêng, đủ drawio/SVG/ảnh AI/mapping phần mình. Bản nháp 20:00 06/11; bản review 20:00 07/11; tổng hợp màn hình của cả nhóm là task T1-UI-01 riêng.
 
 **Ai chờ kết quả:** Gia Phúc nhận mapping 05/11; Quý Phúc nhận mockup 06/11; Lãm nhận bản đã review 07/11.
 
@@ -994,17 +997,17 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 **Owner:** Quý Phúc. **Reviewer:** Gia Phúc; Lãm kiểm tra gói. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-07.
 
-**Đọc trước:** [reports/template1/05-prototype-mockup.md](reports/template1/05-prototype-mockup.md) — ma trận màn hình; [reports/SRS-master.md](reports/SRS-master.md) — 13.1/13.3 và UC/FR theo module; [reports/template1/inputs/quy-phuc.md](reports/template1/inputs/quy-phuc.md) — ảnh/link AI của mình; các inputs khác cùng thư mục.
+**Đọc trước:** [reports/template1/05-prototype-mockup.md](reports/template1/05-prototype-mockup.md) — ma trận màn hình; [docs/design/man-hinh.md](docs/design/man-hinh.md) — 151 frames chi tiết; [design-system/helpdesk-workspace/MASTER.md](design-system/helpdesk-workspace/MASTER.md) — tokens & components; [Google Docs nhóm](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0).
 
-**BẮT ĐẦU:** Chuẩn bị cấu trúc/tên file ngay 03/11; không chờ mọi mockup hoàn tất mới làm phần tổng hợp.
+**BẮT ĐẦU:** Thiết kế Redesign v2 đã hoàn thành 100% trước hạn (151 frames / 33 nhóm chính). Tập trung hoàn thiện tài liệu Mục 5 và hỗ trợ nhóm ánh xạ Use Case.
 
-1. 03–04/11 Quý Phúc cung cấp cấu trúc file Figma chung/quyền và quy tắc đặt tên ảnh, ghi link thật vào TEAM_READINESS; mỗi owner tự thiết kế module mình.
-2. Nhận link Figma/ảnh/mapping UC từ bốn owner trước20:00 06/11; kiểm loading/error/empty/disabled, P0/P1 và trạng thái WAITING_CUSTOMER. Thiếu màn hình thì trả đúng owner, không vẽ thay tất cả.
-3. Tổng hợp 05-prototype-mockup.md, thử mở bằng tài khoản ngoài nhóm, kiểm ảnh vào gói; Gia Phúc review và bàn giao cho Lãm trước20:00 07/11. Lỗi đóng gói 08/11 owner hỗ trợ sửa.
+1. Đã hoàn thành bộ thiết kế Redesign v2 trên Figma SE: [Figma Node 49:58](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev), xuất trọn bộ 151 ảnh PNG tại `docs/design/anh/`. Đảm bảo quyền chia sẻ link là "Anyone with the link can view".
+2. Hỗ trợ 3 owner lấy đúng Node ID và ảnh PNG ánh xạ vào các Use Case UC-01..17 trong `docs/design/man-hinh.md`; rà soát đầy đủ loading/error/empty/disabled và các trạng thái máy ticket theo SRS.
+3. Hoàn thiện nội dung Mục 5 trong `reports/template1/05-prototype-mockup.md` và đồng bộ lên Google Docs nhóm; Gia Phúc review và bàn giao cho Lãm trước 20:00 07/11.
 
-**Đầu ra:** `reports/template1/05-prototype-mockup.md; link Figma thật và ảnh assets/mockups; bằng chứng kiểm quyền xem`.
+**Đầu ra:** `reports/template1/05-prototype-mockup.md; link Figma SE; bộ 151 ảnh PNG tại docs/design/anh/; Google Docs Mục 5`.
 
-**CHỐT / DoD:** Nhận ảnh/link của bốn owner từ DOC-04/05/06/07; mỗi màn hình có mapping, link view thật đã kiểm tra và reviewer approve trước20:00 07/11.
+**CHỐT / DoD:** Ma trận 33 nhóm màn hình / 151 frames đầy đủ, link view Figma hoạt động với tài khoản ngoài nhóm, và reviewer approve trước 20:00 07/11.
 
 **Ai chờ kết quả:** Lãm PUB để ghép/render; Gia Phúc kiểm tra độc lập.
 

@@ -2,6 +2,10 @@
 
 Tài liệu đầu vào cho người và AI khi làm giao diện dự án. Đọc file này trước khi đề xuất hoặc sửa UI.
 
+- **Figma Design chính thức:** [SE – Figma (Node 49:58)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev)
+- **Tài liệu làm việc nhóm (Google Docs):** [[SE - Nhóm 4] template1](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0)
+- **Báo cáo Mục 5 Template 1:** [05-prototype-mockup.md](reports/template1/05-prototype-mockup.md)
+
 ## Thứ tự áp dụng
 
 1. [SRS](reports/SRS-master.md): quyền, nghiệp vụ và trạng thái ticket.

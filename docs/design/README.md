@@ -2,6 +2,10 @@
 
 Thiết kế giao diện Helpdesk cho ba vai trò Customer, Agent và Admin, dựng trên file Figma **SE** bằng Figwright. Đọc [DESIGN.md](../../DESIGN.md) trước để biết thứ tự ưu tiên giữa các tài liệu.
 
+- **Figma Design chính thức:** [SE – Figma (Node 49:58)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev)
+- **Tài liệu làm việc nhóm (Google Docs):** [[SE - Nhóm 4] template1](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0)
+- **Báo cáo Mục 5 Template 1:** [05-prototype-mockup.md](../../reports/template1/05-prototype-mockup.md)
+
 ## Nội dung thư mục
 
 | Đường dẫn | Nội dung |

@@ -9,8 +9,8 @@ Nguồn: [task cards](../../TASK_PLAYBOOK_TEMPLATE1.md), [kế hoạch](../../PL
 | Thông tin | Owner cung cấp | Hạn | Trạng thái / bằng chứng |
 |---|---|---|---|
 | Rubric/template1 gốc và danh mục/định dạng sơ đồ | Bình | 04/11 | UNVERIFIED; cần link/path + phiên bản |
-| Link Docs chung, quyền thành viên và snapshot chuẩn | Bình | 04/11 | UNVERIFIED; chưa có link thật được xác minh trong repo |
-| Figma file/prototype chung, quyền export/view | Quý Phúc; Bình hỗ trợ quyền | 04/11 | UNVERIFIED; không dùng figma.com homepage |
+| Link Docs chung, quyền thành viên và snapshot chuẩn | Bình | 04/11 | **VERIFIED:** [[SE - Nhóm 4] template1 - Google Docs](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0) |
+| Figma file/prototype chung, quyền export/view | Quý Phúc; Bình hỗ trợ quyền | 04/11 | **VERIFIED:** [SE – Figma (Node 49:58 - Redesign v2)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev) & 151 ảnh PNG tại `docs/design/anh/` |
 | Git/Jira usernames, quyền review/merge và ref → issue keys | Bình; từng người xác nhận | 04/11 | UNVERIFIED; không suy Jira key từ ref hoặc số GitHub Issue |
 | Tên gói, hạn/timezone/giới hạn nộp và tài khoản có quyền | Bình; Gia Phúc dự phòng | 04/11 | UNVERIFIED; SRS A.2 hiện ghi15/11 00:00, cần đối chiếu cổng |
 | Embedding model/dimension/corpus mode/quota | Lãm + Quý Phúc | 10/11 12:00 | OPEN DEC-06, task T1-EMBED-01; secrets không đưa vào bảng |
