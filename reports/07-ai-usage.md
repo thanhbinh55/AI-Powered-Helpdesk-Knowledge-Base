@@ -41,6 +41,7 @@ Bảng dưới đây tổng hợp toàn bộ các phiên tương tác với AI t
 | **#09** | 07h30<br>28/10/2026 | Ngô Viết Thanh Bình<br>`24120269` | Google Gemini (Gemini 3.8 Flash Medium)<br>Google via Antigravity IDE | Rà soát nhất quán đề xuất dự án và tạo bản nộp hoàn thiện tại `reports/submit/` (SCRUM-11) | AI hỗ trợ kiểm tra ngữ pháp tiếng Việt, tính nhất quán của thuật ngữ kỹ thuật; sinh viên kiểm tra chéo với SRS-master.md và tạo file nộp | [Chi tiết #09](#entry-09) |
 | **#10** | 08h20<br>28/10/2026 | Ngô Viết Thanh Bình<br>`24120269` | Google Gemini (Gemini 3.8 Flash Medium)<br>Google via Antigravity IDE | Tái cấu trúc Báo cáo sử dụng AI theo Quy định của Khoa CNTT - HCMUS (SCRUM-11) | AI đối chiếu cấu trúc 7 trường thông tin của Khoa; sinh viên biên soạn bảng ma trận và hệ thống trích dẫn chuẩn cho toàn nhóm | [Chi tiết #10](#entry-10) |
 | **#11** | 19h30<br>28/10/2026 | Nguyễn Đức Lãm<br>`24120083` | ChatGPT (GPT-6.1 Sol)<br>OpenAI via chat.openai.com | Rà soát, kiểm tra nội dung của phần 5 | AI kiểm tra và đưa ra những điểm còn chưa rõ ràng, mâu thuẫn với tài liệu gốc (SCRUM-14) | [Chi tiết #11](#entry-11) |
+| **#12** | 26/10/2026<br>- 03/11/2026 | Lê Quý Phúc<br>`24120121` | Claude Code (Claude Opus 5.5), Anthropic<br>Codex, OpenAI | Thiết kế giao diện trên Figma, `docs/design/` | AI hỗ trợ dựng màn hình và component trên Figma theo phương án sinh viên chọn; sinh viên duyệt phương án, đối chiếu SRS và yêu cầu sửa các màn chưa đúng | [Chi tiết #12](#entry-12) |
 ---
 
 ## 3. CHI TIẾT CÁC PHIÊN SỬ DỤNG AI (CHUẨN TRÍCH DẪN QUY ĐỊNH)
@@ -205,6 +206,17 @@ Mỗi mục dưới đây tuân thủ nghiêm ngặt **Mục 5.B (Ghi chú sử 
 
 ---
 
+### <a id="entry-12"></a>Phiên ghi nhận #12: Thiết kế giao diện Helpdesk trên Figma
+- **Trích dẫn chuẩn:**
+  > **Claude Code.** *Claude Opus 5.5, Anthropic, Claude Code trong VS Code*; **Codex.** *OpenAI*; truy cập *từ 26/10/2026 đến 03/11/2026*, prompt (tóm lược): *“Dựng giao diện Helpdesk trên Figma qua plugin Figwright theo phương án A ‘Bàn làm việc yên tĩnh’ (Be Vietnam Pro, xanh coban, Light/Dark), bám SRS, chỉ dùng biến/style/component; sau đó rà soát và sửa các màn đã dựng”*, dùng để hỗ trợ thiết kế giao diện cho ba vai trò Customer, Agent, Admin, AI sinh màn hình, component và tài liệu mô tả trên Figma, sinh viên chọn phương án, duyệt đặc tả, đối chiếu từng màn với SRS và yêu cầu sửa các chỗ chưa đúng.
+- **Thành viên chịu trách nhiệm:** `24120121` - Lê Quý Phúc (Phân hệ A - AI Assistance)
+- **Chi tiết đối soát:**
+  - *Nội dung AI tạo:* Màn hình và component giao diện trên Figma, ảnh chụp và tài liệu mô tả trong `docs/design/`.
+  - *Nội dung tự thực hiện & kiểm chứng:* Chọn phương án thiết kế, duyệt đặc tả luồng, xem lại từng màn trên Figma, đối chiếu quyền và trạng thái ticket với SRS, kiểm tra tương phản Light/Dark.
+  - *Minh chứng:* Thư mục `docs/design/` (ảnh từng màn, kết quả kiểm tra trong `docs/design/kiem-tra/`).
+
+---
+
 ## 4. KHUNG MẪU GHI NHẬT KÝ DÀNH CHO CÁC THÀNH VIÊN (TEMPLATE FOR NEXT SPRINTS)
 
 Khi bất kỳ thành viên nào sử dụng AI trong các Sprint tiếp theo (lập trình backend/frontend, viết tài liệu kiểm thử, sinh test data), vui lòng thực hiện **2 bước**:
@@ -271,3 +283,4 @@ Mọi thành viên nhóm cam kết tuân thủ nghiêm ngặt Điều 4.5 và Đ
 | `1.0.4` | 2026-10-22 | Ngô Viết Thanh Bình | Bổ sung nhật ký sử dụng AI hỗ trợ soạn Mục 5 Nhân sự & Chi phí | SCRUM-11 |
 | `1.1.0` | 2026-10-28 | Ngô Viết Thanh Bình | Tái cấu trúc báo cáo theo đúng Quy định sử dụng AI của Khoa CNTT - HCMUS | SCRUM-11 |
 | `1.2.0` | 2026-10-28 | Ngô Viết Thanh Bình | Rà soát toàn bộ lịch sử dự án từ đầu, bổ sung đầy đủ tất cả các phiên sử dụng AI của Thanh Bình (Hạ tầng CI/CD, Guide nhóm, Chuẩn hóa Word, Ngân sách, Frontend UI Prototype React/Tailwind, Rà soát nộp bài) | SCRUM-11 |
+| `1.2.1` | 2026-11-03 | Lê Quý Phúc | Bổ sung nhật ký sử dụng AI hỗ trợ thiết kế giao diện trên Figma | — |

@@ -8,6 +8,10 @@
 Hệ thống Hỗ trợ Kỹ thuật & Kho Tri thức Doanh nghiệp Thông minh tích hợp Trí tuệ Nhân tạo (AI-Powered Helpdesk & Knowledge Base).  
 Đồ án môn học: **Nhập môn Công nghệ Phần mềm** - Khoa Công nghệ Thông tin, Trường ĐH Khoa học Tự nhiên, ĐHQG-HCM (HCMUS).
 
+Bộ thiết kế giao diện: [Bộ thiết kế v2](docs/design/README.md) ·
+[Design system](design-system/helpdesk-workspace/MASTER.md) ·
+[Quy tắc UI](DESIGN.md).
+
 ---
 
 ## 📌 1. THÀNH VIÊN NHÓM & PHÂN CÔNG (GROUP 04)
@@ -29,6 +33,7 @@ Thông tin chi tiết được quản lý tại tệp [members.csv](file:///User
 /
 ├── README.md                      # Giới thiệu dự án, hướng dẫn cài đặt và sơ đồ repo
 ├── CONTRIBUTING.md                # Quy định làm việc nhóm, chuẩn Git, Jira và review chéo
+├── DESIGN.md                      # Quy tắc UI và thứ tự ưu tiên tài liệu thiết kế
 ├── .gitignore                     # Loại trừ file nhạy cảm, build artifacts và cache
 ├── .gitattributes                 # Chuẩn hóa line endings (LF) và mã hoá UTF-8
 ├── .editorconfig                  # Cấu hình chuẩn định dạng mã nguồn nhất quán
@@ -55,6 +60,11 @@ Thông tin chi tiết được quản lý tại tệp [members.csv](file:///User
 │   ├── SRS-master.md              # Bản sao nguyên vẹn file đặc tả gốc
 │   ├── assets/                    # Hình ảnh, biểu đồ minh hoạ
 │   └── rendered/                  # Thư mục đầu ra HTML / PDF để nộp bài
+├── design-system/
+│   └── helpdesk-workspace/
+│       └── MASTER.md              # Token, typography và component giao diện (Redesign v2)
+├── docs/
+│   └── design/                    # Bảng màn hình, ảnh, manifest Figma và kết quả kiểm tra
 ├── backend/                       # Tài liệu cấu trúc Spring Boot dự kiến (Mục 9.3 & 15.3)
 ├── frontend/                      # Tài liệu cấu trúc React Vite dự kiến (Mục 9.3 & 15.3)
 ├── infra/                         # Tài liệu hạ tầng Docker Compose dự kiến

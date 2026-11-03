@@ -1,0 +1,1498 @@
+{
+  "date": "2026-11-01",
+  "file": "SE",
+  "scope": "Components — lượt 6; nhóm dữ liệu",
+  "rootNodeId": "52:1339",
+  "darkPreviewNodeId": "52:1587",
+  "narrowPreviewNodeId": "52:1895",
+  "inventory": [
+    {
+      "name": "v2 / StaffRow",
+      "id": "52:1564",
+      "variants": [
+        {
+          "symbol": "staff_enabled",
+          "id": "52:1343",
+          "darkInstance": "52:1665"
+        },
+        {
+          "symbol": "staff_disabled",
+          "id": "52:1344",
+          "darkInstance": "52:1681"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Họ tên",
+          "id": "Họ tên#52:11"
+        },
+        {
+          "name": "Email",
+          "id": "Email#52:14"
+        }
+      ]
+    },
+    {
+      "name": "v2 / DocumentRow",
+      "id": "52:1565",
+      "variants": [
+        {
+          "symbol": "doc_uploaded",
+          "id": "52:1347",
+          "darkInstance": "52:1697"
+        },
+        {
+          "symbol": "doc_processing",
+          "id": "52:1348",
+          "darkInstance": "52:1715"
+        },
+        {
+          "symbol": "doc_ready",
+          "id": "52:1349",
+          "darkInstance": "52:1733"
+        },
+        {
+          "symbol": "doc_failed",
+          "id": "52:1350",
+          "darkInstance": "52:1751"
+        },
+        {
+          "symbol": "doc_published",
+          "id": "52:1351",
+          "darkInstance": "52:1769"
+        },
+        {
+          "symbol": "doc_archived",
+          "id": "52:1352",
+          "darkInstance": "52:1787"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Tên tài liệu",
+          "id": "Tên tài liệu#52:17"
+        },
+        {
+          "name": "Thông tin tệp",
+          "id": "Thông tin tệp#52:24"
+        }
+      ]
+    },
+    {
+      "name": "v2 / Pagination",
+      "id": "52:1566",
+      "variants": [
+        {
+          "symbol": "page_first",
+          "id": "52:1354",
+          "darkInstance": "52:1805"
+        },
+        {
+          "symbol": "page_middle",
+          "id": "52:1355",
+          "darkInstance": "52:1816"
+        },
+        {
+          "symbol": "page_last",
+          "id": "52:1356",
+          "darkInstance": "52:1827"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "v2 / LoadMore",
+      "id": "52:1567",
+      "variants": [
+        {
+          "symbol": "more_default",
+          "id": "52:1357",
+          "darkInstance": "52:1838"
+        },
+        {
+          "symbol": "more_loading",
+          "id": "52:1358",
+          "darkInstance": "52:1843"
+        },
+        {
+          "symbol": "more_end",
+          "id": "52:1359",
+          "darkInstance": "52:1848"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "v2 / UploadZone",
+      "id": "52:1568",
+      "variants": [
+        {
+          "symbol": "upload_idle",
+          "id": "52:1361",
+          "darkInstance": "52:1850"
+        },
+        {
+          "symbol": "upload_drag",
+          "id": "52:1362",
+          "darkInstance": "52:1859"
+        },
+        {
+          "symbol": "upload_loading",
+          "id": "52:1363",
+          "darkInstance": "52:1868"
+        },
+        {
+          "symbol": "upload_error",
+          "id": "52:1364",
+          "darkInstance": "52:1873"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "v2 / PropertyPair",
+      "id": "52:1569",
+      "variants": [
+        {
+          "symbol": "pair_horizontal",
+          "id": "52:1366",
+          "darkInstance": "52:1882"
+        },
+        {
+          "symbol": "pair_vertical",
+          "id": "52:1367",
+          "darkInstance": "52:1886"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Nhãn",
+          "id": "Nhãn#52:31"
+        },
+        {
+          "name": "Giá trị",
+          "id": "Giá trị#52:34"
+        }
+      ]
+    }
+  ],
+  "nodeIds": {
+    "data": "52:1339",
+    "title": "52:1340",
+    "intro": "52:1341",
+    "staffHeading": "52:1342",
+    "staff_enabled": "52:1343",
+    "staff_disabled": "52:1344",
+    "docHeading": "52:1345",
+    "docHelp": "52:1346",
+    "doc_uploaded": "52:1347",
+    "doc_processing": "52:1348",
+    "doc_ready": "52:1349",
+    "doc_failed": "52:1350",
+    "doc_published": "52:1351",
+    "doc_archived": "52:1352",
+    "pageHeading": "52:1353",
+    "page_first": "52:1354",
+    "page_middle": "52:1355",
+    "page_last": "52:1356",
+    "more_default": "52:1357",
+    "more_loading": "52:1358",
+    "more_end": "52:1359",
+    "uploadHeading": "52:1360",
+    "upload_idle": "52:1361",
+    "upload_drag": "52:1362",
+    "upload_loading": "52:1363",
+    "upload_error": "52:1364",
+    "pairHeading": "52:1365",
+    "pair_horizontal": "52:1366",
+    "pair_vertical": "52:1367",
+    "staff_enabledAvatar": "52:1368",
+    "staff_enabledInfo": "52:1370",
+    "staff_enabledRole": "52:1371",
+    "staff_enabledStatus": "52:1372",
+    "staff_enabledAction": "52:1373",
+    "staff_disabledAvatar": "52:1377",
+    "staff_disabledInfo": "52:1379",
+    "staff_disabledRole": "52:1380",
+    "staff_disabledStatus": "52:1381",
+    "staff_disabledAction": "52:1382",
+    "doc_uploadedIcon": "52:1386",
+    "doc_uploadedInfo": "52:1388",
+    "doc_uploadedProcess": "52:1389",
+    "doc_uploadedPub": "52:1390",
+    "doc_uploadedAction": "52:1391",
+    "doc_processingIcon": "52:1395",
+    "doc_processingInfo": "52:1397",
+    "doc_processingProcess": "52:1398",
+    "doc_processingPub": "52:1399",
+    "doc_processingAction": "52:1400",
+    "doc_readyIcon": "52:1404",
+    "doc_readyInfo": "52:1406",
+    "doc_readyProcess": "52:1407",
+    "doc_readyPub": "52:1408",
+    "doc_readyAction": "52:1409",
+    "doc_failedIcon": "52:1413",
+    "doc_failedInfo": "52:1415",
+    "doc_failedProcess": "52:1416",
+    "doc_failedPub": "52:1417",
+    "doc_failedAction": "52:1418",
+    "doc_publishedIcon": "52:1422",
+    "doc_publishedInfo": "52:1424",
+    "doc_publishedProcess": "52:1425",
+    "doc_publishedPub": "52:1426",
+    "doc_publishedAction": "52:1427",
+    "doc_archivedIcon": "52:1431",
+    "doc_archivedInfo": "52:1433",
+    "doc_archivedProcess": "52:1434",
+    "doc_archivedPub": "52:1435",
+    "doc_archivedAction": "52:1436",
+    "page_firstSummary": "52:1440",
+    "page_firstPrev": "52:1441",
+    "page_firstNumber": "52:1445",
+    "page_firstNext": "52:1446",
+    "page_middleSummary": "52:1450",
+    "page_middlePrev": "52:1451",
+    "page_middleNumber": "52:1455",
+    "page_middleNext": "52:1456",
+    "page_lastSummary": "52:1460",
+    "page_lastPrev": "52:1461",
+    "page_lastNumber": "52:1465",
+    "page_lastNext": "52:1466",
+    "more_defaultAction": "52:1470",
+    "more_loadingAction": "52:1474",
+    "more_endText": "52:1478",
+    "upload_idleIcon": "52:1479",
+    "upload_idleHeading": "52:1481",
+    "upload_idleDetail": "52:1482",
+    "upload_idleAction": "52:1483",
+    "upload_dragIcon": "52:1487",
+    "upload_dragHeading": "52:1489",
+    "upload_dragDetail": "52:1490",
+    "upload_dragAction": "52:1491",
+    "upload_loadingIcon": "52:1495",
+    "upload_loadingHeading": "52:1497",
+    "upload_loadingDetail": "52:1498",
+    "upload_errorIcon": "52:1499",
+    "upload_errorHeading": "52:1501",
+    "upload_errorDetail": "52:1502",
+    "upload_errorAction": "52:1503",
+    "pair_horizontalLabelBox": "52:1507",
+    "pair_horizontalValue": "52:1508",
+    "pair_verticalLabel": "52:1509",
+    "pair_verticalValue": "52:1510",
+    "staff_enabledName": "52:1511",
+    "staff_enabledEmail": "52:1512",
+    "staff_enabledBadge": "52:1513",
+    "staff_disabledName": "52:1516",
+    "staff_disabledEmail": "52:1517",
+    "staff_disabledBadge": "52:1518",
+    "doc_uploadedName": "52:1521",
+    "doc_uploadedMeta": "52:1522",
+    "doc_uploadedBadge": "52:1523",
+    "doc_uploadedPublication": "52:1527",
+    "doc_processingName": "52:1528",
+    "doc_processingMeta": "52:1529",
+    "doc_processingBadge": "52:1530",
+    "doc_processingPublication": "52:1534",
+    "doc_readyName": "52:1535",
+    "doc_readyMeta": "52:1536",
+    "doc_readyBadge": "52:1537",
+    "doc_readyPublication": "52:1541",
+    "doc_failedName": "52:1542",
+    "doc_failedMeta": "52:1543",
+    "doc_failedBadge": "52:1544",
+    "doc_failedPublication": "52:1548",
+    "doc_publishedName": "52:1549",
+    "doc_publishedMeta": "52:1550",
+    "doc_publishedBadge": "52:1551",
+    "doc_publishedPublication": "52:1555",
+    "doc_archivedName": "52:1556",
+    "doc_archivedMeta": "52:1557",
+    "doc_archivedBadge": "52:1558",
+    "doc_archivedPublication": "52:1562",
+    "pair_horizontalLabel": "52:1563",
+    "staff_enabledActions": "52:1570",
+    "staff_disabledActions": "52:1571",
+    "doc_uploadedActions": "52:1572",
+    "doc_processingActions": "52:1573",
+    "doc_readyActions": "52:1574",
+    "doc_failedActions": "52:1575",
+    "doc_publishedActions": "52:1576",
+    "doc_archivedActions": "52:1577"
+  },
+  "summary": {
+    "counts": {
+      "nodes": 492,
+      "visibleNodes": 415,
+      "frames": 71,
+      "components": 20,
+      "sets": 6,
+      "instances": 156,
+      "texts": 160
+    },
+    "issues": {
+      "framesWithoutAuto": [],
+      "rawPaints": [],
+      "textWithoutStyle": [],
+      "unboundSpacing": [],
+      "unboundRadius": [],
+      "overflow": [],
+      "missingMainComponents": []
+    },
+    "textSamples": 154,
+    "disabledTextSamples": 6,
+    "minByMode": [
+      {
+        "mode": "49:0",
+        "ratio": 4.74
+      },
+      {
+        "mode": "49:3",
+        "ratio": 4.77
+      }
+    ],
+    "failingText": [],
+    "uploadBorderContrast": [
+      {
+        "id": "52:1361",
+        "mode": "49:0",
+        "ratio": 3.67
+      },
+      {
+        "id": "52:1362",
+        "mode": "49:0",
+        "ratio": 5.66
+      },
+      {
+        "id": "52:1363",
+        "mode": "49:0",
+        "ratio": 3.67
+      },
+      {
+        "id": "52:1364",
+        "mode": "49:0",
+        "ratio": 4.83
+      },
+      {
+        "id": "52:1850",
+        "mode": "49:3",
+        "ratio": 4.51
+      },
+      {
+        "id": "52:1859",
+        "mode": "49:3",
+        "ratio": 3.74
+      },
+      {
+        "id": "52:1868",
+        "mode": "49:3",
+        "ratio": 4.51
+      },
+      {
+        "id": "52:1873",
+        "mode": "49:3",
+        "ratio": 6.5
+      },
+      {
+        "id": "52:1896",
+        "mode": "49:0",
+        "ratio": 3.67
+      },
+      {
+        "id": "52:1905",
+        "mode": "49:0",
+        "ratio": 4.83
+      }
+    ]
+  },
+  "propertyChecks": [
+    {
+      "instance": "52:1665",
+      "property": "Email#52:14",
+      "passed": true,
+      "boundTextPassed": true
+    },
+    {
+      "instance": "52:1665",
+      "property": "Họ tên#52:11",
+      "passed": true,
+      "boundTextPassed": true
+    },
+    {
+      "instance": "52:1733",
+      "property": "Thông tin tệp#52:24",
+      "passed": true,
+      "boundTextPassed": true
+    },
+    {
+      "instance": "52:1733",
+      "property": "Tên tài liệu#52:17",
+      "passed": true,
+      "boundTextPassed": true
+    },
+    {
+      "instance": "52:1882",
+      "property": "Giá trị#52:34",
+      "passed": true,
+      "boundTextPassed": true
+    },
+    {
+      "instance": "52:1882",
+      "property": "Nhãn#52:31",
+      "passed": true,
+      "boundTextPassed": true
+    }
+  ],
+  "longTextChecks": {
+    "fullNameCharacters": 120,
+    "documentTitleCharacters": 200,
+    "filenameCharacters": 255,
+    "overflow": [],
+    "restored": true
+  },
+  "behaviorChecks": {
+    "firstPrevDisabled": true,
+    "lastNextDisabled": true,
+    "middleBothAvailable": true,
+    "loadMoreLoading": true,
+    "disabledStaffAction": true,
+    "readyCanPublish": true,
+    "onlyReadyCanPublish": true,
+    "publishedStillReady": true,
+    "documentColumnsAligned": true,
+    "narrowUploads320": true,
+    "uploadButtons44": true
+  },
+  "preservationChecks": {
+    "existingGroupsUnchanged": [
+      {
+        "id": "50:805",
+        "name": "Tiêu đề",
+        "unchanged": true
+      },
+      {
+        "id": "50:806",
+        "name": "Icon",
+        "unchanged": true
+      },
+      {
+        "id": "50:807",
+        "name": "Avatar",
+        "unchanged": true
+      },
+      {
+        "id": "50:808",
+        "name": "Badge",
+        "unchanged": true
+      },
+      {
+        "id": "51:583",
+        "name": "Trạng thái nghiệp vụ",
+        "unchanged": true
+      },
+      {
+        "id": "51:632",
+        "name": "Button",
+        "unchanged": true
+      },
+      {
+        "id": "51:936",
+        "name": "Nhập liệu",
+        "unchanged": true
+      },
+      {
+        "id": "51:1109",
+        "name": "Điều hướng",
+        "unchanged": true
+      },
+      {
+        "id": "51:1153",
+        "name": "Ticket",
+        "unchanged": true
+      },
+      {
+        "id": "51:1481",
+        "name": "Trợ lý AI và phản hồi",
+        "unchanged": true
+      },
+      {
+        "id": "51:1635",
+        "name": "Phản hồi",
+        "unchanged": true
+      }
+    ],
+    "sourceDarkFrameUnchanged": true,
+    "variablesUnchanged": true,
+    "stylesUnchanged": true
+  },
+  "contrastMethod": "WCAG relative luminance from bound COLOR values using nearest inherited native Light/Dark mode and nearest opaque parent fill; disabled controls excluded and reported separately.",
+  "textContrasts": [
+    {
+      "id": "52:1340",
+      "mode": "49:0",
+      "text": "Dữ liệu",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1341",
+      "mode": "49:0",
+      "text": "Hàng bảng theo quyền Admin; tài liệu Sẵn sàng chưa đồng nghĩa Đã công bố. Phân trang có điểm đầu/cuối. Tải lên luôn có nút chọn tệp và giới hạn 10 MiB.",
+      "ratio": 6.36
+    },
+    {
+      "id": "52:1342",
+      "mode": "49:0",
+      "text": "Hàng nhân viên",
+      "ratio": 17.23
+    },
+    {
+      "id": "I52:1368;51:70",
+      "mode": "49:0",
+      "text": "MA",
+      "ratio": 6.6
+    },
+    {
+      "id": "52:1511",
+      "mode": "49:0",
+      "text": "Nguyễn Minh Anh",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1512",
+      "mode": "49:0",
+      "text": "minh.anh@example.com",
+      "ratio": 6.36
+    },
+    {
+      "id": "52:1371",
+      "mode": "49:0",
+      "text": "Nhân viên hỗ trợ",
+      "ratio": 6.36
+    },
+    {
+      "id": "I52:1513;51:79",
+      "mode": "49:0",
+      "text": "Đang hoạt động",
+      "ratio": 4.74
+    },
+    {
+      "id": "I52:1373;51:676",
+      "mode": "49:0",
+      "text": "Vô hiệu hóa",
+      "ratio": 5.52
+    },
+    {
+      "id": "I52:1377;51:70",
+      "mode": "49:0",
+      "text": "MA",
+      "ratio": 6.6
+    },
+    {
+      "id": "52:1516",
+      "mode": "49:0",
+      "text": "Nguyễn Minh Anh",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1517",
+      "mode": "49:0",
+      "text": "minh.anh@example.com",
+      "ratio": 6.36
+    },
+    {
+      "id": "52:1380",
+      "mode": "49:0",
+      "text": "Nhân viên hỗ trợ",
+      "ratio": 6.36
+    },
+    {
+      "id": "I52:1518;51:81",
+      "mode": "49:0",
+      "text": "Đã vô hiệu hóa",
+      "ratio": 6.6
+    },
+    {
+      "id": "52:1345",
+      "mode": "49:0",
+      "text": "Hàng tài liệu",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1346",
+      "mode": "49:0",
+      "text": "Cột giữa là trạng thái xử lý và công bố riêng biệt. Chỉ tài liệu Sẵn sàng mới có nút Công bố; tài liệu đã lưu trữ không dùng cho gợi ý mới.",
+      "ratio": 6.36
+    },
+    {
+      "id": "52:1521",
+      "mode": "49:0",
+      "text": "Quy trình mở khóa tài khoản",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1522",
+      "mode": "49:0",
+      "text": "quy-trinh-mo-khoa.pdf · 2,4 MiB",
+      "ratio": 6.36
+    },
+    {
+      "id": "I52:1523;51:612;51:81",
+      "mode": "49:0",
+      "text": "Đã tải lên",
+      "ratio": 6.6
+    },
+    {
+      "id": "52:1527",
+      "mode": "49:0",
+      "text": "Chưa công bố",
+      "ratio": 6.36
+    },
+    {
+      "id": "I52:1391;51:658",
+      "mode": "49:0",
+      "text": "Xem chi tiết",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1528",
+      "mode": "49:0",
+      "text": "Quy trình mở khóa tài khoản",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1529",
+      "mode": "49:0",
+      "text": "quy-trinh-mo-khoa.pdf · 2,4 MiB",
+      "ratio": 6.36
+    },
+    {
+      "id": "I52:1530;51:615;51:73",
+      "mode": "49:0",
+      "text": "Đang xử lý",
+      "ratio": 5.46
+    },
+    {
+      "id": "52:1534",
+      "mode": "49:0",
+      "text": "Chưa công bố",
+      "ratio": 6.36
+    },
+    {
+      "id": "I52:1400;51:658",
+      "mode": "49:0",
+      "text": "Xem chi tiết",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1535",
+      "mode": "49:0",
+      "text": "Quy trình mở khóa tài khoản",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1536",
+      "mode": "49:0",
+      "text": "quy-trinh-mo-khoa.pdf · 2,4 MiB",
+      "ratio": 6.36
+    },
+    {
+      "id": "I52:1537;51:618;51:79",
+      "mode": "49:0",
+      "text": "Sẵn sàng",
+      "ratio": 4.74
+    },
+    {
+      "id": "52:1541",
+      "mode": "49:0",
+      "text": "Chưa công bố",
+      "ratio": 6.36
+    },
+    {
+      "id": "I52:1409;51:649",
+      "mode": "49:0",
+      "text": "Công bố",
+      "ratio": 6.5
+    },
+    {
+      "id": "52:1542",
+      "mode": "49:0",
+      "text": "Quy trình mở khóa tài khoản",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1543",
+      "mode": "49:0",
+      "text": "quy-trinh-mo-khoa.pdf · 2,4 MiB",
+      "ratio": 6.36
+    },
+    {
+      "id": "I52:1544;51:621;51:83",
+      "mode": "49:0",
+      "text": "Lỗi",
+      "ratio": 4.83
+    },
+    {
+      "id": "52:1548",
+      "mode": "49:0",
+      "text": "Chưa công bố",
+      "ratio": 6.36
+    },
+    {
+      "id": "I52:1418;51:658",
+      "mode": "49:0",
+      "text": "Xem lỗi",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1549",
+      "mode": "49:0",
+      "text": "Quy trình mở khóa tài khoản",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1550",
+      "mode": "49:0",
+      "text": "quy-trinh-mo-khoa.pdf · 2,4 MiB",
+      "ratio": 6.36
+    },
+    {
+      "id": "I52:1551;51:618;51:79",
+      "mode": "49:0",
+      "text": "Sẵn sàng",
+      "ratio": 4.74
+    },
+    {
+      "id": "52:1555",
+      "mode": "49:0",
+      "text": "Đã công bố",
+      "ratio": 5.33
+    },
+    {
+      "id": "I52:1427;51:676",
+      "mode": "49:0",
+      "text": "Lưu trữ",
+      "ratio": 5.52
+    },
+    {
+      "id": "52:1556",
+      "mode": "49:0",
+      "text": "Quy trình mở khóa tài khoản",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1557",
+      "mode": "49:0",
+      "text": "quy-trinh-mo-khoa.pdf · 2,4 MiB",
+      "ratio": 6.36
+    },
+    {
+      "id": "I52:1558;51:627;51:81",
+      "mode": "49:0",
+      "text": "Đã lưu trữ",
+      "ratio": 6.6
+    },
+    {
+      "id": "52:1562",
+      "mode": "49:0",
+      "text": "Đã ngừng công bố",
+      "ratio": 6.36
+    },
+    {
+      "id": "I52:1436;51:658",
+      "mode": "49:0",
+      "text": "Xem chi tiết",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1353",
+      "mode": "49:0",
+      "text": "Phân trang và xem thêm",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1440",
+      "mode": "49:0",
+      "text": "1–20 trên 57 tài liệu",
+      "ratio": 6.36
+    },
+    {
+      "id": "52:1445",
+      "mode": "49:0",
+      "text": "Trang 1 / 3",
+      "ratio": 17.23
+    },
+    {
+      "id": "I52:1446;51:658",
+      "mode": "49:0",
+      "text": "Sau",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1450",
+      "mode": "49:0",
+      "text": "21–40 trên 57 tài liệu",
+      "ratio": 6.36
+    },
+    {
+      "id": "I52:1451;51:658",
+      "mode": "49:0",
+      "text": "Trước",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1455",
+      "mode": "49:0",
+      "text": "Trang 2 / 3",
+      "ratio": 17.23
+    },
+    {
+      "id": "I52:1456;51:658",
+      "mode": "49:0",
+      "text": "Sau",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1460",
+      "mode": "49:0",
+      "text": "41–57 trên 57 tài liệu",
+      "ratio": 6.36
+    },
+    {
+      "id": "I52:1461;51:658",
+      "mode": "49:0",
+      "text": "Trước",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1465",
+      "mode": "49:0",
+      "text": "Trang 3 / 3",
+      "ratio": 17.23
+    },
+    {
+      "id": "I52:1470;51:658",
+      "mode": "49:0",
+      "text": "Xem thêm yêu cầu",
+      "ratio": 17.23
+    },
+    {
+      "id": "I52:1474;51:743",
+      "mode": "49:0",
+      "text": "Đang tải thêm…",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1478",
+      "mode": "49:0",
+      "text": "Đã hiển thị tất cả yêu cầu",
+      "ratio": 6.36
+    },
+    {
+      "id": "52:1360",
+      "mode": "49:0",
+      "text": "Tải tài liệu lên",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1481",
+      "mode": "49:0",
+      "text": "Kéo tài liệu vào đây",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1482",
+      "mode": "49:0",
+      "text": "PDF văn bản, TXT hoặc MD · Tối đa 10 MiB mỗi tệp",
+      "ratio": 6.36
+    },
+    {
+      "id": "I52:1483;51:655",
+      "mode": "49:0",
+      "text": "Chọn tệp",
+      "ratio": 6.5
+    },
+    {
+      "id": "52:1489",
+      "mode": "49:0",
+      "text": "Thả tệp để tải lên",
+      "ratio": 15.01
+    },
+    {
+      "id": "52:1490",
+      "mode": "49:0",
+      "text": "PDF văn bản, TXT hoặc MD · Tối đa 10 MiB mỗi tệp",
+      "ratio": 5.54
+    },
+    {
+      "id": "I52:1491;51:655",
+      "mode": "49:0",
+      "text": "Chọn tệp",
+      "ratio": 6.5
+    },
+    {
+      "id": "52:1497",
+      "mode": "49:0",
+      "text": "Đang tải tài liệu lên…",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1498",
+      "mode": "49:0",
+      "text": "quy-trinh-mo-khoa.pdf · 2,4 MiB\nChưa xử lý hoặc công bố. Vui lòng đợi tải lên hoàn tất.",
+      "ratio": 6.36
+    },
+    {
+      "id": "52:1501",
+      "mode": "49:0",
+      "text": "Tệp vượt quá 10 MiB",
+      "ratio": 4.83
+    },
+    {
+      "id": "52:1502",
+      "mode": "49:0",
+      "text": "Vui lòng chọn tệp nhỏ hơn hoặc bằng 10 MiB.\nChấp nhận PDF văn bản, TXT và MD.",
+      "ratio": 5.56
+    },
+    {
+      "id": "I52:1503;51:664",
+      "mode": "49:0",
+      "text": "Chọn tệp khác",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1365",
+      "mode": "49:0",
+      "text": "Cặp thuộc tính",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1563",
+      "mode": "49:0",
+      "text": "Người phụ trách",
+      "ratio": 6.36
+    },
+    {
+      "id": "52:1508",
+      "mode": "49:0",
+      "text": "Nguyễn Minh Anh",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1509",
+      "mode": "49:0",
+      "text": "Người phụ trách",
+      "ratio": 6.36
+    },
+    {
+      "id": "52:1510",
+      "mode": "49:0",
+      "text": "Nguyễn Minh Anh",
+      "ratio": 17.23
+    },
+    {
+      "id": "52:1589",
+      "mode": "49:3",
+      "text": "Dữ liệu — Dark",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1665;52:1368;51:70",
+      "mode": "49:3",
+      "text": "MA",
+      "ratio": 7.58
+    },
+    {
+      "id": "I52:1665;52:1511",
+      "mode": "49:3",
+      "text": "Nguyễn Minh Anh",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1665;52:1512",
+      "mode": "49:3",
+      "text": "minh.anh@example.com",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1665;52:1371",
+      "mode": "49:3",
+      "text": "Nhân viên hỗ trợ",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1665;52:1513;51:79",
+      "mode": "49:3",
+      "text": "Đang hoạt động",
+      "ratio": 7.45
+    },
+    {
+      "id": "I52:1665;52:1373;51:676",
+      "mode": "49:3",
+      "text": "Vô hiệu hóa",
+      "ratio": 7.51
+    },
+    {
+      "id": "I52:1681;52:1377;51:70",
+      "mode": "49:3",
+      "text": "MA",
+      "ratio": 7.58
+    },
+    {
+      "id": "I52:1681;52:1516",
+      "mode": "49:3",
+      "text": "Nguyễn Minh Anh",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1681;52:1517",
+      "mode": "49:3",
+      "text": "minh.anh@example.com",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1681;52:1380",
+      "mode": "49:3",
+      "text": "Nhân viên hỗ trợ",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1681;52:1518;51:81",
+      "mode": "49:3",
+      "text": "Đã vô hiệu hóa",
+      "ratio": 7.58
+    },
+    {
+      "id": "I52:1697;52:1521",
+      "mode": "49:3",
+      "text": "Quy trình mở khóa tài khoản",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1697;52:1522",
+      "mode": "49:3",
+      "text": "quy-trinh-mo-khoa.pdf · 2,4 MiB",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1697;52:1523;51:612;51:81",
+      "mode": "49:3",
+      "text": "Đã tải lên",
+      "ratio": 7.58
+    },
+    {
+      "id": "I52:1697;52:1527",
+      "mode": "49:3",
+      "text": "Chưa công bố",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1697;52:1391;51:658",
+      "mode": "49:3",
+      "text": "Xem chi tiết",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1715;52:1528",
+      "mode": "49:3",
+      "text": "Quy trình mở khóa tài khoản",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1715;52:1529",
+      "mode": "49:3",
+      "text": "quy-trinh-mo-khoa.pdf · 2,4 MiB",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1715;52:1530;51:615;51:73",
+      "mode": "49:3",
+      "text": "Đang xử lý",
+      "ratio": 7.19
+    },
+    {
+      "id": "I52:1715;52:1534",
+      "mode": "49:3",
+      "text": "Chưa công bố",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1715;52:1400;51:658",
+      "mode": "49:3",
+      "text": "Xem chi tiết",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1733;52:1535",
+      "mode": "49:3",
+      "text": "Quy trình mở khóa tài khoản",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1733;52:1536",
+      "mode": "49:3",
+      "text": "quy-trinh-mo-khoa.pdf · 2,4 MiB",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1733;52:1537;51:618;51:79",
+      "mode": "49:3",
+      "text": "Sẵn sàng",
+      "ratio": 7.45
+    },
+    {
+      "id": "I52:1733;52:1541",
+      "mode": "49:3",
+      "text": "Chưa công bố",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1733;52:1409;51:649",
+      "mode": "49:3",
+      "text": "Công bố",
+      "ratio": 4.77
+    },
+    {
+      "id": "I52:1751;52:1542",
+      "mode": "49:3",
+      "text": "Quy trình mở khóa tài khoản",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1751;52:1543",
+      "mode": "49:3",
+      "text": "quy-trinh-mo-khoa.pdf · 2,4 MiB",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1751;52:1544;51:621;51:83",
+      "mode": "49:3",
+      "text": "Lỗi",
+      "ratio": 6.5
+    },
+    {
+      "id": "I52:1751;52:1548",
+      "mode": "49:3",
+      "text": "Chưa công bố",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1751;52:1418;51:658",
+      "mode": "49:3",
+      "text": "Xem lỗi",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1769;52:1549",
+      "mode": "49:3",
+      "text": "Quy trình mở khóa tài khoản",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1769;52:1550",
+      "mode": "49:3",
+      "text": "quy-trinh-mo-khoa.pdf · 2,4 MiB",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1769;52:1551;51:618;51:79",
+      "mode": "49:3",
+      "text": "Sẵn sàng",
+      "ratio": 7.45
+    },
+    {
+      "id": "I52:1769;52:1555",
+      "mode": "49:3",
+      "text": "Đã công bố",
+      "ratio": 8.4
+    },
+    {
+      "id": "I52:1769;52:1427;51:676",
+      "mode": "49:3",
+      "text": "Lưu trữ",
+      "ratio": 7.51
+    },
+    {
+      "id": "I52:1787;52:1556",
+      "mode": "49:3",
+      "text": "Quy trình mở khóa tài khoản",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1787;52:1557",
+      "mode": "49:3",
+      "text": "quy-trinh-mo-khoa.pdf · 2,4 MiB",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1787;52:1558;51:627;51:81",
+      "mode": "49:3",
+      "text": "Đã lưu trữ",
+      "ratio": 7.58
+    },
+    {
+      "id": "I52:1787;52:1562",
+      "mode": "49:3",
+      "text": "Đã ngừng công bố",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1787;52:1436;51:658",
+      "mode": "49:3",
+      "text": "Xem chi tiết",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1805;52:1440",
+      "mode": "49:3",
+      "text": "1–20 trên 57 tài liệu",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1805;52:1445",
+      "mode": "49:3",
+      "text": "Trang 1 / 3",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1805;52:1446;51:658",
+      "mode": "49:3",
+      "text": "Sau",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1816;52:1450",
+      "mode": "49:3",
+      "text": "21–40 trên 57 tài liệu",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1816;52:1451;51:658",
+      "mode": "49:3",
+      "text": "Trước",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1816;52:1455",
+      "mode": "49:3",
+      "text": "Trang 2 / 3",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1816;52:1456;51:658",
+      "mode": "49:3",
+      "text": "Sau",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1827;52:1460",
+      "mode": "49:3",
+      "text": "41–57 trên 57 tài liệu",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1827;52:1461;51:658",
+      "mode": "49:3",
+      "text": "Trước",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1827;52:1465",
+      "mode": "49:3",
+      "text": "Trang 3 / 3",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1838;52:1470;51:658",
+      "mode": "49:3",
+      "text": "Xem thêm yêu cầu",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1843;52:1474;51:743",
+      "mode": "49:3",
+      "text": "Đang tải thêm…",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1848;52:1478",
+      "mode": "49:3",
+      "text": "Đã hiển thị tất cả yêu cầu",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1850;52:1481",
+      "mode": "49:3",
+      "text": "Kéo tài liệu vào đây",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1850;52:1482",
+      "mode": "49:3",
+      "text": "PDF văn bản, TXT hoặc MD · Tối đa 10 MiB mỗi tệp",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1850;52:1483;51:655",
+      "mode": "49:3",
+      "text": "Chọn tệp",
+      "ratio": 4.77
+    },
+    {
+      "id": "I52:1859;52:1489",
+      "mode": "49:3",
+      "text": "Thả tệp để tải lên",
+      "ratio": 12.31
+    },
+    {
+      "id": "I52:1859;52:1490",
+      "mode": "49:3",
+      "text": "PDF văn bản, TXT hoặc MD · Tối đa 10 MiB mỗi tệp",
+      "ratio": 6.36
+    },
+    {
+      "id": "I52:1859;52:1491;51:655",
+      "mode": "49:3",
+      "text": "Chọn tệp",
+      "ratio": 4.77
+    },
+    {
+      "id": "I52:1868;52:1497",
+      "mode": "49:3",
+      "text": "Đang tải tài liệu lên…",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1868;52:1498",
+      "mode": "49:3",
+      "text": "quy-trinh-mo-khoa.pdf · 2,4 MiB\nChưa xử lý hoặc công bố. Vui lòng đợi tải lên hoàn tất.",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1873;52:1501",
+      "mode": "49:3",
+      "text": "Tệp vượt quá 10 MiB",
+      "ratio": 6.5
+    },
+    {
+      "id": "I52:1873;52:1502",
+      "mode": "49:3",
+      "text": "Vui lòng chọn tệp nhỏ hơn hoặc bằng 10 MiB.\nChấp nhận PDF văn bản, TXT và MD.",
+      "ratio": 6.95
+    },
+    {
+      "id": "I52:1873;52:1503;51:664",
+      "mode": "49:3",
+      "text": "Chọn tệp khác",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1882;52:1563",
+      "mode": "49:3",
+      "text": "Người phụ trách",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1882;52:1508",
+      "mode": "49:3",
+      "text": "Nguyễn Minh Anh",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1886;52:1509",
+      "mode": "49:3",
+      "text": "Người phụ trách",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1886;52:1510",
+      "mode": "49:3",
+      "text": "Nguyễn Minh Anh",
+      "ratio": 14.49
+    },
+    {
+      "id": "52:1914",
+      "mode": "49:0",
+      "text": "Kiểm tra vùng hẹp · 320 px",
+      "ratio": 17.23
+    },
+    {
+      "id": "I52:1896;52:1481",
+      "mode": "49:0",
+      "text": "Kéo tài liệu vào đây",
+      "ratio": 17.23
+    },
+    {
+      "id": "I52:1896;52:1482",
+      "mode": "49:0",
+      "text": "PDF văn bản, TXT hoặc MD · Tối đa 10 MiB mỗi tệp",
+      "ratio": 6.36
+    },
+    {
+      "id": "I52:1896;52:1483;51:655",
+      "mode": "49:0",
+      "text": "Chọn tệp",
+      "ratio": 6.5
+    },
+    {
+      "id": "I52:1905;52:1501",
+      "mode": "49:0",
+      "text": "Tệp vượt quá 10 MiB",
+      "ratio": 4.83
+    },
+    {
+      "id": "I52:1905;52:1502",
+      "mode": "49:0",
+      "text": "Vui lòng chọn tệp nhỏ hơn hoặc bằng 10 MiB.\nChấp nhận PDF văn bản, TXT và MD.",
+      "ratio": 5.56
+    },
+    {
+      "id": "I52:1905;52:1503;51:664",
+      "mode": "49:0",
+      "text": "Chọn tệp khác",
+      "ratio": 17.23
+    }
+  ],
+  "disabledTextContrasts": [
+    {
+      "id": "I52:1382;51:830",
+      "mode": "49:0",
+      "text": "Vô hiệu hóa",
+      "ratio": 2.08
+    },
+    {
+      "id": "I52:1441;51:740",
+      "mode": "49:0",
+      "text": "Trước",
+      "ratio": 2.08
+    },
+    {
+      "id": "I52:1466;51:740",
+      "mode": "49:0",
+      "text": "Sau",
+      "ratio": 2.08
+    },
+    {
+      "id": "I52:1681;52:1382;51:830",
+      "mode": "49:3",
+      "text": "Vô hiệu hóa",
+      "ratio": 2.67
+    },
+    {
+      "id": "I52:1805;52:1441;51:740",
+      "mode": "49:3",
+      "text": "Trước",
+      "ratio": 2.67
+    },
+    {
+      "id": "I52:1827;52:1466;51:740",
+      "mode": "49:3",
+      "text": "Sau",
+      "ratio": 2.67
+    }
+  ],
+  "limits": [
+    "Static Figma components and visual fixtures; no file upload, ingestion, pagination requests or account mutation performed.",
+    "Keyboard, screen reader announcements, file MIME checks, retry rules, loading timeouts and confirmation dialogs must be verified in the frontend.",
+    "Table rows are desktop components; no mobile table behavior is claimed. The 320 px fixture covers UploadZone only."
+  ]
+}
