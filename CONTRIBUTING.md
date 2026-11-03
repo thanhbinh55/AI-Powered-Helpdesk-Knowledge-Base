@@ -1,75 +1,25 @@
-# QUY TRÌNH PHÁT TRIỂN & ĐÓNG GÓP (CONTRIBUTING GUIDE)
+# Quy trình đóng góp
 
-> **Dự án:** AI-Powered Helpdesk & Knowledge Base  
-> **Nhóm thực hiện:** Group 04 - HCMUS | **Jira Project Key:** `SCRUM`
+Group 04 — cập nhật 03/11/2026. Quy trình điều hành chi tiết ở [TEAM_GUIDE_TEMPLATE1.md](TEAM_GUIDE_TEMPLATE1.md), baseline scope/deadline ở [kế hoạch](PLAN_TEMPLATE1_AND_DEVELOPMENT.md), contract ở [MVP_CONTRACTS](reports/MVP_CONTRACTS.md).
 
-Tài liệu này quy định các chuẩn mực làm việc bắt buộc cho tất cả 4 thành viên nhằm đảm bảo tính minh bạch, khả năng truy vết công việc và xét điểm đóng góp cá nhân từ giảng viên.
+## Git và task
 
----
+- Không commit trực tiếp main; dùng PR. Branch protection/quyền thực tế phải được xác minh, không mặc định đã bật.
+- Cấu hình tên/email tác giả thật và `git config core.hooksPath .githooks` trên máy cá nhân. Không chỉnh lịch sử hoặc tạo commit rỗng để làm đẹp đóng góp.
+- Nhánh `docs/t1-<module>-<ten>`, `feat/<module>-<feature>`, `test/<module>-<scenario>`; tên module identity/ticket/knowledge/ai, không đảo A–D.
+- Commit Conventional Commits với Jira key thật ở cuối khi đã có ánh xạ. Hook hiện tại chỉ kiểm tra có chuỗi SCRUM-số, không xác minh issue tồn tại hoặc cả cú pháp.
+- Jira theo dõi trạng thái; GitHub issue/PR giữ bằng chứng. Ref CSV → Jira key → GitHub issue phải đối chiếu; không suy số issue theo số Jira. Task có thể có nhiều PR nhỏ theo dependency, mỗi PR phải chỉ rõ phạm vi và task liên quan.
 
-## 1. THIẾT LẬP MÔI TRƯỜNG GIT CÁ NHÂN
-Trước khi thực hiện bất kỳ commit nào trên máy cá nhân, mỗi thành viên **bắt buộc** chạy 2 lệnh sau:
+## Review và merge
 
-```bash
-# 1. Kích hoạt Git hook tự động kiểm tra Jira key
-git config core.hooksPath .githooks
+Bình review Lãm; Lãm review Gia Phúc; Gia Phúc review Quý Phúc; Quý Phúc review Bình. Release của Lãm được Gia Phúc kiểm tra độc lập. Contract/schema liên module cần owner phía nhận tham gia.
 
-# 2. Cấu hình đúng tên và email trùng khớp với thông tin đã đăng ký trong members.csv
-git config user.name "<git_username_cua_ban>"
-git config user.email "<git_email_cua_ban>"
-```
+Mỗi PR dùng template hiện hành: requirement/test IDs, expected/actual, command hoặc nguồn đối chiếu, một happy path và một nhánh lỗi có ý nghĩa. NOT RUN nếu chưa chạy; không approve chỉ vì đủ dòng/checklist. Reviewer nêu việc đã kiểm tra, không bắt số comment.
 
----
+Merge bởi người có quyền thực tế, khác tác giả, sau review/checks phù hợp. Không bắt Bình duyệt lại mọi PR; nếu chỉ Bình có quyền thì Bình xử lý thao tác merge trên review đã đủ. Squash giữ mã task thật và link PR/tác giả; giữ PR/Docs vì main không còn mọi commit gốc. Done cần sản phẩm/DoD và bằng chứng được reviewer chấp nhận, không chỉ PR đã merge.
 
-## 2. QUY ƯỚC ĐẶT TÊN NHÁNH (BRANCHING STRATEGY)
-- **TUYỆT ĐỐI KHÔNG commit trực tiếp vào nhánh `main`.**
-- Nhánh `main` được bảo vệ, chỉ nhận code thông qua Pull Request đã được phê duyệt.
-- Định dạng tên nhánh: `<type>/SCRUM-<số>-<mô-tả-ngắn>`
-  - Các loại `<type>`: `feat`, `fix`, `docs`, `test`, `chore`
-  - Ví dụ:
-    - `docs/SCRUM-12-viet-muc-3-1-1`
-    - `feat/SCRUM-24-xac-thuc-jwt`
-    - `fix/SCRUM-35-sua-loi-tim-kiem-vector`
+## Mốc và bảo mật
 
----
+03–08/11 hoàn tất tài liệu/mockup/review/đóng gói; code chỉ từ 09–22/11; QA 23–29/11. Mỗi task một owner, dependency/reviewer, deadline và đầu ra rõ ràng. CSV import chỉ create, không update issue cũ; không xóa cache để tạo lại.
 
-## 3. QUY ƯỚC THÔNG ĐIỆP COMMIT (COMMIT CONVENTION)
-- Tuân thủ chuẩn **Conventional Commits** và **bắt buộc kết thúc bằng Jira key** `SCRUM-<số>`:
-  ```text
-  <type>(<scope>): <mô tả ngắn bằng tiếng Việt hoặc tiếng Anh> SCRUM-<số>
-  ```
-- Ví dụ hợp lệ:
-  - `docs(proposal): viết mục 3.1.1 bảng chức năng SCRUM-12`
-  - `feat(ticket): bổ sung API tạo ticket mới SCRUM-25`
-  - `test(auth): viết unit test cho JwtTokenProvider SCRUM-18`
-  - `chore(repo): cấu hình .gitignore và env template SCRUM-6`
-> **Lưu ý:** Git hook `.githooks/commit-msg` sẽ tự động chặn mọi commit không chứa mã Jira dạng `SCRUM-<số>`.
-
----
-
-## 4. QUY TRÌNH PULL REQUEST & REVIEW CHÉO (CODE REVIEW)
-1. **Liên kết 1-1 với Jira:** Mỗi PR chỉ giải quyết duy nhất 1 task Jira và phải dẫn link Jira task đó trong nội dung PR.
-2. **Reviewer khác người viết:** Người tạo PR tuyệt đối không tự approve/merge PR của mình.
-3. **Quy tắc review chéo vòng tròn:**
-   - **Thành viên A** (User & Auth) ➔ Review cho **Thành viên B**
-   - **Thành viên B** (Ticket) ➔ Review cho **Thành viên C**
-   - **Thành viên C** (Knowledge Base) ➔ Review cho **Thành viên D**
-   - **Thành viên D** (AI & Analytics) ➔ Review cho **Thành viên A**
-4. **Chiến lược Merge:** Sử dụng **Squash and Merge** nhưng **bắt buộc giữ mã Jira key** trong tiêu đề commit gộp cuối cùng.
-
----
-
-## 5. QUY TRÌNH QUẢN LÝ TRẠNG THÁI TASK TRÊN JIRA
-Mỗi thành viên có trách nhiệm cập nhật trạng thái task của mình trên Jira Board theo vòng đời:
-```text
-[To Do] ──(Bắt đầu làm việc)──> [In Progress] ──(Mở PR & gán Reviewer)──> [In Review] ──(PR được Merge)──> [Done]
-```
-- Khi bắt đầu làm: Chuyển task sang `In Progress`.
-- Khi mở Pull Request: Chuyển task sang `In Review` và đính kèm link PR vào task Jira.
-- Khi PR đã merge vào `main`: Chuyển task sang `Done`.
-
----
-
-## 6. QUY ĐỊNH BẮT BUỘC VỀ SỬ DỤNG AI & BẢO MẬT
-- **Ghi nhật ký AI:** Mọi sự hỗ trợ từ AI (ChatGPT, Claude, Gemini, Copilot...) phải được ghi nhận ngay vào bảng trong `reports/07-ai-usage.md`.
-- **Bảo mật tuyệt đối:** Không commit file `.env`, API key, token cá nhân hoặc dữ liệu thật vào repository. Mọi dữ liệu mẫu chỉ lưu trong `.env.example`.
+AI log theo người trong [reports/ai-usage](reports/ai-usage/README.md), Lãm tổng hợp; không xóa lịch sử hay xác nhận kiểm chứng thay tác giả. Không commit secrets, `.env`, PII; `.env.example` chỉ chứa placeholder. Tất cả bảo vệ quyền thực hiện server-side; hợp đồng/schema ở SRS và MVP_CONTRACTS phải cập nhật cùng caller/fake/tests.

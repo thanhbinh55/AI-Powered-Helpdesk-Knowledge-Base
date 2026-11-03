@@ -1,61 +1,16 @@
-# BÁO CÁO ĐẶC TẢ YÊU CẦU PHẦN MỀM (SOFTWARE REQUIREMENTS SPECIFICATION)
+# Báo cáo yêu cầu — chỉ mục baseline hiện hành
 
-> **Dự án:** AI-Powered Helpdesk & Knowledge Base  
-> **Mã nhóm:** Group 04  
-> **Môn học:** Nhập môn Công nghệ Phần mềm - HCMUS
+> Group 04. Cập nhật 03/11/2026. Bản khung 19/10 đã được thay vì dùng mã và chức năng không khớp SRS. Tài liệu này không định nghĩa lại bộ ID yêu cầu.
 
----
+**Nguồn chuẩn:** [SRS Mục 3–8 và Phụ lục D](SRS-master.md). Bản nộp Template 1 được soạn tại [template1](template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md), chốt 20:00 ngày 08/11. Owner mỗi module cung cấp mapping; Gia Phúc tổng hợp, Lãm review.
 
-## THÔNG TIN TÀI LIỆU
-- **Tiêu đề (Title):** Software Requirements Specification (SRS)
-- **Phiên bản (Version):** 1.0.0-draft
-- **Ngày tạo (Date):** 2026-10-19
-- **Tác giả & Đóng góp (Authors + Contributions):**
-  - `24120121` - `Lê Quý Phúc`: Yêu cầu phân hệ Trợ lý AI & Báo cáo phân tích (Module A)
-  - `24120083` - `Nguyễn Đức Lãm`: Yêu cầu phân hệ Kho tri thức (Knowledge Base) & Vector Search (Module B)
-  - `24120503` - `Phan Gia Phúc`: Yêu cầu phân hệ Quản lý Ticket & Luồng xử lý sự cố (Module C)
-  - `24120269` - `Ngô Viết Thanh Bình`: Yêu cầu phân hệ Quản trị & Xác thực người dùng (Module D) *(Nhóm trưởng)*
-- **Phạm vi (Scope):** Chi tiết hóa các yêu cầu chức năng, phi chức năng, ràng buộc kỹ thuật và tiêu chuẩn nghiệm thu của toàn bộ hệ thống.
+- Identity — Bình: xác thực/session/profile, quản lý Agent, RBAC/ownership.
+- Ticket — Gia Phúc: tạo/xem/lọc, claim/assign, public/internal, state và audit; đủ WAITING_CUSTOMER.
+- Knowledge — Lãm: Admin upload PDF/TXT/MD, xử lý nền, publish/archive, Agent/Admin tra cứu.
+- AI — Quý Phúc: RAG dựa nguồn, citation, abstention, duyệt/sửa/gửi thủ công; không tự phân loại/đổi priority hay tự gửi cho Customer.
 
----
+41 FR dùng mã FR-ID/FR-TK/FR-KB/FR-AI của SRS Mục 4. US-01..30 chỉ theo Phụ lục D; NFR dùng đúng mã, mục tiêu và điều kiện đo của SRS Mục 8. Không dùng mã FR-AUTH/FR-TCK hoặc mục tiêu 500ms/100 concurrent từ bản khung cũ làm cam kết. Attachments, OCR, reset password, Analytics và feedback là P1 theo SRS; các tính năng ngoài SRS cần change request, không tự thêm vào MVP.
 
-## 1. YÊU CẦU CHỨC NĂNG (FUNCTIONAL REQUIREMENTS)
-### 1.1. Phân hệ A: Trợ lý AI & Báo cáo phân tích (Module A)
-- **FR-AI-01:** Tự động gợi ý bài viết tri thức liên quan khi người dùng nhập nội dung ticket.
-- **FR-AI-02:** Tự động phân loại mức độ ưu tiên và phòng ban xử lý bằng mô hình ngôn ngữ lớn (LLM).
-- **FR-AI-03:** Thống kê SLA, thời gian phản hồi trung bình và tỷ lệ giải quyết ticket.
+Khả năng chạy mock là chế độ test/demo được công bố, không phải tự chuyển từ live sang câu trả lời giả khi provider lỗi. Runtime timeout phải thông báo rõ và Ticket vẫn dùng được.
 
-### 1.2. Phân hệ B: Kho tri thức (Knowledge Base) (Module B)
-- **FR-KB-01:** Quản lý bài viết hướng dẫn (FAQ / Articles) theo cây chuyên mục.
-- **FR-KB-02:** Tìm kiếm toàn văn và tìm kiếm ngữ nghĩa (Semantic Vector Search).
-- **FR-KB-03:** Đánh giá độ hữu ích của bài viết (Thích / Không thích / Bình chọn).
-
-### 1.3. Phân hệ C: Quản lý Ticket & Helpdesk (Module C)
-- **FR-TCK-01:** Tạo mới ticket với phân loại danh mục, mức độ ưu tiên và đính kèm tệp.
-- **FR-TCK-02:** Quy trình chuyển trạng thái ticket: *Open -> In Progress -> Resolved -> Closed*.
-- **FR-TCK-03:** Bình luận, trao đổi giữa người dùng và nhân viên hỗ trợ.
-
-### 1.4. Phân hệ D: Quản trị & Xác thực người dùng (Module D)
-- **FR-AUTH-01:** Đăng ký, đăng nhập hệ thống và xác thực qua JWT.
-- **FR-AUTH-02:** Phân quyền theo vai trò (Admin, Support Agent, End-user).
-- **FR-AUTH-03:** Quản lý thông tin hồ sơ và nhật ký đăng nhập.
-
----
-
-## 2. YÊU CẦU PHI CHỨC NĂNG (NON-FUNCTIONAL REQUIREMENTS)
-- **NFR-SEC-01:** Mã hóa mật khẩu người dùng bằng thuật toán an toàn (BCrypt).
-- **NFR-PERF-01:** Thời gian phản hồi của các API tra cứu không vượt quá 500ms dưới tải 100 concurrent requests.
-- **NFR-AVAIL-01:** Hệ thống hỗ trợ chế độ Mock AI khi không có kết nối Internet hoặc chưa cấu hình API Key.
-
----
-
-## TÀI LIỆU THAM KHẢO (REFERENCES)
-1. IEEE Std 830-1998, Recommended Practice for Software Requirements Specifications.
-2. Tài liệu đặc tả tổng thể: `reports/SRS-master.md`.
-
----
-
-## NHẬT KÝ THAY ĐỔI (CHANGE LOG)
-| Phiên bản | Ngày | Người sửa | Nội dung thay đổi | Mã Task Jira |
-| :--- | :--- | :--- | :--- | :--- |
-| `0.1.0` | 2026-10-19 | DevOps Engineer | Khởi tạo khung tài liệu yêu cầu | SCRUM-6 |
+Truy vết FR → story → UC → BR → mockup/test/PR là nhiều-nhiều; coverage cross-cutting security/privacy không được bỏ sót. Báo cáo này là chỉ mục, chưa chứng minh bản nộp Template 1 đã hoàn tất hoặc NFR đã đo đạt.

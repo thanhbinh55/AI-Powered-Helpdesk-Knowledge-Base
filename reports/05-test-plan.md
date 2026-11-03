@@ -1,46 +1,22 @@
-# KẾ HOẠCH KIỂM THỬ PHẦN MỀM (TEST PLAN)
+# Kế hoạch kiểm thử — baseline MVP P0
 
-> **Dự án:** AI-Powered Helpdesk & Knowledge Base  
-> **Mã nhóm:** Group 04  
-> **Môn học:** Nhập môn Công nghệ Phần mềm - HCMUS
+> Cập nhật 03/11/2026. Test từng module cùng code 09–21/11; E2E tăng dần 12–22/11; QA/evaluation tổng thể 23–29/11. Mã test chuẩn và kỳ vọng ở [SRS 14.2](SRS-master.md), chi tiết transaction/fault cases ở [MVP_CONTRACTS Mục 9](MVP_CONTRACTS.md).
 
----
+| Owner | Task ref | Coverage bắt buộc |
+|---|---|---|
+| Bình | T1-TST-ID | TC-ID-01..06: role escalation, credential sai, rotation/disabled, happy path và cookie/CSRF |
+| Gia Phúc | T1-TST-TK | TC-TK-01..08, TC-CON-01/02: ownership/internal note, state, version và event rollback |
+| Lãm | T1-TST-KB | TC-KB-01..07: parser/file security, publish/archive, lease/retry/crash/stale completion |
+| Quý Phúc + Gia Phúc hỗ trợ workflow | T1-TST-AI | TC-AI-01..07, TC-WF-01..04: RAG/citation/failures, apply/discard races, rollback và quyền hiện tại |
+| Lãm | T1-OPS-01 | TC-OPS-01: README/môi trường sạch, migration, volume và lỗi provider |
+| Gia Phúc điều phối | T1-TST-01 / T1-INT-01 | Tổng hợp kết quả và E2E; không viết thay test của mọi người |
 
-## THÔNG TIN TÀI LIỆU
-- **Tiêu đề (Title):** Master Test Plan - AI-Powered Helpdesk & Knowledge Base
-- **Phiên bản (Version):** 1.0.0-draft
-- **Ngày tạo (Date):** 2026-10-19
-- **Tác giả & Đóng góp (Authors + Contributions):**
-  - `24120121` - `Lê Quý Phúc`: Kế hoạch kiểm thử AI Fallback/Mock Mode & Prompt Accuracy (Module A)
-  - `24120083` - `Nguyễn Đức Lãm`: Kế hoạch kiểm thử tìm kiếm Knowledge Base & Vector Accuracy (Module B)
-  - `24120503` - `Phan Gia Phúc`: Kế hoạch kiểm thử nghiệp vụ Ticket (Ticket Workflow Test Cases) (Module C)
-  - `24120269` - `Ngô Viết Thanh Bình`: Kế hoạch kiểm thử bảo mật, phân quyền RBAC & Tích hợp E2E (Module D) *(Nhóm trưởng)*
-- **Phạm vi (Scope):** Chiến lược kiểm thử, cấp độ kiểm thử (Unit Test, Integration Test, E2E), môi trường kiểm thử và tiêu chí dừng/chấp nhận.
+Unit test cho pure rules/fake provider; integration/concurrency dùng PostgreSQL/pgvector thật, không thay bằng H2 để chứng minh lock/vector. Hai transaction/connection + barrier cho claim/version/send races. Frontend mới có build script; nếu chọn công cụ test phải cấu hình và chứng minh chạy, không ghi Jest/Vitest là đã có.
 
----
+Mock provider kiểm tra orchestration/DTO/lỗi, không chứng minh semantic retrieval hay grounded answer. Live smoke không thay evaluation ≥30 câu có nhãn. Provider live lỗi phải trả lỗi rõ, Ticket vẫn dùng; không âm thầm chuyển sang câu trả lời mock. Mỗi kết quả ghi mode/model/dimension/dataset và actual/expected.
 
-## 1. CHIẾN LƯỢC KIỂM THỬ (TEST STRATEGY)
-- **Unit Testing:** Kiểm thử đơn vị các Service logic bằng JUnit 5 và Mockito trên Backend; Jest / Vitest trên Frontend. Đảm bảo độ bao phủ mã nguồn (Code Coverage) tối thiểu 70%.
-- **Integration Testing:** Kiểm thử tích hợp tầng Repository với PostgreSQL và REST Controllers qua `@SpringBootTest` và `Testcontainers`.
-- **AI Reliability Testing:** Kiểm thử cơ chế fallback: Khi AI service ngoại tuyến hoặc quá tải, hệ thống phải tự động chuyển sang quy trình thủ công hoặc Mock service mà không gây crash ứng dụng.
-- **Security & Authorization Testing:** Kiểm tra chặt chẽ các trường hợp truy cập chéo dữ liệu người dùng (IDOR) và phân quyền RBAC.
+DoD: test liên quan pass và có bằng chứng, không còn blocker P0, quyền/transaction/AI lỗi được kiểm tra. Không áp đặt coverage 70% chưa có căn cứ; nếu đo thì ghi command/công cụ/kết quả thật. NFR AI/hiệu năng chỉ kết luận sau phép đo theo SRS 8/12; chưa chạy là NOT RUN. Kết quả tại [06-test-results.md](06-test-results.md), không suy PASS từ task Done hoặc PR merge.
 
----
+## Template 3 — yêu cầu báo cáo và sốcase
 
-## 2. TIÊU CHÍ CHẤP NHẬN (ACCEPTANCE CRITERIA)
-- 100% các Test Case mức độ Critical (đăng nhập, tạo ticket, tìm bài viết) phải Pass.
-- Không có lỗi nghiêm trọng (Blocker/Critical bug) còn tồn đọng trước khi nộp đồ án.
-- Tài liệu kiểm thử và kết quả chạy test được lưu trữ đầy đủ trong `reports/06-test-results.md`.
-
----
-
-## TÀI LIỆU THAM KHẢO (REFERENCES)
-1. IEEE Std 829-2008, Standard for Software and System Test Documentation.
-2. Tài liệu đặc tả tổng thể: `reports/SRS-master.md`.
-
----
-
-## NHẬT KÝ THAY ĐỔI (CHANGE LOG)
-| Phiên bản | Ngày | Người sửa | Nội dung thay đổi | Mã Task Jira |
-| :--- | :--- | :--- | :--- | :--- |
-| `0.1.0` | 2026-10-19 | DevOps Engineer | Khởi tạo khung kế hoạch kiểm thử | SCRUM-6 |
+[Mẫu kiểm thử](references/template3-testing-requirements.md) yêu cầu ít nhất5 chức năng, mỗi chức năng5ca được đặc tả. [Catalog](testing/TEST_CASE_CATALOG.md) có25 dòngkhởiđiểm trên5 chức năng; từng owner phải điền form context/input/expected/steps vàactual/resulttheo chạy thật trong[template3/03-test-cases.md](template3/03-test-cases.md). Gia PhúcT3-CASE-01 điềuphối09–14/11; không đếm≥30 câuRAG thay5 chức năng. Template 2nộp29/11 là thiết kế, test artifacts dành Template 3.

@@ -1,46 +1,31 @@
-# BACKEND SERVICE (PLANNED ARCHITECTURE)
+# Backend — kiến trúc dự kiến
 
-> **Công nghệ dự kiến (Mục 9.3 & 15.3 của đặc tả):**  
-> Java 21, Spring Boot 3.x, Spring Data JPA, Spring Security (JWT), Spring AI / REST Client, PostgreSQL với pgvector.  
-> **Lưu ý:** Thư mục này hiện tại **CHỈ LƯU TRỮ TÀI LIỆU CẤU TRÚC**, chưa khởi tạo mã nguồn ứng dụng theo quy định của đồ án.
+Hiện thư mục chưa có ứng dụng Spring Boot. Kế hoạch cài đặt **09–22/11/2026**, sau khi chốt Template 1 ngày 08/11; không coi các thư mục dự kiến dưới đây là mã đã chạy.
 
----
+Stack baseline: Java 21, Spring Boot 3, Maven, PostgreSQL 16/pgvector, Flyway, JUnit và kiểm thử tích hợp PostgreSQL. Chốt minor version/phụ thuộc khi khởi tạo ngày 09/11. Model/dimension chưa chốt là blocker trước V3; không hardcode từ ví dụ.
 
-## CẤU TRÚC GÓI DỰ KIẾN (PLANNED PACKAGE STRUCTURE)
+Nguồn chuẩn: [SRS](../reports/SRS-master.md), [MVP_CONTRACTS](../reports/MVP_CONTRACTS.md), [kế hoạch](../PLAN_TEMPLATE1_AND_DEVELOPMENT.md).
+
 ```text
-backend/
-├── pom.xml / build.gradle
-├── mvnw / gradlew
-└── src/
-    ├── main/
-    │   ├── java/vn/edu/hcmus/helpdesk/
-    │   │   ├── Application.java               # Spring Boot Application entrypoint
-    │   │   ├── auth/                          # Phân hệ A: User, Authentication & RBAC
-    │   │   │   ├── controller/
-    │   │   │   ├── service/
-    │   │   │   ├── repository/
-    │   │   │   └── dto/
-    │   │   ├── ticket/                        # Phân hệ B: Ticket Management & Workflow
-    │   │   │   ├── controller/
-    │   │   │   ├── service/
-    │   │   │   ├── repository/
-    │   │   │   └── dto/
-    │   │   ├── knowledge/                     # Phân hệ C: Knowledge Base & Vector Search
-    │   │   │   ├── controller/
-    │   │   │   ├── service/
-    │   │   │   ├── repository/
-    │   │   │   └── dto/
-    │   │   ├── ai/                            # Phân hệ D: AI Provider & Prompt Engineering
-    │   │   │   ├── client/                    # OpenAI / Local LLM / Mock Adapter
-    │   │   │   └── service/
-    │   │   ├── analytics/                     # Phân hệ D: Thống kê SLA & Báo cáo
-    │   │   │   ├── controller/
-    │   │   │   └── service/
-    │   │   └── common/                        # Common exceptions, security filters, configs
-    │   └── resources/
-    │       ├── application.yml
-    │       ├── application-dev.yml
-    │       └── db/migration/                  # Liquibase / Flyway migration SQL scripts
-    └── test/
-        └── java/vn/edu/hcmus/helpdesk/        # Unit & Integration Tests (JUnit 5, Mockito)
+src/main/java/vn/edu/hcmus/helpdesk/
+  identity/       # Bình: auth, principal, users/sessions
+  ticket/         # Gia Phúc: tickets/messages/events
+  knowledge/      # Lãm: upload/jobs/retrieval; EmbeddingProvider owner
+  ai/             # Quý Phúc: provider live, RAG/suggestions/snapshots
+  workflow/       # Gia Phúc + Quý Phúc: apply/discard phối hợp qua public ports
+  common/         # lỗi HTTP/security/config; không đặt entity nghiệp vụ dùng chéo
+    ai/           # interface/fake do Lãm sở hữu; adapter live Quý Phúc
+src/main/resources/db/migration/
+  V1__init_identity.sql
+  V2__init_ticket.sql
+  V3__init_knowledge.sql
+  V4__init_ai.sql
+  V5__add_ticket_message_suggestion_fk.sql
+src/test/         # unit + integration/concurrency trên PostgreSQL
 ```
+
+Schema nền là PR phối hợp 09–10/11: Lãm điều phối, mỗi owner viết phần mình; V5 FK sau V4. CI Quý Phúc làm, Bình review; từng owner cung cấp command/test module. Gia Phúc điều phối E2E; Lãm chạy clean-environment smoke. Không thêm migration thứ tự thấp hoặc sửa checksum baseline đã dùng chung.
+
+Không repository/entity chéo module; workflow cùng DB/transaction qua ports, message và APPLIED nguyên tử. Worker nhận/hoàn tất job transaction ngắn với lease token; provider ngoài transaction. Test giữ nguyên TC IDs trong SRS, không suy chất lượng AI từ fake. Analytics/reset password là backlog P1, chưa cài đặt trong cam kết trước 22/11.
+
+Khi khởi tạo phải bổ sung lệnh chạy thực tế, biến môi trường mẫu, seed an toàn, cách chạy test và expected output vào README. Chưa có mã nguồn thì không ghi lệnh đã kiểm chứng hoặc trạng thái PASS.

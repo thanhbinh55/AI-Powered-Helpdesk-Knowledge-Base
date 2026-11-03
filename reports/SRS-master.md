@@ -76,8 +76,10 @@ Người dùng gửi thắc mắc hoặc sự cố nhưng doanh nghiệp/đơn v
 | Customer | Người gửi yêu cầu | Tạo/xem ticket của chính mình, gửi tin nhắn công khai, xác nhận đóng hoặc yêu cầu xử lý tiếp |
 | Agent | Nhân viên hỗ trợ | Xem queue ticket chưa phân công; claim ticket; xử lý ticket được giao; xem KB; sử dụng AI |
 | Admin | Quản trị viên | Toàn quyền nghiệp vụ ticket; quản lý Agent, KB; sử dụng AI phục vụ xử lý ticket |
-| System Worker | Tiến trình nền nội bộ | Xử lý file/document jobs, tạo embedding và cập nhật trạng thái |
-| External LLM Provider | Hệ thống bên ngoài | Trả kết quả sinh văn bản/embedding; không được quyền gọi API nội bộ |
+| External Embedding/LLM Provider | Dịch vụ ngoài ranh giới hệ thống | Trả embedding/văn bản, không có quyền thực thi hành động nội bộ |
+
+
+**System Worker là thành phần nội bộ, không phải actor bên ngoài của toàn hệ thống.** Khi mô hình một subsystem khác phải ghi rõ subject trước khi xác định actor. Context Diagram không trình bày chi tiết DB/storage/worker.
 
 ### 3.2 Ma trận quyền MVP
 
@@ -87,7 +89,7 @@ Người dùng gửi thắc mắc hoặc sự cố nhưng doanh nghiệp/đơn v
 |---|---|---|---|
 | Đăng ký tài khoản Customer | Guest | — | — |
 | Xem/sửa profile của mình | ✓ | ✓ | ✓ |
-| Tạo ticket | ✓ | — | ✓ (thay mặt Customer: P1) |
+| Tạo ticket | ✓ | — | — (tạo thay Customer là P1) |
 | Xem ticket | Own | Assigned + Open queue | Tất cả |
 | Nhận ticket chưa phân công | — | Open | ✓ |
 | Phân công/chuyển Agent | — | — | ✓ |
@@ -116,7 +118,7 @@ Người dùng gửi thắc mắc hoặc sự cố nhưng doanh nghiệp/đơn v
 | UC-08 | Send Message / Internal Note | Customer, Agent, Admin | P0 |
 | UC-09 | Transition Ticket State | Customer, Agent, Admin | P0 |
 | UC-10 | View Ticket Event History | Agent (Assigned), Admin | P0 |
-| UC-11 | Upload & Process Document | Admin, Worker | P0 |
+| UC-11 | Upload & Process Document | Admin | P0 |
 | UC-12 | Publish/Archive Document | Admin | P0 |
 | UC-13 | Search Knowledge | Agent, Admin | P0 |
 | UC-14 | Generate AI Suggestion | Agent (Assigned), Admin | P0 |
@@ -140,8 +142,8 @@ Mỗi FR phải có ít nhất 1 acceptance criterion và 1 test case tương �
 | FR-ID-04 | P0 | Refresh token có rotation | Refresh hợp lệ cấp token mới; token cũ không thể sử dụng lại |
 | FR-ID-05 | P0 | Logout thiết bị hiện tại | Thu hồi refresh session; access JWT cũ có thể còn hiệu lực đến hết hạn (được tài liệu hóa) |
 | FR-ID-06 | P0 | Xem/sửa profile, đổi mật khẩu | Chỉ sửa chính mình; đổi mật khẩu cần kiểm tra mật khẩu cũ |
-| FR-ID-07 | P0 | RBAC và ownership | Truy cập trái phép trả 401/403/404 theo quy tắc bảo mật đã chốt |
-| FR-ID-08 | P0 | Admin tạo/vô hiệu hóa Agent | Không thể self-register làm Agent/Admin; tài khoản vô hiệu không được đăng nhập mới |
+| FR-ID-07 | P0 | RBAC và ownership | Truy cập trái phép trả 401/403 nếu sai role endpoint, 404 nếu không có quyền tài nguyên theo policy ở MVP_CONTRACTS Mục 2 |
+| FR-ID-08 | P0 | Admin tạo/vô hiệu hóa Agent | Không thể self-register làm Agent/Admin; tài khoản vô hiệu bị từ chối login, refresh và request authenticated tiếp theo |
 | FR-ID-09 | P1 | Forgot/reset password | Token một lần, có hạn sử dụng và không lộ việc email có tồn tại |
 
 **Quyết định kỹ thuật:** Access token sống 15 phút; refresh token sống 7 ngày (đều cấu hình được). Refresh token ngẫu nhiên độ entropy cao, lưu **hash** trong DB; không dùng JWT refresh stateless cho MVP. Dùng HTTPS trong triển khai công khai. Nếu lưu refresh token bằng cookie thì dùng `HttpOnly`, `Secure`, `SameSite` phù hợp và có CSRF strategy; nếu lưu phía client khác, phải đánh giá rủi ro XSS. **Không lưu raw refresh token trong DB hoặc log.**
@@ -220,7 +222,7 @@ Mỗi FR phải có ít nhất 1 acceptance criterion và 1 test case tương �
 | BR-13 | Không đủ dữ kiện: phản hồi `INSUFFICIENT_EVIDENCE`, không giả lập citation. |
 | BR-14 | API luôn xác định actor từ principal của access token, không nhận `actorId`, `authorId`, `role` tự do từ client. |
 | BR-15 | Mọi cập nhật quan trọng có ticket event đồng transaction; audit history không được tự ý chỉnh sửa từ API. |
-| BR-16 | Disabled user không thể login/refresh; access token cũ cần bị chặn bằng kiểm tra account enabled ở backend, nếu áp dụng chính sách vô hiệu tức thì. |
+| BR-16 | Disabled user không thể login/refresh; request authenticated tiếp theo bằng access token cũ cũng bị chặn nhờ kiểm tra enabled server-side. Logout session riêng giữ chính sách FR-ID-05. |
 
 ### 5.1 Ticket state machine
 
@@ -252,7 +254,7 @@ stateDiagram-v2
 ### 5.2 Concurrency và idempotency
 
 - `tickets.version` dùng JPA `@Version` để chống lost update.
-- Claim chỉ hợp lệ nếu trạng thái OPEN và chưa có Agent. Có thể dùng conditional `UPDATE ... WHERE status = 'OPEN' AND assigned_agent_id IS NULL AND version = ?`; chỉ đúng 1 request ảnh hưởng 1 dòng.
+- Claim chỉ hợp lệ nếu OPEN và chưa có Agent. Conditional UPDATE phải tăng `version=version+1`, kiểm tra điều kiện OPEN/unassigned và expected version khi contract yêu cầu; chỉ đúng 1 request ảnh hưởng 1 dòng. Bulk UPDATE không tự tuân theo `@Version`: phải xử lý persistence context stale, event và conflict như [MVP_CONTRACTS Mục 4](MVP_CONTRACTS.md).
 - Không được check trạng thái bằng `SELECT` rồi `UPDATE` không khóa trong hai transaction độc lập.
 - Mọi state mutation và insert `ticket_events` diễn ra trong **cùng DB transaction**.
 - Không thực hiện LLM call bên trong ticket transaction để tránh giữ connection/lock quá lâu.
@@ -295,9 +297,9 @@ stateDiagram-v2
 | Trigger | Người dùng gửi nội dung trong ticket |
 | Precondition | Có quyền theo ticket ownership; trạng thái cho phép |
 | Main flow | (1) Validate content/visibility; (2) server xác định author; (3) kiểm tra ticket state; (4) lưu message; (5) nếu Customer reply khi WAITING_CUSTOMER thì transition IN_PROGRESS; (6) ghi event cần thiết; (7) trả message |
-| Alternative | Customer gửi INTERNAL: 403; ticket CLOSED/RESOLVED: 409; access ticket khác: 404 hoặc 403 theo policy |
+| Alternative | Customer gửi INTERNAL: 403; ticket CLOSED/RESOLVED: 409; access ticket khác: 404 theo policy tài nguyên |
 | Postcondition | Thread hiển thị đúng vai trò, không lộ internal note |
-| Related | FR-TK-06/07/08; BR-07/08/09; TC-SEC-03 |
+| Related | FR-TK-06/07/08; BR-07/08/09; TC-TK-04/06/07 |
 
 ### UC-09 — Transition Ticket State
 
@@ -315,10 +317,10 @@ stateDiagram-v2
 
 | Thuộc tính | Nội dung |
 |---|---|
-| Actor | Admin, System Worker |
+| Actor | Admin; xử lý nền là bước nội bộ của hệ thống |
 | Trigger | Admin upload file |
 | Precondition | Admin authenticated; loại file hỗ trợ |
-| Main flow | (1) Kiểm tra file; (2) lưu file private storage; (3) ghi document UPLOADED và job PENDING; (4) trả 202; (5) worker nhận job; (6) extract text; (7) split chunks; (8) sinh embeddings; (9) ghi chunks; (10) chuyển READY; (11) Admin kiểm tra rồi publish |
+| Main flow | (1) Kiểm tra file; (2) lưu file private storage; (3) ghi document UPLOADED và job PENDING; (4) trả 202; (5) worker nhận job; (6) extract text; (7) split chunks; (8) sinh embeddings; (9) ghi chunks; (10) chuyển READY; (11) Admin xem trạng thái READY; publish là UC-12 riêng |
 | Alternative | PDF scan/không có text: FAILED; model embedding lỗi: retry bounded; file quá lớn: 413 |
 | Postcondition | READY vẫn **chưa publish** nếu Admin chưa bấm Publish |
 | Related | FR-KB-01..06; BR-11; TC-KB-01/03 |
@@ -343,7 +345,7 @@ stateDiagram-v2
 | Trigger | Chọn "Suggest Reply" |
 | Precondition | Ticket có quyền truy cập, không CLOSED; provider AI được cấu hình (hoặc chế độ mock) |
 | Main flow | (1) Check role/ownership; (2) lấy public conversation phù hợp; (3) tạo search query; (4) retrieve các chunk đã publish; (5) nếu thiếu bằng chứng thì abstain; (6) gửi prompt có source IDs; (7) validate citation; (8) lưu suggestion và snapshot nguồn; (9) trả suggestion cho Agent |
-| Alternative | Không có kết quả: `INSUFFICIENT_EVIDENCE`; timeout: `AI_PROVIDER_TIMEOUT`; quota/rate limit: 429; model trả citation sai: reject citation hoặc fail closed, không trả citation giả |
+| Alternative | Không có kết quả: `INSUFFICIENT_EVIDENCE`; timeout: `AI_PROVIDER_TIMEOUT`; quota/rate limit: 429; model trả citation sai: fail closed, status FAILED và mã AI_INVALID_CITATION; không trả draft GENERATED thiếu citation |
 | Postcondition | **Không tạo ticket_message**; ticket không đổi trạng thái |
 | Related | FR-AI-01..06/08/09; BR-10..13; TC-AI-01/03/05 |
 
@@ -357,26 +359,28 @@ stateDiagram-v2
 | Main flow | (1) Agent có thể chỉnh nội dung draft; (2) UI gửi message `PUBLIC` + optional `suggestionId`; (3) backend xác thực tất cả liên kết; (4) lưu message; (5) đánh dấu suggestion APPLIED; (6) commit; (7) Customer nhìn thấy message đã gửi |
 | Alternative | Agent bỏ qua: suggestion vẫn GENERATED hoặc DISCARD; ticket RESOLVED/CLOSED: không gửi được |
 | Postcondition | Chỉ bản text được Agent duyệt mới hiển thị cho Customer; source audit vẫn lưu |
-| Related | FR-AI-07/08; BR-10; TC-AI-06 |
+| Related | FR-AI-07/08; BR-10; TC-AI-06/07, TC-WF-01..04 |
 
 ---
 
 ## 7. User Stories và Acceptance Criteria mẫu
 
+**ID chuẩn US-01..US-30 được định nghĩa duy nhất tại Phụ lục D.** Bảng sau là ví dụ acceptance criteria cho một số story trong danh mục đó, không phải bộ ID khác.
+
 | Story | As a ... I want ... so that ... | Acceptance Criteria dạng Given/When/Then |
 |---|---|---|
-| US-01 | Customer muốn tạo ticket để được hỗ trợ | Given Customer login; When POST valid ticket; Then status 201, ticket OPEN và chỉ mình xem được |
-| US-02 | Customer muốn xem tiến độ | Given ticket của mình; When GET detail; Then xem state, public messages, không thấy internal notes |
-| US-03 | Agent muốn nhận ticket để chịu trách nhiệm | Given ticket OPEN; When 2 Agent claim đồng thời; Then đúng 1 claim thành công |
-| US-04 | Agent muốn trao đổi với khách | Given ticket assigned; When gửi public reply; Then Customer thấy reply sau refresh |
-| US-05 | Agent muốn ghi chú nội bộ | Given ticket assigned; When gửi INTERNAL note; Then Agent/Admin thấy, Customer không thấy |
-| US-06 | Admin muốn đưa tài liệu lên KB | Given file PDF có text hợp lệ; When upload; Then job được tạo và document cuối cùng READY/FAILED |
-| US-07 | Admin muốn kiểm duyệt tri thức | Given document READY; When Publish; Then retrieval bắt đầu dùng document đó |
-| US-08 | Agent muốn được AI gợi ý | Given ticket + KB có evidence; When Generate; Then nhận draft và citation được kiểm chứng |
-| US-09 | Agent muốn AI biết giới hạn | Given không có evidence; When Generate; Then không được dựng lên chính sách |
-| US-10 | Agent muốn giữ quyền kiểm soát | Given AI draft; When chưa bấm Send; Then Customer không nhận bất cứ message mới nào |
+| US-07 | Customer muốn tạo ticket để được hỗ trợ | Given Customer login; When POST valid ticket; Then status 201, ticket OPEN và chỉ mình xem được |
+| US-08 | Customer muốn xem tiến độ | Given ticket của mình; When GET detail; Then xem state, public messages, không thấy internal notes |
+| US-11 | Agent muốn nhận ticket để chịu trách nhiệm | Given ticket OPEN; When 2 Agent claim đồng thời; Then đúng 1 claim thành công |
+| US-13 | Agent muốn trao đổi với khách | Given ticket assigned; When gửi public reply; Then Customer thấy reply sau refresh |
+| US-14 | Agent muốn ghi chú nội bộ | Given ticket assigned; When gửi INTERNAL note; Then Agent/Admin thấy, Customer không thấy |
+| US-18 | Admin muốn đưa tài liệu lên KB | Given file PDF có text hợp lệ; When upload; Then job được tạo và document cuối cùng READY/FAILED |
+| US-20 | Admin muốn kiểm duyệt tri thức | Given document READY; When Publish; Then retrieval bắt đầu dùng document đó |
+| US-22 | Agent muốn được AI gợi ý | Given ticket + KB có evidence; When Generate; Then nhận draft và citation được kiểm chứng |
+| US-23 | Agent muốn AI biết giới hạn | Given không có evidence; When Generate; Then không được dựng lên chính sách |
+| US-24 | Agent muốn giữ quyền kiểm soát | Given AI draft; When chưa bấm Send; Then Customer không nhận bất cứ message mới nào |
 
-**Yêu cầu nhóm:** chuyển mỗi story thành Jira issue với owner, reviewer, estimate, priority, link design, test case và PR; bổ sung các trường hợp lỗi/edge cases khi refinement.
+**Yêu cầu nhóm:** chuyển mỗi story thành Jira issue với owner, reviewer, priority, link design, test case và PR; bổ sung các trường hợp lỗi/edge cases khi refinement.
 
 ---
 
@@ -450,7 +454,7 @@ flowchart TD
 | SQL migration | Flyway | Quản lý schema |
 | Data & vector | PostgreSQL + pgvector | Dữ liệu quan hệ và vector |
 | AI | Spring AI / SDK tương thích provider | Embedding, Chat Model, RAG orchestration |
-| File parsing | Apache PDFBox hoặc Tika (chọn 1 sau spike) | Text extraction; không OCR |
+| File parsing | Apache PDFBox (baseline); parser TXT/MD riêng | Text extraction; không OCR |
 | Frontend | React + TypeScript | Web interface |
 | Testing | JUnit 5, Mockito, MockMvc, Testcontainers | Unit/integration/security |
 | DevOps | Docker Compose, GitHub Actions | Chạy và kiểm tra tự động |
@@ -463,7 +467,7 @@ flowchart TD
 ```text
 backend/
   pom.xml
-  src/main/java/com/example/helpdesk/
+  src/main/java/vn/edu/hcmus/helpdesk/
     HelpdeskApplication.java
     common/
       api/                 # ApiError, pagination, global exception handler
@@ -486,18 +490,19 @@ backend/
       infrastructure/      # FileStore, PDF extractor, pgvector search
     ai/
       api/
-      application/         # GenerateSuggestion, ApplySuggestion
+      application/         # GenerateSuggestion, suggestion lifecycle/ports
       domain/              # Suggestion, Citation, AI statuses
       infrastructure/      # Prompt adapter, model clients
+    workflow/              # Apply/Discard orchestration qua public ports, transaction cùng DB
   src/main/resources/
     application.yml
     db/migration/
   src/test/java/...
 frontend/
   src/features/auth/
-  src/features/tickets/
+  src/features/ticket/
   src/features/knowledge/
-  src/features/ai/
+  src/features/ticket/components/  # AI panel/citation trong prototype hiện có
 infra/
   compose.yaml
   .env.example
@@ -514,7 +519,7 @@ reports/
 - `identity` cung cấp identity/role qua principal và use-case API; module khác không truy cập trực tiếp bảng `auth_sessions`.
 - `ticket` làm chủ dữ liệu ticket; `ai` lấy **ticket context DTO** qua `TicketContextProvider`, không đọc trực tiếp entity JPA của ticket.
 - `knowledge` làm chủ ingest/search; `ai` dùng `KnowledgeRetriever` trả về immutable `RetrievedChunk` có metadata cần trích dẫn.
-- `ai` **không import** TicketRepository để sửa ticket. Khi Agent gửi draft, đi qua Ticket application service để tạo message hợp lệ; AI chỉ đánh dấu suggestion đã được sử dụng khi transaction chung thành công.
+- `workflow` application service điều phối send/discard qua public ports của Ticket và AI trong một transaction cùng DB; lock ticket rồi suggestion, không gọi provider. Không import repository/entity module khác, không REQUIRES_NEW và không tạo vòng dependency Ticket ↔ AI. Quyền và suggestion state được kiểm tra lại khi gửi.
 - Tránh vòng dependency; nếu phát sinh, tách interface vào boundary có owner rõ ràng.
 
 ### 9.5 Cross-cutting concerns
@@ -525,6 +530,7 @@ reports/
 - `created_at`, `updated_at` ở UTC (`timestamptz`); frontend hiển thị giờ địa phương.
 - Input validation và authorization ở cả HTTP boundary lẫn service (để tránh bypass khi gọi nội bộ).
 - `requestId`/correlation ID trong error/log, không log nội dung nhạy cảm mặc định.
+- Hợp đồng triển khai, schema naming, quyền, ingestion và send suggestion: [MVP_CONTRACTS.md](MVP_CONTRACTS.md). Thay đổi baseline phải đồng bộ tài liệu này và SRS, ghi reviewer và kết quả test.
 
 ---
 
@@ -573,7 +579,7 @@ reports/
 | `ticket_number` | varchar(32) | unique, not null, mã hiển thị |
 | `requester_id` | uuid | FK users |
 | `assigned_agent_id` | uuid | FK users, nullable khi OPEN |
-| `subject` | varchar(150) | not null |
+| `subject` | varchar(150) | not null; description ban đầu lưu ở public message đầu tiên |
 | `status` | varchar(30) | OPEN/IN_PROGRESS/WAITING_CUSTOMER/RESOLVED/CLOSED |
 | `priority` | varchar(10) | LOW/NORMAL/HIGH, default NORMAL |
 | `version` | bigint | not null, optimistic locking |
@@ -594,7 +600,7 @@ Indexes: `(requester_id, created_at DESC)`, `(assigned_agent_id, status, updated
 | `source_suggestion_id` | uuid | nullable FK ai_suggestions (sau migration phù hợp) |
 | `created_at` | timestamptz | not null |
 
-Indexes: `(ticket_id, created_at, id)`; Customer queries luôn filter `visibility='PUBLIC'` server-side.
+Indexes: `(ticket_id, created_at, id)`; unique partial `(source_suggestion_id) WHERE source_suggestion_id IS NOT NULL` chống apply hai lần. Customer queries luôn filter `visibility='PUBLIC'` server-side.
 
 #### `ticket_events`
 
@@ -633,11 +639,12 @@ Indexes: `(ticket_id, created_at, id)`; Customer queries luôn filter `visibilit
 | `document_id` | uuid | FK documents |
 | `status` | varchar(20) | PENDING/RUNNING/COMPLETED/FAILED |
 | `attempts`, `max_attempts` | int | not null; mặc định max=3 |
-| `next_run_at`, `locked_until` | timestamptz | nullable |
+| `next_run_at`, `locked_until` | timestamptz | next_run_at xác định lịch retry; locked_until xác định lease |
+| `lease_token` | uuid | nullable; mỗi lần nhận job sinh token mới để chặn worker cũ |
 | `last_error_code` | varchar(100) | nullable |
 | `created_at`, `updated_at` | timestamptz | not null |
 
-**Worker pattern:** scheduled DB job polling với `FOR UPDATE SKIP LOCKED` trong transaction ngắn để nhận job; xử lý file/model **ngoài transaction giữ lock**. Nếu worker crash, job lease `locked_until` cho phép retry. Chỉ một ingestion job active cho mỗi document trong MVP; retry phải tránh nhân đôi chunks (xóa/replace theo `document_id` trong commit thành công hoặc dùng unique `(document_id, chunk_index)`).
+**Worker pattern:** một worker tuần tự trong monolith; nhận job bằng transaction ngắn với `FOR UPDATE SKIP LOCKED`, tăng attempts ngay lúc nhận (tổng tối đa 3 lần), cấp lease_token/locked_until và commit. Parse/embedding ngoài transaction. Poll phục hồi RUNNING hết lease; kết quả chỉ được commit khi token và lease còn hợp lệ. Lỗi còn lượt → PENDING với next_run_at/backoff; hết lượt/lỗi vĩnh viễn → FAILED. Khi chờ retry tự động document vẫn PROCESSING. Manual retry không reset attempts vô hạn. Một job active/document; unique `(document_id, chunk_index)` và commit chunks/READY/COMPLETED nguyên tử. Không re-ingest READY hoặc xóa chunk đã được citation tham chiếu; upload document mới khi thay nội dung. Chi tiết và nghiệm thu ở [MVP_CONTRACTS Mục 5](MVP_CONTRACTS.md).
 
 #### `knowledge_chunks`
 
@@ -681,7 +688,7 @@ Indexes: unique `(document_id, chunk_index)`, vector index HNSW/IVFFlat nếu d�
 | `excerpt_snapshot` | text | not null, giới hạn độ dài |
 | `page_number_snapshot` | int | nullable |
 
-**Chú ý quan hệ vòng migration:** `ticket_messages.source_suggestion_id` được add bằng migration sau khi tạo `ai_suggestions`; hoặc dùng bảng nối nếu nhóm muốn hạn chế coupling. Không yêu cầu circular cascading deletes.
+**Chú ý quan hệ vòng migration:** Cột nullable `ticket_messages.source_suggestion_id` được tạo ở V2, FK tới `ai_suggestions` được thêm ở V5 sau V4; không tạo FK tới bảng chưa có. Không yêu cầu circular cascading deletes.
 
 ### 10.3 Sơ đồ ERD mức khái quát
 
@@ -716,7 +723,7 @@ erDiagram
 Prefix: `/api/v1`  
 Request/response: JSON UTF-8 (trừ multipart upload).  
 Timestamp: ISO 8601 UTC.  
-Authentication: Bearer access JWT; refresh token theo cơ chế được chốt ở thiết kế frontend/backend.
+Authentication: Bearer access JWT; refresh cookie HttpOnly và CSRF theo baseline [MVP_CONTRACTS Mục 2](MVP_CONTRACTS.md), kiểm chứng cấu hình local/HTTPS trước DEV-0.
 
 ### 11.1 Response chuẩn
 
@@ -821,15 +828,15 @@ Authorization: Bearer <agent-access-token>
 }
 ```
 
-Server kiểm tra `suggestionId` thuộc ticket, gắn với actor phù hợp/chính sách chia sẻ hợp lệ, chưa APPLIED nếu muốn strict; không dùng nó làm nguồn quyền gửi message.
+Server kiểm tra quyền ticket hiện tại, suggestion cùng ticket, trạng thái GENERATED và visibility PUBLIC; body là nội dung Agent đã duyệt. Message và APPLIED cùng transaction, lock ticket rồi suggestion; repeated send/send-discard race chỉ một winner. Suggestion không hợp lệ trả 404/409 theo [MVP_CONTRACTS Mục 7](MVP_CONTRACTS.md). Không dùng suggestionId làm nguồn quyền gửi message.
 
 ### 11.4 Endpoint Knowledge Base
 
 | Method | Path | Quyền | Chức năng |
 |---|---|---|---|
 | POST | `/knowledge/documents` | Admin | Multipart upload, trả 202 |
-| GET | `/knowledge/documents` | Agent/Admin | Danh sách, status, paging |
-| GET | `/knowledge/documents/{id}` | Agent/Admin | Metadata; Agent chỉ thấy publish nếu chốt chính sách đó |
+| GET | `/knowledge/documents` | Agent/Admin | Admin quản trị; Agent chỉ READY + published + chưa archive |
+| GET | `/knowledge/documents/{id}` | Agent/Admin | Metadata; Agent chỉ thấy READY + published + chưa archive |
 | POST | `/knowledge/documents/{id}/publish` | Admin | Publish READY |
 | POST | `/knowledge/documents/{id}/archive` | Admin | Archive |
 | POST | `/knowledge/documents/{id}/retry` | Admin | Retry FAILED theo giới hạn |
@@ -841,7 +848,7 @@ Server kiểm tra `suggestionId` thuộc ticket, gắn với actor phù hợp/ch
 |---|---|---|---|
 | POST | `/tickets/{id}/ai-suggestions` | Assigned Agent/Admin | Generate suggestion (MVP synchronous với timeout có kiểm soát) |
 | GET | `/tickets/{id}/ai-suggestions` | Assigned Agent/Admin | Lịch sử suggestion của ticket |
-| POST | `/ai-suggestions/{id}/discard` | Owner của suggestion/Admin | Đánh dấu không sử dụng (P1 hoặc P0 nếu UI cần) |
+| POST | `/ai-suggestions/{id}/discard` | Assigned Agent/Admin của ticket hiện tại | GENERATED → DISCARDED; P0 |
 
 **Ví dụ suggestion response**
 
@@ -855,6 +862,7 @@ Server kiểm tra `suggestionId` thuộc ticket, gắn với actor phù hợp/ch
     "citations": [
       {
         "sourceId": "chunk-uuid",
+        "documentId": "document-uuid",
         "documentTitle": "Chinh sach doi tra",
         "pageNumber": 2,
         "excerpt": "San pham du dieu kien ..."
@@ -879,7 +887,7 @@ Server kiểm tra `suggestionId` thuộc ticket, gắn với actor phù hợp/ch
 }
 ```
 
-**Không gửi `suggestedText` trực tiếp cho Customer.** Endpoint suggestion phục vụ UI Agent; các quyền phải được kiểm tra ở cả list/detail endpoint.
+**Không gửi `suggestedText` trực tiếp cho Customer.** Endpoint suggestion phục vụ UI Agent; kiểm tra quyền ticket hiện tại ở list/detail/discard/apply/snapshot, kể cả sau reassign. Raw file gốc chỉ tải qua endpoint có quyền, Agent không được download document archived; snapshot lịch sử theo quyền ticket không tự cấp quyền tải file. [MVP_CONTRACTS Mục 2 và 8](MVP_CONTRACTS.md).
 
 ### 11.6 Contract và phát triển song song
 
@@ -891,6 +899,7 @@ Trước khi code frontend, cả nhóm thống nhất:
 4. Principal/ownership và định dạng JWT.
 5. JSON mẫu và OpenAPI được commit chung để review.
 6. Không thay đổi breaking contract mà không có PR thảo luận và cập nhật tests.
+7. Contract chi tiết ở [MVP_CONTRACTS.md](MVP_CONTRACTS.md): Actor, DTO, cosine score, job lease, apply transaction và adapter frontend. Fake và triển khai thật phải thỏa cùng contract; không coi kiểu TypeScript prototype là API chuẩn.
 
 ---
 
@@ -1038,9 +1047,9 @@ Tránh đo toàn bộ bằng một LLM judge không đối chiếu người th�
 | TC-ID-01 | Register với role ADMIN trong body | Security integration | Không thể có tài khoản ADMIN |
 | TC-ID-02 | Login password sai | Auth integration | 401, không leak user existence |
 | TC-ID-03 | Refresh token đã rotate | Auth integration | Token cũ bị từ chối |
-| TC-ID-04 | Disabled Agent refresh/login | Auth integration | Bị từ chối |
+| TC-ID-04 | Disabled Agent refresh/login | Auth integration | Bị từ chối; mở rộng kiểm tra request access JWT còn hạn |
 | TC-TK-01 | Customer create ticket hợp lệ | Integration | 201, OPEN, message đầu, event cùng transaction |
-| TC-TK-02 | Customer đọc ticket người khác | Security | 403/404 theo policy; không leak dữ liệu |
+| TC-TK-02 | Customer đọc ticket người khác | Security | 404 thống nhất với không tồn tại; không leak dữ liệu |
 | TC-TK-03 | Agent mở ticket assigned của Agent khác | Security | Bị từ chối |
 | TC-TK-04 | Customer xem danh sách messages | Security | Không có INTERNAL notes |
 | TC-TK-05 | Agent claim OPEN | Integration | Assigned + IN_PROGRESS + event |
@@ -1061,7 +1070,17 @@ Tránh đo toàn bộ bằng một LLM judge không đối chiếu người th�
 | TC-AI-05 | LLM timeout | Integration mock | Ticket APIs vẫn bình thường, AI error rõ |
 | TC-AI-06 | Generate suggestion không bấm Send | E2E | Customer chưa có message mới |
 | TC-AI-07 | Agent chỉnh draft rồi Send | Integration | Public message đúng nội dung Agent gửi, suggestion APPLIED |
+| TC-ID-05 | Register/login hợp lệ | Auth integration | Customer được tạo; cấp phiên đúng role, không dùng lại mã test security |
+| TC-ID-06 | Refresh đồng thời, cookie/CSRF và Axios single-flight | Integration/browser | Token cũ không tái dùng; CSRF sai bị từ chối; không refresh loop |
+| TC-KB-06 | Crash và completion bằng lease cũ | PostgreSQL worker | Phục hồi job hết lease, từ chối stale worker, không kẹt khi hết attempts |
+| TC-KB-07 | TXT/MD, file private và retry trùng | Integration/worker | Đúng parser, page null, kiểm tra download, không nhân đôi chunks/jobs |
+| TC-WF-01 | Apply suggestion khác ticket/state sai | Security integration | Không gửi; 404/409 đúng policy |
+| TC-WF-02 | Double-send và send/discard đồng thời | Concurrent PostgreSQL | Một winner, tối đa một message; loser 409 |
+| TC-WF-03 | Lỗi giữa ghi message và APPLIED | Integration rollback | Cả hai cùng rollback; không commit một nửa |
+| TC-WF-04 | Reassign/disable, stale ticket và archive trong lúc generate | Security/concurrency | Recheck quyền ở history/snapshot/apply; context/nguồn cũ bị từ chối theo contract |
 | TC-OPS-01 | Clean environment up bằng Compose | Manual/CI smoke | README chạy được, migration thành công |
+
+**Yêu cầu báo cáoTemplate 3 từ mẫu được cung cấp03/11:** testplan, listcase và ít nhất5 chức năng×5ca được đặc tả Context/Input/Expected/Steps; actual/result lấy khi chạy thật. [Catalog25ca](testing/TEST_CASE_CATALOG.md) dùng ReportID RPT-* liên kết TC-* ởbảng trên, không đổi nghĩa mãsuite. Dataset≥30 câuAI là yêu cầuđánhgiá khác. TaskT3-CASE-01 đặc tả09–14/11, execution theo feature gates/QA, T3-RELEASE-01 gói cuối.
 
 ### 14.3 Exit criteria / Definition of Done
 
@@ -1075,7 +1094,7 @@ Một story được coi là Done khi:
 6. Có migration khi thay đổi schema, không sửa migration cũ đã merge.
 7. Changelog/report hoặc tài liệu liên quan đã được commit.
 
-**MVP ready** khi toàn bộ P0 hoàn thành, demo theo Mục 13.2 chạy được và các test quan trọng ở Mục 14.2 có kết quả/biên bản.
+**MVP ready** khi toàn bộ P0 hoàn thành, demo theo Mục 13.2 chạy được và test quan trọng ở Mục 14.2 có kết quả. Ngày 22/11 là cột mốc nghiệm thu chức năng; chỉ công bố đạt NFR chất lượng AI/hiệu năng sau khi đo trong QA 23–29/11, không suy ra từ mock hoặc smoke live.
 
 ---
 
@@ -1113,68 +1132,75 @@ Pull Request
 
 ### 15.4 Báo cáo AI Usage
 
-Cần công khai AI được dùng tại khâu nào: brainstorm, yêu cầu, thiết kế, code generation, review, testing, docs. Với mỗi lần sử dụng đáng kể, ghi tool/model (nếu biết), mục đích, input dạng tóm tắt, output áp dụng, cách nhóm kiểm tra, phần bị sửa/bỏ và người chịu trách nhiệm. Không đưa API keys hoặc dữ liệu riêng tư vào prompt/report.
+Nguồn bổ sung theo người tại [ai-usage/README.md](ai-usage/README.md); Lãm tổng hợp vào báo cáo chung, không xóa lịch sử. Cần công khai AI được dùng tại khâu nào: brainstorm, yêu cầu, thiết kế, code generation, review, testing, docs. Với mỗi lần sử dụng đáng kể, ghi tool/model (nếu biết), mục đích, input dạng tóm tắt, output áp dụng, cách nhóm kiểm tra, phần bị sửa/bỏ và người chịu trách nhiệm. Không đưa API keys hoặc dữ liệu riêng tư vào prompt/report.
 
 ---
 
 ## 16. Phân chia công việc cho nhóm 4 người
 
-**Nguyên tắc bắt buộc theo hướng dẫn GVTH:** mỗi người tham gia **Requirements, Design, Implementation, Testing, Documentation**. Có thể có owner theo feature, nhưng **không phân chia theo kiểu một người chỉ làm tài liệu hoặc chỉ code**.
+**Cách nhận việc:** [TASK_PLAYBOOK_TEMPLATE1.md](../TASK_PLAYBOOK_TEMPLATE1.md) có card theo người/ref, nguồn, từng bước, output và gate bắt đầu/chốt; [TEAM_READINESS](planning/TEAM_READINESS.md) giữ input chưa xác minh. Workflow T1-WF-01 chốt19/11 tách Ticket core15/11. QA23–29/11 có Epic QA1 riêng cho bằngchứngTemplate 3, không kéo feature code quá22/11. Thiết kếTemplate 2 có Epic T2 song song09–22/11; T3-CASE-01 chuẩn bị≥5 chức năng×5ca từ 09–14/11 theo mẫu vừa cung cấp.
 
-| Member | Module primary owner | Phần việc chính | Hỗ trợ chung |
-|---|---|---|---|
-| A | Identity & Access | Auth, session/refresh, RBAC, Agent Management | CI/CD, config/secret policy, review security |
-| B | Ticket Management | Ticket state machine, assignment, messages, audit, concurrent claim | E2E demo, review DB constraints |
-| C | Knowledge Base | Upload/storage, parsing, ingestion jobs, chunks/vector retrieval | Data seeding, benchmark document processing |
-| D | AI Assistance | RAG, citation verification, abstention, AI evaluation | Mock model contract, privacy/prompt risk review |
+**Nguyên tắc nhóm:** mỗi người tham gia Requirements, Design, Implementation, Testing, Documentation theo module của mình. Đối chiếu yêu cầu chính thức của môn học trước chốt Template 1; không dùng bảng phân công thay cho bằng chứng đã hoàn thành. Baseline ngày 03/11 ở kế hoạch và CSV.
 
-**Cân bằng:** AI/Knowledge thường nặng hơn phần Auth; A có thể phụ trách thêm CI và các integration smoke tests. Việc giao việc cụ thể điều chỉnh theo năng lực, tuyệt đối không lấy bảng trên làm lý do khiến ai đó vắng mặt ở SDLC khác.
+| Owner | Module chính | Hỗ trợ chung / dự phòng |
+|---|---|---|
+| Bình | identity | Khung Spring Boot/Docker/principal, security review; không duyệt lại mọi PR |
+| Gia Phúc | ticket + workflow | Contract/OpenAPI điều phối, E2E/test coordination; dự phòng đóng gói |
+| Lãm | knowledge | Schema V1–V5 phối hợp, EmbeddingProvider/fake, release tài liệu và clean-environment smoke |
+| Quý Phúc | ai | Adapter embedding live dùng chung, CI, tổng hợp mockup từng người; UC-17 P1 chỉ đặc tả |
 
-### 16.1 Ma trận minh chứng 5 công đoạn cho từng thành viên
+Theo dõi tiến độ theo owner, deadline, đầu ra và blocker; không yêu cầu khai báo thời lượng làm việc. Tách test mỗi module và task chung có owner rõ; không gom mọi việc vào Bình.
 
-| Member | Requirements | Design | Implementation | Testing | Documentation |
+### 16.1 Ma trận minh chứng năm công đoạn
+
+| Owner | Requirements | Design | Implementation | Testing | Documentation |
 |---|---|---|---|---|---|
-| A | US/FR-ID, UC-01..04 | JWT/auth sequence, users/session tables | Auth APIs/frontend | Auth & RBAC tests | Identity chapter + AI usage notes |
-| B | US/FR-TK, UC-05..10 | Workflow, Ticket ERD/sequence | Ticket APIs/frontend | Concurrency/state tests | Ticket chapter + test evidence |
-| C | US/FR-KB, UC-11..13 | Ingestion pipeline/DB/index | KB upload/worker/UI | Parser/retrieval tests | KB chapter + processing benchmark |
-| D | US/FR-AI, UC-14..15 | RAG sequence, prompt/citation contract | AI module/UI | RAG evaluation & fault tests | AI chapter + eval report |
+| Bình | FR-ID, US-01..06, UC-01..04/16 | Auth/session và mockup Identity | Auth APIs/UI và principal | TC-ID-01..06 | Identity và AI log cá nhân |
+| Gia Phúc | FR-TK, US-07..17/29, UC-05..10; review UC-17/US-28 | Ticket/workflow, mockup Ticket | Ticket APIs/UI, apply orchestration | TC-TK, TC-CON, phối hợp TC-WF | Ticket, FR/story tổng hợp, E2E report |
+| Lãm | FR-KB, US-18..21, UC-11..13, stakeholders/NFR | Ingestion/schema, mockup KB | Upload/worker/retrieval/UI | TC-KB-01..07 và TC-OPS-01 | Knowledge, release, tổng hợp AI log |
+| Quý Phúc | FR-AI, US-22..26/30, UC-14/15; đặc tả UC-17/US-28 P1 | RAG/citation, mockup AI | AI APIs/UI, live adapter, CI | TC-AI-01..07, TC-WF-01..04 với Gia Phúc | AI, mô tả/bìa, mockup tổng hợp |
 
-**Cross-review đề xuất:** A review B, B review C, C review D, D review A; luân phiên để không phụ thuộc một người.
+**Cross-review:** Bình → Lãm → Gia Phúc → Quý Phúc → Bình (người trước review người sau). Release Lãm do Gia Phúc kiểm tra độc lập. Thay contract/schema cần owner phía nhận tham gia. Quyền merge/branch protection thực tế chưa xác minh; không mặc định mọi PR phải chờ Bình duyệt lại.
 
 ### 16.2 Điều kiện handoff giữa modules
 
 | Phụ thuộc | Giao diện chốt sớm | Mock/fake cần có |
 |---|---|---|
-| Identity → Ticket/KB/AI | Auth principal `(userId, role, enabled)` | FakePrincipal/Test auth fixture |
-| Ticket → AI | `TicketContextProvider.getForSuggestion(ticketId, actorId)` | FakeTicketContextProvider |
-| Knowledge → AI | `KnowledgeRetriever.search(query, filters, k)` | FakeKnowledgeRetriever |
-| AI → Ticket send | `ApplySuggestion` + `TicketMessageService` | Mock SuggestionService |
+| Identity → Ticket/KB/AI | Actor `(userId, role)` đã xác thực; enabled kiểm tra server-side | FakePrincipal/Test auth fixture |
+| Ticket → AI | `TicketContextProvider.getForSuggestion(ticketId, actor)` | FakeTicketContextProvider |
+| Knowledge → AI | `KnowledgeRetriever.search(queryText, actor, limit, minSimilarity)` | FakeKnowledgeRetriever |
+| Workflow → Ticket + AI send/discard | ApplySuggestion với Actor, ticketId, suggestionId, body; một transaction | Fake ports giữ đúng quyền/state và lỗi |
 | Frontend → Backend | OpenAPI + error contract + enums | MSW/mock JSON hoặc mock server |
 
 ---
 
-## 17. Lộ trình 8 tuần (đề xuất)
+## 17. Lộ trình triển khai (điều chỉnh ngày 03/11/2026)
 
-| Tuần | Cột mốc | Công việc và deliverables | Exit gate |
+**Baseline điều hành hiện hành:** hoàn tất toàn bộ Template 1 từ 03–08/11, chốt 20:00 ngày 08/11; toàn bộ cài đặt và test mã nguồn từ 09–22/11. Lịch này thay thế kế hoạch cũ Foundation 26/10–01/11, Ticket 02–08/11, KB 09–15/11, AI 16–22/11; các mốc cũ không phải bằng chứng công việc đã hoàn thành. Chi tiết ngày ở Phụ lục G.5 và `PLAN_TEMPLATE1_AND_DEVELOPMENT.md` Mục 2.
+
+| Thời gian | Cột mốc | Công việc và deliverables | Exit gate |
 |---|---|---|---|
-| W1 | Requirements baseline | Project charter, actors, scope, FR/NFR, User Stories, workflow, Jira backlog | Cả 4 review SRS; chốt MVP |
-| W2 | Design baseline | ERD, API contract, architecture, wireframes, sequence diagrams, repo skeleton | Contract freeze cho endpoints cốt lõi |
-| W3 | Foundation | Flyway, DB, Auth skeleton, core test setup, ticket mock, AI/KB contracts | Login + CI + migration pass |
-| W4 | Ticket MVP | Ticket create/list, claim/assign, messages, transitions, audit; frontend cơ bản | Ticket E2E không AI; concurrency tests |
-| W5 | KB MVP | Upload/process/READY/publish/archive, retrieval, document UI | KB ingestion/retrieval tests pass |
-| W6 | AI MVP | RAG, citations, review/edit/send, fault handling; frontend AI panel | RAG demo với fake data + regression |
-| W7 | QA & Hardening | RBAC matrix, concurrency, integration, E2E, AI evaluation, performance smoke | P0 bugs cố định, test report rõ |
-| W8 | Final deliverables | README, Docker demo, slides/video nếu cần, AI Usage & Git reports, MD → PDF/HTML | Demo script hoàn chỉnh, đúng format nộp |
+| 03–08/11 | Template 1 | 17 UC, 41 FR/30 story, NFR, 6 sơ đồ, mockup, review, AI Usage, render và gói nộp | Bản nháp 06/11; review 07/11; toàn bộ bài nộp chốt 20:00 08/11 |
+| 09–10/11 | Foundation | Spring Boot, Docker pgvector, CI, schema V1–V5 phối hợp, principal/DTO/interfaces/fake | Khung chạy, migration/CI pass, contract dùng chung |
+| 09–13/11 | Identity P0 | Auth, token, RBAC, profile, Agent management và UI | Test Identity; principal thật cho lát cắt Ticket 12/11 |
+| 09–15/11 | Ticket P0 | Create/list, claim/assign, messages, transitions, audit và UI | Ticket E2E thật; ownership/concurrency/version tests |
+| 09–17/11 | Knowledge P0 | Upload/process/publish/archive/retrieval và UI | Ingestion/retrieval tests; retriever thật nối AI 18/11 |
+| 09–19/11 | AI P0 | RAG, citations, abstention, review/edit/send, fault handling và UI | Ticket/KB thật, fake fault tests và smoke live có ghi nhận |
+| 20–22/11 | Chốt MVP tích hợp | Hoàn tất test/review 21/11; E2E, sửa lỗi và clean-environment smoke | MVP P0 chốt 20:00 22/11; không mở thêm tính năng |
+| 09–22/11 (song songcode) | Thiết kếTemplate 2 | Conceptual/architecture12, ERD/dictionary18, UI20, đốisoátMVP22 | Mẫu thiết kế được bao phủ; artifact khớp code/SQL/API |
+| 23–29/11 | QA + review/nộp thiết kế | Regression/evaluation làm bằngchứngTemplate 3; T2 review25/freeze 26/gói 27/nộp 28 trước hạn 29 | T2 là thiết kế; test report không là điều kiện chờ nộpT2 |
+| 30/11–13/12 | Triển khai và demo | README, Docker demo, AI Usage/Git reports, diễn tập và đóng gói | Theo Phụ lục G.7 |
 
 **Nếu ít thời gian:** giữ Identity + Ticket + Upload/Basic Retrieval + AI Suggestion có citations; hoãn dashboard, password reset, re-ranking, OCR, realtime, mobile, email. Không cắt security/ownership/concurrency test trọng yếu để thêm tính năng màu mè.
 
 ### 17.1 Dependency và song song hóa
 
-- W1–W2: cả nhóm cùng chốt business rules; chia ownership tài liệu theo module.
-- W3: A xây auth; B bắt đầu ticket domain trên fake principal; C làm extract/DB spike; D làm prompt/retriever adapter trên fake chunks.
-- W4–W5: B hoàn thiện ticket, C KB, D AI dùng fake retriever; frontend phát triển cùng các module.
-- W6: D thay fake retriever bằng triển khai C; B tích hợp send suggestion; A rà toàn bộ authorization flows.
-- W7–W8: đổi reviewer và fix cross-module regressions.
+- 03–08/11: cả nhóm hoàn tất tài liệu và mockup; chưa khởi tạo hay mở thêm công việc cài đặt. P1 vẫn được đặc tả nhưng hoãn cài đặt sau 22/11, khi P0 ổn định và không ảnh hưởng QA.
+- Từ 09/11: Identity, Ticket, Knowledge và AI bắt đầu song song bằng contract/fake; Foundation dùng chung chốt 10/11. Ngày kết thúc từng module là mốc bàn giao, không phải thời điểm bắt đầu module kế tiếp.
+- 12/11: lát cắt principal thật + tạo/xem ticket tối thiểu; 15/11: Ticket E2E không AI; 18/11: nối Knowledge thật với AI; hoàn tất AI P0 19/11.
+- 09–21/11: test và review cùng PR; 20–22/11 hoàn thiện E2E và sửa lỗi, không để toàn bộ tích hợp tới ngày cuối.
+- Nếu Foundation trễ 10/11 hoặc Ticket trễ 15/11, ghi blocker và đầu vào còn thiếu và điều chỉnh phân công trong ngày. Không bỏ kiểm tra quyền hoặc concurrency để bù tiến độ; báo rõ P0 chưa đạt tại mốc 22/11.
+- 23–29/11: QA tổng thể; 30/11–13/12: triển khai, diễn tập và đóng gói theo G.7.
 
 ---
 
@@ -1242,13 +1268,13 @@ Trước khi đưa SRS sang bản approved, hãy điền owner, quyết định 
 | ID | Vấn đề cần chốt | Mặc định đề xuất | Owner | Trạng thái |
 |---|---|---|---|---|
 | DEC-01 | Lịch nộp và template chính thức | Kiểm tra Drive/Public | Cả nhóm | OPEN |
-| DEC-02 | MVP có reset password không? | P1 | A | OPEN |
-| DEC-03 | Chính sách Customer REOPEN | Chỉ từ RESOLVED | B | OPEN |
-| DEC-04 | Agent xem OPEN queue đến mức nào? | Đủ để claim; không sửa | B | OPEN |
-| DEC-05 | PDF parser/Tika/PDFBox | Spike 1 ngày, chọn 1 | C | OPEN |
-| DEC-06 | Model embedding & vector dimension | Chốt trước Flyway vector | C + D | OPEN |
-| DEC-07 | LLM provider/cost/demo offline | API provider + `mock` mode | D | OPEN |
-| DEC-08 | Refresh token storage phía frontend | Chốt cookie/CSRF hoặc giải pháp tương đương an toàn | A + frontend | OPEN |
+| DEC-02 | MVP có reset password không? | P1 | Bình | OPEN |
+| DEC-03 | Chính sách Customer REOPEN | Chỉ từ RESOLVED | Gia Phúc | OPEN |
+| DEC-04 | Agent xem OPEN queue đến mức nào? | Đủ để claim; không sửa | Gia Phúc | OPEN |
+| DEC-05 | PDF parser | Baseline: PDFBox cho PDF text; parser TXT/MD riêng, scan PDF fail rõ; smoke 09–10/11 | Lãm | BASELINE 03/11; CHƯA KIỂM THỬ |
+| DEC-06 | Model embedding & vector dimension | Lãm + Quý Phúc đo/chốt model, dimension, corpus mode trước V3 ngày 10/11; chưa có kết quả thì BLOCKED | knowledge + ai | OPEN |
+| DEC-07 | LLM provider/cost/demo offline | API provider + `mock` mode | Quý Phúc | OPEN |
+| DEC-08 | Refresh token storage phía frontend | Baseline kỹ thuật: HttpOnly cookie + CSRF, access trong memory; kiểm chứng origin/local/HTTPS trước 10/11 theo MVP_CONTRACTS | Bình + Quý Phúc review | BASELINE 03/11; CHƯA KIỂM THỬ |
 | DEC-09 | Công khai ứng dụng ra Internet? | Chỉ local demo trước | Cả nhóm | OPEN |
 | DEC-10 | Repo và frontend/backend ownership | Monorepo, vertical slices | Cả nhóm | OPEN |
 | DEC-11 | Baseline hiệu năng & AI metrics | Theo Mục 8/12, đo để điều chỉnh | Cả nhóm | OPEN |
@@ -1256,7 +1282,9 @@ Trước khi đưa SRS sang bản approved, hãy điền owner, quyết định 
 
 ---
 
-## 21. Kế hoạch Sprint 1 và Jira backlog mẫu
+## 21. Kế hoạch Sprint 1 và Jira backlog mẫu (tham khảo lịch sử)
+
+Các bảng Sprint 1 bên dưới là mẫu ban đầu, **không phải phân công hiện hành**. Owner/ngày/dependency hiện hành ở `scripts/jira/tasks_template1.csv`; lịch 03–08/11 tài liệu và 09–22/11 code tại Mục 17. Chữ A–D trong ví dụ lịch sử không dùng để giao task mới.
 
 ### 21.1 Sprint 1 — Project Foundation + Requirements
 
@@ -1375,10 +1403,10 @@ Trước khi chuyển tài liệu từ `PROPOSED` sang `APPROVED`, nhóm cần x
 
 | MSSV | Họ và tên | Vai trò chính | % đóng góp (tối đa 100%) | Chữ ký |
 |---|---|---|---|---|
-| `24120121` | Lê Quý Phúc | Module A — Trợ lý AI (AI Assistance) | 100% | |
-| `24120083` | Nguyễn Đức Lãm | Module B — Kho tri thức (Knowledge Base) | 100% | |
-| `24120503` | Phan Gia Phúc | Module C — Quản lý Ticket (Ticket Management) | 100% | |
-| `24120269` | Ngô Viết Thanh Bình | Module D — Quản trị & Xác thực (Identity & Access) *(Nhóm trưởng)* | 100% | |
+| `24120121` | Lê Quý Phúc | Module A — Trợ lý AI (AI Assistance) | Chờ xác nhận | |
+| `24120083` | Nguyễn Đức Lãm | Module B — Kho tri thức (Knowledge Base) | Chờ xác nhận | |
+| `24120503` | Phan Gia Phúc | Module C — Quản lý Ticket (Ticket Management) | Chờ xác nhận | |
+| `24120269` | Ngô Viết Thanh Bình | Module D — Quản trị & Xác thực (Identity & Access) *(Nhóm trưởng)* | Chờ xác nhận | |
 
 > Ghi chú: Git username của từng người cũng cần thu thập ngay để dùng cho Git Commit History Report (Mục 19).
 
@@ -1387,17 +1415,17 @@ Trước khi chuyển tài liệu từ `PROPOSED` sang `APPROVED`, nhóm cần x
 | Template | Nội dung nộp | Mở | Tới hạn (theo hệ thống) | **Hạn nội bộ của nhóm** |
 |---|---|---|---|---|
 | Template 0 | `GroupID.zip` | Thứ Hai 12/10/2026, 12:00 AM | Chủ Nhật **01/11/2026, 12:00 AM** (hiển thị Due Date 2026-10-31) | **Thứ Bảy 31/10/2026** (nộp trước tối, không chờ sát 00:00) |
-| Template 1 | `GroupID.zip` | Thứ Hai 12/10/2026, 12:00 AM | Chủ Nhật **15/11/2026, 12:00 AM** (Due Date 2026-11-14) | Thứ Bảy 14/11/2026 |
-| Template 2 | `GroupID.zip` | Thứ Hai 12/10/2026, 12:00 AM | Chủ Nhật **29/11/2026, 12:00 AM** (Due Date 2026-11-28) | Thứ Bảy 28/11/2026 |
-| Template 3 + App Demo | `GroupID.zip` | Thứ Hai 12/10/2026, 12:00 AM | Chủ Nhật **13/12/2026, 12:00 AM** (Due Date: Presentation Day) | Thứ Bảy 12/12/2026 |
+| Template 1 | `GroupID.zip` | Thứ Hai 12/10/2026, 12:00 AM | Chủ Nhật **15/11/2026, 12:00 AM** (Due Date 2026-11-14) | **Chủ Nhật 08/11/2026, 20:00** (chốt đủ bài nộp) |
+| Template 2 — Thiết kế | `GroupID.zip` | Thứ Hai 12/10/2026, 12:00 AM | Chủ Nhật **29/11/2026, 12:00 AM** (Due Date 2026-11-28) | Thứ Bảy 28/11/2026 |
+| Template 3 — Kiểm thử + App Demo | `GroupID.zip` | Thứ Hai 12/10/2026, 12:00 AM | Chủ Nhật **13/12/2026, 12:00 AM** (Due Date: Presentation Day) | Thứ Bảy 12/12/2026 |
 
 **Lưu ý:**
 
-- "12:00 AM" nghĩa là **0 giờ sáng**, tức hạn thực tế là hết ngày liền trước (thứ Bảy). Vì vậy hạn nội bộ đặt vào thứ Bảy.
+- "12:00 AM" nghĩa là **0 giờ sáng**, tức hạn thực tế là hết ngày liền trước (thứ Bảy). Hạn nội bộ Template 1 được chốt sớm vào 20:00 ngày 08/11; các template khác giữ mốc nội bộ trong bảng.
 - Tên file nộp: `GroupID.zip` với GroupID = 4. Cần xác nhận với GVTH đặt tên chính xác (ví dụ `4.zip` hay `Group4.zip`).
 - Giới hạn nộp: tối đa **20 file**, **mỗi file ≤ 20 MB**; không nhận link Drive; nếu zip lớn hơn 20 MB thì dùng split-and-zip.
 - Ngày Presentation Day cụ thể chưa có trong thông tin hiện tại; cần xác nhận với GVTH.
-- Nội dung yêu cầu của Template 1, 2, 3 chưa có trong tài liệu này; cần đối chiếu để gán đúng sản phẩm vào từng mốc (xem DEC-16, Phụ lục J).
+- Nội dungTemplate 2/3 đã có snapshot mẫu người dùng cung cấp; Template 2=Thiết kế, Template 3=Kiểm thử. Ngày/giờcổng không nằm trong các mẫu này; phải kiểm tra riêng. Template 1 mới có bài năm trước tham khảo, không tự coi làrubric hiện hành.
 
 ---
 
@@ -1490,40 +1518,40 @@ Quy tắc review chéo giữ theo Mục 16.1 (A→B→C→D→A).
 
 ## Phụ lục D — Bảng chức năng dạng user story (Mục 3.1.1 của Template 0)
 
-Bảng bên dưới gom các FR của Mục 4 thành các dòng "Nhu cầu / Yêu cầu" như mẫu của Template 0. Cột *Tham chiếu* giúp truy vết về Mục 3.3 và Mục 4. Người viết Template 0 có thể bỏ cột này khi cần gọn.
+Bảng bên dưới gom các FR của Mục 4 thành các dòng "Nhu cầu / Yêu cầu" như mẫu của Template 0. Cột Story ID là danh mục chuẩn US-01..US-30; không đổi nghĩa hoặc tái dùng mã. Cột *Tham chiếu* giúp truy vết về Mục 3.3 và Mục 4. Người viết Template 0 có thể bỏ cột này khi cần gọn.
 
-| STT | Nhu cầu | Yêu cầu | Tham chiếu | Mức |
-|---:|---|---|---|---|
-| 1 | Là khách chưa có tài khoản, tôi muốn đăng ký để gửi yêu cầu hỗ trợ. | Đăng ký tài khoản Customer bằng email, tên và mật khẩu; vai trò mặc định là Customer. | FR-ID-01, UC-01 | P0 |
-| 2 | Là người dùng đã có tài khoản, tôi muốn đăng nhập vào hệ thống. | Đăng nhập bằng email và mật khẩu; cấp access token và refresh token. | FR-ID-02/03, UC-01 | P0 |
-| 3 | Là người dùng đã đăng nhập, tôi muốn giữ phiên làm việc và đăng xuất an toàn. | Làm mới token có xoay vòng; đăng xuất thu hồi phiên hiện tại. | FR-ID-04/05, UC-02 | P0 |
-| 4 | Là người dùng đã đăng nhập, tôi muốn xem và cập nhật thông tin cá nhân. | Xem/sửa hồ sơ của chính mình; đổi mật khẩu có kiểm tra mật khẩu cũ. | FR-ID-06, UC-03 | P0 |
-| 5 | Là quản trị viên, tôi muốn quản lý tài khoản nhân viên hỗ trợ. | Tạo Agent; vô hiệu hóa hoặc kích hoạt lại; tài khoản bị vô hiệu không đăng nhập mới được. | FR-ID-08, UC-04 | P0 |
-| 6 | Là quản trị viên, tôi muốn mỗi vai trò chỉ truy cập đúng dữ liệu được phép. | Phân quyền theo vai trò và theo quyền sở hữu, kiểm tra ở backend. | FR-ID-07, BR-03/04/14 | P0 |
-| 7 | Là khách hàng, tôi muốn tạo yêu cầu hỗ trợ để được giúp đỡ. | Tạo ticket gồm tiêu đề và mô tả; hệ thống tạo mã ticket và tin nhắn công khai đầu tiên. | FR-TK-01, UC-05 | P0 |
-| 8 | Là khách hàng, tôi muốn xem danh sách và tiến độ các ticket của mình. | Xem danh sách, chi tiết, trạng thái và các tin nhắn công khai; không thấy ghi chú nội bộ. | FR-TK-02/03, UC-06 | P0 |
-| 9 | Là khách hàng, tôi muốn bổ sung thông tin hoặc trả lời nhân viên trong ticket. | Gửi tin nhắn công khai; khi ticket đang chờ khách phản hồi thì trả lời sẽ chuyển ticket về đang xử lý. | FR-TK-06, UC-08 | P0 |
-| 10 | Là khách hàng, tôi muốn xác nhận đóng hoặc yêu cầu mở lại ticket đã giải quyết. | Đóng hoặc mở lại ticket từ trạng thái đã giải quyết. | FR-TK-08, BR-09, UC-09 | P0 |
-| 11 | Là nhân viên hỗ trợ, tôi muốn xem hàng đợi và nhận ticket chưa phân công. | Xem ticket OPEN; nhận ticket nguyên tử, chỉ một người nhận được khi nhiều người nhận đồng thời. | FR-TK-04, BR-05/06, UC-07 | P0 |
-| 12 | Là quản trị viên, tôi muốn phân công hoặc chuyển ticket cho nhân viên phù hợp. | Gán/chuyển Agent đang hoạt động; ghi lại người cũ và người mới. | FR-TK-05, UC-07 | P0 |
-| 13 | Là nhân viên được giao ticket, tôi muốn trao đổi công khai với khách hàng. | Gửi phản hồi công khai trên ticket được giao. | FR-TK-06, UC-08 | P0 |
-| 14 | Là nhân viên được giao ticket, tôi muốn ghi chú nội bộ. | Ghi chú nội bộ chỉ Agent được giao và Admin thấy. | FR-TK-07, BR-08, UC-08 | P0 |
-| 15 | Là nhân viên được giao ticket, tôi muốn cập nhật trạng thái và mức ưu tiên. | Yêu cầu thêm thông tin, đánh dấu đã giải quyết; đặt ưu tiên LOW/NORMAL/HIGH; chuyển trạng thái theo quy trình, từ chối chuyển không hợp lệ. | FR-TK-08, UC-09 | P0 |
-| 16 | Là nhân viên hoặc quản trị viên, tôi muốn xem lịch sử xử lý ticket. | Xem sự kiện nhận, phân công, đổi trạng thái (ai, lúc nào, làm gì). | FR-TK-09, UC-10 | P0 |
-| 17 | Là người dùng, tôi muốn tìm và lọc ticket nhanh. | Lọc theo trạng thái, người phụ trách, ngày tạo; phân trang và sắp xếp. | FR-TK-10, UC-06 | P0 |
-| 18 | Là quản trị viên, tôi muốn đưa tài liệu chính sách vào kho tri thức. | Tải lên PDF văn bản, TXT, MD (≤ 10 MiB); hệ thống kiểm tra file và tạo tác vụ xử lý nền. | FR-KB-01/02, UC-11 | P0 |
-| 19 | Là quản trị viên, tôi muốn biết tài liệu đã xử lý xong hay lỗi. | Theo dõi trạng thái UPLOADED/PROCESSING/READY/FAILED; thử lại có giới hạn khi lỗi. | FR-KB-03/04/05/09, UC-11 | P0 |
-| 20 | Là quản trị viên, tôi muốn kiểm duyệt tài liệu trước khi AI được dùng. | Công bố tài liệu READY; lưu trữ (archive) tài liệu để AI không dùng nữa. | FR-KB-06/08, UC-12 | P0 |
-| 21 | Là nhân viên hoặc quản trị viên, tôi muốn tra cứu tài liệu đã công bố. | Tìm kiếm trong tài liệu đã công bố, hiển thị đoạn liên quan. | FR-KB-07, UC-13 | P0 |
-| 22 | Là nhân viên, tôi muốn AI gợi ý câu trả lời có dẫn nguồn. | Truy xuất đoạn tài liệu liên quan, sinh bản nháp kèm trích dẫn đã được kiểm chứng. | FR-AI-01..05, UC-14 | P0 |
-| 23 | Là nhân viên, tôi muốn AI cho biết khi không đủ căn cứ. | Trả về "không đủ bằng chứng" thay vì tự bịa chính sách. | FR-AI-06, BR-13, UC-14 | P0 |
-| 24 | Là nhân viên, tôi muốn giữ quyền kiểm soát nội dung gửi cho khách. | Xem, chỉnh sửa bản nháp rồi mới gửi thủ công; AI không tự gửi. | FR-AI-07, BR-10, UC-15 | P0 |
-| 25 | Là nhân viên hoặc quản trị viên, tôi muốn xem lại các gợi ý AI đã tạo. | Lưu lịch sử gợi ý kèm ảnh chụp nguồn trích dẫn tại thời điểm tạo. | FR-AI-08, BR-12 | P0 |
-| 26 | Là nhân viên, tôi muốn hệ thống vẫn dùng được khi AI gặp sự cố. | AI lỗi/quá tải trả thông báo rõ; ticket vẫn tạo, xử lý, trả lời bình thường; giới hạn số lần gọi AI. | FR-AI-09, NFR-REL-01 | P0 |
-| 27 | Là người dùng quên mật khẩu, tôi muốn đặt lại mật khẩu. | Đặt lại mật khẩu qua token dùng một lần có thời hạn. | FR-ID-09, UC-16 | P1 |
-| 28 | Là quản trị viên, tôi muốn xem thống kê tổng quan. | Dashboard số ticket theo trạng thái và theo nhân viên. | FR-TK-12, UC-17 | P1 |
-| 29 | Là khách hàng, tôi muốn đính kèm tệp vào ticket. | Tải tệp đính kèm có giới hạn và kiểm tra quyền tải xuống. | FR-TK-11 | P1 |
-| 30 | Là nhân viên, tôi muốn đánh giá chất lượng gợi ý của AI. | Đánh giá hữu ích/không hữu ích và thống kê chất lượng. | FR-AI-10 | P1 |
+| Story ID | Nhu cầu | Yêu cầu | Tham chiếu | Mức |
+|---|---|---|---|---|
+| US-01 | Là khách chưa có tài khoản, tôi muốn đăng ký để gửi yêu cầu hỗ trợ. | Đăng ký tài khoản Customer bằng email, tên và mật khẩu; vai trò mặc định là Customer. | FR-ID-01, UC-01 | P0 |
+| US-02 | Là người dùng đã có tài khoản, tôi muốn đăng nhập vào hệ thống. | Đăng nhập bằng email và mật khẩu; cấp access token và refresh token. | FR-ID-02/03, UC-01 | P0 |
+| US-03 | Là người dùng đã đăng nhập, tôi muốn giữ phiên làm việc và đăng xuất an toàn. | Làm mới token có xoay vòng; đăng xuất thu hồi phiên hiện tại. | FR-ID-04/05, UC-02 | P0 |
+| US-04 | Là người dùng đã đăng nhập, tôi muốn xem và cập nhật thông tin cá nhân. | Xem/sửa hồ sơ của chính mình; đổi mật khẩu có kiểm tra mật khẩu cũ. | FR-ID-06, UC-03 | P0 |
+| US-05 | Là quản trị viên, tôi muốn quản lý tài khoản nhân viên hỗ trợ. | Tạo Agent; vô hiệu hóa hoặc kích hoạt lại; tài khoản bị vô hiệu không đăng nhập mới được. | FR-ID-08, UC-04 | P0 |
+| US-06 | Là quản trị viên, tôi muốn mỗi vai trò chỉ truy cập đúng dữ liệu được phép. | Phân quyền theo vai trò và theo quyền sở hữu, kiểm tra ở backend. | FR-ID-07, BR-03/04/14 | P0 |
+| US-07 | Là khách hàng, tôi muốn tạo yêu cầu hỗ trợ để được giúp đỡ. | Tạo ticket gồm tiêu đề và mô tả; hệ thống tạo mã ticket và tin nhắn công khai đầu tiên. | FR-TK-01, UC-05 | P0 |
+| US-08 | Là khách hàng, tôi muốn xem danh sách và tiến độ các ticket của mình. | Xem danh sách, chi tiết, trạng thái và các tin nhắn công khai; không thấy ghi chú nội bộ. | FR-TK-02/03, UC-06 | P0 |
+| US-09 | Là khách hàng, tôi muốn bổ sung thông tin hoặc trả lời nhân viên trong ticket. | Gửi tin nhắn công khai; khi ticket đang chờ khách phản hồi thì trả lời sẽ chuyển ticket về đang xử lý. | FR-TK-06, UC-08 | P0 |
+| US-10 | Là khách hàng, tôi muốn xác nhận đóng hoặc yêu cầu mở lại ticket đã giải quyết. | Đóng hoặc mở lại ticket từ trạng thái đã giải quyết. | FR-TK-08, BR-09, UC-09 | P0 |
+| US-11 | Là nhân viên hỗ trợ, tôi muốn xem hàng đợi và nhận ticket chưa phân công. | Xem ticket OPEN; nhận ticket nguyên tử, chỉ một người nhận được khi nhiều người nhận đồng thời. | FR-TK-04, BR-05/06, UC-07 | P0 |
+| US-12 | Là quản trị viên, tôi muốn phân công hoặc chuyển ticket cho nhân viên phù hợp. | Gán/chuyển Agent đang hoạt động; ghi lại người cũ và người mới. | FR-TK-05, UC-07 | P0 |
+| US-13 | Là nhân viên được giao ticket, tôi muốn trao đổi công khai với khách hàng. | Gửi phản hồi công khai trên ticket được giao. | FR-TK-06, UC-08 | P0 |
+| US-14 | Là nhân viên được giao ticket, tôi muốn ghi chú nội bộ. | Ghi chú nội bộ chỉ Agent được giao và Admin thấy. | FR-TK-07, BR-08, UC-08 | P0 |
+| US-15 | Là nhân viên được giao ticket, tôi muốn cập nhật trạng thái và mức ưu tiên. | Yêu cầu thêm thông tin, đánh dấu đã giải quyết; đặt ưu tiên LOW/NORMAL/HIGH; chuyển trạng thái theo quy trình, từ chối chuyển không hợp lệ. | FR-TK-08, UC-09 | P0 |
+| US-16 | Là nhân viên hoặc quản trị viên, tôi muốn xem lịch sử xử lý ticket. | Xem sự kiện nhận, phân công, đổi trạng thái (ai, lúc nào, làm gì). | FR-TK-09, UC-10 | P0 |
+| US-17 | Là người dùng, tôi muốn tìm và lọc ticket nhanh. | Lọc theo trạng thái, người phụ trách, ngày tạo; phân trang và sắp xếp. | FR-TK-10, UC-06 | P0 |
+| US-18 | Là quản trị viên, tôi muốn đưa tài liệu chính sách vào kho tri thức. | Tải lên PDF văn bản, TXT, MD (≤ 10 MiB); hệ thống kiểm tra file và tạo tác vụ xử lý nền. | FR-KB-01/02, UC-11 | P0 |
+| US-19 | Là quản trị viên, tôi muốn biết tài liệu đã xử lý xong hay lỗi. | Theo dõi trạng thái UPLOADED/PROCESSING/READY/FAILED; thử lại có giới hạn khi lỗi. | FR-KB-03/04/05/09, UC-11 | P0 |
+| US-20 | Là quản trị viên, tôi muốn kiểm duyệt tài liệu trước khi AI được dùng. | Công bố tài liệu READY; lưu trữ (archive) tài liệu để AI không dùng nữa. | FR-KB-06/08, UC-12 | P0 |
+| US-21 | Là nhân viên hoặc quản trị viên, tôi muốn tra cứu tài liệu đã công bố. | Tìm kiếm trong tài liệu đã công bố, hiển thị đoạn liên quan. | FR-KB-07, UC-13 | P0 |
+| US-22 | Là nhân viên, tôi muốn AI gợi ý câu trả lời có dẫn nguồn. | Truy xuất đoạn tài liệu liên quan, sinh bản nháp kèm trích dẫn đã được kiểm chứng. | FR-AI-01..05, UC-14 | P0 |
+| US-23 | Là nhân viên, tôi muốn AI cho biết khi không đủ căn cứ. | Trả về "không đủ bằng chứng" thay vì tự bịa chính sách. | FR-AI-06, BR-13, UC-14 | P0 |
+| US-24 | Là nhân viên, tôi muốn giữ quyền kiểm soát nội dung gửi cho khách. | Xem, chỉnh sửa bản nháp rồi mới gửi thủ công; AI không tự gửi. | FR-AI-07, BR-10, UC-15 | P0 |
+| US-25 | Là nhân viên hoặc quản trị viên, tôi muốn xem lại các gợi ý AI đã tạo. | Lưu lịch sử gợi ý kèm ảnh chụp nguồn trích dẫn tại thời điểm tạo. | FR-AI-08, BR-12 | P0 |
+| US-26 | Là nhân viên, tôi muốn hệ thống vẫn dùng được khi AI gặp sự cố. | AI lỗi/quá tải trả thông báo rõ; ticket vẫn tạo, xử lý, trả lời bình thường; giới hạn số lần gọi AI. | FR-AI-09, NFR-REL-01 | P0 |
+| US-27 | Là người dùng quên mật khẩu, tôi muốn đặt lại mật khẩu. | Đặt lại mật khẩu qua token dùng một lần có thời hạn. | FR-ID-09, UC-16 | P1 |
+| US-28 | Là quản trị viên, tôi muốn xem thống kê tổng quan. | Dashboard số ticket theo trạng thái và theo nhân viên. | FR-TK-12, UC-17 | P1 |
+| US-29 | Là khách hàng, tôi muốn đính kèm tệp vào ticket. | Tải tệp đính kèm có giới hạn và kiểm tra quyền tải xuống. | FR-TK-11 | P1 |
+| US-30 | Là nhân viên, tôi muốn đánh giá chất lượng gợi ý của AI. | Đánh giá hữu ích/không hữu ích và thống kê chất lượng. | FR-AI-10 | P1 |
 
 **Các quy định liên quan (tóm tắt từ Mục 5):**
 
@@ -1625,8 +1653,8 @@ Các giá trị là mức tối thiểu/khuyến nghị *(giả định)*; cần
 
 - **Bắt đầu:** Thứ Hai 12/10/2026 (ngày các template mở).
 - **Kết thúc:** Chủ Nhật 13/12/2026 (tới hạn Template 3 + App Demo / Presentation Day).
-- **Tổng:** 9 tuần. Lộ trình 8 tuần ở **Mục 17** được giữ nguyên, thêm tuần thứ 9 làm đệm, diễn tập và đóng gói.
-- Nội dung các Template 1–3 chưa có trong tài liệu này; sau khi có cần đối chiếu và cập nhật bảng mốc (DEC-16).
+- **Tổng:** 9 tuần. Lịch điều hành ở **Mục 17** và G.2/G.5 được điều chỉnh ngày 03/11/2026: Template 1 chốt 08/11; code 09–22/11; QA và các mốc cuối giữ nguyên. G.3/G.4 là lịch dự kiến ban đầu, không phải xác nhận đã hoàn thành.
+- Đã nhận mẫu Template 2 thiết kế/Template 3 kiểm thử ngày03/11; snapshot và đối chiếu ở reports/references và planning/TEMPLATE2_3_ALIGNMENT.md. Rubric chi tiết/mẫu chính thứcTemplate 1 và giờcổng vẫn cần xác minh (DEC-16).
 
 ### G.2 Tổng quan theo tuần
 
@@ -1634,15 +1662,15 @@ Các giá trị là mức tối thiểu/khuyến nghị *(giả định)*; cần
 |---|---|---|---|
 | W1 | 12/10 – 18/10 | Requirements baseline | |
 | W2 | 19/10 – 25/10 | Design baseline | |
-| W3 | 26/10 – 01/11 | Foundation (Flyway, auth skeleton, CI) | **Template 0** (hạn nội bộ 31/10) |
-| W4 | 02/11 – 08/11 | Ticket MVP | |
-| W5 | 09/11 – 15/11 | Knowledge Base MVP | **Template 1** (hạn nội bộ 14/11) |
-| W6 | 16/11 – 22/11 | AI MVP | |
-| W7 | 23/11 – 29/11 | QA & Hardening | **Template 2** (hạn nội bộ 28/11) |
+| W3 | 26/10 – 01/11 | Template 0; Foundation dự kiến cũ chuyển sang 09–10/11 | **Template 0** (hạn nội bộ 31/10) |
+| W4 | 02/11 – 08/11 | Hoàn tất tài liệu, UML, mockup, review và đóng gói từ 03/11 | **Template 1 chốt 20:00 08/11** |
+| W5 | 09/11 – 15/11 | Foundation đến 10/11; Identity đến 13/11; Ticket đến 15/11; KB/AI làm song song | Template 1 đã sẵn sàng nộp từ 08/11; hạn cổng giữ theo A.2 |
+| W6 | 16/11 – 22/11 | Knowledge đến 17/11; AI đến 19/11; test/review 21/11; MVP tích hợp 22/11 | |
+| W7 | 23/11 – 29/11 | QA & Hardening | **Template 2 — Thiết kế**, nộp nội bộ28/11; QA là đầu vàoTemplate 3 |
 | W8 | 30/11 – 06/12 | Triển khai, hoàn thiện tài liệu và báo cáo | |
-| W9 | 07/12 – 13/12 | Đệm, diễn tập demo, đóng gói | **Template 3 + App Demo** (hạn nội bộ 12/12; Presentation Day) |
+| W9 | 07/12 – 13/12 | Đệm, diễn tập demo, đóng gói | **Template 3 — Kiểm thử + App Demo** (hạn nội bộ 12/12; Presentation Day) |
 
-**Lưu ý:** Template 0 (một tài liệu đề xuất) được nộp trong W3, trong khi Mục 17 đặt Requirements baseline ở W1. Nhóm cần hoàn tất SRS và thiết kế đúng tiến độ W1–W2 để không dồn việc sang các tuần cài đặt.
+**Lưu ý:** Lịch phân tích/thiết kế W1–W2 ở G.3/G.4 là dự kiến ban đầu. Từ 03–08/11 phải hoàn thiện và review baseline Template 1; không coi các mốc lịch sử là việc đã xong. Gói nộp không phụ thuộc hoàn thành code.
 
 ### G.3 Giai đoạn 1 — Phân tích yêu cầu
 
@@ -1677,21 +1705,26 @@ Các giá trị là mức tối thiểu/khuyến nghị *(giả định)*; cần
 ### G.5 Giai đoạn 3 — Cài đặt phần mềm
 
 - **Tham gia:** cả 4 thành viên, phân công theo module; mỗi người trực tiếp viết code (Mục 16).
-- **Thời gian:** 26/10/2026 – 22/11/2026 (4 tuần).
+- **Thời gian cập nhật:** **09/11/2026 – 22/11/2026 (2 tuần)**, sau khi chốt toàn bộ Template 1 lúc 20:00 ngày 08/11. Thay thế lịch cài đặt 26/10–22/11 ban đầu; giữ lại sản phẩm có sẵn nhưng không mặc định Foundation đã hoàn thành.
 
-| STT | Công việc | Bắt đầu | Kết thúc |
+| STT | Công việc | Bắt đầu | Hạn chót |
 |---:|---|---|---|
-| 1 | Khung Spring Boot + PostgreSQL + Flyway; khung React; CI; đăng ký/đăng nhập/token/RBAC | 26/10/2026 | 01/11/2026 |
-| 2 | Ticket: tạo/xem/lọc, claim nguyên tử, tin nhắn, chuyển trạng thái, lịch sử; giao diện Customer/Agent | 02/11/2026 | 08/11/2026 |
-| 3 | Knowledge Base: tải lên, worker trích xuất/chia đoạn/embedding, công bố/lưu trữ, tìm kiếm; giao diện Admin | 09/11/2026 | 15/11/2026 |
-| 4 | AI: RAG, kiểm tra trích dẫn, từ chối khi thiếu căn cứ, mock provider, xem/sửa/gửi gợi ý; AI panel | 16/11/2026 | 22/11/2026 |
+| 1 | Foundation: Spring Boot + PostgreSQL/pgvector + Docker + CI; phối hợp schema V1–V5, principal, DTO, API/error contract và fake | 09/11/2026 | 10/11/2026 |
+| 2 | Identity P0: register/login, refresh/logout, profile, quản lý Agent, RBAC và UI; test cùng code | 09/11/2026 | 13/11/2026 |
+| 3 | Ticket P0: tạo/xem/lọc, claim/version, messages/internal note, state machine, audit và UI | 09/11/2026 | 15/11/2026 |
+| 4 | Knowledge P0: upload, worker extract/chunk/embed với lease/retry, publish/archive/search và UI | 09/11/2026 | 17/11/2026 |
+| 5 | AI P0: mock/live provider, RAG, citation, abstention, review/edit/send/discard và AI panel | 09/11/2026 | 19/11/2026 |
+| 6 | Test đơn vị/tích hợp và review PR của từng owner, hoàn tất regression trọng yếu | 09/11/2026 | 21/11/2026, 20:00 |
+| 7 | Tích hợp tăng dần, E2E, lỗi provider, sửa lỗi và chạy từ môi trường sạch | 12/11/2026 | **22/11/2026, 20:00** |
 
-**Kết quả mong muốn:** mã nguồn hoàn chỉnh các tính năng P0, chạy được luồng demo ở Mục 13.2; test đơn vị và tích hợp viết song song với từng module.
+**Handoff:** ngày 12/11 principal thật + ticket tối thiểu; 15/11 Ticket E2E; 18/11 Knowledge thật nối AI. Các module phát triển song song bằng fake từ 09/11, không đợi module trước xong mới bắt đầu. 20–22/11 không mở tính năng mới.
+
+**Kết quả mong muốn:** MVP P0 tích hợp chạy luồng SRS 13.2; test quyền, state, concurrency, worker/retrieval, citation và lỗi provider pass. UC-16/UC-17 và P1 khác được đặc tả trong Template 1 nhưng hoãn cài đặt sau 22/11 khi P0 ổn định, không ảnh hưởng QA. Nếu mốc 22/11 chưa đạt, ghi rõ P0 còn thiếu và ưu tiên sửa trong tuần QA.
 
 ### G.6 Giai đoạn 4 — Kiểm thử phần mềm
 
 - **Tham gia:** cả 4 thành viên.
-- **Thời gian:** 23/11/2026 – 29/11/2026 (1 tuần chính; test của từng module được viết từ giai đoạn cài đặt).
+- **Thời gian:** 23/11/2026 – 29/11/2026 (1 tuần chính; test từng feature đã phải pass tại gate module). TaskQA1-REG-01 Gia Phúc; QA1-EVAL-01 Quý Phúc/Lãm nhãn: kết quả dành Template 3 kiểm thử. **Template 2 là thiết kế**, có luồng09–22/11 và review 23–25/freeze 26/gói 27/nộp 28 trước hạn 29; QA1-T2-01 giữ ref nhưng chuyển parent T2/nội dung release thiết kế, không chờ regression/evaluation. Xem [đối chiếu mẫu](planning/TEMPLATE2_3_ALIGNMENT.md).
 
 | STT | Công việc | Bắt đầu | Kết thúc |
 |---:|---|---|---|
@@ -1729,14 +1762,14 @@ Theo yêu cầu của GVTH, **mỗi thành viên đều tham gia mọi công đo
 
 | Vai trò | Mô tả công việc | Phụ trách |
 |---|---|---|
-| Project Manager | Lập kế hoạch, phân công, theo dõi tiến độ trên Jira, quản lý rủi ro (Mục 18), điều phối review chéo, chuẩn bị báo cáo tổng hợp | Nhóm trưởng `<tên>` |
-| Business Analyst | Viết yêu cầu, user story, use case, quy tắc nghiệp vụ cho module của mình; tham gia review SRS | Cả 4 (A: Identity, B: Ticket, C: Knowledge Base, D: AI) |
-| UI/UX Designer | Thiết kế luồng người dùng và wireframe các màn hình thuộc module của mình | Cả 4 (A: đăng nhập/hồ sơ/quản lý Agent; B: màn hình ticket; C: màn hình tài liệu; D: AI panel) |
+| Project Manager | Lập kế hoạch, phân công, theo dõi tiến độ trên Jira, quản lý rủi ro (Mục 18), điều phối review chéo, chuẩn bị báo cáo tổng hợp | Ngô Viết Thanh Bình |
+| Business Analyst | Viết yêu cầu, user story, use case, quy tắc nghiệp vụ cho module của mình; tham gia review SRS | Cả 4 theo Mục 16: Bình/identity, Gia Phúc/ticket, Lãm/knowledge, Quý Phúc/ai |
+| UI/UX Designer | Thiết kế luồng người dùng và wireframe các màn hình thuộc module của mình | Cả 4 tự làm mockup module mình; Quý Phúc tổng hợp |
 | Frontend Developer | Lập trình giao diện React + TypeScript cho module của mình, tích hợp REST API | Cả 4, theo module |
 | Backend Developer | Lập trình REST API, nghiệp vụ, truy cập dữ liệu và migration cho module của mình | Cả 4, theo module |
-| DevOps/CI | Cấu hình Docker Compose, GitHub Actions, quản lý biến môi trường và bí mật | A chính; các thành viên khác hỗ trợ |
-| Tester | Viết và chạy test case; kiểm thử bảo mật, đồng thời, truy xuất, đánh giá AI | Cả 4 (A: auth/RBAC; B: đồng thời/trạng thái; C: nạp tài liệu/truy xuất; D: đánh giá AI và lỗi) |
-| Technical Writer | Viết tài liệu, README, báo cáo AI Usage, báo cáo kiểm thử, cập nhật Git report | Cả 4, mỗi người một chương theo module |
+| DevOps/CI | Cấu hình Docker Compose, GitHub Actions, quản lý biến môi trường và bí mật | Bình phụ trách Docker/security; Quý Phúc CI; Lãm schema/clean environment; Gia Phúc test/E2E |
+| Tester | Viết và chạy test case; kiểm thử bảo mật, đồng thời, truy xuất, đánh giá AI | Cả 4 theo task test riêng; Gia Phúc điều phối kết quả, không viết thay |
+| Technical Writer | Viết tài liệu, README, báo cáo AI Usage, báo cáo kiểm thử, cập nhật Git report | Cả 4, mỗi người một chương theo module; Lãm release/tổng hợp, Gia Phúc dự phòng |
 
 **Chi tiết minh chứng 5 công đoạn cho từng thành viên** xem ma trận ở Mục 16.1; **điều kiện bàn giao giữa các module** xem Mục 16.2.
 
@@ -1808,10 +1841,10 @@ Theo yêu cầu của GVTH, **mỗi thành viên đều tham gia mọi công đo
 
 | ID | Vấn đề cần chốt | Mặc định đề xuất | Owner | Trạng thái |
 |---|---|---|---|---|
-| DEC-13 | Truy cập ticket/tài nguyên không có quyền trả 403 hay 404 | Trả 404 để che sự tồn tại; thống nhất trong API contract | A + B | OPEN |
-| DEC-14 | Ma trận quyền ở Mục 3.2 ghi Admin tạo ticket là ✓ nhưng ghi chú ghi "thay mặt Customer: P1" | Coi là P1; sửa ma trận khi cập nhật SRS | B | OPEN |
-| DEC-15 | Reset password đang là P1, trong khi GVTH tính reset password trong nhóm Authentication | Hỏi lại GVTH; nếu cần thì nâng lên P0 | A | OPEN |
-| DEC-16 | Nội dung yêu cầu của Template 1–3 và cách đặt tên `GroupID.zip` | Đối chiếu với Drive/Public và hỏi GVTH; cập nhật Phụ lục A.2 và G.2 | Nhóm trưởng | OPEN |
+| DEC-13 | Truy cập tài nguyên không có quyền | Baseline: 404 cho ownership/not-found, 403 cho sai role endpoint, 401 cho thiếu/sai token; MVP_CONTRACTS Mục 2 | Bình + Gia Phúc | BASELINE 03/11; CHƯA KIỂM THỬ |
+| DEC-14 | Admin tạo ticket thay Customer | Đã đồng bộ ma trận: ngoài P0, P1 chưa triển khai | Gia Phúc | BASELINE 03/11 |
+| DEC-15 | Reset password P1 có bắt buộc theo rubric không? | Giữ P1 theo SRS; Bình đối chiếu yêu cầu chính thức trước chốt 08/11. Chưa có căn cứ coi đây là yêu cầu P0 của GVTH | Bình | OPEN |
+| DEC-16 | Nội dungmẫu/giờnộp/tênfile | Đã nhận mẫuT2=Thiết kế/T3=Kiểm thử; xem planning/TEMPLATE2_3_ALIGNMENT.md. Cần xác minh mụcUI/T2, rubricchi tiết, Template 1 hiện hành và giờcổng/tênzip | Bình | PARTIAL — mẫu2/3 đã có; lịch/quy cách còn OPEN |
 | DEC-17 | Định dạng nộp: Template 0 đang làm bằng `.docx` theo file mẫu, trong khi quy định chung là Markdown + PDF/HTML | Làm `.docx` trước; chuyển sang `reports/00-project-proposal.md` và render PDF/HTML sau khi xác nhận với GVTH | Nhóm trưởng | OPEN |
 
 ### J.3 Checklist nộp Template 0
@@ -1831,3 +1864,7 @@ Theo yêu cầu của GVTH, **mỗi thành viên đều tham gia mọi công đo
 
 *End of document — AI-Powered Helpdesk & Knowledge Base, SRS/High-level Technical Design v1.0.*
 
+
+## Baseline bổ sung03/11 — áp dụng mẫu Template 2–3
+
+[Mẫu thiết kế](references/template2-design-requirements.md) và[mẫu kiểm thử](references/template3-testing-requirements.md) được người dùng cung cấp, đối chiếu chi tiết tại[planning/TEMPLATE2_3_ALIGNMENT.md](planning/TEMPLATE2_3_ALIGNMENT.md). Thiết kếT2 được soạn song song code09–22, review 23–25/freeze 26/gói 27/nộp 28 trước mốc29 theo giờcổng. Mẫu nhắcUI ởmục tiêu nhưng thiếu đềmục riêng: bao phủ bằng mục5UI vàBình xácminh cách trìnhbày. Không tự bắt mọi mứcC4/đặc tảmọilớp theo bài mẫu. Template 3 là báo cáo kiểm thử, chuẩn bịcases từ 09/11, không bắt đầu toàn bộ vào tháng12.
