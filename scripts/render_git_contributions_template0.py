@@ -127,8 +127,26 @@ def parse_markdown_snippet_to_html(md_text):
                     if re.match(r'^\d+$', cell) or cell in ["2026-10-28", "2026-10-23", "2026-10-22", "2026-10-20", "2026-10-19"]:
                         align_cls = "align-center"
                 cls_attr = f' class="{align_cls}"' if align_cls else ""
+
+                style_parts = []
+                if tag == "th":
+                    if c_idx == 0 and cell == "STT":
+                        style_parts.append("width: 6%; text-align: center;")
+                    elif c_idx == 1 and "Hash" in cell:
+                        style_parts.append("width: 13%; text-align: center; white-space: nowrap;")
+                    elif c_idx == 2 and "Ngày" in cell:
+                        style_parts.append("width: 15%; text-align: center; white-space: nowrap;")
+                    elif c_idx == 3:
+                        style_parts.append("width: 35%; text-align: left;")
+                    elif c_idx == 4 and "tệp" in cell:
+                        style_parts.append("width: 31%; text-align: left;")
+                elif tag == "td":
+                    if c_idx == 2:
+                        style_parts.append("white-space: nowrap;")
+
+                style_attr = f' style="{" ".join(style_parts)}"' if style_parts else ""
                 inline = format_inline(cell)
-                out.append(f"    <{tag}{cls_attr}>{inline}</{tag}>")
+                out.append(f"    <{tag}{cls_attr}{style_attr}>{inline}</{tag}>")
             out.append("  </tr>")
         out.append("</table>")
         in_table = False
@@ -268,7 +286,7 @@ def render_cover_page(logo_b64):
             <tr>
               <td style="text-align: center; padding: 5px 6px;">1</td>
               <td style="text-align: center; padding: 5px 6px;"><code>24120269</code></td>
-              <td style="padding: 5px 8px;">Ngô Viết Thanh Bình (Lead)</td>
+              <td style="padding: 5px 8px;">Ngô Viết Thanh Bình (Nhóm trưởng)</td>
               <td style="text-align: center; padding: 5px 8px;"><code>thanhbinh55</code></td>
               <td style="padding: 5px 8px;">D - Identity &amp; Access</td>
             </tr>
@@ -350,23 +368,35 @@ def build_git_contributions_document():
     logo_b64 = get_logo_base64()
     cover_html = render_cover_page(logo_b64)
 
-    # Chia các phần nội dung của git-contributions:
-    # Trang 1: DANH SÁCH COMMIT CỦA MỖI THÀNH VIÊN - Thành viên 1: Ngô Viết Thanh Bình (35 commits)
-    # Trang 2: Thành viên 2, 3, 4: Nguyễn Đức Lãm (2), Phan Gia Phúc (1), Lê Quý Phúc (1)
+    # Chia các phần nội dung của git-contributions chuẩn A4 (tương đương Print Layout Word docx):
+    # Trang 1: THÔNG TIN TÀI LIỆU & Thành viên 1: Ngô Viết Thanh Bình (Commits STT 1 đến 11)
+    # Trang 2: Thành viên 1: Ngô Viết Thanh Bình (tiếp theo, Commits STT 12 đến 22)
+    # Trang 3: Thành viên 2 (Lãm - 2), Thành viên 3 (Gia Phúc - 1), Thành viên 4 (Quý Phúc - 1)
 
-    # Tìm phần Thành viên 1: Ngô Viết Thanh Bình
     tb_match = re.search(r'(## DANH SÁCH COMMIT CỦA MỖI THÀNH VIÊN.*?\n)(?=### 2\. Thành viên:)', md_text, re.DOTALL)
-    tb_md = tb_match.group(1) if tb_match else ""
-    page1_html = parse_markdown_snippet_to_html(tb_md)
+    tb_text = tb_match.group(1) if tb_match else ""
 
-    # Tìm phần Thành viên 2, 3, 4
+    # Tách bảng Thành viên 1 tại commit STT 11
+    idx_r11 = tb_text.find('| 11 | `[09955a82]`')
+    end_r11 = tb_text.find('\n', idx_r11) + 1 if idx_r11 != -1 else len(tb_text)
+    idx_r12 = tb_text.find('| 12 | `[f57f60e1]`')
+
+    p1_md = tb_text[:end_r11]
+
+    table_header = '''### 1. Thành viên: 24120269 - thanhbinh55 (Ngô Viết Thanh Bình) (tiếp theo)
+
+| STT | Mã Hash | Ngày commit | Thông điệp commit (Jira Key) | Các tệp thay đổi chính |
+| :---: | :--- | :---: | :--- | :--- |
+'''
+    p2_md = table_header + (tb_text[idx_r12:] if idx_r12 != -1 else "")
+
     rest_match = re.search(r'(### 2\. Thành viên: 24120083 - Lamnguyen-code.*)$', md_text, re.DOTALL)
-    rest_md = rest_match.group(1) if rest_match else ""
-    page2_html = parse_markdown_snippet_to_html(rest_md)
+    p3_md = rest_match.group(1) if rest_match else ""
 
     pages = [
-        render_section_page(page1_html, "1", "sec-thanhbinh"),
-        render_section_page(page2_html, "2", "sec-members"),
+        render_section_page(parse_markdown_snippet_to_html(p1_md), "1", "sec-thanhbinh-p1"),
+        render_section_page(parse_markdown_snippet_to_html(p2_md), "2", "sec-thanhbinh-p2"),
+        render_section_page(parse_markdown_snippet_to_html(p3_md), "3", "sec-members"),
     ]
 
     all_sections_html = "\n".join(pages)

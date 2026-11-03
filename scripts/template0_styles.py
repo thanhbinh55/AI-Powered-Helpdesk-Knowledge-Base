@@ -68,6 +68,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 1120px;
 }
 
 .cover-page {
@@ -480,22 +481,37 @@ blockquote p {
   min-width: 20px;
 }
 
+.toc-page-num {
+  font-weight: 700 !important;
+  font-size: 11.5pt !important;
+  color: #334155 !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  text-align: right;
+  min-width: 18px;
+}
+
 /* Tables strictly formatted to Template 0 */
 table {
   width: 100% !important;
+  max-width: 100% !important;
+  table-layout: fixed !important;
   border-collapse: collapse !important;
-  margin: 16px 0 20px 0 !important;
+  margin: 14px 0 18px 0 !important;
   font-family: 'Times New Roman', Times, serif !important;
-  font-size: 11pt !important;
+  font-size: 10.5pt !important;
   line-height: 1.35 !important;
   page-break-inside: avoid;
+  box-sizing: border-box !important;
 }
 
 th, td {
   border: 1px solid #cbd5e1 !important;
-  padding: 8px 10px !important;
+  padding: 6px 8px !important;
   vertical-align: top !important;
   font-family: 'Times New Roman', Times, serif !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+  box-sizing: border-box !important;
 }
 
 th {
@@ -509,8 +525,8 @@ th {
 }
 
 td {
-  font-size: 11pt !important;
-  line-height: 1.45 !important;
+  font-size: 10.5pt !important;
+  line-height: 1.4 !important;
   color: #000000 !important;
 }
 
@@ -533,11 +549,20 @@ tr:nth-child(even) td {
 /* Inline Code, Badges, & Pre Blocks */
 code {
   font-family: 'Times New Roman', Times, serif !important;
-  font-size: 11pt !important;
+  font-size: 10pt !important;
   font-weight: 600 !important;
   background-color: #f1f5f9 !important;
-  padding: 1px 6px !important;
+  padding: 1px 4px !important;
   border-radius: 3px !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+  white-space: normal !important;
+  display: inline-block;
+  max-width: 100%;
+  box-sizing: border-box !important;
+}
   border: 1px solid #cbd5e1 !important;
   color: #0f172a !important;
 }
@@ -586,6 +611,7 @@ pre code {
 
 .svg-diagram-wrapper svg {
   max-width: 100%;
+  max-height: 520px;
   height: auto;
   display: block;
   margin: 0 auto;

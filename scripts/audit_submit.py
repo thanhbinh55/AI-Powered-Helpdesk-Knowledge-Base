@@ -1,7 +1,7 @@
 import os
 import re
 
-submit_dir = "reports/submit"
+submit_dir = "reports/template0"
 
 print("=== 1. KIỂM TRA ĐƯỜNG DẪN CỤC BỘ FILE:/// VÀ LINK BỊ HỎNG ===")
 for root, dirs, files in os.walk(submit_dir):
@@ -53,8 +53,14 @@ md_hashes = re.findall(r'\[([0-9a-f]{8})\]', git_md)
 html_hashes = re.findall(r'\[([0-9a-f]{8})\]', git_html)
 print(f"Số commit hash trong MD: {len(md_hashes)}")
 print(f"Số commit hash trong HTML: {len(html_hashes)}")
-assert len(md_hashes) == 39, f"Kỳ vọng 39 hashes trong MD, thấy {len(md_hashes)}"
-assert len(html_hashes) >= 39, f"Kỳ vọng >= 39 hashes trong HTML, thấy {len(html_hashes)}"
+assert len(md_hashes) == 26, f"Kỳ vọng 26 hashes trong MD, thấy {len(md_hashes)}"
+assert len(html_hashes) >= 26, f"Kỳ vọng >= 26 hashes trong HTML, thấy {len(html_hashes)}"
+
+# Check no frontend / UI in git-contributions
+for term in ['frontend', 'feat/frontend', 'ui-prototype', 'Customer Portal']:
+    assert term.lower() not in git_md.lower(), f"Vẫn còn '{term}' trong git-contributions.md"
+    assert term.lower() not in git_html.lower(), f"Vẫn còn '{term}' trong git-contributions.html"
+print("Xác nhận đã loại bỏ triệt để toàn bộ nội dung frontend và UI trong git-contributions.")
 
 # Check git log matching
 import subprocess

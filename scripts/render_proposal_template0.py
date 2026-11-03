@@ -353,30 +353,34 @@ def render_cover_page(logo_b64):
 """
 
 
-def render_toc_page(toc_md_text):
-    # Parse TOC lines
-    lines = toc_md_text.splitlines()
-    toc_items = []
-    for line in lines:
-        stripped = line.strip()
-        if not stripped or stripped.startswith("## MỤC LỤC") or stripped == "---" or "page-break" in stripped:
-            continue
-        indent = len(line) - len(line.lstrip())
-        m_link = re.search(r'\[([^\]]+)\]\((#[^)]+)\)', stripped)
-        if m_link:
-            label = m_link.group(1)
-            href = m_link.group(2)
-            m_prefix = re.match(r'^(?:-\s+)?(?:(\d+(?:\.\d+)*\.?)\s+)?(.*)$', stripped)
-            num_prefix = ""
-            if m_prefix and m_prefix.group(1):
-                num_prefix = m_prefix.group(1) + " "
-
-            if indent >= 6 or "&nbsp;&nbsp;&nbsp;&nbsp;3.1" in stripped:
-                toc_items.append(f'      <li class="toc-item" style="padding-left: 36px;"><a class="toc-link" href="{href}"><span class="toc-sub-title-text">{num_prefix}{label}</span><span class="toc-dots"></span></a></li>')
-            elif indent >= 3:
-                toc_items.append(f'    <li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="{href}"><span class="toc-sub-title-text">{num_prefix}{label}</span><span class="toc-dots"></span></a></li>')
-            else:
-                toc_items.append(f'    <li class="toc-item"><a class="toc-link" href="{href}"><span class="toc-title-text">{num_prefix}{label}</span><span class="toc-dots"></span></a></li>')
+def render_toc_page(toc_md_text=""):
+    toc_items = [
+        '<li class="toc-item"><a class="toc-link" href="#1-bảng-đánh-giá-thành-viên"><span class="toc-title-text">1. Bảng đánh giá thành viên</span><span class="toc-dots"></span><span class="toc-page-num">1</span></a></li>',
+        '<li class="toc-item"><a class="toc-link" href="#2-phát-biểu-bài-toán-sơ-lược"><span class="toc-title-text">2. Phát biểu bài toán sơ lược</span><span class="toc-dots"></span><span class="toc-page-num">1</span></a></li>',
+        '<li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#21-bối-cảnh-và-vấn-đề-đặt-ra"><span class="toc-sub-title-text">2.1. Bối cảnh và vấn đề đặt ra</span><span class="toc-dots"></span><span class="toc-page-num">1</span></a></li>',
+        '<li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#22-ý-tưởng-giải-pháp-đề-xuất"><span class="toc-sub-title-text">2.2. Ý tưởng giải pháp đề xuất</span><span class="toc-dots"></span><span class="toc-page-num">1</span></a></li>',
+        '<li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#23-môi-trường-hoạt-động-dự-kiến"><span class="toc-sub-title-text">2.3. Môi trường hoạt động dự kiến</span><span class="toc-dots"></span><span class="toc-page-num">1</span></a></li>',
+        '<li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#24-ràng-buộc-thiết-kế-và-triển-khai"><span class="toc-sub-title-text">2.4. Ràng buộc thiết kế và triển khai</span><span class="toc-dots"></span><span class="toc-page-num">1</span></a></li>',
+        '<li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#25-mục-tiêu-và-tiêu-chí-thành-công"><span class="toc-sub-title-text">2.5. Mục tiêu và tiêu chí thành công</span><span class="toc-dots"></span><span class="toc-page-num">1</span></a></li>',
+        '<li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#26-đối-tượng-sử-dụng"><span class="toc-sub-title-text">2.6. Đối tượng sử dụng</span><span class="toc-dots"></span><span class="toc-page-num">2</span></a></li>',
+        '<li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#27-phạm-vi-mvp-và-giá-trị-sử-dụng"><span class="toc-sub-title-text">2.7. Phạm vi MVP và giá trị sử dụng</span><span class="toc-dots"></span><span class="toc-page-num">2</span></a></li>',
+        '<li class="toc-item"><a class="toc-link" href="#3-giải-pháp-đề-xuất"><span class="toc-title-text">3. Giải pháp đề xuất</span><span class="toc-dots"></span><span class="toc-page-num">2</span></a></li>',
+        '<li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#31-phần-mềm"><span class="toc-sub-title-text">3.1. Phần mềm</span><span class="toc-dots"></span><span class="toc-page-num">2</span></a></li>',
+        '<li class="toc-item" style="padding-left: 36px;"><a class="toc-link" href="#311-danh-sách-các-chức-năng-phần-mềm"><span class="toc-sub-title-text">3.1.1. Danh sách các chức năng phần mềm</span><span class="toc-dots"></span><span class="toc-page-num">2</span></a></li>',
+        '<li class="toc-item" style="padding-left: 36px;"><a class="toc-link" href="#312-kiến-trúc-tổng-thể-phần-mềm"><span class="toc-sub-title-text">3.1.2. Kiến trúc tổng thể phần mềm</span><span class="toc-dots"></span><span class="toc-page-num">4</span></a></li>',
+        '<li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#32-phần-cứng"><span class="toc-sub-title-text">3.2. Phần cứng</span><span class="toc-dots"></span><span class="toc-page-num">5</span></a></li>',
+        '<li class="toc-item"><a class="toc-link" href="#4-kế-hoạch-phát-triển"><span class="toc-title-text">4. Kế hoạch phát triển</span><span class="toc-dots"></span><span class="toc-page-num">6</span></a></li>',
+        '<li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#41-phân-tích-yêu-cầu"><span class="toc-sub-title-text">4.1. Phân tích yêu cầu</span><span class="toc-dots"></span><span class="toc-page-num">6</span></a></li>',
+        '<li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#42-thiết-kế-phần-mềm"><span class="toc-sub-title-text">4.2. Thiết kế phần mềm</span><span class="toc-dots"></span><span class="toc-page-num">6</span></a></li>',
+        '<li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#43-cài-đặt-implement-phần-mềm"><span class="toc-sub-title-text">4.3. Cài đặt (implement) phần mềm</span><span class="toc-dots"></span><span class="toc-page-num">6</span></a></li>',
+        '<li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#44-kiểm-thử-phần-mềm"><span class="toc-sub-title-text">4.4. Kiểm thử phần mềm</span><span class="toc-dots"></span><span class="toc-page-num">7</span></a></li>',
+        '<li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#45-triển-khai-bảo-trì"><span class="toc-sub-title-text">4.5. Triển khai, bảo trì</span><span class="toc-dots"></span><span class="toc-page-num">7</span></a></li>',
+        '<li class="toc-item"><a class="toc-link" href="#5-kế-hoạch-nhân-sự-chi-phí"><span class="toc-title-text">5. Kế hoạch nhân sự &amp; chi phí</span><span class="toc-dots"></span><span class="toc-page-num">7</span></a></li>',
+        '<li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#51-cấu-trúc-nhân-sự"><span class="toc-sub-title-text">5.1. Cấu trúc nhân sự</span><span class="toc-dots"></span><span class="toc-page-num">7</span></a></li>',
+        '<li class="toc-item" style="padding-left: 18px;"><a class="toc-link" href="#52-kế-hoạch-chi-phí"><span class="toc-sub-title-text">5.2. Kế hoạch chi phí</span><span class="toc-dots"></span><span class="toc-page-num">8</span></a></li>',
+        '<li class="toc-item"><a class="toc-link" href="#tài-liệu-tham-khảo-references"><span class="toc-title-text">Tài liệu tham khảo (References)</span><span class="toc-dots"></span><span class="toc-page-num">8</span></a></li>',
+        '<li class="toc-item"><a class="toc-link" href="#phụ-lục-tuyên-bố-và-ghi-chú-sử-dụng-ai"><span class="toc-title-text">Phụ lục: Tuyên bố và Ghi chú sử dụng AI</span><span class="toc-dots"></span><span class="toc-page-num">9</span></a></li>'
+    ]
 
     toc_body = "\n".join(toc_items)
     return f"""
@@ -424,49 +428,72 @@ def render_section_page(content_html, page_num_str, section_id=None):
 
 def build_template0_document():
     with open(MD_FILE, "r", encoding="utf-8") as f:
-        md_text = f.read()
+        text = f.read()
 
     logo_b64 = get_logo_base64()
-
-    # Extract TOC block: from ## MỤC LỤC until next major heading or page break
-    toc_match = re.search(r'(## MỤC LỤC.*?\n)(?=(?:<div style="page-break|<div class="page-break|---|# 1\.))', md_text, re.DOTALL)
-    toc_md = toc_match.group(1) if toc_match else ""
-
-    # Split major sections:
-    # 1. 1. Bảng đánh giá thành viên
-    # 2. 2. Phát biểu bài toán sơ lược
-    # 3. 3. Giải pháp đề xuất
-    # 4. 4. Kế hoạch phát triển
-    # 5. 5. Kế hoạch nhân sự & chi phí
-    # 6. Tài liệu tham khảo + Phụ lục AI
-    parts = re.split(r'\n(?=# (?:1\.|2\.|3\.|4\.|5\.)|## TÀI LIỆU)', md_text)
-
-    # parts[0] is header + TOC, which we handle as Page 1 (Cover) and Page 2 (TOC)
     cover_html = render_cover_page(logo_b64)
-    toc_html = render_toc_page(toc_md)
+    toc_html = render_toc_page()
 
-    section_pages = []
+    # Phân trang chuẩn A4 (Portrait) tương đương Word docx:
+    # Page 1 (Trang 1): 1. Bảng đánh giá thành viên + 2. Phát biểu bài toán (2.1 - 2.5)
+    p1 = text[text.find("# 1. Bảng đánh giá thành viên"):text.find("### 2.6. Đối tượng sử dụng")]
 
-    # Map part index to page label and section id
-    section_configs = [
-        {"title": "Mục 1: Bảng đánh giá thành viên", "page_tab": "1", "id": "sec-1"},
-        {"title": "Mục 2: Phát biểu bài toán sơ lược", "page_tab": "2", "id": "sec-2"},
-        {"title": "Mục 3: Giải pháp đề xuất", "page_tab": "3", "id": "sec-3"},
-        {"title": "Mục 4: Kế hoạch phát triển", "page_tab": "4", "id": "sec-4"},
-        {"title": "Mục 5: Kế hoạch nhân sự & chi phí", "page_tab": "5", "id": "sec-5"},
-        {"title": "Tài liệu tham khảo & Phụ lục AI", "page_tab": "6", "id": "sec-ref"},
+    # Page 2 (Trang 2): 2.6, 2.7 + 3. Giải pháp đề xuất (3.1.1 Bảng chức năng STT 1-12)
+    idx_2_6 = text.find("### 2.6. Đối tượng sử dụng")
+    idx_row_12 = text.find("| 12 | `FR-TK-08`")
+    end_row_12 = text.find("\n", idx_row_12) + 1
+    p2 = text[idx_2_6:end_row_12]
+
+    # Page 3 (Trang 3): 3.1.1 Bảng chức năng tiếp theo (STT 13-30)
+    idx_row_13 = text.find("| 13 | `FR-KB-01`")
+    idx_3_1_2 = text.find("### 3.1.2. Kiến trúc tổng thể phần mềm")
+    table_header = '''### 3.1.1. Danh sách các chức năng phần mềm (tiếp theo)
+
+<p class="table-caption" style="text-align: center; font-weight: 700; margin-bottom: 8px; font-size: 11.5pt;">Bảng 4. Bảng thể hiện các chức năng cơ bản của phần mềm (tiếp theo)</p>
+
+| STT | Mã US / FR | Phân hệ (Module) | Tên chức năng / Yêu cầu người dùng (User Story) | Mức độ ưu tiên |
+| :---: | :--- | :--- | :--- | :---: |
+'''
+    p3 = table_header + text[idx_row_13:idx_3_1_2]
+
+    # Page 4 (Trang 4): 3.1.2 a. Sơ đồ kiến trúc tổng thể (SVG) + b. Các thành phần và trách nhiệm
+    idx_luong = text.find("#### c. Luồng vận hành")
+    p4 = text[idx_3_1_2:idx_luong]
+
+    # Page 5 (Trang 5): 3.1.2 c. Luồng vận hành + 3.2 Phần cứng (3.2.1 & 3.2.2)
+    idx_sec_4 = text.find("# 4. Kế hoạch phát triển")
+    p5 = text[idx_luong:idx_sec_4]
+
+    # Page 6 (Trang 6): 4. Kế hoạch phát triển (Tổng quan + 4.1, 4.2, 4.3)
+    idx_4_4 = text.find("### 4.4. Kiểm thử phần mềm")
+    p6 = text[idx_sec_4:idx_4_4]
+
+    # Page 7 (Trang 7): 4.4, 4.5 + 5. Kế hoạch nhân sự & chi phí (5.1 Cấu trúc nhân sự)
+    idx_5_2 = text.find("### 5.2. Kế hoạch chi phí")
+    p7 = text[idx_4_4:idx_5_2]
+
+    # Page 8 (Trang 8): 5.2 Kế hoạch chi phí (47.840.000 VNĐ) + Tài liệu tham khảo
+    idx_phuluc = text.find("## PHỤ LỤC:")
+    p8 = text[idx_5_2:idx_phuluc]
+
+    # Page 9 (Trang 9): Phụ lục AI
+    p9 = text[idx_phuluc:]
+
+    raw_pages = [
+        (p1, "Trang 1", "sec-1"),
+        (p2, "Trang 2", "sec-2"),
+        (p3, "Trang 3", "sec-3-p2"),
+        (p4, "Trang 4", "sec-3-arch"),
+        (p5, "Trang 5", "sec-3-hw"),
+        (p6, "Trang 6", "sec-4"),
+        (p7, "Trang 7", "sec-5-p1"),
+        (p8, "Trang 8", "sec-5-p2"),
+        (p9, "Trang 9", "sec-ref"),
     ]
 
-    for idx, part_text in enumerate(parts[1:]):
-        if idx < len(section_configs):
-            cfg = section_configs[idx]
-            page_tab = cfg["page_tab"]
-            sec_id = cfg["id"]
-        else:
-            page_tab = str(idx + 1)
-            sec_id = f"sec-{idx}"
-
-        content_html = parse_markdown_snippet_to_html(part_text)
+    section_pages = []
+    for p_text, page_tab, sec_id in raw_pages:
+        content_html = parse_markdown_snippet_to_html(p_text)
         section_pages.append(render_section_page(content_html, page_tab, sec_id))
 
     all_sections_html = "\n".join(section_pages)
