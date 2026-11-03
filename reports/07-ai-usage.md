@@ -41,15 +41,12 @@ Bảng dưới đây tổng hợp toàn bộ các phiên tương tác với AI t
 | **#09** | 07h30<br>28/10/2026 | Ngô Viết Thanh Bình<br>`24120269` | Google Gemini (Gemini 3.8 Flash Medium)<br>Google via Antigravity IDE | Rà soát nhất quán đề xuất dự án và tạo bản nộp hoàn thiện tại `reports/submit/` (SCRUM-11) | AI hỗ trợ kiểm tra ngữ pháp tiếng Việt, tính nhất quán của thuật ngữ kỹ thuật; sinh viên kiểm tra chéo với SRS-master.md và tạo file nộp | [Chi tiết #09](#entry-09) |
 | **#10** | 08h20<br>28/10/2026 | Ngô Viết Thanh Bình<br>`24120269` | Google Gemini (Gemini 3.8 Flash Medium)<br>Google via Antigravity IDE | Tái cấu trúc Báo cáo sử dụng AI theo Quy định của Khoa CNTT - HCMUS (SCRUM-11) | AI đối chiếu cấu trúc 7 trường thông tin của Khoa; sinh viên biên soạn bảng ma trận và hệ thống trích dẫn chuẩn cho toàn nhóm | [Chi tiết #10](#entry-10) |
 | **#11** | 19h30<br>28/10/2026 | Nguyễn Đức Lãm<br>`24120083` | ChatGPT (GPT-6.1 Sol)<br>OpenAI via chat.openai.com | Rà soát, kiểm tra nội dung của phần 5 | AI kiểm tra và đưa ra những điểm còn chưa rõ ràng, mâu thuẫn với tài liệu gốc (SCRUM-14) | [Chi tiết #11](#entry-11) |
-| **#12** | 10h00 - 20h30<br>03/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Google Gemini (Gemini 3.8 Flash Medium)<br>Google via Antigravity IDE | Xây dựng Kế hoạch chi tiết Giai đoạn 2 (Template 1 & Cài đặt mã nguồn MVP), Hướng dẫn nhóm và Bộ khung tài liệu (`PLAN_TEMPLATE1_AND_DEVELOPMENT.md`, `TEAM_GUIDE_TEMPLATE1.md`, `tasks_template1.csv`) (SCRUM-16 & SCRUM-T1) | AI hỗ trợ tổng hợp, đối soát yêu cầu kỹ thuật từ SRS-master.md, thiết lập cấu trúc 17 Use Case, phân bổ tải công việc và sinh kịch bản Jira bulk create; sinh viên tự kiểm tra, hiệu chỉnh logic máy trạng thái ticket, cơ chế quét job skip locked của worker, cấu trúc migration Flyway V1-V5 và chốt lịch trình nộp bài | [Chi tiết #12](#entry-12) |
-| **#13** | 03/11/2026<br>(không ghi giờ) | Ngô Viết Thanh Bình<br>`24120269` | Codex<br>OpenAI | Điều chỉnh lịch Template 1 và MVP P0; SRS Mục 17, A.2, G; kế hoạch, guide, CSV và khung UC (SCRUM-16/28/29/30 theo ánh xạ hiện có) | Người dùng yêu cầu chốt Template 1 08/11, code 09–22/11; AI cập nhật file, kiểm tra nhất quán CSV và chạy dry-run. Chưa ghi nhận sinh viên duyệt toàn bộ bản sửa. | [Chi tiết #13](#entry-13) |
-
-| **#14** | 03/11/2026<br>(không ghi giờ) | Ngô Viết Thanh Bình<br>`24120269` | Codex<br>OpenAI | Rà soát feedback, phân task và baseline kỹ thuật; SRS, kế hoạch/guide/CSV, contract, mẫu PR và báo cáo khung | AI sửa mâu thuẫn ID/schema/quyền/transaction và chia owner; kiểm tra cấu trúc/truy vết và Jira dry-run. Chưa có kiểm thử ứng dụng, xác nhận giờ khả dụng hoặc duyệt toàn bộ của sinh viên. | [Chi tiết #14](#entry-14) |
-
-| **#15** | 03/11/2026<br>(không ghi giờ) | Ngô Viết Thanh Bình<br>`24120269` | Codex<br>OpenAI | Rà soát khả năng nhận task; TASK_PLAYBOOK, TEAM_READINESS, CSV và các file khung | AI bổ sung nguồn/bước/đầu ra/người nhận, tách gate bắt đầu/chốt, thêm workflow/mockup/ready/submit/model/QA task. Đã kiểm tra 31 task/2 Epic và dry-run; chưa xác minh board, giờ khả dụng hay nghiệm thu ứng dụng. | [Chi tiết #15](#entry-15) |
-
-| **#16** | 03/11/2026<br>(không ghi giờ) | Ngô Viết Thanh Bình<br>`24120269` | Codex<br>OpenAI | Đối chiếu mẫu Template2/3 và bài PDF năm trước; sửa phân loại deliverable và bổ sung thiết kế song song code | AI sửa lỗi trước đây gán test report choTemplate2; thêm EpicT2/T3, taskdesign/cases/release và khung báo cáo/catalog25ca. Đã kiểm tra cấu trúc/dry-run, chưa viết xong bài nộp hoặc chạy25ca. | [Chi tiết #16](#entry-16) |
-
+| **#12** | 26/10/2026<br>- 03/11/2026 | Lê Quý Phúc<br>`24120121` | Claude Code (Claude Opus 5.5), Anthropic<br>Codex, OpenAI | Thiết kế giao diện trên Figma, `docs/design/` | AI hỗ trợ dựng màn hình và component trên Figma theo phương án sinh viên chọn; sinh viên duyệt phương án, đối chiếu SRS và yêu cầu sửa các màn chưa đúng | [Chi tiết #12](#entry-12) |
+| **#13** | 10h00 - 20h30<br>03/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Google Gemini (Gemini 3.8 Flash Medium)<br>Google via Antigravity IDE | Xây dựng Kế hoạch chi tiết Giai đoạn 2 (Template 1 & Cài đặt mã nguồn MVP), Hướng dẫn nhóm và Bộ khung tài liệu (`PLAN_TEMPLATE1_AND_DEVELOPMENT.md`, `tasks_template1.csv`) (SCRUM-16 & SCRUM-T1) | AI hỗ trợ tổng hợp, đối soát yêu cầu kỹ thuật từ SRS-master.md, thiết lập cấu trúc 17 Use Case, phân bổ tải công việc và sinh kịch bản Jira bulk create; sinh viên tự kiểm tra, hiệu chỉnh logic máy trạng thái ticket, cơ chế quét job skip locked của worker, cấu trúc migration Flyway V1-V5 và chốt lịch trình nộp bài | [Chi tiết #13](#entry-13) |
+| **#14** | 03/11/2026<br>(không ghi giờ) | Ngô Viết Thanh Bình<br>`24120269` | Codex<br>OpenAI | Điều chỉnh lịch Template 1 và MVP P0; SRS Mục 17, A.2, G; kế hoạch, guide, CSV và khung UC (SCRUM-16/28/29/30 theo ánh xạ hiện có) | Người dùng yêu cầu chốt Template 1 08/11, code 09–22/11; AI cập nhật file, kiểm tra nhất quán CSV và chạy dry-run. Chưa ghi nhận sinh viên duyệt toàn bộ bản sửa. | [Chi tiết #14](#entry-14) |
+| **#15** | 03/11/2026<br>(không ghi giờ) | Ngô Viết Thanh Bình<br>`24120269` | Codex<br>OpenAI | Rà soát feedback, phân task và baseline kỹ thuật; SRS, kế hoạch/guide/CSV, contract, mẫu PR và báo cáo khung | AI sửa mâu thuẫn ID/schema/quyền/transaction và chia owner; kiểm tra cấu trúc/truy vết và Jira dry-run. Chưa có kiểm thử ứng dụng, xác nhận giờ khả dụng hoặc duyệt toàn bộ của sinh viên. | [Chi tiết #15](#entry-15) |
+| **#16** | 03/11/2026<br>(không ghi giờ) | Ngô Viết Thanh Bình<br>`24120269` | Codex<br>OpenAI | Rà soát khả năng nhận task; TASK_PLAYBOOK, TEAM_READINESS, CSV và các file khung | AI bổ sung nguồn/bước/đầu ra/người nhận, tách gate bắt đầu/chốt, thêm workflow/mockup/ready/submit/model/QA task. Đã kiểm tra 31 task/2 Epic và dry-run; chưa xác minh board, giờ khả dụng hay nghiệm thu ứng dụng. | [Chi tiết #16](#entry-16) |
+| **#17** | 03/11/2026<br>(không ghi giờ) | Ngô Viết Thanh Bình<br>`24120269` | Codex<br>OpenAI | Đối chiếu mẫu Template2/3 và bài PDF năm trước; sửa phân loại deliverable và bổ sung thiết kế song song code | AI sửa lỗi trước đây gán test report choTemplate2; thêm EpicT2/T3, taskdesign/cases/release và khung báo cáo/catalog25ca. Đã kiểm tra cấu trúc/dry-run, chưa viết xong bài nộp hoặc chạy25ca. | [Chi tiết #17](#entry-17) |
 ---
 
 ## 3. CHI TIẾT CÁC PHIÊN SỬ DỤNG AI (CHUẨN TRÍCH DẪN QUY ĐỊNH)
@@ -214,7 +211,18 @@ Mỗi mục dưới đây tuân thủ nghiêm ngặt **Mục 5.B (Ghi chú sử 
 
 ---
 
-### <a id="entry-12"></a>Phiên ghi nhận #12: Xây dựng Kế hoạch chi tiết Giai đoạn 2 (Template 1 & Cài đặt mã nguồn MVP) & Bộ khung tài liệu
+### <a id="entry-12"></a>Phiên ghi nhận #12: Thiết kế giao diện Helpdesk trên Figma
+- **Trích dẫn chuẩn:**
+  > **Claude Code.** *Claude Opus 5.5, Anthropic, Claude Code trong VS Code*; **Codex.** *OpenAI*; truy cập *từ 26/10/2026 đến 03/11/2026*, prompt (tóm lược): *“Dựng giao diện Helpdesk trên Figma qua plugin Figwright theo phương án A ‘Bàn làm việc yên tĩnh’ (Be Vietnam Pro, xanh coban, Light/Dark), bám SRS, chỉ dùng biến/style/component; sau đó rà soát và sửa các màn đã dựng”*, dùng để hỗ trợ thiết kế giao diện cho ba vai trò Customer, Agent, Admin, AI sinh màn hình, component và tài liệu mô tả trên Figma, sinh viên chọn phương án, duyệt đặc tả, đối chiếu từng màn với SRS và yêu cầu sửa các chỗ chưa đúng.
+- **Thành viên chịu trách nhiệm:** `24120121` - Lê Quý Phúc (Phân hệ A - AI Assistance)
+- **Chi tiết đối soát:**
+  - *Nội dung AI tạo:* Màn hình và component giao diện trên Figma, ảnh chụp và tài liệu mô tả trong `docs/design/`.
+  - *Nội dung tự thực hiện & kiểm chứng:* Chọn phương án thiết kế, duyệt đặc tả luồng, xem lại từng màn trên Figma, đối chiếu quyền và trạng thái ticket với SRS, kiểm tra tương phản Light/Dark.
+  - *Minh chứng:* Thư mục `docs/design/` (ảnh từng màn, kết quả kiểm tra trong `docs/design/kiem-tra/`).
+
+---
+
+### <a id="entry-13"></a>Phiên ghi nhận #13: Xây dựng Kế hoạch chi tiết Giai đoạn 2 (Template 1 & Cài đặt mã nguồn MVP) & Bộ khung tài liệu
 - **Trích dẫn chuẩn:**
   > **Google Gemini.** *Gemini 3.8 Flash Medium, Google, via Antigravity IDE*, truy cập *10h00 - 20h30 ngày 03/11/2026*, prompt: *“Dựa vào SRS-master.md và các phản hồi rà soát kỹ thuật (5 trạng thái ticket, worker quét job SKIP LOCKED retry <= 3, 41 FRs, 17 Use Cases chuẩn hóa, tách Flyway V1-V5, interface chuẩn SRS), xây dựng kế hoạch hành động toàn diện cho Giai đoạn 2 (Template 1 và code MVP 4 module), thiết lập sổ tay hướng dẫn nhóm theo quy trình 2 giai đoạn Google Docs -> Git Markdown, chuẩn hóa danh mục task CSV cho Jira bulk create, và tạo cấu trúc thư mục rỗng reports/template1/”*, dùng để lập kế hoạch tổng thể và thiết lập hạ tầng quản trị Giai đoạn 2 (SCRUM-16 & SCRUM-T1), AI sinh bản nháp kế hoạch chi tiết, sơ đồ Mermaid, quy chuẩn Git/Jira và kịch bản CSV, sinh viên tự đối soát từng điều khoản SRS, chuẩn hóa sơ đồ UML theo chuẩn khóa trước (lưu .drawio kèm .svg), cân bằng khối lượng công việc giữa các thành viên và trực tiếp kiểm thử dry-run kịch bản nạp task Jira.
 - **Thành viên chịu trách nhiệm:** `24120269` - Ngô Viết Thanh Bình (DevOps / Lead)
@@ -225,7 +233,7 @@ Mỗi mục dưới đây tuân thủ nghiêm ngặt **Mục 5.B (Ghi chú sử 
 
 ---
 
-### <a id="entry-13"></a>Phiên ghi nhận #13: Điều chỉnh deadline Template 1 và kế hoạch cài đặt MVP
+### <a id="entry-14"></a>Phiên ghi nhận #14: Điều chỉnh deadline Template 1 và kế hoạch cài đặt MVP
 
 - **Công cụ:** Codex, OpenAI; phiên làm việc trong repository ngày 03/11/2026. Không tự suy đoán phiên bản model hoặc giờ truy cập.
 - **Prompt người dùng:** “vậy tôi nghĩ toàn bộ deadline template1 sẽ được thực hiện từ giờ cho đến 8/11 chốt. Và tất cả kế hoạch của phần code, bạn điều chỉnh và dời cho tôi thực hiện ngay sau đó từ 9/11 - 22/11. Bạn thấy sao”.
@@ -237,7 +245,7 @@ Mỗi mục dưới đây tuân thủ nghiêm ngặt **Mục 5.B (Ghi chú sử 
 
 ---
 
-### <a id="entry-14"></a>Phiên ghi nhận #14: Áp dụng feedback về phân công và nội dung kỹ thuật
+### <a id="entry-15"></a>Phiên ghi nhận #15: Áp dụng feedback về phân công và nội dung kỹ thuật
 
 - **Công cụ:** Codex, OpenAI; phiên repository ngày 03/11/2026; không suy đoán model/giờ.
 - **Prompt người dùng:** “ngoài ra còn rất nhiều feedback của bạn từ đây, hãy chỉnh sửa cho phù hợp tính đúng đắn về các phần chưa phù hợp về phân task và nội dung kỹ thuật”, kèm bản phản biện 20 vấn đề.
@@ -250,7 +258,7 @@ Mỗi mục dưới đây tuân thủ nghiêm ngặt **Mục 5.B (Ghi chú sử 
 
 ---
 
-### <a id="entry-15"></a>Phiên ghi nhận #15: Làm rõ cách nhận task, nguồn và bàn giao
+### <a id="entry-16"></a>Phiên ghi nhận #16: Làm rõ cách nhận task, nguồn và bàn giao
 
 - **Công cụ:** Codex, OpenAI; ngày03/11/2026; không suy đoán model/giờ.
 - **Prompt:** “Kiểm tra tổng thể lại toàn bộ nội dung để phân task cho các thành viên đã đảm bảo rõ ràng, các thành viên khi nhận thông tin, khi nhận task sẽ biết mình cần phải làm gì, nguồn tham khảo ở đâu, thực hiện từng bước như thế nào, ai phục thuộc, chờ đợi ai, công việc nào chưa”.
@@ -262,7 +270,7 @@ Mỗi mục dưới đây tuân thủ nghiêm ngặt **Mục 5.B (Ghi chú sử 
 
 ---
 
-### <a id="entry-16"></a>Phiên ghi nhận #16: Đối chiếu mẫu thiết kế/kiểm thử và kế hoạch sau Template1
+### <a id="entry-17"></a>Phiên ghi nhận #17: Đối chiếu mẫu thiết kế/kiểm thử và kế hoạch sau Template1
 
 - **Công cụ:** Codex, OpenAI; ngày03/11/2026; không suy đoán model/giờ.
 - **Prompt:** Người dùng cung cấp bài PDF Template1/2/3 năm trước và hai mẫu Markdown yêu cầu Template2/3, hỏi có điều chỉnh gì sau Template1 khi nộpTemplate2 ngày29, làm song song code09–22/11.
@@ -341,14 +349,10 @@ Mọi thành viên nhóm cam kết tuân thủ nghiêm ngặt Điều 4.5 và Đ
 | `1.0.4` | 2026-10-22 | Ngô Viết Thanh Bình | Bổ sung nhật ký sử dụng AI hỗ trợ soạn Mục 5 Nhân sự & Chi phí | SCRUM-11 |
 | `1.1.0` | 2026-10-28 | Ngô Viết Thanh Bình | Tái cấu trúc báo cáo theo đúng Quy định sử dụng AI của Khoa CNTT - HCMUS | SCRUM-11 |
 | `1.2.0` | 2026-10-28 | Ngô Viết Thanh Bình | Rà soát toàn bộ lịch sử dự án từ đầu, bổ sung đầy đủ tất cả các phiên sử dụng AI của Thanh Bình (Hạ tầng CI/CD, Guide nhóm, Chuẩn hóa Word, Ngân sách, Frontend UI Prototype React/Tailwind, Rà soát nộp bài) | SCRUM-11 |
-| `1.3.0` | 2026-11-03 | Ngô Viết Thanh Bình | Bổ sung phiên #12: Kế hoạch hành động Giai đoạn 2 (Template 1 & MVP Code), Hướng dẫn nhóm và bộ backlog tasks Jira | SCRUM-16 |
-
-| `1.3.1` | 2026-11-03 | Codex hỗ trợ theo yêu cầu Ngô Viết Thanh Bình (chờ đối soát) | Bổ sung phiên #13: chốt Template 1 08/11; code P0 09–22/11; đồng bộ SRS, kế hoạch, guide và CSV | SCRUM-16/28/29/30 (cần đối chiếu) |
-
-| `1.3.2` | 2026-11-03 | Codex hỗ trợ theo yêu cầu Ngô Viết Thanh Bình (chờ đối soát) | Bổ sung phiên #14: sửa phân công, contract và drift tài liệu theo feedback; chưa kiểm thử ứng dụng | Ref trong CSV; Jira mapping cần xác minh |
-
-| `1.3.3` | 2026-11-03 | Codex hỗ trợ theo yêu cầu Ngô Viết Thanh Bình (chờ đối soát) | Bổ sung phiên #15: task cards, sources/steps/handoffs/gates và checklist input còn thiếu | Ref trong CSV; Jira mapping chưa xác minh |
-
-| `1.3.4` | 2026-11-03 | Codex hỗ trợ theo yêu cầu Ngô Viết Thanh Bình (chờ đối soát) | Bổ sung phiên #16: đối chiếu mẫu T2/T3, sửa nhầm testreport/T2, thiết kế song song và testcatalog | RefCSV; mappingJira chưa xác minh |
-
+| `1.2.1` | 2026-11-03 | Lê Quý Phúc | Bổ sung nhật ký sử dụng AI hỗ trợ thiết kế giao diện trên Figma | — |
+| `1.3.0` | 2026-11-03 | Ngô Viết Thanh Bình | Bổ sung phiên #13: Kế hoạch hành động Giai đoạn 2 (Template 1 & MVP Code), Hướng dẫn nhóm và bộ backlog tasks Jira | SCRUM-16 |
+| `1.3.1` | 2026-11-03 | Codex hỗ trợ theo yêu cầu Ngô Viết Thanh Bình (chờ đối soát) | Bổ sung phiên #14: chốt Template 1 08/11; code P0 09–22/11; đồng bộ SRS, kế hoạch, guide và CSV | SCRUM-16/28/29/30 (cần đối chiếu) |
+| `1.3.2` | 2026-11-03 | Codex hỗ trợ theo yêu cầu Ngô Viết Thanh Bình (chờ đối soát) | Bổ sung phiên #15: sửa phân công, contract và drift tài liệu theo feedback; chưa kiểm thử ứng dụng | Ref trong CSV; Jira mapping cần xác minh |
+| `1.3.3` | 2026-11-03 | Codex hỗ trợ theo yêu cầu Ngô Viết Thanh Bình (chờ đối soát) | Bổ sung phiên #16: task cards, sources/steps/handoffs/gates và checklist input còn thiếu | Ref trong CSV; Jira mapping chưa xác minh |
+| `1.3.4` | 2026-11-03 | Codex hỗ trợ theo yêu cầu Ngô Viết Thanh Bình (chờ đối soát) | Bổ sung phiên #17: đối chiếu mẫu T2/T3, sửa nhầm testreport/T2, thiết kế song song và testcatalog | RefCSV; mappingJira chưa xác minh |
 | `1.3.5` | 2026-11-03 | Codex theo yêu cầu người dùng | Bỏ khai báo/ước lượng giờ làm và ngưỡng75% khỏi tài liệu điều hành, taskcards, CSV và mẫuIssue; giữ deadline/owner/đầu ra/phụ thuộc. Kiểm tra42record và dry-run thành công; không sửa lịch sử nhật ký hoặc issue thật. | Taskrefs hiện có; chưa có commit |
