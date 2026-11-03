@@ -72,7 +72,7 @@ flowchart LR
 1. **Giai đoạn 1 (03/11 – 06/11): Soạn thảo & Góp ý trực tiếp trên Google Docs**
    - Link tài liệu làm việc chung: **[[SE - Nhóm 4] template1 - Google Tài liệu](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0)** (đã dựng sẵn cấu trúc đề mục từ Mục 1 đến Mục 5 theo mẫu chuẩn của Khoa).
    - Từng thành viên viết nội dung phần việc của mình trực tiếp trên Google Docs.
-   - **Tư nguyên thiết kế UI đã có sẵn:** Toàn bộ 151 màn hình / 33 nhóm chính đã được Lê Quý Phúc thiết kế tại [Figma SE (Redesign v2)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev) và trích xuất PNG tại `docs/design/anh/`. Các thành viên chỉ việc lấy ảnh và mã Node ID đưa vào đặc tả Use Case, **không phải tự vẽ lại Figma từ đầu**.
+   - **Thiết kế UI nền tảng (Baseline):** Lê Quý Phúc đã dựng sẵn bộ khung thiết kế chuẩn Redesign v2 gồm 151 màn hình / 33 nhóm chính tại [Figma SE (Redesign v2)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev) và xuất PNG tại `docs/design/anh/`. **Bộ khung này đóng vai trò là baseline chuẩn chung; các thành viên chủ động rà soát, kế thừa và có toàn quyền tinh chỉnh, bổ sung màn hình/trạng thái** trên Figma cho khớp chính xác với nghiệp vụ và kịch bản Use Case của module mình.
    - Các thành viên sử dụng tính năng **Comment** và chế độ **Suggesting** để nhận xét, chỉnh sửa câu chữ, phản biện các kịch bản Use Case của nhau một cách trực quan, nhanh chóng mà không gây áp lực về cú pháp Markdown.
    - Sơ đồ Use Case được phác thảo và thống nhất các quan hệ include/extend trước khi xuất file đồ họa `.drawio` và `.svg`.
 
@@ -448,7 +448,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 1. Đọc 4.1, 5, 10 users/auth_sessions, 11.2, 14.2; lấy UC-01..04,16, FR-ID-01..09, US-01..06,27, actor/BR. Gửi mapping FR/US/UC/test dự kiến vào inputs/binh.md cho Gia Phúc trước 12:00 05/11.
 2. Viết từng UC đủ chín trường theo kế hoạch Mục 4, có trigger, nhánh lỗi và hậu điều kiện; Tách register/login, refresh/logout; Admin quản lý Agent; UC-16 chỉ đặc tả P1. Bình còn vẽ uc-overview.drawio + SVG đủ 17 mã.
-3. Vẽ uc-module-D.drawio + SVG giữ mã UC và tên nghiệp vụ. **Không cần tự vẽ lại Figma:** sử dụng trực tiếp 18 frames phân hệ Identity trong `docs/design/man-hinh.md` (Node `62:8214` đến `62:14361`, ảnh PNG tại `docs/design/anh/`) để ánh xạ vào UC-01..04, 16. Soạn thảo trực tiếp trên Google Docs nhóm trước 20:00 06/11.
+3. Vẽ uc-module-D.drawio + SVG giữ mã UC và tên nghiệp vụ. **Kế thừa bộ khung thiết kế v2 làm baseline:** Bình chủ động rà soát, tinh chỉnh hoặc bổ sung các màn hình/trạng thái Identity trên Figma (Node `62:8214` đến `62:14361`, ảnh PNG tại `docs/design/anh/`) cho phù hợp với UC-01..04, 16. Soạn thảo trực tiếp trên Google Docs nhóm trước 20:00 06/11.
 4. Mở PR chuyển nội dung vào `04.2-module-D-identity.md`, giao Quý Phúc review 07–08/11. Bàn giao file, ảnh và trạng thái cho Lãm để chuẩn bị nộp bài.
 
 **Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-D-identity.md; assets/diagrams/uc-module-D.drawio và .svg; mapping màn hình Identity; inputs/binh.md`.
@@ -469,7 +469,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 1. Đọc 4.2, 5.1/5.2, 6 UC-05/07/08/09, 11.3, 14.2; lấy UC-05..10, FR-TK-01..12, US-07..17,28,29, actor/BR. Gửi mapping FR/US/UC/test dự kiến vào inputs/gia-phuc.md cho Gia Phúc trước 12:00 05/11.
 2. Viết từng UC đủ chín trường theo kế hoạch Mục 4, có trigger, nhánh lỗi và hậu điều kiện; Phân biệt claim của Agent/assign của Admin, public/internal theo quyền, state và 409. UC-17 trong sơ đồ Ticket nhưng Quý Phúc viết file riêng; Gia Phúc review US-28 và gửi Quý Phúc trước 12:00 05/11.
-3. Vẽ uc-module-C.drawio + SVG giữ mã UC và tên nghiệp vụ. **Không cần tự vẽ lại Figma:** sử dụng trực tiếp 41 frames Agent và 29 frames Customer trong `docs/design/man-hinh.md` (Node `55:1992`..`62:14876` và `58:6763`..`62:15156`, ảnh PNG tại `docs/design/anh/`) để ánh xạ vào UC-05..10. Soạn thảo trực tiếp trên Google Docs nhóm trước 20:00 06/11.
+3. Vẽ uc-module-C.drawio + SVG giữ mã UC và tên nghiệp vụ. **Kế thừa bộ khung thiết kế v2 làm baseline:** Gia Phúc chủ động rà soát, tinh chỉnh hoặc bổ sung các màn hình/trạng thái Agent và Customer trên Figma (Node `55:1992`..`62:14876` và `58:6763`..`62:15156`, ảnh PNG tại `docs/design/anh/`) cho phù hợp với UC-05..10. Soạn thảo trực tiếp trên Google Docs nhóm trước 20:00 06/11.
 4. Mở PR chuyển nội dung vào `04.2-module-C-ticket.md`, giao Lãm review 07–08/11. Bàn giao file, ảnh và trạng thái cho Lãm để chuẩn bị nộp bài.
 
 **Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md; assets/diagrams/uc-module-C.drawio và .svg; mapping màn hình Ticket; inputs/gia-phuc.md`.
@@ -490,7 +490,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 1. Đọc 4.3, 6 UC-11/12, 10 Knowledge, 11.4, 12.1, 14.2; lấy UC-11..13, FR-KB-01..10, US-18..21, actor/BR. Gửi mapping FR/US/UC/test dự kiến vào inputs/lam.md cho Gia Phúc trước 12:00 05/11.
 2. Viết từng UC đủ chín trường theo kế hoạch Mục 4, có trigger, nhánh lỗi và hậu điều kiện; UC-11 READY chưa publish, UC-12 publish/archive riêng; worker là bước nội bộ. Chốt các nhánh PDF scan, file sai và retry có giới hạn.
-3. Vẽ uc-module-B.drawio + SVG giữ mã UC và tên nghiệp vụ. **Không cần tự vẽ lại Figma:** sử dụng trực tiếp 33 frames Knowledge Base trong `docs/design/man-hinh.md` (Node `62:9092`..`62:11768`, ảnh PNG tại `docs/design/anh/`) để ánh xạ vào UC-11..13. Soạn thảo trực tiếp trên Google Docs nhóm trước 20:00 06/11.
+3. Vẽ uc-module-B.drawio + SVG giữ mã UC và tên nghiệp vụ. **Kế thừa bộ khung thiết kế v2 làm baseline:** Lãm chủ động rà soát, tinh chỉnh hoặc bổ sung các màn hình/trạng thái Knowledge Base trên Figma (Node `62:9092`..`62:11768`, ảnh PNG tại `docs/design/anh/`) cho phù hợp với UC-11..13. Soạn thảo trực tiếp trên Google Docs nhóm trước 20:00 06/11.
 4. Mở PR chuyển nội dung vào `04.2-module-B-knowledge.md`, giao Bình review 07–08/11. Bàn giao file, ảnh và trạng thái cho Lãm để chuẩn bị nộp bài.
 
 **Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md; assets/diagrams/uc-module-B.drawio và .svg; mapping màn hình KB; inputs/lam.md`.
@@ -511,7 +511,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 1. Đọc 4.4, 6 UC-14/15, 11.5, 12.2/12.4; FR-TK-12/US-28; lấy UC-14/15 và UC-17 P1 riêng, FR-AI-01..10 và FR-TK-12, US-22..26,28,30, actor/BR. Gửi mapping FR/US/UC/test dự kiến vào inputs/quy-phuc.md cho Gia Phúc trước 12:00 05/11.
 2. Viết từng UC đủ chín trường theo kế hoạch Mục 4, có trigger, nhánh lỗi và hậu điều kiện; UC-14 không tạo message, UC-15 phải duyệt text rồi send; có insufficient/timeout/citation sai. UC-17 viết file 04.2-uc-17-analytics.md, thuộc Ticket P1, lấy phạm vi US-28 từ Gia Phúc.
-3. Vẽ uc-module-A.drawio + SVG giữ mã UC và tên nghiệp vụ. Ánh xạ các frames AI (`A03`, `A05`, `A08`, `A-AIError`, `A-AIInsufficient`, `A-Replace`, `A-Inserted`, `A-AISent`) và mockup Analytics P1 vào UC-14, 15 và UC-17. Soạn thảo trực tiếp trên Google Docs nhóm trước 20:00 06/11.
+3. Vẽ uc-module-A.drawio + SVG giữ mã UC và tên nghiệp vụ. Tinh chỉnh, bổ sung các frames AI (`A03`, `A05`, `A08`, `A-AIError`, `A-AIInsufficient`, `A-Replace`, `A-Inserted`, `A-AISent`) và hoàn thiện mockup Analytics P1 khớp với UC-14, 15 và UC-17. Soạn thảo trực tiếp trên Google Docs nhóm trước 20:00 06/11.
 4. Mở PR chuyển nội dung vào `04.2-module-A-ai.md`, giao Gia Phúc review 07–08/11. Bàn giao file, ảnh và trạng thái cho Lãm để chuẩn bị nộp bài.
 
 **Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md và 04.2-uc-17-analytics.md; assets/diagrams/uc-module-A.drawio/.svg; mapping màn hình AI; inputs/quy-phuc.md`.

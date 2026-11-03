@@ -19,6 +19,8 @@ Giao diện hệ thống Helpdesk được thiết kế theo **Phương án A: "
   - **Tablet (1024 × 768 px):** Thanh ray thu gọn (72px) + Danh sách (280px) + Hội thoại; Ngăn AI hiển thị dạng Overlay (tối đa 360px).
   - **Mobile (390 × 844 px):** Tách thành các màn hình độc lập (Danh sách, Chi tiết hội thoại, Trợ lý AI, Đọc nguồn) với nút điều hướng quay lại rõ ràng.
 
+> **Nguyên tắc kế thừa và tinh chỉnh:** Bộ thiết kế Redesign v2 do Lê Quý Phúc khởi tạo đóng vai trò là **Bộ khung nền tảng (Baseline)** đảm bảo tính nhất quán về Design Tokens, Typography và Layout cho toàn hệ thống. Từng thành viên phụ trách phân hệ (Module Owner) có toàn quyền chủ động rà soát, tinh chỉnh hoặc vẽ bổ sung các màn hình, luồng tương tác và trạng thái biên trên Figma để đáp ứng chính xác nhất kịch bản nghiệp vụ của Use Case mình phụ trách.
+
 ---
 
 ## 5.2 BẢNG MA TRẬN 33 NHÓM MÀN HÌNH CHÍNH & ÁNH XẠ USE CASE
