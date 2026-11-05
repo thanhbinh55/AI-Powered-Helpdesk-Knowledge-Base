@@ -1174,33 +1174,33 @@ Theo dõi tiến độ theo owner, deadline, đầu ra và blocker; không yêu 
 
 ---
 
-## 17. Lộ trình triển khai (điều chỉnh ngày 03/11/2026)
+## 17. Lộ trình triển khai (điều chỉnh ngày 05/11/2026)
 
-**Baseline điều hành hiện hành:** hoàn tất toàn bộ Template 1 từ 03–08/11, chốt 20:00 ngày 08/11; toàn bộ cài đặt và test mã nguồn từ 09–22/11. Lịch này thay thế kế hoạch cũ Foundation 26/10–01/11, Ticket 02–08/11, KB 09–15/11, AI 16–22/11; các mốc cũ không phải bằng chứng công việc đã hoàn thành. Chi tiết ngày ở Phụ lục G.5 và `PLAN_TEMPLATE1_AND_DEVELOPMENT.md` Mục 2.
+**Baseline điều hành hiện hành:** hoàn tất và nộp bài Template 1 từ 03–12/11 (Draft Freeze 23:59 07/11, Review chéo 23:59 08/11, nộp Markdown Task T1-DOC-MD 23:59 10/11, nộp bài trước 23:59 ngày 12/11/2026); toàn bộ cài đặt và kiểm thử MVP P0 từ 11–24/11/2026 (Code Freeze 23:59 24/11). Template 2 (Thiết kế phần mềm) làm song song từ 11–28/11 (nộp 28/11). Template 3 (Kiểm thử phần mềm) diễn ra SAU MVP từ 25/11–12/12/2026. Chi tiết ngày ở Phụ lục G.5 và `PLAN_TEMPLATE1_AND_DEVELOPMENT.md` Mục 2.
 
 | Thời gian | Cột mốc | Công việc và deliverables | Exit gate |
 |---|---|---|---|
-| 03–08/11 | Template 1 | 17 UC, 41 FR/30 story, NFR, 6 sơ đồ, mockup, review, AI Usage, render và gói nộp | Bản nháp 06/11; review 07/11; toàn bộ bài nộp chốt 20:00 08/11 |
-| 09–10/11 | Foundation | Spring Boot, Docker pgvector, CI, schema V1–V5 phối hợp, principal/DTO/interfaces/fake | Khung chạy, migration/CI pass, contract dùng chung |
-| 09–13/11 | Identity P0 | Auth, token, RBAC, profile, Agent management và UI | Test Identity; principal thật cho lát cắt Ticket 12/11 |
-| 09–15/11 | Ticket P0 | Create/list, claim/assign, messages, transitions, audit và UI | Ticket E2E thật; ownership/concurrency/version tests |
-| 09–17/11 | Knowledge P0 | Upload/process/publish/archive/retrieval và UI | Ingestion/retrieval tests; retriever thật nối AI 18/11 |
-| 09–19/11 | AI P0 | RAG, citations, abstention, review/edit/send, fault handling và UI | Ticket/KB thật, fake fault tests và smoke live có ghi nhận |
-| 20–22/11 | Chốt MVP tích hợp | Hoàn tất test/review 21/11; E2E, sửa lỗi và clean-environment smoke | MVP P0 chốt 20:00 22/11; không mở thêm tính năng |
-| 09–22/11 (song songcode) | Thiết kếTemplate 2 | Conceptual/architecture12, ERD/dictionary18, UI20, đốisoátMVP22 | Mẫu thiết kế được bao phủ; artifact khớp code/SQL/API |
-| 23–29/11 | QA + review/nộp thiết kế | Regression/evaluation làm bằngchứngTemplate 3; T2 review25/freeze 26/gói 27/nộp 28 trước hạn 29 | T2 là thiết kế; test report không là điều kiện chờ nộpT2 |
+| 03–12/11 | Template 1 | 17 UC, 41 FR/30 story, NFR, 6 sơ đồ, mockup Figma 151 frames, review chéo, render và gói nộp | Draft Freeze 23:59 07/11; review chéo 23:59 08/11; nộp Markdown T1-DOC-MD 23:59 10/11; nộp bài 23:59 12/11 |
+| 11–12/11 | Foundation & Technical Baseline | Spring Boot 3, Docker pgvector, CI, schema V1–V5, OpenAPI contract DTOs, Embedding decision | Khung chạy, schema V1-V5 chốt 12/11, contract dùng chung |
+| 12–15/11 | Identity P0 | Auth JWT, token, RBAC, profile, Agent management và UI | Test Identity; principal thật cho lát cắt Ticket 15/11 |
+| 13–17/11 | Ticket P0 | Create/list, claim concurrency 409, messages, transitions, audit và UI | Ticket E2E thật; ownership/concurrency/version tests |
+| 14–19/11 | Knowledge P0 | Upload/process/publish/archive/retrieval và UI | Ingestion/retrieval tests; retriever thật nối AI 19/11 |
+| 15–21/11 | AI P0 & Workflow | RAG, citations, abstention, review/edit/send, apply workflow nguyên tử và UI | Ticket/KB thật, workflow pass races/rollback 21/11 |
+| 21–23/11 | Kiểm thử 4 Module | Bộ test Unit & Integration cho cả 4 module | 100% test suites pass trước 23/11 |
+| 22–24/11 | Chốt MVP P0 tích hợp | Clean-environment smoke test, E2E tăng dần và nghiệm thu MVP P0 | Code Freeze MVP P0 chốt 23:59 24/11 |
+| 11–28/11 (song song code) | Thiết kế Template 2 | Conceptual Model (14/11), Cây phân rã Kiến trúc (14/11), ERD/Dictionary (20/11), UI specs (22/11), Review (23-27/11) | Đóng gói và nộp bài trước hạn trường 29/11 (hạn nội bộ 23:59 28/11) |
+| 25/11–12/12 (SAU MVP) | Kiểm thử Template 3 & QA | Lập Test Plan và catalog $\ge 25$ ca (25–28/11); Regression bảo mật/concurrency & AI evaluation $\ge 30$ câu (26/11–02/12); Báo cáo test cuối kỳ và nộp bài (12/12) | Báo cáo kiểm thử hoàn chỉnh có số liệu chạy thật |
 | 30/11–13/12 | Triển khai và demo | README, Docker demo, AI Usage/Git reports, diễn tập và đóng gói | Theo Phụ lục G.7 |
 
 **Nếu ít thời gian:** giữ Identity + Ticket + Upload/Basic Retrieval + AI Suggestion có citations; hoãn dashboard, password reset, re-ranking, OCR, realtime, mobile, email. Không cắt security/ownership/concurrency test trọng yếu để thêm tính năng màu mè.
 
 ### 17.1 Dependency và song song hóa
 
-- 03–08/11: cả nhóm hoàn tất tài liệu và mockup; chưa khởi tạo hay mở thêm công việc cài đặt. P1 vẫn được đặc tả nhưng hoãn cài đặt sau 22/11, khi P0 ổn định và không ảnh hưởng QA.
-- Từ 09/11: Identity, Ticket, Knowledge và AI bắt đầu song song bằng contract/fake; Foundation dùng chung chốt 10/11. Ngày kết thúc từng module là mốc bàn giao, không phải thời điểm bắt đầu module kế tiếp.
-- 12/11: lát cắt principal thật + tạo/xem ticket tối thiểu; 15/11: Ticket E2E không AI; 18/11: nối Knowledge thật với AI; hoàn tất AI P0 19/11.
-- 09–21/11: test và review cùng PR; 20–22/11 hoàn thiện E2E và sửa lỗi, không để toàn bộ tích hợp tới ngày cuối.
-- Nếu Foundation trễ 10/11 hoặc Ticket trễ 15/11, ghi blocker và đầu vào còn thiếu và điều chỉnh phân công trong ngày. Không bỏ kiểm tra quyền hoặc concurrency để bù tiến độ; báo rõ P0 chưa đạt tại mốc 22/11.
-- 23–29/11: QA tổng thể; 30/11–13/12: triển khai, diễn tập và đóng gói theo G.7.
+- 03–12/11: cả nhóm hoàn tất tài liệu Template 1 và nộp bài ngày 12/11; P1 vẫn được đặc tả nhưng hoãn cài đặt sau 24/11, khi P0 ổn định.
+- Từ 11/11: Bắt đầu code MVP P0 và soạn thiết kế Template 2; Foundation và Schema V1-V5 chốt ngày 12/11.
+- 15/11: xong Identity; 17/11: xong Ticket; 19/11: xong Knowledge; 21/11: xong AI Assistance và Workflow.
+- 21–23/11: test và review chéo mã nguồn; 24/11: Code Freeze MVP P0, clean environment và nghiệm thu E2E.
+- 25/11–12/12: Kiểm thử Template 3 diễn ra SAU MVP; 28/11: hoàn tất và nộp bài Template 2 (Thiết kế phần mềm).
 
 ---
 
@@ -1284,7 +1284,7 @@ Trước khi đưa SRS sang bản approved, hãy điền owner, quyết định 
 
 ## 21. Kế hoạch Sprint 1 và Jira backlog mẫu (tham khảo lịch sử)
 
-Các bảng Sprint 1 bên dưới là mẫu ban đầu, **không phải phân công hiện hành**. Owner/ngày/dependency hiện hành ở `scripts/jira/tasks_template1.csv`; lịch 03–08/11 tài liệu và 09–22/11 code tại Mục 17. Chữ A–D trong ví dụ lịch sử không dùng để giao task mới.
+Các bảng Sprint 1 bên dưới là mẫu ban đầu, **không phải phân công hiện hành**. Owner/ngày/dependency hiện hành ở `scripts/jira/tasks_template1.csv`; lịch 03–12/11 tài liệu, 11–24/11 code MVP P0 và 11–28/11 thiết kế Template 2 tại Mục 17. Chữ A–D trong ví dụ lịch sử không dùng để giao task mới.
 
 ### 21.1 Sprint 1 — Project Foundation + Requirements
 
@@ -1415,13 +1415,13 @@ Trước khi chuyển tài liệu từ `PROPOSED` sang `APPROVED`, nhóm cần x
 | Template | Nội dung nộp | Mở | Tới hạn (theo hệ thống) | **Hạn nội bộ của nhóm** |
 |---|---|---|---|---|
 | Template 0 | `GroupID.zip` | Thứ Hai 12/10/2026, 12:00 AM | Chủ Nhật **01/11/2026, 12:00 AM** (hiển thị Due Date 2026-10-31) | **Thứ Bảy 31/10/2026** (nộp trước tối, không chờ sát 00:00) |
-| Template 1 | `GroupID.zip` | Thứ Hai 12/10/2026, 12:00 AM | Chủ Nhật **15/11/2026, 12:00 AM** (Due Date 2026-11-14) | **Chủ Nhật 08/11/2026, 20:00** (chốt đủ bài nộp) |
+| Template 1 | `GroupID.zip` | Thứ Hai 12/10/2026, 12:00 AM | Chủ Nhật **15/11/2026, 12:00 AM** (Due Date 2026-11-14) | **Thứ Năm 12/11/2026, 23:59** (nộp bài chính thức) |
 | Template 2 — Thiết kế | `GroupID.zip` | Thứ Hai 12/10/2026, 12:00 AM | Chủ Nhật **29/11/2026, 12:00 AM** (Due Date 2026-11-28) | Thứ Bảy 28/11/2026 |
 | Template 3 — Kiểm thử + App Demo | `GroupID.zip` | Thứ Hai 12/10/2026, 12:00 AM | Chủ Nhật **13/12/2026, 12:00 AM** (Due Date: Presentation Day) | Thứ Bảy 12/12/2026 |
 
 **Lưu ý:**
 
-- "12:00 AM" nghĩa là **0 giờ sáng**, tức hạn thực tế là hết ngày liền trước (thứ Bảy). Hạn nội bộ Template 1 được chốt sớm vào 20:00 ngày 08/11; các template khác giữ mốc nội bộ trong bảng.
+- "12:00 AM" nghĩa là **0 giờ sáng**, tức hạn thực tế là hết ngày liền trước (thứ Bảy). Hạn nội bộ Template 1 được chốt và nộp trước 23:59 ngày 12/11/2026; các template khác giữ mốc nội bộ 23:59 trong bảng.
 - Tên file nộp: `GroupID.zip` với GroupID = 4. Cần xác nhận với GVTH đặt tên chính xác (ví dụ `4.zip` hay `Group4.zip`).
 - Giới hạn nộp: tối đa **20 file**, **mỗi file ≤ 20 MB**; không nhận link Drive; nếu zip lớn hơn 20 MB thì dùng split-and-zip.
 - Ngày Presentation Day cụ thể chưa có trong thông tin hiện tại; cần xác nhận với GVTH.
@@ -1653,7 +1653,7 @@ Các giá trị là mức tối thiểu/khuyến nghị *(giả định)*; cần
 
 - **Bắt đầu:** Thứ Hai 12/10/2026 (ngày các template mở).
 - **Kết thúc:** Chủ Nhật 13/12/2026 (tới hạn Template 3 + App Demo / Presentation Day).
-- **Tổng:** 9 tuần. Lịch điều hành ở **Mục 17** và G.2/G.5 được điều chỉnh ngày 03/11/2026: Template 1 chốt 08/11; code 09–22/11; QA và các mốc cuối giữ nguyên. G.3/G.4 là lịch dự kiến ban đầu, không phải xác nhận đã hoàn thành.
+- **Tổng:** 9 tuần. Lịch điều hành ở **Mục 17** và G.2/G.5 được điều chỉnh ngày 03/11/2026: Template 1 nộp 12/11; code 11–24/11; Template 2 11–28/11; Template 3 sau MVP 25/11 – 12/12. G.3/G.4 là lịch dự kiến ban đầu, không phải xác nhận đã hoàn thành.
 - Đã nhận mẫu Template 2 thiết kế/Template 3 kiểm thử ngày03/11; snapshot và đối chiếu ở reports/references và planning/TEMPLATE2_3_ALIGNMENT.md. Rubric chi tiết/mẫu chính thứcTemplate 1 và giờcổng vẫn cần xác minh (DEC-16).
 
 ### G.2 Tổng quan theo tuần
@@ -1663,14 +1663,14 @@ Các giá trị là mức tối thiểu/khuyến nghị *(giả định)*; cần
 | W1 | 12/10 – 18/10 | Requirements baseline | |
 | W2 | 19/10 – 25/10 | Design baseline | |
 | W3 | 26/10 – 01/11 | Template 0; Foundation dự kiến cũ chuyển sang 09–10/11 | **Template 0** (hạn nội bộ 31/10) |
-| W4 | 02/11 – 08/11 | Hoàn tất tài liệu, UML, mockup, review và đóng gói từ 03/11 | **Template 1 chốt 20:00 08/11** |
-| W5 | 09/11 – 15/11 | Foundation đến 10/11; Identity đến 13/11; Ticket đến 15/11; KB/AI làm song song | Template 1 đã sẵn sàng nộp từ 08/11; hạn cổng giữ theo A.2 |
-| W6 | 16/11 – 22/11 | Knowledge đến 17/11; AI đến 19/11; test/review 21/11; MVP tích hợp 22/11 | |
+| W4 | 02/11 – 08/11 | Soạn thảo tập trung Google Docs, Draft Freeze 23:59 07/11, Review chéo 23:59 08/11 | Bản nháp hoàn thiện trên Docs |
+| W5 | 09/11 – 15/11 | Chuyển Markdown 10/11, nộp bài Template 1 12/11; Code MVP bắt đầu 11/11, Foundation 12/11, Identity 15/11 | **Template 1 nộp 12/11** |
+| W6 | 16/11 – 22/11 | Ticket 17/11; Knowledge 19/11; AI & Workflow 21/11; tests 23/11; Code Freeze MVP 24/11 | MVP P0 nghiệm thu 24/11 |
 | W7 | 23/11 – 29/11 | QA & Hardening | **Template 2 — Thiết kế**, nộp nội bộ28/11; QA là đầu vàoTemplate 3 |
 | W8 | 30/11 – 06/12 | Triển khai, hoàn thiện tài liệu và báo cáo | |
 | W9 | 07/12 – 13/12 | Đệm, diễn tập demo, đóng gói | **Template 3 — Kiểm thử + App Demo** (hạn nội bộ 12/12; Presentation Day) |
 
-**Lưu ý:** Lịch phân tích/thiết kế W1–W2 ở G.3/G.4 là dự kiến ban đầu. Từ 03–08/11 phải hoàn thiện và review baseline Template 1; không coi các mốc lịch sử là việc đã xong. Gói nộp không phụ thuộc hoàn thành code.
+**Lưu ý:** Lịch phân tích/thiết kế W1–W2 ở G.3/G.4 là dự kiến ban đầu. Từ 03–12/11 phải hoàn thiện, review và nộp baseline Template 1; không coi các mốc lịch sử là việc đã xong. Gói nộp không phụ thuộc hoàn thành code.
 
 ### G.3 Giai đoạn 1 — Phân tích yêu cầu
 
@@ -1705,7 +1705,7 @@ Các giá trị là mức tối thiểu/khuyến nghị *(giả định)*; cần
 ### G.5 Giai đoạn 3 — Cài đặt phần mềm
 
 - **Tham gia:** cả 4 thành viên, phân công theo module; mỗi người trực tiếp viết code (Mục 16).
-- **Thời gian cập nhật:** **09/11/2026 – 22/11/2026 (2 tuần)**, sau khi chốt toàn bộ Template 1 lúc 20:00 ngày 08/11. Thay thế lịch cài đặt 26/10–22/11 ban đầu; giữ lại sản phẩm có sẵn nhưng không mặc định Foundation đã hoàn thành.
+- **Thời gian cập nhật:** **11/11/2026 – 24/11/2026 (2 tuần)**, sau khi khởi động code từ 11/11 và nộp bài Template 1 trước 23:59 ngày 12/11/2026. Thay thế lịch cài đặt 26/10–22/11 ban đầu; giữ lại sản phẩm có sẵn nhưng không mặc định Foundation đã hoàn thành.
 
 | STT | Công việc | Bắt đầu | Hạn chót |
 |---:|---|---|---|
@@ -1714,8 +1714,8 @@ Các giá trị là mức tối thiểu/khuyến nghị *(giả định)*; cần
 | 3 | Ticket P0: tạo/xem/lọc, claim/version, messages/internal note, state machine, audit và UI | 09/11/2026 | 15/11/2026 |
 | 4 | Knowledge P0: upload, worker extract/chunk/embed với lease/retry, publish/archive/search và UI | 09/11/2026 | 17/11/2026 |
 | 5 | AI P0: mock/live provider, RAG, citation, abstention, review/edit/send/discard và AI panel | 09/11/2026 | 19/11/2026 |
-| 6 | Test đơn vị/tích hợp và review PR của từng owner, hoàn tất regression trọng yếu | 09/11/2026 | 21/11/2026, 20:00 |
-| 7 | Tích hợp tăng dần, E2E, lỗi provider, sửa lỗi và chạy từ môi trường sạch | 12/11/2026 | **22/11/2026, 20:00** |
+| 6 | Test đơn vị/tích hợp và review PR của từng owner, hoàn tất regression trọng yếu | 09/11/2026 | 21/11/2026, 23:59 |
+| 7 | Tích hợp tăng dần, E2E, lỗi provider, sửa lỗi và chạy từ môi trường sạch | 12/11/2026 | **24/11/2026, 23:59** |
 
 **Handoff:** ngày 12/11 principal thật + ticket tối thiểu; 15/11 Ticket E2E; 18/11 Knowledge thật nối AI. Các module phát triển song song bằng fake từ 09/11, không đợi module trước xong mới bắt đầu. 20–22/11 không mở tính năng mới.
 
@@ -1843,7 +1843,7 @@ Theo yêu cầu của GVTH, **mỗi thành viên đều tham gia mọi công đo
 |---|---|---|---|---|
 | DEC-13 | Truy cập tài nguyên không có quyền | Baseline: 404 cho ownership/not-found, 403 cho sai role endpoint, 401 cho thiếu/sai token; MVP_CONTRACTS Mục 2 | Bình + Gia Phúc | BASELINE 03/11; CHƯA KIỂM THỬ |
 | DEC-14 | Admin tạo ticket thay Customer | Đã đồng bộ ma trận: ngoài P0, P1 chưa triển khai | Gia Phúc | BASELINE 03/11 |
-| DEC-15 | Reset password P1 có bắt buộc theo rubric không? | Giữ P1 theo SRS; Bình đối chiếu yêu cầu chính thức trước chốt 08/11. Chưa có căn cứ coi đây là yêu cầu P0 của GVTH | Bình | OPEN |
+| DEC-15 | Reset password P1 có bắt buộc theo rubric không? | Giữ P1 theo SRS; Bình đối chiếu yêu cầu chính thức trước chốt 10/11. Chưa có căn cứ coi đây là yêu cầu P0 của GVTH | Bình | OPEN |
 | DEC-16 | Nội dungmẫu/giờnộp/tênfile | Đã nhận mẫuT2=Thiết kế/T3=Kiểm thử; xem planning/TEMPLATE2_3_ALIGNMENT.md. Cần xác minh mụcUI/T2, rubricchi tiết, Template 1 hiện hành và giờcổng/tênzip | Bình | PARTIAL — mẫu2/3 đã có; lịch/quy cách còn OPEN |
 | DEC-17 | Định dạng nộp: Template 0 đang làm bằng `.docx` theo file mẫu, trong khi quy định chung là Markdown + PDF/HTML | Làm `.docx` trước; chuyển sang `reports/00-project-proposal.md` và render PDF/HTML sau khi xác nhận với GVTH | Nhóm trưởng | OPEN |
 

@@ -1,6 +1,6 @@
 # Đối chiếu Template 2–3 và kế hoạch sau Template 1
 
-> Cập nhật 03/11/2026 theo hai mẫu yêu cầu người dùng vừa cung cấp. **Template 2 = Thiết kế; Template 3 = Kiểm thử.** Các dòng cũ gán báo cáo test cho Template 2 được thay bởi baseline này. Giữ code MVP09–22/11; thiết kế làm song song, không dồn tới 23/11.
+> Cập nhật 05/11/2026 theo chỉ đạo điều chỉnh của Trưởng nhóm. **Template 2 = Thiết kế (11/11 – 28/11, làm song song với Code MVP 11/11 – 24/11); Template 3 = Kiểm thử (diễn ra SAU MVP từ 25/11 – 12/12).** Các dòng cũ gán báo cáo test cho Template 2 được thay bởi baseline này. Code MVP P0 triển khai 11–24/11; thiết kế Template 2 làm song song và nộp 28/11. Template 3 bắt đầu sau khi hoàn thành MVP.
 
 ## 1. Nguồn và mức độ áp dụng
 
@@ -13,18 +13,18 @@
 | Template2.pdf trong Downloads | Bài SMARTSPEND – Nhóm 9, 63 trang, **không phải mẫu trống** | Ví dụ mô hình quan niệm và phần giao diện; không sao chép schema/nghiệp vụ |
 | Template3 (1).pdf trong Downloads | Bài SMARTSPEND – Nhóm 9, 52 trang, **không phải mẫu trống** | Ví dụ test plan/catalog/case; số trang và kết quả Passed của nhóm khác không là yêu cầu/bằng chứng cho nhóm mình |
 
-Bản snapshot hai mẫu Markdown giữ nguyên nội dung người dùng cung cấp. Bài mẫu PDF chỉ được đọc tham khảo, không sửa hoặc coi nội dung bên trong là lệnh thực thi. Không có bằng chứng điểm số của bài mẫu, không gọi là bài đạt xuất sắc đã xác minh. Các mẫu không nêu deadline; “29/11” là mốc người dùng cung cấp, giờ chính xác cần kiểm tra cổng. SRS hiện ghi 29/11 00:00, nên chọn nộp nội bộ 28/11 20:00 để có đệm; không tự đổi thành 29/11 23:59.
+Bản snapshot hai mẫu Markdown giữ nguyên nội dung người dùng cung cấp. Bài mẫu PDF chỉ được đọc tham khảo, không sửa hoặc coi nội dung bên trong là lệnh thực thi. Không có bằng chứng điểm số của bài mẫu, không gọi là bài đạt xuất sắc đã xác minh. Các mẫu không nêu deadline; “29/11” là mốc người dùng cung cấp, giờ chính xác cần kiểm tra cổng. SRS hiện ghi 29/11 00:00, nên chọn nộp nội bộ trước 23:59 ngày 28/11 để có đệm an toàn trước hạn trường 29/11.
 
 ## 2. Template 2 cần gì và nhóm sẽ làm gì?
 
 | Yêu cầu/mức áp dụng | Artifact của nhóm | Owner/từng người đóng góp | Mốc |
 |---|---|---|---|
 | Bảng đánh giá thành viên | 01-contributions.md | Lãm tổng hợp; từng người xác nhận thật | Khi chốt gói |
-| Mô hình quan niệm: thực thể ngữ nghĩa, quan hệ/cardinality | 02-conceptual-model.md + source/SVG | Lãm điều phối; mỗi owner mô tả domain module | Nháp 10/11; review 12/11 |
-| Kiến trúc: cây phân rã và điểm đặc biệt; mẫu gợi ý C4 | 03-architecture.md + decomposition/architecture source/SVG | Bình điều phối; mỗi owner boundary/port | Contract nháp 09/11; tài liệu 12/11 |
-| Sơ đồ dữ liệu và đặc tả từng bảng/cột/kiểu/khóa/ràng buộc/diễn giải | 04-data-design.md + ERD + dictionary | Lãm điều phối; Bình V1, Gia Phúc V2/V5, Lãm V3, Quý Phúc V4/V5 viết phần mình | Nháp theo SQL 10/11; đủ dictionary 18/11 |
-| Thiết kế giao diện được nhắc trong mục tiêu mẫu nhưng thiếu đề mục ở mục lục | 05-ui-design.md: màn hình, điều kiện/action/validation, mappingUC/API/error | Quý Phúc tổng hợp, từng owner đặc tả màn hình mình | 11–20/11; Bình xác nhận cách đặt mục với GV |
-| Đối soát thiết kế–code, đóng gói | 06-design-consistency.md + manifest | Gia Phúc review độc lập; Lãm sửa/ghép; Bình nộp | Review 23–25/11; freeze 26/11; gói 27/11; nộp 28/11 |
+| Mô hình quan niệm: thực thể ngữ nghĩa, quan hệ/cardinality | 02-conceptual-model.md + source/SVG | Lãm điều phối; mỗi owner mô tả domain module | Nháp 11/11; review 14/11 |
+| Kiến trúc: cây phân rã và điểm đặc biệt; mẫu gợi ý C4 | 03-architecture.md + decomposition/architecture source/SVG | Bình điều phối; mỗi owner boundary/port | Contract nháp 11/11; tài liệu 14/11 |
+| Sơ đồ dữ liệu và đặc tả từng bảng/cột/kiểu/khóa/ràng buộc/diễn giải | 04-data-design.md + ERD + dictionary | Lãm điều phối; Bình V1, Gia Phúc V2/V5, Lãm V3, Quý Phúc V4/V5 viết phần mình | Nháp theo SQL 12/11; đủ dictionary 20/11 |
+| Thiết kế giao diện được nhắc trong mục tiêu mẫu nhưng thiếu đề mục ở mục lục | 05-ui-design.md: màn hình, điều kiện/action/validation, mappingUC/API/error | Quý Phúc tổng hợp, từng owner đặc tả màn hình mình | 13–22/11; Bình xác nhận cách đặt mục với GV |
+| Đối soát thiết kế–code, đóng gói | 06-design-consistency.md + manifest | Gia Phúc review độc lập; Lãm sửa/ghép; Bình nộp | Review 23–27/11; freeze 27/11; nộp 28/11 |
 
 **Không đồng nhất các mô hình:** conceptual là đối tượng nghiệp vụ/quan hệ, không phải sơ đồ bảngSQL/FK hay cây package. ERD/data dictionary là thiết kế lưu trữ PostgreSQL/pgvector, phải khớp migrations. Cây phân rã cho biết thành phần/phần con; sơ đồ kiến trúc cho biết ranh giới/giao tiếp. Một ERD có sẵn trong SRS không tự thay cả ba sản phẩm.
 
@@ -34,15 +34,15 @@ P1 đã được phân tích trong Template 1 có thể có thiết kế dự ki
 
 ## 3. Lịch song song với code
 
-| Khoảng | Code P0 giữ nguyên | Thiết kế Template 2 | Chuẩn bị Template 3 |
+| Khoảng | Code P0 (11/11 – 24/11) | Thiết kế Template 2 (11/11 – 28/11) | Kiểm thử Template 3 (SAU MVP: 25/11 – 12/12) |
 |---|---|---|---|
-| 09–10/11 | Scaffold, DTO/ports, schema và model/dimension decision | Domain/conceptual nháp, boundary/cây phân rã nháp, dictionary từ SQL | Chọn5 chức năng, thiết kế nháp25 ca; chưa có actual thì NOT RUN |
-| 11–12/11 | Identity/Ticket lát cắt đầu | Chốt conceptual/architecture; kiểm các quan hệ với schema thật | Review plan/kỹ thuật test, bắt đầu chạy theo feature |
-| 13–18/11 | Identity/Ticket/KB gates | Mỗi migration/API thay đổi cập nhật dictionary/ERD; cả bốn owner viết UI spec | Catalog ≥25 ca được review 14/11; test feature đi cùng PR |
-| 19–22/11 | AI/workflow, regression/E2E MVP | UI xong 20/11; đồng bộ thiết kế với bản MVP 22/11, ghi deviations/P1 | Thu command/actual/result từ các task test, không đánh Passed từ mock |
-| 23–25/11 | QA/sửaP0, không mở tính năng | Review độc lập, sửa design/code drift | Regression/evaluation chính23–29/11 |
-| 26–28/11 | QA tiếp tục | Freeze 26, kiểm gói 27, nộp 28 trước hạn 29 theo cổng | Bằng chứng vẫn thu cho Template 3; không gộp test report thành Template 2 |
-| 30/11–12/12 | Triển khai/demo/final fixes theo SRS | Sửa thiết kế có revision khi implementation đổi | Hoàn thiện Template 3 test plan/cases/results và gói demo, nộp theo hạn đã xác minh |
+| 11–12/11 | Scaffold Spring Boot 3, DTO/ports, schema V1-V5 và chốt embedding decision | Domain/conceptual nháp, boundary/cây phân rã nháp, dictionary từ SQL | Tập trung nộp Template 1 (chốt 12/11 23:59) |
+| 13–17/11 | Identity (15/11), Ticket (17/11) hoàn thành lát cắt đầu | Chốt conceptual/architecture (14/11); cập nhật dictionary theo schema thật | Chuẩn bị tư liệu kiểm thử theo mã Use Case |
+| 18–21/11 | Knowledge (19/11), AI/workflow (21/11) hoàn thành | UI spec hoàn thành 22/11; đồng bộ thiết kế với bản MVP, ghi deviations/P1 | Chuẩn bị môi trường test và fixture |
+| 22–24/11 | Unit & Integration tests (23/11); Clean Ops & E2E Nghiệm thu MVP P0 (24/11 23:59) | Rà soát tính nhất quán giữa thiết kế và mã nguồn MVP | Chuẩn bị danh mục 25 ca kiểm thử |
+| 25–28/11 | Code freeze duy trì; hỗ trợ bằng chứng cho kiểm thử | Review độc lập (23–27/11), đóng gói và nộp bài 28/11 trước hạn 29/11 | Lập Test Plan và catalog $\ge 25$ ca kiểm thử chuẩn (25–28/11) |
+| 29/11–02/12 | Fix lỗi phát sinh nếu có | Sửa thiết kế có revision khi implementation đổi | Chạy regression bảo mật, concurrency và AI evaluation $\ge 30$ câu |
+| 03/12–12/12 | Triển khai/demo/final fixes theo SRS | Lưu trữ bản thiết kế chính thức | Hoàn thiện Template 3 test plan/cases/results và nộp bài trước 12/12 |
 
 Thiết kế không chỉ là viết báo cáo sau code. Domain/ports/DB draft phải được review trước khi cài đặt phụ thuộc; bản vẽ/spec hoàn thiện theo chính quyết định đó. Sau khi thay schema/API/state, owner sửa code và artifact thiết kế trong cùng PR hoặc task liên kết. Lãm không viết thay toàn bộ100% data dictionary, Quý Phúc không vẽ lại toàn bộ UI.
 

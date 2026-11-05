@@ -238,7 +238,7 @@ Mỗi mục dưới đây tuân thủ nghiêm ngặt **Mục 5.B (Ghi chú sử 
 - **Công cụ:** Codex, OpenAI; phiên làm việc trong repository ngày 03/11/2026. Không tự suy đoán phiên bản model hoặc giờ truy cập.
 - **Prompt người dùng:** “vậy tôi nghĩ toàn bộ deadline template1 sẽ được thực hiện từ giờ cho đến 8/11 chốt. Và tất cả kế hoạch của phần code, bạn điều chỉnh và dời cho tôi thực hiện ngay sau đó từ 9/11 - 22/11. Bạn thấy sao”.
 - **Người yêu cầu/chịu trách nhiệm đối soát:** Ngô Viết Thanh Bình (`24120269`).
-- **Kết quả AI tạo:** Đồng bộ SRS Mục 17, A.2, G.2/G.5; kế hoạch tổng thể; sổ tay; CSV backlog và khung UC theo mốc Template 1 chốt 20:00 08/11, cài đặt P0 09–22/11. Thêm mốc tích hợp sớm và chuyển cài đặt P1 sang backlog sau 22/11; giữ phạm vi đặc tả P1.
+- **Kết quả AI tạo:** Đồng bộ SRS Mục 17, A.2, G.2/G.5; kế hoạch tổng thể; sổ tay; CSV backlog và khung UC theo mốc Template 1 chốt 23:59 08/11, cài đặt P0 09–22/11. Thêm mốc tích hợp sớm và chuyển cài đặt P1 sang backlog sau 22/11; giữ phạm vi đặc tả P1.
 - **Kiểm tra do AI thực hiện:** Đối chiếu CSV 16 dòng, ref/parent, khoảng deadline, bảng backlog và code fences; chạy `jira_bulk_create.py --csv scripts/jira/tasks_template1.csv --dry-run` thành công. Không sửa Jira/GitHub thật, không tạo commit, không tuyên bố đã kiểm thử ứng dụng.
 - **Con người kiểm chứng và sửa đổi:** Người dùng đã chỉ định hai khoảng thời gian; chưa ghi nhận xác nhận toàn bộ nội dung sửa. Nhóm cần kiểm tra giờ khả dụng, lịch chia module, phạm vi P1 và ánh xạ Jira trước khi dùng làm cam kết.
 - **Minh chứng:** Các file sửa trong working tree; mã task tham chiếu SCRUM-16/28/29/30 cần đối chiếu Jira thật, chưa có mã commit cho lần sửa này.

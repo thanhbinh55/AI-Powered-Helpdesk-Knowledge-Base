@@ -2,7 +2,7 @@
 
 > Group 04. Cập nhật 03/11/2026. Bản khung 19/10 đã được thay vì dùng mã và chức năng không khớp SRS. Tài liệu này không định nghĩa lại bộ ID yêu cầu.
 
-**Nguồn chuẩn:** [SRS Mục 3–8 và Phụ lục D](SRS-master.md). Bản nộp Template 1 được soạn tại [template1](template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md), chốt 20:00 ngày 08/11. Owner mỗi module cung cấp mapping; Gia Phúc tổng hợp, Lãm review.
+**Nguồn chuẩn:** [SRS Mục 3–8 và Phụ lục D](SRS-master.md). Bản nộp Template 1 được soạn tại [template1](template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md), Draft Freeze 23:59 07/11, Review chéo 23:59 08/11, Task T1-DOC-MD nộp Markdown 23:59 10/11 và nộp bài chính thức trước 23:59 ngày 12/11/2026. Owner mỗi module cung cấp mapping; Gia Phúc tổng hợp, Lãm review.
 
 - Identity — Bình: xác thực/session/profile, quản lý Agent, RBAC/ownership.
 - Ticket — Gia Phúc: tạo/xem/lọc, claim/assign, public/internal, state và audit; đủ WAITING_CUSTOMER.

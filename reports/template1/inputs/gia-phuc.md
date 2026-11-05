@@ -1,29 +1,35 @@
-# Input bàn giao — Gia Phúc
+# Biên bản Bàn giao & Đối soát Markdown — Phan Gia Phúc
 
-> Owner Gia Phúc; task [T1-DOC-05](../../../TASK_PLAYBOOK_TEMPLATE1.md#t1-doc-05). Đây là mẫu, chưa xác nhận đã bàn giao.
-> Phạm vi: Ticket: FR-TK-01..12, US-07..17/28/29, UC-05..10; review UC-17. Nguồn [SRS](../../SRS-master.md) Mục4,14.2,Phụ lụcD; [contract](../../MVP_CONTRACTS.md).
+> **Thành viên phụ trách:** Phan Gia Phúc (Ticket & QA Lead)  
+> **Mã task liên quan:** [T1-DOC-03](../../../PLAN_TEMPLATE1_AND_DEVELOPMENT.md#t1-doc-03), [T1-DOC-05](../../../PLAN_TEMPLATE1_AND_DEVELOPMENT.md#t1-doc-05), [T1-DOC-MD](../../../PLAN_TEMPLATE1_AND_DEVELOPMENT.md#t1-doc-md).  
+> **Phạm vi nghiệp vụ:** Module C (Ticket Management): `FR-TK-01`..`12`, `US-07`..`17`, `28`, `29`, `UC-05`..`10`; Ma trận 41 FRs ↔ 30 USs.  
+> **Tài liệu soạn thảo chung:** [[SE - Nhóm 4] template1 - Google Docs](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0).  
+> **Bản thiết kế Figma (Redesign v2):** [SE – Figma (Node 49:58)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev) & kho 151 ảnh PNG tại `docs/design/anh/`.
 
-## Mapping cho Gia Phúc — trước12:00 05/11
+---
 
-| FR/US | UC/BR liên quan | P0/P1 | Acceptance/nhánh lỗi | Test IDs | Mockup/màn hình | Nguồn SRS/mục | Reviewer/đã đối chiếu |
-|---|---|---|---|---|---|---|---|
-| TODO | TODO | TODO | TODO | TODO | TODO | TODO | Chưa xác nhận |
+## 1. Lộ trình Triển khai & Cột mốc Bắt buộc
+- **Soạn thảo trực tiếp trên Google Docs:** từ 03/11 đến trước **23:59 ngày 07/11/2026**.
+- **Đóng băng bản nháp (Draft Freeze):** lúc **23:59 ngày 07/11/2026** trên Google Docs.
+- **Review chéo xoay vòng:** hoàn thành trước **23:59 ngày 08/11/2026** (Reviewer: Lãm phản biện, góp ý trực tiếp trên Docs).
+- **Task T1-DOC-MD — Chuyển đổi Markdown, xuất SVG & Commit Git:** Hoàn tất sửa đổi sau review, chuyển đổi toàn bộ nội dung sang file `.md`, xuất sơ đồ vector `.svg` nộp vào repo và mở PR trước **23:59 ngày 10/11/2026**.
+- **Rà soát kỹ thuật & Khởi động code MVP:** ngày **11/11/2026** (chốt hợp đồng API DTOs `T1-CONTRACT-01` và phối hợp ghép nối Template 1).
+- **Final nộp bài Template 1:** Độc lập rà soát, kiểm tra gói nộp trước khi Bình nộp chính thức trước **23:59 ngày 12/11/2026**.
 
-Gia Phúc tổng hợp trong03.2.1, không viết lại phần nghiệp vụ của owner. Mã US theo Phụ lụcD, không tự đánh lại. FR cross-cutting/P1 vẫn cần mapping; không ép mộtFR=mộtUC.
+---
 
-## Mockup cho Quý Phúc — trước20:00 06/11
+## 2. Danh mục File Markdown & Sơ đồ Bàn giao (Task T1-DOC-MD)
+- [ ] `reports/template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md` (Bảng ma trận truy vết toàn diện 41 FRs ↔ 30 User Stories).
+- [ ] `reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md` (Đặc tả 6 Use Cases chuẩn 9 trường: UC-05..10).
+- [ ] `reports/template1/assets/diagrams/uc-module-C.svg` & `uc-module-C.drawio` (Sơ đồ Use Case phân hệ Ticket Management).
+- [ ] Ánh xạ màn hình Figma Ticket (Frames Node ID `55:1992` đến `62:15156`, ảnh PNG tại `docs/design/anh/`).
+- [ ] Bàn giao phạm vi `US-28 / FR-TK-12` (Analytics P1) cho Quý Phúc để viết `04.2-uc-17-analytics.md`.
+- [ ] Nhật ký AI Usage cá nhân cập nhật đầy đủ tại [reports/07-ai-usage.md](../../07-ai-usage.md).
 
-- Link Figma file/prototype thật: [SE – Figma (Node 49:58)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev) & kho 151 ảnh PNG tại `docs/design/anh/` (đã có sẵn từ Quý Phúc, không cần vẽ lại).
-- Google Docs làm việc: [[SE - Nhóm 4] template1](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0).
-- Quyền người ngoài nhóm xem: Chưa kiểm tra.
-- Ảnh tương đối trong../assets/mockups/: TODO.
-- Màn hình → UC/FR, happy/loading/error/empty/disabled: TODO.
-- Người nhận xác nhận/link review: Chưa có.
+---
 
-## Tài liệu/sơ đồ cho Lãm — trước20:00 07/11
-
-- PR/file đặc tả đãreview: TODO.
-- Source drawio + SVG, nhãn UC rõ ởA4: TODO.
-- AI Usage cá nhân, đóng góp/chữ ký xác nhận thật: TODO.
-- Góp ý còn mở và owner xử lý: Chưa ghi nhận.
-- Người nhận/phiên bản/thời điểm bàn giao: Chưa có.
+## 3. Tiêu chí Nghiệm thu Bàn giao (DoD)
+1. 100% Use Cases của module C có đủ 9 trường chuẩn, thể hiện rõ atomic claim lock, state machine và phân quyền tin nhắn.
+2. Bảng ma trận 41 FRs và 30 User Stories khớp 100% với SRS-master Mục 3.2 và 4.
+3. Sơ đồ Use Case vẽ chuẩn UML, xuất định dạng `.svg` sắc nét, không gãy font tiếng Việt.
+4. Commit Git có gắn mã Jira `SCRUM-xx`, PR mở trước **23:59 ngày 10/11/2026** và đã được reviewer approve.

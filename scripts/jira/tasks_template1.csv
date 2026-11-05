@@ -1,22 +1,22 @@
 ref,type,summary,description,assignee_email,parent_ref,labels,duedate
-T1,Epic,[Template 1 & MVP P0] Tài liệu 03-08/11; code 09-22/11,"Điều phối tài liệu 03–08/11 và MVP code/test 09–22/11; các gate, owner và cách nhận việc ở TASK_PLAYBOOK_TEMPLATE1.md. Chưa xác minh tiến độ Jira, quyền nộp.",ngovietthanhbinh2006@gmail.com,,DOC;DEV,2026-11-22
-QA1,Epic,[QA] Regression và evaluation23-29/11 làm bằng chứng Template 3,"QA 23–29/11 giữnguyên; kết quả dùngTemplate 3, không nhầmvới Template 2 thiết kế nộp 29/11.",phgphuc0609@gmail.com,,QA,2026-11-29
-T2,Epic,[Template 2] Thiết kế song song code 09-22 và nộp trước 29/11,"Thiết kế theo mẫu được cung cấp: conceptual/architecture/data/UI làm song songcode 09–22/11; review 23–25, freeze 26, gói 27, nộp 28 trước hạn 29/11 theo giờ cổng xác minh. Không thay bằng báo cáo kiểm thử.",lamnguyenduc0118@gmail.com,,DOC;DESIGN,2026-11-28
-T3,Epic,[Template 3] Test plan tối thiểu25 ca và báo cáo kiểm thử cuối,"Template 3 kiểm thử: ≥5 chức năng ×≥5 ca, test plan/catalog từ 09/11, actual/results theo chạy thật; báo cáo cuối 30/11–12/12, hạn cổng chưa được mẫu xác nhận.",phgphuc0609@gmail.com,,DOC;TEST,2026-12-12
-T1-DEV-01,Task,[Foundation] Spring Boot Docker và principal/fake,"Bắt đầu: 09/11/2026. Hạn chót task: 2026-11-10.
+T1,Epic,[Template 1 & MVP P0] Tài liệu 03-12/11; code 11-24/11,"Điều phối tài liệu 03–12/11 và MVP code/test 11–24/11; các gate, owner và cách nhận việc ở TASK_PLAYBOOK_TEMPLATE1.md. Chưa xác minh tiến độ Jira, quyền nộp.",ngovietthanhbinh2006@gmail.com,,DOC;DEV,2026-11-24
+QA1,Epic,[QA] Regression và evaluation sau MVP làm bằng chứng Template 3,"QA 23–29/11 giữnguyên; kết quả dùngTemplate 3, không nhầmvới Template 2 thiết kế nộp 29/11.",phgphuc0609@gmail.com,,QA,2026-12-02
+T2,Epic,[Template 2] Thiết kế song song code 11-24 và nộp trước 29/11,"Thiết kế theo mẫu được cung cấp: conceptual/architecture/data/UI làm song songcode 11–24/11; review 23–25, freeze 26, gói 27, nộp 28 trước hạn 29/11 theo giờ cổng xác minh. Không thay bằng báo cáo kiểm thử.",lamnguyenduc0118@gmail.com,,DOC;DESIGN,2026-11-28
+T3,Epic,[Template 3] Test plan tối thiểu 25 ca và báo cáo kiểm thử cuối kỳ,"Template 3 kiểm thử: ≥5 chức năng ×≥5 ca, test plan/catalog từ 09/11, actual/results theo chạy thật; báo cáo cuối 30/11–12/12, hạn cổng chưa được mẫu xác nhận.",phgphuc0609@gmail.com,,DOC;TEST,2026-12-12
+T1-DEV-01,Task,[Foundation] Spring Boot Docker và principal/fake,"Bắt đầu: 11/11/2026. Hạn chót task: 2026-11-12.
 Owner: Bình. Review: Quý Phúc.
 Nguồn đọc: reports/SRS-master.md — 9.2/9.3, 15.3; reports/MVP_CONTRACTS.md — 1–3; backend/README.md — package và scope; infra/README.md — hạ tầng dự kiến.
-Điều kiện BẮT ĐẦU: 09/11 sau baseline tài liệu 08/11; scaffold không chờ contract/schema hoàn tất.
-Bước 1: 09/11 tạo Maven/Java21/Spring Boot skeleton đúng package, config dev và .env.example không secrets; ghi phiên bản/lệnh chạy thực tế.
-Bước 2: Chạy Docker PostgreSQL/pgvector và kết nối app; trong ngày 09/11 bàn giao pom/wrapper/config chạy tối thiểu để Quý Phúc làm CI, Lãm thử DB; không chờ schema cả bốn module.
+Điều kiện BẮT ĐẦU: 11/11 sau baseline tài liệu 08/11; scaffold không chờ contract/schema hoàn tất.
+Bước 1: 11/11 tạo Maven/Java21/Spring Boot skeleton đúng package, config dev và .env.example không secrets; ghi phiên bản/lệnh chạy thực tế.
+Bước 2: Chạy Docker PostgreSQL/pgvector và kết nối app; trong ngày 11/11 bàn giao pom/wrapper/config chạy tối thiểu để Quý Phúc làm CI, Lãm thử DB; không chờ schema cả bốn module.
 Bước 3: Cài error envelope, Actor/fake principal theo contract của Gia Phúc; phân biệt fake dùng test và auth thật. Phối hợp principal thật bàn giao 12/11 trong DEV-02.
 Bước 4: Gửi Quý Phúc review và cập nhật backend/infra README; schema và CI là task khác, không viết thay owner.
 Đầu ra: backend/pom.xml, Maven wrapper, HelpdeskApplication, common config/error/principal; infra/compose.yaml và README chạy thực tế
-Điều kiện CHỐT / DoD: Khung chạy với DB và Actor/error đúng baseline MVP_CONTRACTS; bàn giao scaffold tối thiểu trong 09/11. Không chờ toàn bộ CONTRACT/schema/CI đóng để giao scaffold; owner phối hợp fix compile trước gate 10/11.
+Điều kiện CHỐT / DoD: Khung chạy với DB và Actor/error đúng baseline MVP_CONTRACTS; bàn giao scaffold tối thiểu trong 11/11. Không chờ toàn bộ CONTRACT/schema/CI đóng để giao scaffold; owner phối hợp fix compile trước gate 12/11.
 Bàn giao cho: Quý Phúc dùng skeleton cho CI; Lãm dùng DB/schema; mọi owner dùng khung chung.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-PUB-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-dev-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",ngovietthanhbinh2006@gmail.com,T1,DEV;DEVOPS,2026-11-10
-T1-DOC-01,Task,[Doc] Bìa bảng đóng góp và mô tả bài toán,"Bắt đầu: 03/11/2026. Hạn chót task: 2026-11-07.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-dev-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",ngovietthanhbinh2006@gmail.com,T1,DEV;DEVOPS,2026-11-12
+T1-DOC-01,Task,[Doc] Bìa bảng đóng góp và mô tả bài toán,"Bắt đầu: 03/11/2026. Hạn chót task: 2026-11-10.
 Owner: Quý Phúc. Review: Gia Phúc.
 Nguồn đọc: reports/SRS-master.md — 1, A.1, C; reports/template1/01-danh-gia-thanh-vien.md — khung đóng góp; reports/template1/02-mo-ta-bai-toan.md — khung mô tả.
 Điều kiện BẮT ĐẦU: Viết mô tả được ngay từ SRS; phần rubric/chữ ký chờ READY/đương sự, không chờ cả nhóm mới bắt đầu.
@@ -24,11 +24,11 @@ Bước 1: Đọc phạm vi/mục tiêu và viết bối cảnh, vấn đề, m�
 Bước 2: Điền bìa/thông tin người làm; hỏi trực tiếp từng người về tỷ lệ/chữ ký, giữ chờ xác nhận nếu chưa có; không mặc định 100% hoặc đã ký.
 Bước 3: Gửi Gia Phúc review, sửa góp ý rồi chuyển Lãm file đã chốt kèm nguồn xác nhận.
 Đầu ra: reports/template1/01-danh-gia-thanh-vien.md và 02-mo-ta-bai-toan.md
-Điều kiện CHỐT / DoD: Gia Phúc approve; thông tin cá nhân/đóng góp có xác nhận và nguồn; sửa review xong trước 08/11. Bản nháp đủ nội dung trước20:00 06/11; bản được review/bàn giao trước20:00 07/11; 08/11 chỉ sửa lỗi đóng gói hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
+Điều kiện CHỐT / DoD: Gia Phúc approve; thông tin cá nhân/đóng góp có xác nhận và nguồn; sửa review xong trước 08/11. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11 hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
 Bàn giao cho: Lãm ghép bài; Bình xác nhận scope.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-READY-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-doc-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",quyphuc0306@gmail.com,T1,DOC;REQ,2026-11-07
-T1-DOC-02,Task,[Doc] Stakeholders Context Diagram và NFR,"Bắt đầu: 03/11/2026. Hạn chót task: 2026-11-07.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-doc-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",quyphuc0306@gmail.com,T1,DOC;REQ,2026-11-10
+T1-DOC-02,Task,[Doc] Stakeholders Context Diagram và NFR,"Bắt đầu: 03/11/2026. Hạn chót task: 2026-11-10.
 Owner: Lãm. Review: Bình.
 Nguồn đọc: reports/SRS-master.md — 3.1, 8; NFR IDs; PLAN_TEMPLATE1_AND_DEVELOPMENT.md — 4–5; reports/template1/03-tong-quan-yeu-cau/03.1-stakeholders.md — file nhận nội dung; reports/template1/03-tong-quan-yeu-cau/03.2.2-yeu-cau-phi-chuc-nang.md — file nhận nội dung.
 Điều kiện BẮT ĐẦU: Soạn từ SRS ngay; chỉ bố cục/rubric chờ READY.
@@ -36,79 +36,95 @@ Bước 1: Liệt kê stakeholder nghiệp vụ tách khỏi actor; vẽ context
 Bước 2: Chuyển toàn bộ NFR từ SRS 8, giữ mã/mức/điều kiện đo và bổ sung cách nghiệm thu, không biến mục tiêu chưa đo thành kết quả đã đạt.
 Bước 3: Lưu context-diagram.drawio + SVG; gửi Bình đối soát và chuyển Lãm phần release (tự thực hiện nhưng vẫn cần review độc lập).
 Đầu ra: reports/template1/03-tong-quan-yeu-cau/03.1-stakeholders.md, 03.2.2-yeu-cau-phi-chuc-nang.md; assets/diagrams/context-diagram.drawio và .svg
-Điều kiện CHỐT / DoD: Bình review; đủ NFR/cách đo, source + SVG đọc được; sửa cuối 08/11. Bản nháp đủ nội dung trước20:00 06/11; bản được review/bàn giao trước20:00 07/11; 08/11 chỉ sửa lỗi đóng gói hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
+Điều kiện CHỐT / DoD: Bình review; đủ NFR/cách đo, source + SVG đọc được; sửa cuối 08/11. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11 hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
 Bàn giao cho: Các owner đối chiếu NFR; Lãm release.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-READY-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-doc-02. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",lamnguyenduc0118@gmail.com,T1,DOC;REQ;UML,2026-11-07
-T1-DOC-03,Task,[Doc] Truy vết 41 FR và 30 User Stories chuẩn,"Bắt đầu: 03/11/2026. Hạn chót task: 2026-11-07.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-doc-02. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",lamnguyenduc0118@gmail.com,T1,DOC;REQ;UML,2026-11-10
+T1-DOC-03,Task,[Doc] Truy vết 41 FR và 30 User Stories chuẩn,"Bắt đầu: 03/11/2026. Hạn chót task: 2026-11-10.
 Owner: Gia Phúc. Review: Lãm.
 Nguồn đọc: reports/SRS-master.md — 4, 7, 22 và Phụ lục D; reports/template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md — bảng tổng hợp.
 Điều kiện BẮT ĐẦU: Dựng bảng ngay, không chờ UC hoàn chỉnh.
 Bước 1: Gia Phúc dựng bảng 41 FR/30 US theo đúng mã chuẩn; mỗi dòng thêm UC/BR/mockup/test liên quan, priority và owner; RBAC/privacy là cross-cutting.
-Bước 2: Bình, Lãm, Quý Phúc gửi mapping module mình cho Gia Phúc trước 12:00 05/11 trong reports/template1/inputs/<ten>.md; Gia Phúc tự điền Ticket, không phải viết lại toàn bộ module khác.
+Bước 2: Gia Phúc tự điền Ticket, không phải viết lại toàn bộ module khác.
 Bước 3: Đối soát đủ mã và không đổi nghĩa, liên kết UC P1/FR không có UC riêng, gửi Lãm review; chỗ mapping thiếu gắn owner và giờ cần bổ sung.
-Đầu ra: reports/template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md; inputs/{binh,gia-phuc,lam,quy-phuc}.md
-Điều kiện CHỐT / DoD: Nhận mapping từ DOC-04/05/06/07; rubric từ READY; không còn FR/US chưa được owner kiểm tra. Bản nháp đủ nội dung trước20:00 06/11; bản được review/bàn giao trước20:00 07/11; 08/11 chỉ sửa lỗi đóng gói hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
+Đầu ra: reports/template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md; Điều kiện CHỐT / DoD: Nhận mapping từ DOC-04/05/06/07; rubric từ READY; không còn FR/US chưa được owner kiểm tra. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11 hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
 Bàn giao cho: Tất cả owner viết UC; Lãm kiểm coverage bài nộp.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-READY-01, T1-DOC-04, T1-DOC-05, T1-DOC-06, T1-DOC-07.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-doc-03. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",phgphuc0609@gmail.com,T1,DOC;REQ,2026-11-07
-T1-DOC-04,Task,[Doc] Identity 5 UC và Use Case overview,"Bắt đầu: 03/11/2026. Hạn chót task: 2026-11-07.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-doc-03. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",phgphuc0609@gmail.com,T1,DOC;REQ,2026-11-10
+T1-DOC-04,Task,[Doc] Identity 5 UC và Use Case overview,"Bắt đầu: 03/11/2026. Hạn chót task: 2026-11-10.
 Owner: Bình. Review: Quý Phúc.
 Nguồn đọc: reports/SRS-master.md — 4.1, 5, 10 users/auth_sessions, 11.2, 14.2; PLAN_TEMPLATE1_AND_DEVELOPMENT.md — 4 mẫu chín trường, 5 sơ đồ tham khảo; reports/template1/04-dac-ta-use-cases/04.2-module-D-identity.md — file nhận đặc tả; reports/template1/05-prototype-mockup.md — ma trận màn hình.
 Điều kiện BẮT ĐẦU: Viết từ SRS được ngay; không chờ bảng FR tổng hợp hoặc UC module khác để tránh vòng chờ.
-Bước 1: Đọc 4.1, 5, 10 users/auth_sessions, 11.2, 14.2; lấy UC-01..04,16, FR-ID-01..09, US-01..06,27, actor/BR. Gửi mapping FR/US/UC/test dự kiến vào inputs/binh.md cho Gia Phúc trước 12:00 05/11.
+Bước 1: Đọc 4.1, 5, 10 users/auth_sessions, 11.2, 14.2; lấy UC-01..04,16, FR-ID-01..09, US-01..06,27, actor/BR. Soạn thảo trực tiếp trên Google Docs nhóm.
 Bước 2: Viết từng UC đủ chín trường theo kế hoạch Mục 4, có trigger, nhánh lỗi và hậu điều kiện; Tách register/login, refresh/logout; Admin quản lý Agent; UC-16 chỉ đặc tả P1. Bình còn vẽ uc-overview.drawio + SVG đủ 17 mã.
-Bước 3: Vẽ uc-module-D.drawio + SVG giữ mã UC và tên nghiệp vụ; Kế thừa bộ khung thiết kế v2 làm baseline: Bình chủ động rà soát, tinh chỉnh hoặc bổ sung các màn hình/trạng thái Identity trong docs/design/man-hinh.md (Node 62:8214..62:14361, ảnh PNG tại docs/design/anh/) ánh xạ vào UC-01..04, 16. Soạn thảo trực tiếp trên Google Docs nhóm: https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0 trước 20:00 06/11.
+Bước 3: Vẽ uc-module-D.drawio + SVG giữ mã UC và tên nghiệp vụ; Kế thừa bộ khung thiết kế v2 làm baseline: Bình chủ động rà soát, tinh chỉnh hoặc bổ sung các màn hình/trạng thái Identity trong docs/design/man-hinh.md (Node 62:8214..62:14361, ảnh PNG tại docs/design/anh/) ánh xạ vào UC-01..04, 16. Soạn thảo trực tiếp trên Google Docs nhóm: https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0 trước 23:59 07/11 (Draft Freeze).
 Bước 4: Mở PR giao Quý Phúc; sửa review 07–08/11. Bàn giao file, ảnh và trạng thái còn thiếu cho Lãm; không để Quý Phúc vẽ lại màn hình của mình.
-Đầu ra: reports/template1/04-dac-ta-use-cases/04.2-module-D-identity.md; assets/diagrams/uc-module-D.drawio và .svg; assets/mockups/binh-*.png; inputs/binh.md
-Điều kiện CHỐT / DoD: Reviewer approve, đủ scope đã giao, drawio/SVG/mockup và mapping; rubric từ READY.  Bản nháp đủ nội dung trước20:00 06/11; bản được review/bàn giao trước20:00 07/11; 08/11 chỉ sửa lỗi đóng gói hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
-Bàn giao cho: Gia Phúc nhận mapping 05/11; Quý Phúc nhận mockup 06/11; Lãm nhận bản đã review 07/11.
+Đầu ra: reports/template1/04-dac-ta-use-cases/04.2-module-D-identity.md; assets/diagrams/uc-module-D.drawio và .svg; assets/mockups/binh-*.png
+Điều kiện CHỐT / DoD: Reviewer approve, đủ scope đã giao, drawio/SVG/mockup và mapping; rubric từ READY.  Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11 hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
+Bàn giao cho: Cả nhóm review chéo trên Docs trước 23:59 08/11; Lãm nhận Markdown/SVG trước 23:59 10/11.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-READY-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-doc-04. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",ngovietthanhbinh2006@gmail.com,T1,DOC;UML,2026-11-07
-T1-DOC-05,Task,[Doc] Ticket 6 UC và mockup Ticket,"Bắt đầu: 03/11/2026. Hạn chót task: 2026-11-07.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-doc-04. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",ngovietthanhbinh2006@gmail.com,T1,DOC;UML,2026-11-10
+T1-DOC-05,Task,[Doc] Ticket 6 UC và mockup Ticket,"Bắt đầu: 03/11/2026. Hạn chót task: 2026-11-10.
 Owner: Gia Phúc. Review: Lãm.
 Nguồn đọc: reports/SRS-master.md — 4.2, 5.1/5.2, 6 UC-05/07/08/09, 11.3, 14.2; PLAN_TEMPLATE1_AND_DEVELOPMENT.md — 4 mẫu chín trường, 5 sơ đồ tham khảo; reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md — file nhận đặc tả; reports/template1/05-prototype-mockup.md — ma trận màn hình.
 Điều kiện BẮT ĐẦU: Viết từ SRS được ngay; không chờ bảng FR tổng hợp hoặc UC module khác để tránh vòng chờ.
-Bước 1: Đọc 4.2, 5.1/5.2, 6 UC-05/07/08/09, 11.3, 14.2; lấy UC-05..10, FR-TK-01..12, US-07..17,28,29, actor/BR. Gửi mapping FR/US/UC/test dự kiến vào inputs/gia-phuc.md cho Gia Phúc trước 12:00 05/11.
-Bước 2: Viết từng UC đủ chín trường theo kế hoạch Mục 4, có trigger, nhánh lỗi và hậu điều kiện; Phân biệt claim của Agent/assign của Admin, public/internal theo quyền, state và 409. UC-17 trong sơ đồ Ticket nhưng Quý Phúc viết file riêng; Gia Phúc review US-28 và gửi Quý Phúc trước 12:00 05/11.
-Bước 3: Vẽ uc-module-C.drawio + SVG giữ mã UC và tên nghiệp vụ; Kế thừa bộ khung thiết kế v2 làm baseline: Gia Phúc chủ động rà soát, tinh chỉnh hoặc bổ sung các màn hình/trạng thái Agent và Customer trong docs/design/man-hinh.md (Node 55:1992..62:15156, ảnh PNG tại docs/design/anh/) ánh xạ vào UC-05..10. Soạn thảo trực tiếp trên Google Docs nhóm: https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0 trước 20:00 06/11.
+Bước 1: Đọc 4.2, 5.1/5.2, 6 UC-05/07/08/09, 11.3, 14.2; lấy UC-05..10, FR-TK-01..12, US-07..17,28,29, actor/BR. Soạn thảo trực tiếp trên Google Docs nhóm.
+Bước 2: Viết từng UC đủ chín trường theo kế hoạch Mục 4, có trigger, nhánh lỗi và hậu điều kiện; Phân biệt claim của Agent/assign của Admin, public/internal theo quyền, state và 409. UC-17 trong sơ đồ Ticket nhưng Quý Phúc viết file riêng; Gia Phúc review US-28 và gửi Quý Phúc trước 23:59 07/11 (Draft Freeze).
+Bước 3: Vẽ uc-module-C.drawio + SVG giữ mã UC và tên nghiệp vụ; Kế thừa bộ khung thiết kế v2 làm baseline: Gia Phúc chủ động rà soát, tinh chỉnh hoặc bổ sung các màn hình/trạng thái Agent và Customer trong docs/design/man-hinh.md (Node 55:1992..62:15156, ảnh PNG tại docs/design/anh/) ánh xạ vào UC-05..10. Soạn thảo trực tiếp trên Google Docs nhóm: https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0 trước 23:59 07/11 (Draft Freeze).
 Bước 4: Mở PR giao Lãm; sửa review 07–08/11. Bàn giao file, ảnh và trạng thái còn thiếu cho Lãm; không để Quý Phúc vẽ lại màn hình của mình.
-Đầu ra: reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md; assets/diagrams/uc-module-C.drawio và .svg; assets/mockups/gia-phuc-*.png; inputs/gia-phuc.md
-Điều kiện CHỐT / DoD: Reviewer approve, đủ scope đã giao, drawio/SVG/mockup và mapping; rubric từ READY.  Bản nháp đủ nội dung trước20:00 06/11; bản được review/bàn giao trước20:00 07/11; 08/11 chỉ sửa lỗi đóng gói hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
-Bàn giao cho: Gia Phúc nhận mapping 05/11; Quý Phúc nhận mockup 06/11; Lãm nhận bản đã review 07/11.
+Đầu ra: reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md; assets/diagrams/uc-module-C.drawio và .svg; assets/mockups/gia-phuc-*.png
+Điều kiện CHỐT / DoD: Reviewer approve, đủ scope đã giao, drawio/SVG/mockup và mapping; rubric từ READY.  Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11 hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
+Bàn giao cho: Cả nhóm review chéo trên Docs trước 23:59 08/11; Lãm nhận Markdown/SVG trước 23:59 10/11.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-READY-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-doc-05. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",phgphuc0609@gmail.com,T1,DOC;UML,2026-11-07
-T1-DOC-06,Task,[Doc] Knowledge 3 UC và mockup KB,"Bắt đầu: 03/11/2026. Hạn chót task: 2026-11-07.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-doc-05. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",phgphuc0609@gmail.com,T1,DOC;UML,2026-11-10
+T1-DOC-06,Task,[Doc] Knowledge 3 UC và mockup KB,"Bắt đầu: 03/11/2026. Hạn chót task: 2026-11-10.
 Owner: Lãm. Review: Bình.
 Nguồn đọc: reports/SRS-master.md — 4.3, 6 UC-11/12, 10 Knowledge, 11.4, 12.1, 14.2; PLAN_TEMPLATE1_AND_DEVELOPMENT.md — 4 mẫu chín trường, 5 sơ đồ tham khảo; reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md — file nhận đặc tả; reports/template1/05-prototype-mockup.md — ma trận màn hình.
 Điều kiện BẮT ĐẦU: Viết từ SRS được ngay; không chờ bảng FR tổng hợp hoặc UC module khác để tránh vòng chờ.
-Bước 1: Đọc 4.3, 6 UC-11/12, 10 Knowledge, 11.4, 12.1, 14.2; lấy UC-11..13, FR-KB-01..10, US-18..21, actor/BR. Gửi mapping FR/US/UC/test dự kiến vào inputs/lam.md cho Gia Phúc trước 12:00 05/11.
+Bước 1: Đọc 4.3, 6 UC-11/12, 10 Knowledge, 11.4, 12.1, 14.2; lấy UC-11..13, FR-KB-01..10, US-18..21, actor/BR. Soạn thảo trực tiếp trên Google Docs nhóm.
 Bước 2: Viết từng UC đủ chín trường theo kế hoạch Mục 4, có trigger, nhánh lỗi và hậu điều kiện; UC-11 READY chưa publish, UC-12 publish/archive riêng; worker là bước nội bộ. Chốt các nhánh PDF scan, file sai và retry có giới hạn.
-Bước 3: Vẽ uc-module-B.drawio + SVG giữ mã UC và tên nghiệp vụ; Kế thừa bộ khung thiết kế v2 làm baseline: Lãm chủ động rà soát, tinh chỉnh hoặc bổ sung các màn hình/trạng thái Knowledge Base trong docs/design/man-hinh.md (Node 62:9092..62:11768, ảnh PNG tại docs/design/anh/) ánh xạ vào UC-11..13. Soạn thảo trực tiếp trên Google Docs nhóm: https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0 trước 20:00 06/11.
+Bước 3: Vẽ uc-module-B.drawio + SVG giữ mã UC và tên nghiệp vụ; Kế thừa bộ khung thiết kế v2 làm baseline: Lãm chủ động rà soát, tinh chỉnh hoặc bổ sung các màn hình/trạng thái Knowledge Base trong docs/design/man-hinh.md (Node 62:9092..62:11768, ảnh PNG tại docs/design/anh/) ánh xạ vào UC-11..13. Soạn thảo trực tiếp trên Google Docs nhóm: https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0 trước 23:59 07/11 (Draft Freeze).
 Bước 4: Mở PR giao Bình; sửa review 07–08/11. Bàn giao file, ảnh và trạng thái còn thiếu cho Lãm; không để Quý Phúc vẽ lại màn hình của mình.
-Đầu ra: reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md; assets/diagrams/uc-module-B.drawio và .svg; assets/mockups/lam-*.png; inputs/lam.md
-Điều kiện CHỐT / DoD: Reviewer approve, đủ scope đã giao, drawio/SVG/mockup và mapping; rubric từ READY.  Bản nháp đủ nội dung trước20:00 06/11; bản được review/bàn giao trước20:00 07/11; 08/11 chỉ sửa lỗi đóng gói hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
-Bàn giao cho: Gia Phúc nhận mapping 05/11; Quý Phúc nhận mockup 06/11; Lãm nhận bản đã review 07/11.
+Đầu ra: reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md; assets/diagrams/uc-module-B.drawio và .svg; assets/mockups/lam-*.png
+Điều kiện CHỐT / DoD: Reviewer approve, đủ scope đã giao, drawio/SVG/mockup và mapping; rubric từ READY.  Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11 hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
+Bàn giao cho: Cả nhóm review chéo trên Docs trước 23:59 08/11; Lãm nhận Markdown/SVG trước 23:59 10/11.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-READY-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-doc-06. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",lamnguyenduc0118@gmail.com,T1,DOC;UML,2026-11-07
-T1-DOC-07,Task,[Doc] AI 2 UC Analytics P1 riêng và tổng hợp mockup,"Bắt đầu: 03/11/2026. Hạn chót task: 2026-11-07.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-doc-06. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",lamnguyenduc0118@gmail.com,T1,DOC;UML,2026-11-10
+T1-DOC-07,Task,[Doc] AI 2 UC Analytics P1 riêng và tổng hợp mockup,"Bắt đầu: 03/11/2026. Hạn chót task: 2026-11-10.
 Owner: Quý Phúc. Review: Gia Phúc.
 Nguồn đọc: reports/SRS-master.md — 4.4, 6 UC-14/15, 11.5, 12.2/12.4; FR-TK-12/US-28; PLAN_TEMPLATE1_AND_DEVELOPMENT.md — 4 mẫu chín trường, 5 sơ đồ tham khảo; reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md — file nhận đặc tả; reports/template1/05-prototype-mockup.md — ma trận màn hình.
 Điều kiện BẮT ĐẦU: Viết từ SRS được ngay; không chờ bảng FR tổng hợp hoặc UC module khác để tránh vòng chờ.
-Bước 1: Đọc 4.4, 6 UC-14/15, 11.5, 12.2/12.4; FR-TK-12/US-28; lấy UC-14/15 và UC-17 P1 riêng, FR-AI-01..10 và FR-TK-12, US-22..26,28,30, actor/BR. Gửi mapping FR/US/UC/test dự kiến vào inputs/quy-phuc.md cho Gia Phúc trước 12:00 05/11.
+Bước 1: Đọc 4.4, 6 UC-14/15, 11.5, 12.2/12.4; FR-TK-12/US-28; lấy UC-14/15 và UC-17 P1 riêng, FR-AI-01..10 và FR-TK-12, US-22..26,28,30, actor/BR. Soạn thảo trực tiếp trên Google Docs nhóm.
 Bước 2: Viết từng UC đủ chín trường theo kế hoạch Mục 4, có trigger, nhánh lỗi và hậu điều kiện; UC-14 không tạo message, UC-15 phải duyệt text rồi send; có insufficient/timeout/citation sai. UC-17 viết file 04.2-uc-17-analytics.md, thuộc Ticket P1, lấy phạm vi US-28 từ Gia Phúc.
-Bước 3: Vẽ uc-module-A.drawio + SVG giữ mã UC và tên nghiệp vụ; Tinh chỉnh, bổ sung các frames AI (A03, A05, A08, A-AIError, A-AIInsufficient, A-Replace, A-Inserted, A-AISent) và hoàn thiện mockup Analytics P1 vào UC-14, 15 và UC-17. Soạn thảo trực tiếp trên Google Docs nhóm: https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0 trước 20:00 06/11.
+Bước 3: Vẽ uc-module-A.drawio + SVG giữ mã UC và tên nghiệp vụ; Tinh chỉnh, bổ sung các frames AI (A03, A05, A08, A-AIError, A-AIInsufficient, A-Replace, A-Inserted, A-AISent) và hoàn thiện mockup Analytics P1 vào UC-14, 15 và UC-17. Soạn thảo trực tiếp trên Google Docs nhóm: https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0 trước 23:59 07/11 (Draft Freeze).
 Bước 4: Mở PR giao Gia Phúc; sửa review 07–08/11. Bàn giao file, ảnh và trạng thái còn thiếu cho Lãm; không để Quý Phúc vẽ lại màn hình của mình.
-Đầu ra: reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md và 04.2-uc-17-analytics.md; assets/diagrams/uc-module-A.drawio/.svg; assets/mockups/quy-phuc-*.png; inputs/quy-phuc.md
-Điều kiện CHỐT / DoD: Gia Phúc review UC-14/15 và UC-17 P1 riêng, đủ drawio/SVG/ảnh AI/mapping phần mình. Bản nháp20:00 06/11; bảnreview20:00 07/11; tổng hợp màn hình của cả nhóm là task T1-UI-01 riêng.
-Bàn giao cho: Gia Phúc nhận mapping 05/11; Quý Phúc nhận mockup 06/11; Lãm nhận bản đã review 07/11.
+Đầu ra: reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md và 04.2-uc-17-analytics.md; assets/diagrams/uc-module-A.drawio/.svg; assets/mockups/quy-phuc-*.png
+Điều kiện CHỐT / DoD: Gia Phúc review UC-14/15 và UC-17 P1 riêng, đủ drawio/SVG/ảnh AI/mapping phần mình. Bản nháp trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; tổng hợp màn hình của cả nhóm là task T1-UI-01 riêng.
+Bàn giao cho: Cả nhóm review chéo trên Docs trước 23:59 08/11; Lãm nhận Markdown/SVG trước 23:59 10/11.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-READY-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-doc-07. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",quyphuc0306@gmail.com,T1,DOC;UML;UI,2026-11-07
-T1-DEV-02,Task,[Code] Identity P0 và Axios auth,"Bắt đầu: 09/11/2026. Hạn chót task: 2026-11-13.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-doc-07. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",quyphuc0306@gmail.com,T1,DOC;UML;UI,2026-11-10
+T1-DOC-MD,Task,[Markdown] Chuyển đổi và nộp bản Markdown (.md) sau khi chốt Google Docs,"Bắt đầu: 09/11/2026. Hạn chót task: 2026-11-10.
+Owner: Lãm điều phối 4 thành viên. Review: Gia Phúc.
+
+Nguồn đọc: reports/SRS-master.md; PLAN_TEMPLATE1_AND_DEVELOPMENT.md; Google Docs nhóm: https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0.
+Điều kiện BẮT ĐẦU: Sau khi đóng băng bản nháp (23:59 07/11) và hoàn tất review chéo (23:59 08/11) trên Google Docs.
+
+Bước 1: 4 thành viên tiếp thu góp ý review chéo, hoàn thiện nội dung cuối cùng trên Google Docs trước 09/11.
+Bước 2: Từng thành viên chuyển đổi phần của mình sang file Markdown (.md) theo đúng cấu trúc thư mục reports/template1/: Bình (04.1, 04.2-identity), Gia Phúc (03.2.1-yeu-cau-chuc-nang, 04.2-ticket), Lãm (03.1, 03.2.2-nfr, 04.2-knowledge), Quý Phúc (01, 02, 04.2-ai, 04.2-analytics, 05-prototype).
+Bước 3: Xuất toàn bộ sơ đồ phân hệ sang file đồ họa vector .svg đặt vào reports/template1/assets/diagrams/.
+Bước 4: Mở PR commit file .md và .svg kèm mã Jira SCRUM-xx; cập nhật biên bản bàn giao tại reports/template1/inputs/<tên>.md trước 23:59 10/11/2026.
+Đầu ra: 100% các file Markdown reports/template1/*.md và sơ đồ .svg trong repo; reports/template1/inputs/{binh,gia-phuc,lam,quy-phuc}.md.
+Điều kiện CHỐT / DoD: Toàn bộ 4 module đã nộp đủ Markdown và SVG lên Git, không còn thiếu file hay link ảnh hỏng trước 23:59 10/11/2026.
+Bàn giao cho: Lãm nhận toàn bộ để ghép nối kỹ thuật ngày 11/11 và chuẩn bị render gói nộp bài.
+
+Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-PUB-01.
+
+Hướng dẫn đầy đủ: PLAN_TEMPLATE1_AND_DEVELOPMENT.md#t1-doc-md. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira.",lamnguyenduc0118@gmail.com,T1,DOC;MARKDOWN;SUBMIT,2026-11-10
+T1-DEV-02,Task,[Code] Identity P0 và Axios auth,"Bắt đầu: 11/11/2026. Hạn chót task: 2026-11-15.
 Owner: Bình. Review: Quý Phúc.
 Nguồn đọc: reports/SRS-master.md — SRS 4.1/10/11.2; reports/MVP_CONTRACTS.md —  contract 2,8; backend/README.md — cấu trúc backend; frontend/README.md — scope adapter theo owner.
-Điều kiện BẮT ĐẦU: Bắt đầu pure rules/DTO nháp/SQL/UI mock từ 09/11; không chờ cả Foundation hoặc module khác hoàn tất.
-Bước 1: 09/11 đọc SRS 4.1/10/11.2; contract 2,8; tham gia DTO nháp/schema draft trước 20:00 09/11, viết pure rules/fixture/adapter theo contract nháp, chưa cần chờ dependency Done.
+Điều kiện BẮT ĐẦU: Bắt đầu pure rules/DTO nháp/SQL/UI mock từ 11/11; không chờ cả Foundation hoặc module khác hoàn tất.
+Bước 1: 11/11 đọc SRS 4.1/10/11.2; contract 2,8; tham gia DTO nháp/schema draft trước 23:59 11/11, viết pure rules/fixture/adapter theo contract nháp, chưa cần chờ dependency Done.
 Bước 2: Register/login/refresh/logout/profile/change-password/Admin Agent và security enabled; Axios single-flight, cookie/CSRF, API DTO/adapter Auth. Không làm UC-16 P1.
 Bước 3: Nhận Foundation/contract/schema đã chốt 10/11 để compile/run với PostgreSQL; sai contract phải báo owner phía nhận và sửa fake/caller/test cùng thay đổi, không nối repo chéo module.
 Bước 4: Viết/chạy test module theo task TST tương ứng cùng từng PR; feature gate yêu cầu các test của phần đã giao đã pass, task test 21/11 chỉ để chốt regression/coverage, không trì hoãn test đến đó.
@@ -119,132 +135,132 @@ Bước 7: Bình cập nhật conceptualUser/Session, kiếntrúcidentity, dicti
 Điều kiện CHỐT / DoD: Để chạy thật cần DEV-01/CONTRACT/SCHEMA; review và test feature pass trước hạn 13/11.
 Bàn giao cho: Gia Phúc E2E; owner module nhận theo bảng handoff; test task cùng module.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-DEV-01, T1-CONTRACT-01, T1-SCHEMA-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-dev-02. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",ngovietthanhbinh2006@gmail.com,T1,DEV;AUTH,2026-11-13
-T1-DEV-03,Task,[Code] Ticket P0 concurrency và adapter UI,"Bắt đầu: 09/11/2026. Hạn chót task: 2026-11-15.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-dev-02. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",ngovietthanhbinh2006@gmail.com,T1,DEV;AUTH,2026-11-15
+T1-DEV-03,Task,[Code] Ticket P0 concurrency và adapter UI,"Bắt đầu: 11/11/2026. Hạn chót task: 2026-11-17.
 Owner: Gia Phúc. Review: Lãm; Bình quyền/transaction, Quý Phúc apply.
 Nguồn đọc: reports/SRS-master.md — SRS 4.2/5/10/11.3; reports/MVP_CONTRACTS.md —  contract 4,7,8; backend/README.md — cấu trúc backend; frontend/README.md — scope adapter theo owner.
-Điều kiện BẮT ĐẦU: Bắt đầu pure rules/DTO nháp/SQL/UI mock từ 09/11; không chờ cả Foundation hoặc module khác hoàn tất.
-Bước 1: 09/11 đọc SRS 4.2/5/10/11.3; contract 4,7,8; tham gia DTO nháp/schema draft trước 20:00 09/11, viết pure rules/fixture/adapter theo contract nháp, chưa cần chờ dependency Done.
+Điều kiện BẮT ĐẦU: Bắt đầu pure rules/DTO nháp/SQL/UI mock từ 11/11; không chờ cả Foundation hoặc module khác hoàn tất.
+Bước 1: 11/11 đọc SRS 4.2/5/10/11.3; contract 4,7,8; tham gia DTO nháp/schema draft trước 23:59 11/11, viết pure rules/fixture/adapter theo contract nháp, chưa cần chờ dependency Done.
 Bước 2: Ticket/message/events, state/claim/version và quyền; UI Customer/Ticket/WAITING_CUSTOMER, adapter bỏ URGENT P0. Cung cấp public Ticket/message port cho workflow; implementation workflow theo task T1-WF-01 riêng.
 Bước 3: Nhận Foundation/contract/schema đã chốt 10/11 để compile/run với PostgreSQL; sai contract phải báo owner phía nhận và sửa fake/caller/test cùng thay đổi, không nối repo chéo module.
 Bước 4: Viết/chạy test module theo task TST tương ứng cùng từng PR; feature gate yêu cầu các test của phần đã giao đã pass, task test 21/11 chỉ để chốt regression/coverage, không trì hoãn test đến đó.
-Bước 5: Gia Phúc bàn giao create/view thật 12/11, TicketContextProvider public-only và message/apply port v1 trước 15/11 20:00 cho Quý Phúc; workflow được giao T1-WF-01 hạn 19/11; riêng task này chốt Ticket core và ports trước 15/11.
+Bước 5: Gia Phúc bàn giao create/view thật 12/11, TicketContextProvider public-only và message/apply port v1 trước 15/11 23:59 cho Quý Phúc; workflow được giao T1-WF-01 hạn 19/11; riêng task này chốt Ticket core và ports trước 15/11.
 Bước 6: Gửi reviewer code/API samples/screenshots và command/test evidence; README có cách chạy thật. Mỗi owner tự sửa UI/API của mình, không giao lại toàn frontend cho Quý Phúc.
 Bước 7: Gia Phúc cập nhật conceptualTicket/Message/Event, kiếntrúcticket/workflow, dictionarytickets/messages/events vàUIspecTicket;5 caCreate+5 caClaim nằmTST-TK. DraftSQL/dictionary 10/11; phần thiết kế chi tiết bàn giao choDATA 18/11/UI 19/11 theo taskT2 tươngứng. Báo blocker nếu đầu vào chưa đủ; không giảm test an toàn.
 Đầu ra: backend/src/main/java/vn/edu/hcmus/helpdesk/ticket/; frontend/src/features/ticket/, frontend/src/features/customer/; DTO/adapter, SQL draft và README/PR có evidence
 Điều kiện CHỐT / DoD: Để chạy thật cần DEV-01/CONTRACT/SCHEMA; review và test feature pass trước hạn 15/11.
 Bàn giao cho: Gia Phúc E2E; owner module nhận theo bảng handoff; test task cùng module.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-DEV-01, T1-CONTRACT-01, T1-SCHEMA-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-dev-03. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",phgphuc0609@gmail.com,T1,DEV;TICKET,2026-11-15
-T1-DEV-04,Task,[Code] Knowledge ingestion retrieval và embedding port,"Bắt đầu: 09/11/2026. Hạn chót task: 2026-11-17.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-dev-03. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",phgphuc0609@gmail.com,T1,DEV;TICKET,2026-11-17
+T1-DEV-04,Task,[Code] Knowledge ingestion retrieval và embedding port,"Bắt đầu: 11/11/2026. Hạn chót task: 2026-11-19.
 Owner: Lãm. Review: Bình; Quý Phúc port embedding.
 Nguồn đọc: reports/SRS-master.md — SRS 4.3/10/11.4/12.1; reports/MVP_CONTRACTS.md —  contract 5,6,8; backend/README.md — cấu trúc backend; frontend/README.md — scope adapter theo owner.
-Điều kiện BẮT ĐẦU: Bắt đầu pure rules/DTO nháp/SQL/UI mock từ 09/11; không chờ cả Foundation hoặc module khác hoàn tất.
-Bước 1: 09/11 đọc SRS 4.3/10/11.4/12.1; contract 5,6,8; tham gia DTO nháp/schema draft trước 20:00 09/11, viết pure rules/fixture/adapter theo contract nháp, chưa cần chờ dependency Done.
+Điều kiện BẮT ĐẦU: Bắt đầu pure rules/DTO nháp/SQL/UI mock từ 11/11; không chờ cả Foundation hoặc module khác hoàn tất.
+Bước 1: 11/11 đọc SRS 4.3/10/11.4/12.1; contract 5,6,8; tham gia DTO nháp/schema draft trước 23:59 11/11, viết pure rules/fixture/adapter theo contract nháp, chưa cần chờ dependency Done.
 Bước 2: Upload PDF/TXT/MD, private storage, worker lease/attempts/backoff/stale guard, publish/archive/search và UI; sở hữu EmbeddingProvider interface/fake và Retriever.
 Bước 3: Nhận Foundation/contract/schema đã chốt 10/11 để compile/run với PostgreSQL; sai contract phải báo owner phía nhận và sửa fake/caller/test cùng thay đổi, không nối repo chéo module.
 Bước 4: Viết/chạy test module theo task TST tương ứng cùng từng PR; feature gate yêu cầu các test của phần đã giao đã pass, task test 21/11 chỉ để chốt regression/coverage, không trì hoãn test đến đó.
-Bước 5: Lãm bàn giao EmbeddingProvider/fake theo contract 10/11, retriever thật với corpus đã publish trước 17/11 23:59; cùng Quý Phúc kiểm tra nối thật trước 18/11 20:00.
+Bước 5: Lãm bàn giao EmbeddingProvider/fake theo contract 10/11, retriever thật với corpus đã publish trước 17/11 23:59; cùng Quý Phúc kiểm tra nối thật trước 23:59 18/11.
 Bước 6: Gửi reviewer code/API samples/screenshots và command/test evidence; README có cách chạy thật. Mỗi owner tự sửa UI/API của mình, không giao lại toàn frontend cho Quý Phúc.
 Bước 7: Lãm cập nhật conceptualDocument/Chunk/Job, kiếntrúcKB, dictionaryknowledge vàUIspecKB;5 caUpload nằmTST-KB. DraftSQL/dictionary 10/11; phần thiết kế chi tiết bàn giao choDATA 18/11/UI 19/11 theo taskT2 tươngứng. Báo blocker nếu đầu vào chưa đủ; không giảm test an toàn.
 Đầu ra: backend/src/main/java/vn/edu/hcmus/helpdesk/knowledge/; frontend/src/features/knowledge/; DTO/adapter, SQL draft và README/PR có evidence
 Điều kiện CHỐT / DoD: Để chạy thật cần DEV-01/CONTRACT/SCHEMA; review và test feature pass trước hạn 17/11.
 Bàn giao cho: Gia Phúc E2E; owner module nhận theo bảng handoff; test task cùng module.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-DEV-01, T1-CONTRACT-01, T1-SCHEMA-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-dev-04. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",lamnguyenduc0118@gmail.com,T1,DEV;KB,2026-11-17
-T1-DEV-05,Task,[Code] AI RAG P0 apply workflow và adapter AI UI,"Bắt đầu: 09/11/2026. Hạn chót task: 2026-11-19.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-dev-04. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",lamnguyenduc0118@gmail.com,T1,DEV;KB,2026-11-19
+T1-DEV-05,Task,[Code] AI RAG P0 apply workflow và adapter AI UI,"Bắt đầu: 11/11/2026. Hạn chót task: 2026-11-21.
 Owner: Quý Phúc. Review: Gia Phúc; Lãm nguồn/retrieval.
 Nguồn đọc: reports/SRS-master.md — SRS 4.4/10/11.5/12; reports/MVP_CONTRACTS.md —  contract 6,7,8; backend/README.md — cấu trúc backend; frontend/README.md — scope adapter theo owner.
-Điều kiện BẮT ĐẦU: Bắt đầu pure rules/DTO nháp/SQL/UI mock từ 09/11; không chờ cả Foundation hoặc module khác hoàn tất.
-Bước 1: 09/11 đọc SRS 4.4/10/11.5/12; contract 6,7,8; tham gia DTO nháp/schema draft trước 20:00 09/11, viết pure rules/fixture/adapter theo contract nháp, chưa cần chờ dependency Done.
+Điều kiện BẮT ĐẦU: Bắt đầu pure rules/DTO nháp/SQL/UI mock từ 11/11; không chờ cả Foundation hoặc module khác hoàn tất.
+Bước 1: 11/11 đọc SRS 4.4/10/11.5/12; contract 6,7,8; tham gia DTO nháp/schema draft trước 23:59 11/11, viết pure rules/fixture/adapter theo contract nháp, chưa cần chờ dependency Done.
 Bước 2: Adapter embedding live dùng chung, RAG/citation/abstention/FAILED/timeout/history/discard/suggestion port, AI panel và sourceId. Không Analytics P1; không embed query lần hai.
 Bước 3: Nhận Foundation/contract/schema đã chốt 10/11 để compile/run với PostgreSQL; sai contract phải báo owner phía nhận và sửa fake/caller/test cùng thay đổi, không nối repo chéo module.
 Bước 4: Viết/chạy test module theo task TST tương ứng cùng từng PR; feature gate yêu cầu các test của phần đã giao đã pass, task test 21/11 chỉ để chốt regression/coverage, không trì hoãn test đến đó.
-Bước 5: Quý Phúc nhận Ticket context/port 15/11 và Retriever thật 17/11; xác nhận integration thật với Lãm/Gia Phúc trước 18/11 20:00, chạy live smoke và hoàn thiện AI 19/11; workflow do Gia Phúc làm riêng T1-WF-01.
+Bước 5: Quý Phúc nhận Ticket context/port 15/11 và Retriever thật 17/11; xác nhận integration thật với Lãm/Gia Phúc trước 23:59 18/11, chạy live smoke và hoàn thiện AI 19/11; workflow do Gia Phúc làm riêng T1-WF-01.
 Bước 6: Gửi reviewer code/API samples/screenshots và command/test evidence; README có cách chạy thật. Mỗi owner tự sửa UI/API của mình, không giao lại toàn frontend cho Quý Phúc.
 Bước 7: Quý Phúc cập nhật conceptualSuggestion/Source, kiếntrúcAI, dictionarysuggestions/sources vàUIspecAI;5 caGenerate nằmTST-AI. DraftSQL/dictionary 10/11; phần thiết kế chi tiết bàn giao choDATA 18/11/UI 19/11 theo taskT2 tươngứng. Báo blocker nếu đầu vào chưa đủ; không giảm test an toàn.
 Đầu ra: backend/src/main/java/vn/edu/hcmus/helpdesk/ai/; frontend/src/features/ticket/components/AISuggestionCard.tsx và CitationModal.tsx; DTO/adapter, SQL draft và README/PR có evidence
-Điều kiện CHỐT / DoD: Để chạy thật cần DEV-01/CONTRACT/SCHEMA và EMBED, TicketContext/Retriever thật; suggestion port bàn giao workflow trước 18/11 20:00, UI/fault/live smoke và review xong 19/11. Workflow có gate riêng T1-WF-01, không chờ hai task Done rồi mới bàn giao port.
+Điều kiện CHỐT / DoD: Để chạy thật cần DEV-01/CONTRACT/SCHEMA và EMBED, TicketContext/Retriever thật; suggestion port bàn giao workflow trước 23:59 18/11, UI/fault/live smoke và review xong 19/11. Workflow có gate riêng T1-WF-01, không chờ hai task Done rồi mới bàn giao port.
 Bàn giao cho: Gia Phúc E2E; owner module nhận theo bảng handoff; test task cùng module.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-DEV-01, T1-CONTRACT-01, T1-SCHEMA-01, T1-DEV-03, T1-DEV-04, T1-EMBED-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-dev-05. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",quyphuc0306@gmail.com,T1,DEV;AI;UI,2026-11-19
-T1-TST-01,Task,[QA coordination] Tổng hợp kết quả bốn task test,"Bắt đầu: 09/11/2026. Hạn chót task: 2026-11-21.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-dev-05. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",quyphuc0306@gmail.com,T1,DEV;AI;UI,2026-11-21
+T1-TST-01,Task,[QA coordination] Tổng hợp kết quả bốn task test,"Bắt đầu: 11/11/2026. Hạn chót task: 2026-11-23.
 Owner: Gia Phúc. Review: Lãm.
 Nguồn đọc: reports/SRS-master.md — 14.2/14.3; reports/05-test-plan.md — test owners; reports/06-test-results.md — kết quả và trạng thái.
 Điều kiện BẮT ĐẦU: Bắt đầu lập matrix 09/11.
 Bước 1: Gia Phúc tạo ma trận mã test → owner → PR → command/mode → kết quả; nhận cases từ bốn owner từ 09/11, không đợi task test Done.
 Bước 2: Thu bằng chứng tại từng gate module và cập nhật FAIL/NOT RUN; không ghi PASS nếu chỉ thấy CI build xanh hoặc reviewer tick checklist.
-Bước 3: 20:00 21/11 đối soát bốn task test và lỗi P0; bàn giao tổng hợp cho E2E/QA. Task này chỉ điều phối, không viết thay test.
+Bước 3: 23:59 21/11 đối soát bốn task test và lỗi P0; bàn giao tổng hợp cho E2E/QA. Task này chỉ điều phối, không viết thay test.
 Đầu ra: reports/06-test-results.md và link artifact từng suite
 Điều kiện CHỐT / DoD: Bốn task test đã có kết quả đủ scope; các lỗi chặn được sửa hoặc báo rõ chưa đạt, không đóng Done giả.
 Bàn giao cho: Gia Phúc INT; Lãm chuẩn bị Template 3.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-TST-ID, T1-TST-TK, T1-TST-KB, T1-TST-AI.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-tst-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",phgphuc0609@gmail.com,T1,TEST;QA,2026-11-21
-T1-INT-01,Task,[Integration] E2E tăng dần và nghiệm thu MVP P0,"Bắt đầu: 12/11/2026. Hạn chót task: 2026-11-22.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-tst-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",phgphuc0609@gmail.com,T1,TEST;QA,2026-11-23
+T1-INT-01,Task,[Integration] E2E tăng dần và nghiệm thu MVP P0,"Bắt đầu: 12/11/2026. Hạn chót task: 2026-11-24.
 Owner: Gia Phúc. Review: Bình; Lãm dự phòng.
 Nguồn đọc: reports/SRS-master.md — 13.2, 14.3; reports/MVP_CONTRACTS.md — 9; reports/06-test-results.md — evidence.
 Điều kiện BẮT ĐẦU: Chỉ chờ lát cắt principal+ticket từ Bình/Gia Phúc ngày12; AI fake trong các lát cắt đầu.
 Bước 1: 12/11 nối principal/auth thật với create/view ticket tối thiểu; không chờ tất cả DEV/TST/OPS Done mới bắt đầu. Ghi JSON/API trace và người đang chặn.
 Bước 2: 15/11 chạy Ticket E2E không AI; 18/11 cùng Lãm/Quý Phúc nối corpus/retrieval thật; 19/11 chạy review/edit/send/discard thật.
-Bước 3: 20–22/11 chạy đủ demo SRS13.2, quyền hiện tại, AI timeout/Ticket còn dùng, races/rollback và clean environment; tạo bug cho đúng owner, tránh giao Gia Phúc sửa thay module.
-Bước 4: Tổng hợp test và OPS trước 20:00 22/11, reviewer xác nhận MVP ready hoặc liệt kê P0 chưa đạt; bàn giao bản cố định cho QA 23/11.
+Bước 3: 20–24/11 chạy đủ demo SRS13.2, quyền hiện tại, AI timeout/Ticket còn dùng, races/rollback và clean environment; tạo bug cho đúng owner, tránh giao Gia Phúc sửa thay module.
+Bước 4: Tổng hợp test và OPS trước 23:59 24/11, reviewer xác nhận MVP ready hoặc liệt kê P0 chưa đạt; bàn giao bản cố định cho QA 23/11.
 Đầu ra: Kịch bản E2E, API traces/screenshots/test artifact và phiên bản demo trong reports/06-test-results.md
 Điều kiện CHỐT / DoD: Toàn bộ DEV, TST-01 và OPS đã có evidence; đây là gate chốt cuối, không phải dependency để bắt đầu INT.
 Bàn giao cho: Cả nhóm QA; Bình nắm P0 chưa đạt.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-DEV-02, T1-DEV-03, T1-DEV-04, T1-DEV-05, T1-TST-01, T1-OPS-01, T1-WF-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-int-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",phgphuc0609@gmail.com,T1,INTEGRATION;REVIEW,2026-11-22
-T1-PUB-01,Task,[Release] Review render và đóng gói Template 1,"Bắt đầu: 04/11/2026. Hạn chót task: 2026-11-08.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-int-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",phgphuc0609@gmail.com,T1,INTEGRATION;REVIEW,2026-11-24
+T1-PUB-01,Task,[Release] Review render và đóng gói Template 1,"Bắt đầu: 04/11/2026. Hạn chót task: 2026-11-12.
 Owner: Lãm. Review: Gia Phúc.
 Nguồn đọc: reports/SRS-master.md — A.2, 19; scripts/render_reports.py — render_file; script hiện có không tự ghép Template 1; scripts/package_submission.py — đọc giới hạn; không chạy toàn repo để nộp Template 1; reports/template1/06-ai-usage.md — AI log tổng hợp.
 Điều kiện BẮT ĐẦU: Thử render 04/11 không chờ DOC; ghép nháp từng phần khi có.
 Bước 1: 04/11 Lãm thử một UC/bảng dài/SVG mẫu bằng pipeline có sẵn, ghi command/thao tác và lỗi; không đợi toàn bộ DOC xong. Gia Phúc thử lại cách làm để dự phòng.
-Bước 2: Nhận T1-DOC-01..T1-DOC-07 đã review trước 20:00 07/11; ghép theo thứ tự bìa/1/2/3/4/5/6, rewrite/copy assets theo vị trí đầu ra; chỉ lấy phần Template 1 và log liên quan, không đóng toàn repo.
+Bước 2: Nhận T1-DOC-01..T1-DOC-07 đã review trước 23:59 10/11; ghép theo thứ tự bìa/1/2/3/4/5/6, rewrite/copy assets theo vị trí đầu ra; chỉ lấy phần Template 1 và log liên quan, không đóng toàn repo.
 Bước 3: Xuất HTML/PDF, xem từng trang, rà placeholder/link/Figma/quyền xem và giới hạn file theo rubric thật; tổng hợp contribution/chữ ký/AI log từ đúng tác giả.
-Bước 4: Giải nén gói sang thư mục khác, Gia Phúc kiểm tra độc lập; ghi manifest/checklist và bàn giao gói cố định cùng kết quả trước 20:00 08/11 cho Bình. Nếu script chưa hỗ trợ ghép thì owner ghi quy trình ghép/render cụ thể đã dùng; không tuyên bố có lệnh tự động chưa tồn tại.
+Bước 4: Giải nén gói sang thư mục khác, Gia Phúc kiểm tra độc lập; ghi manifest/checklist và bàn giao gói cố định cùng kết quả trước 23:59 12/11 cho Bình. Nếu script chưa hỗ trợ ghép thì owner ghi quy trình ghép/render cụ thể đã dùng; không tuyên bố có lệnh tự động chưa tồn tại.
 Đầu ra: reports/template1/release/ (gói theo tên READY xác nhận, master, assets, manifest và biên bản review)
 Điều kiện CHỐT / DoD: Cần các sản phẩm DOC-01..07, nguồn READY và xác nhận tác giả; Gia Phúc kiểm tra gói, tất cả lỗi chặn bài nộp đã xử lý.
 Bàn giao cho: Bình nhận để nộp; Gia Phúc có cùng hướng dẫn/gói để dự phòng.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-DOC-01, T1-DOC-02, T1-DOC-03, T1-DOC-04, T1-DOC-05, T1-DOC-06, T1-DOC-07, T1-READY-01, T1-UI-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-pub-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",lamnguyenduc0118@gmail.com,T1,DOC;RELEASE,2026-11-08
-T1-CONTRACT-01,Task,[Contract] DTO ports OpenAPI và mẫu lỗi,"Bắt đầu: 09/11/2026. Hạn chót task: 2026-11-10.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-pub-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",lamnguyenduc0118@gmail.com,T1,DOC;RELEASE,2026-11-12
+T1-CONTRACT-01,Task,[Contract] DTO ports OpenAPI và mẫu lỗi,"Bắt đầu: 11/11/2026. Hạn chót task: 2026-11-12.
 Owner: Gia Phúc. Review: Bình và các owner phía nhận.
 Nguồn đọc: reports/SRS-master.md — 9.4, 11, 16.2; reports/MVP_CONTRACTS.md — 1, 2, 6–8; frontend/src/types/index.ts — view model cũ, không phải chuẩn API.
-Điều kiện BẮT ĐẦU: Đọc MVP_CONTRACTS được ngay 09/11; không chờ Foundation hoàn chỉnh để viết JSON/interface.
+Điều kiện BẮT ĐẦU: Đọc MVP_CONTRACTS được ngay 11/11; không chờ Foundation hoàn chỉnh để viết JSON/interface.
 Bước 1: Gia Phúc tạo docs/contracts/openapi.yaml và mẫu JSON success/empty/error; mỗi owner viết endpoint/DTO phần mình, không để Gia Phúc đoán nghiệp vụ module khác.
-Bước 2: Chốt public ports Actor/TicketContext/RetrievedChunk/EmbeddingProvider và workflow Apply/Discard; deadline 09/11 20:00 cho DTO/enum/error nháp để cả nhóm dùng fake.
-Bước 3: 10/11 đối soát naming/nullability/score/visibility và quyền, lưu fake fixtures và test contract; interface chia ownership: Bình Actor, Gia Phúc Ticket/workflow, Lãm Retriever/Embedding, Quý Phúc Suggestion/live adapter.
-Bước 4: Bàn giao v1 đã review trước 20:00 10/11; thay contract sau đó phải sửa caller/fake/test cùng PR. Chốt ports không cần chờ service thật.
+Bước 2: Chốt public ports Actor/TicketContext/RetrievedChunk/EmbeddingProvider và workflow Apply/Discard; deadline 23:59 11/11 cho DTO/enum/error nháp để cả nhóm dùng fake.
+Bước 3: 12/11 đối soát naming/nullability/score/visibility và quyền, lưu fake fixtures và test contract; interface chia ownership: Bình Actor, Gia Phúc Ticket/workflow, Lãm Retriever/Embedding, Quý Phúc Suggestion/live adapter.
+Bước 4: Bàn giao v1 đã review trước 23:59 12/11; thay contract sau đó phải sửa caller/fake/test cùng PR. Chốt ports không cần chờ service thật.
 Đầu ra: docs/contracts/openapi.yaml, docs/contracts/examples/*.json, boundary interfaces/fakes theo module và workflow
 Điều kiện CHỐT / DoD: Cần từng owner review phần nhận; compile interfaces khi scaffold DEV-01 có, không chờ code module hoàn thành.
 Bàn giao cho: Bốn owner, frontend và các test task.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-DEV-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-contract-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",phgphuc0609@gmail.com,T1,DEV;CONTRACT,2026-11-10
-T1-CI-01,Task,[CI] Build PostgreSQL tests và frontend build,"Bắt đầu: 09/11/2026. Hạn chót task: 2026-11-10.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-contract-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",phgphuc0609@gmail.com,T1,DEV;CONTRACT,2026-11-12
+T1-CI-01,Task,[CI] Build PostgreSQL tests và frontend build,"Bắt đầu: 11/11/2026. Hạn chót task: 2026-11-12.
 Owner: Quý Phúc. Review: Bình.
 Nguồn đọc: reports/SRS-master.md — 15.2; frontend/package.json — script thật; .github/workflows/docs-check.yml — CI tài liệu hiện có; backend/README.md — command được cập nhật bởi Bình.
-Điều kiện BẮT ĐẦU: Soạn workflow ngay 09/11; không chờ mọi module.
-Bước 1: 09/11 Quý Phúc soạn workflow build Java21/Maven và npm ci + npm run build từ scripts thật; chưa có lint/test frontend thì ghi chưa có, không gọi lệnh giả.
+Điều kiện BẮT ĐẦU: Soạn workflow ngay 11/11; không chờ mọi module.
+Bước 1: 11/11 Quý Phúc soạn workflow build Java21/Maven và npm ci + npm run build từ scripts thật; chưa có lint/test frontend thì ghi chưa có, không gọi lệnh giả.
 Bước 2: Nhận pom/wrapper từ Bình và DB/schema từ Lãm; chạy backend unit/integration bằng PostgreSQL/pgvector thật, truyền secrets qua CI secret store khi cần, fake provider mặc định.
-Bước 3: Ghi kết quả/check name trên PR và command chạy local; 10/11 CI có thể chỉ chạy test nền, mỗi owner thêm suite khi code vào. Chốt infra CI không đòi toàn bộ test feature đã pass trước khi feature được viết.
+Bước 3: Ghi kết quả/check name trên PR và command chạy local; 12/11 CI có thể chỉ chạy test nền, mỗi owner thêm suite khi code vào. Chốt infra CI không đòi toàn bộ test feature đã pass trước khi feature được viết.
 Đầu ra: .github/workflows/backend-ci.yml, frontend-ci.yml hoặc workflow tương đương; log/check links
 Điều kiện CHỐT / DoD: Cần scaffold DEV-01, schema T1-SCHEMA-01 để smoke DB; không chờ test module đầy đủ 21/11.
 Bàn giao cho: Mọi PR code/test và Gia Phúc điều phối regression.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-DEV-01, T1-SCHEMA-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-ci-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",quyphuc0306@gmail.com,T1,DEV;CI,2026-11-10
-T1-SCHEMA-01,Task,[Schema] Phối hợp baseline V1-V5 và migration gates,"Bắt đầu: 09/11/2026. Hạn chót task: 2026-11-10.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-ci-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",quyphuc0306@gmail.com,T1,DEV;CI,2026-11-12
+T1-SCHEMA-01,Task,[Schema] Phối hợp baseline V1-V5 và migration gates,"Bắt đầu: 11/11/2026. Hạn chót task: 2026-11-12.
 Owner: Lãm. Review: Bình + Gia Phúc.
 Nguồn đọc: reports/SRS-master.md — 10 toàn bộ schema; reports/MVP_CONTRACTS.md — 3–5, 7.
-Điều kiện BẮT ĐẦU: Draft SQL được làm ngay 09/11 từ SRS; V1/V2 không cần chờ model.
-Bước 1: Lãm mở PR schema phối hợp; Bình viết V1, Gia Phúc V2, Lãm V3, Quý Phúc V4; Gia Phúc + Quý Phúc viết FK V5, Lãm gom/check dependency. Các draft SQL phải bàn giao 09/11 20:00, thuộc task code từng owner.
+Điều kiện BẮT ĐẦU: Draft SQL được làm ngay 11/11 từ SRS; V1/V2 không cần chờ model.
+Bước 1: Lãm mở PR schema phối hợp; Bình viết V1, Gia Phúc V2, Lãm V3, Quý Phúc V4; Gia Phúc + Quý Phúc viết FK V5, Lãm gom/check dependency. Các draft SQL phải bàn giao 23:59 11/11, thuộc task code từng owner.
 Bước 2: Theo tên cột/enum SRS; thêm constraints lease/job/chunk/apply và extension vector trước cột; V2 cột nullable, V5 FK sau V4.
-Bước 3: Nhận quyết định EMBED trước 12:00 10/11 rồi chạy full V1–V5 trên DB sạch; migration mới về sau kiểm tra upgrade. Chưa có decision thì chỉ draft V3, không áp dụng giá trị đoán.
-Bước 4: Gửi reviewer log migration/validate, chốt baseline trước 20:00 10/11; sau áp dụng chung chỉ version mới, không sửa checksum/repair để che lỗi.
+Bước 3: Nhận quyết định EMBED trước 23:59 12/11 rồi chạy full V1–V5 trên DB sạch; migration mới về sau kiểm tra upgrade. Chưa có decision thì chỉ draft V3, không áp dụng giá trị đoán.
+Bước 4: Gửi reviewer log migration/validate, chốt baseline trước 23:59 12/11; sau áp dụng chung chỉ version mới, không sửa checksum/repair để che lỗi.
 Đầu ra: backend/src/main/resources/db/migration/V1..V5 và kết quả migrate/validate, schema naming đối chiếu SRS
 Điều kiện CHỐT / DoD: Chờ scaffold/DB DEV-01 và decision EMBED để áp dụng đủ; chờ SQL từng owner, không chờ service/business code.
 Bàn giao cho: Tất cả owner cài repository; Quý Phúc dùng trong CI.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-DEV-01, T1-EMBED-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-schema-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",lamnguyenduc0118@gmail.com,T1,DEV;DB,2026-11-10
-T1-TST-ID,Task,[Test] Identity security và session,"Bắt đầu: 09/11/2026. Hạn chót task: 2026-11-21.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-schema-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",lamnguyenduc0118@gmail.com,T1,DEV;DB,2026-11-12
+T1-TST-ID,Task,[Test] Identity security và session,"Bắt đầu: 11/11/2026. Hạn chót task: 2026-11-23.
 Owner: Bình. Review: Quý Phúc.
 Nguồn đọc: reports/SRS-master.md — 14.2, 8 và 12.4; reports/MVP_CONTRACTS.md — 2,9; reports/05-test-plan.md — phân công và nguyên tắc.
 Điều kiện BẮT ĐẦU: Đọc spec, viết cases/fake được ngay 09/11; test từng feature khi code vào.
@@ -252,13 +268,13 @@ Bước 1: 09/11 lập test cases/fixtures theo TC-ID-01..06, enabled access, re
 Bước 2: Đặc tả5 caLogin theo TEST_CASE_CATALOG và formTemplate 3; giao Gia PhúcT3-CASE trước 14/11, actual/resultsau khi feature chạy. Không giao trùng phần viết ca vớiT3-CASE điều phối.
 Bước 3: Thêm test vào từng PR feature khi có endpoint/service; concurrency dùng PostgreSQL/pgvector thật với connection/transaction riêng và barrier, không dùng H2/mock để chứng minh lock.
 Bước 4: Chạy suite khi feature được bàn giao tại gate module; test fail thì owner sửa code trong DEV tương ứng, mở bug nếu liên module. TST-AI phối hợp Gia Phúc phần workflow và Lãm nhãn nguồn.
-Bước 5: Tới 20:00 21/11 chốt regression trọng yếu, ghi command/commit/mode/dataset/actual/expected và PASS/FAIL/NOT RUN vào báo cáo 06-test-results; bàn giao Gia Phúc tổng hợp.
+Bước 5: Tới 23:59 21/11 chốt regression trọng yếu, ghi command/commit/mode/dataset/actual/expected và PASS/FAIL/NOT RUN vào báo cáo 06-test-results; bàn giao Gia Phúc tổng hợp.
 Đầu ra: backend/src/test/... và fixtures, evidence trong reports/06-test-results.md hoặc artifact có link
 Điều kiện CHỐT / DoD: Cần implementation tương ứng để chạy thật, cùng contract/schema/CI; feature tests pass tại gate module, regression đóng trước 21/11.
 Bàn giao cho: Gia Phúc TST-01/INT; mỗi owner sửa lỗi phần mình.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-DEV-02, T1-CI-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-tst-id. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",ngovietthanhbinh2006@gmail.com,T1,TEST;IDENTITY,2026-11-21
-T1-TST-TK,Task,[Test] Ticket concurrency và rollback,"Bắt đầu: 09/11/2026. Hạn chót task: 2026-11-21.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-tst-id. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",ngovietthanhbinh2006@gmail.com,T1,TEST;IDENTITY,2026-11-23
+T1-TST-TK,Task,[Test] Ticket concurrency và rollback,"Bắt đầu: 11/11/2026. Hạn chót task: 2026-11-23.
 Owner: Gia Phúc. Review: Lãm.
 Nguồn đọc: reports/SRS-master.md — 14.2, 8 và 12.4; reports/MVP_CONTRACTS.md — 4,9; reports/05-test-plan.md — phân công và nguyên tắc.
 Điều kiện BẮT ĐẦU: Đọc spec, viết cases/fake được ngay 09/11; test từng feature khi code vào.
@@ -266,13 +282,13 @@ Bước 1: 09/11 lập test cases/fixtures theo TC-TK-01..08, TC-CON-01/02, even
 Bước 2: Đặc tả5 caCreateTicket+5 caClaim theo TEST_CASE_CATALOG và formTemplate 3; giao Gia PhúcT3-CASE trước 14/11, actual/resultsau khi feature chạy. Không giao trùng phần viết ca vớiT3-CASE điều phối.
 Bước 3: Thêm test vào từng PR feature khi có endpoint/service; concurrency dùng PostgreSQL/pgvector thật với connection/transaction riêng và barrier, không dùng H2/mock để chứng minh lock.
 Bước 4: Chạy suite khi feature được bàn giao tại gate module; test fail thì owner sửa code trong DEV tương ứng, mở bug nếu liên module. TST-AI phối hợp Gia Phúc phần workflow và Lãm nhãn nguồn.
-Bước 5: Tới 20:00 21/11 chốt regression trọng yếu, ghi command/commit/mode/dataset/actual/expected và PASS/FAIL/NOT RUN vào báo cáo 06-test-results; bàn giao Gia Phúc tổng hợp.
+Bước 5: Tới 23:59 21/11 chốt regression trọng yếu, ghi command/commit/mode/dataset/actual/expected và PASS/FAIL/NOT RUN vào báo cáo 06-test-results; bàn giao Gia Phúc tổng hợp.
 Đầu ra: backend/src/test/... và fixtures, evidence trong reports/06-test-results.md hoặc artifact có link
 Điều kiện CHỐT / DoD: Cần implementation tương ứng để chạy thật, cùng contract/schema/CI; feature tests pass tại gate module, regression đóng trước 21/11.
 Bàn giao cho: Gia Phúc TST-01/INT; mỗi owner sửa lỗi phần mình.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-DEV-03, T1-CI-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-tst-tk. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",phgphuc0609@gmail.com,T1,TEST;TICKET,2026-11-21
-T1-TST-KB,Task,[Test] Worker lease retrieval và file security,"Bắt đầu: 09/11/2026. Hạn chót task: 2026-11-21.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-tst-tk. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",phgphuc0609@gmail.com,T1,TEST;TICKET,2026-11-23
+T1-TST-KB,Task,[Test] Worker lease retrieval và file security,"Bắt đầu: 11/11/2026. Hạn chót task: 2026-11-23.
 Owner: Lãm. Review: Bình.
 Nguồn đọc: reports/SRS-master.md — 14.2, 8 và 12.4; reports/MVP_CONTRACTS.md — 5,6,9; reports/05-test-plan.md — phân công và nguyên tắc.
 Điều kiện BẮT ĐẦU: Đọc spec, viết cases/fake được ngay 09/11; test từng feature khi code vào.
@@ -280,13 +296,13 @@ Bước 1: 09/11 lập test cases/fixtures theo TC-KB-01..07, crash/lease cũ/h�
 Bước 2: Đặc tả5 caUpload theo TEST_CASE_CATALOG và formTemplate 3; giao Gia PhúcT3-CASE trước 14/11, actual/resultsau khi feature chạy. Không giao trùng phần viết ca vớiT3-CASE điều phối.
 Bước 3: Thêm test vào từng PR feature khi có endpoint/service; concurrency dùng PostgreSQL/pgvector thật với connection/transaction riêng và barrier, không dùng H2/mock để chứng minh lock.
 Bước 4: Chạy suite khi feature được bàn giao tại gate module; test fail thì owner sửa code trong DEV tương ứng, mở bug nếu liên module. TST-AI phối hợp Gia Phúc phần workflow và Lãm nhãn nguồn.
-Bước 5: Tới 20:00 21/11 chốt regression trọng yếu, ghi command/commit/mode/dataset/actual/expected và PASS/FAIL/NOT RUN vào báo cáo 06-test-results; bàn giao Gia Phúc tổng hợp.
+Bước 5: Tới 23:59 21/11 chốt regression trọng yếu, ghi command/commit/mode/dataset/actual/expected và PASS/FAIL/NOT RUN vào báo cáo 06-test-results; bàn giao Gia Phúc tổng hợp.
 Đầu ra: backend/src/test/... và fixtures, evidence trong reports/06-test-results.md hoặc artifact có link
 Điều kiện CHỐT / DoD: Cần implementation tương ứng để chạy thật, cùng contract/schema/CI; feature tests pass tại gate module, regression đóng trước 21/11.
 Bàn giao cho: Gia Phúc TST-01/INT; mỗi owner sửa lỗi phần mình.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-DEV-04, T1-CI-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-tst-kb. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",lamnguyenduc0118@gmail.com,T1,TEST;KNOWLEDGE,2026-11-21
-T1-TST-AI,Task,[Test] RAG contract và send suggestion races,"Bắt đầu: 09/11/2026. Hạn chót task: 2026-11-21.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-tst-kb. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",lamnguyenduc0118@gmail.com,T1,TEST;KNOWLEDGE,2026-11-23
+T1-TST-AI,Task,[Test] RAG contract và send suggestion races,"Bắt đầu: 11/11/2026. Hạn chót task: 2026-11-23.
 Owner: Quý Phúc. Review: Gia Phúc; Bình quyền.
 Nguồn đọc: reports/SRS-master.md — 14.2, 8 và 12.4; reports/MVP_CONTRACTS.md — 7,9; reports/05-test-plan.md — phân công và nguyên tắc.
 Điều kiện BẮT ĐẦU: Đọc spec, viết cases/fake được ngay 09/11; test từng feature khi code vào.
@@ -294,25 +310,25 @@ Bước 1: 09/11 lập test cases/fixtures theo TC-AI-01..07, TC-WF-01..04, same
 Bước 2: Đặc tả5 caGenerateSuggestion theo TEST_CASE_CATALOG và formTemplate 3; giao Gia PhúcT3-CASE trước 14/11, actual/resultsau khi feature chạy. Không giao trùng phần viết ca vớiT3-CASE điều phối.
 Bước 3: Thêm test vào từng PR feature khi có endpoint/service; concurrency dùng PostgreSQL/pgvector thật với connection/transaction riêng và barrier, không dùng H2/mock để chứng minh lock.
 Bước 4: Chạy suite khi feature được bàn giao tại gate module; test fail thì owner sửa code trong DEV tương ứng, mở bug nếu liên module. TST-AI phối hợp Gia Phúc phần workflow và Lãm nhãn nguồn.
-Bước 5: Tới 20:00 21/11 chốt regression trọng yếu, ghi command/commit/mode/dataset/actual/expected và PASS/FAIL/NOT RUN vào báo cáo 06-test-results; bàn giao Gia Phúc tổng hợp.
+Bước 5: Tới 23:59 21/11 chốt regression trọng yếu, ghi command/commit/mode/dataset/actual/expected và PASS/FAIL/NOT RUN vào báo cáo 06-test-results; bàn giao Gia Phúc tổng hợp.
 Đầu ra: backend/src/test/... và fixtures, evidence trong reports/06-test-results.md hoặc artifact có link
 Điều kiện CHỐT / DoD: Cần implementation tương ứng để chạy thật, cùng contract/schema/CI; feature tests pass tại gate module, regression đóng trước 21/11.
 Bàn giao cho: Gia Phúc TST-01/INT; mỗi owner sửa lỗi phần mình.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-DEV-05, T1-CI-01, T1-WF-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-tst-ai. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",quyphuc0306@gmail.com,T1,TEST;AI,2026-11-21
-T1-OPS-01,Task,[Ops] Clean environment và migration smoke,"Bắt đầu: 20/11/2026. Hạn chót task: 2026-11-22.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-tst-ai. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",quyphuc0306@gmail.com,T1,TEST;AI,2026-11-23
+T1-OPS-01,Task,[Ops] Clean environment và migration smoke,"Bắt đầu: 20/11/2026. Hạn chót task: 2026-11-24.
 Owner: Lãm. Review: Gia Phúc.
 Nguồn đọc: reports/SRS-master.md — 15.3, NFR-DEPLOY-01; reports/MVP_CONTRACTS.md — 3,5,9; backend/README.md — lệnh chạy thực tế phải được owner cập nhật; frontend/README.md — scripts thật.
 Điều kiện BẮT ĐẦU: 20/11 dùng phần đã tích hợp; không chờ INT đóng.
 Bước 1: Lãm chọn máy/thư mục sạch, lấy phiên bản demo và .env.example; mỗi owner cung cấp lệnh/seed/config của module. Không dùng secrets thật trong artifact.
 Bước 2: 20/11 có thể chạy từng phần, kiểm tra compose up/migrate seed và README; missing command thì trả ngay cho owner, không tự đoán lệnh rồi đánh pass.
 Bước 3: Kiểm tra volume/private upload sau restart, migration fresh/upgrade khi có migration mới, provider timeout không làm Ticket lỗi; Gia Phúc chạy lại phần smoke.
-Bước 4: Ghi OS/version/commit/commands/actual/expected, gửi INT trước 18:00 22/11 để còn thời gian nghiệm thu 20:00.
+Bước 4: Ghi OS/version/commit/commands/actual/expected, gửi INT trước 23:59 24/11 để nghiệm thu MVP P0.
 Đầu ra: README các module được chạy lại và log TC-OPS-01 trong reports/06-test-results.md
 Điều kiện CHỐT / DoD: DEV-01/02/03/04/05, CI/schema và README đủ chạy; không depends INT để tránh vòng chờ.
-Bàn giao cho: Gia Phúc INT trước 18:00 22/11.
+Bàn giao cho: Gia Phúc INT trước 23:59 24/11.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-DEV-01, T1-DEV-02, T1-DEV-03, T1-DEV-04, T1-DEV-05, T1-CI-01, T1-SCHEMA-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-ops-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",lamnguyenduc0118@gmail.com,T1,TEST;OPS,2026-11-22
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-ops-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",lamnguyenduc0118@gmail.com,T1,TEST;OPS,2026-11-24
 T1-READY-01,Task,[Ready] Rubric và quyền truy cập,"Bắt đầu: 03/11/2026. Hạn chót task: 2026-11-04.
 Owner: Bình. Review: Lãm.
 Nguồn đọc: reports/SRS-master.md — A.2, 19, 20, J.2; PLAN_TEMPLATE1_AND_DEVELOPMENT.md — 2–4.
@@ -325,117 +341,117 @@ Bước 3: Bàn giao cấu trúc Docs/Figma, tên file gói nộp và nguyên t�
 Bàn giao cho: Cả nhóm để viết đúng mẫu; Lãm để đóng gói.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): theo input từng mốc nêu trên, không có task prerequisite toàn phần.
 Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-ready-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",ngovietthanhbinh2006@gmail.com,T1,DOC;READY,2026-11-04
-T1-EMBED-01,Task,[Decision] Chốt embedding model dimension và corpus,"Bắt đầu: 09/11/2026. Hạn chót task: 2026-11-10.
+T1-EMBED-01,Task,[Decision] Chốt embedding model dimension và corpus,"Bắt đầu: 11/11/2026. Hạn chót task: 2026-11-12.
 Owner: Lãm. Review: Quý Phúc; Bình review cấu hình.
 Nguồn đọc: reports/SRS-master.md — 10.1, 12.1/12.4, DEC-06; reports/MVP_CONTRACTS.md — 3, 6.
-Điều kiện BẮT ĐẦU: 09/11 có cấu hình provider; có thể đọc tài liệu/chốt model trước khi DB xong.
+Điều kiện BẮT ĐẦU: 11/11 có cấu hình provider; có thể đọc tài liệu/chốt model trước khi DB xong.
 Bước 1: Lãm cùng Quý Phúc chọn model/API và dimension thực dùng; kiểm tra quyền gọi/quota/khóa bằng môi trường kín, không đưa token vào log.
 Bước 2: Lấy embedding mẫu query/document, kiểm tra finite/nonzero/dimension và thử pgvector; ghi model, dimension, namespace/mode, cách tái tạo và giới hạn test.
-Bước 3: Chốt quyết định trước 12:00 10/11, cập nhật DEC-06 và ghi kết quả thật. Nếu chưa gọi live được thì ghi blocker; fake kiểm tra plumbing không được coi đã xác minh chất lượng/model live.
+Bước 3: Chốt quyết định trước 23:59 12/11, cập nhật DEC-06 và ghi kết quả thật. Nếu chưa gọi live được thì ghi blocker; fake kiểm tra plumbing không được coi đã xác minh chất lượng/model live.
 Đầu ra: docs/contracts/embedding-decision.md và cập nhật DEC-06; mẫu vector an toàn/kết quả smoke, không secrets
 Điều kiện CHỐT / DoD: Quý Phúc xác nhận cùng model/dimension dùng cả query/document; schema chỉ áp dụng V3 sau decision đã chốt.
 Bàn giao cho: Lãm schema/KB; Quý Phúc live adapter/AI.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): theo input từng mốc nêu trên, không có task prerequisite toàn phần.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-embed-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",lamnguyenduc0118@gmail.com,T1,DEV;DECISION,2026-11-10
-T1-SUBMIT-01,Task,[Submit] Nộp Template 1 và lưu biên nhận,"Bắt đầu: 08/11/2026. Hạn chót task: 2026-11-08.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-embed-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",lamnguyenduc0118@gmail.com,T1,DEV;DECISION,2026-11-12
+T1-SUBMIT-01,Task,[Submit] Nộp Template 1 và lưu biên nhận,"Bắt đầu: 12/11/2026. Hạn chót task: 2026-11-12.
 Owner: Bình. Review: Gia Phúc.
 Nguồn đọc: reports/SRS-master.md — A.2 và 19; reports/planning/TEAM_READINESS.md — hạn/tên gói/tài khoản quyền nộp.
 Điều kiện BẮT ĐẦU: Có gói đã nghiệm thu; không phụ thuộc code.
 Bước 1: Bình nhận gói đã được Gia Phúc kiểm tra từ Lãm; so tên/size/manifest và hạn trên cổng thật, không tự hiểu 12:00 AM thành cuối ngày.
-Bước 2: Bình dùng tài khoản có quyền nộp gói trước 21:00 08/11 sau chốt nội bộ 20:00; xác nhận cổng đã nhận đúng file. Đây là việc người được giao thực hiện, bản cập nhật tài liệu không tự đăng nhập/nộp hộ.
+Bước 2: Bình dùng tài khoản có quyền nộp gói trước 23:59 12/11 sau khi chốt kỹ thuật; xác nhận cổng đã nhận đúng file. Đây là việc người được giao thực hiện, bản cập nhật tài liệu không tự đăng nhập/nộp hộ.
 Bước 3: Lưu biên nhận/thời điểm/tên file và link artifact vào task; Gia Phúc đối chiếu. Nếu lỗi cổng báo Bình/Gia Phúc ngay và giữ gói; không đánh SUBMITTED khi chỉ mới tạo zip.
 Đầu ra: Biên nhận nộp thật và liên kết gói cố định trong reports/template1/release/
 Điều kiện CHỐT / DoD: Cổng có xác nhận nhận đúng gói, reviewer đối chiếu; trước đó giữ NOT VERIFIED.
 Bàn giao cho: Cả nhóm biết trạng thái nộp; Gia Phúc dự phòng nếu đã có quyền.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-PUB-01, T1-READY-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-submit-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",ngovietthanhbinh2006@gmail.com,T1,DOC;SUBMIT,2026-11-08
-QA1-REG-01,Task,[QA] Regression bảo mật concurrency hiệu năng và sửa lỗi,"Bắt đầu: 23/11/2026. Hạn chót task: 2026-11-29.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-submit-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",ngovietthanhbinh2006@gmail.com,T1,DOC;SUBMIT,2026-11-12
+QA1-REG-01,Task,[QA] Regression bảo mật concurrency hiệu năng và sửa lỗi,"Bắt đầu: 23/11/2026. Hạn chót task: 2026-12-02.
 Owner: Gia Phúc. Review: Bình.
 Nguồn đọc: reports/SRS-master.md — 8, 14 và G.6; reports/05-test-plan.md — coverage; reports/06-test-results.md — kết quả trước QA.
 Điều kiện BẮT ĐẦU: 23/11 đọc kết quả MVP; nếu MVP chưa đạt thì ưu tiên P0 trước evaluation/feature.
 Bước 1: Nhận bản MVP và P0 chưa đạt ngày22; chốt danh sách regression/quyền/concurrency/worker/fault và môi trường seed, không mở feature P1.
 Bước 2: Từ23–27/11 từng owner chạy/sửa module mình; Gia Phúc điều phối, chạy performance smoke theo NFR điều kiện ghi rõ, không tự đổi ngưỡng để báo đạt.
-Bước 3: Bàn giao ảnh/chỉ số/bug status cho Lãm trước 20:00 27/11 để chuẩn bị bằng chứng Template 3; không chặn gói thiết kế Template 2; 28–29/11 tiếp tục fix/regression, thay đổi sau bản nộp phải có revision.
+Bước 3: Bàn giao ảnh/chỉ số/bug status cho Lãm trước 23:59 27/11 để chuẩn bị bằng chứng Template 3; không chặn gói thiết kế Template 2; 28–29/11 tiếp tục fix/regression, thay đổi sau bản nộp phải có revision.
 Đầu ra: reports/06-test-results.md, bug links và số liệu NFR có điều kiện đo
 Điều kiện CHỐT / DoD: Có evidence regression và lỗi P0 đã xử lý hoặc được báo rõ; quyết định exit gate không suy từ lịch.
 Bàn giao cho: Lãm T3-RELEASE-01; cả nhóm triển khai cuối.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-INT-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#qa1-reg-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",phgphuc0609@gmail.com,QA1,QA;TEST,2026-11-29
-QA1-EVAL-01,Task,[QA] Đánh giá AI trên bộ ít nhất 30 câu có nhãn,"Bắt đầu: 23/11/2026. Hạn chót task: 2026-11-28.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#qa1-reg-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",phgphuc0609@gmail.com,QA1,QA;TEST,2026-12-02
+QA1-EVAL-01,Task,[QA] Đánh giá AI trên bộ ít nhất 30 câu có nhãn,"Bắt đầu: 23/11/2026. Hạn chót task: 2026-12-02.
 Owner: Quý Phúc. Review: Lãm; Gia Phúc đối soát báo cáo.
 Nguồn đọc: reports/SRS-master.md — 12.4, NFR-AI-01..03; reports/MVP_CONTRACTS.md — 6,7,9.
 Điều kiện BẮT ĐẦU: Chuẩn bị nhãn trong task KB/AI trước22 được; đợt đo chính từ23 sau MVP.
 Bước 1: Quý Phúc cùng Lãm chốt ít nhất 30 câu có nhãn/reference theo nhóm trong SRS12.4; Lãm cung cấp nguồn và expected, Quý Phúc chuẩn bị harness/config; review nhãn trước khi chạy.
 Bước 2: Chạy corpus/model/mode live cố định, lưu kết quả/latency và chấm grounding/citation/abstention/retrieval theo rubric rõ; mock không thay live evaluation.
-Bước 3: Gửi kết quả và giới hạn cho Lãm trước 12:00 28/11; nếu quota/provider chặn phải ghi NOT RUN/partial và biện pháp, không bịa metric để kịp nộp.
+Bước 3: Gửi kết quả và giới hạn cho Lãm trước 23:59 28/11; nếu quota/provider chặn phải ghi NOT RUN/partial và biện pháp, không bịa metric để kịp nộp.
 Đầu ra: reports/testing/ai-evaluation.md, bộ dữ liệu có nhãn và kết quả đã khử dữ liệu nhạy cảm
 Điều kiện CHỐT / DoD: Chạy được trên bản cố định hoặc báo rõ phần chưa chạy; chấm có đối soát, không biến smoke thành metric.
 Bàn giao cho: Lãm chuẩn bị Template 3; Gia Phúc regression AI.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-INT-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#qa1-eval-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",quyphuc0306@gmail.com,QA1,QA;AI,2026-11-28
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#qa1-eval-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",quyphuc0306@gmail.com,QA1,QA;AI,2026-12-02
 QA1-T2-01,Task,[Template 2] Chốt gói thiết kế và nộp trước 29/11,"Bắt đầu: 09/11/2026. Hạn chót task: 2026-11-28.
 Owner: Lãm. Review: Gia Phúc; Bình nộp/xác minh hạn.
 Nguồn đọc: reports/references/template2-design-requirements.md — cấu trúc tài liệu thiết kế; reports/planning/TEMPLATE2_3_ALIGNMENT.md — 2–3; reports/template2/README.md — manifest và owner; reports/SRS-master.md — A.2 giờ cổng cần xác minh.
 Điều kiện BẮT ĐẦU: Dựng khung/manifest từ 09/11, không đợi code hoặc regression/evaluation.
 Bước 1: 09/11 Lãm dựng master/mục lục và manifestTemplate 2, giao file phần cho owner. Bình đối chiếu nguồn/yêu cầu/giao diện và hạn 29/11 với giờ cổng thật; không giữ yêu cầu “báo cáo kiểm thử” của kế hoạch cũ.
 Bước 2: Thu conceptual/architecture 12/11, data 18/11, UI 20/11; ghép nháp từng phần và đối soát code 22/11. 23–25/11 nhận findingsT2-REVIEW, sửa theo owner.
-Bước 3: Freeze nội dung 26/11 20:00, render/kiểm gói và reviewer chạy độc lập 27/11 20:00; bảng đóng góp/chữ ký đúngxác nhận, source/ảnh/table/links portable, P1 đánhplanned.
-Bước 4: Bình nộp gói thiết kế trước20:00 28/11 hoặc sớm hơn nếu giờ cổng yêu cầu; lưu biên nhận, Gia Phúc kiểm. QA/evaluationvẫn làm choTemplate 3, không làdependency đểchờ nộp Template 2.
+Bước 3: Freeze nội dung 26/11 23:59, render/kiểm gói và reviewer chạy độc lập 27/11 23:59; bảng đóng góp/chữ ký đúngxác nhận, source/ảnh/table/links portable, P1 đánhplanned.
+Bước 4: Bình nộp gói thiết kế trước23:59 28/11 hoặc sớm hơn nếu giờ cổng yêu cầu; lưu biên nhận, Gia Phúc kiểm. QA/evaluationvẫn làm choTemplate 3, không làdependency đểchờ nộp Template 2.
 Đầu ra: reports/template2/release/ master/HTML/PDF/assets/manifest và biên nhận nộp thiết kế
 Điều kiện CHỐT / DoD: T2-REVIEW đã xửlýfinding, freeze 26/kiểm gói 27/biên nhận28, mụcUI được bao phủ; nội dung thiết kế đúng mẫu.
 Bàn giao cho: Bình nộp; cả nhóm giữ baseline thiết kế choTemplate 3/demo.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T2-REVIEW-01.
 Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#qa1-t2-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",lamnguyenduc0118@gmail.com,T2,DOC;DESIGN;RELEASE,2026-11-28
-T1-WF-01,Task,[Workflow] Apply discard suggestion nguyên tử,"Bắt đầu: 09/11/2026. Hạn chót task: 2026-11-19.
+T1-WF-01,Task,[Workflow] Apply discard suggestion nguyên tử,"Bắt đầu: 11/11/2026. Hạn chót task: 2026-11-21.
 Owner: Gia Phúc. Review: Quý Phúc; Bình quyền/transaction.
 Nguồn đọc: reports/SRS-master.md — 9.4, 11.3/11.5, UC-15, 14.2 TC-WF; reports/MVP_CONTRACTS.md — 7,9.
-Điều kiện BẮT ĐẦU: Thiết kế ports/cases từ 09/11; dùng fake rồi mới nối thật, không chờ AI Done 19/11 mới bắt đầu.
+Điều kiện BẮT ĐẦU: Thiết kế ports/cases từ 11/11; dùng fake rồi mới nối thật, không chờ AI Done 19/11 mới bắt đầu.
 Bước 1: 09–10/11 Gia Phúc viết application ports Apply/Discard nháp với Quý Phúc trong task CONTRACT, soạn cases cùng TST-AI; chưa chờ Suggestion service thật.
 Bước 2: Từ 15/11 hiện thực workflow application service qua Ticket/AI public ports; lock ticket rồi suggestion, recheck current rights/state/same-ticket/GENERATED/PUBLIC, message+APPLIED cùng transaction, không REQUIRES_NEW hoặc gọi provider.
-Bước 3: Nhận Suggestion port implementation từ Quý Phúc và Ticket port của mình trước 18/11 20:00; nối send/discard thật; Quý Phúc cùng Gia Phúc chạy TC-WF-01..04 với PostgreSQL và rollback/races.
+Bước 3: Nhận Suggestion port implementation từ Quý Phúc và Ticket port của mình trước 23:59 18/11; nối send/discard thật; Quý Phúc cùng Gia Phúc chạy TC-WF-01..04 với PostgreSQL và rollback/races.
 Bước 4: Gửi Quý Phúc/Bình review; bàn giao service, command và bằng chứng trước23:59 19/11 cho INT. Ticket core Done 15/11 không có nghĩa workflow đã Done.
 Đầu ra: backend/src/main/java/vn/edu/hcmus/helpdesk/workflow/; public ports Ticket/AI; evidence TC-WF trong reports/06-test-results.md
 Điều kiện CHỐT / DoD: Ticket port + Suggestion port thật, quyền/state/one winner/rollback được kiểm thử; Quý Phúc và Bình review; không cần chờ toàn bộ AI UI mới gửi PR workflow.
 Bàn giao cho: Quý Phúc AI panel/TST-AI; Gia Phúc INT; Bình security review.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-CONTRACT-01, T1-DEV-03.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-wf-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",phgphuc0609@gmail.com,T1,DEV;WORKFLOW,2026-11-19
-T1-UI-01,Task,[Mockup] Tổng hợp prototype và kiểm tra quyền xem,"Bắt đầu: 03/11/2026. Hạn chót task: 2026-11-07.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t1-wf-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",phgphuc0609@gmail.com,T1,DEV;WORKFLOW,2026-11-21
+T1-UI-01,Task,[Mockup] Tổng hợp prototype và kiểm tra quyền xem,"Bắt đầu: 03/11/2026. Hạn chót task: 2026-11-10.
 Owner: Quý Phúc. Review: Gia Phúc; Lãm kiểm tra gói.
 Nguồn đọc: reports/template1/05-prototype-mockup.md — ma trận màn hình; docs/design/man-hinh.md — 151 frames; Google Docs: https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0.
 Điều kiện BẮT ĐẦU: Đã có sẵn bộ thiết kế Redesign v2 (33 nhóm chính / 151 frames trên file Figma SE và 151 ảnh PNG tại docs/design/anh/).
 Bước 1: Cung cấp link Figma SE (Node 49:58): https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev, kiểm tra quyền View cho tài khoản ngoài nhóm.
 Bước 2: Hỗ trợ 3 owner trích xuất đúng Node ID và ảnh PNG ánh xạ vào các Use Case UC-01..17 trong docs/design/man-hinh.md; rà soát loading/error/empty/disabled.
-Bước 3: Hoàn thiện reports/template1/05-prototype-mockup.md, đồng bộ vào Google Docs nhóm; Gia Phúc review và bàn giao cho Lãm trước 20:00 07/11.
+Bước 3: Hoàn thiện reports/template1/05-prototype-mockup.md, đồng bộ vào Google Docs nhóm; Gia Phúc review và bàn giao cho Lãm trước 23:59 08/11 (Review chéo).
 Đầu ra: reports/template1/05-prototype-mockup.md; link Figma SE; bộ 151 ảnh PNG tại docs/design/anh/; Google Docs Mục 5.
-Điều kiện CHỐT / DoD: Ma trận 33 nhóm màn hình / 151 frames đầy đủ, link view Figma hoạt động với tài khoản ngoài nhóm, và reviewer approve trước 20:00 07/11.
+Điều kiện CHỐT / DoD: Ma trận 33 nhóm màn hình / 151 frames đầy đủ, link view Figma hoạt động với tài khoản ngoài nhóm, và reviewer approve trước 23:59 08/11 (Review chéo).
 Bàn giao cho: Lãm PUB để ghép/render; Gia Phúc kiểm tra độc lập.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-DOC-04, T1-DOC-05, T1-DOC-06, T1-DOC-07.
-Hướng dẫn đầy đủ: PLAN_TEMPLATE1_AND_DEVELOPMENT.md#t1-ui-01.",quyphuc0306@gmail.com,T1,DOC;UI,2026-11-07
-T2-MODEL-01,Task,[Design] Mô hình quan niệm và quan hệ nghiệp vụ,"Bắt đầu: 09/11/2026. Hạn chót task: 2026-11-12.
+Hướng dẫn đầy đủ: PLAN_TEMPLATE1_AND_DEVELOPMENT.md#t1-ui-01.",quyphuc0306@gmail.com,T1,DOC;UI,2026-11-10
+T2-MODEL-01,Task,[Design] Mô hình quan niệm và quan hệ nghiệp vụ,"Bắt đầu: 11/11/2026. Hạn chót task: 2026-11-14.
 Owner: Lãm. Review: Gia Phúc; từng owner domain.
 Nguồn đọc: reports/references/template2-design-requirements.md — Mục2 Mô hình quan niệm; reports/SRS-master.md — 2–6 và10 làm đối chiếu, không chép SQL thành conceptual; reports/planning/TEMPLATE2_3_ALIGNMENT.md — 2–3; reports/template2/02-conceptual-model.md — khung nhận nội dung.
-Điều kiện BẮT ĐẦU: Đọc SRS được ngay 09/11; không chờ schema/business code Done.
-Bước 1: 09/11 Lãm thu đối tượng/quan hệ từ từng owner: Bình User/Session, Gia Phúc Ticket/Message/Event, Lãm Document/Chunk/Job, Quý Phúc Suggestion/Source. Phân biệt object nghiệp vụ với thành phần kỹ thuật và ghi lý do chọn đưa vào mô hình.
-Bước 2: Bàn giao conceptual nháp và cardinality trước20:00 09/11 cho schema/contract; mô hình nghiệp vụ không phụ thuộc PostgreSQL đã chạy. Ghi glossary, role/ownership và quan hệ, không thay bằng cây package.
+Điều kiện BẮT ĐẦU: Đọc SRS được ngay 11/11; không chờ schema/business code Done.
+Bước 1: 11/11 Lãm thu đối tượng/quan hệ từ từng owner: Bình User/Session, Gia Phúc Ticket/Message/Event, Lãm Document/Chunk/Job, Quý Phúc Suggestion/Source. Phân biệt object nghiệp vụ với thành phần kỹ thuật và ghi lý do chọn đưa vào mô hình.
+Bước 2: Bàn giao conceptual nháp và cardinality trước23:59 11/11 cho schema/contract; mô hình nghiệp vụ không phụ thuộc PostgreSQL đã chạy. Ghi glossary, role/ownership và quan hệ, không thay bằng cây package.
 Bước 3: Vẽ source drawio + SVG, reviewer kiểm semantics/cardinality với UC/BR và bảng dữ liệu, chốt 12/11. Nếu schema/API đổi sau đó cập nhật artifact cùng PR; không tái phát minh entity khác SRS.
 Đầu ra: reports/template2/02-conceptual-model.md; assets/diagrams/conceptual-model.drawio/.svg
 Điều kiện CHỐT / DoD: Có domain contributions của bốn owner, conceptual nháp trước SQL gate 10/11 và bản vẽ/glossary được review 12/11.
 Bàn giao cho: Bình kiến trúc, Lãm schema/data, Gia Phúc review thiết kế.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): theo input từng mốc nêu trên, không có task prerequisite toàn phần.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t2-model-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",lamnguyenduc0118@gmail.com,T2,DOC;DESIGN,2026-11-12
-T2-ARCH-01,Task,[Design] Cây phân rã kiến trúc và ranh giới module,"Bắt đầu: 09/11/2026. Hạn chót task: 2026-11-12.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t2-model-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",lamnguyenduc0118@gmail.com,T2,DOC;DESIGN,2026-11-14
+T2-ARCH-01,Task,[Design] Cây phân rã kiến trúc và ranh giới module,"Bắt đầu: 11/11/2026. Hạn chót task: 2026-11-14.
 Owner: Bình. Review: Quý Phúc; Gia Phúc ports.
 Nguồn đọc: reports/references/template2-design-requirements.md — Mục3 cây phân rã, điểm kiến trúc, gợi ýC4; reports/SRS-master.md — 9,16.2; reports/MVP_CONTRACTS.md — 1,6,7; reports/template2/03-architecture.md — khung.
-Điều kiện BẮT ĐẦU: Làm từ 09/11 cùngFoundation/contract, không chờ code đủ bốn module.
-Bước 1: Bình dùng kiến trúc SRS vẽ cây phân rã Web/Backend/DB và bốn module + workflow/worker nội bộ; nháp boundary/ports 09/11 trước khi caller code phụ thuộc.
+Điều kiện BẮT ĐẦU: Làm từ 11/11 cùngFoundation/contract, không chờ code đủ bốn module.
+Bước 1: Bình dùng kiến trúc SRS vẽ cây phân rã Web/Backend/DB và bốn module + workflow/worker nội bộ; nháp boundary/ports 11/11 trước khi caller code phụ thuộc.
 Bước 2: Giải thích modular monolith, tier/layer, dependency qua ports, oneDB transaction apply, provider/fake; thêm sơ đồ giao tiếp và vài sequence quan trọng nếu giúp hiểu. Không vẽ microservice hoặc khoe pattern không được áp dụng.
 Bước 3: Chốt nguồn/SVG + diễn giải 12/11 theo contract 10/11; mỗi owner viết trách nhiệm/đầu vào/đầu ra của module mình, đồng bộ phiên bản khi code đổi. Class diagram/đặc tả mọi lớp không là yêu cầu bắt buộc suy từ bài mẫu.
 Đầu ra: reports/template2/03-architecture.md; decomposition/architecture.drawio/.svg và diễn giải boundary
 Điều kiện CHỐT / DoD: Ports/kiến trúc được owner phía nhận review, diagram/thuyết minh đúng code dự kiến và điều kiện transaction.
 Bàn giao cho: Bốn owner thực thi và Gia Phúc T2-REVIEW.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-CONTRACT-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t2-arch-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",ngovietthanhbinh2006@gmail.com,T2,DOC;DESIGN,2026-11-12
-T2-DATA-01,Task,[Design] ERD và đặc tả dữ liệu khớp migrations,"Bắt đầu: 09/11/2026. Hạn chót task: 2026-11-18.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t2-arch-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",ngovietthanhbinh2006@gmail.com,T2,DOC;DESIGN,2026-11-14
+T2-DATA-01,Task,[Design] ERD và đặc tả dữ liệu khớp migrations,"Bắt đầu: 11/11/2026. Hạn chót task: 2026-11-20.
 Owner: Lãm. Review: Bình + Gia Phúc; Quý Phúc phầnAI.
 Nguồn đọc: reports/references/template2-design-requirements.md — 4.1 sơ đồ dữ liệu,4.2 bảng/cột/kiểu/giá trị/khóa/diễn giải; reports/SRS-master.md — 10; reports/MVP_CONTRACTS.md — 3,5,7; reports/template2/04-data-design.md — khung.
 Điều kiện BẮT ĐẦU: Nháp từSRS 09/11, không chờ allservice; V3 chỉ áp dụng sauEMBED.
@@ -446,8 +462,8 @@ Bước 3: Vẽ ERD vật lý khớp V1–V5 và migration bổ sung; cùng mỗ
 Điều kiện CHỐT / DoD: Lãm nhận đủ table specs từ bốn owner, so schema thực/migration và review xong 18/11; sau đó cập nhật theo PR.
 Bàn giao cho: Gia Phúc T2-REVIEW; mọi owner biết storage contract.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-SCHEMA-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t2-data-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",lamnguyenduc0118@gmail.com,T2,DOC;DESIGN,2026-11-18
-T2-UI-01,Task,[Design] Đặc tả UI và luồng trạng thái theo UC API,"Bắt đầu: 11/11/2026. Hạn chót task: 2026-11-20.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t2-data-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",lamnguyenduc0118@gmail.com,T2,DOC;DESIGN,2026-11-20
+T2-UI-01,Task,[Design] Đặc tả UI và luồng trạng thái theo UC API,"Bắt đầu: 11/11/2026. Hạn chót task: 2026-11-22.
 Owner: Quý Phúc. Review: Gia Phúc; Lãm kiểm gói.
 Nguồn đọc: reports/references/template2-design-requirements.md — mục tiêu thiết kế giao diện; mục lục chưa có đề mục riêng; reports/SRS-master.md — 13 và11; reports/MVP_CONTRACTS.md — 8 adapter/DTO/error; reports/template1/05-prototype-mockup.md — tái dùng prototype; reports/template2/05-ui-design.md — khung.
 Điều kiện BẮT ĐẦU: Có prototype1 và contract/API 10/11 để bắt đầu 11/11; không đợi UIcode xong mới viết thiết kế.
@@ -459,8 +475,8 @@ Bước 4: Kiểm prototype quyền xem và đối soát màn hình thực/P0gat
 Điều kiện CHỐT / DoD: Đủ specs của bốn owner và flow/error, reviewer approve 20/11; mụcUI có ghi tình trạng xác minh cấu trúc mẫu.
 Bàn giao cho: Lãm ghépTemplate 2; Gia Phúc T2-REVIEW.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-UI-01, T1-CONTRACT-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t2-ui-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",quyphuc0306@gmail.com,T2,DOC;DESIGN,2026-11-20
-T2-REVIEW-01,Task,[Design review] Đối soát Template 2 SRS và implementation,"Bắt đầu: 23/11/2026. Hạn chót task: 2026-11-25.
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t2-ui-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",quyphuc0306@gmail.com,T2,DOC;DESIGN,2026-11-22
+T2-REVIEW-01,Task,[Design review] Đối soát Template 2 SRS và implementation,"Bắt đầu: 23/11/2026. Hạn chót task: 2026-11-27.
 Owner: Gia Phúc. Review: Bình; Lãm xửlý findings.
 Nguồn đọc: reports/references/template2-design-requirements.md — toàn bộ mục thiết kế; reports/planning/TEMPLATE2_3_ALIGNMENT.md — 2–3; reports/template2/06-design-consistency.md — checklist; reports/SRS-master.md — FR/UC/BR và 10/11.
 Điều kiện BẮT ĐẦU: 23/11 có docs nháp và MVP bảnđối soát; nếu codechưaxong ghi rõplanned/partial.
@@ -471,20 +487,15 @@ Bước 3: Từ23–25/11 lậpfindings và giao đúngowner sửa thiết kế/
 Điều kiện CHỐT / DoD: Đủ review bốn mảng và sửa findingchặn thiết kế trướcfreeze 26/11; không yêu cầu QAmetrics hoàn tất.
 Bàn giao cho: Lãm releaseQA1-T2-01, Bình nộp.
 Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T2-MODEL-01, T2-ARCH-01, T2-DATA-01, T2-UI-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t2-review-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",phgphuc0609@gmail.com,T2,DOC;DESIGN;REVIEW,2026-11-25
-T3-CASE-01,Task,[Test spec] Điều phối5 chức năng mỗi chức năng ít nhất 5 ca,"Bắt đầu: 09/11/2026. Hạn chót task: 2026-11-14.
-Owner: Gia Phúc. Review: Lãm; từng owner ca của mình.
-Nguồn đọc: reports/references/template3-testing-requirements.md — test plan/listcase/ít nhất 5 chức năng mỗi chức năng 5 ca; reports/testing/TEST_CASE_CATALOG.md — 25 ca dựkiến và mapping; reports/SRS-master.md — 14.2/12.4; dataset30 câu khác25 ca; reports/template3/README.md — cấu trúc báo cáo.
-Điều kiện BẮT ĐẦU: 09/11 viết theo UC/BR vàfake; không chờ implementation thật.
-Bước 1: Gia Phúc chốt5 nhóm: Login(Bình), CreateTicket(Gia Phúc), Claim(Gia Phúc), Upload(Lãm), GenerateSuggestion(Quý Phúc); dùng catalog25 ca làm khởiđiểm, mỗi owner tự đặc tả context/input/expected/steps và mappingUC/FR/TCsuite.
-Bước 2: Mỗiowner viết bảngca cùng PRtest trongtaskTST của mình; trước 14/11 review ≥5 ca/chức năng, có boundary/equivalence/state/decision/concurrency phùhợp. Actual/Result lúcchưa chạy làNOT RUN, không điềnPassed.
-Bước 3: Khi feature đếngate 13/15/17/19, chạy và gắnactual/evidence, Gia Phúc chỉ điều phối/catalog. Case thiết kế đượcduyệt 14/11 không đồngnghĩa AI/Uploadđãchạytrước khi code xong.
-Bước 4: Giữ cả suite security/rollbackSRS, không cắt chỉđể đủ25 ca; bộ30 câuRAG thuộcQA1-EVAL, không tự đếm thành5 chức năng. Bàn giaocatalog/plan choT3-RELEASE.
-Đầu ra: reports/testing/TEST_CASE_CATALOG.md; reports/template3/02-test-plan.md và03-test-cases.md có25 specs tốithiểu
-Điều kiện CHỐT / DoD: Ítnhất5 chức năng×5 ca được spec/review 14/11; trườngchưa chạy ghiNOT RUN. Giờchi tiếtcases nằmTST owner, tasknày chỉ điều phối.
-Bàn giao cho: BốnTST owner, Gia PhúcQA và LãmT3-RELEASE.
-Refs liên quan gate CHỐT (không có nghĩa chờ tất cả để bắt đầu): T1-CONTRACT-01.
-Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t3-case-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",phgphuc0609@gmail.com,T3,DOC;TEST,2026-11-14
+Hướng dẫn đầy đủ: TASK_PLAYBOOK_TEMPLATE1.md#t2-review-01. Blocker cập nhật reports/planning/TEAM_READINESS.md và Jira thật khi có mapping.",phgphuc0609@gmail.com,T2,DOC;DESIGN;REVIEW,2026-11-27
+T3-CASE-01,Task,[Test spec] Điều phối 5 chức năng mỗi chức năng ít nhất 5 ca kiểm thử,"Bắt đầu: 25/11/2026. Hạn chót task: 2026-11-28.
+Owner: Gia Phúc. Review: Bình; Lãm.
+Nguồn đọc: reports/SRS-master.md — Mục 14; reports/references/template3-testing-requirements.md; reports/testing/TEST_CASE_CATALOG.md.
+Điều kiện BẮT ĐẦU: Triển khai SAU KHI hoàn thành Code MVP P0 (từ ngày 25/11).
+Bước 1: Điều phối bốn owner hoàn thiện danh mục ít nhất 25 ca kiểm thử (5 chức năng x 5 ca).
+Bước 2: Chuẩn bị kịch bản kiểm thử, preconditions, test data và expected results.
+Đầu ra: reports/testing/TEST_CASE_CATALOG.md; reports/template3/02-test-plan.md.
+Điều kiện CHỐT / DoD: Đủ 25 test cases được review duyệt trước 28/11/2026.",phgphuc0609@gmail.com,T3,DOC;TEST,2026-11-28
 T3-RELEASE-01,Task,[Template 3] Hoàn thiện báo cáo test gói cuối và biên nhận,"Bắt đầu: 30/11/2026. Hạn chót task: 2026-12-12.
 Owner: Lãm. Review: Gia Phúc; Bình xác minh hạn/nộp.
 Nguồn đọc: reports/references/template3-testing-requirements.md — toàn bộ nội dung kiểm thử; reports/SRS-master.md — A.2/G.7,14 và12.4; reports/template3/README.md — manifest; reports/06-test-results.md — bằng chứng thật.
@@ -492,7 +503,7 @@ Nguồn đọc: reports/references/template3-testing-requirements.md — toàn b
 Bước 1: Lãm lấy test plan/catalog/cases đãduyệt và regression/evaluation23–29/11, hợpnhất báo cáoTemplate 3 đúng mẫu; mỗi owner bổ sung actual/result và linkcommands/commit/dataset, không tạoPassed thay người.
 Bước 2: Đốichiếu ít nhất 5 chức năng×5 ca và trường RelatedUC/Context/Input/Expected/Steps; chưa chạy cóNOT RUN/lý do; phânbiệt test cases ứngdụng với datasetAI. Đínhkèm defectstatus, limitations và hướngdẫn tái hiện.
 Bước 3: 30/11–09/12 cậpnhật kết quả sau deploy/finalfix, review09–10/12, render/kiểm gói 11/12; Bình xác minh giờ cổngTemplate 3/AppDemo theo nguồn thật.
-Bước 4: Bình nộp trước20:00 12/12 hoặc sớm hơn theo giờ cổng đãxác nhận, lưu biên nhận; Gia Phúc dựphòng. Kịch bảndemo/triểnkhai còn theo SRS G.7, không tự coi submit làtestpass.
+Bước 4: Bình nộp trước23:59 12/12 hoặc sớm hơn theo giờ cổng đãxác nhận, lưu biên nhận; Gia Phúc dựphòng. Kịch bảndemo/triểnkhai còn theo SRS G.7, không tự coi submit làtestpass.
 Đầu ra: reports/template3/release/ báo cáo kiểm thử/master/assets/evidence/manifest vàbiên nhận cuối
 Điều kiện CHỐT / DoD: Đủ cấu trúc mẫu, sốchức năng/ca, kết quảtrungthực cóevidence, reviewer và biên nhận; hạn cổngTemplate 3 chưađược mẫu này xác nhận.
 Bàn giao cho: Bình nộp/demo; cả nhóm bàn giao cuối.

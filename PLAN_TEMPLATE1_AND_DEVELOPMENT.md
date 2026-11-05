@@ -3,7 +3,7 @@
 > **Môn học:** Nhập môn Công nghệ Phần mềm (NMCNPM) — Khoa CNTT, Trường ĐH Khoa học Tự nhiên, ĐHQG-HCM  
 > **Nhóm thực hiện:** Group 04  
 > **Trưởng nhóm (Project Manager & DevOps):** Ngô Viết Thanh Bình (MSSV: `24120269`)  
-> **Thời gian áp dụng:** 03/11/2026 – 22/11/2026; **chốt Template 1 lúc 20:00 ngày 08/11/2026**; **bắt đầu code ngày 09/11/2026**, **chốt MVP P0 lúc 20:00 ngày 22/11/2026**; QA & Nộp Template 2: 23/11 – 28/11/2026.  
+> **Thời gian áp dụng:** 03/11/2026 – 24/11/2026; **chốt và nộp Template 1 lúc 23:59 ngày 12/11/2026**; **bắt đầu code ngày 11/11/2026**, **chốt MVP P0 lúc 23:59 ngày 24/11/2026**; Template 2 Thiết kế phần mềm (bắt đầu 11/11/2026, nộp trước 28/11/2026); Template 3 Kiểm thử phần mềm (diễn ra SAU MVP từ 25/11/2026 đến 12/12/2026).  
 > **Tài liệu tham chiếu chuẩn:** [reports/SRS-master.md](reports/SRS-master.md) (v1.1) & [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md)  
 > **Tài liệu soạn thảo nhóm (Google Docs):** [[SE - Nhóm 4] template1 - Google Tài liệu](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0)  
 > **Bản thiết kế giao diện Figma (Redesign v2):** [SE – Figma (Node 49:58)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev) · [Danh mục 151 frames](docs/design/man-hinh.md) · [Mục 5 Template 1](reports/template1/05-prototype-mockup.md)  
@@ -50,7 +50,7 @@
 8. [DANH MỤC BACKLOG TASKS CHUẨN NẠP JIRA & GITHUB ISSUES](#8-danh-mục-backlog-tasks-chuẩn-nạp-jira--github-issues)
    - 8.1. Các Epic chính
    - 8.2. Danh mục Task Giai đoạn 1: Biên soạn Tài liệu Template 1 (03/11 – 08/11)
-   - 8.3. Danh mục Task Giai đoạn 2: Cài đặt Mã nguồn & Kiểm thử MVP P0 (09/11 – 22/11)
+   - 8.3. Danh mục Task Giai đoạn 2: Cài đặt Mã nguồn & Kiểm thử MVP P0 (11/11 – 24/11)
 9. [NHỮNG VIỆC CẦN BẰNG CHỨNG XÁC MINH & ĐIỀU CHỈNH TEMPLATE 2–3](#9-những-việc-cần-bằng-chứng-xác-minh--điều-chỉnh-template-23)
    - 9.1. Những sản phẩm và giả định cần xác minh thực tế
    - 9.2. Kế hoạch liên kết mẫu Template 2 (Thiết kế) và Template 3 (Kiểm thử)
@@ -65,19 +65,21 @@
 
 ```mermaid
 flowchart LR
-    Phase1["GIAI ĐOẠN 1: GOOGLE DOCS\n(03/11 - 06/11)\n• Soạn thảo tập trung\n• Comment & Feedback nhanh\n• Chốt nội dung và format"] --> Phase2["GIAI ĐOẠN 2: GIT & PULL REQUEST\n(06/11 - 07/11)\n• Chuyển sang file .md riêng\n• Xuất sơ đồ .svg\n• Commit có mã Jira SCRUM-xx\n• Mở PR ghi nhận Git History"]
-    Phase2 --> Phase3["GIAI ĐOẠN 3: XUẤT BẢN NỘP\n(13/11)\n• Hợp nhất file Master\n• Render HTML/PDF chuẩn A4"]
+    Phase1["GIAI ĐOẠN 1: GOOGLE DOCS\n(03/11 - 07/11)\n• Soạn thảo trực tiếp trên Docs\n• Đóng băng bản nháp (Draft Freeze) 23:59 07/11\n• Review chéo xoay vòng 23:59 08/11"] --> Phase2["GIAI ĐOẠN 2: CHUYỂN GIT & SỬA ĐỔI\n(09/11 - 10/11)\n• Sửa chữa theo nhận xét review\n• Chuyển sang .md & xuất .svg\n• Commit có mã Jira SCRUM-xx\n• Mở PR ghi nhận Git History"]
+    Phase2 --> Phase3["GIAI ĐOẠN 3: XUẤT BẢN NỘP\n(11/11 - 12/11)\n• 11/11: Ghép nối & rà soát kỹ thuật\n• 12/11: Render HTML/PDF A4 & Nộp bài"]
 ```
 
-1. **Giai đoạn 1 (03/11 – 06/11): Soạn thảo & Góp ý trực tiếp trên Google Docs**
+1. **Giai đoạn 1 (03/11 – 07/11): Soạn thảo & Đóng băng bản nháp trực tiếp trên Google Docs**
    - Link tài liệu làm việc chung: **[[SE - Nhóm 4] template1 - Google Tài liệu](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0)** (đã dựng sẵn cấu trúc đề mục từ Mục 1 đến Mục 5 theo mẫu chuẩn của Khoa).
-   - Từng thành viên viết nội dung phần việc của mình trực tiếp trên Google Docs.
-   - **Thiết kế UI nền tảng (Baseline):** Lê Quý Phúc đã dựng sẵn bộ khung thiết kế chuẩn Redesign v2 gồm 151 màn hình / 33 nhóm chính tại [Figma SE (Redesign v2)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev) và xuất PNG tại `docs/design/anh/`. **Bộ khung này đóng vai trò là baseline chuẩn chung; các thành viên chủ động rà soát, kế thừa và có toàn quyền tinh chỉnh, bổ sung màn hình/trạng thái** trên Figma cho khớp chính xác với nghiệp vụ và kịch bản Use Case của module mình.
+   - Từng thành viên viết nội dung phần việc của mình trực tiếp trên Google Docs (Mô tả bài toán, Stakeholders, NFR, ma trận 41 FR / 30 User Stories, 17 Use Cases).
+   - **Tư nguyên thiết kế UI đã có sẵn (Baseline):** Lê Quý Phúc đã dựng sẵn bộ khung thiết kế chuẩn Redesign v2 gồm 151 màn hình / 33 nhóm chính tại [Figma SE (Redesign v2)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev) và trích xuất PNG tại `docs/design/anh/`. **Bộ khung này đóng vai trò là baseline chuẩn chung; các thành viên chủ động rà soát, kế thừa và có toàn quyền tinh chỉnh, bổ sung màn hình/trạng thái** trên Figma cho khớp chính xác với nghiệp vụ và kịch bản Use Case của module mình.
    - Các thành viên sử dụng tính năng **Comment** và chế độ **Suggesting** để nhận xét, chỉnh sửa câu chữ, phản biện các kịch bản Use Case của nhau một cách trực quan, nhanh chóng mà không gây áp lực về cú pháp Markdown.
    - Sơ đồ Use Case được phác thảo và thống nhất các quan hệ include/extend trước khi xuất file đồ họa `.drawio` và `.svg`.
+   - **Đóng băng bản nháp (Draft Freeze):** lúc **23:59 ngày 07/11/2026** trên Google Docs.
+   - **Review chéo xoay vòng:** hoàn thành trước **23:59 ngày 08/11/2026** (theo ma trận Bình → Lãm → Gia Phúc → Quý Phúc → Bình).
 
-2. **Giai đoạn 2 (06/11 – 07/11): Chốt nội dung, chuyển đổi Markdown & Commit lưu vết Git**
-   - Sau khi Trưởng nhóm kiểm duyệt và chốt nội dung trên Google Docs, từng thành viên tự chuyển đổi phần của mình sang file Markdown (`.md`) và đặt vào đúng file trong thư mục `reports/template1/`:
+2. **Giai đoạn 2 (09/11 – 10/11): Task T1-DOC-MD — Chuyển đổi và nộp bản Markdown (.md), xuất sơ đồ .svg sau khi chốt Google Docs**
+   - Sau khi chốt nội dung và hoàn tất review chéo trên Google Docs, từng thành viên tiếp thu nhận xét, sửa chữa và tự chuyển đổi phần của mình sang file Markdown (`.md`) đặt vào đúng thư mục `reports/template1/`:
      ```text
      reports/template1/
      ├── 01-danh-gia-thanh-vien.md            # Lê Quý Phúc
@@ -91,16 +93,24 @@ flowchart LR
      │   ├── 04.2-module-D-identity.md        # Ngô Viết Thanh Bình (5 UCs)
      │   ├── 04.2-module-C-ticket.md          # Phan Gia Phúc (7 UCs)
      │   ├── 04.2-module-B-knowledge.md       # Nguyễn Đức Lãm (3 UCs)
-     │   └── 04.2-module-A-ai.md              # Lê Quý Phúc (2 UCs)
+     │   ├── 04.2-module-A-ai.md              # Lê Quý Phúc (2 UCs)
+     │   └── 04.2-uc-17-analytics.md          # Lê Quý Phúc (Ticket Analytics P1)
      ├── 05-prototype-mockup.md               # Cả 4 thành viên (Lê Quý Phúc tổng hợp)
      ├── 06-ai-usage.md                       # Trích xuất từ reports/07-ai-usage.md
+     ├── inputs/                              # 4 biên bản bàn giao & đối soát nộp bài
+     │   ├── binh.md                          # Ngô Viết Thanh Bình
+     │   ├── gia-phuc.md                      # Phan Gia Phúc
+     │   ├── lam.md                           # Nguyễn Đức Lãm
+     │   └── quy-phuc.md                      # Lê Quý Phúc
      └── assets/
          ├── diagrams/                        # Chứa các file sơ đồ .svg tự vẽ
          └── mockups/                         # Chứa các ảnh chụp màn hình UI Figma <= 500KB
      ```
-   - Mỗi thành viên tạo nhánh riêng (`docs/t1-<module>-<tên_bạn>`), commit file `.md` và file `.svg` của mình kèm mã Jira `SCRUM-xx`, mở Pull Request lên GitHub.
+   - Mỗi thành viên tạo nhánh riêng (`docs/t1-<module>-<tên_bạn>`), commit file `.md` và file `.svg` của mình kèm mã Jira `SCRUM-xx`, mở Pull Request lên GitHub trước **23:59 ngày 10/11/2026**.
+   - Từng thành viên hoàn tất cập nhật biên bản bàn giao tại `reports/template1/inputs/<tên>.md` làm căn cứ nghiệm thu bàn giao (Task `T1-DOC-MD`).
    - Nhờ tách file hoàn toàn, **tỷ lệ xung đột merge conflict là 0%**, và commit của từng thành viên hiển thị chính xác 100% trong `git log` để Giảng viên chấm điểm cá nhân.
-   - Đến Mốc 2 (07/11), Trưởng nhóm sẽ chạy lệnh ghép nối tự động các file thành file tổng `reports/submit/01-requirements-analysis.md` và render ra bản HTML/PDF khổ A4 chuẩn Word.
+   - **Ngày 11/11/2026:** Rà soát kỹ thuật, ghép nối tổng thể các file Markdown. Khởi động mã nguồn MVP P0 và Template 2.
+   - **Ngày 12/11/2026 (trước 23:59):** Trưởng nhóm chạy lệnh ghép nối tự động các file thành file tổng `reports/submit/01-requirements-analysis.md`, render ra bản HTML/PDF khổ A4 chuẩn Word và nộp bài chính thức.
 
 ### 1.2. Chính sách bắt buộc ghi nhật ký AI Usage
 - Mọi thành viên khi dùng AI (Gemini, ChatGPT, Copilot, v0...) để soạn thảo tài liệu, viết code, sinh test case hay tra cứu lỗi đều phải mở file [reports/07-ai-usage.md](reports/07-ai-usage.md) cập nhật bảng theo mẫu:
@@ -157,48 +167,56 @@ Chi tiết và mẫu dữ liệu ở [MVP_CONTRACTS](reports/MVP_CONTRACTS.md):
 
 ## 2. LỘ TRÌNH THỜI GIAN (TIMELINE) & CÁC CỘT MỐC ĐIỀU CHỈNH
 
-Theo chỉ đạo của Trưởng nhóm, **các mốc deadline được dời sớm hơn 2 ngày** (riêng Mốc 1 giữ nguyên ngày 04/11 để Lead kịp dựng Scaffolding):
+Lộ trình tổng thể của dự án được phân định mạch lạc thành 4 luồng chính: Template 1 (Tài liệu Phân tích yêu cầu), Luồng Code MVP P0, Template 2 (Thiết kế phần mềm song song code) và Template 3 (Kiểm thử phần mềm diễn ra sau MVP):
 
 ```mermaid
 gantt
-    title Lộ trình Triển khai Giai đoạn 2 (03/11/2026 - 15/11/2026)
+    title Lộ trình Triển khai Dự án Tổng thể (03/11/2026 - 12/12/2026)
     dateFormat  YYYY-MM-DD
-    section Cột mốc kiểm soát (Milestones)
-    Mốc 1 (Giữ nguyên) - Hoàn thành Scaffolding & Setup        :milestone, m1, 2026-11-04, 0d
-    Mốc 2 (Dời sớm) - Đóng băng bản nháp tài liệu Template 1    :milestone, m2, 2026-11-07, 0d
-    Mốc 3 (Dời sớm) - Hoàn tất Code MVP 4 Module              :milestone, m3, 2026-11-09, 0d
-    Mốc 4 (Dời sớm) - Hoàn tất Review chéo PR & Tài liệu       :milestone, m4, 2026-11-11, 0d
-    Mốc 5 (Dời sớm) - Hạn chót nội bộ & Đóng gói nộp bài       :milestone, m5, 2026-11-13, 0d
-    Hạn nộp chính thức của Giảng viên                          :crit, m6, 2026-11-15, 0d
+    section Template 1 (Tài liệu Phân tích Yêu cầu)
+    Soạn thảo tập trung trên Google Docs                  :active, t1_doc, 2026-11-03, 2026-11-07
+    Đóng băng bản nháp (Draft Freeze 23:59 07/11)        :milestone, m_freeze, 2026-11-07, 0d
+    Review chéo xoay vòng (23:59 08/11)                 :crit, t1_rev, 2026-11-08, 1d
+    Chuyển Markdown & nộp sơ đồ SVG (T1-DOC-MD)          :t1_md, 2026-11-09, 2026-11-10
+    Ghép nối & rà soát kỹ thuật                          :t1_merge, 2026-11-11, 1d
+    Final tổng hợp, render HTML/PDF & Nộp bài (23:59)    :milestone, m_t1_sub, 2026-11-12, 0d
 
-    section Trưởng nhóm (DevOps & Module D)
-    Setup Docker, Spring Boot Skeleton, Flyway V1             :done, 2026-11-03, 2026-11-04
-    Code Module D (JWT, Auth, Profile) & Axios Client          :active, 2026-11-04, 2026-11-07
-    Viết Đặc tả Use Case Module D (UC-01..04, 16)              :2026-11-04, 2026-11-06
+    section Luồng Code MVP P0
+    Bắt đầu Code MVP (Scaffolding, Docker, Spring Boot)  :dev_scaff, 2026-11-11, 2026-11-12
+    Chốt Schema V1-V5 & OpenAPI Contract DTOs            :milestone, m_schema, 2026-11-12, 0d
+    Code Module D Identity (Auth JWT, Principal)         :dev_id, 2026-11-12, 2026-11-15
+    Code Module C Ticket (Concurrency Claim Lock 409)    :dev_tk, 2026-11-13, 2026-11-17
+    Code Module B Knowledge (Worker Ingestion pgvector)  :dev_kb, 2026-11-14, 2026-11-19
+    Code Module A AI (RAG Pipeline, Workflow Apply)      :dev_ai, 2026-11-15, 2026-11-21
+    Unit & Integration Tests (4 Modules)                 :tst_all, 2026-11-21, 2026-11-23
+    Code Freeze MVP P0, Clean Ops & E2E Nghiệm thu      :milestone, m_mvp_frz, 2026-11-24, 0d
 
-    section Phan Gia Phúc (Module C: Ticket)
-    Viết Bảng FR & Đặc tả Use Case Module C (UC-05..10, 17)    :active, 2026-11-04, 2026-11-06
-    Code Ticket State Machine & Concurrency Claim              :2026-11-05, 2026-11-09
+    section Template 2 (Thiết kế phần mềm - Song song Code)
+    Conceptual Model & Cây phân rã Kiến trúc             :t2_arch, 2026-11-11, 2026-11-14
+    ERD & Data Dictionary khớp Migrations V1-V5          :t2_data, 2026-11-12, 2026-11-20
+    Đặc tả UI & Luồng trạng thái theo UC/API             :t2_ui, 2026-11-13, 2026-11-22
+    Review đối soát Thiết kế - Code                      :t2_rev, 2026-11-23, 2026-11-27
+    Đóng gói & Nộp bài Template 2                        :milestone, m_t2_sub, 2026-11-28, 0d
 
-    section Nguyễn Đức Lãm (Module B: Knowledge)
-    Viết Stakeholders, NFR & Đặc tả UC Module B (UC-11..13)    :active, 2026-11-04, 2026-11-06
-    Code Ingestion Pipeline (PDFBox) & pgvector Search         :2026-11-05, 2026-11-09
-
-    section Lê Quý Phúc (Module A: AI & Figma UI)
-    Viết Mô tả bài toán & Đặc tả UC Module A (UC-14..15)       :active, 2026-11-04, 2026-11-06
-    Code RAG Pipeline (Mock/OpenAI) & AI Widget UI             :2026-11-05, 2026-11-09
-    Tổng hợp ảnh Figma Prototype Mục 5                         :2026-11-06, 2026-11-07
+    section Template 3 (Kiểm thử phần mềm - SAU MVP)
+    Lập Test Plan & Catalog ≥25 ca kiểm thử              :t3_plan, 2026-11-25, 2026-11-28
+    Chạy Regression, Security, Concurrency & Eval AI     :t3_run, 2026-11-26, 2026-12-02
+    Báo cáo Kiểm thử cuối kỳ, Nghiệm thu & Nộp bài       :milestone, m_t3_sub, 2026-12-12, 0d
 ```
 
 ### Bảng tóm tắt các cột mốc bắt buộc:
 | Cột mốc | Thời hạn chót | Mục tiêu & Tiêu chí nghiệm thu (Exit Criteria) |
 | :---: | :---: | :--- |
-| **Mốc 1** | **23:59 ngày 04/11/2026** | **Hoàn thành hạ tầng:** Docker Compose chạy PostgreSQL + pgvector; Spring Boot 3 khởi chạy mượt mà, Flyway V1 tự tạo 9 bảng dữ liệu (chuẩn SRS Mục 10.2); 2 Interface ranh giới sẵn sàng; Axios client cấu hình xong. |
-| **Mốc 2** | **20:00 ngày 07/11/2026** | **Đóng băng bản nháp Template 1:** Toàn bộ 17 bảng đặc tả Use Case, 6 sơ đồ UML, bảng FR, NFR, Mô tả bài toán và ảnh mockup Figma đã được commit lên thư mục `reports/template1/`. |
-| **Mốc 3** | **23:59 ngày 09/11/2026** | **Hoàn thành Code MVP 4 Module:** Code chức năng cơ bản của từng module chạy được trên localhost và pass unit test/contract test. Mở Pull Request lên GitHub. |
-| **Mốc 4** | **20:00 ngày 11/11/2026** | **Hoàn tất Review chéo:** 100% PR mã nguồn và các file tài liệu được thành viên cặp review nhận xét và phê duyệt trên GitHub/PR. |
-| **Mốc 5** | **20:00 ngày 13/11/2026** | **Hạn nộp nội bộ & Đóng gói:** Trưởng nhóm ghép file Master, kiểm tra đối soát số trang mục lục, render HTML/PDF chuẩn A4, rà soát nhật ký AI Usage, sẵn sàng file nộp bài trước hạn trường 2 ngày. |
-| **Mốc 6** | **23:59 ngày 15/11/2026** | **Hạn nộp chính thức theo cổng trường HCMUS.** |
+| **Mốc 1** | **23:59 ngày 07/11/2026** | **Đóng băng bản nháp (Draft Freeze) Template 1:** Toàn bộ 17 Use Cases, 41 FRs, 30 User Stories, Stakeholders, NFR và liên kết Figma prototype đã được hoàn thành đầy đủ trên Google Docs. |
+| **Mốc 2** | **23:59 ngày 08/11/2026** | **Hoàn tất Review chéo xoay vòng:** 100% nội dung Use Cases và sơ đồ được các cặp thành viên review, comment góp ý trực tiếp trên Google Docs. |
+| **Mốc 3** | **23:59 ngày 10/11/2026** | **Task T1-DOC-MD — Hoàn tất chuyển đổi & nộp Markdown, SVG:** 4 thành viên hoàn tất sửa chữa sau review chéo, chuyển nội dung sang `.md`, xuất sơ đồ `.svg`, mở PR có mã Jira `SCRUM-xx` và cập nhật biên bản bàn giao tại `reports/template1/inputs/`. |
+| **Mốc 4** | **23:59 ngày 11/11/2026** | **Khởi động Code MVP P0 & Template 2:** Bắt đầu dựng Scaffolding Spring Boot 3, Docker pgvector (`T1-DEV-01`); bắt đầu soạn Mô hình quan niệm và Kiến trúc Template 2 (`T2-MODEL-01`, `T2-ARCH-01`). Ghép nối kỹ thuật Template 1. |
+| **Mốc 5** | **23:59 ngày 12/11/2026** | **Final Template 1 & Chốt Technical Baseline:** Trưởng nhóm ghép nối toàn bộ bài làm, render HTML/PDF chuẩn A4 và nộp bài Template 1. Chốt schema Flyway V1-V5 (`T1-SCHEMA-01`), OpenAPI DTOs (`T1-CONTRACT-01`) và CI pipeline (`T1-CI-01`). |
+| **Mốc 6** | **23:59 ngày 21/11/2026** | **Hoàn thành cài đặt mã nguồn 4 Module:** Identity (15/11), Ticket (17/11), Knowledge (19/11), AI Assistance & Workflow (21/11). |
+| **Mốc 7** | **23:59 ngày 23/11/2026** | **Hoàn thành kiểm thử Unit & Integration:** Đạt độ bao phủ kiểm thử cho cả 4 module (Identity security, Ticket concurrency 409, Knowledge SKIP LOCKED, AI RAG citation). |
+| **Mốc 8** | **23:59 ngày 24/11/2026** | **Code Freeze MVP P0 & Nghiệm thu E2E:** Clean Environment Smoke test (`T1-OPS-01`), E2E integration test thông suốt từ Login $	o$ Ticket $	o$ Ingestion $	o$ AI Suggestion (`T1-INT-01`). Nghiệm thu MVP P0. |
+| **Mốc 9** | **23:59 ngày 28/11/2026** | **Hoàn tất & Nộp bài Template 2 (Thiết kế phần mềm):** Chốt toàn bộ Conceptual Model, Cây phân rã Kiến trúc, Data Dictionary, ERD, UI Specs; review đối soát code hoàn tất và nộp bài trước hạn trường 29/11. |
+| **Mốc 10** | **23:59 ngày 12/12/2026** | **Hoàn tất & Nộp bài Template 3 (Kiểm thử phần mềm):** Diễn ra SAU MVP (bắt đầu 25/11), hoàn thành chạy thực tế catalog $\ge 25$ ca kiểm thử, regression, concurrency test và đánh giá bộ 30 câu hỏi AI; nghiệm thu và đóng gói nộp bài.
 
 ---
 
@@ -208,12 +226,12 @@ gantt
 
 Đọc [TEMPLATE2_3_ALIGNMENT](reports/planning/TEMPLATE2_3_ALIGNMENT.md). **Template 2 là thiết kế, Template 3 mới là kiểm thử**; ghi nhầm trước đây đã được sửa trong CSV/taskcards. Mẫu yêu cầu2/3 lưu nguyên nội dung trong reports/references, bài năm trước chỉ tham khảo hình thức/phạm vi thêm.
 
-- 09–12/11: Lãm conceptual, Bình kiến trúc/cây phân rã; mỗiowner góp phần domain/port trước khi code phụ thuộc. Lãm data dictionary nháp cùngSQL10/11, hoàn thiện18/11.
-- 11–20/11: từng owner đặc tả UI từ mockupT1 với field/action/role/state/API/error; Quý Phúc tổng hợp, không vẽ thay cả nhóm.
-- 22/11: artifact thiết kế được đồng bộ bảnMVP;23–25/11 Gia Phúc review, findings trả đúngowner. Freeze 26/11, Lãm đónggói/Gia Phúc kiểm27/11, Bình nộp 28/11 theo giờcổng; không dồn toàn bộ thiết kế sang tuần23–29.
-- Giữ nguyên codeP0 09–22 và QA23–29; T2 không chờ test report/evaluation. Ref QA1-T2-01 chuyển parent T2 nhưng không tạo issue trùng.
-- Template 3 chuẩn bị plan/cases09–14/11: ít nhất5 chức năng×5ca. [Catalog](reports/testing/TEST_CASE_CATALOG.md) phân owner và mapping; actual/results chỉ sau chạy. Bộ30câuAI riêng, không thay25case.
-- Các task T2 được giao theo owner và đầu ra; ưu tiên đúng mẫu, tái sử dụng SRS/migration/mockup, không tự thêm đặc tả mọi lớp.
+- **11–14/11:** Bắt đầu Template 2 song song với Code MVP. Lãm soạn Conceptual Model (`T2-MODEL-01`), Bình dựng Cây phân rã Kiến trúc (`T2-ARCH-01`); mỗi owner góp phần domain/port trước khi code phụ thuộc.
+- **12–20/11:** Lãm hoàn thiện ERD và Data Dictionary (`T2-DATA-01`) bám sát Flyway migrations V1–V5.
+- **13–22/11:** Từng owner đặc tả UI từ mockup Template 1 (`T2-UI-01`) với field/action/role/state/API/error; Quý Phúc tổng hợp.
+- **23–27/11:** Gia Phúc thực hiện review đối soát độc lập giữa Thiết kế Template 2, SRS và Code (`T2-REVIEW-01`).
+- **28/11 (23:59):** Đóng gói và nộp Template 2 (`QA1-T2-01`) trước hạn cổng trường 29/11.
+- **Template 3 diễn ra SAU MVP (từ 25/11 đến 12/12):** Sau khi Code Freeze MVP P0 (24/11), đội ngũ tập trung toàn lực vào kiểm thử: lập test plan và catalog $\ge 25$ test cases (25–28/11), chạy regression, concurrency và AI evaluation $\ge 30$ câu (26/11–02/12), hoàn tất báo cáo kiểm thử cuối kỳ và nộp bài trước 12/12 (`T3-RELEASE-01`).
 
 ---
 
@@ -231,87 +249,92 @@ gantt
 
 ### 3.2. Mỗi người bắt đầu ở đâu? (Bình, Gia Phúc, Lãm, Quý Phúc)
 
-**Nháp Template 1 06/11, review 07/11, chốt 08/11. Code P0 09–22/11; Template 2 thiết kế làm song song09–22/11, review 23–25 và nộp 28 trước hạn 29. Template 3 là kiểm thử; cases chuẩn bị từ 09/11.**
+**Bản nháp Template 1 đóng băng 23:59 07/11, review chéo 23:59 08/11, sửa chữa chuyển Markdown 23:59 10/11, nộp bài 12/11. Code MVP P0 bắt đầu 11/11, chốt 24/11; Template 2 thiết kế làm song song 11–24/11, nộp 28/11. Template 3 kiểm thử diễn ra SAU MVP (25/11 – 12/12).**
 
 #### 3.2.1. Ngô Viết Thanh Bình
 
 | Giai đoạn | Task cần nhận | Hạn task |
 |---|---|---|
-| Code/test P0 | [T1-DEV-01 — [Foundation] Spring Boot Docker và principal/fake](#t1-dev-01) | 2026-11-10 |
-| Tài liệu T1 | [T1-DOC-04 — [Doc] Identity 5 UC và Use Case overview](#t1-doc-04) | 2026-11-07 |
-| Code/test P0 | [T1-DEV-02 — [Code] Identity P0 và Axios auth](#t1-dev-02) | 2026-11-13 |
-| Code/test P0 | [T1-TST-ID — [Test] Identity security và session](#t1-tst-id) | 2026-11-21 |
 | Tài liệu T1 | [T1-READY-01 — [Ready] Rubric và quyền truy cập](#t1-ready-01) | 2026-11-04 |
-| Tài liệu T1 | [T1-SUBMIT-01 — [Submit] Nộp Template 1 và lưu biên nhận](#t1-submit-01) | 2026-11-08 |
-| Thiết kế T2 | [T2-ARCH-01 — [Design] Cây phân rã kiến trúc và ranh giới module](#t2-arch-01) | 2026-11-12 |
+| Tài liệu T1 | [T1-DOC-04 — [Doc] Identity 5 UC và Use Case overview](#t1-doc-04) | 2026-11-10 |
+| Tài liệu T1 | [T1-DOC-MD — [Markdown] Chuyển đổi và nộp bản Markdown (.md) sau khi chốt Google Docs](#t1-doc-md) | 2026-11-10 |
+| Tài liệu T1 | [T1-SUBMIT-01 — [Submit] Nộp Template 1 và lưu biên nhận](#t1-submit-01) | 2026-11-12 |
+| Code/test P0 | [T1-DEV-01 — [Foundation] Spring Boot Docker và principal/fake](#t1-dev-01) | 2026-11-12 |
+| Thiết kế T2 | [T2-ARCH-01 — [Design] Cây phân rã kiến trúc và ranh giới module](#t2-arch-01) | 2026-11-14 |
+| Code/test P0 | [T1-DEV-02 — [Code] Identity P0 và Axios auth](#t1-dev-02) | 2026-11-15 |
+| Code/test P0 | [T1-TST-ID — [Test] Identity security và session](#t1-tst-id) | 2026-11-23 |
 
 #### 3.2.2. Phan Gia Phúc
 
 | Giai đoạn | Task cần nhận | Hạn task |
 |---|---|---|
-| Tài liệu T1 | [T1-DOC-03 — [Doc] Truy vết 41 FR và 30 User Stories chuẩn](#t1-doc-03) | 2026-11-07 |
-| Tài liệu T1 | [T1-DOC-05 — [Doc] Ticket 6 UC và mockup Ticket](#t1-doc-05) | 2026-11-07 |
-| Code/test P0 | [T1-DEV-03 — [Code] Ticket P0 concurrency và adapter UI](#t1-dev-03) | 2026-11-15 |
-| Code/test P0 | [T1-TST-01 — [QA coordination] Tổng hợp kết quả bốn task test](#t1-tst-01) | 2026-11-21 |
-| Code/test P0 | [T1-INT-01 — [Integration] E2E tăng dần và nghiệm thu MVP P0](#t1-int-01) | 2026-11-22 |
-| Code/test P0 | [T1-CONTRACT-01 — [Contract] DTO ports OpenAPI và mẫu lỗi](#t1-contract-01) | 2026-11-10 |
-| Code/test P0 | [T1-TST-TK — [Test] Ticket concurrency và rollback](#t1-tst-tk) | 2026-11-21 |
-| QA | [QA1-REG-01 — [QA] Regression bảo mật concurrency hiệu năng và sửa lỗi](#qa1-reg-01) | 2026-11-29 |
-| Code/test P0 | [T1-WF-01 — [Workflow] Apply discard suggestion nguyên tử](#t1-wf-01) | 2026-11-19 |
-| Thiết kế T2 | [T2-REVIEW-01 — [Design review] Đối soát Template 2 SRS và implementation](#t2-review-01) | 2026-11-25 |
-| Kiểm thử T3 | [T3-CASE-01 — [Test spec] Điều phối5 chức năng mỗi chức năng ít nhất 5 ca](#t3-case-01) | 2026-11-14 |
+| Tài liệu T1 | [T1-DOC-03 — [Doc] Truy vết 41 FR và 30 User Stories chuẩn](#t1-doc-03) | 2026-11-10 |
+| Tài liệu T1 | [T1-DOC-05 — [Doc] Ticket 6 UC và mockup Ticket](#t1-doc-05) | 2026-11-10 |
+| Tài liệu T1 | [T1-DOC-MD — [Markdown] Chuyển đổi và nộp bản Markdown (.md) sau khi chốt Google Docs](#t1-doc-md) | 2026-11-10 |
+| Code/test P0 | [T1-CONTRACT-01 — [Contract] DTO ports OpenAPI và mẫu lỗi](#t1-contract-01) | 2026-11-12 |
+| Code/test P0 | [T1-DEV-03 — [Code] Ticket P0 concurrency và adapter UI](#t1-dev-03) | 2026-11-17 |
+| Code/test P0 | [T1-WF-01 — [Workflow] Apply discard suggestion nguyên tử](#t1-wf-01) | 2026-11-21 |
+| Code/test P0 | [T1-TST-TK — [Test] Ticket concurrency và rollback](#t1-tst-tk) | 2026-11-23 |
+| Code/test P0 | [T1-TST-01 — [QA coordination] Tổng hợp kết quả bốn task test](#t1-tst-01) | 2026-11-23 |
+| Code/test P0 | [T1-INT-01 — [Integration] E2E tăng dần và nghiệm thu MVP P0](#t1-int-01) | 2026-11-24 |
+| Thiết kế T2 | [T2-REVIEW-01 — [Design review] Đối soát Template 2 SRS và implementation](#t2-review-01) | 2026-11-27 |
+| Kiểm thử T3 | [T3-CASE-01 — [Test spec] Điều phối 5 chức năng mỗi chức năng ít nhất 5 ca kiểm thử](#t3-case-01) | 2026-11-28 |
+| QA (T3) | [QA1-REG-01 — [QA] Regression bảo mật concurrency hiệu năng và sửa lỗi](#qa1-reg-01) | 2026-12-02 |
 
 #### 3.2.3. Nguyễn Đức Lãm
 
 | Giai đoạn | Task cần nhận | Hạn task |
 |---|---|---|
-| Tài liệu T1 | [T1-DOC-02 — [Doc] Stakeholders Context Diagram và NFR](#t1-doc-02) | 2026-11-07 |
-| Tài liệu T1 | [T1-DOC-06 — [Doc] Knowledge 3 UC và mockup KB](#t1-doc-06) | 2026-11-07 |
-| Code/test P0 | [T1-DEV-04 — [Code] Knowledge ingestion retrieval và embedding port](#t1-dev-04) | 2026-11-17 |
-| Tài liệu T1 | [T1-PUB-01 — [Release] Review render và đóng gói Template 1](#t1-pub-01) | 2026-11-08 |
-| Code/test P0 | [T1-SCHEMA-01 — [Schema] Phối hợp baseline V1-V5 và migration gates](#t1-schema-01) | 2026-11-10 |
-| Code/test P0 | [T1-TST-KB — [Test] Worker lease retrieval và file security](#t1-tst-kb) | 2026-11-21 |
-| Code/test P0 | [T1-OPS-01 — [Ops] Clean environment và migration smoke](#t1-ops-01) | 2026-11-22 |
-| Code/test P0 | [T1-EMBED-01 — [Decision] Chốt embedding model dimension và corpus](#t1-embed-01) | 2026-11-10 |
+| Tài liệu T1 | [T1-DOC-02 — [Doc] Stakeholders Context Diagram và NFR](#t1-doc-02) | 2026-11-10 |
+| Tài liệu T1 | [T1-DOC-06 — [Doc] Knowledge 3 UC và mockup KB](#t1-doc-06) | 2026-11-10 |
+| Tài liệu T1 | [T1-DOC-MD — [Markdown] Chuyển đổi và nộp bản Markdown (.md) sau khi chốt Google Docs](#t1-doc-md) | 2026-11-10 |
+| Tài liệu T1 | [T1-PUB-01 — [Release] Review render và đóng gói Template 1](#t1-pub-01) | 2026-11-12 |
+| Code/test P0 | [T1-SCHEMA-01 — [Schema] Phối hợp baseline V1-V5 và migration gates](#t1-schema-01) | 2026-11-12 |
+| Code/test P0 | [T1-EMBED-01 — [Decision] Chốt embedding model dimension và corpus](#t1-embed-01) | 2026-11-12 |
+| Thiết kế T2 | [T2-MODEL-01 — [Design] Mô hình quan niệm và quan hệ nghiệp vụ](#t2-model-01) | 2026-11-14 |
+| Code/test P0 | [T1-DEV-04 — [Code] Knowledge ingestion retrieval và embedding port](#t1-dev-04) | 2026-11-19 |
+| Thiết kế T2 | [T2-DATA-01 — [Design] ERD và đặc tả dữ liệu khớp migrations](#t2-data-01) | 2026-11-20 |
+| Code/test P0 | [T1-TST-KB — [Test] Worker lease retrieval và file security](#t1-tst-kb) | 2026-11-23 |
+| Code/test P0 | [T1-OPS-01 — [Ops] Clean environment và migration smoke](#t1-ops-01) | 2026-11-24 |
 | Thiết kế T2 | [QA1-T2-01 — [Template 2] Chốt gói thiết kế và nộp trước 29/11](#qa1-t2-01) | 2026-11-28 |
-| Thiết kế T2 | [T2-MODEL-01 — [Design] Mô hình quan niệm và quan hệ nghiệp vụ](#t2-model-01) | 2026-11-12 |
-| Thiết kế T2 | [T2-DATA-01 — [Design] ERD và đặc tả dữ liệu khớp migrations](#t2-data-01) | 2026-11-18 |
 | Kiểm thử T3 | [T3-RELEASE-01 — [Template 3] Hoàn thiện báo cáo test gói cuối và biên nhận](#t3-release-01) | 2026-12-12 |
 
 #### 3.2.4. Lê Quý Phúc
 
 | Giai đoạn | Task cần nhận | Hạn task |
 |---|---|---|
-| Tài liệu T1 | [T1-DOC-01 — [Doc] Bìa bảng đóng góp và mô tả bài toán](#t1-doc-01) | 2026-11-07 |
-| Tài liệu T1 | [T1-DOC-07 — [Doc] AI 2 UC Analytics P1 riêng và tổng hợp mockup](#t1-doc-07) | 2026-11-07 |
-| Code/test P0 | [T1-DEV-05 — [Code] AI RAG P0 apply workflow và adapter AI UI](#t1-dev-05) | 2026-11-19 |
-| Code/test P0 | [T1-CI-01 — [CI] Build PostgreSQL tests và frontend build](#t1-ci-01) | 2026-11-10 |
-| Code/test P0 | [T1-TST-AI — [Test] RAG contract và send suggestion races](#t1-tst-ai) | 2026-11-21 |
-| QA | [QA1-EVAL-01 — [QA] Đánh giá AI trên bộ ít nhất 30 câu có nhãn](#qa1-eval-01) | 2026-11-28 |
-| Tài liệu T1 | [T1-UI-01 — [Mockup] Tổng hợp prototype và kiểm tra quyền xem](#t1-ui-01) | 2026-11-07 |
-| Thiết kế T2 | [T2-UI-01 — [Design] Đặc tả UI và luồng trạng thái theo UC API](#t2-ui-01) | 2026-11-20 |
+| Tài liệu T1 | [T1-DOC-01 — [Doc] Bìa bảng đóng góp và mô tả bài toán](#t1-doc-01) | 2026-11-10 |
+| Tài liệu T1 | [T1-DOC-07 — [Doc] AI 2 UC Analytics P1 riêng và tổng hợp mockup](#t1-doc-07) | 2026-11-10 |
+| Tài liệu T1 | [T1-DOC-MD — [Markdown] Chuyển đổi và nộp bản Markdown (.md) sau khi chốt Google Docs](#t1-doc-md) | 2026-11-10 |
+| Tài liệu T1 | [T1-UI-01 — [Mockup] Tổng hợp prototype và kiểm tra quyền xem](#t1-ui-01) | 2026-11-10 |
+| Code/test P0 | [T1-CI-01 — [CI] Build PostgreSQL tests và frontend build](#t1-ci-01) | 2026-11-12 |
+| Code/test P0 | [T1-DEV-05 — [Code] AI RAG P0 apply workflow và adapter AI UI](#t1-dev-05) | 2026-11-21 |
+| Thiết kế T2 | [T2-UI-01 — [Design] Đặc tả UI và luồng trạng thái theo UC API](#t2-ui-01) | 2026-11-22 |
+| Code/test P0 | [T1-TST-AI — [Test] RAG contract và send suggestion races](#t1-tst-ai) | 2026-11-23 |
+| QA (T3) | [QA1-EVAL-01 — [QA] Đánh giá AI trên bộ ít nhất 30 câu có nhãn](#qa1-eval-01) | 2026-12-02 |
 
 ### 3.3. Ma trận bàn giao để không ngồi chờ nhau (Handoff Matrix)
 
 | Người giao → người nhận | Artifact phải giao | Hạn / người nhận làm gì trong lúc chờ |
 |---|---|---|
 | Bình → cả nhóm | Rubric, link Docs chung, link Figma SE, phân quyền thành viên trong TEAM_READINESS | **Đã hoàn thành 03/11**; link Docs và Figma đã cấp đủ |
-| Bốn owner → Gia Phúc | Mapping FR/US/UC/test module mình trong inputs/<ten>.md | 12:00 05/11; Gia Phúc dựng bảng trước, không đợi UC xong |
-| Gia Phúc → Quý Phúc | Phạm vi US-28/FR-TK-12 của Analytics P1 | 12:00 05/11; Quý Phúc viết AI UC-14/15 trước |
-| Bốn owner → Quý Phúc | Đối soát Node ID và ảnh PNG từ docs/design/man-hinh.md sang UC module mình | 20:00 06/11; Quý Phúc tổng hợp vào Mục 5 trước 20:00 07/11 |
-| Bốn owner/reviewer → Lãm | Tài liệu/sơ đồ/mockup đã review, AI log/chữ ký xác nhận thật |20:00 07/11; Lãm thử render từ 04/11, ghép từng phần |
-| Lãm → Gia Phúc → Bình | Gói cố định + manifest + kiểm tra độc lập |20:00 08/11; Bình nộp và lưu biên nhận trước21:00 08/11, không chờ code |
-| Bình → Quý Phúc/Lãm/cả nhóm | pom/wrapper/config/scaffold chạy tối thiểu |Trong 09/11; soạn CI/SQL/DTO nháp trước khi scaffold xong |
-| Các owner → Gia Phúc / Lãm | DTO/port/error nháp và SQL V1/V2/V3/V4/V5 theo trách nhiệm |20:00 09/11; hợp đồng chốt trước20:00 10/11, schema chốt trước20:00 10/11 |
-| Lãm + Quý Phúc → schema/AI | Quyết định model/dimension/corpus và EmbeddingProvider/fake |Decision12:00 10/11, port/fake20:00 10/11; chưa chốt chỉ draft V3 |
-| Bình → Gia Phúc | Auth/principal thật + seed dev an toàn |12:00 12/11; Ticket dùng fake để viết pure rules trước đó |
-| Gia Phúc → Quý Phúc | TicketContext public-only + message/workflow port v1 |20:00 15/11; AI dùng fake cùng contract trước đó |
-| Lãm → Quý Phúc | Retriever thật + corpus READY/published |23:59 17/11; hai người xác nhận nối thật trước20:00 18/11 |
-| Gia Phúc + Quý Phúc → E2E | Workflow apply/discard thật, test race/rollback |23:59 19/11; Ticket không AI phải xong 15/11, port fake chốt 10/11 |
-| Các owner → Gia Phúc | Test feature tại gate module, final regression/evidence |20:00 21/11; không đợi 21/11 mới viết/chạy test |
-| Lãm → Gia Phúc → Bình | Clean-environment evidence rồi kết quả nghiệm thu MVP |OPS18:00 22/11, MVP20:00 22/11; OPS không chờ INT Done |
-| Chủ phần thiết kế → Lãm | Conceptual/architecture 12/11, data 18/11, UI 20/11, review 25/11 |Freeze 26, kiểm gói 27, nộp 28 trước hạn 29 theo cổng; không chờ regression/AI metrics |
-| Từng testowner → Gia Phúc/Lãm | ≥5 chức năng ×5 case specs 14/11, actual theo feature gates, QA 23–29/11 |Bằng chứng dành Template 3; không thay bằng 30 câu AIevaluation |
+| Gia Phúc → Quý Phúc | Phạm vi US-28/FR-TK-12 của Analytics P1 | Trước 23:59 07/11; Quý Phúc viết AI UC-14/15 trước |
+| Bốn owner | Hoàn thành bản nháp Use Cases, FR/US, sơ đồ, mockup trực tiếp trên Google Docs | **23:59 07/11 (Draft Freeze)**; đóng băng để review chéo |
+| Cả 4 thành viên | Hoàn tất review chéo xoay vòng trực tiếp trên Google Docs (Bình → Lãm → Gia Phúc → Quý Phúc → Bình) | **23:59 08/11 (Review chéo)**; phản biện, comment chi tiết |
+| Bốn owner → Lãm | Nộp bản Markdown (`reports/template1/*.md`), xuất sơ đồ `.svg` và cập nhật biên bản bàn giao `reports/template1/inputs/` (Task T1-DOC-MD) | **23:59 10/11**; commit kèm mã Jira SCRUM-xx; Lãm kiểm tra tiếp nhận |
+| Lãm + Bình | Ghép nối kỹ thuật, kiểm tra đối soát chéo toàn bộ Markdown và liên kết ảnh | **11/11**; chuẩn bị kịch bản render |
+| Lãm → Gia Phúc → Bình | Gói nộp hoàn chỉnh + render HTML/PDF chuẩn A4 + lưu biên nhận nộp | **23:59 12/11**; Bình nộp bài chính thức |
+| Bình → Quý Phúc/Lãm/cả nhóm | pom/wrapper/config/scaffold Spring Boot chạy tối thiểu | **11/11 - 12/11**; khởi tạo hạ tầng mã nguồn |
+| Các owner → Gia Phúc / Lãm | DTO/port/error OpenAPI và SQL V1/V2/V3/V4/V5 theo trách nhiệm | **23:59 12/11**; chốt schema V1-V5 và contract OpenAPI |
+| Lãm + Quý Phúc → schema/AI | Quyết định model/dimension/corpus và EmbeddingProvider/fake | **23:59 12/11**; chốt model embedding và vector dimension |
+| Bình → Gia Phúc | Auth/principal thật + seed dev an toàn | **15/11**; Module D hoàn thành |
+| Gia Phúc → Quý Phúc | TicketContext public-only + message/workflow port v1 | **17/11**; Module C hoàn thành |
+| Lãm → Quý Phúc | Retriever thật + corpus READY/published | **19/11**; Module B hoàn thành |
+| Gia Phúc + Quý Phúc → E2E | Workflow apply/discard thật, test race/rollback | **21/11**; Module A và Workflow hoàn thành |
+| Các owner → Gia Phúc | Test feature tại gate module, final regression/evidence | **23/11**; hoàn thành kiểm thử Unit & Integration 4 module |
+| Lãm → Gia Phúc → Bình | Clean-environment evidence rồi kết quả nghiệm thu MVP | **23:59 24/11**; Code Freeze MVP P0 và nghiệm thu E2E |
+| Chủ phần thiết kế → Lãm | Conceptual/architecture 14/11, data 20/11, UI 22/11, review 27/11 | **23:59 28/11**; đóng gói và nộp Template 2 trước hạn trường 29/11 |
+| Từng test owner → Gia Phúc/Lãm | ≥5 chức năng × 5 ca kiểm thử (25–28/11), QA regression & AI evaluation (26/11–02/12) | **25/11 – 12/12**; Template 3 diễn ra SAU MVP; nộp bài trước 12/12 |
 
 Mốc trên là yêu cầu bàn giao, **chưa phải bằng chứng đã giao**. Người nhận kiểm tra artifact/PR/phiên bản, trả lại thiếu sót ngay và ghi blocker. Nếu bỏ lỡ mốc, trước buổi làm việc tiếp theo phải báo Bình/owner phía nhận; Bình quyết định chia lại trong ngày. Không giảm test quyền/transaction hoặc tự đưa P0 thành P1.
 
@@ -359,20 +382,20 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T1-DEV-01 — [Foundation] Spring Boot Docker và principal/fake
 
-**Owner:** Bình. **Reviewer:** Quý Phúc. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-10.
+**Owner:** Bình. **Reviewer:** Quý Phúc. **Bắt đầu:** 11/11/2026. **Hạn task:** 2026-11-12.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 9.2/9.3, 15.3; [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md) — 1–3; [backend/README.md](backend/README.md) — package và scope; [infra/README.md](infra/README.md) — hạ tầng dự kiến.
 
-**BẮT ĐẦU:** 09/11 sau baseline tài liệu 08/11; scaffold không chờ contract/schema hoàn tất.
+**BẮT ĐẦU:** 11/11/2026; scaffold khởi động mã nguồn nền tảng, không chờ contract/schema hoàn tất.
 
-1. 09/11 tạo Maven/Java21/Spring Boot skeleton đúng package, config dev và .env.example không secrets; ghi phiên bản/lệnh chạy thực tế.
-2. Chạy Docker PostgreSQL/pgvector và kết nối app; trong ngày 09/11 bàn giao pom/wrapper/config chạy tối thiểu để Quý Phúc làm CI, Lãm thử DB; không chờ schema cả bốn module.
-3. Cài error envelope, Actor/fake principal theo contract của Gia Phúc; phân biệt fake dùng test và auth thật. Phối hợp principal thật bàn giao 12/11 trong DEV-02.
+1. 11/11 tạo Maven/Java 21/Spring Boot 3 skeleton đúng package, config dev và .env.example không secrets; ghi phiên bản/lệnh chạy thực tế.
+2. Chạy Docker PostgreSQL/pgvector và kết nối app; trong ngày 11/11 bàn giao pom/wrapper/config chạy tối thiểu để Quý Phúc làm CI (`T1-CI-01`), Lãm thử DB; không chờ schema cả bốn module.
+3. Cài error envelope, Actor/fake principal theo contract của Gia Phúc; phân biệt fake dùng test và auth thật. Phối hợp principal thật bàn giao 15/11 trong DEV-02.
 4. Gửi Quý Phúc review và cập nhật backend/infra README; schema và CI là task khác, không viết thay owner.
 
 **Đầu ra:** `backend/pom.xml, Maven wrapper, HelpdeskApplication, common config/error/principal; infra/compose.yaml và README chạy thực tế`.
 
-**CHỐT / DoD:** Khung chạy với DB và Actor/error đúng baseline MVP_CONTRACTS; bàn giao scaffold tối thiểu trong 09/11. Không chờ toàn bộ CONTRACT/schema/CI đóng để giao scaffold; owner phối hợp fix compile trước gate 10/11.
+**CHỐT / DoD:** Khung chạy với DB và Actor/error đúng baseline MVP_CONTRACTS; bàn giao scaffold tối thiểu trong 11/11. Không chờ toàn bộ CONTRACT/schema/CI đóng để giao scaffold; owner phối hợp fix compile trước gate 12/11.
 
 **Ai chờ kết quả:** Quý Phúc dùng skeleton cho CI; Lãm dùng DB/schema; mọi owner dùng khung chung.
 
@@ -380,167 +403,194 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T1-DOC-01 — [Doc] Bìa bảng đóng góp và mô tả bài toán
 
-**Owner:** Quý Phúc. **Reviewer:** Gia Phúc. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-07.
+**Owner:** Quý Phúc. **Reviewer:** Gia Phúc. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-10.
 
-**Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 1, A.1, C; [reports/template1/01-danh-gia-thanh-vien.md](reports/template1/01-danh-gia-thanh-vien.md) — khung đóng góp; [reports/template1/02-mo-ta-bai-toan.md](reports/template1/02-mo-ta-bai-toan.md) — khung mô tả.
+**Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 1, A.1, C; [reports/template1/01-danh-gia-thanh-vien.md](reports/template1/01-danh-gia-thanh-vien.md) — khung đóng góp; [reports/template1/02-mo-ta-bai-toan.md](reports/template1/02-mo-ta-bai-toan.md) — khung mô tả; [Google Docs nhóm](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0).
 
-**BẮT ĐẦU:** Viết mô tả được ngay từ SRS; phần rubric/chữ ký chờ READY/đương sự, không chờ cả nhóm mới bắt đầu.
+**BẮT ĐẦU:** Soạn thảo trực tiếp trên Google Docs từ SRS ngay; phần rubric/chữ ký chờ READY/đương sự.
 
-1. Đọc phạm vi/mục tiêu và viết bối cảnh, vấn đề, mục tiêu đo được, môi trường/ràng buộc vào 02-mo-ta-bai-toan.md; không thêm AI tự phân loại hoặc SLA ngoài SRS.
-2. Điền bìa/thông tin người làm; hỏi trực tiếp từng người về tỷ lệ/chữ ký, giữ chờ xác nhận nếu chưa có; không mặc định 100% hoặc đã ký.
-3. Gửi Gia Phúc review, sửa góp ý rồi chuyển Lãm file đã chốt kèm nguồn xác nhận.
+1. Đọc phạm vi/mục tiêu và viết bối cảnh, vấn đề, mục tiêu đo được, môi trường/ràng buộc vào Mục 1 và Mục 2 trên Google Docs; không thêm AI tự phân loại hoặc SLA ngoài SRS.
+2. Điền bìa/thông tin người làm; xác nhận tỷ lệ đóng góp của 4 thành viên.
+3. Hoàn tất bản nháp trước 23:59 07/11 (Draft Freeze); nhận review chéo trên Docs trước 23:59 08/11.
+4. Sửa chữa theo nhận xét, chuyển sang `reports/template1/01-danh-gia-thanh-vien.md` và `02-mo-ta-bai-toan.md` trước 23:59 10/11.
 
 **Đầu ra:** `reports/template1/01-danh-gia-thanh-vien.md và 02-mo-ta-bai-toan.md`.
 
-**CHỐT / DoD:** Gia Phúc approve; thông tin cá nhân/đóng góp có xác nhận và nguồn; sửa review xong trước 08/11. Bản nháp đủ nội dung trước20:00 06/11; bản được review/bàn giao trước20:00 07/11; 08/11 chỉ sửa lỗi đóng gói hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
+**CHỐT / DoD:** Gia Phúc approve; thông tin cá nhân/đóng góp có xác nhận và nguồn. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11.
 
-**Ai chờ kết quả:** Lãm ghép bài; Bình xác nhận scope.
+**Ai chờ kết quả:** Cả nhóm review chéo trên Docs trước 23:59 08/11; Lãm nhận Markdown trước 23:59 10/11.
 
 <a id="t1-doc-02"></a>
 
 ### T1-DOC-02 — [Doc] Stakeholders Context Diagram và NFR
 
-**Owner:** Lãm. **Reviewer:** Bình. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-07.
+**Owner:** Lãm. **Reviewer:** Bình. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-10.
 
-**Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 3.1, 8; NFR IDs; [PLAN_TEMPLATE1_AND_DEVELOPMENT.md](PLAN_TEMPLATE1_AND_DEVELOPMENT.md) — 4–5; [reports/template1/03-tong-quan-yeu-cau/03.1-stakeholders.md](reports/template1/03-tong-quan-yeu-cau/03.1-stakeholders.md) — file nhận nội dung; [reports/template1/03-tong-quan-yeu-cau/03.2.2-yeu-cau-phi-chuc-nang.md](reports/template1/03-tong-quan-yeu-cau/03.2.2-yeu-cau-phi-chuc-nang.md) — file nhận nội dung.
+**Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 3.1, 8; NFR IDs; [PLAN_TEMPLATE1_AND_DEVELOPMENT.md](PLAN_TEMPLATE1_AND_DEVELOPMENT.md) — 4–5; [reports/template1/03-tong-quan-yeu-cau/03.1-stakeholders.md](reports/template1/03-tong-quan-yeu-cau/03.1-stakeholders.md) — file nhận nội dung; [reports/template1/03-tong-quan-yeu-cau/03.2.2-yeu-cau-phi-chuc-nang.md](reports/template1/03-tong-quan-yeu-cau/03.2.2-yeu-cau-phi-chuc-nang.md) — file nhận nội dung; [Google Docs nhóm](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0).
 
-**BẮT ĐẦU:** Soạn từ SRS ngay; chỉ bố cục/rubric chờ READY.
+**BẮT ĐẦU:** Soạn từ SRS trên Google Docs ngay; chỉ bố cục/rubric chờ READY.
 
 1. Liệt kê stakeholder nghiệp vụ tách khỏi actor; vẽ context chỉ có toàn hệ thống, người dùng và dịch vụ ngoài, không đưa DB/worker thành actor.
-2. Chuyển toàn bộ NFR từ SRS 8, giữ mã/mức/điều kiện đo và bổ sung cách nghiệm thu, không biến mục tiêu chưa đo thành kết quả đã đạt.
-3. Lưu context-diagram.drawio + SVG; gửi Bình đối soát và chuyển Lãm phần release (tự thực hiện nhưng vẫn cần review độc lập).
+2. Chuyển toàn bộ NFR từ SRS 8, giữ mã/mức/điều kiện đo và bổ sung cách nghiệm thu, không biến mục tiêu chưa đo thành kết quả đã đạt. Soạn thảo trực tiếp trên Google Docs trước 23:59 07/11 (Draft Freeze).
+3. Nhận review chéo từ Bình trên Docs trước 23:59 08/11; sửa chữa và chuyển sang Markdown, lưu context-diagram.drawio + SVG trước 23:59 10/11.
 
 **Đầu ra:** `reports/template1/03-tong-quan-yeu-cau/03.1-stakeholders.md, 03.2.2-yeu-cau-phi-chuc-nang.md; assets/diagrams/context-diagram.drawio và .svg`.
 
-**CHỐT / DoD:** Bình review; đủ NFR/cách đo, source + SVG đọc được; sửa cuối 08/11. Bản nháp đủ nội dung trước20:00 06/11; bản được review/bàn giao trước20:00 07/11; 08/11 chỉ sửa lỗi đóng gói hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
+**CHỐT / DoD:** Bình review; đủ NFR/cách đo, source + SVG đọc được. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11.
 
-**Ai chờ kết quả:** Các owner đối chiếu NFR; Lãm release.
+**Ai chờ kết quả:** Cả nhóm review chéo trên Docs trước 23:59 08/11; Lãm nhận Markdown trước 23:59 10/11.
 
 <a id="t1-doc-03"></a>
 
 ### T1-DOC-03 — [Doc] Truy vết 41 FR và 30 User Stories chuẩn
 
-**Owner:** Gia Phúc. **Reviewer:** Lãm. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-07.
+**Owner:** Gia Phúc. **Reviewer:** Lãm. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-10.
 
-**Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 4, 7, 22 và Phụ lục D; [reports/template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md](reports/template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md) — bảng tổng hợp.
+**Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 4, 7, 22 và Phụ lục D; [reports/template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md](reports/template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md) — bảng tổng hợp; [Google Docs nhóm](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0).
 
-**BẮT ĐẦU:** Dựng bảng ngay, không chờ UC hoàn chỉnh.
+**BẮT ĐẦU:** Dựng bảng trên Google Docs ngay, không chờ UC hoàn chỉnh.
 
-1. Gia Phúc dựng bảng 41 FR/30 US theo đúng mã chuẩn; mỗi dòng thêm UC/BR/mockup/test liên quan, priority và owner; RBAC/privacy là cross-cutting.
-2. Bình, Lãm, Quý Phúc gửi mapping module mình cho Gia Phúc trước 12:00 05/11 trong reports/template1/inputs/<ten>.md; Gia Phúc tự điền Ticket, không phải viết lại toàn bộ module khác.
-3. Đối soát đủ mã và không đổi nghĩa, liên kết UC P1/FR không có UC riêng, gửi Lãm review; chỗ mapping thiếu gắn owner và giờ cần bổ sung.
+1. Gia Phúc dựng bảng 41 FR / 30 US theo đúng mã chuẩn trên Google Docs; mỗi dòng thêm UC/BR/mockup/test liên quan, priority và owner; RBAC/privacy là cross-cutting.
+2. Các owner hoàn thiện phần Use Case của mình trực tiếp trên Google Docs trước 23:59 07/11 (Draft Freeze); Gia Phúc tổng hợp và liên kết chéo FR ↔ US ↔ UC ↔ Mockup.
+3. Đối soát đủ mã và không đổi nghĩa, liên kết UC P1/FR không có UC riêng, hoàn thành review chéo trước 23:59 08/11; sửa chữa và chuyển sang Markdown trước 23:59 10/11.
 
-**Đầu ra:** `reports/template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md; inputs/{binh,gia-phuc,lam,quy-phuc}.md`.
+**Đầu ra:** `reports/template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md`.
 
-**CHỐT / DoD:** Nhận mapping từ DOC-04/05/06/07; rubric từ READY; không còn FR/US chưa được owner kiểm tra. Bản nháp đủ nội dung trước20:00 06/11; bản được review/bàn giao trước20:00 07/11; 08/11 chỉ sửa lỗi đóng gói hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
+**CHỐT / DoD:** Không còn FR/US chưa được owner kiểm tra. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11.
 
-**Ai chờ kết quả:** Tất cả owner viết UC; Lãm kiểm coverage bài nộp.
+**Ai chờ kết quả:** Cả nhóm review chéo trên Docs trước 23:59 08/11; Lãm nhận Markdown trước 23:59 10/11.
 
 <a id="t1-doc-04"></a>
 
 ### T1-DOC-04 — [Doc] Identity 5 UC và Use Case overview
 
-**Owner:** Bình. **Reviewer:** Quý Phúc. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-07.
+**Owner:** Bình. **Reviewer:** Quý Phúc. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-10.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 4.1, 5, 10 users/auth_sessions, 11.2, 14.2; [PLAN_TEMPLATE1_AND_DEVELOPMENT.md](PLAN_TEMPLATE1_AND_DEVELOPMENT.md) — 4 mẫu chín trường, 5 sơ đồ tham khảo; [reports/template1/04-dac-ta-use-cases/04.2-module-D-identity.md](reports/template1/04-dac-ta-use-cases/04.2-module-D-identity.md) — file nhận đặc tả; [reports/template1/05-prototype-mockup.md](reports/template1/05-prototype-mockup.md) — ma trận màn hình; [Google Docs nhóm](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0).
 
-**BẮT ĐẦU:** Viết từ SRS được ngay; không chờ bảng FR tổng hợp hoặc UC module khác để tránh vòng chờ.
+**BẮT ĐẦU:** Viết từ SRS trực tiếp trên Google Docs; không chờ bảng FR tổng hợp hoặc UC module khác.
 
-1. Đọc 4.1, 5, 10 users/auth_sessions, 11.2, 14.2; lấy UC-01..04,16, FR-ID-01..09, US-01..06,27, actor/BR. Gửi mapping FR/US/UC/test dự kiến vào inputs/binh.md cho Gia Phúc trước 12:00 05/11.
-2. Viết từng UC đủ chín trường theo kế hoạch Mục 4, có trigger, nhánh lỗi và hậu điều kiện; Tách register/login, refresh/logout; Admin quản lý Agent; UC-16 chỉ đặc tả P1. Bình còn vẽ uc-overview.drawio + SVG đủ 17 mã.
-3. Vẽ uc-module-D.drawio + SVG giữ mã UC và tên nghiệp vụ. **Kế thừa bộ khung thiết kế v2 làm baseline:** Bình chủ động rà soát, tinh chỉnh hoặc bổ sung các màn hình/trạng thái Identity trên Figma (Node `62:8214` đến `62:14361`, ảnh PNG tại `docs/design/anh/`) cho phù hợp với UC-01..04, 16. Soạn thảo trực tiếp trên Google Docs nhóm trước 20:00 06/11.
-4. Mở PR chuyển nội dung vào `04.2-module-D-identity.md`, giao Quý Phúc review 07–08/11. Bàn giao file, ảnh và trạng thái cho Lãm để chuẩn bị nộp bài.
+1. Đọc 4.1, 5, 10 users/auth_sessions, 11.2, 14.2; lấy UC-01..04, 16, FR-ID-01..09, US-01..06, 27, actor/BR. Soạn thảo trực tiếp trên Google Docs nhóm trước 23:59 07/11 (Draft Freeze).
+2. Viết từng UC đủ chín trường theo kế hoạch Mục 4, có trigger, nhánh lỗi và hậu điều kiện; Tách register/login, refresh/logout; Admin quản lý Agent; UC-16 chỉ đặc tả P1. Bình vẽ `uc-overview.drawio` + SVG đủ 17 mã.
+3. Vẽ `uc-module-D.drawio` + SVG giữ mã UC và tên nghiệp vụ. **Kế thừa bộ khung thiết kế v2 làm baseline:** Bình chủ động rà soát, tinh chỉnh hoặc bổ sung các màn hình/trạng thái Identity trên Figma (Node `62:8214` đến `62:14361`, ảnh PNG tại `docs/design/anh/`) cho phù hợp với UC-01..04, 16.
+4. Nhận review chéo từ Quý Phúc trên Google Docs trước 23:59 08/11; sửa chữa và chuyển nội dung vào `04.2-module-D-identity.md`, xuất file `.svg` trước 23:59 10/11. Bàn giao cho Lãm ghép bài.
 
-**Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-D-identity.md; assets/diagrams/uc-module-D.drawio và .svg; mapping màn hình Identity; inputs/binh.md`.
+**Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-D-identity.md; assets/diagrams/uc-overview.drawio/.svg; assets/diagrams/uc-module-D.drawio/.svg; mapping màn hình Identity`.
 
-**CHỐT / DoD:** Reviewer approve, đủ scope đã giao, drawio/SVG/mockup và mapping; rubric từ READY. Bản nháp đủ nội dung trước 20:00 06/11; bản được review/bàn giao trước 20:00 07/11; 08/11 chỉ sửa lỗi đóng gói hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
+**CHỐT / DoD:** Reviewer approve, đủ scope đã giao, drawio/SVG/mockup. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11.
 
-**Ai chờ kết quả:** Gia Phúc nhận mapping 05/11; Quý Phúc nhận mockup 06/11; Lãm nhận bản đã review 07/11.
+**Ai chờ kết quả:** Cả nhóm review chéo trên Docs trước 23:59 08/11; Lãm nhận Markdown/SVG trước 23:59 10/11.
 
 <a id="t1-doc-05"></a>
 
 ### T1-DOC-05 — [Doc] Ticket 6 UC và mockup Ticket
 
-**Owner:** Gia Phúc. **Reviewer:** Lãm. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-07.
+**Owner:** Gia Phúc. **Reviewer:** Lãm. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-10.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 4.2, 5.1/5.2, 6 UC-05/07/08/09, 11.3, 14.2; [PLAN_TEMPLATE1_AND_DEVELOPMENT.md](PLAN_TEMPLATE1_AND_DEVELOPMENT.md) — 4 mẫu chín trường, 5 sơ đồ tham khảo; [reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md](reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md) — file nhận đặc tả; [reports/template1/05-prototype-mockup.md](reports/template1/05-prototype-mockup.md) — ma trận màn hình; [Google Docs nhóm](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0).
 
-**BẮT ĐẦU:** Viết từ SRS được ngay; không chờ bảng FR tổng hợp hoặc UC module khác để tránh vòng chờ.
+**BẮT ĐẦU:** Viết từ SRS trực tiếp trên Google Docs; không chờ bảng FR tổng hợp hoặc UC module khác.
 
-1. Đọc 4.2, 5.1/5.2, 6 UC-05/07/08/09, 11.3, 14.2; lấy UC-05..10, FR-TK-01..12, US-07..17,28,29, actor/BR. Gửi mapping FR/US/UC/test dự kiến vào inputs/gia-phuc.md cho Gia Phúc trước 12:00 05/11.
-2. Viết từng UC đủ chín trường theo kế hoạch Mục 4, có trigger, nhánh lỗi và hậu điều kiện; Phân biệt claim của Agent/assign của Admin, public/internal theo quyền, state và 409. UC-17 trong sơ đồ Ticket nhưng Quý Phúc viết file riêng; Gia Phúc review US-28 và gửi Quý Phúc trước 12:00 05/11.
-3. Vẽ uc-module-C.drawio + SVG giữ mã UC và tên nghiệp vụ. **Kế thừa bộ khung thiết kế v2 làm baseline:** Gia Phúc chủ động rà soát, tinh chỉnh hoặc bổ sung các màn hình/trạng thái Agent và Customer trên Figma (Node `55:1992`..`62:14876` và `58:6763`..`62:15156`, ảnh PNG tại `docs/design/anh/`) cho phù hợp với UC-05..10. Soạn thảo trực tiếp trên Google Docs nhóm trước 20:00 06/11.
-4. Mở PR chuyển nội dung vào `04.2-module-C-ticket.md`, giao Lãm review 07–08/11. Bàn giao file, ảnh và trạng thái cho Lãm để chuẩn bị nộp bài.
+1. Đọc 4.2, 5.1/5.2, 6 UC-05/07/08/09, 11.3, 14.2; lấy UC-05..10, FR-TK-01..12, US-07..17, 28, 29, actor/BR. Soạn thảo trực tiếp trên Google Docs nhóm trước 23:59 07/11 (Draft Freeze).
+2. Viết từng UC đủ chín trường theo kế hoạch Mục 4, có trigger, nhánh lỗi và hậu điều kiện; Phân biệt claim của Agent/assign của Admin, public/internal theo quyền, state và 409. UC-17 trong sơ đồ Ticket nhưng Quý Phúc viết file riêng; Gia Phúc review phạm vi US-28 và chuyển Quý Phúc trước 23:59 07/11.
+3. Vẽ `uc-module-C.drawio` + SVG giữ mã UC và tên nghiệp vụ. **Kế thừa bộ khung thiết kế v2 làm baseline:** Gia Phúc chủ động rà soát, tinh chỉnh hoặc bổ sung các màn hình/trạng thái Agent và Customer trên Figma (Node `55:1992`..`62:14876` và `58:6763`..`62:15156`, ảnh PNG tại `docs/design/anh/`) cho phù hợp với UC-05..10.
+4. Nhận review chéo từ Lãm trên Google Docs trước 23:59 08/11; sửa chữa và chuyển nội dung vào `04.2-module-C-ticket.md`, xuất file `.svg` trước 23:59 10/11. Bàn giao cho Lãm ghép bài.
 
-**Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md; assets/diagrams/uc-module-C.drawio và .svg; mapping màn hình Ticket; inputs/gia-phuc.md`.
+**Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md; assets/diagrams/uc-module-C.drawio và .svg; mapping màn hình Ticket`.
 
-**CHỐT / DoD:** Reviewer approve, đủ scope đã giao, drawio/SVG/mockup và mapping; rubric từ READY. Bản nháp đủ nội dung trước 20:00 06/11; bản được review/bàn giao trước 20:00 07/11; 08/11 chỉ sửa lỗi đóng gói hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
+**CHỐT / DoD:** Reviewer approve, đủ scope đã giao, drawio/SVG/mockup. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11.
 
-**Ai chờ kết quả:** Gia Phúc nhận mapping 05/11; Quý Phúc nhận mockup 06/11; Lãm nhận bản đã review 07/11.
+**Ai chờ kết quả:** Cả nhóm review chéo trên Docs trước 23:59 08/11; Lãm nhận Markdown/SVG trước 23:59 10/11; Quý Phúc nhận phạm vi US-28.
 
 <a id="t1-doc-06"></a>
 
 ### T1-DOC-06 — [Doc] Knowledge 3 UC và mockup KB
 
-**Owner:** Lãm. **Reviewer:** Bình. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-07.
+**Owner:** Lãm. **Reviewer:** Bình. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-10.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 4.3, 6 UC-11/12, 10 Knowledge, 11.4, 12.1, 14.2; [PLAN_TEMPLATE1_AND_DEVELOPMENT.md](PLAN_TEMPLATE1_AND_DEVELOPMENT.md) — 4 mẫu chín trường, 5 sơ đồ tham khảo; [reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md](reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md) — file nhận đặc tả; [reports/template1/05-prototype-mockup.md](reports/template1/05-prototype-mockup.md) — ma trận màn hình; [Google Docs nhóm](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0).
 
-**BẮT ĐẦU:** Viết từ SRS được ngay; không chờ bảng FR tổng hợp hoặc UC module khác để tránh vòng chờ.
+**BẮT ĐẦU:** Viết từ SRS trực tiếp trên Google Docs; không chờ bảng FR tổng hợp hoặc UC module khác.
 
-1. Đọc 4.3, 6 UC-11/12, 10 Knowledge, 11.4, 12.1, 14.2; lấy UC-11..13, FR-KB-01..10, US-18..21, actor/BR. Gửi mapping FR/US/UC/test dự kiến vào inputs/lam.md cho Gia Phúc trước 12:00 05/11.
+1. Đọc 4.3, 6 UC-11/12, 10 Knowledge, 11.4, 12.1, 14.2; lấy UC-11..13, FR-KB-01..10, US-18..21, actor/BR. Soạn thảo trực tiếp trên Google Docs nhóm trước 23:59 07/11 (Draft Freeze).
 2. Viết từng UC đủ chín trường theo kế hoạch Mục 4, có trigger, nhánh lỗi và hậu điều kiện; UC-11 READY chưa publish, UC-12 publish/archive riêng; worker là bước nội bộ. Chốt các nhánh PDF scan, file sai và retry có giới hạn.
-3. Vẽ uc-module-B.drawio + SVG giữ mã UC và tên nghiệp vụ. **Kế thừa bộ khung thiết kế v2 làm baseline:** Lãm chủ động rà soát, tinh chỉnh hoặc bổ sung các màn hình/trạng thái Knowledge Base trên Figma (Node `62:9092`..`62:11768`, ảnh PNG tại `docs/design/anh/`) cho phù hợp với UC-11..13. Soạn thảo trực tiếp trên Google Docs nhóm trước 20:00 06/11.
-4. Mở PR chuyển nội dung vào `04.2-module-B-knowledge.md`, giao Bình review 07–08/11. Bàn giao file, ảnh và trạng thái cho Lãm để chuẩn bị nộp bài.
+3. Vẽ `uc-module-B.drawio` + SVG giữ mã UC và tên nghiệp vụ. **Kế thừa bộ khung thiết kế v2 làm baseline:** Lãm chủ động rà soát, tinh chỉnh hoặc bổ sung các màn hình/trạng thái Knowledge Base trên Figma (Node `62:9092`..`62:11768`, ảnh PNG tại `docs/design/anh/`) cho phù hợp với UC-11..13.
+4. Nhận review chéo từ Bình trên Google Docs trước 23:59 08/11; sửa chữa và chuyển nội dung vào `04.2-module-B-knowledge.md`, xuất file `.svg` trước 23:59 10/11. Bàn giao cho Lãm ghép bài.
 
-**Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md; assets/diagrams/uc-module-B.drawio và .svg; mapping màn hình KB; inputs/lam.md`.
+**Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md; assets/diagrams/uc-module-B.drawio và .svg; mapping màn hình KB`.
 
-**CHỐT / DoD:** Reviewer approve, đủ scope đã giao, drawio/SVG/mockup và mapping; rubric từ READY. Bản nháp đủ nội dung trước 20:00 06/11; bản được review/bàn giao trước 20:00 07/11; 08/11 chỉ sửa lỗi đóng gói hoặc lỗi được phát hiện thêm, báo owner/reviewer ngay.
+**CHỐT / DoD:** Reviewer approve, đủ scope đã giao, drawio/SVG/mockup. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11.
 
-**Ai chờ kết quả:** Gia Phúc nhận mapping 05/11; Quý Phúc nhận mockup 06/11; Lãm nhận bản đã review 07/11.
+**Ai chờ kết quả:** Cả nhóm review chéo trên Docs trước 23:59 08/11; Lãm nhận Markdown/SVG trước 23:59 10/11.
 
 <a id="t1-doc-07"></a>
 
 ### T1-DOC-07 — [Doc] AI 2 UC Analytics P1 riêng và tổng hợp mockup
 
-**Owner:** Quý Phúc. **Reviewer:** Gia Phúc. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-07.
+**Owner:** Quý Phúc. **Reviewer:** Gia Phúc. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-10.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 4.4, 6 UC-14/15, 11.5, 12.2/12.4; FR-TK-12/US-28; [PLAN_TEMPLATE1_AND_DEVELOPMENT.md](PLAN_TEMPLATE1_AND_DEVELOPMENT.md) — 4 mẫu chín trường, 5 sơ đồ tham khảo; [reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md](reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md) — file nhận đặc tả; [reports/template1/05-prototype-mockup.md](reports/template1/05-prototype-mockup.md) — ma trận màn hình; [Google Docs nhóm](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0).
 
-**BẮT ĐẦU:** Viết từ SRS được ngay; không chờ bảng FR tổng hợp hoặc UC module khác để tránh vòng chờ.
+**BẮT ĐẦU:** Viết từ SRS trực tiếp trên Google Docs; không chờ bảng FR tổng hợp hoặc UC module khác.
 
-1. Đọc 4.4, 6 UC-14/15, 11.5, 12.2/12.4; FR-TK-12/US-28; lấy UC-14/15 và UC-17 P1 riêng, FR-AI-01..10 và FR-TK-12, US-22..26,28,30, actor/BR. Gửi mapping FR/US/UC/test dự kiến vào inputs/quy-phuc.md cho Gia Phúc trước 12:00 05/11.
-2. Viết từng UC đủ chín trường theo kế hoạch Mục 4, có trigger, nhánh lỗi và hậu điều kiện; UC-14 không tạo message, UC-15 phải duyệt text rồi send; có insufficient/timeout/citation sai. UC-17 viết file 04.2-uc-17-analytics.md, thuộc Ticket P1, lấy phạm vi US-28 từ Gia Phúc.
-3. Vẽ uc-module-A.drawio + SVG giữ mã UC và tên nghiệp vụ. Tinh chỉnh, bổ sung các frames AI (`A03`, `A05`, `A08`, `A-AIError`, `A-AIInsufficient`, `A-Replace`, `A-Inserted`, `A-AISent`) và hoàn thiện mockup Analytics P1 khớp với UC-14, 15 và UC-17. Soạn thảo trực tiếp trên Google Docs nhóm trước 20:00 06/11.
-4. Mở PR chuyển nội dung vào `04.2-module-A-ai.md`, giao Gia Phúc review 07–08/11. Bàn giao file, ảnh và trạng thái cho Lãm để chuẩn bị nộp bài.
+1. Đọc 4.4, 6 UC-14/15, 11.5, 12.2/12.4; FR-TK-12/US-28; lấy UC-14/15 và UC-17 P1 riêng, FR-AI-01..10 và FR-TK-12, US-22..26, 28, 30, actor/BR. Soạn thảo trực tiếp trên Google Docs nhóm trước 23:59 07/11 (Draft Freeze).
+2. Viết từng UC đủ chín trường theo kế hoạch Mục 4, có trigger, nhánh lỗi và hậu điều kiện; UC-14 không tạo message, UC-15 phải duyệt text rồi send; có insufficient/timeout/citation sai. UC-17 viết file `04.2-uc-17-analytics.md`, thuộc Ticket P1, lấy phạm vi US-28 từ Gia Phúc.
+3. Vẽ `uc-module-A.drawio` + SVG giữ mã UC và tên nghiệp vụ. Tinh chỉnh, bổ sung các frames AI (`A03`, `A05`, `A08`, `A-AIError`, `A-AIInsufficient`, `A-Replace`, `A-Inserted`, `A-AISent`) và hoàn thiện mockup Analytics P1 khớp với UC-14, 15 và UC-17.
+4. Nhận review chéo từ Gia Phúc trên Google Docs trước 23:59 08/11; sửa chữa và chuyển nội dung vào `04.2-module-A-ai.md` và `04.2-uc-17-analytics.md`, xuất file `.svg` trước 23:59 10/11. Bàn giao cho Lãm ghép bài.
 
-**Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md và 04.2-uc-17-analytics.md; assets/diagrams/uc-module-A.drawio/.svg; mapping màn hình AI; inputs/quy-phuc.md`.
+**Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md và 04.2-uc-17-analytics.md; assets/diagrams/uc-module-A.drawio/.svg; mapping màn hình AI`.
 
-**CHỐT / DoD:** Gia Phúc review UC-14/15 và UC-17 P1 riêng, đủ drawio/SVG/ảnh AI/mapping phần mình. Bản nháp 20:00 06/11; bản review 20:00 07/11; tổng hợp màn hình của cả nhóm là task T1-UI-01 riêng.
+**CHỐT / DoD:** Gia Phúc review UC-14/15 và UC-17 P1 riêng, đủ drawio/SVG/ảnh AI. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11. Tổng hợp màn hình của cả nhóm là task T1-UI-01 riêng.
 
-**Ai chờ kết quả:** Gia Phúc nhận mapping 05/11; Quý Phúc nhận mockup 06/11; Lãm nhận bản đã review 07/11.
+**Ai chờ kết quả:** Cả nhóm review chéo trên Docs trước 23:59 08/11; Lãm nhận Markdown/SVG trước 23:59 10/11.
+
+<a id="t1-doc-md"></a>
+
+### T1-DOC-MD — [Markdown] Chuyển đổi và nộp bản Markdown (.md) sau khi chốt Google Docs
+
+**Owner:** Lãm (điều phối 4 thành viên). **Reviewer:** Gia Phúc. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-10 (23:59).
+
+**Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md); [PLAN_TEMPLATE1_AND_DEVELOPMENT.md](PLAN_TEMPLATE1_AND_DEVELOPMENT.md); [[SE - Nhóm 4] template1 - Google Tài liệu](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0); [reports/template1/inputs/](reports/template1/inputs/).
+
+**BẮT ĐẦU:** Sau khi đóng băng bản nháp (23:59 07/11) và hoàn tất review chéo xoay vòng (23:59 08/11) trên Google Docs.
+
+1. **Tiếp thu góp ý:** 4 thành viên rà soát các comment/suggesting trên Google Docs từ vòng review chéo ngày 08/11, chỉnh sửa câu chữ, chuẩn hóa định dạng các bảng Use Case chín trường và chốt bản nội dung văn bản cuối cùng trên Google Docs trước 09/11.
+2. **Chuyển đổi sang Markdown (.md):** Từng thành viên chuyển đổi phần nội dung đã chốt sang file Markdown theo đúng cấu trúc thư mục `reports/template1/`:
+   - **Ngô Viết Thanh Bình:** `04.1-so-do-tong-the.md`, `04.2-module-D-identity.md` (5 UCs).
+   - **Phan Gia Phúc:** `03.2.1-yeu-cau-chuc-nang.md` (ma trận 41 FRs ↔ 30 USs), `04.2-module-C-ticket.md` (7 UCs).
+   - **Nguyễn Đức Lãm:** `03.1-stakeholders.md`, `03.2.2-yeu-cau-phi-chuc-nang.md` (NFR), `04.2-module-B-knowledge.md` (3 UCs).
+   - **Lê Quý Phúc:** `01-danh-gia-thanh-vien.md`, `02-mo-ta-bai-toan.md`, `04.2-module-A-ai.md` (2 UCs), `04.2-uc-17-analytics.md` (Ticket Analytics P1), `05-prototype-mockup.md`.
+3. **Xuất sơ đồ phân hệ vector (.svg):** Từng thành viên xuất các sơ đồ Use Case phân hệ tự vẽ sang định dạng `.svg` và `.drawio` đặt tại `reports/template1/assets/diagrams/` (`uc-overview.svg`, `uc-module-D.svg`, `uc-module-C.svg`, `uc-module-B.svg`, `uc-module-A.svg`, `context-diagram.svg`).
+4. **Cam kết Git & Bàn giao:** Mỗi thành viên commit file `.md` và file `.svg` lên nhánh của mình kèm mã Jira `SCRUM-xx`, mở Pull Request lên GitHub; đồng thời cập nhật biên bản bàn giao tại `reports/template1/inputs/<tên>.md` trước **23:59 ngày 10/11/2026**.
+5. **Nghiệm thu tiếp nhận:** Lãm kiểm tra toàn bộ 4 module, đối soát danh mục file và sơ đồ trên repo; bàn giao toàn bộ kho tài liệu cho Bình và cả nhóm để thực hiện ghép nối kỹ thuật ngày 11/11 và render gói nộp ngày 12/11.
+
+**Đầu ra:** Toàn bộ các file Markdown `reports/template1/*.md` và sơ đồ `.svg` trong repo; 4 biên bản xác nhận tại `reports/template1/inputs/{binh,gia-phuc,lam,quy-phuc}.md`.
+
+**CHỐT / DoD:** 100% tài liệu Template 1 của cả 4 module đã được chuyển sang Markdown và sơ đồ SVG, commit thành công lên GitHub với mã Jira SCRUM-xx; không có liên kết ảnh bị hỏng; Gia Phúc approve; Lãm tiếp nhận trước **23:59 ngày 10/11/2026**.
+
+**Ai chờ kết quả:** Lãm và Bình ghép nối kỹ thuật ngày 11/11; chuẩn bị render HTML/PDF nộp bài trước 23:59 ngày 12/11.
 
 <a id="t1-dev-02"></a>
 
 ### T1-DEV-02 — [Code] Identity P0 và Axios auth
 
-**Owner:** Bình. **Reviewer:** Quý Phúc. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-13.
+**Owner:** Bình. **Reviewer:** Quý Phúc. **Bắt đầu:** 12/11/2026. **Hạn task:** 2026-11-15.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — SRS 4.1/10/11.2; [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md) —  contract 2,8; [backend/README.md](backend/README.md) — cấu trúc backend; [frontend/README.md](frontend/README.md) — scope adapter theo owner.
 
 **BẮT ĐẦU:** Bắt đầu pure rules/DTO nháp/SQL/UI mock từ 09/11; không chờ cả Foundation hoặc module khác hoàn tất.
 
-1. 09/11 đọc SRS 4.1/10/11.2; contract 2,8; tham gia DTO nháp/schema draft trước 20:00 09/11, viết pure rules/fixture/adapter theo contract nháp, chưa cần chờ dependency Done.
+1. 09/11 đọc SRS 4.1/10/11.2; contract 2,8; tham gia DTO nháp/schema draft trước 23:59 09/11, viết pure rules/fixture/adapter theo contract nháp, chưa cần chờ dependency Done.
 2. Register/login/refresh/logout/profile/change-password/Admin Agent và security enabled; Axios single-flight, cookie/CSRF, API DTO/adapter Auth. Không làm UC-16 P1.
 3. Nhận Foundation/contract/schema đã chốt 10/11 để compile/run với PostgreSQL; sai contract phải báo owner phía nhận và sửa fake/caller/test cùng thay đổi, không nối repo chéo module.
 4. Viết/chạy test module theo task TST tương ứng cùng từng PR; feature gate yêu cầu các test của phần đã giao đã pass, task test 21/11 chỉ để chốt regression/coverage, không trì hoãn test đến đó.
-5. Bình bàn giao principal/auth thật và tài khoản seed dev an toàn trước 12/11 12:00 cho Gia Phúc; hoàn thiện module đến 13/11.
+5. Bình bàn giao principal/auth thật và tài khoản seed dev an toàn trước 15/11 12:00 cho Gia Phúc; hoàn thiện module đến 15/11.
 6. Gửi reviewer code/API samples/screenshots và command/test evidence; README có cách chạy thật. Mỗi owner tự sửa UI/API của mình, không giao lại toàn frontend cho Quý Phúc.
 7. Bình cập nhật conceptualUser/Session, kiếntrúcidentity, dictionaryusers/auth_sessions vàUIspecAuth/Admin củaTemplate 2 cùng PR; test casesLogin5 ca nằmTST-ID. DraftSQL/dictionary 10/11; phần thiết kế chi tiết bàn giao choDATA 18/11/UI 19/11 theo taskT2 tươngứng. Báo blocker nếu đầu vào chưa đủ; không giảm test an toàn.
 
 **Đầu ra:** `backend/src/main/java/vn/edu/hcmus/helpdesk/identity/; frontend/src/features/auth/, frontend/src/features/admin/, frontend/src/api/client.ts; DTO/adapter, SQL draft và README/PR có evidence`.
 
-**CHỐT / DoD:** Để chạy thật cần DEV-01/CONTRACT/SCHEMA; review và test feature pass trước hạn 13/11.
+**CHỐT / DoD:** Để chạy thật cần DEV-01/CONTRACT/SCHEMA; review và test feature pass trước hạn 19/11.
 
 **Ai chờ kết quả:** Gia Phúc E2E; owner module nhận theo bảng handoff; test task cùng module.
 
@@ -548,23 +598,23 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T1-DEV-03 — [Code] Ticket P0 concurrency và adapter UI
 
-**Owner:** Gia Phúc. **Reviewer:** Lãm; Bình quyền/transaction, Quý Phúc apply. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-15.
+**Owner:** Gia Phúc. **Reviewer:** Lãm; Bình quyền/transaction, Quý Phúc apply. **Bắt đầu:** 13/11/2026. **Hạn task:** 2026-11-17.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — SRS 4.2/5/10/11.3; [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md) —  contract 4,7,8; [backend/README.md](backend/README.md) — cấu trúc backend; [frontend/README.md](frontend/README.md) — scope adapter theo owner.
 
 **BẮT ĐẦU:** Bắt đầu pure rules/DTO nháp/SQL/UI mock từ 09/11; không chờ cả Foundation hoặc module khác hoàn tất.
 
-1. 09/11 đọc SRS 4.2/5/10/11.3; contract 4,7,8; tham gia DTO nháp/schema draft trước 20:00 09/11, viết pure rules/fixture/adapter theo contract nháp, chưa cần chờ dependency Done.
+1. 09/11 đọc SRS 4.2/5/10/11.3; contract 4,7,8; tham gia DTO nháp/schema draft trước 23:59 09/11, viết pure rules/fixture/adapter theo contract nháp, chưa cần chờ dependency Done.
 2. Ticket/message/events, state/claim/version và quyền; UI Customer/Ticket/WAITING_CUSTOMER, adapter bỏ URGENT P0. Cung cấp public Ticket/message port cho workflow; implementation workflow theo task T1-WF-01 riêng.
 3. Nhận Foundation/contract/schema đã chốt 10/11 để compile/run với PostgreSQL; sai contract phải báo owner phía nhận và sửa fake/caller/test cùng thay đổi, không nối repo chéo module.
 4. Viết/chạy test module theo task TST tương ứng cùng từng PR; feature gate yêu cầu các test của phần đã giao đã pass, task test 21/11 chỉ để chốt regression/coverage, không trì hoãn test đến đó.
-5. Gia Phúc bàn giao create/view thật 12/11, TicketContextProvider public-only và message/apply port v1 trước 15/11 20:00 cho Quý Phúc; workflow được giao T1-WF-01 hạn 19/11; riêng task này chốt Ticket core và ports trước 15/11.
+5. Gia Phúc bàn giao create/view thật 15/11, TicketContextProvider public-only và message/apply port v1 trước 17/11 (23:59) cho Quý Phúc; workflow được giao T1-WF-01 hạn 21/11; riêng task này chốt Ticket core và ports trước 17/11.
 6. Gửi reviewer code/API samples/screenshots và command/test evidence; README có cách chạy thật. Mỗi owner tự sửa UI/API của mình, không giao lại toàn frontend cho Quý Phúc.
 7. Gia Phúc cập nhật conceptualTicket/Message/Event, kiếntrúcticket/workflow, dictionarytickets/messages/events vàUIspecTicket;5 caCreate+5 caClaim nằmTST-TK. DraftSQL/dictionary 10/11; phần thiết kế chi tiết bàn giao choDATA 18/11/UI 19/11 theo taskT2 tươngứng. Báo blocker nếu đầu vào chưa đủ; không giảm test an toàn.
 
 **Đầu ra:** `backend/src/main/java/vn/edu/hcmus/helpdesk/ticket/; frontend/src/features/ticket/, frontend/src/features/customer/; DTO/adapter, SQL draft và README/PR có evidence`.
 
-**CHỐT / DoD:** Để chạy thật cần DEV-01/CONTRACT/SCHEMA; review và test feature pass trước hạn 15/11.
+**CHỐT / DoD:** Để chạy thật cần DEV-01/CONTRACT/SCHEMA; review và test feature pass trước hạn 19/11.
 
 **Ai chờ kết quả:** Gia Phúc E2E; owner module nhận theo bảng handoff; test task cùng module.
 
@@ -572,23 +622,23 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T1-DEV-04 — [Code] Knowledge ingestion retrieval và embedding port
 
-**Owner:** Lãm. **Reviewer:** Bình; Quý Phúc port embedding. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-17.
+**Owner:** Lãm. **Reviewer:** Bình; Quý Phúc port embedding. **Bắt đầu:** 14/11/2026. **Hạn task:** 2026-11-19.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — SRS 4.3/10/11.4/12.1; [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md) —  contract 5,6,8; [backend/README.md](backend/README.md) — cấu trúc backend; [frontend/README.md](frontend/README.md) — scope adapter theo owner.
 
 **BẮT ĐẦU:** Bắt đầu pure rules/DTO nháp/SQL/UI mock từ 09/11; không chờ cả Foundation hoặc module khác hoàn tất.
 
-1. 09/11 đọc SRS 4.3/10/11.4/12.1; contract 5,6,8; tham gia DTO nháp/schema draft trước 20:00 09/11, viết pure rules/fixture/adapter theo contract nháp, chưa cần chờ dependency Done.
+1. 09/11 đọc SRS 4.3/10/11.4/12.1; contract 5,6,8; tham gia DTO nháp/schema draft trước 23:59 09/11, viết pure rules/fixture/adapter theo contract nháp, chưa cần chờ dependency Done.
 2. Upload PDF/TXT/MD, private storage, worker lease/attempts/backoff/stale guard, publish/archive/search và UI; sở hữu EmbeddingProvider interface/fake và Retriever.
 3. Nhận Foundation/contract/schema đã chốt 10/11 để compile/run với PostgreSQL; sai contract phải báo owner phía nhận và sửa fake/caller/test cùng thay đổi, không nối repo chéo module.
 4. Viết/chạy test module theo task TST tương ứng cùng từng PR; feature gate yêu cầu các test của phần đã giao đã pass, task test 21/11 chỉ để chốt regression/coverage, không trì hoãn test đến đó.
-5. Lãm bàn giao EmbeddingProvider/fake theo contract 10/11, retriever thật với corpus đã publish trước 17/11 23:59; cùng Quý Phúc kiểm tra nối thật trước 18/11 20:00.
+5. Lãm bàn giao EmbeddingProvider/fake theo contract 12/11, retriever thật với corpus đã publish trước 19/11 23:59; cùng Quý Phúc kiểm tra nối thật trước 20/11 (23:59).
 6. Gửi reviewer code/API samples/screenshots và command/test evidence; README có cách chạy thật. Mỗi owner tự sửa UI/API của mình, không giao lại toàn frontend cho Quý Phúc.
 7. Lãm cập nhật conceptualDocument/Chunk/Job, kiếntrúcKB, dictionaryknowledge vàUIspecKB;5 caUpload nằmTST-KB. DraftSQL/dictionary 10/11; phần thiết kế chi tiết bàn giao choDATA 18/11/UI 19/11 theo taskT2 tươngứng. Báo blocker nếu đầu vào chưa đủ; không giảm test an toàn.
 
 **Đầu ra:** `backend/src/main/java/vn/edu/hcmus/helpdesk/knowledge/; frontend/src/features/knowledge/; DTO/adapter, SQL draft và README/PR có evidence`.
 
-**CHỐT / DoD:** Để chạy thật cần DEV-01/CONTRACT/SCHEMA; review và test feature pass trước hạn 17/11.
+**CHỐT / DoD:** Để chạy thật cần DEV-01/CONTRACT/SCHEMA; review và test feature pass trước hạn 19/11.
 
 **Ai chờ kết quả:** Gia Phúc E2E; owner module nhận theo bảng handoff; test task cùng module.
 
@@ -596,23 +646,23 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T1-DEV-05 — [Code] AI RAG P0 apply workflow và adapter AI UI
 
-**Owner:** Quý Phúc. **Reviewer:** Gia Phúc; Lãm nguồn/retrieval. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-19.
+**Owner:** Quý Phúc. **Reviewer:** Gia Phúc; Lãm nguồn/retrieval. **Bắt đầu:** 15/11/2026. **Hạn task:** 2026-11-21.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — SRS 4.4/10/11.5/12; [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md) —  contract 6,7,8; [backend/README.md](backend/README.md) — cấu trúc backend; [frontend/README.md](frontend/README.md) — scope adapter theo owner.
 
 **BẮT ĐẦU:** Bắt đầu pure rules/DTO nháp/SQL/UI mock từ 09/11; không chờ cả Foundation hoặc module khác hoàn tất.
 
-1. 09/11 đọc SRS 4.4/10/11.5/12; contract 6,7,8; tham gia DTO nháp/schema draft trước 20:00 09/11, viết pure rules/fixture/adapter theo contract nháp, chưa cần chờ dependency Done.
+1. 09/11 đọc SRS 4.4/10/11.5/12; contract 6,7,8; tham gia DTO nháp/schema draft trước 23:59 09/11, viết pure rules/fixture/adapter theo contract nháp, chưa cần chờ dependency Done.
 2. Adapter embedding live dùng chung, RAG/citation/abstention/FAILED/timeout/history/discard/suggestion port, AI panel và sourceId. Không Analytics P1; không embed query lần hai.
 3. Nhận Foundation/contract/schema đã chốt 10/11 để compile/run với PostgreSQL; sai contract phải báo owner phía nhận và sửa fake/caller/test cùng thay đổi, không nối repo chéo module.
 4. Viết/chạy test module theo task TST tương ứng cùng từng PR; feature gate yêu cầu các test của phần đã giao đã pass, task test 21/11 chỉ để chốt regression/coverage, không trì hoãn test đến đó.
-5. Quý Phúc nhận Ticket context/port 15/11 và Retriever thật 17/11; xác nhận integration thật với Lãm/Gia Phúc trước 18/11 20:00, chạy live smoke và hoàn thiện AI 19/11; workflow do Gia Phúc làm riêng T1-WF-01.
+5. Quý Phúc nhận Ticket context/port 17/11 và Retriever thật 19/11; xác nhận integration thật với Lãm/Gia Phúc trước 20/11 (23:59), chạy live smoke và hoàn thiện AI 21/11; workflow do Gia Phúc làm riêng T1-WF-01.
 6. Gửi reviewer code/API samples/screenshots và command/test evidence; README có cách chạy thật. Mỗi owner tự sửa UI/API của mình, không giao lại toàn frontend cho Quý Phúc.
 7. Quý Phúc cập nhật conceptualSuggestion/Source, kiếntrúcAI, dictionarysuggestions/sources vàUIspecAI;5 caGenerate nằmTST-AI. DraftSQL/dictionary 10/11; phần thiết kế chi tiết bàn giao choDATA 18/11/UI 19/11 theo taskT2 tươngứng. Báo blocker nếu đầu vào chưa đủ; không giảm test an toàn.
 
 **Đầu ra:** `backend/src/main/java/vn/edu/hcmus/helpdesk/ai/; frontend/src/features/ticket/components/AISuggestionCard.tsx và CitationModal.tsx; DTO/adapter, SQL draft và README/PR có evidence`.
 
-**CHỐT / DoD:** Để chạy thật cần DEV-01/CONTRACT/SCHEMA và EMBED, TicketContext/Retriever thật; suggestion port bàn giao workflow trước 18/11 20:00, UI/fault/live smoke và review xong 19/11. Workflow có gate riêng T1-WF-01, không chờ hai task Done rồi mới bàn giao port.
+**CHỐT / DoD:** Để chạy thật cần DEV-01/CONTRACT/SCHEMA và EMBED, TicketContext/Retriever thật; suggestion port bàn giao workflow trước 20/11 (23:59), UI/fault/live smoke và review xong 21/11. Workflow có gate riêng T1-WF-01, không chờ hai task Done rồi mới bàn giao port.
 
 **Ai chờ kết quả:** Gia Phúc E2E; owner module nhận theo bảng handoff; test task cùng module.
 
@@ -620,7 +670,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T1-TST-01 — [QA coordination] Tổng hợp kết quả bốn task test
 
-**Owner:** Gia Phúc. **Reviewer:** Lãm. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-21.
+**Owner:** Gia Phúc. **Reviewer:** Lãm. **Bắt đầu:** 21/11/2026. **Hạn task:** 2026-11-23.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 14.2/14.3; [reports/05-test-plan.md](reports/05-test-plan.md) — test owners; [reports/06-test-results.md](reports/06-test-results.md) — kết quả và trạng thái.
 
@@ -628,7 +678,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 1. Gia Phúc tạo ma trận mã test → owner → PR → command/mode → kết quả; nhận cases từ bốn owner từ 09/11, không đợi task test Done.
 2. Thu bằng chứng tại từng gate module và cập nhật FAIL/NOT RUN; không ghi PASS nếu chỉ thấy CI build xanh hoặc reviewer tick checklist.
-3. 20:00 21/11 đối soát bốn task test và lỗi P0; bàn giao tổng hợp cho E2E/QA. Task này chỉ điều phối, không viết thay test.
+3. 23:59 23/11 đối soát bốn task test và lỗi P0; bàn giao tổng hợp cho E2E/QA. Task này chỉ điều phối, không viết thay test.
 
 **Đầu ra:** `reports/06-test-results.md và link artifact từng suite`.
 
@@ -640,7 +690,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T1-INT-01 — [Integration] E2E tăng dần và nghiệm thu MVP P0
 
-**Owner:** Gia Phúc. **Reviewer:** Bình; Lãm dự phòng. **Bắt đầu:** 12/11/2026. **Hạn task:** 2026-11-22.
+**Owner:** Gia Phúc. **Reviewer:** Bình; Lãm dự phòng. **Bắt đầu:** 22/11/2026. **Hạn task:** 2026-11-24.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 13.2, 14.3; [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md) — 9; [reports/06-test-results.md](reports/06-test-results.md) — evidence.
 
@@ -649,7 +699,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 1. 12/11 nối principal/auth thật với create/view ticket tối thiểu; không chờ tất cả DEV/TST/OPS Done mới bắt đầu. Ghi JSON/API trace và người đang chặn.
 2. 15/11 chạy Ticket E2E không AI; 18/11 cùng Lãm/Quý Phúc nối corpus/retrieval thật; 19/11 chạy review/edit/send/discard thật.
 3. 20–22/11 chạy đủ demo SRS13.2, quyền hiện tại, AI timeout/Ticket còn dùng, races/rollback và clean environment; tạo bug cho đúng owner, tránh giao Gia Phúc sửa thay module.
-4. Tổng hợp test và OPS trước 20:00 22/11, reviewer xác nhận MVP ready hoặc liệt kê P0 chưa đạt; bàn giao bản cố định cho QA 23/11.
+4. Tổng hợp test và OPS trước 23:59 24/11, reviewer xác nhận MVP ready hoặc liệt kê P0 chưa đạt; bàn giao bản cố định cho QA 25/11.
 
 **Đầu ra:** `Kịch bản E2E, API traces/screenshots/test artifact và phiên bản demo trong reports/06-test-results.md`.
 
@@ -661,37 +711,37 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T1-PUB-01 — [Release] Review render và đóng gói Template 1
 
-**Owner:** Lãm. **Reviewer:** Gia Phúc. **Bắt đầu:** 04/11/2026. **Hạn task:** 2026-11-08.
+**Owner:** Lãm. **Reviewer:** Gia Phúc. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-12.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — A.2, 19; [scripts/render_reports.py](scripts/render_reports.py) — render_file; script hiện có không tự ghép Template 1; [scripts/package_submission.py](scripts/package_submission.py) — đọc giới hạn; không chạy toàn repo để nộp Template 1; [reports/template1/06-ai-usage.md](reports/template1/06-ai-usage.md) — AI log tổng hợp.
 
-**BẮT ĐẦU:** Thử render 04/11 không chờ DOC; ghép nháp từng phần khi có.
+**BẮT ĐẦU:** Chuẩn bị script render và template; ghép nối nháp kỹ thuật từ 09/11 - 11/11.
 
-1. 04/11 Lãm thử một UC/bảng dài/SVG mẫu bằng pipeline có sẵn, ghi command/thao tác và lỗi; không đợi toàn bộ DOC xong. Gia Phúc thử lại cách làm để dự phòng.
-2. Nhận T1-DOC-01..T1-DOC-07 đã review trước 20:00 07/11; ghép theo thứ tự bìa/1/2/3/4/5/6, rewrite/copy assets theo vị trí đầu ra; chỉ lấy phần Template 1 và log liên quan, không đóng toàn repo.
-3. Xuất HTML/PDF, xem từng trang, rà placeholder/link/Figma/quyền xem và giới hạn file theo rubric thật; tổng hợp contribution/chữ ký/AI log từ đúng tác giả.
-4. Giải nén gói sang thư mục khác, Gia Phúc kiểm tra độc lập; ghi manifest/checklist và bàn giao gói cố định cùng kết quả trước 20:00 08/11 cho Bình. Nếu script chưa hỗ trợ ghép thì owner ghi quy trình ghép/render cụ thể đã dùng; không tuyên bố có lệnh tự động chưa tồn tại.
+1. Lãm thử nghiệm quy trình render một UC/bảng dài/SVG mẫu bằng pipeline có sẵn, ghi rõ câu lệnh và kiểm tra hiển thị. Gia Phúc cùng thử lại để dự phòng.
+2. Nhận T1-DOC-01..T1-DOC-07 đã commit Markdown và SVG trước 23:59 10/11; ngày 11/11 ghép nối theo thứ tự bìa/1/2/3/4/5/6, copy assets theo vị trí đầu ra.
+3. Ngày 12/11 (trước 23:59): Xuất bản HTML/PDF khổ A4 chuẩn, rà soát từng trang, kiểm tra liên kết Figma, hình ảnh sơ đồ và độ sắc nét.
+4. Giải nén gói kiểm tra độc lập, Gia Phúc ký biên bản rà soát; bàn giao gói cố định trước 23:59 12/11 cho Bình nộp bài.
 
-**Đầu ra:** `reports/template1/release/ (gói theo tên READY xác nhận, master, assets, manifest và biên bản review)`.
+**Đầu ra:** `reports/template1/release/ (gói nộp chuẩn theo mã nhóm, master HTML/PDF, assets, manifest và biên bản review)`.
 
-**CHỐT / DoD:** Cần các sản phẩm DOC-01..07, nguồn READY và xác nhận tác giả; Gia Phúc kiểm tra gói, tất cả lỗi chặn bài nộp đã xử lý.
+**CHỐT / DoD:** Cần các sản phẩm DOC-01..07 đã hoàn tất Markdown; Gia Phúc kiểm tra gói, không còn lỗi render, hoàn thành trước 23:59 12/11.
 
-**Ai chờ kết quả:** Bình nhận để nộp; Gia Phúc có cùng hướng dẫn/gói để dự phòng.
+**Ai chờ kết quả:** Bình nhận để nộp bài trước 23:59 12/11; Gia Phúc dự phòng.
 
 <a id="t1-contract-01"></a>
 
 ### T1-CONTRACT-01 — [Contract] DTO ports OpenAPI và mẫu lỗi
 
-**Owner:** Gia Phúc. **Reviewer:** Bình và các owner phía nhận. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-10.
+**Owner:** Gia Phúc. **Reviewer:** Bình và các owner phía nhận. **Bắt đầu:** 11/11/2026. **Hạn task:** 2026-11-12.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 9.4, 11, 16.2; [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md) — 1, 2, 6–8; [frontend/src/types/index.ts](frontend/src/types/index.ts) — view model cũ, không phải chuẩn API.
 
 **BẮT ĐẦU:** Đọc MVP_CONTRACTS được ngay 09/11; không chờ Foundation hoàn chỉnh để viết JSON/interface.
 
 1. Gia Phúc tạo docs/contracts/openapi.yaml và mẫu JSON success/empty/error; mỗi owner viết endpoint/DTO phần mình, không để Gia Phúc đoán nghiệp vụ module khác.
-2. Chốt public ports Actor/TicketContext/RetrievedChunk/EmbeddingProvider và workflow Apply/Discard; deadline 09/11 20:00 cho DTO/enum/error nháp để cả nhóm dùng fake.
+2. Chốt public ports Actor/TicketContext/RetrievedChunk/EmbeddingProvider và workflow Apply/Discard; deadline 11/11 (23:59) cho DTO/enum/error nháp để cả nhóm dùng fake.
 3. 10/11 đối soát naming/nullability/score/visibility và quyền, lưu fake fixtures và test contract; interface chia ownership: Bình Actor, Gia Phúc Ticket/workflow, Lãm Retriever/Embedding, Quý Phúc Suggestion/live adapter.
-4. Bàn giao v1 đã review trước 20:00 10/11; thay contract sau đó phải sửa caller/fake/test cùng PR. Chốt ports không cần chờ service thật.
+4. Bàn giao v1 đã review trước 23:59 12/11; thay contract sau đó phải sửa caller/fake/test cùng PR. Chốt ports không cần chờ service thật.
 
 **Đầu ra:** `docs/contracts/openapi.yaml, docs/contracts/examples/*.json, boundary interfaces/fakes theo module và workflow`.
 
@@ -703,7 +753,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T1-CI-01 — [CI] Build PostgreSQL tests và frontend build
 
-**Owner:** Quý Phúc. **Reviewer:** Bình. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-10.
+**Owner:** Quý Phúc. **Reviewer:** Bình. **Bắt đầu:** 11/11/2026. **Hạn task:** 2026-11-12.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 15.2; [frontend/package.json](frontend/package.json) — script thật; [.github/workflows/docs-check.yml](.github/workflows/docs-check.yml) — CI tài liệu hiện có; [backend/README.md](backend/README.md) — command được cập nhật bởi Bình.
 
@@ -711,7 +761,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 1. 09/11 Quý Phúc soạn workflow build Java21/Maven và npm ci + npm run build từ scripts thật; chưa có lint/test frontend thì ghi chưa có, không gọi lệnh giả.
 2. Nhận pom/wrapper từ Bình và DB/schema từ Lãm; chạy backend unit/integration bằng PostgreSQL/pgvector thật, truyền secrets qua CI secret store khi cần, fake provider mặc định.
-3. Ghi kết quả/check name trên PR và command chạy local; 10/11 CI có thể chỉ chạy test nền, mỗi owner thêm suite khi code vào. Chốt infra CI không đòi toàn bộ test feature đã pass trước khi feature được viết.
+3. Ghi kết quả/check name trên PR và command chạy local; 12/11 CI có thể chỉ chạy test nền, mỗi owner thêm suite khi code vào. Chốt infra CI không đòi toàn bộ test feature đã pass trước khi feature được viết.
 
 **Đầu ra:** `.github/workflows/backend-ci.yml, frontend-ci.yml hoặc workflow tương đương; log/check links`.
 
@@ -723,16 +773,16 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T1-SCHEMA-01 — [Schema] Phối hợp baseline V1-V5 và migration gates
 
-**Owner:** Lãm. **Reviewer:** Bình + Gia Phúc. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-10.
+**Owner:** Lãm. **Reviewer:** Bình + Gia Phúc. **Bắt đầu:** 11/11/2026. **Hạn task:** 2026-11-12.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 10 toàn bộ schema; [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md) — 3–5, 7.
 
 **BẮT ĐẦU:** Draft SQL được làm ngay 09/11 từ SRS; V1/V2 không cần chờ model.
 
-1. Lãm mở PR schema phối hợp; Bình viết V1, Gia Phúc V2, Lãm V3, Quý Phúc V4; Gia Phúc + Quý Phúc viết FK V5, Lãm gom/check dependency. Các draft SQL phải bàn giao 09/11 20:00, thuộc task code từng owner.
+1. Lãm mở PR schema phối hợp; Bình viết V1, Gia Phúc V2, Lãm V3, Quý Phúc V4; Gia Phúc + Quý Phúc viết FK V5, Lãm gom/check dependency. Các draft SQL phải bàn giao 11/11 (23:59), thuộc task code từng owner.
 2. Theo tên cột/enum SRS; thêm constraints lease/job/chunk/apply và extension vector trước cột; V2 cột nullable, V5 FK sau V4.
 3. Nhận quyết định EMBED trước 12:00 10/11 rồi chạy full V1–V5 trên DB sạch; migration mới về sau kiểm tra upgrade. Chưa có decision thì chỉ draft V3, không áp dụng giá trị đoán.
-4. Gửi reviewer log migration/validate, chốt baseline trước 20:00 10/11; sau áp dụng chung chỉ version mới, không sửa checksum/repair để che lỗi.
+4. Gửi reviewer log migration/validate, chốt baseline trước 23:59 10/11; sau áp dụng chung chỉ version mới, không sửa checksum/repair để che lỗi.
 
 **Đầu ra:** `backend/src/main/resources/db/migration/V1..V5 và kết quả migrate/validate, schema naming đối chiếu SRS`.
 
@@ -744,7 +794,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T1-TST-ID — [Test] Identity security và session
 
-**Owner:** Bình. **Reviewer:** Quý Phúc. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-21.
+**Owner:** Bình. **Reviewer:** Quý Phúc. **Bắt đầu:** 21/11/2026. **Hạn task:** 2026-11-23.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 14.2, 8 và 12.4; [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md) — 2,9; [reports/05-test-plan.md](reports/05-test-plan.md) — phân công và nguyên tắc.
 
@@ -754,7 +804,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 2. Đặc tả5 caLogin theo TEST_CASE_CATALOG và formTemplate 3; giao Gia PhúcT3-CASE trước 14/11, actual/resultsau khi feature chạy. Không giao trùng phần viết ca vớiT3-CASE điều phối.
 3. Thêm test vào từng PR feature khi có endpoint/service; concurrency dùng PostgreSQL/pgvector thật với connection/transaction riêng và barrier, không dùng H2/mock để chứng minh lock.
 4. Chạy suite khi feature được bàn giao tại gate module; test fail thì owner sửa code trong DEV tương ứng, mở bug nếu liên module. TST-AI phối hợp Gia Phúc phần workflow và Lãm nhãn nguồn.
-5. Tới 20:00 21/11 chốt regression trọng yếu, ghi command/commit/mode/dataset/actual/expected và PASS/FAIL/NOT RUN vào báo cáo 06-test-results; bàn giao Gia Phúc tổng hợp.
+5. Tới 23:59 21/11 chốt regression trọng yếu, ghi command/commit/mode/dataset/actual/expected và PASS/FAIL/NOT RUN vào báo cáo 06-test-results; bàn giao Gia Phúc tổng hợp.
 
 **Đầu ra:** `backend/src/test/... và fixtures, evidence trong reports/06-test-results.md hoặc artifact có link`.
 
@@ -766,7 +816,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T1-TST-TK — [Test] Ticket concurrency và rollback
 
-**Owner:** Gia Phúc. **Reviewer:** Lãm. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-21.
+**Owner:** Gia Phúc. **Reviewer:** Lãm. **Bắt đầu:** 21/11/2026. **Hạn task:** 2026-11-23.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 14.2, 8 và 12.4; [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md) — 4,9; [reports/05-test-plan.md](reports/05-test-plan.md) — phân công và nguyên tắc.
 
@@ -776,7 +826,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 2. Đặc tả5 caCreateTicket+5 caClaim theo TEST_CASE_CATALOG và formTemplate 3; giao Gia PhúcT3-CASE trước 14/11, actual/resultsau khi feature chạy. Không giao trùng phần viết ca vớiT3-CASE điều phối.
 3. Thêm test vào từng PR feature khi có endpoint/service; concurrency dùng PostgreSQL/pgvector thật với connection/transaction riêng và barrier, không dùng H2/mock để chứng minh lock.
 4. Chạy suite khi feature được bàn giao tại gate module; test fail thì owner sửa code trong DEV tương ứng, mở bug nếu liên module. TST-AI phối hợp Gia Phúc phần workflow và Lãm nhãn nguồn.
-5. Tới 20:00 21/11 chốt regression trọng yếu, ghi command/commit/mode/dataset/actual/expected và PASS/FAIL/NOT RUN vào báo cáo 06-test-results; bàn giao Gia Phúc tổng hợp.
+5. Tới 23:59 21/11 chốt regression trọng yếu, ghi command/commit/mode/dataset/actual/expected và PASS/FAIL/NOT RUN vào báo cáo 06-test-results; bàn giao Gia Phúc tổng hợp.
 
 **Đầu ra:** `backend/src/test/... và fixtures, evidence trong reports/06-test-results.md hoặc artifact có link`.
 
@@ -788,7 +838,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T1-TST-KB — [Test] Worker lease retrieval và file security
 
-**Owner:** Lãm. **Reviewer:** Bình. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-21.
+**Owner:** Lãm. **Reviewer:** Bình. **Bắt đầu:** 21/11/2026. **Hạn task:** 2026-11-23.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 14.2, 8 và 12.4; [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md) — 5,6,9; [reports/05-test-plan.md](reports/05-test-plan.md) — phân công và nguyên tắc.
 
@@ -798,7 +848,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 2. Đặc tả5 caUpload theo TEST_CASE_CATALOG và formTemplate 3; giao Gia PhúcT3-CASE trước 14/11, actual/resultsau khi feature chạy. Không giao trùng phần viết ca vớiT3-CASE điều phối.
 3. Thêm test vào từng PR feature khi có endpoint/service; concurrency dùng PostgreSQL/pgvector thật với connection/transaction riêng và barrier, không dùng H2/mock để chứng minh lock.
 4. Chạy suite khi feature được bàn giao tại gate module; test fail thì owner sửa code trong DEV tương ứng, mở bug nếu liên module. TST-AI phối hợp Gia Phúc phần workflow và Lãm nhãn nguồn.
-5. Tới 20:00 21/11 chốt regression trọng yếu, ghi command/commit/mode/dataset/actual/expected và PASS/FAIL/NOT RUN vào báo cáo 06-test-results; bàn giao Gia Phúc tổng hợp.
+5. Tới 23:59 21/11 chốt regression trọng yếu, ghi command/commit/mode/dataset/actual/expected và PASS/FAIL/NOT RUN vào báo cáo 06-test-results; bàn giao Gia Phúc tổng hợp.
 
 **Đầu ra:** `backend/src/test/... và fixtures, evidence trong reports/06-test-results.md hoặc artifact có link`.
 
@@ -810,7 +860,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T1-TST-AI — [Test] RAG contract và send suggestion races
 
-**Owner:** Quý Phúc. **Reviewer:** Gia Phúc; Bình quyền. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-21.
+**Owner:** Quý Phúc. **Reviewer:** Gia Phúc; Bình quyền. **Bắt đầu:** 21/11/2026. **Hạn task:** 2026-11-23.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 14.2, 8 và 12.4; [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md) — 7,9; [reports/05-test-plan.md](reports/05-test-plan.md) — phân công và nguyên tắc.
 
@@ -820,7 +870,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 2. Đặc tả5 caGenerateSuggestion theo TEST_CASE_CATALOG và formTemplate 3; giao Gia PhúcT3-CASE trước 14/11, actual/resultsau khi feature chạy. Không giao trùng phần viết ca vớiT3-CASE điều phối.
 3. Thêm test vào từng PR feature khi có endpoint/service; concurrency dùng PostgreSQL/pgvector thật với connection/transaction riêng và barrier, không dùng H2/mock để chứng minh lock.
 4. Chạy suite khi feature được bàn giao tại gate module; test fail thì owner sửa code trong DEV tương ứng, mở bug nếu liên module. TST-AI phối hợp Gia Phúc phần workflow và Lãm nhãn nguồn.
-5. Tới 20:00 21/11 chốt regression trọng yếu, ghi command/commit/mode/dataset/actual/expected và PASS/FAIL/NOT RUN vào báo cáo 06-test-results; bàn giao Gia Phúc tổng hợp.
+5. Tới 23:59 21/11 chốt regression trọng yếu, ghi command/commit/mode/dataset/actual/expected và PASS/FAIL/NOT RUN vào báo cáo 06-test-results; bàn giao Gia Phúc tổng hợp.
 
 **Đầu ra:** `backend/src/test/... và fixtures, evidence trong reports/06-test-results.md hoặc artifact có link`.
 
@@ -832,7 +882,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T1-OPS-01 — [Ops] Clean environment và migration smoke
 
-**Owner:** Lãm. **Reviewer:** Gia Phúc. **Bắt đầu:** 20/11/2026. **Hạn task:** 2026-11-22.
+**Owner:** Lãm. **Reviewer:** Gia Phúc. **Bắt đầu:** 22/11/2026. **Hạn task:** 2026-11-24.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 15.3, NFR-DEPLOY-01; [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md) — 3,5,9; [backend/README.md](backend/README.md) — lệnh chạy thực tế phải được owner cập nhật; [frontend/README.md](frontend/README.md) — scripts thật.
 
@@ -841,13 +891,13 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 1. Lãm chọn máy/thư mục sạch, lấy phiên bản demo và .env.example; mỗi owner cung cấp lệnh/seed/config của module. Không dùng secrets thật trong artifact.
 2. 20/11 có thể chạy từng phần, kiểm tra compose up/migrate seed và README; missing command thì trả ngay cho owner, không tự đoán lệnh rồi đánh pass.
 3. Kiểm tra volume/private upload sau restart, migration fresh/upgrade khi có migration mới, provider timeout không làm Ticket lỗi; Gia Phúc chạy lại phần smoke.
-4. Ghi OS/version/commit/commands/actual/expected, gửi INT trước 18:00 22/11 để còn thời gian nghiệm thu 20:00.
+4. Ghi OS/version/commit/commands/actual/expected, gửi INT trước 23:59 24/11 để nghiệm thu MVP P0.
 
 **Đầu ra:** `README các module được chạy lại và log TC-OPS-01 trong reports/06-test-results.md`.
 
 **CHỐT / DoD:** DEV-01/02/03/04/05, CI/schema và README đủ chạy; không depends INT để tránh vòng chờ.
 
-**Ai chờ kết quả:** Gia Phúc INT trước 18:00 22/11.
+**Ai chờ kết quả:** Gia Phúc INT trước 23:59 24/11.
 
 <a id="t1-ready-01"></a>
 
@@ -873,7 +923,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T1-EMBED-01 — [Decision] Chốt embedding model dimension và corpus
 
-**Owner:** Lãm. **Reviewer:** Quý Phúc; Bình review cấu hình. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-10.
+**Owner:** Lãm. **Reviewer:** Quý Phúc; Bình review cấu hình. **Bắt đầu:** 11/11/2026. **Hạn task:** 2026-11-12.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 10.1, 12.1/12.4, DEC-06; [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md) — 3, 6.
 
@@ -881,7 +931,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 1. Lãm cùng Quý Phúc chọn model/API và dimension thực dùng; kiểm tra quyền gọi/quota/khóa bằng môi trường kín, không đưa token vào log.
 2. Lấy embedding mẫu query/document, kiểm tra finite/nonzero/dimension và thử pgvector; ghi model, dimension, namespace/mode, cách tái tạo và giới hạn test.
-3. Chốt quyết định trước 12:00 10/11, cập nhật DEC-06 và ghi kết quả thật. Nếu chưa gọi live được thì ghi blocker; fake kiểm tra plumbing không được coi đã xác minh chất lượng/model live.
+3. Chốt quyết định trước 23:59 12/11, cập nhật DEC-06 và ghi kết quả thật. Nếu chưa gọi live được thì ghi blocker; fake kiểm tra plumbing không được coi đã xác minh chất lượng/model live.
 
 **Đầu ra:** `docs/contracts/embedding-decision.md và cập nhật DEC-06; mẫu vector an toàn/kết quả smoke, không secrets`.
 
@@ -893,27 +943,27 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T1-SUBMIT-01 — [Submit] Nộp Template 1 và lưu biên nhận
 
-**Owner:** Bình. **Reviewer:** Gia Phúc. **Bắt đầu:** 08/11/2026. **Hạn task:** 2026-11-08.
+**Owner:** Bình. **Reviewer:** Gia Phúc. **Bắt đầu:** 11/11/2026. **Hạn task:** 2026-11-12.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — A.2 và 19; [reports/planning/TEAM_READINESS.md](reports/planning/TEAM_READINESS.md) — hạn/tên gói/tài khoản quyền nộp.
 
-**BẮT ĐẦU:** Có gói đã nghiệm thu; không phụ thuộc code.
+**BẮT ĐẦU:** Có gói hoàn chỉnh từ T1-PUB-01 ngày 12/11; không phụ thuộc vào tiến độ code.
 
-1. Bình nhận gói đã được Gia Phúc kiểm tra từ Lãm; so tên/size/manifest và hạn trên cổng thật, không tự hiểu 12:00 AM thành cuối ngày.
-2. Bình dùng tài khoản có quyền nộp gói trước 21:00 08/11 sau chốt nội bộ 20:00; xác nhận cổng đã nhận đúng file. Đây là việc người được giao thực hiện, bản cập nhật tài liệu không tự đăng nhập/nộp hộ.
-3. Lưu biên nhận/thời điểm/tên file và link artifact vào task; Gia Phúc đối chiếu. Nếu lỗi cổng báo Bình/Gia Phúc ngay và giữ gói; không đánh SUBMITTED khi chỉ mới tạo zip.
+1. Bình nhận gói đã được Gia Phúc kiểm tra độc lập từ Lãm; so sánh tên file, dung lượng, manifest và quy định nộp bài.
+2. Bình dùng tài khoản đại diện nhóm nộp bài lên cổng trường trong khung giờ **23:59 ngày 12/11/2026**; xác nhận cổng đã lưu nhận file thành công.
+3. Chụp ảnh màn hình biên nhận nộp, ghi nhận thời điểm, tên file và link artifact vào task; Gia Phúc đối chiếu xác thực.
 
-**Đầu ra:** `Biên nhận nộp thật và liên kết gói cố định trong reports/template1/release/`.
+**Đầu ra:** `Biên nhận nộp bài chính thức và liên kết gói nộp lưu trữ tại reports/template1/release/`.
 
-**CHỐT / DoD:** Cổng có xác nhận nhận đúng gói, reviewer đối chiếu; trước đó giữ NOT VERIFIED.
+**CHỐT / DoD:** Cổng trường xác nhận nhận đúng gói trước 23:59 12/11/2026; có ảnh chụp biên nhận nộp bài.
 
-**Ai chờ kết quả:** Cả nhóm biết trạng thái nộp; Gia Phúc dự phòng nếu đã có quyền.
+**Ai chờ kết quả:** Cả nhóm biết trạng thái nộp bài thành công.
 
 <a id="qa1-reg-01"></a>
 
 ### QA1-REG-01 — [QA] Regression bảo mật concurrency hiệu năng và sửa lỗi
 
-**Owner:** Gia Phúc. **Reviewer:** Bình. **Bắt đầu:** 23/11/2026. **Hạn task:** 2026-11-29.
+**Owner:** Gia Phúc. **Reviewer:** Bình. **Bắt đầu:** 26/11/2026. **Hạn task:** 2026-12-02.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 8, 14 và G.6; [reports/05-test-plan.md](reports/05-test-plan.md) — coverage; [reports/06-test-results.md](reports/06-test-results.md) — kết quả trước QA.
 
@@ -921,7 +971,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 1. Nhận bản MVP và P0 chưa đạt ngày22; chốt danh sách regression/quyền/concurrency/worker/fault và môi trường seed, không mở feature P1.
 2. Từ23–27/11 từng owner chạy/sửa module mình; Gia Phúc điều phối, chạy performance smoke theo NFR điều kiện ghi rõ, không tự đổi ngưỡng để báo đạt.
-3. Bàn giao ảnh/chỉ số/bug status cho Lãm trước 20:00 27/11 để chuẩn bị bằng chứng Template 3; không chặn gói thiết kế Template 2; 28–29/11 tiếp tục fix/regression, thay đổi sau bản nộp phải có revision.
+3. Bàn giao ảnh/chỉ số/bug status cho Lãm trước 23:59 27/11 để chuẩn bị bằng chứng Template 3; không chặn gói thiết kế Template 2; 28–29/11 tiếp tục fix/regression, thay đổi sau bản nộp phải có revision.
 
 **Đầu ra:** `reports/06-test-results.md, bug links và số liệu NFR có điều kiện đo`.
 
@@ -933,7 +983,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### QA1-EVAL-01 — [QA] Đánh giá AI trên bộ ít nhất 30 câu có nhãn
 
-**Owner:** Quý Phúc. **Reviewer:** Lãm; Gia Phúc đối soát báo cáo. **Bắt đầu:** 23/11/2026. **Hạn task:** 2026-11-28.
+**Owner:** Quý Phúc. **Reviewer:** Lãm; Gia Phúc đối soát báo cáo. **Bắt đầu:** 26/11/2026. **Hạn task:** 2026-12-02.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 12.4, NFR-AI-01..03; [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md) — 6,7,9.
 
@@ -953,7 +1003,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### QA1-T2-01 — [Template 2] Chốt gói thiết kế và nộp trước 29/11
 
-**Owner:** Lãm. **Reviewer:** Gia Phúc; Bình nộp/xác minh hạn. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-28.
+**Owner:** Lãm. **Reviewer:** Gia Phúc; Bình nộp/xác minh hạn. **Bắt đầu:** 26/11/2026. **Hạn task:** 2026-11-28.
 
 **Đọc trước:** [reports/references/template2-design-requirements.md](reports/references/template2-design-requirements.md) — cấu trúc tài liệu thiết kế; [reports/planning/TEMPLATE2_3_ALIGNMENT.md](reports/planning/TEMPLATE2_3_ALIGNMENT.md) — 2–3; [reports/template2/README.md](reports/template2/README.md) — manifest và owner; [reports/SRS-master.md](reports/SRS-master.md) — A.2 giờ cổng cần xác minh.
 
@@ -961,8 +1011,8 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 1. 09/11 Lãm dựng master/mục lục và manifestTemplate 2, giao file phần cho owner. Bình đối chiếu nguồn/yêu cầu/giao diện và hạn 29/11 với giờ cổng thật; không giữ yêu cầu “báo cáo kiểm thử” của kế hoạch cũ.
 2. Thu conceptual/architecture 12/11, data 18/11, UI 20/11; ghép nháp từng phần và đối soát code 22/11. 23–25/11 nhận findingsT2-REVIEW, sửa theo owner.
-3. Freeze nội dung 26/11 20:00, render/kiểm gói và reviewer chạy độc lập 27/11 20:00; bảng đóng góp/chữ ký đúngxác nhận, source/ảnh/table/links portable, P1 đánhplanned.
-4. Bình nộp gói thiết kế trước20:00 28/11 hoặc sớm hơn nếu giờ cổng yêu cầu; lưu biên nhận, Gia Phúc kiểm. QA/evaluationvẫn làm choTemplate 3, không làdependency đểchờ nộp Template 2.
+3. Freeze nội dung 26/11 23:59, render/kiểm gói và reviewer chạy độc lập 27/11 23:59; bảng đóng góp/chữ ký đúngxác nhận, source/ảnh/table/links portable, P1 đánhplanned.
+4. Bình nộp gói thiết kế trước23:59 28/11 hoặc sớm hơn nếu giờ cổng yêu cầu; lưu biên nhận, Gia Phúc kiểm. QA/evaluationvẫn làm choTemplate 3, không làdependency đểchờ nộp Template 2.
 
 **Đầu ra:** `reports/template2/release/ master/HTML/PDF/assets/manifest và biên nhận nộp thiết kế`.
 
@@ -974,7 +1024,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T1-WF-01 — [Workflow] Apply discard suggestion nguyên tử
 
-**Owner:** Gia Phúc. **Reviewer:** Quý Phúc; Bình quyền/transaction. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-19.
+**Owner:** Gia Phúc. **Reviewer:** Quý Phúc; Bình quyền/transaction. **Bắt đầu:** 17/11/2026. **Hạn task:** 2026-11-21.
 
 **Đọc trước:** [reports/SRS-master.md](reports/SRS-master.md) — 9.4, 11.3/11.5, UC-15, 14.2 TC-WF; [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md) — 7,9.
 
@@ -982,7 +1032,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 1. 09–10/11 Gia Phúc viết application ports Apply/Discard nháp với Quý Phúc trong task CONTRACT, soạn cases cùng TST-AI; chưa chờ Suggestion service thật.
 2. Từ 15/11 hiện thực workflow application service qua Ticket/AI public ports; lock ticket rồi suggestion, recheck current rights/state/same-ticket/GENERATED/PUBLIC, message+APPLIED cùng transaction, không REQUIRES_NEW hoặc gọi provider.
-3. Nhận Suggestion port implementation từ Quý Phúc và Ticket port của mình trước 18/11 20:00; nối send/discard thật; Quý Phúc cùng Gia Phúc chạy TC-WF-01..04 với PostgreSQL và rollback/races.
+3. Nhận Suggestion port implementation từ Quý Phúc và Ticket port của mình trước 23:59 18/11; nối send/discard thật; Quý Phúc cùng Gia Phúc chạy TC-WF-01..04 với PostgreSQL và rollback/races.
 4. Gửi Quý Phúc/Bình review; bàn giao service, command và bằng chứng trước23:59 19/11 cho INT. Ticket core Done 15/11 không có nghĩa workflow đã Done.
 
 **Đầu ra:** `backend/src/main/java/vn/edu/hcmus/helpdesk/workflow/; public ports Ticket/AI; evidence TC-WF trong reports/06-test-results.md`.
@@ -995,7 +1045,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T1-UI-01 — [Mockup] Tổng hợp prototype và kiểm tra quyền xem
 
-**Owner:** Quý Phúc. **Reviewer:** Gia Phúc; Lãm kiểm tra gói. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-07.
+**Owner:** Quý Phúc. **Reviewer:** Gia Phúc; Lãm kiểm tra gói. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-10.
 
 **Đọc trước:** [reports/template1/05-prototype-mockup.md](reports/template1/05-prototype-mockup.md) — ma trận màn hình; [docs/design/man-hinh.md](docs/design/man-hinh.md) — 151 frames chi tiết; [design-system/helpdesk-workspace/MASTER.md](design-system/helpdesk-workspace/MASTER.md) — tokens & components; [Google Docs nhóm](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0).
 
@@ -1003,11 +1053,11 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 1. Đã hoàn thành bộ thiết kế Redesign v2 trên Figma SE: [Figma Node 49:58](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev), xuất trọn bộ 151 ảnh PNG tại `docs/design/anh/`. Đảm bảo quyền chia sẻ link là "Anyone with the link can view".
 2. Hỗ trợ 3 owner lấy đúng Node ID và ảnh PNG ánh xạ vào các Use Case UC-01..17 trong `docs/design/man-hinh.md`; rà soát đầy đủ loading/error/empty/disabled và các trạng thái máy ticket theo SRS.
-3. Hoàn thiện nội dung Mục 5 trong `reports/template1/05-prototype-mockup.md` và đồng bộ lên Google Docs nhóm; Gia Phúc review và bàn giao cho Lãm trước 20:00 07/11.
+3. Hoàn thiện nội dung Mục 5 trong `reports/template1/05-prototype-mockup.md` và đồng bộ lên Google Docs nhóm; Gia Phúc review chéo trước 23:59 08/11 và bàn giao cho Lãm chuyển Markdown trước 23:59 10/11.
 
 **Đầu ra:** `reports/template1/05-prototype-mockup.md; link Figma SE; bộ 151 ảnh PNG tại docs/design/anh/; Google Docs Mục 5`.
 
-**CHỐT / DoD:** Ma trận 33 nhóm màn hình / 151 frames đầy đủ, link view Figma hoạt động với tài khoản ngoài nhóm, và reviewer approve trước 20:00 07/11.
+**CHỐT / DoD:** Ma trận 33 nhóm màn hình / 151 frames đầy đủ, link view Figma hoạt động với tài khoản ngoài nhóm, và reviewer approve trước 23:59 10/11.
 
 **Ai chờ kết quả:** Lãm PUB để ghép/render; Gia Phúc kiểm tra độc lập.
 
@@ -1015,14 +1065,14 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T2-MODEL-01 — [Design] Mô hình quan niệm và quan hệ nghiệp vụ
 
-**Owner:** Lãm. **Reviewer:** Gia Phúc; từng owner domain. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-12.
+**Owner:** Lãm. **Reviewer:** Gia Phúc; từng owner domain. **Bắt đầu:** 11/11/2026. **Hạn task:** 2026-11-14.
 
 **Đọc trước:** [reports/references/template2-design-requirements.md](reports/references/template2-design-requirements.md) — Mục2 Mô hình quan niệm; [reports/SRS-master.md](reports/SRS-master.md) — 2–6 và10 làm đối chiếu, không chép SQL thành conceptual; [reports/planning/TEMPLATE2_3_ALIGNMENT.md](reports/planning/TEMPLATE2_3_ALIGNMENT.md) — 2–3; [reports/template2/02-conceptual-model.md](reports/template2/02-conceptual-model.md) — khung nhận nội dung.
 
 **BẮT ĐẦU:** Đọc SRS được ngay 09/11; không chờ schema/business code Done.
 
 1. 09/11 Lãm thu đối tượng/quan hệ từ từng owner: Bình User/Session, Gia Phúc Ticket/Message/Event, Lãm Document/Chunk/Job, Quý Phúc Suggestion/Source. Phân biệt object nghiệp vụ với thành phần kỹ thuật và ghi lý do chọn đưa vào mô hình.
-2. Bàn giao conceptual nháp và cardinality trước20:00 09/11 cho schema/contract; mô hình nghiệp vụ không phụ thuộc PostgreSQL đã chạy. Ghi glossary, role/ownership và quan hệ, không thay bằng cây package.
+2. Bàn giao conceptual nháp và cardinality trước23:59 09/11 cho schema/contract; mô hình nghiệp vụ không phụ thuộc PostgreSQL đã chạy. Ghi glossary, role/ownership và quan hệ, không thay bằng cây package.
 3. Vẽ source drawio + SVG, reviewer kiểm semantics/cardinality với UC/BR và bảng dữ liệu, chốt 12/11. Nếu schema/API đổi sau đó cập nhật artifact cùng PR; không tái phát minh entity khác SRS.
 
 **Đầu ra:** `reports/template2/02-conceptual-model.md; assets/diagrams/conceptual-model.drawio/.svg`.
@@ -1035,7 +1085,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T2-ARCH-01 — [Design] Cây phân rã kiến trúc và ranh giới module
 
-**Owner:** Bình. **Reviewer:** Quý Phúc; Gia Phúc ports. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-12.
+**Owner:** Bình. **Reviewer:** Quý Phúc; Gia Phúc ports. **Bắt đầu:** 11/11/2026. **Hạn task:** 2026-11-14.
 
 **Đọc trước:** [reports/references/template2-design-requirements.md](reports/references/template2-design-requirements.md) — Mục3 cây phân rã, điểm kiến trúc, gợi ýC4; [reports/SRS-master.md](reports/SRS-master.md) — 9,16.2; [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md) — 1,6,7; [reports/template2/03-architecture.md](reports/template2/03-architecture.md) — khung.
 
@@ -1055,7 +1105,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T2-DATA-01 — [Design] ERD và đặc tả dữ liệu khớp migrations
 
-**Owner:** Lãm. **Reviewer:** Bình + Gia Phúc; Quý Phúc phầnAI. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-18.
+**Owner:** Lãm. **Reviewer:** Bình + Gia Phúc; Quý Phúc phầnAI. **Bắt đầu:** 12/11/2026. **Hạn task:** 2026-11-20.
 
 **Đọc trước:** [reports/references/template2-design-requirements.md](reports/references/template2-design-requirements.md) — 4.1 sơ đồ dữ liệu,4.2 bảng/cột/kiểu/giá trị/khóa/diễn giải; [reports/SRS-master.md](reports/SRS-master.md) — 10; [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md) — 3,5,7; [reports/template2/04-data-design.md](reports/template2/04-data-design.md) — khung.
 
@@ -1075,7 +1125,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T2-UI-01 — [Design] Đặc tả UI và luồng trạng thái theo UC API
 
-**Owner:** Quý Phúc. **Reviewer:** Gia Phúc; Lãm kiểm gói. **Bắt đầu:** 11/11/2026. **Hạn task:** 2026-11-20.
+**Owner:** Quý Phúc. **Reviewer:** Gia Phúc; Lãm kiểm gói. **Bắt đầu:** 13/11/2026. **Hạn task:** 2026-11-22.
 
 **Đọc trước:** [reports/references/template2-design-requirements.md](reports/references/template2-design-requirements.md) — mục tiêu thiết kế giao diện; mục lục chưa có đề mục riêng; [reports/SRS-master.md](reports/SRS-master.md) — 13 và11; [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md) — 8 adapter/DTO/error; [reports/template1/05-prototype-mockup.md](reports/template1/05-prototype-mockup.md) — tái dùng prototype; [reports/template2/05-ui-design.md](reports/template2/05-ui-design.md) — khung.
 
@@ -1096,7 +1146,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ### T2-REVIEW-01 — [Design review] Đối soát Template 2 SRS và implementation
 
-**Owner:** Gia Phúc. **Reviewer:** Bình; Lãm xửlý findings. **Bắt đầu:** 23/11/2026. **Hạn task:** 2026-11-25.
+**Owner:** Gia Phúc. **Reviewer:** Bình; Lãm xửlý findings. **Bắt đầu:** 23/11/2026. **Hạn task:** 2026-11-27.
 
 **Đọc trước:** [reports/references/template2-design-requirements.md](reports/references/template2-design-requirements.md) — toàn bộ mục thiết kế; [reports/planning/TEMPLATE2_3_ALIGNMENT.md](reports/planning/TEMPLATE2_3_ALIGNMENT.md) — 2–3; [reports/template2/06-design-consistency.md](reports/template2/06-design-consistency.md) — checklist; [reports/SRS-master.md](reports/SRS-master.md) — FR/UC/BR và 10/11.
 
@@ -1114,9 +1164,9 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 <a id="t3-case-01"></a>
 
-### T3-CASE-01 — [Test spec] Điều phối5 chức năng mỗi chức năng ít nhất 5 ca
+### T3-CASE-01 — [Test spec] Điều phối 5 chức năng mỗi chức năng ít nhất 5 ca kiểm thử
 
-**Owner:** Gia Phúc. **Reviewer:** Lãm; từng owner ca của mình. **Bắt đầu:** 09/11/2026. **Hạn task:** 2026-11-14.
+**Owner:** Gia Phúc. **Reviewer:** Lãm; từng owner ca của mình. **Bắt đầu:** 25/11/2026. **Hạn task:** 2026-11-28.
 
 **Đọc trước:** [reports/references/template3-testing-requirements.md](reports/references/template3-testing-requirements.md) — test plan/listcase/ít nhất 5 chức năng mỗi chức năng 5 ca; [reports/testing/TEST_CASE_CATALOG.md](reports/testing/TEST_CASE_CATALOG.md) — 25 ca dựkiến và mapping; [reports/SRS-master.md](reports/SRS-master.md) — 14.2/12.4; dataset30 câu khác25 ca; [reports/template3/README.md](reports/template3/README.md) — cấu trúc báo cáo.
 
@@ -1146,7 +1196,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 1. Lãm lấy test plan/catalog/cases đãduyệt và regression/evaluation23–29/11, hợpnhất báo cáoTemplate 3 đúng mẫu; mỗi owner bổ sung actual/result và linkcommands/commit/dataset, không tạoPassed thay người.
 2. Đốichiếu ít nhất 5 chức năng×5 ca và trường RelatedUC/Context/Input/Expected/Steps; chưa chạy cóNOT RUN/lý do; phânbiệt test cases ứngdụng với datasetAI. Đínhkèm defectstatus, limitations và hướngdẫn tái hiện.
 3. 30/11–09/12 cậpnhật kết quả sau deploy/finalfix, review09–10/12, render/kiểm gói 11/12; Bình xác minh giờ cổngTemplate 3/AppDemo theo nguồn thật.
-4. Bình nộp trước20:00 12/12 hoặc sớm hơn theo giờ cổng đãxác nhận, lưu biên nhận; Gia Phúc dựphòng. Kịch bảndemo/triểnkhai còn theo SRS G.7, không tự coi submit làtestpass.
+4. Bình nộp trước 23:59 ngày 12/12 hoặc sớm hơn theo giờ cổng đãxác nhận, lưu biên nhận; Gia Phúc dựphòng. Kịch bảndemo/triểnkhai còn theo SRS G.7, không tự coi submit làtestpass.
 
 **Đầu ra:** `reports/template3/release/ báo cáo kiểm thử/master/assets/evidence/manifest vàbiên nhận cuối`.
 
@@ -1629,7 +1679,7 @@ flowchart TD
     Step1["BƯỚC 1: KHỞI TẠO MÔI TRƯỜNG DÙNG CHUNG (03/11 - 04/11)"]
     Step2["BƯỚC 2: BAN HÀNH QUY CHẾ & KÍCH HOẠT GIT HOOK (04/11)"]
     Step3["BƯỚC 3: NẠP TASK JIRA & GITHUB ISSUES (04/11)"]
-    Step4["BƯỚC 4: THEO DÕI DAILY STANDUP & REVIEW CHÉO (05/11 - 13/11)"]
+    Step4["BƯỚC 4: THEO DÕI DAILY STANDUP, REVIEW CHÉO & ĐIỀU PHỐI (07/11 - 24/11)"]
 
     Step1 --> Step2 --> Step3 --> Step4
 ```
@@ -1678,7 +1728,7 @@ flowchart TD
    - Đức Lãm review cho Phan Gia Phúc.
    - Phan Gia Phúc review cho Lê Quý Phúc.
    - Lê Quý Phúc review cho Bình.
-2. Kiểm tra tiến độ mỗi tối qua kênh chat nội bộ. Đảm bảo đến **20:00 ngày 08/11** tài liệu Template 1 hoàn thành, đóng gói và nộp; từ **09/11 đến 22/11** hoàn thành code & test MVP P0 và tích hợp E2E.
+2. Kiểm tra tiến độ mỗi tối qua kênh chat nội bộ. Đảm bảo đến **23:59 ngày 12/11** tài liệu Template 1 hoàn thành, đóng gói và nộp; từ **11/11 đến 24/11** hoàn thành code & test MVP P0 và tích hợp E2E.
 
 ---
 
@@ -1686,51 +1736,70 @@ flowchart TD
 
 ## 8. DANH MỤC BACKLOG TASKS CHUẨN NẠP JIRA & GITHUB ISSUES
 
-Dưới đây là danh mục tasks chuẩn mực theo mốc điều phối mới (Template 1 chốt **08/11/2026**; Code MVP P0 triển khai **09/11 – 22/11/2026**; đồng bộ 100% với `TASK_PLAYBOOK_TEMPLATE1.md` và `scripts/jira/tasks_template1.csv`):
+Dưới đây là danh mục tasks chuẩn mực theo mốc điều phối mới (Template 1 nộp **12/11/2026**; Code MVP P0 triển khai **11/11 – 24/11/2026**; Template 2 triển khai **11/11 – 28/11/2026**; Template 3 diễn ra SAU MVP từ **25/11 – 12/12/2026**; đồng bộ 100% với `scripts/jira/tasks_template1.csv`):
 
 ### 8.1. Các Epic Chính
 | Ref | Loại Task | Tóm tắt (Summary) | Mô tả phạm vi | Owner | Hạn chót |
 | :---: | :---: | :--- | :--- | :---: | :---: |
-| **T1** | Epic | [Template 1 & MVP P0] Tài liệu 03-08/11; code 09-22/11 | Điều phối tài liệu Template 1 (03–08/11) và MVP code/test P0 (09–22/11) theo ranh giới kỹ thuật MVP_CONTRACTS. | Ngô Viết Thanh Bình | 2026-11-22 |
-| **T2** | Epic | [Template 2] Thiết kế song song code 09-22 và nộp trước 29/11 | Thiết kế hệ thống (Conceptual, Architecture, Data, UI) làm song song code 09–22/11; review 23–25/11, nộp trước 29/11. | Nguyễn Đức Lãm | 2026-11-28 |
-| **T3** | Epic | [Template 3] Test plan tối thiểu 25 ca và báo cáo kiểm thử cuối | Chuẩn bị danh mục ≥25 test cases từ 09/11, ghi nhận kết quả chạy thật từ 23–29/11. | Phan Gia Phúc | 2026-12-12 |
-| **QA1** | Epic | [QA] Regression và evaluation 23-29/11 làm bằng chứng Template 3 | Chạy regression kiểm thử bảo mật, concurrency, hiệu năng và đánh giá bộ 30 câu hỏi AI. | Phan Gia Phúc | 2026-11-29 |
+| **T1** | Epic | [Template 1 & MVP P0] Tài liệu 03-12/11; code 11-24/11 | Điều phối tài liệu Template 1 (03–12/11) và MVP code/test P0 (11–24/11) theo ranh giới kỹ thuật MVP_CONTRACTS. | Ngô Viết Thanh Bình | 2026-11-24 |
+| **QA1** | Epic | [QA] Regression và evaluation sau MVP làm bằng chứng Template 3 | Chạy regression kiểm thử bảo mật, concurrency, hiệu năng và đánh giá bộ 30 câu hỏi AI sau khi hoàn thành MVP. | Phan Gia Phúc | 2026-12-02 |
+| **T2** | Epic | [Template 2] Thiết kế song song code 11-24 và nộp trước 29/11 | Thiết kế phần mềm (Conceptual Model, Architecture Breakdown, Data Dictionary, UI Specs) song song code 11–24/11; review 23–27/11, nộp trước 29/11. | Nguyễn Đức Lãm | 2026-11-28 |
+| **T3** | Epic | [Template 3] Test plan tối thiểu 25 ca và báo cáo kiểm thử cuối kỳ | Diễn ra SAU MVP (25/11 – 12/12): Chuẩn bị danh mục $\ge 25$ test cases (25–28/11), ghi nhận kết quả chạy thật và hoàn tất báo cáo kiểm thử cuối kỳ. | Phan Gia Phúc | 2026-12-12 |
 
-### 8.2. Danh mục Task Chi tiết Giai đoạn 1: Biên soạn Tài liệu Template 1 (03/11 – 08/11)
+### 8.2. Danh mục Task Chi tiết Luồng 1: Biên soạn Tài liệu Template 1 (03/11 – 12/11)
 | Ref | Tóm tắt (Summary) | Mô tả công việc & Đầu ra | Owner | Reviewer | Hạn chót |
 | :---: | :--- | :--- | :---: | :---: | :---: |
 | **T1-READY-01** | [Ready] Rubric và quyền truy cập | Xác minh rubric Template 1, link Google Docs, link Figma, phân quyền repo | Ngô Viết Thanh Bình | Cả nhóm | 2026-11-04 |
-| **T1-DOC-01** | [Doc] Bìa bảng đóng góp và mô tả bài toán | Viết Trang bìa, Bảng đóng góp, Mục 2 Mô tả bài toán (01 & 02) | Lê Quý Phúc | Phan Gia Phúc | 2026-11-07 |
-| **T1-DOC-02** | [Doc] Stakeholders Context Diagram và NFR | Bảng Stakeholders, Context Diagram (.drawio + .svg), Bảng NFRs (03.1 & 03.2.2) | Nguyễn Đức Lãm | Ngô Viết Thanh Bình | 2026-11-07 |
-| **T1-DOC-03** | [Doc] Truy vết 41 FR và 30 User Stories chuẩn | Tổng hợp bảng ma trận 41 FRs ánh xạ sang 30 User Stories (03.2.1) | Phan Gia Phúc | Nguyễn Đức Lãm | 2026-11-07 |
-| **T1-DOC-04** | [Doc] Identity 5 UC và Use Case overview | Sơ đồ Overview, Sơ đồ Module D (.drawio + .svg), đặc tả UC-01..04, 16 (04.1 & 04.2) | Ngô Viết Thanh Bình | Lê Quý Phúc | 2026-11-07 |
-| **T1-DOC-05** | [Doc] Ticket 6 UC và mockup Ticket | Sơ đồ Module C (.drawio + .svg), đặc tả 6 Use Case: UC-05..10 | Phan Gia Phúc | Nguyễn Đức Lãm | 2026-11-07 |
-| **T1-DOC-06** | [Doc] Knowledge 3 UC và mockup KB | Sơ đồ Module B (.drawio + .svg), đặc tả 3 Use Case: UC-11..13 | Nguyễn Đức Lãm | Ngô Viết Thanh Bình | 2026-11-07 |
-| **T1-DOC-07** | [Doc] AI 2 UC Analytics P1 riêng và tổng hợp mockup | Sơ đồ Module A (.drawio + .svg), đặc tả UC-14, 15 và UC-17 (P1 Analytics) | Lê Quý Phúc | Phan Gia Phúc | 2026-11-07 |
-| **T1-UI-01** | [Mockup] Tổng hợp prototype và kiểm tra quyền xem | Tổng hợp liên kết Figma và ảnh chụp màn hình vào Mục 5 Template 1 | Lê Quý Phúc | Cả nhóm | 2026-11-07 |
-| **T1-PUB-01** | [Release] Review render và đóng gói Template 1 | Hợp nhất Markdown, kiểm tra link ảnh, render HTML/PDF, tạo gói nộp bài | Nguyễn Đức Lãm | Phan Gia Phúc | **2026-11-08** (20:00) |
-| **T1-SUBMIT-01** | [Submit] Nộp Template 1 và lưu biên nhận | Kiểm tra gói giải nén độc lập, nộp lên cổng trường và lưu biên nhận nộp | Ngô Viết Thanh Bình | Phan Gia Phúc | **2026-11-08** (21:00) |
+| **T1-DOC-01** | [Doc] Bìa bảng đóng góp và mô tả bài toán | Viết Trang bìa, Bảng đóng góp, Mục 2 Mô tả bài toán (01 & 02) | Lê Quý Phúc | Phan Gia Phúc | 2026-11-10 |
+| **T1-DOC-02** | [Doc] Stakeholders Context Diagram và NFR | Bảng Stakeholders, Context Diagram (.drawio + .svg), Bảng NFRs (03.1 & 03.2.2) | Nguyễn Đức Lãm | Ngô Viết Thanh Bình | 2026-11-10 |
+| **T1-DOC-03** | [Doc] Truy vết 41 FR và 30 User Stories chuẩn | Tổng hợp bảng ma trận 41 FRs ánh xạ sang 30 User Stories (03.2.1) | Phan Gia Phúc | Nguyễn Đức Lãm | 2026-11-10 |
+| **T1-DOC-04** | [Doc] Identity 5 UC và Use Case overview | Sơ đồ Overview, Sơ đồ Module D (.drawio + .svg), đặc tả UC-01..04, 16 (04.1 & 04.2) | Ngô Viết Thanh Bình | Lê Quý Phúc | 2026-11-10 |
+| **T1-DOC-05** | [Doc] Ticket 6 UC và mockup Ticket | Sơ đồ Module C (.drawio + .svg), đặc tả 6 Use Case: UC-05..10 | Phan Gia Phúc | Nguyễn Đức Lãm | 2026-11-10 |
+| **T1-DOC-06** | [Doc] Knowledge 3 UC và mockup KB | Sơ đồ Module B (.drawio + .svg), đặc tả 3 Use Case: UC-11..13 | Nguyễn Đức Lãm | Ngô Viết Thanh Bình | 2026-11-10 |
+| **T1-DOC-07** | [Doc] AI 2 UC Analytics P1 riêng và tổng hợp mockup | Sơ đồ Module A (.drawio + .svg), đặc tả UC-14, 15 và UC-17 (P1 Analytics) | Lê Quý Phúc | Phan Gia Phúc | 2026-11-10 |
+| **T1-DOC-MD** | [Markdown] Chuyển đổi và nộp bản Markdown (.md) sau khi chốt Google Docs | 4 thành viên nộp bản .md, sơ đồ .svg của module mình vào repo và cập nhật biên bản bàn giao | Nguyễn Đức Lãm | Phan Gia Phúc | **2026-11-10** (23:59) |
+| **T1-UI-01** | [Mockup] Tổng hợp prototype và kiểm tra quyền xem | Tổng hợp liên kết Figma và ảnh chụp màn hình vào Mục 5 Template 1 | Lê Quý Phúc | Cả nhóm | 2026-11-10 |
+| **T1-PUB-01** | [Release] Review render và đóng gói Template 1 | Ghép nối Markdown, kiểm tra link ảnh, render HTML/PDF, tạo gói nộp bài | Nguyễn Đức Lãm | Phan Gia Phúc | **2026-11-12** (23:59) |
+| **T1-SUBMIT-01** | [Submit] Nộp Template 1 và lưu biên nhận | Kiểm tra gói giải nén độc lập, nộp lên cổng trường và lưu biên nhận nộp bài | Ngô Viết Thanh Bình | Phan Gia Phúc | **2026-11-12** (23:59) |
 
-### 8.3. Danh mục Task Chi tiết Giai đoạn 2: Cài đặt Mã nguồn & Kiểm thử MVP P0 (09/11 – 22/11)
+### 8.3. Danh mục Task Chi tiết Luồng 2: Cài đặt Mã nguồn & Kiểm thử MVP P0 (11/11 – 24/11)
 | Ref | Tóm tắt (Summary) | Mô tả công việc & Đầu ra | Owner | Reviewer | Hạn chót |
 | :---: | :--- | :--- | :---: | :---: | :---: |
-| **T1-DEV-01** | [Foundation] Spring Boot Docker và principal/fake | Khung dự án Spring Boot 3 Java 21, Docker pgvector, Error Envelope, Actor Principal | Ngô Viết Thanh Bình | Lê Quý Phúc | 2026-11-10 |
-| **T1-SCHEMA-01** | [Schema] Phối hợp baseline V1-V5 và migration gates | Phối hợp Flyway V1 (Identity), V2 (Ticket), V3 (KB), V4/V5 (AI/FK) | Nguyễn Đức Lãm | Bình + Phúc | 2026-11-10 |
-| **T1-CONTRACT-01** | [Contract] DTO ports OpenAPI và mẫu lỗi | Chốt OpenAPI spec, DTO ports giữa các module và mã lỗi chuẩn HTTP | Phan Gia Phúc | Bình + Lãm | 2026-11-10 |
-| **T1-CI-01** | [CI] Build PostgreSQL tests và frontend build | Cấu hình GitHub Actions CI chạy Maven build, Docker PostgreSQL test và Frontend | Lê Quý Phúc | Ngô Viết Thanh Bình | 2026-11-10 |
-| **T1-EMBED-01** | [Decision] Chốt embedding model dimension và corpus | Chốt model embedding, số chiều vector (DEC-06) và interface EmbeddingProvider | Nguyễn Đức Lãm | Lê Quý Phúc | 2026-11-10 |
-| **T1-DEV-02** | [Code] Identity P0 và Axios auth | API JWT Token, Login, Register, Refresh token xoay vòng, Axios 401 Interceptor | Ngô Viết Thanh Bình | Quý Phúc | 2026-11-13 |
-| **T1-DEV-03** | [Code] Ticket P0 concurrency và adapter UI | State machine 5 bước, Claim lock HTTP 409 (UC-07), Public/Internal chat, UI Ticket | Phan Gia Phúc | Nguyễn Đức Lãm | 2026-11-15 |
-| **T1-DEV-04** | [Code] Knowledge ingestion retrieval và embedding port | Ingestion Worker nền quét job SKIP LOCKED retry $\le 3$, chunking 500-800 token, pgvector search | Nguyễn Đức Lãm | Ngô Viết Thanh Bình | 2026-11-17 |
-| **T1-DEV-05** | [Code] AI RAG P0 apply workflow và adapter AI UI | RAG pipeline, Citation verification (BR-12), Abstention (BR-13), AI widget UI | Lê Quý Phúc | Phan Gia Phúc | 2026-11-19 |
-| **T1-WF-01** | [Workflow] Apply discard suggestion nguyên tử | Transaction áp dụng gợi ý tạo tin nhắn PUBLIC kèm sourceId, đổi trạng thái APPLIED | Phan Gia Phúc | Lê Quý Phúc | 2026-11-19 |
-| **T1-TST-ID** | [Test] Identity security và session | Unit & Integration test bảo mật Identity, JWT expiry, RBAC (TC-ID-01..06) | Ngô Viết Thanh Bình | Lê Quý Phúc | 2026-11-21 |
-| **T1-TST-TK** | [Test] Ticket concurrency và rollback | Test tranh chấp claim ticket đồng thời (TC-CON-01/02), state machine (TC-TK-01..08) | Phan Gia Phúc | Nguyễn Đức Lãm | 2026-11-21 |
-| **T1-TST-KB** | [Test] Worker lease retrieval và file security | Test worker lease token, retry bounded, pgvector cosine search (TC-KB-01..07) | Nguyễn Đức Lãm | Ngô Viết Thanh Bình | 2026-11-21 |
-| **T1-TST-AI** | [Test] RAG contract và send suggestion races | Test trích dẫn citation, nhánh từ chối thiếu nguồn, double-send suggestion (TC-AI-01..07) | Lê Quý Phúc | Phan Gia Phúc | 2026-11-21 |
-| **T1-TST-01** | [QA coordination] Tổng hợp kết quả bốn task test | Điều phối tổng hợp kết quả chạy test tự động của cả 4 module | Phan Gia Phúc | Cả nhóm | 2026-11-21 |
-| **T1-OPS-01** | [Ops] Clean environment và migration smoke | Kiểm thử chạy ứng dụng từ môi trường sạch (Clean Environment Smoke Test) | Nguyễn Đức Lãm | Phan Gia Phúc | 2026-11-22 |
-| **T1-INT-01** | [Integration] E2E tăng dần và nghiệm thu MVP P0 | Tích hợp End-to-end (Auth $\to$ Ticket $\to$ KB Ingestion $\to$ AI Suggestion), nghiệm thu MVP | Phan Gia Phúc | Ngô Viết Thanh Bình | **2026-11-22** (20:00) |
+| **T1-DEV-01** | [Foundation] Spring Boot Docker và principal/fake | Khung dự án Spring Boot 3 Java 21, Docker pgvector, Error Envelope, Actor Principal | Ngô Viết Thanh Bình | Lê Quý Phúc | 2026-11-12 |
+| **T1-SCHEMA-01** | [Schema] Phối hợp baseline V1-V5 và migration gates | Phối hợp Flyway V1 (Identity), V2 (Ticket), V3 (KB), V4/V5 (AI/FK) | Nguyễn Đức Lãm | Bình + Phúc | 2026-11-12 |
+| **T1-CONTRACT-01** | [Contract] DTO ports OpenAPI và mẫu lỗi | Chốt OpenAPI spec, DTO ports giữa các module và mã lỗi chuẩn HTTP | Phan Gia Phúc | Bình + Lãm | 2026-11-12 |
+| **T1-CI-01** | [CI] Build PostgreSQL tests và frontend build | Cấu hình GitHub Actions CI chạy Maven build, Docker PostgreSQL test và Frontend | Lê Quý Phúc | Ngô Viết Thanh Bình | 2026-11-12 |
+| **T1-EMBED-01** | [Decision] Chốt embedding model dimension và corpus | Chốt model embedding, số chiều vector (DEC-06) và interface EmbeddingProvider | Nguyễn Đức Lãm | Lê Quý Phúc | 2026-11-12 |
+| **T1-DEV-02** | [Code] Identity P0 và Axios auth | API JWT Token, Login, Register, Refresh token xoay vòng, Axios 401 Interceptor | Ngô Viết Thanh Bình | Quý Phúc | 2026-11-15 |
+| **T1-DEV-03** | [Code] Ticket P0 concurrency và adapter UI | State machine 5 bước, Claim lock HTTP 409 (UC-07), Public/Internal chat, UI Ticket | Phan Gia Phúc | Nguyễn Đức Lãm | 2026-11-17 |
+| **T1-DEV-04** | [Code] Knowledge ingestion retrieval và embedding port | Ingestion Worker nền quét job SKIP LOCKED retry $\le 3$, chunking 500-800 token, pgvector search | Nguyễn Đức Lãm | Ngô Viết Thanh Bình | 2026-11-19 |
+| **T1-DEV-05** | [Code] AI RAG P0 apply workflow và adapter AI UI | RAG pipeline, Citation verification (BR-12), Abstention (BR-13), AI widget UI | Lê Quý Phúc | Phan Gia Phúc | 2026-11-21 |
+| **T1-WF-01** | [Workflow] Apply discard suggestion nguyên tử | Transaction áp dụng gợi ý tạo tin nhắn PUBLIC kèm sourceId, đổi trạng thái APPLIED | Phan Gia Phúc | Lê Quý Phúc | 2026-11-21 |
+| **T1-TST-ID** | [Test] Identity security và session | Unit & Integration test bảo mật Identity, JWT expiry, RBAC (TC-ID-01..06) | Ngô Viết Thanh Bình | Lê Quý Phúc | 2026-11-23 |
+| **T1-TST-TK** | [Test] Ticket concurrency và rollback | Test tranh chấp claim ticket đồng thời (TC-CON-01/02), state machine (TC-TK-01..08) | Phan Gia Phúc | Nguyễn Đức Lãm | 2026-11-23 |
+| **T1-TST-KB** | [Test] Worker lease retrieval và file security | Test worker lease token, retry bounded, pgvector cosine search (TC-KB-01..07) | Nguyễn Đức Lãm | Ngô Viết Thanh Bình | 2026-11-23 |
+| **T1-TST-AI** | [Test] RAG contract và send suggestion races | Test trích dẫn citation, nhánh từ chối thiếu nguồn, double-send suggestion (TC-AI-01..07) | Lê Quý Phúc | Phan Gia Phúc | 2026-11-23 |
+| **T1-TST-01** | [QA coordination] Tổng hợp kết quả bốn task test | Điều phối tổng hợp kết quả chạy test tự động của cả 4 module | Phan Gia Phúc | Cả nhóm | 2026-11-23 |
+| **T1-OPS-01** | [Ops] Clean environment và migration smoke | Kiểm thử chạy ứng dụng từ môi trường sạch (Clean Environment Smoke Test) | Nguyễn Đức Lãm | Phan Gia Phúc | 2026-11-24 |
+| **T1-INT-01** | [Integration] E2E tăng dần và nghiệm thu MVP P0 | Tích hợp End-to-end (Auth $	o$ Ticket $	o$ KB Ingestion $	o$ AI Suggestion), nghiệm thu MVP | Phan Gia Phúc | Ngô Viết Thanh Bình | **2026-11-24** (23:59) |
+
+### 8.4. Danh mục Task Luồng 3: Thiết kế Phần mềm Template 2 (11/11 – 28/11)
+| Ref | Tóm tắt (Summary) | Mô tả công việc & Đầu ra | Owner | Reviewer | Hạn chót |
+| :---: | :--- | :--- | :---: | :---: | :---: |
+| **T2-MODEL-01** | [Design] Mô hình quan niệm và quan hệ nghiệp vụ | Soạn thảo Conceptual Model, các thực thể nghiệp vụ và quan hệ cardinality | Nguyễn Đức Lãm | Phan Gia Phúc | 2026-11-14 |
+| **T2-ARCH-01** | [Design] Cây phân rã kiến trúc và ranh giới module | Phân rã kiến trúc hệ thống C4 Model, ranh giới package và API gateway | Ngô Viết Thanh Bình | Lê Quý Phúc | 2026-11-14 |
+| **T2-DATA-01** | [Design] ERD và đặc tả dữ liệu khớp migrations | Thiết kế ERD chi tiết, Data Dictionary khớp 100% với Flyway migrations V1-V5 | Nguyễn Đức Lãm | Bình + Phúc | 2026-11-20 |
+| **T2-UI-01** | [Design] Đặc tả UI và luồng trạng thái theo UC API | Đặc tả UI chi tiết (field, action, role, state, API, error envelope) theo mockup | Lê Quý Phúc | Phan Gia Phúc | 2026-11-22 |
+| **T2-REVIEW-01** | [Design review] Đối soát Template 2 SRS và implementation | Rà soát đối chiếu chéo giữa Thiết kế Template 2, SRS và mã nguồn thực tế | Phan Gia Phúc | Ngô Viết Thanh Bình | 2026-11-27 |
+| **QA1-T2-01** | [Template 2] Chốt gói thiết kế và nộp trước 29/11 | Hoàn thiện bản đóng gói cuối cùng Template 2, render PDF/A4 và nộp bài trước hạn | Nguyễn Đức Lãm | Gia Phúc + Bình | **2026-11-28** (23:59) |
+
+### 8.5. Danh mục Task Luồng 4: Kiểm thử Phần mềm Template 3 & QA (SAU MVP: 25/11 – 12/12)
+| Ref | Tóm tắt (Summary) | Mô tả công việc & Đầu ra | Owner | Reviewer | Hạn chót |
+| :---: | :--- | :--- | :---: | :---: | :---: |
+| **T3-CASE-01** | [Test spec] Điều phối 5 chức năng mỗi chức năng ít nhất 5 ca kiểm thử | Lập Test Plan và catalog $\ge 25$ ca kiểm thử chuẩn (context, input, expected, steps) | Phan Gia Phúc | Nguyễn Đức Lãm | 2026-11-28 |
+| **QA1-REG-01** | [QA] Regression bảo mật concurrency hiệu năng và sửa lỗi | Chạy regression test thực tế sau MVP: RBAC, Concurrency Claim 409, Ingestion SKIP LOCKED | Phan Gia Phúc | Ngô Viết Thanh Bình | 2026-12-02 |
+| **QA1-EVAL-01** | [QA] Đánh giá AI trên bộ ít nhất 30 câu có nhãn | Chạy đánh giá bộ 30 câu hỏi AI trên hệ thống thực tế (Grounding, Citation, Abstention) | Lê Quý Phúc | Nguyễn Đức Lãm | 2026-12-02 |
+| **T3-RELEASE-01** | [Template 3] Hoàn thiện báo cáo test gói cuối và biên nhận | Tổng hợp actual results từ chạy thật, hoàn thiện báo cáo kiểm thử và nộp bài | Nguyễn Đức Lãm | Gia Phúc + Bình | **2026-12-12** (23:59) |
 
 ---
 
@@ -1745,7 +1814,7 @@ Dưới đây là danh mục tasks chuẩn mực theo mốc điều phối mới
 - Đã có mẫu yêu cầu Template 2/3 trong reports/references; rubric chấm điểm chi tiết, cấu trúc mụcUI và giờ cổng cần Bình xác minh. Link Docs/Figma, quyền truy cập vẫn không tự điền PASS.
 - Model/dimension/live credential/quota: task EMBED; không tự đóng DEC-06 từ ví dụ vector1536.
 - Các UC chi tiết, ảnh SVG/drawio và mockup: hiện có file khung, không coi khung là bài đã hoàn thành. Bốn owner cung cấp artifact qua DOC tương ứng.
-- OpenAPI/scaffold/schema/CI/app tests: là sản phẩm code 09–22/11, chưa được tạo/kiểm thử chỉ vì có contract và task.
+- OpenAPI/scaffold/schema/CI/app tests: là sản phẩm code 11–24/11, chưa được tạo/kiểm thử chỉ vì có contract và task.
 - Gói/biên nhận nộp Template 1, kết quả E2E/QA: chỉ ghi hoàn tất khi có bằng chứng thật. Bản rà soát không truy cập board/cổng hay thông báo thành viên.
 - Reset password, Analytics, attachments, OCR, AI feedback: P1 chưa nhận triển khai; không nằm trên đường găng MVP P0. Nếu rubric đổi phải ghi change request, phạm vi và owner mới.
 
@@ -1753,7 +1822,7 @@ Quy trình render hiện có không tự ghép Template 1; package_submission m�
 
 ### 9.2. Kế hoạch liên kết mẫu Template 2 (Thiết kế) và Template 3 (Kiểm thử)
 
-Đọc [TEMPLATE2_3_ALIGNMENT](reports/planning/TEMPLATE2_3_ALIGNMENT.md). Template 2 làthiết kế, không phải báo cáotest. Ref QA1-T2-01 giữ để update issue cũ nhưng chuyển parent T2/nội dung thiết kế; không tạo issue trùng. Template 3 yêu cầu≥5 chức năng×5 case; catalog/spec từ 09/11, actual sauchạy, QA 23–29/11. Giữ code P0 đến 22/11 và không đợi QA xong mới soạn/nộp thiết kế.
+Đọc [TEMPLATE2_3_ALIGNMENT](reports/planning/TEMPLATE2_3_ALIGNMENT.md). Template 2 là thiết kế, không phải báo cáo test. Ref QA1-T2-01 giữ để update issue cũ nhưng chuyển parent T2/nội dung thiết kế; không tạo issue trùng. Template 3 yêu cầu ≥5 chức năng × 5 case; catalog/spec từ 25/11, actual sau chạy, QA 26/11–02/12. Giữ code P0 từ 11–24/11; Template 2 thiết kế làm song song 11–28/11 và Template 3 diễn ra SAU MVP (25/11 – 12/12).
 
 
 ---

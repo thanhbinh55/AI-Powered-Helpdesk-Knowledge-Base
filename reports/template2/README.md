@@ -1,6 +1,6 @@
 # Template 2 — Thiết kế phần mềm
 
-> Nguồn yêu cầu: [mẫu thiết kế](../references/template2-design-requirements.md). Owner release Lãm, reviewer Gia Phúc, Bình xác minh giờ/nộp. Nộp trước 29/11 theo người dùng; kế hoạch nội bộ nộp 28/11 20:00, không tự hiểu hạn 29 làcuốingày.
+> Nguồn yêu cầu: [mẫu thiết kế](../references/template2-design-requirements.md). Owner release Lãm, reviewer Gia Phúc, Bình xác minh giờ/nộp. Nộp trước 29/11 theo người dùng; kế hoạch nội bộ nộp 28/11 23:59, không tự hiểu hạn 29 làcuốingày.
 
 Luồng làm:09/11 dựngkhung/thiết kếnháp;12/11 conceptual/architecture;18/11 dictionary/ERD;20/11 UI;22/11 đối soátcode;23–25/11 review;26/11 freeze;27/11 kiểm gói;28/11 nộp. CodeMVP vẫn09–22/11. [Đối chiếu mẫu](../planning/TEMPLATE2_3_ALIGNMENT.md), [task cards](../../TASK_PLAYBOOK_TEMPLATE1.md).
 
