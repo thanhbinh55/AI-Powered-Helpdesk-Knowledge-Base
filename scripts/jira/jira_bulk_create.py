@@ -296,6 +296,7 @@ def main():
     print(f"📋 Đã đọc {len(tasks_to_create)} dòng từ CSV.\n")
 
     created_in_this_run = []
+    tasks_for_sprint = []
     sim_counter = 1
 
     for row in tasks_to_create:
@@ -331,6 +332,8 @@ def main():
             sim_counter += 1
             ref_to_key[ref] = sim_key
             created_in_this_run.append(sim_key)
+            if issue_type.lower() != "epic":
+                tasks_for_sprint.append(sim_key)
             parent_info = f" (Parent: {parent_key})" if parent_key else ""
             assignee_info = f" (Assignee: {assignee_email})" if assignee_email else ""
             print(f"  ✅ [DRY-RUN] {ref} -> {sim_key}{parent_info}{assignee_info}")
@@ -352,6 +355,8 @@ def main():
                 ref_to_key[ref] = new_key
                 save_cached_task(ref, new_key)
                 created_in_this_run.append(new_key)
+                if issue_type.lower() != "epic":
+                    tasks_for_sprint.append(new_key)
             else:
                 print(f"  ❌ THẤT BẠI khi tạo [{ref}]: {result}")
                 print("  ➡️ Tiếp tục xử lý các dòng tiếp theo...")
@@ -360,8 +365,8 @@ def main():
     print(f"📊 Tổng kết: Đã tạo {len(created_in_this_run)} issue(s) trong lượt chạy này.")
 
     if args.sprint_id:
-        print(f"\n🏃 Đang gán các issue vào Sprint ID: {args.sprint_id}...")
-        s_ok, s_msg = client.add_issues_to_sprint(args.sprint_id, created_in_this_run)
+        print(f"\n🏃 Đang gán {len(tasks_for_sprint)} task vào Sprint ID: {args.sprint_id}...")
+        s_ok, s_msg = client.add_issues_to_sprint(args.sprint_id, tasks_for_sprint)
         if s_ok:
             print("  ✅ Đã thêm thành công các issue vào Sprint!")
         else:
