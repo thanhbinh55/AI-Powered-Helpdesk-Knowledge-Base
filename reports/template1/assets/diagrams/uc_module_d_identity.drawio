@@ -6,7 +6,7 @@
         <mxCell id="1" parent="0" />
 
         <!-- System Boundary: Module D -->
-        <mxCell id="sys-boundary" value="Module D — Định danh và Phân quyền (Identity &amp; Access Management)" style="shape=rect;html=1;verticalAlign=top;fontStyle=1;whiteSpace=wrap;align=center;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=14;fontColor=#000000;spacingTop=8;" vertex="1" parent="1">
+        <mxCell id="sys-boundary" value="Phân hệ Định danh và phân quyền (Identity &amp; Access Management)" style="shape=rect;html=1;verticalAlign=top;fontStyle=1;whiteSpace=wrap;align=center;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=14;fontColor=#000000;spacingTop=8;" vertex="1" parent="1">
           <mxGeometry x="330" y="70" width="520" height="580" as="geometry" />
         </mxCell>
 

@@ -9,10 +9,10 @@
 
 | STT | MSSV | Họ và tên | Nhiệm vụ chính đảm nhiệm | Tỷ lệ đóng góp | Chữ ký |
 | :---: | :---: | :--- | :--- | :---: | :---: |
-| 1 | 24120269 | **Ngô Viết Thanh Bình** | **Trưởng nhóm** · Phụ trách Module D (Identity, Access Management & System Foundation, RBAC, CI/CD). Đặc tả Use Case UC-01, 02, 03, 04, 16. | 100% | *(Đã ký)* |
-| 2 | 24120503 | **Phan Gia Phúc** | Phụ trách Module C (Ticket Management, State Machine & Concurrency Claim Lock). Đặc tả Use Case UC-05, 06, 07, 08, 09, 10. | 100% | *(Đã ký)* |
-| 3 | 24120083 | **Nguyễn Đức Lãm** | Phụ trách Module B (Knowledge Base, Vector Embedding, Ingestion Worker & Search). Đặc tả Use Case UC-11, 12, 13. | 100% | *(Đã ký)* |
-| 4 | 24120121 | **Lê Quý Phúc** | Phụ trách Module A (AI Assistance, RAG Pipeline, Human-in-the-loop, Analytics P1 & UI Prototype Lead). Đặc tả Use Case UC-14, 15, 17. | 100% | *(Đã ký)* |
+| 1 | 24120269 | **Ngô Viết Thanh Bình** | **Trưởng nhóm** · Phụ trách Phân hệ Định danh và phân quyền (Identity, Access Management & System Foundation, RBAC, CI/CD). Đặc tả Use Case UC-01, 02, 03, 04, 16. | 100% | *(Đã ký)* |
+| 2 | 24120503 | **Phan Gia Phúc** | Phụ trách Phân hệ Quản lý ticket (Ticket Management, State Machine & Concurrency Claim Lock). Đặc tả Use Case UC-05, 06, 07, 08, 09, 10. | 100% | *(Đã ký)* |
+| 3 | 24120083 | **Nguyễn Đức Lãm** | Phụ trách Phân hệ Cơ sở tri thức (Knowledge Base, Vector Embedding, Ingestion Worker & Search). Đặc tả Use Case UC-11, 12, 13. | 100% | *(Đã ký)* |
+| 4 | 24120121 | **Lê Quý Phúc** | Phụ trách Phân hệ Trợ lý AI và thống kê (AI Assistance, RAG Pipeline, Human-in-the-loop, Analytics P1 & UI Prototype Lead). Đặc tả Use Case UC-14, 15, 17, 18, 19. | 100% | *(Đã ký)* |
 
 ---
 
@@ -66,9 +66,9 @@ Hệ thống Helpdesk Knowledge Base nằm ở vị trí trung tâm, tiếp nh�
 
 ## 3.2 Danh sách các yêu cầu
 
-### 3.2.1 Ma trận Yêu cầu chức năng (41 FRs) ↔ User Stories (30 USs) ↔ Use Case (17 UCs)
+### 3.2.1 Ma trận Yêu cầu chức năng ↔ User Stories ↔ Use Case (19 UCs)
 
-#### Nhóm 1: Quản lý Định danh & Phân quyền (Module D — Phụ trách: Ngô Viết Thanh Bình)
+#### Nhóm 1: Quản lý Định danh & Phân quyền (Phân hệ Định danh và phân quyền — Phụ trách: Ngô Viết Thanh Bình)
 | Mã FR | Yêu cầu chức năng (FR) | Mã Story | Nội dung User Story (US) | Use Case liên quan | Mức độ |
 | :--- | :--- | :--- | :--- | :---: | :---: |
 | **FR-ID-01** | Đăng ký tài khoản Customer bằng email, họ tên, mật khẩu. | **US-01** | Là khách, tôi muốn đăng ký tài khoản để gửi yêu cầu hỗ trợ. | UC-01 | P0 |
@@ -81,7 +81,7 @@ Hệ thống Helpdesk Knowledge Base nằm ở vị trí trung tâm, tiếp nh�
 | **FR-ID-08** | Quản trị viên tạo tài khoản, khóa hoặc mở khóa tài khoản Agent. | **US-05** | Là quản trị viên, tôi muốn quản lý danh sách nhân sự hỗ trợ. | UC-04 | P0 |
 | **FR-ID-09** | Khôi phục mật khẩu thông qua mã xác thực một lần (Reset Token). | **US-27** | Là người dùng quên mật khẩu, tôi muốn đặt lại mật khẩu an toàn. | UC-16 | P1 |
 
-#### Nhóm 2: Quản lý Ticket & Phân luồng hỗ trợ (Module C — Phụ trách: Phan Gia Phúc)
+#### Nhóm 2: Quản lý Ticket & Phân luồng hỗ trợ (Phân hệ Quản lý ticket — Phụ trách: Phan Gia Phúc)
 | Mã FR | Yêu cầu chức năng (FR) | Mã Story | Nội dung User Story (US) | Use Case liên quan | Mức độ |
 | :--- | :--- | :--- | :--- | :---: | :---: |
 | **FR-TK-01** | Customer tạo ticket mới gồm tiêu đề, mô tả và tệp đính kèm. | **US-07** | Là khách hàng, tôi muốn gửi ticket để yêu cầu bộ phận hỗ trợ xử lý. | UC-05 | P0 |
@@ -97,7 +97,7 @@ Hệ thống Helpdesk Knowledge Base nằm ở vị trí trung tâm, tiếp nh�
 | **FR-TK-11** | Hỗ trợ tải tệp đính kèm tài liệu, ảnh chụp lỗi màn hình (P1). | **US-29** | Là khách hàng, tôi muốn gửi kèm ảnh chụp lỗi để Agent dễ hiểu bài toán. | UC-05 | P1 |
 | **FR-TK-12** | Bảng điều khiển thống kê tổng quan ticket (Analytics P1). | **US-28** | Là Admin, tôi muốn xem biểu đồ số lượng ticket theo trạng thái và năng suất. | UC-17 | P1 |
 
-#### Nhóm 3: Quản lý Cơ sở tri thức - Knowledge Base (Module B — Phụ trách: Nguyễn Đức Lãm)
+#### Nhóm 3: Quản lý Cơ sở tri thức - Knowledge Base (Phân hệ Cơ sở tri thức — Phụ trách: Nguyễn Đức Lãm)
 | Mã FR | Yêu cầu chức năng (FR) | Mã Story | Nội dung User Story (US) | Use Case liên quan | Mức độ |
 | :--- | :--- | :--- | :--- | :---: | :---: |
 | **FR-KB-01** | Admin/Author tải lên tệp tài liệu định dạng PDF, TXT, MD ($\le 10$ MB). | **US-18** | Là quản trị viên, tôi muốn nạp tài liệu hướng dẫn vào hệ thống. | UC-11 | P0 |
@@ -111,7 +111,7 @@ Hệ thống Helpdesk Knowledge Base nằm ở vị trí trung tâm, tiếp nh�
 | **FR-KB-09** | Xem danh mục toàn bộ tài liệu tri thức kèm phân trang và lọc trạng thái. | **US-19** | Là Admin, tôi muốn quản trị danh mục tri thức trực quan. | UC-11 | P0 |
 | **FR-KB-10** | Đánh giá độ hữu ích của bài viết tri thức (Feedback Helpful/Not Helpful). | **US-30** | Là Agent/Khách hàng, tôi muốn đánh giá bài viết có thực sự hữu ích không. | UC-12 | P1 |
 
-#### Nhóm 4: Trợ lý AI & Phân tích giải pháp thông minh (Module A — Phụ trách: Lê Quý Phúc)
+#### Nhóm 4: Trợ lý AI & Phân tích giải pháp thông minh (Phân hệ Trợ lý AI và thống kê — Phụ trách: Lê Quý Phúc)
 | Mã FR | Yêu cầu chức năng (FR) | Mã Story | Nội dung User Story (US) | Use Case liên quan | Mức độ |
 | :--- | :--- | :--- | :--- | :---: | :---: |
 | **FR-AI-01** | Agent yêu cầu AI phân tích ticket và gợi ý bản thảo câu trả lời (Suggest Reply). | **US-22** | Là Agent, tôi muốn AI đề xuất câu trả lời chuẩn xác dựa trên tài liệu. | UC-14 | P0 |
@@ -151,25 +151,25 @@ Hệ thống Helpdesk Knowledge Base nằm ở vị trí trung tâm, tiếp nh�
 ## 4.1 Mô hình Use Case (Use Case Model)
 
 ### 4.1.0 Sơ đồ Use Case Tổng thể Hệ thống
-Hệ thống Helpdesk Knowledge Base gồm 17 Use Case nghiệp vụ chính được phân bổ vào 4 phân hệ liên kết chặt chẽ:
-- **Phân hệ D (Identity & Access Management):** Đảm bảo an toàn định danh và phân quyền.
-- **Phân hệ C (Ticket Management & Routing):** Vận hành luồng xử lý yêu cầu cốt lõi.
-- **Phân hệ B (Knowledge Base Management):** Quản trị kho tài liệu và tri thức số.
-- **Phân hệ A (AI Assistance & Analytics):** Hỗ trợ trí tuệ nhân tạo tăng tốc độ xử lý.
+Hệ thống Helpdesk Knowledge Base gồm 19 Use Case nghiệp vụ chính được phân bổ vào 4 phân hệ liên kết chặt chẽ:
+- **Phân hệ Định danh và phân quyền (Identity & Access Management):** Đảm bảo an toàn định danh và phân quyền (5 Use Cases: UC-01, UC-16, UC-02, UC-03, UC-04).
+- **Phân hệ Quản lý ticket (Ticket Management):** Vận hành luồng xử lý yêu cầu cốt lõi (6 Use Cases: UC-05, UC-06, UC-07, UC-08, UC-09, UC-10).
+- **Phân hệ Cơ sở tri thức (Knowledge Base Management):** Quản trị kho tài liệu và tri thức số (3 Use Cases: UC-11, UC-12, UC-13).
+- **Phân hệ Trợ lý AI và thống kê (AI Assistance & Analytics):** Hỗ trợ trí tuệ nhân tạo tăng tốc độ xử lý và thống kê (5 Use Cases: UC-14, UC-15, UC-18, UC-19, UC-17).
 
-*(Chèn Sơ đồ Use Case Tổng thể: `reports/template1/assets/diagrams/use-case-overall.svg`)*
+*(Chèn Sơ đồ Use Case Tổng thể: `reports/template1/assets/diagrams/uc_overall_19_usecases.svg` / `uc_overall_19_usecases.png` / `uc_overall_19_usecases.drawio`)*
 
-### 4.1.1 Sơ đồ Use Case Phân hệ D — Quản lý Định danh & Người dùng
-*(Chèn Sơ đồ Use Case Phân hệ D: `reports/template1/assets/diagrams/uc_module_d_identity.svg` / `uc_module_d_identity.drawio`)*
+### 4.1.1 Sơ đồ Use Case Phân hệ Định danh và phân quyền
+*(Chèn Sơ đồ Use Case Phân hệ Định danh và phân quyền: `reports/template1/assets/diagrams/uc_module_d_identity.svg` / `uc_module_d_identity.png` / `uc_module_d_identity.drawio`)*
 
-### 4.1.2 Sơ đồ Use Case Phân hệ C — Quản lý Ticket & Phân luồng hỗ trợ
-*(Chèn Sơ đồ Use Case Phân hệ C: `reports/template1/assets/diagrams/use-case-module-c.svg`)*
+### 4.1.2 Sơ đồ Use Case Phân hệ Quản lý ticket
+*(Chèn Sơ đồ Use Case Phân hệ Quản lý ticket: `reports/template1/assets/diagrams/uc_module_c_ticketing.svg` / `uc_module_c_ticketing.png` / `uc_module_c_ticketing.drawio`)*
 
-### 4.1.3 Sơ đồ Use Case Phân hệ B — Quản lý Cơ sở tri thức (Knowledge Base)
-*(Chèn Sơ đồ Use Case Phân hệ B: `reports/template1/assets/diagrams/use-case-module-b.svg`)*
+### 4.1.3 Sơ đồ Use Case Phân hệ Cơ sở tri thức
+*(Chèn Sơ đồ Use Case Phân hệ Cơ sở tri thức: `reports/template1/assets/diagrams/uc_module_b_kb.svg` / `uc_module_b_kb.png` / `uc_module_b_kb.drawio`)*
 
-### 4.1.4 Sơ đồ Use Case Phân hệ A — Trợ lý AI & Báo cáo thống kê
-*(Chèn Sơ đồ Use Case Phân hệ A: `reports/template1/assets/diagrams/use-case-module-a.svg`)*
+### 4.1.4 Sơ đồ Use Case Phân hệ Trợ lý AI và thống kê
+*(Chèn Sơ đồ Use Case Phân hệ Trợ lý AI và thống kê: `reports/template1/assets/diagrams/uc_module_a_ai_analytics.svg` / `uc_module_a_ai_analytics.png` / `uc_module_a_ai_analytics.drawio`)*
 
 ---
 
@@ -178,7 +178,7 @@ Hệ thống Helpdesk Knowledge Base gồm 17 Use Case nghiệp vụ chính đư
 ---
 
 ### 4.2.1. Đăng ký & Đăng nhập hệ thống [UC-01]
-*(Thành viên phụ trách: Ngô Viết Thanh Bình — Module D: Identity & Access)*
+*(Thành viên phụ trách: Ngô Viết Thanh Bình — Phân hệ Định danh và phân quyền)*
 
 | Trường thông tin | Nội dung chi tiết |
 | :--- | :--- |
@@ -195,7 +195,7 @@ Hệ thống Helpdesk Knowledge Base gồm 17 Use Case nghiệp vụ chính đư
 ---
 
 ### 4.2.2. Làm mới phiên làm việc & Đăng xuất [UC-02]
-*(Thành viên phụ trách: Ngô Viết Thanh Bình — Module D: Identity & Access)*
+*(Thành viên phụ trách: Ngô Viết Thanh Bình — Phân hệ Định danh và phân quyền)*
 
 | Trường thông tin | Nội dung chi tiết |
 | :--- | :--- |
@@ -212,7 +212,7 @@ Hệ thống Helpdesk Knowledge Base gồm 17 Use Case nghiệp vụ chính đư
 ---
 
 ### 4.2.3. Xem và Chỉnh sửa hồ sơ cá nhân [UC-03]
-*(Thành viên phụ trách: Ngô Viết Thanh Bình — Module D: Identity & Access)*
+*(Thành viên phụ trách: Ngô Viết Thanh Bình — Phân hệ Định danh và phân quyền)*
 
 | Trường thông tin | Nội dung chi tiết |
 | :--- | :--- |
@@ -229,7 +229,7 @@ Hệ thống Helpdesk Knowledge Base gồm 17 Use Case nghiệp vụ chính đư
 ---
 
 ### 4.2.4. Quản lý tài khoản nhân viên hỗ trợ (Admin Manage Agents) [UC-04]
-*(Thành viên phụ trách: Ngô Viết Thanh Bình — Module D: Identity & Access)*
+*(Thành viên phụ trách: Ngô Viết Thanh Bình — Phân hệ Định danh và phân quyền)*
 
 | Trường thông tin | Nội dung chi tiết |
 | :--- | :--- |
@@ -246,7 +246,7 @@ Hệ thống Helpdesk Knowledge Base gồm 17 Use Case nghiệp vụ chính đư
 ---
 
 ### 4.2.5. Đặt lại mật khẩu (Forgot / Reset Password) [UC-16]
-*(Thành viên phụ trách: Ngô Viết Thanh Bình — Module D: Identity & Access)*
+*(Thành viên phụ trách: Ngô Viết Thanh Bình — Phân hệ Định danh và phân quyền)*
 
 | Trường thông tin | Nội dung chi tiết |
 | :--- | :--- |
@@ -263,7 +263,7 @@ Hệ thống Helpdesk Knowledge Base gồm 17 Use Case nghiệp vụ chính đư
 ---
 
 ### 4.2.6. Tạo yêu cầu hỗ trợ mới (Create Ticket) [UC-05]
-*(Thành viên phụ trách: Phan Gia Phúc — Module C: Ticket Management)*
+*(Thành viên phụ trách: Phan Gia Phúc — Phân hệ Quản lý ticket)*
 
 | Trường thông tin | Nội dung chi tiết |
 | :--- | :--- |
@@ -280,7 +280,7 @@ Hệ thống Helpdesk Knowledge Base gồm 17 Use Case nghiệp vụ chính đư
 ---
 
 ### 4.2.7. Xem danh sách và chi tiết Ticket (List/View Tickets) [UC-06]
-*(Thành viên phụ trách: Phan Gia Phúc — Module C: Ticket Management)*
+*(Thành viên phụ trách: Phan Gia Phúc — Phân hệ Quản lý ticket)*
 
 | Trường thông tin | Nội dung chi tiết |
 | :--- | :--- |
@@ -297,7 +297,7 @@ Hệ thống Helpdesk Knowledge Base gồm 17 Use Case nghiệp vụ chính đư
 ---
 
 ### 4.2.8. Tiếp nhận và Phân công Ticket (Claim / Assign Ticket) [UC-07]
-*(Thành viên phụ trách: Phan Gia Phúc — Module C: Ticket Management)*
+*(Thành viên phụ trách: Phan Gia Phúc — Phân hệ Quản lý ticket)*
 
 | Trường thông tin | Nội dung chi tiết |
 | :--- | :--- |
@@ -314,7 +314,7 @@ Hệ thống Helpdesk Knowledge Base gồm 17 Use Case nghiệp vụ chính đư
 ---
 
 ### 4.2.9. Trao đổi tin nhắn công khai & Ghi chú nội bộ [UC-08]
-*(Thành viên phụ trách: Phan Gia Phúc — Module C: Ticket Management)*
+*(Thành viên phụ trách: Phan Gia Phúc — Phân hệ Quản lý ticket)*
 
 | Trường thông tin | Nội dung chi tiết |
 | :--- | :--- |
@@ -331,7 +331,7 @@ Hệ thống Helpdesk Knowledge Base gồm 17 Use Case nghiệp vụ chính đư
 ---
 
 ### 4.2.10. Chuyển đổi trạng thái Ticket theo quy trình [UC-09]
-*(Thành viên phụ trách: Phan Gia Phúc — Module C: Ticket Management)*
+*(Thành viên phụ trách: Phan Gia Phúc — Phân hệ Quản lý ticket)*
 
 | Trường thông tin | Nội dung chi tiết |
 | :--- | :--- |
@@ -348,7 +348,7 @@ Hệ thống Helpdesk Knowledge Base gồm 17 Use Case nghiệp vụ chính đư
 ---
 
 ### 4.2.11. Xem lịch sử xử lý và Nhật ký sự kiện Ticket [UC-10]
-*(Thành viên phụ trách: Phan Gia Phúc — Module C: Ticket Management)*
+*(Thành viên phụ trách: Phan Gia Phúc — Phân hệ Quản lý ticket)*
 
 | Trường thông tin | Nội dung chi tiết |
 | :--- | :--- |
@@ -365,7 +365,7 @@ Hệ thống Helpdesk Knowledge Base gồm 17 Use Case nghiệp vụ chính đư
 ---
 
 ### 4.2.12. Tải lên và Xử lý tài liệu tri thức (Upload & Process Document) [UC-11]
-*(Thành viên phụ trách: Nguyễn Đức Lãm — Module B: Knowledge Base)*
+*(Thành viên phụ trách: Nguyễn Đức Lãm — Phân hệ Cơ sở tri thức)*
 
 | Trường thông tin | Nội dung chi tiết |
 | :--- | :--- |
@@ -382,7 +382,7 @@ Hệ thống Helpdesk Knowledge Base gồm 17 Use Case nghiệp vụ chính đư
 ---
 
 ### 4.2.13. Công bố và Lưu trữ tài liệu tri thức (Publish / Archive Document) [UC-12]
-*(Thành viên phụ trách: Nguyễn Đức Lãm — Module B: Knowledge Base)*
+*(Thành viên phụ trách: Nguyễn Đức Lãm — Phân hệ Cơ sở tri thức)*
 
 | Trường thông tin | Nội dung chi tiết |
 | :--- | :--- |
@@ -399,7 +399,7 @@ Hệ thống Helpdesk Knowledge Base gồm 17 Use Case nghiệp vụ chính đư
 ---
 
 ### 4.2.14. Tìm kiếm bài viết trong kho tri thức (Search Knowledge) [UC-13]
-*(Thành viên phụ trách: Nguyễn Đức Lãm — Module B: Knowledge Base)*
+*(Thành viên phụ trách: Nguyễn Đức Lãm — Phân hệ Cơ sở tri thức)*
 
 | Trường thông tin | Nội dung chi tiết |
 | :--- | :--- |
@@ -416,7 +416,7 @@ Hệ thống Helpdesk Knowledge Base gồm 17 Use Case nghiệp vụ chính đư
 ---
 
 ### 4.2.15. Tự động sinh gợi ý câu trả lời bằng AI (Generate AI Suggestion) [UC-14]
-*(Thành viên phụ trách: Lê Quý Phúc — Module A: AI Assistance)*
+*(Thành viên phụ trách: Lê Quý Phúc — Phân hệ Trợ lý AI và thống kê)*
 
 | Trường thông tin | Nội dung chi tiết |
 | :--- | :--- |
@@ -433,7 +433,7 @@ Hệ thống Helpdesk Knowledge Base gồm 17 Use Case nghiệp vụ chính đư
 ---
 
 ### 4.2.16. Kiểm duyệt, Chỉnh sửa và Áp dụng gợi ý AI (Review, Edit & Send AI Suggestion) [UC-15]
-*(Thành viên phụ trách: Lê Quý Phúc — Module A: AI Assistance)*
+*(Thành viên phụ trách: Lê Quý Phúc — Phân hệ Trợ lý AI và thống kê)*
 
 | Trường thông tin | Nội dung chi tiết |
 | :--- | :--- |
@@ -450,7 +450,7 @@ Hệ thống Helpdesk Knowledge Base gồm 17 Use Case nghiệp vụ chính đư
 ---
 
 ### 4.2.17. Báo cáo thống kê và Phân tích hiệu suất (Ticket Analytics P1) [UC-17]
-*(Thành viên phụ trách: Lê Quý Phúc — Module A: AI Assistance & Analytics Lead)*
+*(Thành viên phụ trách: Lê Quý Phúc — Phân hệ Trợ lý AI và thống kê)*
 
 | Trường thông tin | Nội dung chi tiết |
 | :--- | :--- |
@@ -468,7 +468,7 @@ Hệ thống Helpdesk Knowledge Base gồm 17 Use Case nghiệp vụ chính đư
 
 # 5. BẢN MẪU PROTOTYPE & THIẾT KẾ GIAO DIỆN (UI PROTOTYPE & DESIGN SYSTEM)
 
-Bộ giao diện tham chiếu: Quiet Workspace, Redesign v2; 33 nhóm màn hình chính, 151 frames và 56 prototype flows theo danh mục thiết kế. Light/Dark Mode và responsive là định hướng thiết kế; các hành vi tương tác phải tuân thủ quyền và workflow ở Mục 4.
+Bộ giao diện tham chiếu: Quiet Workspace, Redesign v2; 34 nhóm màn hình chính, 229 frames và 82 flow points theo danh mục thiết kế. Light/Dark Mode và responsive là định hướng thiết kế; các hành vi tương tác phải tuân thủ quyền và workflow ở Mục 4.
 [Mở thiết kế Figma chính thức - Node 49:58](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev)
 Ảnh nguồn sử dụng đường dẫn `docs/design/anh/` và `docs/design/anh/thanh-phan/`. Mỗi mục dưới ghi đúng Node Figma, tệp nguồn và vị trí chèn ảnh tương ứng.
 
@@ -661,13 +661,13 @@ Tệp ảnh nguồn: docs/design/anh/56-3578.png
 Vị trí chèn ảnh 56-3578.png
 *Hình 5.20 Đối chiếu nguồn trích dẫn*
 
-#### 5.5.3 Danh sách tất cả yêu cầu (Admin)
-Danh mục thiết kế ghi D01 là danh sách tất cả yêu cầu có bộ lọc toàn hệ thống dành cho Admin. Không xác nhận Node này là Dashboard Analytics; khung minh họa riêng cho Dashboard thống kê chưa được cung cấp trong bộ ảnh Redesign v2.
-Use Case: UC-06, UC-09; tham chiếu UC-15 | Node Figma: 62:9943
+#### 5.5.3 Danh sách yêu cầu quản trị
+Admin xem danh sách toàn bộ ticket và sử dụng bộ lọc để tìm yêu cầu cần theo dõi hoặc xử lý.
+Use Case: UC-06 | Node Figma: 62:9943
 [Mở màn hình trong Figma](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=62-9943&m=dev)
 Tệp ảnh nguồn: docs/design/anh/62-9943.png
 Vị trí chèn ảnh 62-9943.png
-*Hình 5.21 Danh sách tất cả yêu cầu quản trị (D01)*
+*Hình 5.21 Danh sách yêu cầu quản trị*
 
 #### 5.5.4 Xử lý, lịch sử yêu cầu và Phân công nhân viên (Admin)
 Quản trị viên xem toàn bộ lịch sử xử lý (bao gồm cả INTERNAL notes) và thực hiện gán / chuyển người phụ trách (Assign / Reassign Agent) thủ công cho ticket.
@@ -679,4 +679,49 @@ Vị trí chèn ảnh 62-9944.png
 Vị trí chèn ảnh 62-9945.png
 *Hình 5.22b Biểu mẫu phân công nhân viên phụ trách (Admin — D03)*
 
+#### 5.5.5 Lịch sử gợi ý AI
+Agent được giao ticket và Admin xem các lần tạo gợi ý, người yêu cầu, thời điểm và kết quả đã lưu. Người dùng chọn một lần tạo để đọc lại nội dung và bản chụp nguồn. Giao diện có các trạng thái đang tải, trống, lỗi và mất quyền.
+Use Case: UC-18 | Node Figma: 81:7585 (danh sách), 81:8707 (chi tiết)
+[Mở màn hình trong Figma (danh sách)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=81-7585&m=dev)
+Tệp ảnh nguồn: docs/design/anh/81-7585.png
+Vị trí chèn ảnh 81-7585.png
+*Hình 5.23a Danh sách các lần tạo gợi ý AI*
 
+[Mở màn hình trong Figma (chi tiết)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=81-8707&m=dev)
+Tệp ảnh nguồn: docs/design/anh/81-8707.png
+Vị trí chèn ảnh 81-8707.png
+*Hình 5.23b Chi tiết gợi ý AI đã lưu*
+
+#### 5.5.6 Đánh giá gợi ý AI (P1)
+Agent được giao ticket chọn Hữu ích hoặc Không hữu ích trên gợi ý ở trạng thái GENERATED hoặc APPLIED. Giao diện hiển thị lựa chọn đã lưu, cho phép đổi lựa chọn và thử lại khi lưu lỗi. Đánh giá không tự gửi phản hồi hoặc thay đổi trạng thái gợi ý. Admin không có thao tác đánh giá.
+Use Case: UC-19 (P1) | Component Figma: 81:7560; Node màn hình lỗi: 82:10422
+[Mở màn hình trong Figma (các trạng thái đánh giá)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=81-7560&m=dev)
+Tệp ảnh nguồn: docs/design/anh/thanh-phan/81-7560.png
+Vị trí chèn ảnh 81-7560.png
+*Hình 5.24a Trạng thái đã lưu đánh giá hữu ích*
+
+[Mở màn hình trong Figma (lỗi lưu đánh giá)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=82-10422&m=dev)
+Tệp ảnh nguồn: docs/design/anh/82-10422.png
+Vị trí chèn ảnh 82-10422.png
+*Hình 5.24b Thông báo lỗi lưu đánh giá và thao tác thử lại*
+
+#### 5.5.7 Bỏ gợi ý và tiếp tục soạn thủ công
+Người dùng xác nhận trước khi bỏ gợi ý ở trạng thái GENERATED. Sau khi bỏ, gợi ý chuyển sang DISCARDED và vẫn được lưu trong lịch sử; bản nháp được giữ nguyên, không có phản hồi nào được gửi. Nếu bản nháp đã được chèn từ gợi ý, người dùng phải chọn Tiếp tục soạn thủ công trước khi kiểm duyệt và gửi. Việc gửi thủ công không chuyển gợi ý đã bỏ thành APPLIED.
+Use Case: UC-15 | Node Figma: 91:15641 (xác nhận), 91:15904 (đã bỏ), 91:19215 (tiếp tục soạn thủ công)
+[Mở màn hình trong Figma (xác nhận bỏ gợi ý)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=91-15641&m=dev)
+Tệp ảnh nguồn: docs/design/anh/91-15641.png
+Vị trí chèn ảnh 91-15641.png
+*Hình 5.25 Xác nhận bỏ gợi ý AI*
+
+[Mở màn hình trong Figma (đã bỏ gợi ý)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=91-15904&m=dev)
+Tệp ảnh nguồn: docs/design/anh/91-15904.png
+Vị trí chèn ảnh 91-15904.png
+*Hình 5.26 Đã bỏ gợi ý AI và lựa chọn tiếp tục soạn thủ công*
+
+#### 5.5.8 Thống kê ticket (P1)
+Admin xem tổng số ticket, phân bố theo trạng thái và người phụ trách hiện tại, cùng thời điểm lấy dữ liệu. Ticket chưa được giao hiển thị thành nhóm riêng; nhân viên đã vô hiệu hóa vẫn được giữ trong thống kê nếu còn ticket. Tổng các nhóm trong mỗi bảng bằng tổng số ticket. Giao diện hỗ trợ tải lại dữ liệu và có các trạng thái đang tải, không có dữ liệu, lỗi và không đủ quyền.
+Use Case: UC-17 (P1) | Node Figma: 91:19910
+[Mở màn hình trong Figma (thống kê ticket)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=91-19910&m=dev)
+Tệp ảnh nguồn: docs/design/anh/91-19910.png
+Vị trí chèn ảnh 91-19910.png
+*Hình 5.27 Thống kê ticket theo trạng thái và người phụ trách*

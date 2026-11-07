@@ -6,7 +6,7 @@
         <mxCell id="1" parent="0" />
 
         <!-- System Boundary: Module C -->
-        <mxCell id="sys-boundary" value="Module C — Quản lý Ticket (Ticket Management)" style="shape=rect;html=1;verticalAlign=top;fontStyle=1;whiteSpace=wrap;align=center;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=14;fontColor=#000000;spacingTop=8;" vertex="1" parent="1">
+        <mxCell id="sys-boundary" value="Phân hệ Quản lý ticket (Ticket Management)" style="shape=rect;html=1;verticalAlign=top;fontStyle=1;whiteSpace=wrap;align=center;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=14;fontColor=#000000;spacingTop=8;" vertex="1" parent="1">
           <mxGeometry x="340" y="50" width="520" height="690" as="geometry" />
         </mxCell>
 

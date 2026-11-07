@@ -32,22 +32,22 @@
    - 3.4. Dẫn chiếu vị trí chính xác từ SRS-master.md cho từng thành viên
 4. [CHI TIẾT TỪNG TASK CARD (TASK CARDS SPECIFICATION)](#4-chi-tiết-từng-task-card-task-cards-specification)
 5. [KẾ HOẠCH CHI TIẾT LUỒNG 1: BIÊN SOẠN TÀI LIỆU TEMPLATE 1 & TƯ LIỆU MẪU](#5-kế-hoạch-chi-tiết-luồng-1-biên-soạn-tài-liệu-template-1--tư-liệu-mẫu)
-   - 5.1. Danh mục 17 Use Cases chuẩn hóa theo SRS-master (Mục 3.3)
+   - 5.1. Danh mục 19 Use Cases chuẩn hóa theo SRS-master & Clarune Docs
    - 5.2. Cấu trúc chuẩn 9 trường của từng bảng Đặc tả Use Case
 6. [BỘ SƠ ĐỒ UML TOÀN DIỆN (6 SƠ ĐỒ CHUẨN MỰC BÁM SÁT SRS-MASTER)](#6-bộ-sơ-đồ-uml-toàn-diện-6-sơ-đồ-bám-sát-srs-master)
    - Quy định vẽ và xuất file `.drawio` + `.svg`
    - Sơ đồ 0: Bối cảnh hệ thống (Context Diagram)
-   - Sơ đồ 1: Tổng quan 17 Use Cases toàn hệ thống
-   - Sơ đồ 2: Module D — Identity & Access (Ngô Viết Thanh Bình)
-   - Sơ đồ 3: Module C — Ticket Management (Phan Gia Phúc)
-   - Sơ đồ 4: Module B — Knowledge Base (Nguyễn Đức Lãm)
-   - Sơ đồ 5: Module A — AI Assistance (Lê Quý Phúc)
+   - Sơ đồ 1: Tổng quan 19 Use Cases toàn hệ thống
+   - Sơ đồ 2: Phân hệ Định danh và phân quyền (Ngô Viết Thanh Bình)
+   - Sơ đồ 3: Phân hệ Quản lý ticket (Phan Gia Phúc)
+   - Sơ đồ 4: Phân hệ Cơ sở tri thức (Nguyễn Đức Lãm)
+   - Sơ đồ 5: Phân hệ Trợ lý AI và thống kê (Lê Quý Phúc)
 7. [KẾ HOẠCH CHI TIẾT LUỒNG 2: PHÁT TRIỂN MÃ NGUỒN & FIGMA UI (BÁM SÁT SRS & MVP CONTRACTS)](#7-kế-hoạch-chi-tiết-luồng-2-phát-triển-mã-nguồn--figma-ui-bám-sát-srs--mvp-contracts)
    - Cấu trúc thư mục Modular Monolith
-   - 7.1. Module D (Ngô Viết Thanh Bình) — Identity & Access + DevOps Scaffolding
-   - 7.2. Module C (Phan Gia Phúc) — Ticket Management & Concurrency Claim Lock
-   - 7.3. Module B (Nguyễn Đức Lãm) — Knowledge Base & Ingestion Worker SKIP LOCKED
-   - 7.4. Module A (Lê Quý Phúc) — AI Assistance & RAG Pipeline
+   - 7.1. Phân hệ Định danh và phân quyền (Ngô Viết Thanh Bình) — Identity & Access + DevOps Scaffolding
+   - 7.2. Phân hệ Quản lý ticket (Phan Gia Phúc) — Ticket Management & Concurrency Claim Lock
+   - 7.3. Phân hệ Cơ sở tri thức (Nguyễn Đức Lãm) — Knowledge Base & Ingestion Worker SKIP LOCKED
+   - 7.4. Phân hệ Trợ lý AI và thống kê (Lê Quý Phúc) — AI Assistance & RAG Pipeline
    - 7.5. Kế hoạch hành động dành riêng cho Trưởng nhóm Ngô Viết Thanh Bình (DevOps Scaffolding)
 8. [DANH MỤC BACKLOG TASKS CHUẨN NẠP JIRA & GITHUB ISSUES](#8-danh-mục-backlog-tasks-chuẩn-nạp-jira--github-issues)
    - 8.1. Các Epic chính
@@ -1212,27 +1212,29 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 Tài liệu được thiết kế theo đúng quy chuẩn mẫu giáo trình môn học HCMUS (Khoa CNTT - ĐHQG-HCM) và cấu trúc chuẩn của hai bài mẫu đạt điểm xuất sắc `Group03 (Katling)` và `Group06 (Planora)`.
 
-### 5.1. Danh mục 17 Use Cases chuẩn hóa theo SRS-master (Mục 3.3)
+### 5.1. Danh mục 19 Use Cases chuẩn hóa theo SRS-master & Clarune Docs
 Thay vì tự ý chia nhỏ vụn vặt làm mất tính nguyên tử của Use Case hoặc tự vẽ thêm module không có thực, toàn bộ hệ thống bám sát **chính xác 17 Use Cases** được định nghĩa chính thức tại **Mục 3.3 của [reports/SRS-master.md](reports/SRS-master.md)** (gồm 15 Use Cases cốt lõi P0 và 2 Use Cases mở rộng P1), tương ứng trực tiếp với 30 User Stories trong Phụ lục D và 30 Functional Requirements trong Mục 4:
 
 | Module | Mã Use Case | Tên Use Case | Tác nhân chính (Actors) | Mức độ | Người phụ trách | Dẫn chiếu SRS |
 | :---: | :---: | :--- | :--- | :---: | :---: | :---: |
-| **Module D**<br>*(Identity & Access)* | **UC-01** | Đăng ký & Đăng nhập | Guest, User | P0 | Ngô Viết Thanh Bình | FR-ID-01..03, US-01..02 |
+| **Phân hệ Định danh & Phân quyền** | **UC-01** | Đăng ký & Đăng nhập | Guest, User | P0 | Ngô Viết Thanh Bình | FR-ID-01..03, US-01..02 |
 | | **UC-02** | Làm mới phiên & Đăng xuất | Authenticated User | P0 | Ngô Viết Thanh Bình | FR-ID-04..05, US-03 |
 | | **UC-03** | Quản lý hồ sơ cá nhân & Đổi mật khẩu | Authenticated User | P0 | Ngô Viết Thanh Bình | FR-ID-06, US-04 |
 | | **UC-04** | Quản lý nhân viên hỗ trợ | Admin | P0 | Ngô Viết Thanh Bình | FR-ID-08, US-05 |
 | | **UC-16** | Đặt lại mật khẩu qua email | Guest, User | P1 | Ngô Viết Thanh Bình | FR-ID-09, US-27 |
-| **Module C**<br>*(Ticket Management)* | **UC-05** | Tạo ticket mới | Customer | P0 | Phan Gia Phúc | FR-TK-01, US-07 |
+| **Phân hệ Quản lý ticket** | **UC-05** | Tạo ticket mới | Customer | P0 | Phan Gia Phúc | FR-TK-01, US-07 |
 | | **UC-06** | Xem danh sách & Chi tiết ticket | Customer, Agent, Admin | P0 | Phan Gia Phúc | FR-TK-02..03, 10; US-08, 17 |
 | | **UC-07** | Nhận & Phân công ticket | Agent, Admin | P0 | Phan Gia Phúc | FR-TK-04..05, US-11..12 |
 | | **UC-08** | Gửi trao đổi công khai & Ghi chú nội bộ | Customer, Agent, Admin | P0 | Phan Gia Phúc | FR-TK-06..07; US-09, 13..14 |
 | | **UC-09** | Chuyển trạng thái ticket | Customer, Agent, Admin | P0 | Phan Gia Phúc | FR-TK-08, US-10, 15 |
 | | **UC-10** | Xem lịch sử sự kiện ticket | Agent, Admin | P0 | Phan Gia Phúc | FR-TK-09, US-16 |
+| | **UC-18** | Xem lịch sử gợi ý AI | Agent, Admin | P0 | Lê Quý Phúc | FR-AI-08, US-23 |
+| | **UC-19** | Đánh giá gợi ý AI hữu ích (P1) | Agent | P1 | Lê Quý Phúc | FR-AI-07, US-30 |
 | | **UC-17** | Xem thống kê ticket | Admin | P1 | Phan Gia Phúc | FR-TK-12, US-28 |
-| **Module B**<br>*(Knowledge Base)* | **UC-11** | Tải lên & Xử lý tài liệu | Admin, System Worker | P0 | Nguyễn Đức Lãm | FR-KB-01..05, 09; US-18..19 |
+| **Phân hệ Cơ sở tri thức** | **UC-11** | Tải lên & Xử lý tài liệu | Admin, System Worker | P0 | Nguyễn Đức Lãm | FR-KB-01..05, 09; US-18..19 |
 | | **UC-12** | Công bố & Lưu trữ tài liệu | Admin | P0 | Nguyễn Đức Lãm | FR-KB-06, 08; US-20 |
 | | **UC-13** | Tìm kiếm tri thức theo ngữ nghĩa | Agent, Admin | P0 | Nguyễn Đức Lãm | FR-KB-07, US-21 |
-| **Module A**<br>*(AI Assistance)* | **UC-14** | Tạo gợi ý câu trả lời AI | Agent, Admin | P0 | Lê Quý Phúc | FR-AI-01..06, 09; US-22..23, 26 |
+| **Phân hệ Trợ lý AI & Thống kê** | **UC-14** | Tạo gợi ý câu trả lời AI | Agent, Admin | P0 | Lê Quý Phúc | FR-AI-01..06, 09; US-22..23, 26 |
 | | **UC-15** | Rà soát, chỉnh sửa & Gửi phản hồi AI | Agent, Admin | P0 | Lê Quý Phúc | FR-AI-07..08, US-24..25 |
 
 > **Phân định phạm vi rõ ràng giữa Mục 3.2.1 và Mục 4.2 của Template 1:**
@@ -1341,10 +1343,10 @@ flowchart LR
 
 ---
 
-### SƠ ĐỒ 1: Sơ đồ Use Case tổng thể 17 Use Cases (Hình 4.1, Mục 4.1.1)
+### SƠ ĐỒ 1: Sơ đồ Use Case tổng thể 19 Use Cases (Hình 4.1, Mục 4.1.1)
 - **Phụ trách:** Ngô Viết Thanh Bình
 - **File chuẩn:** `reports/template1/assets/diagrams/uc_overall_17_usecases.drawio` | `.svg` | `.png`
-- **Nguyên tắc theo Mục 4.1.1:** Hiển thị đầy đủ **17 Use Cases (`UC-01` đến `UC-17`)** chia theo 4 phân hệ bên trong ranh giới hệ thống. `Customer`, `Support Agent`, `System Administrator` kế thừa khả năng thao tác phiên (`UC-02`) và hồ sơ (`UC-03`) của `Authenticated User`.
+- **Nguyên tắc theo Mục 4.1.1:** Hiển thị đầy đủ **19 Use Cases (`UC-01` đến `UC-19`)** chia theo 4 phân hệ bên trong ranh giới hệ thống. `Customer`, `Support Agent`, `System Administrator` kế thừa khả năng thao tác phiên (`UC-02`) và hồ sơ (`UC-03`) của `Authenticated User`.
 
 ```mermaid
 flowchart LR
@@ -1407,7 +1409,7 @@ flowchart LR
 
 ---
 
-### SƠ ĐỒ 2: Module D — Định danh và phân quyền (Hình 4.2, Mục 4.1.2)
+### SƠ ĐỒ 2: Phân hệ Định danh và phân quyền (Hình 4.2, Mục 4.1.2)
 - **Phụ trách:** Ngô Viết Thanh Bình
 - **File chuẩn:** `reports/template1/assets/diagrams/uc_module_d_identity.drawio` | `.svg` | `.png`
 - **Ánh xạ 1:1 với Mục 4.2.1 – 4.2.5:** Gồm đúng 5 Use Cases (`UC-01`, `UC-16`, `UC-02`, `UC-03`, `UC-04`). Không vẽ các bước kiểm tra mật khẩu hay thu hồi phiên thành Use Case phụ.
@@ -1421,7 +1423,7 @@ flowchart LR
 
     Admin -.->|"Generalization (──▷)"| AuthUser
 
-    subgraph Mod_Identity["Module D — Định danh và Phân quyền (Identity & Access Management)"]
+    subgraph Mod_Identity["Phân hệ Định danh và Phân quyền (Identity & Access Management)"]
         UC01(["UC-01\nĐăng ký và đăng nhập hệ thống"])
         UC16(["UC-16\nĐặt lại mật khẩu"])
         UC02(["UC-02\nLàm mới phiên và đăng xuất"])
@@ -1441,7 +1443,7 @@ flowchart LR
 
 ---
 
-### SƠ ĐỒ 3: Module C — Quản lý ticket (Hình 4.3, Mục 4.1.3)
+### SƠ ĐỒ 3: Phân hệ Quản lý ticket (Hình 4.3, Mục 4.1.3)
 - **Phụ trách:** Phan Gia Phúc
 - **File chuẩn tham khảo:** `reports/template1/assets/diagrams/uc_module_c_ticketing.drawio` | `.svg` | `.png`
 - **Ánh xạ 1:1 với Mục 4.2.6 – 4.2.11:** Gồm đúng **6 Use Cases (`UC-05`, `UC-06`, `UC-07`, `UC-08`, `UC-09`, `UC-10`)**.
@@ -1454,7 +1456,7 @@ flowchart LR
     Agent(["Support Agent\n(Nhân viên hỗ trợ)"])
     Admin(["System Administrator\n(Quản trị viên hệ thống)"])
 
-    subgraph Mod_Ticket["Module C — Quản lý Ticket (Ticket Management)"]
+    subgraph Mod_Ticket["Phân hệ Quản lý Ticket (Ticket Management)"]
         UC05(["UC-05\nTạo yêu cầu hỗ trợ"])
         UC06(["UC-06\nXem danh sách và chi tiết ticket"])
         UC07(["UC-07\nTiếp nhận và phân công ticket"])
@@ -1483,7 +1485,7 @@ flowchart LR
 
 ---
 
-### SƠ ĐỒ 4: Module B — Cơ sở tri thức (Hình 4.4, Mục 4.1.4)
+### SƠ ĐỒ 4: Phân hệ Cơ sở tri thức (Hình 4.4, Mục 4.1.4)
 - **Phụ trách:** Nguyễn Đức Lãm
 - **File chuẩn tham khảo:** `reports/template1/assets/diagrams/uc_module_b_kb.drawio` | `.svg` | `.png`
 - **Ánh xạ 1:1 với Mục 4.2.12 – 4.2.14:** Gồm đúng **3 Use Cases (`UC-11`, `UC-12`, `UC-13`)**.
@@ -1496,7 +1498,7 @@ flowchart LR
     Admin(["System Administrator\n(Quản trị viên hệ thống)"])
     EmbeddingProvider(["«system»\nEmbedding Provider"])
 
-    subgraph Mod_Knowledge["Module B — Cơ sở tri thức (Knowledge Base Management)"]
+    subgraph Mod_Knowledge["Phân hệ Cơ sở tri thức (Knowledge Base Management)"]
         UC11(["UC-11\nTải lên và xử lý tài liệu tri thức"])
         UC12(["UC-12\nCông bố và lưu trữ tài liệu tri thức"])
         UC13(["UC-13\nTìm kiếm tri thức"])
@@ -1514,7 +1516,7 @@ flowchart LR
 
 ---
 
-### SƠ ĐỒ 5: Module A — Trợ lý AI và thống kê (Hình 4.5, Mục 4.1.5)
+### SƠ ĐỒ 5: Phân hệ Trợ lý AI và thống kê (Hình 4.5, Mục 4.1.5)
 - **Phụ trách:** Lê Quý Phúc
 - **File chuẩn tham khảo:** `reports/template1/assets/diagrams/uc_module_a_ai_analytics.drawio` | `.svg` | `.png`
 - **Ánh xạ 1:1 với Mục 4.2.15 – 4.2.17:** Gồm đúng **3 Use Cases (`UC-14`, `UC-15`, `UC-17`)**.
@@ -1562,7 +1564,7 @@ backend/src/main/java/vn/edu/hcmus/helpdesk/
 
 ---
 
-### 7.1. Ngô Viết Thanh Bình — Module D: Identity & Access + DevOps Scaffolding
+### 7.1. Ngô Viết Thanh Bình — Phân hệ Định danh và phân quyền + DevOps Scaffolding
 - **Thư mục làm việc:** `backend/src/main/java/vn/edu/hcmus/helpdesk/identity/` và `common/`.
 - **Nhánh Git:** `feat/identity-auth-jwt`.
 - **Nhiệm vụ chi tiết từng bước:**
@@ -1595,7 +1597,7 @@ backend/src/main/java/vn/edu/hcmus/helpdesk/
 
 ---
 
-### 7.2. Phan Gia Phúc — Module C: Ticket Management
+### 7.2. Phan Gia Phúc — Phân hệ Quản lý ticket
 - **Thư mục làm việc:** `backend/src/main/java/vn/edu/hcmus/helpdesk/ticket/`.
 - **Nhánh Git:** `feat/ticket-management-lifecycle`.
 - **Nhiệm vụ chi tiết từng bước:**
@@ -1632,7 +1634,7 @@ backend/src/main/java/vn/edu/hcmus/helpdesk/
 
 ---
 
-### 7.3. Nguyễn Đức Lãm — Module B: Knowledge Base & Ingestion
+### 7.3. Nguyễn Đức Lãm — Phân hệ Cơ sở tri thức & Ingestion
 - **Thư mục làm việc:** `backend/src/main/java/vn/edu/hcmus/helpdesk/knowledge/`.
 - **Nhánh Git:** `feat/knowledge-base-ingestion`.
 - **Nhiệm vụ chi tiết từng bước:**
@@ -1669,7 +1671,7 @@ backend/src/main/java/vn/edu/hcmus/helpdesk/
 
 ---
 
-### 7.4. Lê Quý Phúc — Module A: AI Assistance & RAG Pipeline
+### 7.4. Lê Quý Phúc — Phân hệ Trợ lý AI và thống kê & RAG Pipeline
 - **Thư mục làm việc:** `backend/src/main/java/vn/edu/hcmus/helpdesk/ai/`.
 - **Nhánh Git:** `feat/ai-rag-service`.
 - **Nhiệm vụ chi tiết từng bước:**

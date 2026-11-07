@@ -4,7 +4,7 @@
   <!-- System Boundary -->
   <rect x="330" y="45" width="510" height="430" fill="#FFFFFF" stroke="#000000" stroke-width="1.5"/>
   <text x="585" y="78" text-anchor="middle" font-size="15" font-weight="700" fill="#000000">
-    Module B — Cơ sở tri thức
+    Phân hệ Cơ sở tri thức
   </text>
   <text x="585" y="98" text-anchor="middle" font-size="12.5" font-weight="400" fill="#222222">
     (Knowledge Base Management)
