@@ -5,7 +5,9 @@
 > **Trưởng nhóm (Project Manager & DevOps):** Ngô Viết Thanh Bình (MSSV: `24120269`)  
 > **Thời gian áp dụng:** 03/11/2026 – 24/11/2026; **chốt và nộp Template 1 lúc 23:59 ngày 12/11/2026**; **bắt đầu code ngày 11/11/2026**, **chốt MVP P0 lúc 23:59 ngày 24/11/2026**; Template 2 Thiết kế phần mềm (bắt đầu 11/11/2026, nộp trước 28/11/2026); Template 3 Kiểm thử phần mềm (diễn ra SAU MVP từ 25/11/2026 đến 12/12/2026).  
 > **Tài liệu tham chiếu chuẩn:** [reports/SRS-master.md](reports/SRS-master.md) (v1.1) & [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md)  
-> **Tài liệu soạn thảo nhóm (Google Docs):** [[SE - Nhóm 4] template1 - Google Tài liệu](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0)  
+> **Tài liệu soạn thảo nhóm (Google Docs):** [NMCNPM - Clarune - 04 (Google Docs làm việc chung)](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.p8jvgjthj2me)  
+> **Kho bài mẫu tham khảo khóa K23 (Google Drive):** [Thư mục Template tham khảo K23 (Katling, Planora,...)](https://drive.google.com/drive/folders/1Vk7wPTVLxhoxhTLnqAhIQlQxfslToMGU?usp=sharing)  
+> **Bộ 6 Sơ đồ UML chuẩn (`.drawio`, `.svg`, `.png` tông Trắng - Đen):** Đã dựng sẵn tại [reports/template1/assets/diagrams/](reports/template1/assets/diagrams/) để các thành viên tham khảo, chỉnh sửa và chèn trực tiếp vào báo cáo.  
 > **Bản thiết kế giao diện Figma (Redesign v2):** [SE – Figma (Node 49:58)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev) · [Danh mục 151 frames](docs/design/man-hinh.md) · [Mục 5 Template 1](reports/template1/05-prototype-mockup.md)  
 > *LƯU Ý: Đây là tài liệu duy nhất và toàn diện nhất của nhóm, tích hợp toàn bộ Quy chế vận hành (Team Guide), Sổ tay nhận việc từng cá nhân (Playbook), Tư liệu mẫu đặc tả Template 1, Bộ 6 sơ đồ UML, Baseline kỹ thuật mã nguồn và Danh mục Backlog Tasks. Mọi thành viên chỉ cần mở duy nhất file này để tra cứu và thực thi.*
 
@@ -1256,259 +1258,288 @@ Tất cả 17 Use Case trên phải được viết dưới dạng bảng Markdo
 
 ---
 
-## 6. BỘ SƠ ĐỒ UML TOÀN DIỆN (6 SƠ ĐỒ CHUẨN MỰC BÁM SÁT SRS-MASTER)
+## 6. BỘ SƠ ĐỒ UML TOÀN DIỆN & QUY CHUẨN ĐỒNG NHẤT TOÀN NHÓM (6 SƠ ĐỒ CHUẨN SRS & GOOGLE DOCS)
 
-Cấu trúc chuẩn của hệ thống gồm **đúng 4 module chức năng** bám sát Mục 2.1, Mục 9.1 và Phụ lục E trong `SRS-master.md`. Để đáp ứng xuất sắc yêu cầu môn học tương tự bài mẫu `Group03 (Katling)` và `Group06 (Planora)`, hệ thống được trang bị **tổng cộng 6 sơ đồ chuẩn UML**:
+Cấu trúc chuẩn của hệ thống gồm **đúng 4 module chức năng (17 Use Cases từ `UC-01` đến `UC-17`)** bám sát 100% `SRS-master.md` và tài liệu làm việc chung Google Docs (`NMCNPM - Clarune - 04`). Hệ thống gồm **6 sơ đồ chuẩn**:
 
 ```
-[BỘ 6 SƠ ĐỒ ĐẶC TẢ YÊU CẦU MÔN NMCNPM - CHUẨN SRS-MASTER]
-├── Sơ đồ 0: Sơ đồ bối cảnh hệ thống (Context Diagram - Mục 3.1)
-├── Sơ đồ 1: Sơ đồ Use Case tổng quan 4 module (Mục 4.1)
-├── Sơ đồ 2: Sơ đồ Module D - Identity & Access (Mục 4.1.1)
-├── Sơ đồ 3: Sơ đồ Module C - Ticket Management (Mục 4.1.2)
-├── Sơ đồ 4: Sơ đồ Module B - Knowledge Base (Mục 4.1.3)
-└── Sơ đồ 5: Sơ đồ Module A - AI Assistance (Mục 4.1.4)
+[BỘ 6 SƠ ĐỒ ĐẶC TẢ YÊU CẦU MÔN NMCNPM — NHÓM 04]
+├── Sơ đồ 0: Sơ đồ bối cảnh hệ thống (Hình 3.1 - Mục 3.1.1 — Phụ trách: Nguyễn Đức Lãm)
+├── Sơ đồ 1: Sơ đồ Use Case tổng thể 17 Use Cases (Hình 4.1 - Mục 4.1.1 — Phụ trách: Ngô Viết Thanh Bình)
+├── Sơ đồ 2: Sơ đồ Use Case Module D - Định danh và phân quyền (Hình 4.2 - Mục 4.1.2 — Phụ trách: Ngô Viết Thanh Bình)
+├── Sơ đồ 3: Sơ đồ Use Case Module C - Quản lý ticket (Hình 4.3 - Mục 4.1.3 — Phụ trách: Phan Gia Phúc)
+├── Sơ đồ 4: Sơ đồ Use Case Module B - Cơ sở tri thức (Hình 4.4 - Mục 4.1.4 — Phụ trách: Nguyễn Đức Lãm)
+└── Sơ đồ 5: Sơ đồ Use Case Module A - Trợ lý AI và thống kê (Hình 4.5 - Mục 4.1.5 — Phụ trách: Lê Quý Phúc)
 ```
 
 > [!IMPORTANT]
-> **QUY ĐỊNH BẮT BUỘC VỀ VIỆC VẼ VÀ NỘP SƠ ĐỒ UML DẠNG FILE SVG:**
-> 1. **Mục đích của sơ đồ Mermaid bên dưới:** Toàn bộ 6 sơ đồ vẽ bằng Mermaid dưới đây **chỉ là bản phác thảo cấu trúc và quan hệ logic (Model Skeleton) để các thành viên tham khảo**.
-> 2. **Yêu cầu tự vẽ lại bằng công cụ UML chuyên nghiệp:** Mỗi thành viên phụ trách module của mình phải tự mở công cụ vẽ UML (khuyến nghị dùng **Draw.io**, **StarUML**, hoặc **PlantUML**), tham khảo hình thức trình bày và phong cách trực quan từ các bài nộp xuất sắc khóa trước (`Katling` và `Planora`) để vẽ lại sơ đồ thật chỉn chu.
-> 3. **Định dạng bắt buộc khi nộp (SVG Vector):**
->    - Sau khi vẽ xong, **bắt buộc xuất ra định dạng `.svg`** (Vector graphic siêu nét, không bị vỡ chữ khi in A4, dung lượng cực nhẹ chỉ 30–60 KB).
->    - Lưu file vào thư mục: `reports/template1/assets/diagrams/` (Ví dụ: `context-diagram.svg`, `uc-module-D.svg`, `uc-module-C.svg`...).
->    - Push các file `.svg` này lên GitHub cùng nhánh bài làm và nhúng trực tiếp vào các file Markdown tương ứng: `![Sơ đồ Use Case Module C](./assets/diagrams/uc-module-C.svg)`.
+> **QUY CHUẨN BẮT BUỘC KHI VẼ SƠ ĐỒ USE CASE (UML 2.5 — TÔNG TRẮNG ĐEN HỌC THUẬT):**
+> Để 5 sơ đồ Use Case khi ghép vào Google Docs và Markdown đồng nhất tuyệt đối như do một người vẽ, toàn bộ thành viên tuân thủ **4 quy tắc bất di bất dịch** sau:
+>
+> 1. **Quy tắc 1 — Ánh xạ 1:1 với 17 mã Use Case (`UC-01` đến `UC-17`) trong Mục 4.2:**
+>    - Mỗi hình Elip trên sơ đồ **BẮT BUỘC** tương ứng 1:1 với 1 bảng đặc tả trong Mục 4.2.
+>    - Nhãn trong mỗi hình Elip gồm 2 dòng: Dòng 1 in đậm mã **`UC-xx`**, dòng 2 ghi đúng **Tên Use Case** trong Mục 4.2.
+>    - **TUYỆT ĐỐI KHÔNG** vẽ các bước kiểm tra kỹ thuật nội bộ (như *"Kiểm tra chính sách mật khẩu"*, *"Ghi nhận sự kiện tự động"*, *"Kiểm tra khóa tránh nhận trùng"*, *"Trích xuất văn bản"*, *"Chia nhỏ đoạn văn bản"*, *"Kiểm chứng trích dẫn"*) thành hình Elip rời rồi nối `«include»` / `«extend»`. Đó là lỗi phân rã chức năng (*Functional Decomposition*) và làm lệch số lượng Use Case so với SRS.
+>    - **Không dùng viền nét đứt cho hình Elip** (kể cả các chức năng P1 như `UC-16`, `UC-17`). Mọi Use Case chuẩn UML đều vẽ bằng **Elip viền nét liền**.
+>
+> 2. **Quy tắc 2 — Tông màu Trắng - Đen (Monochrome UML) dễ quan sát, chuẩn báo cáo học thuật:**
+>    - Nền tất cả các hình (System Boundary, Elip Use Case, Actor): **Trắng (`#FFFFFF`)**.
+>    - Đường viền và dây nối: **Đen (`#000000`)**, độ dày nét `1.5 pt`, không đổ bóng (No Shadow), không tô màu sặc sỡ.
+>    - Font chữ: `Arial` hoặc `Segoe UI`, cỡ chữ `12–13 pt`, màu đen.
+>
+> 3. **Quy tắc 3 — Vị trí Tác nhân (Actor) và Ranh giới hệ thống (System Boundary):**
+>    - **System Boundary:** Khung chữ nhật đứng bao quanh các hình Elip của phân hệ, tiêu đề đặt ở chính giữa phía trên bên trong khung.
+>    - **Tác nhân chính (Primary Actors):** Vẽ bằng ký hiệu **Stickman (Hình người que)** đặt ở **bên trái** ngoài khung hệ thống.
+>    - **Tác nhân phụ / Hệ thống ngoài (Secondary Actors):** Đặt ở **bên phải** ngoài khung hệ thống, có stereotype `«system»` (VD: `«system» Mail Service`, `«system» Embedding / LLM Provider`).
+>    - **Lưu ý quan trọng theo Mục 3.1.1:** `System Worker`, `Database (PostgreSQL + pgvector)` và `Private Storage` là **thành phần nội bộ của hệ thống**, **TUYỆT ĐỐI KHÔNG** vẽ thành Actor bên ngoài ranh giới hệ thống!
+>
+> 4. **Quy tắc 4 — Chuẩn ký hiệu Đường nối UML 2.5 trên Draw.io:**
+>    - **Association (Actor ─── Use Case):** Đường thẳng **nét liền, KHÔNG có đầu mũi tên**.
+>    - **Generalization / Kế thừa (Actor con ──▷ Actor cha):** Đường thẳng **nét liền, đầu mũi tên tam giác rỗng** trỏ về Actor cha (KHÔNG dùng nét đứt và KHÔNG ghi chữ *"Kế thừa"* đè lên dây).
+>    - **Chỉ dùng `«include»` / `«extend»` khi cả 2 đầu mũi tên đều là các Use Case có mã `UC-xx` thật trong SRS** (ví dụ ở Module A: `UC-15` có thể độc lập hoặc nối với `UC-14`; ở Module D, C, B các Use Case đều là các mục tiêu độc lập nên nối trực tiếp với Actor, không ép buộc dùng `«include»` giả tạo).
+>
+> 📁 **TÀI LIỆU & BỘ FILE MẪU THAM KHẢO BẮT BUỘC CHO CÁC THÀNH VIÊN:**
+> 1. **Kho bài mẫu xuất sắc khóa K23 (Google Drive):** [Mở thư mục Template tham khảo K23](https://drive.google.com/drive/folders/1Vk7wPTVLxhoxhTLnqAhIQlQxfslToMGU?usp=sharing) *(Dùng để tham khảo bố cục trình bày báo cáo, cách đặt tên hình và phong cách sơ đồ trắng-đen học thuật; lưu ý không lặp lại lỗi lạm dụng `«include»` cho các bước nhập liệu nhỏ).*
+> 2. **Bộ 6 Sơ đồ chuẩn (`.drawio`, `.svg`, `.png`) đã được Trưởng nhóm dựng sẵn tại:** [`reports/template1/assets/diagrams/`](reports/template1/assets/diagrams/)
+>    - **Cách sử dụng cho các thành viên (Phan Gia Phúc, Nguyễn Đức Lãm, Lê Quý Phúc):**
+>      * Có thể dùng ngay các file `.png` / `.svg` tương ứng trong `reports/template1/assets/diagrams/` để chèn vào Google Docs ([NMCNPM - Clarune - 04](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.p8jvgjthj2me)) và file Markdown.
+>      * Nếu cần tinh chỉnh thêm chi tiết, mở trực tiếp file `.drawio` của phân hệ mình trên **app.diagrams.net (Draw.io)** để sửa trên đúng khung chuẩn, giữ nguyên tông Trắng - Đen (`#FFFFFF` / `#000000`), font chữ và kích thước hình Elip để cả 6 sơ đồ trong báo cáo đồng nhất 100%.
 
 ---
 
-### SƠ ĐỒ 0: Sơ đồ bối cảnh hệ thống (Context Diagram — Mục 3.1)
-*Thể hiện ranh giới tương tác giữa các tác nhân (Actors), tiến trình nền, dịch vụ bên ngoài và hệ thống:*
+### SƠ ĐỒ 0: Sơ đồ bối cảnh hệ thống (Context Diagram — Hình 3.1, Mục 3.1.1)
+- **Phụ trách:** Nguyễn Đức Lãm
+- **File chuẩn:** `reports/template1/assets/diagrams/context_diagram_system.drawio` | `.svg` | `.png`
+- **Nguyên tắc theo Mục 3.1.1:** `Worker`, `PostgreSQL + pgvector` và `Private Storage` nằm **bên trong** ranh giới hệ thống, không phải Actor ngoài.
 
 ```mermaid
-flowchart TD
-    subgraph Users["ACTORS"]
-        Guest["Guest"]
-        Customer["Customer"]
-        Agent["Agent"]
-        Admin["Admin"]
+flowchart LR
+    subgraph Actors_Left["TÁC NHÂN NGƯỜI DÙNG (PRIMARY ACTORS)"]
+        Guest(["Guest\n(Khách chưa xác thực)"])
+        Customer(["Customer\n(Khách hàng)"])
+        Agent(["Support Agent\n(Nhân viên hỗ trợ)"])
+        Admin(["System Administrator\n(Quản trị viên)"])
     end
 
-    subgraph InternalWorkers["INTERNAL WORKERS"]
-        Worker["System Worker"]
+    subgraph SystemBoundary["RANH GIỚI HỆ THỐNG: AI-POWERED HELPDESK & KNOWLEDGE BASE"]
+        CoreSys["Hệ thống Helpdesk & Knowledge Base\n(React SPA + Spring Boot Modular Monolith +\nBackground Worker + PostgreSQL/pgvector + Private Storage)"]
     end
 
-    subgraph SystemBoundary["AI-POWERED HELPDESK & KNOWLEDGE BASE"]
-        CoreSys["Hệ thống Web Helpdesk & Kho tri thức\n(Spring Boot + PostgreSQL + React)"]
-        LocalStorage["Lưu trữ tệp cục bộ\n(storage/documents/)"]
-        CoreSys <-->|Lưu trữ và đọc tệp gốc| LocalStorage
+    subgraph Actors_Right["TÁC NHÂN HỆ THỐNG NGOÀI (EXTERNAL SYSTEMS)"]
+        AIProvider(["«system»\nEmbedding / LLM Provider"])
+        MailService(["«system»\nMail Service (P1)"])
     end
 
-    subgraph ExternalServices["EXTERNAL SERVICES"]
-        OpenAI["OpenAI API Service\n(Embedding & LLM)"]
-        MailService["Mail Service (SMTP)"]
-    end
+    Guest ---|"Đăng ký Customer, Đăng nhập,\nYêu cầu đặt lại mật khẩu (P1)"| CoreSys
+    Customer ---|"Tạo ticket, Xem & gửi phản hồi công khai,\nXác nhận Đóng / Mở lại ticket"| CoreSys
+    Agent ---|"Xem OPEN queue, Claim & xử lý ticket,\nTra cứu KB, Kiểm duyệt & gửi gợi ý AI"| CoreSys
+    Admin ---|"Quản lý Agent, Phân công ticket,\nTải lên / Công bố / Lưu trữ KB, Xem thống kê (P1)"| CoreSys
 
-    Guest -->|1. Đăng ký tài khoản, Đăng nhập| CoreSys
-    Customer -->|2. Tạo ticket, Trao đổi, Đóng ticket| CoreSys
-    Agent -->|3. Xem hàng đợi, Nhận ticket, Ghi chú nội bộ, Dùng AI| CoreSys
-    Admin -->|4. Quản trị Agent, Quản lý tài liệu, Xem thống kê| CoreSys
-
-    Worker <-->|5. Nhận tài liệu, Trích xuất text, Chia chunk| CoreSys
-    CoreSys <-->|6. Gửi prompt, Nhận vector & Gợi ý RAG| OpenAI
-    CoreSys -->|7. Gửi link đặt lại mật khẩu| MailService
+    CoreSys -->|"Gửi truy vấn Embedding &\nPrompt sinh gợi ý RAG có nguồn"| AIProvider
+    CoreSys -->|"Gửi liên kết đặt lại mật khẩu (P1)"| MailService
 ```
 
 ---
 
-### SƠ ĐỒ 1: Sơ đồ Use Case tổng quan toàn hệ thống (Mục 4.1)
-*Thể hiện mối quan hệ giữa các Actors và 4 module chức năng chính:*
+### SƠ ĐỒ 1: Sơ đồ Use Case tổng thể 17 Use Cases (Hình 4.1, Mục 4.1.1)
+- **Phụ trách:** Ngô Viết Thanh Bình
+- **File chuẩn:** `reports/template1/assets/diagrams/uc_overall_17_usecases.drawio` | `.svg` | `.png`
+- **Nguyên tắc theo Mục 4.1.1:** Hiển thị đầy đủ **17 Use Cases (`UC-01` đến `UC-17`)** chia theo 4 phân hệ bên trong ranh giới hệ thống. `Customer`, `Support Agent`, `System Administrator` kế thừa khả năng thao tác phiên (`UC-02`) và hồ sơ (`UC-03`) của `Authenticated User`.
 
 ```mermaid
 flowchart LR
-    Guest(["Guest"])
+    Guest(["Guest / Unauthenticated User"])
+    AuthUser(["Authenticated User"])
     Customer(["Customer"])
-    Agent(["Agent"])
-    Admin(["Admin"])
+    Agent(["Support Agent"])
+    Admin(["System Administrator"])
 
-    subgraph System["AI HELPDESK & KNOWLEDGE BASE"]
-        subgraph Sub_D["Module D: Identity & Access"]
-            UC_D["Quản lý tài khoản & Xác thực"]
+    MailService(["«system»\nMail Service"])
+    AIProvider(["«system»\nEmbedding / LLM Provider"])
+
+    Customer -.->|"Generalization (──▷)"| AuthUser
+    Agent -.->|"Generalization (──▷)"| AuthUser
+    Admin -.->|"Generalization (──▷)"| AuthUser
+
+    subgraph System["AI-POWERED HELPDESK & KNOWLEDGE BASE (17 USE CASES)"]
+        subgraph Mod_D["Module D — Định danh và phân quyền"]
+            UC01(["UC-01: Đăng ký và đăng nhập hệ thống"])
+            UC16(["UC-16: Đặt lại mật khẩu"])
+            UC02(["UC-02: Làm mới phiên và đăng xuất"])
+            UC03(["UC-03: Xem và cập nhật hồ sơ cá nhân"])
+            UC04(["UC-04: Quản lý tài khoản Agent"])
         end
 
-        subgraph Sub_C["Module C: Ticket Management"]
-            UC_C["Xử lý, điều phối ticket & Thống kê"]
+        subgraph Mod_C["Module C — Quản lý ticket"]
+            UC05(["UC-05: Tạo yêu cầu hỗ trợ"])
+            UC06(["UC-06: Xem danh sách và chi tiết ticket"])
+            UC07(["UC-07: Tiếp nhận và phân công ticket"])
+            UC08(["UC-08: Gửi tin nhắn công khai và ghi chú nội bộ"])
+            UC09(["UC-09: Chuyển trạng thái ticket"])
+            UC10(["UC-10: Xem lịch sử sự kiện ticket"])
         end
 
-        subgraph Sub_B["Module B: Knowledge Base"]
-            UC_B["Nạp tài liệu & Tìm kiếm ngữ nghĩa"]
+        subgraph Mod_B["Module B — Cơ sở tri thức"]
+            UC11(["UC-11: Tải lên và xử lý tài liệu tri thức"])
+            UC12(["UC-12: Công bố và lưu trữ tài liệu tri thức"])
+            UC13(["UC-13: Tìm kiếm tri thức"])
         end
 
-        subgraph Sub_A["Module A: AI Assistance"]
-            UC_A["Gợi ý câu trả lời & Dẫn nguồn"]
+        subgraph Mod_A["Module A — Trợ lý AI và thống kê"]
+            UC14(["UC-14: Tạo gợi ý trả lời bằng AI"])
+            UC15(["UC-15: Kiểm duyệt chỉnh sửa và gửi gợi ý AI"])
+            UC17(["UC-17: Xem thống kê ticket"])
         end
     end
 
-    Guest --> UC_D
-    Customer --> UC_D & UC_C
-    Agent --> UC_D & UC_C & UC_B & UC_A
-    Admin --> UC_D & UC_C & UC_B & UC_A
+    Guest --- UC01 & UC16
+    UC16 --- MailService
+    AuthUser --- UC02 & UC03
+
+    Customer --- UC05 & UC06 & UC08 & UC09
+    Agent --- UC06 & UC07 & UC08 & UC09 & UC10 & UC13 & UC14 & UC15
+    Admin --- UC04 & UC06 & UC07 & UC08 & UC09 & UC10 & UC11 & UC12 & UC13 & UC14 & UC15 & UC17
+
+    UC11 --- AIProvider
+    UC13 --- AIProvider
+    UC14 --- AIProvider
 ```
 
 ---
 
-### SƠ ĐỒ 2: Module D — Identity & Access (Ngô Viết Thanh Bình)
-*Đặc tả luồng đăng ký, đăng nhập, phân quyền và đặt lại mật khẩu:*
+### SƠ ĐỒ 2: Module D — Định danh và phân quyền (Hình 4.2, Mục 4.1.2)
+- **Phụ trách:** Ngô Viết Thanh Bình
+- **File chuẩn:** `reports/template1/assets/diagrams/uc_module_d_identity.drawio` | `.svg` | `.png`
+- **Ánh xạ 1:1 với Mục 4.2.1 – 4.2.5:** Gồm đúng 5 Use Cases (`UC-01`, `UC-16`, `UC-02`, `UC-03`, `UC-04`). Không vẽ các bước kiểm tra mật khẩu hay thu hồi phiên thành Use Case phụ.
 
 ```mermaid
 flowchart LR
-    Guest(["Guest"])
-    User(["Authenticated User"])
-    Admin(["Admin"])
-    MailService(["Mail Service"])
+    Guest(["Guest / Unauthenticated User\n(Người dùng chưa xác thực)"])
+    AuthUser(["Authenticated User\n(Customer / Agent / Admin)"])
+    Admin(["System Administrator\n(Quản trị viên hệ thống)"])
+    MailService(["«system»\nMail Service"])
 
-    subgraph Mod_Identity["MODULE D: IDENTITY & ACCESS"]
-        UC01["Đăng ký tài khoản"]
-        UC01b["Đăng nhập"]
-        UC02["Làm mới phiên & Đăng xuất"]
-        UC03["Quản lý hồ sơ cá nhân & Đổi mật khẩu"]
-        UC04["Quản trị tài khoản Agent"]
-        UC16["Đặt lại mật khẩu qua email"]
+    Admin -.->|"Generalization (──▷)"| AuthUser
 
-        ValidatePolicy["Kiểm tra chính sách mật khẩu"]
-        SendResetLink["Gửi link đặt lại mật khẩu"]
+    subgraph Mod_Identity["Module D — Định danh và Phân quyền (Identity & Access Management)"]
+        UC01(["UC-01\nĐăng ký và đăng nhập hệ thống"])
+        UC16(["UC-16\nĐặt lại mật khẩu"])
+        UC02(["UC-02\nLàm mới phiên và đăng xuất"])
+        UC03(["UC-03\nXem và cập nhật hồ sơ cá nhân"])
+        UC04(["UC-04\nQuản lý tài khoản Agent"])
     end
 
-    Guest --> UC01
-    Guest --> UC01b
-    Guest --> UC16
+    Guest --- UC01
+    Guest --- UC16
+    UC16 --- MailService
 
-    UC01 -.->|<<include>>| ValidatePolicy
-    UC16 -.->|<<include>>| SendResetLink
-    SendResetLink --> MailService
+    AuthUser --- UC02
+    AuthUser --- UC03
 
-    User --> UC02
-    User --> UC03
-    UC03 -.->|<<include>>| ValidatePolicy
-
-    Admin --> UC04
-    UC04 -.->|<<include>>| ValidatePolicy
+    Admin --- UC04
 ```
 
 ---
 
-### SƠ ĐỒ 3: Module C — Ticket Management (Phan Gia Phúc)
-*Đặc tả luồng xử lý ticket, xử lý tranh chấp đồng thời và thống kê:*
+### SƠ ĐỒ 3: Module C — Quản lý ticket (Hình 4.3, Mục 4.1.3)
+- **Phụ trách:** Phan Gia Phúc
+- **File chuẩn tham khảo:** `reports/template1/assets/diagrams/uc_module_c_ticketing.drawio` | `.svg` | `.png`
+- **Ánh xạ 1:1 với Mục 4.2.6 – 4.2.11:** Gồm đúng **6 Use Cases (`UC-05`, `UC-06`, `UC-07`, `UC-08`, `UC-09`, `UC-10`)**.
+  - Lưu ý: `UC-07` đã gộp cả Luồng A (Agent Claim) và Luồng B (Admin Assign/Reassign); `UC-08` đã gộp cả Luồng A (Public Message) và Luồng B (Internal Note); `UC-17 (Xem thống kê ticket)` thuộc Module A (Mục 4.1.5), không vẽ lặp ở Module C.
+  - Không vẽ các bước kỹ thuật nội bộ (`RecordEvent`, `ConcurrencyCheck`) thành hình Elip rời.
 
 ```mermaid
 flowchart LR
-    Customer(["Customer"])
-    Agent(["Agent"])
-    Admin(["Admin"])
+    Customer(["Customer\n(Khách hàng)"])
+    Agent(["Support Agent\n(Nhân viên hỗ trợ)"])
+    Admin(["System Administrator\n(Quản trị viên hệ thống)"])
 
-    subgraph Mod_Ticket["MODULE C: TICKET MANAGEMENT"]
-        UC05["Tạo ticket mới"]
-        UC06["Xem danh sách & Chi tiết ticket"]
-        UC07["Nhận xử lý ticket"]
-        UC07b["Phân công Agent"]
-        UC08["Gửi trao đổi công khai"]
-        UC08b["Ghi chú nội bộ"]
-        UC09["Chuyển trạng thái ticket"]
-        UC10["Xem lịch sử sự kiện ticket"]
-        UC17["Xem thống kê ticket"]
-
-        RecordEvent["Ghi nhận sự kiện tự động"]
-        ConcurrencyCheck["Kiểm tra khóa tránh nhận trùng"]
+    subgraph Mod_Ticket["Module C — Quản lý Ticket (Ticket Management)"]
+        UC05(["UC-05\nTạo yêu cầu hỗ trợ"])
+        UC06(["UC-06\nXem danh sách và chi tiết ticket"])
+        UC07(["UC-07\nTiếp nhận và phân công ticket"])
+        UC08(["UC-08\nGửi tin nhắn công khai và ghi chú nội bộ"])
+        UC09(["UC-09\nChuyển trạng thái ticket"])
+        UC10(["UC-10\nXem lịch sử sự kiện ticket"])
     end
 
-    Customer --> UC05
-    Customer --> UC06
-    Customer --> UC08
-    Customer --> UC09
+    Customer --- UC05
+    Customer --- UC06
+    Customer --- UC08
+    Customer --- UC09
 
-    Agent --> UC06
-    Agent --> UC07
-    Agent --> UC08
-    Agent --> UC08b
-    Agent --> UC09
-    Agent --> UC10
+    Agent --- UC06
+    Agent --- UC07
+    Agent --- UC08
+    Agent --- UC09
+    Agent --- UC10
 
-    Admin --> UC06
-    Admin --> UC07b
-    Admin --> UC08
-    Admin --> UC08b
-    Admin --> UC09
-    Admin --> UC10
-    Admin --> UC17
-
-    UC07 -.->|<<include>>| ConcurrencyCheck
-    UC05 -.->|<<include>>| RecordEvent
-    UC07 -.->|<<include>>| RecordEvent
-    UC07b -.->|<<include>>| RecordEvent
-    UC09 -.->|<<include>>| RecordEvent
+    Admin --- UC06
+    Admin --- UC07
+    Admin --- UC08
+    Admin --- UC09
+    Admin --- UC10
 ```
 
 ---
 
-### SƠ ĐỒ 4: Module B — Knowledge Base (Nguyễn Đức Lãm)
-*Đặc tả luồng xử lý tài liệu nền, duyệt công bố và tìm kiếm vector:*
+### SƠ ĐỒ 4: Module B — Cơ sở tri thức (Hình 4.4, Mục 4.1.4)
+- **Phụ trách:** Nguyễn Đức Lãm
+- **File chuẩn tham khảo:** `reports/template1/assets/diagrams/uc_module_b_kb.drawio` | `.svg` | `.png`
+- **Ánh xạ 1:1 với Mục 4.2.12 – 4.2.14:** Gồm đúng **3 Use Cases (`UC-11`, `UC-12`, `UC-13`)**.
+  - Lưu ý quan trọng: Theo Mục 2.3 và 3.1.1, chỉ **Admin** có quyền Upload (`UC-11`) và Publish/Archive (`UC-12`); cả **Support Agent** và **Admin** đều có quyền Tìm kiếm tri thức (`UC-13`).
+  - `Worker` là thành phần nội bộ thực thi bên trong `UC-11`, **không vẽ `System Worker` làm Actor ngoài** và không tách các bước `Extract`, `Chunk`, `Embed` thành Use Case rời. Tác nhân phụ bên phải là `«system» Embedding Provider`.
 
 ```mermaid
 flowchart LR
-    Admin(["Admin"])
-    Agent(["Agent"])
-    Worker(["System Worker"])
+    Agent(["Support Agent\n(Nhân viên hỗ trợ)"])
+    Admin(["System Administrator\n(Quản trị viên hệ thống)"])
+    EmbeddingProvider(["«system»\nEmbedding Provider"])
 
-    subgraph Mod_Knowledge["MODULE B: KNOWLEDGE BASE"]
-        UC11["Tải lên & Xử lý tài liệu"]
-        UC12["Công bố & Lưu trữ tài liệu"]
-        UC13["Tìm kiếm tài liệu theo ngữ nghĩa"]
-
-        Extract["Trích xuất văn bản tài liệu"]
-        Chunk["Chia nhỏ đoạn văn bản"]
-        Embed["Tạo vector và lưu trữ"]
+    subgraph Mod_Knowledge["Module B — Cơ sở tri thức (Knowledge Base Management)"]
+        UC11(["UC-11\nTải lên và xử lý tài liệu tri thức"])
+        UC12(["UC-12\nCông bố và lưu trữ tài liệu tri thức"])
+        UC13(["UC-13\nTìm kiếm tri thức"])
     end
 
-    Admin --> UC11
-    Admin --> UC12
-    Admin --> UC13
+    Admin --- UC11
+    Admin --- UC12
+    Admin --- UC13
 
-    Agent --> UC13
+    Agent --- UC13
 
-    UC11 -.->|<<trigger>>| Worker
-    Worker --> Extract
-    Worker --> Chunk
-    Worker --> Embed
+    UC11 --- EmbeddingProvider
+    UC13 --- EmbeddingProvider
 ```
 
 ---
 
-### SƠ ĐỒ 5: Module A — AI Assistance (Lê Quý Phúc)
-*Đặc tả cơ chế gợi ý câu trả lời, kiểm tra trích dẫn và Human-in-the-loop:*
+### SƠ ĐỒ 5: Module A — Trợ lý AI và thống kê (Hình 4.5, Mục 4.1.5)
+- **Phụ trách:** Lê Quý Phúc
+- **File chuẩn tham khảo:** `reports/template1/assets/diagrams/uc_module_a_ai_analytics.drawio` | `.svg` | `.png`
+- **Ánh xạ 1:1 với Mục 4.2.15 – 4.2.17:** Gồm đúng **3 Use Cases (`UC-14`, `UC-15`, `UC-17`)**.
+  - Lưu ý: Không vẽ các bước xử lý nội bộ của pipeline RAG (`RetrieveContext`, `VerifyCitation`, `Abstain`) thành các hình Elip rời. Tác nhân phụ bên phải là `«system» Embedding / LLM Provider` kết nối với `UC-14`.
 
 ```mermaid
 flowchart LR
-    Agent(["Agent"])
-    Admin(["Admin"])
-    LLM(["OpenAI API"])
+    Agent(["Support Agent\n(Nhân viên được giao ticket)"])
+    Admin(["System Administrator\n(Quản trị viên hệ thống)"])
+    LLMProvider(["«system»\nEmbedding / LLM Provider"])
 
-    subgraph Mod_AI["MODULE A: AI ASSISTANCE"]
-        UC14["Tạo gợi ý câu trả lời"]
-        UC15["Rà soát, chỉnh sửa & Gửi phản hồi"]
-
-        RetrieveContext["Truy xuất ngữ cảnh từ Module B"]
-        VerifyCitation["Kiểm chứng trích dẫn nguồn"]
-        Abstain["Từ chối trả lời khi thiếu căn cứ"]
+    subgraph Mod_AI["Module A — Trợ lý AI và Thống kê (AI Assistance & Analytics)"]
+        UC14(["UC-14\nTạo gợi ý trả lời bằng AI"])
+        UC15(["UC-15\nKiểm duyệt chỉnh sửa và gửi gợi ý AI"])
+        UC17(["UC-17\nXem thống kê ticket"])
     end
 
-    Agent --> UC14
-    Agent --> UC15
-    Admin --> UC14
-    Admin --> UC15
+    Agent --- UC14
+    Agent --- UC15
 
-    UC14 -.->|<<include>>| RetrieveContext
-    UC14 -.->|<<call>>| LLM
-    UC14 -.->|<<include>>| VerifyCitation
-    UC14 -.->|<<extend>>| Abstain
+    Admin --- UC14
+    Admin --- UC15
+    Admin --- UC17
+
+    UC14 --- LLMProvider
 ```
 
 ---

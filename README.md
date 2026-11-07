@@ -10,6 +10,8 @@ Hệ thống Hỗ trợ Kỹ thuật & Kho Tri thức Doanh nghiệp Thông minh
 
 - **Kế hoạch Giai đoạn 2 (Master):** [PLAN_TEMPLATE1_AND_DEVELOPMENT.md](PLAN_TEMPLATE1_AND_DEVELOPMENT.md)
 - **Tài liệu làm việc nhóm (Google Docs):** [[SE - Nhóm 4] template1 - Google Tài liệu](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.p8jvgjthj2me)
+- **Kho bài mẫu tham khảo khóa K23 (Google Drive):** [Thư mục Template tham khảo K23](https://drive.google.com/drive/folders/1Vk7wPTVLxhoxhTLnqAhIQlQxfslToMGU?usp=sharing)
+- **Bộ 6 Sơ đồ UML chuẩn (`.drawio`, `.svg`, `.png`):** [reports/template1/assets/diagrams/](reports/template1/assets/diagrams/) *(Quy chuẩn chi tiết tại Mục 6 của [PLAN_TEMPLATE1_AND_DEVELOPMENT.md](PLAN_TEMPLATE1_AND_DEVELOPMENT.md#6-bộ-sơ-đồ-uml-toàn-diện--quy-chuẩn-đồng-nhất-toàn-nhóm-6-sơ-đồ-chuẩn-srs--google-docs))*
 - **Thiết kế giao diện Figma (Redesign v2):** [SE – Figma (Node 49:58)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev) · [Danh mục 151 frames](docs/design/README.md) · [Design System](design-system/helpdesk-workspace/MASTER.md) · [Mục 5 Template 1](reports/template1/05-prototype-mockup.md)
 
 ---

@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 620" width="1180" height="620" font-family="Arial, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <marker id="open-arrow" viewBox="0 0 14 14" refX="12" refY="7" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M 2 2 L 12 7 L 2 12" fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="1180" height="620" fill="#FFFFFF"/>
+
+  <!-- Central System Box -->
+  <rect x="380" y="140" width="420" height="340" fill="#FFFFFF" stroke="#000000" stroke-width="2"/>
+  <text x="590" y="185" text-anchor="middle" font-size="15" font-weight="700" fill="#000000">
+    AI-Powered Helpdesk &amp;
+  </text>
+  <text x="590" y="206" text-anchor="middle" font-size="15" font-weight="700" fill="#000000">
+    Knowledge Base System
+  </text>
+  <line x1="400" y1="224" x2="780" y2="224" stroke="#000000" stroke-width="1"/>
+
+  <text x="590" y="254" text-anchor="middle" font-size="12.5" font-weight="700" fill="#000000">Thành phần nội bộ trong ranh giới hệ thống:</text>
+  <text x="590" y="280" text-anchor="middle" font-size="12" fill="#222222">• Web Application (React + TypeScript + Tailwind CSS)</text>
+  <text x="590" y="304" text-anchor="middle" font-size="12" fill="#222222">• Backend API (Spring Boot 3 — Modular Monolith)</text>
+  <text x="590" y="328" text-anchor="middle" font-size="12" fill="#222222">• Background Ingestion Worker (Trích xuất &amp; Chia đoạn)</text>
+  <text x="590" y="352" text-anchor="middle" font-size="12" fill="#222222">• CSDL PostgreSQL + pgvector (Lưu dữ liệu &amp; Embeddings)</text>
+  <text x="590" y="376" text-anchor="middle" font-size="12" fill="#222222">• Private File Storage (Lưu trữ tệp tài liệu nội bộ)</text>
+
+  <!-- Actors Left -->
+  <!-- Guest -->
+  <g stroke="#000000" stroke-width="1.6" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="110" cy="65" r="11"/>
+    <line x1="110" y1="76" x2="110" y2="102"/>
+    <line x1="90" y1="86" x2="130" y2="86"/>
+    <line x1="110" y1="102" x2="94" y2="124"/>
+    <line x1="110" y1="102" x2="126" y2="124"/>
+  </g>
+  <text x="110" y="142" text-anchor="middle" font-size="12.5" font-weight="700" fill="#000000">Guest</text>
+
+  <!-- Customer -->
+  <g stroke="#000000" stroke-width="1.6" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="110" cy="205" r="11"/>
+    <line x1="110" y1="216" x2="110" y2="242"/>
+    <line x1="90" y1="226" x2="130" y2="226"/>
+    <line x1="110" y1="242" x2="94" y2="264"/>
+    <line x1="110" y1="242" x2="126" y2="264"/>
+  </g>
+  <text x="110" y="282" text-anchor="middle" font-size="12.5" font-weight="700" fill="#000000">Customer</text>
+
+  <!-- Support Agent -->
+  <g stroke="#000000" stroke-width="1.6" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="110" cy="345" r="11"/>
+    <line x1="110" y1="356" x2="110" y2="382"/>
+    <line x1="90" y1="366" x2="130" y2="366"/>
+    <line x1="110" y1="382" x2="94" y2="404"/>
+    <line x1="110" y1="382" x2="126" y2="404"/>
+  </g>
+  <text x="110" y="422" text-anchor="middle" font-size="12.5" font-weight="700" fill="#000000">Support Agent</text>
+
+  <!-- System Administrator -->
+  <g stroke="#000000" stroke-width="1.6" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="110" cy="485" r="11"/>
+    <line x1="110" y1="496" x2="110" y2="522"/>
+    <line x1="90" y1="506" x2="130" y2="506"/>
+    <line x1="110" y1="522" x2="94" y2="544"/>
+    <line x1="110" y1="522" x2="126" y2="544"/>
+  </g>
+  <text x="110" y="562" text-anchor="middle" font-size="12.5" font-weight="700" fill="#000000">System Administrator</text>
+
+  <!-- External Actors Right -->
+  <!-- Embedding / LLM Provider -->
+  <rect x="970" y="180" width="175" height="75" fill="#FFFFFF" stroke="#000000" stroke-width="1.5"/>
+  <text x="1057" y="206" text-anchor="middle" font-size="11.5" font-style="italic" fill="#000000">«external actor»</text>
+  <text x="1057" y="226" text-anchor="middle" font-size="12.5" font-weight="700" fill="#000000">Embedding / LLM</text>
+  <text x="1057" y="243" text-anchor="middle" font-size="12.5" font-weight="700" fill="#000000">Provider</text>
+
+  <!-- Mail Service -->
+  <rect x="970" y="355" width="175" height="75" fill="#FFFFFF" stroke="#000000" stroke-width="1.5"/>
+  <text x="1057" y="381" text-anchor="middle" font-size="11.5" font-style="italic" fill="#000000">«external actor»</text>
+  <text x="1057" y="401" text-anchor="middle" font-size="12.5" font-weight="700" fill="#000000">Mail Service (P1)</text>
+
+  <!-- Lines & Labels -->
+  <line x1="145" y1="100" x2="380" y2="195" stroke="#000000" stroke-width="1.4" marker-end="url(#open-arrow)"/>
+  <text x="255" y="130" text-anchor="middle" font-size="11" fill="#000000">Đăng ký, Đăng nhập, Reset MK</text>
+
+  <line x1="145" y1="240" x2="380" y2="265" stroke="#000000" stroke-width="1.4" marker-end="url(#open-arrow)"/>
+  <text x="260" y="242" text-anchor="middle" font-size="11" fill="#000000">Tạo/xem ticket, Gửi tin nhắn, Đóng/Mở lại</text>
+
+  <line x1="145" y1="380" x2="380" y2="345" stroke="#000000" stroke-width="1.4" marker-end="url(#open-arrow)"/>
+  <text x="260" y="352" text-anchor="middle" font-size="11" fill="#000000">Claim &amp; xử lý ticket, Tra cứu KB, Duyệt AI</text>
+
+  <line x1="145" y1="515" x2="380" y2="425" stroke="#000000" stroke-width="1.4" marker-end="url(#open-arrow)"/>
+  <text x="265" y="488" text-anchor="middle" font-size="11" fill="#000000">Quản lý Agent, Phân công, Quản trị KB, Thống kê</text>
+
+  <line x1="800" y1="220" x2="970" y2="220" stroke="#000000" stroke-width="1.4" marker-end="url(#open-arrow)"/>
+  <text x="885" y="208" text-anchor="middle" font-size="11" fill="#000000">Yêu cầu Vector &amp; Sinh gợi ý RAG</text>
+
+  <line x1="800" y1="392" x2="970" y2="392" stroke="#000000" stroke-width="1.4" marker-end="url(#open-arrow)"/>
+  <text x="885" y="380" text-anchor="middle" font-size="11" fill="#000000">Gửi liên kết đặt lại mật khẩu</text>
+</svg>
+
