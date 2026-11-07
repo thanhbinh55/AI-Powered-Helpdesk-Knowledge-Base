@@ -44,10 +44,10 @@ Collection `Helpdesk v2 / Color` (`VariableCollectionId:49:59`), mode Light `49:
 | `status/success/fg` | `#1E7A4C` | `#62C792` | Chữ, icon: Đã giải quyết, Sẵn sàng, Đã công bố |
 | `status/success/bg` | `#E7F5EE` | `#10291D` | Nền badge, banner |
 | `status/success/border` | `#B5DEC8` | `#1E4A33` | Viền banner |
-| `status/warning/fg` | `#8A5A00` | `#E9B556` | Chữ, icon: Chờ khách phản hồi, ghi chú nội bộ |
+| `status/warning/fg` | `#8A5A00` | `#E9B556` | Chữ, icon: Chờ khách phản hồi, ghi chú nội bộ, thiếu căn cứ |
 | `status/warning/bg` | `#FFF4DB` | `#2C2412` | Nền badge, banner |
 | `status/warning/border` | `#F0D59A` | `#54431C` | Viền banner |
-| `status/danger/fg` | `#C0362C` | `#F2857A` | Chữ, icon: Lỗi, thiếu căn cứ |
+| `status/danger/fg` | `#C0362C` | `#F2857A` | Chữ, icon: Lỗi, tạo gợi ý thất bại |
 | `status/danger/bg` | `#FDECEA` | `#33191A` | Nền badge, banner |
 | `status/danger/border` | `#F3C2BC` | `#5E2B29` | Viền banner |
 | `status/info/fg` | `#1D63A3` | `#79B4EC` | Chữ, icon: Mới, thông tin |
@@ -181,6 +181,7 @@ Nhóm dữ liệu nằm trên thẻ `52:1339` (Components lượt 6, 01/11/2026)
 
 - Agent nhận OPEN trước khi soạn hoặc gọi AI; Customer chỉ xem own/public. Không dùng INTERNAL làm snippet công khai.
 - Tách mở AI và tạo gợi ý. Chèn chỉ sửa PUBLIC draft; có chữ thì xác nhận thay thế; không tự gửi hoặc chuyển trạng thái.
+- Ký hiệu nguồn `[n]` chỉ hiển thị trong ngăn AI và lịch sử; khi chèn vào bản nháp phải bỏ ký hiệu, nên tin gửi Customer không chứa `[n]`. Nguồn vẫn được lưu để truy vết.
 - Draft theo account/ticket/visibility trong phiên; không tự lưu hỗ trợ nhạy cảm vào localStorage. Gửi lỗi giữ chữ, thành công chỉ xóa draft đã gửi.
 - Enter xuống dòng; shortcut gửi, keyboard focus, reduced motion, screen reader và scroll cần kiểm tra trên frontend thật.
 - READY khác published; tài liệu archive không dùng cho gợi ý mới nhưng citation lịch sử giữ snapshot.
