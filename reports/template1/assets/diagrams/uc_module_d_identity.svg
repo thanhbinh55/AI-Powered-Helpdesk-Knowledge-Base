@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 700" width="1160" height="700" font-family="Arial, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <!-- Hollow triangle marker for UML Generalization -->
+    <marker id="uml-generalization" viewBox="0 0 16 16" refX="15" refY="8" markerWidth="12" markerHeight="12" orient="auto">
+      <path d="M 1 2 L 15 8 L 1 14 z" fill="#FFFFFF" stroke="#000000" stroke-width="1.5" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- White Background -->
+  <rect width="1160" height="700" fill="#FFFFFF"/>
+
+  <!-- ==================== SYSTEM BOUNDARY ==================== -->
+  <rect x="330" y="45" width="510" height="600" fill="#FFFFFF" stroke="#000000" stroke-width="1.5"/>
+  <text x="585" y="78" text-anchor="middle" font-size="15" font-weight="700" fill="#000000">
+    Module D — Định danh và Phân quyền
+  </text>
+  <text x="585" y="98" text-anchor="middle" font-size="12.5" font-weight="400" fill="#222222">
+    (Identity &amp; Access Management)
+  </text>
+
+  <!-- ==================== ASSOCIATIONS & GENERALIZATION ==================== -->
+  <!-- Guest -> UC-01 -->
+  <line x1="168" y1="185" x2="425" y2="165" stroke="#000000" stroke-width="1.4"/>
+  <!-- Guest -> UC-16 -->
+  <line x1="168" y1="195" x2="425" y2="270" stroke="#000000" stroke-width="1.4"/>
+
+  <!-- Authenticated User -> UC-02 -->
+  <line x1="168" y1="380" x2="425" y2="375" stroke="#000000" stroke-width="1.4"/>
+  <!-- Authenticated User -> UC-03 -->
+  <line x1="168" y1="395" x2="425" y2="480" stroke="#000000" stroke-width="1.4"/>
+
+  <!-- System Administrator -> UC-04 -->
+  <line x1="168" y1="585" x2="425" y2="585" stroke="#000000" stroke-width="1.4"/>
+
+  <!-- Generalization: System Administrator (child) -> Authenticated User (parent) -->
+  <line x1="140" y1="532" x2="140" y2="462" stroke="#000000" stroke-width="1.4" marker-end="url(#uml-generalization)"/>
+
+  <!-- UC-16 -> Mail Service -->
+  <line x1="745" y1="270" x2="995" y2="270" stroke="#000000" stroke-width="1.4"/>
+
+  <!-- ==================== USE CASES (5 ELLIPSES) ==================== -->
+  <!-- UC-01 -->
+  <ellipse cx="585" cy="165" rx="160" ry="38" fill="#FFFFFF" stroke="#000000" stroke-width="1.5"/>
+  <text x="585" y="160" text-anchor="middle" font-size="13" font-weight="700" fill="#000000">UC-01</text>
+  <text x="585" y="179" text-anchor="middle" font-size="13" font-weight="400" fill="#000000">Đăng ký và đăng nhập hệ thống</text>
+
+  <!-- UC-16 -->
+  <ellipse cx="585" cy="270" rx="160" ry="38" fill="#FFFFFF" stroke="#000000" stroke-width="1.5"/>
+  <text x="585" y="265" text-anchor="middle" font-size="13" font-weight="700" fill="#000000">UC-16</text>
+  <text x="585" y="284" text-anchor="middle" font-size="13" font-weight="400" fill="#000000">Đặt lại mật khẩu</text>
+
+  <!-- UC-02 -->
+  <ellipse cx="585" cy="375" rx="160" ry="38" fill="#FFFFFF" stroke="#000000" stroke-width="1.5"/>
+  <text x="585" y="370" text-anchor="middle" font-size="13" font-weight="700" fill="#000000">UC-02</text>
+  <text x="585" y="389" text-anchor="middle" font-size="13" font-weight="400" fill="#000000">Làm mới phiên và đăng xuất</text>
+
+  <!-- UC-03 -->
+  <ellipse cx="585" cy="480" rx="160" ry="38" fill="#FFFFFF" stroke="#000000" stroke-width="1.5"/>
+  <text x="585" y="475" text-anchor="middle" font-size="13" font-weight="700" fill="#000000">UC-03</text>
+  <text x="585" y="494" text-anchor="middle" font-size="13" font-weight="400" fill="#000000">Quản lý hồ sơ cá nhân và đổi mật khẩu</text>
+
+  <!-- UC-04 -->
+  <ellipse cx="585" cy="585" rx="160" ry="38" fill="#FFFFFF" stroke="#000000" stroke-width="1.5"/>
+  <text x="585" y="580" text-anchor="middle" font-size="13" font-weight="700" fill="#000000">UC-04</text>
+  <text x="585" y="599" text-anchor="middle" font-size="13" font-weight="400" fill="#000000">Quản lý tài khoản Agent</text>
+
+  <!-- ==================== ACTORS (UML STICKMEN) ==================== -->
+  <!-- Actor 1: Guest / Unauthenticated User -->
+  <g stroke="#000000" stroke-width="1.6" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="140" cy="158" r="12"/>
+    <line x1="140" y1="170" x2="140" y2="200"/>
+    <line x1="118" y1="180" x2="162" y2="180"/>
+    <line x1="140" y1="200" x2="122" y2="224"/>
+    <line x1="140" y1="200" x2="158" y2="224"/>
+  </g>
+  <text x="140" y="244" text-anchor="middle" font-size="12.5" font-weight="700" fill="#000000">Guest / Unauthenticated User</text>
+  <text x="140" y="261" text-anchor="middle" font-size="11.5" font-weight="400" fill="#222222">(Người dùng chưa xác thực)</text>
+
+  <!-- Actor 2: Authenticated User -->
+  <g stroke="#000000" stroke-width="1.6" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="140" cy="353" r="12"/>
+    <line x1="140" y1="365" x2="140" y2="395"/>
+    <line x1="118" y1="375" x2="162" y2="375"/>
+    <line x1="140" y1="395" x2="122" y2="419"/>
+    <line x1="140" y1="395" x2="158" y2="419"/>
+  </g>
+  <text x="140" y="438" text-anchor="middle" font-size="12.5" font-weight="700" fill="#000000">Authenticated User</text>
+  <text x="140" y="454" text-anchor="middle" font-size="11.5" font-weight="400" fill="#222222">(Customer / Agent / Admin)</text>
+
+  <!-- Actor 3: System Administrator -->
+  <g stroke="#000000" stroke-width="1.6" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="140" cy="553" r="12"/>
+    <line x1="140" y1="565" x2="140" y2="595"/>
+    <line x1="118" y1="575" x2="162" y2="575"/>
+    <line x1="140" y1="595" x2="122" y2="619"/>
+    <line x1="140" y1="595" x2="158" y2="619"/>
+  </g>
+  <text x="140" y="638" text-anchor="middle" font-size="12.5" font-weight="700" fill="#000000">System Administrator</text>
+  <text x="140" y="654" text-anchor="middle" font-size="11.5" font-weight="400" fill="#222222">(Quản trị viên hệ thống)</text>
+
+  <!-- Secondary Actor: Mail Service -->
+  <g stroke="#000000" stroke-width="1.6" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="1025" cy="243" r="12"/>
+    <line x1="1025" y1="255" x2="1025" y2="285"/>
+    <line x1="1003" y1="265" x2="1047" y2="265"/>
+    <line x1="1025" y1="285" x2="1007" y2="309"/>
+    <line x1="1025" y1="285" x2="1043" y2="309"/>
+  </g>
+  <text x="1025" y="328" text-anchor="middle" font-size="11.5" font-style="italic" fill="#000000">«system»</text>
+  <text x="1025" y="344" text-anchor="middle" font-size="12.5" font-weight="700" fill="#000000">Mail Service</text>
+</svg>

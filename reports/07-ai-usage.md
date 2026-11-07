@@ -2,23 +2,9 @@
 
 > **Dự án:** AI-Powered Helpdesk & Knowledge Base  
 > **Mã nhóm:** Group 04  
-> **Môn học:** Nhập môn Công nghệ Phần mềm (CS10014 / NMCNPM) — Trường ĐHKHTN, ĐHQG-HCM  
-> **Chuẩn quy định:** Quy định về việc sử dụng AI trong học phần — Khoa Công nghệ Thông tin, HCMUS  
-
----
-
-## THÔNG TIN TÀI LIỆU
-
-- **Tiêu đề (Title):** AI Usage Transparency & Accountability Report
-- **Phiên bản (Version):** 1.2.0
-- **Ngày cập nhật (Last Updated):** 2026-10-28
-- **Nhóm trưởng & Giám sát tuân thủ:** `24120269` - `Ngô Viết Thanh Bình` (thanhbinh55)
-- **Danh sách thành viên:**
-  1. `24120269` - `Ngô Viết Thanh Bình` (Git: `thanhbinh55` — Phân hệ D: Identity & Access / Lead)
-  2. `24120083` - `Nguyễn Đức Lãm` (Git: `Lamnguyen-code` — Phân hệ B: Knowledge Base)
-  3. `24120503` - `Phan Gia Phúc` (Git: `t4lf4n` — Phân hệ C: Ticket Management)
-  4. `24120121` - `Lê Quý Phúc` (Git: `Shinkiisme` — Phân hệ A: AI Assistance)
-- **Phạm vi tài liệu:** Ghi nhận minh bạch toàn bộ quá trình sử dụng các công cụ Trí tuệ nhân tạo (LLM, AI Coding Assistant, Prompt-based generators) trong đồ án theo đúng quy chuẩn bắt buộc của Khoa CNTT - HCMUS.
+> **Môn học:** Nhập môn Công nghệ Phần mềm (CS10014) — Trường ĐHKHTN, ĐHQG-HCM  
+> **Kho lưu trữ (Repository):** https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base  
+> **Chuẩn quy định:** Mục 5 Quy định về việc sử dụng AI trong học phần — Khoa Công nghệ Thông tin, HCMUS  
 
 ---
 
@@ -54,7 +40,13 @@ Bảng dưới đây tổng hợp toàn bộ các phiên tương tác với AI t
 | **#08** | 21h30 22/10<br>- 00h30 23/10 | Ngô Viết Thanh Bình<br>`24120269` | Google Gemini (Gemini 3.8 Flash Medium)<br>Google via Antigravity IDE | Xây dựng Prototype Giao diện 3 cột HelpDesk với React & Tailwind CSS (SCRUM-10) | AI sinh các React components mẫu (Queue, Workspace, Chat, Copilot); sinh viên tự cấu hình Tailwind, tối ưu layout Zalo/Linear, tinh chỉnh responsive | [Chi tiết #08](#entry-08) |
 | **#09** | 07h30<br>28/10/2026 | Ngô Viết Thanh Bình<br>`24120269` | Google Gemini (Gemini 3.8 Flash Medium)<br>Google via Antigravity IDE | Rà soát nhất quán đề xuất dự án và tạo bản nộp hoàn thiện tại `reports/submit/` (SCRUM-11) | AI hỗ trợ kiểm tra ngữ pháp tiếng Việt, tính nhất quán của thuật ngữ kỹ thuật; sinh viên kiểm tra chéo với SRS-master.md và tạo file nộp | [Chi tiết #09](#entry-09) |
 | **#10** | 08h20<br>28/10/2026 | Ngô Viết Thanh Bình<br>`24120269` | Google Gemini (Gemini 3.8 Flash Medium)<br>Google via Antigravity IDE | Tái cấu trúc Báo cáo sử dụng AI theo Quy định của Khoa CNTT - HCMUS (SCRUM-11) | AI đối chiếu cấu trúc 7 trường thông tin của Khoa; sinh viên biên soạn bảng ma trận và hệ thống trích dẫn chuẩn cho toàn nhóm | [Chi tiết #10](#entry-10) |
-
+| **#11** | 19h30<br>28/10/2026 | Nguyễn Đức Lãm<br>`24120083` | ChatGPT (GPT-6.1 Sol)<br>OpenAI via chat.openai.com | Rà soát, kiểm tra nội dung của phần 5 | AI kiểm tra và đưa ra những điểm còn chưa rõ ràng, mâu thuẫn với tài liệu gốc (SCRUM-14) | [Chi tiết #11](#entry-11) |
+| **#12** | 26/10/2026<br>- 03/11/2026 | Lê Quý Phúc<br>`24120121` | Claude Code (Claude Opus 5.5), Anthropic<br>Codex, OpenAI | Thiết kế giao diện trên Figma, `docs/design/` | AI hỗ trợ dựng màn hình và component trên Figma theo phương án sinh viên chọn; sinh viên duyệt phương án, đối chiếu SRS và yêu cầu sửa các màn chưa đúng | [Chi tiết #12](#entry-12) |
+| **#13** | 10h00 - 20h30<br>03/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Google Gemini (Gemini 3.8 Flash Medium)<br>Google via Antigravity IDE | Xây dựng Kế hoạch chi tiết Giai đoạn 2 (Template 1 & Cài đặt mã nguồn MVP), Hướng dẫn nhóm và Bộ khung tài liệu (`PLAN_TEMPLATE1_AND_DEVELOPMENT.md`, `tasks_template1.csv`) (SCRUM-16 & SCRUM-T1) | AI hỗ trợ tổng hợp, đối soát yêu cầu kỹ thuật từ SRS-master.md, thiết lập cấu trúc 17 Use Case, phân bổ tải công việc và sinh kịch bản Jira bulk create; sinh viên tự kiểm tra, hiệu chỉnh logic máy trạng thái ticket, cơ chế quét job skip locked của worker, cấu trúc migration Flyway V1-V5 và chốt lịch trình nộp bài | [Chi tiết #13](#entry-13) |
+| **#14** | 03/11/2026<br>(không ghi giờ) | Ngô Viết Thanh Bình<br>`24120269` | Codex<br>OpenAI | Điều chỉnh lịch Template 1 và MVP P0; SRS Mục 17, A.2, G; kế hoạch, guide, CSV và khung UC (SCRUM-16/28/29/30 theo ánh xạ hiện có) | Người dùng yêu cầu chốt Template 1 08/11, code 09–22/11; AI cập nhật file, kiểm tra nhất quán CSV và chạy dry-run. Chưa ghi nhận sinh viên duyệt toàn bộ bản sửa. | [Chi tiết #14](#entry-14) |
+| **#15** | 03/11/2026<br>(không ghi giờ) | Ngô Viết Thanh Bình<br>`24120269` | Codex<br>OpenAI | Rà soát feedback, phân task và baseline kỹ thuật; SRS, kế hoạch/guide/CSV, contract, mẫu PR và báo cáo khung | AI sửa mâu thuẫn ID/schema/quyền/transaction và chia owner; kiểm tra cấu trúc/truy vết và Jira dry-run. Chưa có kiểm thử ứng dụng, xác nhận giờ khả dụng hoặc duyệt toàn bộ của sinh viên. | [Chi tiết #15](#entry-15) |
+| **#16** | 03/11/2026<br>(không ghi giờ) | Ngô Viết Thanh Bình<br>`24120269` | Codex<br>OpenAI | Rà soát khả năng nhận task; TASK_PLAYBOOK, TEAM_READINESS, CSV và các file khung | AI bổ sung nguồn/bước/đầu ra/người nhận, tách gate bắt đầu/chốt, thêm workflow/mockup/ready/submit/model/QA task. Đã kiểm tra 31 task/2 Epic và dry-run; chưa xác minh board, giờ khả dụng hay nghiệm thu ứng dụng. | [Chi tiết #16](#entry-16) |
+| **#17** | 03/11/2026<br>(không ghi giờ) | Ngô Viết Thanh Bình<br>`24120269` | Codex<br>OpenAI | Đối chiếu mẫu Template2/3 và bài PDF năm trước; sửa phân loại deliverable và bổ sung thiết kế song song code | AI sửa lỗi trước đây gán test report choTemplate2; thêm EpicT2/T3, taskdesign/cases/release và khung báo cáo/catalog25ca. Đã kiểm tra cấu trúc/dry-run, chưa viết xong bài nộp hoặc chạy25ca. | [Chi tiết #17](#entry-17) |
 ---
 
 ## 3. CHI TIẾT CÁC PHIÊN SỬ DỤNG AI (CHUẨN TRÍCH DẪN QUY ĐỊNH)
@@ -63,56 +55,56 @@ Mỗi mục dưới đây tuân thủ nghiêm ngặt **Mục 5.B (Ghi chú sử 
 
 ---
 
-### <a id="entry-01"></a>📌 Phiên ghi nhận #01: Thiết lập cấu trúc Repository và Công cụ CI/Git hooks
+### <a id="entry-01"></a>Phiên ghi nhận #01: Thiết lập cấu trúc Repository và Công cụ CI/Git hooks
 - **Trích dẫn chuẩn:**
   > **Google Gemini.** *Gemini 3.8 Flash Medium, Google, via Antigravity IDE*, truy cập *09h00 - 17h30 ngày 19/10/2026*, prompt: *“Tạo bộ khung cấu trúc dự án phần mềm theo mô hình Modular Monolith React + Spring Boot, script commit-msg git hook kiểm tra định dạng commit có chứa Jira Issue Key dạng [A-Z]+-[0-9]+, và kịch bản Python render báo cáo Markdown sang HTML tự chứa kèm script đóng gói đồ án zip”*, dùng để hỗ trợ thiết lập hạ tầng dự án ban đầu cho task SCRUM-6, AI sinh đoạn mã shell script git hook và khung cấu trúc thư mục, sinh viên tự kiểm tra, bổ sung logic an toàn đường dẫn, hoàn thiện regex kiểm tra quy cách commit tiếng Việt và chạy kiểm thử dry-run.
 - **Thành viên chịu trách nhiệm:** `24120269` - Ngô Viết Thanh Bình (DevOps / Lead)
 - **Chi tiết đối soát:**
   - *Nội dung AI tạo:* Mẫu shell script `commit-msg` cơ bản, script `render_reports.py` và kịch bản đóng gói `package_submission.py`.
   - *Nội dung tự thực hiện & kiểm chứng:* Bổ sung xử lý UTF-8 tiếng Việt, tinh chỉnh thông báo lỗi song ngữ Việt - Anh, cấu hình quyền thực thi `chmod +x` và chạy kiểm thử trực tiếp trên zsh/git client.
-  - *Minh chứng:* File script tại [.githooks/commit-msg](file:///.githooks/commit-msg), [scripts/package_submission.py](file:///scripts/package_submission.py) và commit Git `[09ae70cf]`, `[c4496214]`.
+  - *Minh chứng:* Nhật ký commit Git `[09ae70cf]` và `[c4496214]`.
 
 ---
 
-### <a id="entry-02"></a>📌 Phiên ghi nhận #02: Soạn thảo tài liệu Hướng dẫn làm việc nhóm & Quy trình Template 0
+### <a id="entry-02"></a>Phiên ghi nhận #02: Soạn thảo tài liệu Hướng dẫn làm việc nhóm & Quy trình Template 0
 - **Trích dẫn chuẩn:**
   > **Google Gemini.** *Gemini 3.8 Flash Medium, Google, via Antigravity IDE*, truy cập *18h30 ngày 19/10/2026*, prompt: *“Xây dựng tài liệu hướng dẫn quy trình làm việc Agile Scrum chi tiết cho nhóm sinh viên 4 người thực hiện đồ án NMCNPM theo Template 0, bao gồm quy định đặt tên nhánh git, cú pháp commit kèm Jira key, quy trình Review chéo và các mốc deadline nội bộ”*, dùng để hỗ trợ soạn thảo tài liệu `TEAM_GUIDE_TEMPLATE0.md` cho task SCRUM-7, AI sinh khung tài liệu hướng dẫn và các bước quy trình, sinh viên đối chiếu lịch trình môn học và phân công cụ thể cho từng thành viên theo ma trận module.
 - **Thành viên chịu trách nhiệm:** `24120269` - Ngô Viết Thanh Bình (DevOps / Lead)
 - **Chi tiết đối soát:**
   - *Nội dung AI tạo:* Khung tài liệu hướng dẫn Scrum cơ bản và quy ước Git Flow.
   - *Nội dung tự thực hiện & kiểm chứng:* Gán chính xác địa chỉ email Jira, tài khoản Git, mã số sinh viên, và phân công vai trò 4 phân hệ (A, B, C, D) cho từng thành viên; thiết lập các mốc thời gian chi tiết từ ngày 19/10 đến 29/10/2026.
-  - *Minh chứng:* Tệp [TEAM_GUIDE_TEMPLATE0.md](file:///TEAM_GUIDE_TEMPLATE0.md) và commit Git `[72212cb5]`.
+  - *Minh chứng:* Nhật ký commit Git `[72212cb5]`.
 
 ---
 
-### <a id="entry-03"></a>📌 Phiên ghi nhận #03: Soạn thảo bản nháp Mục 1, 2 và 3.2 Đề xuất dự án (SCRUM-8)
+### <a id="entry-03"></a>Phiên ghi nhận #03: Soạn thảo bản nháp Mục 1, 2 và 3.2 Đề xuất dự án (SCRUM-8)
 - **Trích dẫn chuẩn:**
   > **ChatGPT.** *GPT-6, OpenAI, chat.openai.com*, truy cập *ngày 19/10/2026*, input: *“Template 0, hướng dẫn nhóm, SRS và phần được phân công”*, dùng để hỗ trợ tạo bản nháp Project Proposal cho SCRUM-8 (Mục 1, Mục 2 và Mục 3.2), AI sinh bản nháp tham khảo cho trang bìa, Mục 1, Mục 2 và Mục 3.2, sinh viên tự đối chiếu mẫu, SRS và kiểm tra nội dung trước khi đưa vào bản nộp.
 - **Thành viên chịu trách nhiệm:** `24120121` - Lê Quý Phúc (Phân hệ AI Assistance)
 - **Chi tiết đối soát:**
   - *Nội dung AI tạo:* Bản nháp tham khảo cho trang bìa, Mục 1, Mục 2 và Mục 3.2.
-  - *Nội dung tự thực hiện & kiểm chứng:* Đối chiếu mẫu template giảng viên và SRS-master.md trước khi đưa vào bản nộp. *(Lưu ý: Thành viên cần cập nhật bổ sung câu prompt nguyên văn và giờ truy cập chi tiết)*.
+  - *Nội dung tự thực hiện & kiểm chứng:* Đối chiếu mẫu template giảng viên và SRS-master.md trước khi đưa vào bản nộp.
   - *Minh chứng:* Nhật ký commit Git `[520a0f44]` ngày 19/10/2026.
 
 ---
 
-### <a id="entry-04"></a>📌 Phiên ghi nhận #04: Rà soát Phụ lục D và Bảng chức năng (SCRUM-9)
+### <a id="entry-04"></a>Phiên ghi nhận #04: Rà soát Phụ lục D và Bảng chức năng (SCRUM-9)
 - **Trích dẫn chuẩn:**
   > **ChatGPT.** *GPT-6, OpenAI, chat.openai.com*, truy cập *ngày 22/10/2026*, input: *“Nội dung từ reports/SRS-master.md bao gồm Phụ lục D, Mục 3.3, 4, 5, 7, 8”*, dùng để hỗ trợ review Phụ lục D và Mục 3.1.1, AI sinh các tham chiếu bổ sung, sinh viên đối chiếu các tham chiếu với nội dung của các cột Nhu cầu/Yêu cầu, làm rõ một số nội dung của cột Nhu cầu, bổ sung các tham chiếu hiện tại có liên quan, gợi ý bổ sung thêm các tham chiếu chưa có để làm rõ nội dung của 1 số chức năng.
 - **Thành viên chịu trách nhiệm:** `24120503` - Phan Gia Phúc (Phân hệ Ticket Management)
 - **Chi tiết đối soát:**
   - *Nội dung AI tạo:* Các tham chiếu bổ sung.
-  - *Nội dung tự thực hiện & kiểm chứng:* Đối chiếu các tham chiếu với nội dung của các cột Nhu cầu/Yêu cầu; làm rõ nội dung cột Nhu cầu, bổ sung tham chiếu có liên quan. *(Lưu ý: Thành viên cần cập nhật bổ sung câu prompt nguyên văn và giờ truy cập chi tiết)*.
+  - *Nội dung tự thực hiện & kiểm chứng:* Đối chiếu các tham chiếu với nội dung của các cột Nhu cầu/Yêu cầu; làm rõ nội dung cột Nhu cầu, bổ sung tham chiếu có liên quan.
   - *Minh chứng:* Nhật ký commit Git `[0bbf775e]` ngày 22/10/2026.
 
 ---
 
-### <a id="entry-05"></a>📌 Phiên ghi nhận #05: Soạn thảo bản nháp Kiến trúc và Kế hoạch phát triển (SCRUM-10)
+### <a id="entry-05"></a>Phiên ghi nhận #05: Soạn thảo bản nháp Kiến trúc và Kế hoạch phát triển (SCRUM-10)
 - **Trích dẫn chuẩn:**
   > **ChatGPT.** *GPT-6.1 Sol, OpenAI, chat.openai.com*, truy cập *09h30 ngày 22/10/2026*, prompt: *“chào bạn, tôi đang cần viết phần 3.1.2, kiến trúc tổng thể phần mềm, với nguồn tài liệu được lấy ở Trình bày kiến trúc tổng thể đáp ứng danh sách chức năng ở mục 3.1.1 (sơ đồ kiến trúc + giải thích các thành phần và luồng vận hành). Tham khảo Mục 9.1, 9.3, 9.4, 12.2 và Phụ lục trong reports/SRS-master.md, hãy dùng skill humanizer viết cho tôi phần này một cách tự nhiên nhất, cho tôi một cell .md để tôi chèn vào file của mình, không tự ý thay đổi bất kì file nào; tiếp tục với phần Kế hoạch phát triển Trình bày cụ thể kế hoạch phát triển phần mềm qua 5 giai đoạn cùng thành phẩm cụ thể của từng giai đoạn. Tham khảo Mục 14, 15, 17, 21 và Phụ lục G trong reports/SRS-master.md (lấy chuẩn ngày tháng theo phụ lục G)”*, dùng để hỗ trợ tạo bản nháp Project Proposal cho phần 3.1.2 và phần 4, AI sinh bản nháp cho phần 3.1.2 và phần 4, sinh viên đối chiếu với Phụ lục E và Phụ lục G trước khi đưa vào bản nộp, tinh chỉnh thuật ngữ, chuẩn hóa mốc ngày tháng theo lịch tuần.
 - **Thành viên chịu trách nhiệm:** `24120083` - Nguyễn Đức Lãm (Phân hệ Knowledge Base)
 - **Chi tiết các câu prompt nguyên văn do thành viên khai báo (trích lục từ commit Git `[5405de76]`):**
-  1. *"- chào bạn, tôi đang cần viết phần 3.1.2, kiến trúc tổng thể phần mềm, với nguồn tài liệu được lấy ở Trình bày kiến trúc tổng thể đáp ứng danh sách chức năng ở mục 3.1.1 (sơ đồ kiến trúc + giải thích các thành phần và luồng vận hành). Tham khảo Mục 9.1, 9.3, 9.4, 12.2 và Phụ lục trong reports/SRS-master.md, hãy dùng skill [$humanizer:humanizer](/home/lam/.codex/skills/humanizer/SKILL.md) viết cho tôi phần này một cách tự nhiên nhất, cho tôi một cell .md để tôi chèn vào file của mình, không tự ý thay đổi bất kì file nào"*
+  1. *"- chào bạn, tôi đang cần viết phần 3.1.2, kiến trúc tổng thể phần mềm, với nguồn tài liệu được lấy ở Trình bày kiến trúc tổng thể đáp ứng danh sách chức năng ở mục 3.1.1 (sơ đồ kiến trúc + giải thích các thành phần và luồng vận hành). Tham khảo Mục 9.1, 9.3, 9.4, 12.2 và Phụ lục trong reports/SRS-master.md, hãy dùng skill $humanizer:humanizer viết cho tôi phần này một cách tự nhiên nhất, cho tôi một cell .md để tôi chèn vào file của mình, không tự ý thay đổi bất kì file nào"*
   2. *"- ok, tiếp tục với phần Kế hoạch phát triển Trình bày cụ thể kế hoạch phát triển phần mềm qua 5 giai đoạn cùng thành phẩm cụ thể của từng giai đoạn. Tham khảo Mục 14, 15, 17, 21 và Phụ lục G trong reports/SRS-master.md (lấy chuẩn ngày tháng theo phụ lục G)"*
 - **Chi tiết đối soát:**
   - *Nội dung AI tạo:* Bản nháp cho phần 3.1.2 và phần 4.
@@ -121,7 +113,7 @@ Mỗi mục dưới đây tuân thủ nghiêm ngặt **Mục 5.B (Ghi chú sử 
 
 ---
 
-### <a id="entry-06"></a>📌 Phiên ghi nhận #06: Chuẩn hóa mục lục Proposal theo mẫu Word của Giảng viên & Hợp nhất nội dung nhóm
+### <a id="entry-06"></a>Phiên ghi nhận #06: Chuẩn hóa mục lục Proposal theo mẫu Word của Giảng viên & Hợp nhất nội dung nhóm
 - **Trích dẫn chuẩn:**
   > **Google Gemini.** *Gemini 3.8 Flash Medium, Google, via Antigravity IDE*, truy cập *00h30 ngày 22/10/2026*, prompt: *“Đối chiếu cấu trúc mục lục của file 00-project-proposal.md với bản mẫu Word chính thức của Giảng viên môn NMCNPM HCMUS, định dạng lại toàn bộ heading từ Mục 1 đến Mục 5 đảm bảo chuẩn phân cấp, và hỗ trợ giải quyết xung đột khi tích hợp nội dung của các thành viên”*, dùng để hỗ trợ chuẩn hóa cấu trúc đề xuất dự án cho task SCRUM-7 & SCRUM-11, AI sinh mục lục gợi ý và phát hiện các mục bị lệch cấu trúc, sinh viên tự kiểm tra, hợp nhất nội dung từ nhánh của 3 thành viên và căn chỉnh đúng số thứ tự mục.
 - **Thành viên chịu trách nhiệm:** `24120269` - Ngô Viết Thanh Bình (DevOps / Lead)
@@ -132,7 +124,7 @@ Mỗi mục dưới đây tuân thủ nghiêm ngặt **Mục 5.B (Ghi chú sử 
 
 ---
 
-### <a id="entry-07"></a>📌 Phiên ghi nhận #07: Kế hoạch nhân sự và Dự toán ngân sách thực tế có kiểm chứng
+### <a id="entry-07"></a>Phiên ghi nhận #07: Kế hoạch nhân sự và Dự toán ngân sách thực tế có kiểm chứng
 - **Trích dẫn chuẩn:**
   > **Google Gemini.** *Gemini 3.8 Flash Medium, Google, via Antigravity IDE*, truy cập *15h30 ngày 22/10/2026*, prompt: *“Đối chiếu hồ sơ Group 04 kiến trúc Modular Monolith React + Spring Boot + Postgres/pgvector chạy 1 VPS DigitalOcean 48 USD/tháng, Namecheap domain, OpenAI GPT-4o-mini/embedding, Cloudflare SSL 0 đồng; tính toán bảng dự toán chi phí thực tế có nguồn tham chiếu chính thống, làm tròn số lẻ và trình bày ma trận 4 thành viên cùng tham gia 5 công đoạn SDLC”*, dùng để hỗ trợ hoàn thiện Mục 5.1 và 5.2 trong `00-project-proposal.md`, AI sinh khung bảng chi phí và công thức quy đổi tiền tệ, sinh viên tra cứu trực tiếp bảng giá nhà cung cấp, loại bỏ các diễn đạt học đường, chuẩn hóa định mức API thực tế và bổ sung nguồn trích dẫn đầy đủ.
 - **Thành viên chịu trách nhiệm:** `24120269` - Ngô Viết Thanh Bình (DevOps / Lead)
@@ -148,40 +140,146 @@ Mỗi mục dưới đây tuân thủ nghiêm ngặt **Mục 5.B (Ghi chú sử 
 - **Chi tiết đối soát:**
   - *Nội dung AI tạo:* Khung bảng tính ngân sách dự toán, công thức tính chi phí token đầu vào/đầu ra.
   - *Nội dung tự thực hiện & kiểm chứng:* Tra cứu trực tiếp bảng giá DigitalOcean Droplets, Namecheap TLD, OpenAI API docs và Cloudflare SSL; làm tròn số lẻ thực tế (~47.840.000 VNĐ bao gồm dự phòng 10%); đảm bảo cả 4 thành viên tham gia đầy đủ 5 công đoạn SDLC theo yêu cầu bắt buộc của Giảng viên.
-  - *Minh chứng:* Tệp [reports/00-project-proposal.md](file:///reports/00-project-proposal.md#L383-L413) và commit Git `[e571f12b]`, `[f5da77da]`.
+  - *Minh chứng:* Nhật ký commit Git `[e571f12b]` và `[f5da77da]`.
 
 ---
 
-### <a id="entry-08"></a>📌 Phiên ghi nhận #08: Xây dựng & Tinh chỉnh Prototype Giao diện 3 cột HelpDesk với React & Tailwind CSS
+### <a id="entry-08"></a>Phiên ghi nhận #08: Xây dựng & Tinh chỉnh Prototype Giao diện 3 cột HelpDesk với React & Tailwind CSS
 - **Trích dẫn chuẩn:**
   > **Google Gemini.** *Gemini 3.8 Flash Medium, Google, via Antigravity IDE*, truy cập *21h30 ngày 22/10/2026 đến 00h30 ngày 23/10/2026*, prompt: *“Khởi tạo ứng dụng React + TypeScript + Tailwind CSS cho hệ thống AI-Powered Helpdesk theo bố cục 3 cột (Sidebar điều hướng, Ticket Queue list hỗ trợ thu phóng kiểu Linear/Notion, Workspace xử lý ticket tích hợp AI Copilot bar góc dưới, Customer Portal chat hỗ trợ phím tắt Enter gửi và Shift+Enter xuống dòng, bộ lọc bài viết Knowledge Base và trang quản trị người dùng Admin)”*, dùng để hỗ trợ phát triển nguyên mẫu giao diện nhanh (UI Prototype) phục vụ minh họa cho đề xuất dự án (SCRUM-10), AI sinh mã nguồn khởi tạo các component React và dữ liệu mock mẫu, sinh viên tự cấu hình Tailwind, tối ưu lại trải nghiệm người dùng tương tự Zalo/Facebook Messenger, sửa lỗi chuyển tab ticket, chụp 11 ảnh minh chứng và đóng gói thành trang `UI_SHOWCASE.html`.
 - **Thành viên chịu trách nhiệm:** `24120269` - Ngô Viết Thanh Bình (DevOps / Lead)
 - **Chi tiết đối soát:**
   - *Nội dung AI tạo:* Khung các component `TicketWorkspace.tsx`, `TicketQueue.tsx`, `CustomerPortal.tsx`, `AdminUserView.tsx` và file dữ liệu `mock/data.ts`.
   - *Nội dung tự thực hiện & kiểm chứng:* Tối ưu bố cục responsive, loại bỏ các nút AI trùng lặp, khắc phục lỗi mất thanh rail khi co giãn danh sách ticket, bổ sung xử lý sự kiện bàn phím gửi tin nhắn, tách nhỏ subcomponents theo kiến trúc modular, chạy thử nghiệm trực tiếp trên trình duyệt bằng `npm run dev`.
-  - *Minh chứng:* Thư mục mã nguồn `frontend/src/`, báo cáo [reports/UI_SHOWCASE.html](file:///reports/UI_SHOWCASE.html), 11 ảnh chụp màn hình trong `reports/assets/ui/`, và chuỗi commit Git `[f127d244]`, `[a9f542d2]`, `[de9a6ecd]`, `[e4d5447f]`, `[dac005cd]`, `[d82788cd]`.
+  - *Minh chứng:* Chuỗi commit Git `[f127d244]`, `[a9f542d2]`, `[de9a6ecd]`, `[e4d5447f]`, `[dac005cd]`, `[d82788cd]`.
 
 ---
 
-### <a id="entry-09"></a>📌 Phiên ghi nhận #09: Rà soát nhất quán đề xuất dự án và tạo bản nộp hoàn thiện
+### <a id="entry-09"></a>Phiên ghi nhận #09: Rà soát nhất quán đề xuất dự án và tạo bản nộp hoàn thiện
 - **Trích dẫn chuẩn:**
   > **Google Gemini.** *Gemini 3.8 Flash Medium, Google, via Antigravity IDE*, truy cập *07h30 ngày 28/10/2026*, prompt: *“Rà soát toàn bộ văn bản 00-project-proposal.md để phát hiện các lỗi chính tả, câu từ không chuẩn học thuật, các ghi chú nháp còn sót lại; đối chiếu tính nhất quán của số liệu chi phí, ngày tháng các sprint và phân công module với tài liệu SRS-master.md”*, dùng để hỗ trợ rà soát chất lượng trước khi nộp đề xuất dự án (SCRUM-11), AI sinh danh sách các điểm cần làm rõ và gợi ý hiệu chỉnh câu từ, sinh viên tự đối chiếu lại từng số liệu, làm sạch các dòng ghi chú nội bộ và tạo bản sao chính thức tại `reports/submit/00-project-proposal.md`.
 - **Thành viên chịu trách nhiệm:** `24120269` - Ngô Viết Thanh Bình (DevOps / Lead)
 - **Chi tiết đối soát:**
   - *Nội dung AI tạo:* Gợi ý các vị trí câu từ có thể tối ưu diễn đạt và lưu ý định dạng bảng.
   - *Nội dung tự thực hiện & kiểm chứng:* Đọc soát toàn bộ tài liệu hơn 400 dòng, đảm bảo 100% số liệu chi phí khớp với bảng 5.2, đảm bảo 30 User Stories khớp với SRS-master, kiểm tra tính hợp lệ của bản nộp.
-  - *Minh chứng:* Tệp [reports/submit/00-project-proposal.md](file:///reports/submit/00-project-proposal.md) và commit Git `[9f7b9920]` ngày 28/10/2026.
+  - *Minh chứng:* Nhật ký commit Git `[9f7b9920]` ngày 28/10/2026.
 
 ---
 
-### <a id="entry-10"></a>📌 Phiên ghi nhận #10: Tái cấu trúc Báo cáo sử dụng AI theo Quy định của Khoa CNTT - HCMUS
+### <a id="entry-10"></a>Phiên ghi nhận #10: Tái cấu trúc Báo cáo sử dụng AI theo Quy định của Khoa CNTT - HCMUS
 - **Trích dẫn chuẩn:**
   > **Google Gemini.** *Gemini 3.8 Flash Medium, Google, via Antigravity IDE*, truy cập *08h20 ngày 28/10/2026*, prompt: *“Phân tích tài liệu Quy định về việc sử dụng AI của Khoa CNTT Trường ĐHKHTN TP.HCM (học phần Tư duy tính toán CS10014), tái cấu trúc bảng theo dõi AI hiện tại thành bảng ma trận chuẩn không bị vỡ layout khi render HTML/PDF, và trích dẫn chi tiết từng phiên sử dụng tuân thủ đủ 7 yêu cầu bắt buộc”*, dùng để chuẩn hóa báo cáo sử dụng AI theo chuẩn bắt buộc của nhà trường (SCRUM-11), AI đề xuất cấu trúc phân chia 2 tầng (Bảng tổng hợp nhanh + Bản ghi trích dẫn chi tiết), sinh viên tự biên soạn nội dung, kiểm tra đối soát với toàn bộ lịch sử commit Git và xây dựng form mẫu cho nhóm.
 - **Thành viên chịu trách nhiệm:** `24120269` - Ngô Viết Thanh Bình (DevOps / Lead)
 - **Chi tiết đối soát:**
   - *Nội dung AI tạo:* Cấu trúc phân cấp tài liệu và gợi ý định dạng bảng Markdown tương thích bộ sinh HTML.
   - *Nội dung tự thực hiện & kiểm chứng:* Bóc tách các prompt dài trước đây khỏi ô bảng, trích lục lịch sử commit của cả 4 thành viên, chạy script `render_reports.py` để xác thực tính tương thích hiển thị trên trình duyệt và bản in PDF.
-  - *Minh chứng:* Tệp [reports/07-ai-usage.md](file:///reports/07-ai-usage.md) và commit Git `[b952c039]` ngày 28/10/2026.
+  - *Minh chứng:* Nhật ký commit Git `[b952c039]` ngày 28/10/2026.
+
+---
+
+### <a id="entry-11"></a>Phiên ghi nhận #11: Rà soát, kiểm tra nội dung của phần 5
+- **Trích dẫn chuẩn:**
+  > **ChatGPT.** *GPT-6.1 Sol, OpenAI, chat.openai.com*, truy cập *19h30 ngày 28/10/2026*, prompt: *“đây là nội dung phần 5 do bạn tôi viết bạn hãy đọc, và kiểm tra lại thật kỹ xem 1. có chỗ nào bị mâu thuẫn so với file SRS không theo nội dung tham khảo như sau: # 5. Kế hoạch nhân sự & chi phí\
+   \> \*Ghi chú nguồn nguyên liệu:\* Cấu trúc nhân sự toàn dự án và liệt kê các khoản chi phí dự kiến. Tham khảo Mục 16, 16.1, \*\*Phụ lục H\*\* và \*\*Phụ lục I\*\* trong \`reports/SRS-master.md\`.\
+   \
+   \*(Nội dung do \`Ngô Viết Thanh Bình\` biên soạn theo Jira \`SCRUM-11\`)\*\
+   \
+   \### 5.1. Cấu trúc nhân sự\
+   \> \*Ghi chú nguồn nguyên liệu:\* Ma trận vai trò, mô tả trách nhiệm và người phụ trách. Tham khảo \*\*Phụ lục H\*\* trong \`reports/SRS-master.md\`.\
+   \
+   \### 5.2. Kế hoạch chi phí\
+   \> \*Ghi chú nguồn nguyên liệu:\* Bảng tổng hợp chi phí nhân sự, hạ tầng cloud, API LLM, công cụ và dự phòng rủi ro. Tham khảo \*\*Phụ lục I\*\* trong \`reports/SRS-master.md\`. 2. có chỗ nào cách viết bị quá máy móc, theo kiẻu của AI quá không, dùng skill $humanizer:humanizer để gợi ý cho tôi các sửa(chỉ gợi ý chỗ bị lỗi và cách sửa, không tự sửa)”*
+
+- **Thành viên chịu trách nhiệm:** `24120083` - Nguyễn Đức Lãm (Phân hệ Knowledge Base)
+- **Chi tiết các câu prompt nguyên văn do thành viên khai báo:**
+  1. *"- đây là nội dung phần 5 do bạn tôi viết bạn hãy đọc, và kiểm tra lại thật kỹ xem có chỗ nào bị mâu thuẫn so với file SRS không theo nội dung tham khảo như sau: # 5. Kế hoạch nhân sự & chi phí\
+   \> \*Ghi chú nguồn nguyên liệu:\* Cấu trúc nhân sự toàn dự án và liệt kê các khoản chi phí dự kiến. Tham khảo Mục 16, 16.1, \*\*Phụ lục H\*\* và \*\*Phụ lục I\*\* trong \`reports/SRS-master.md\`.\
+   \
+   \*(Nội dung do \`Ngô Viết Thanh Bình\` biên soạn theo Jira \`SCRUM-11\`)\*\
+   \
+   \### 5.1. Cấu trúc nhân sự\
+   \> \*Ghi chú nguồn nguyên liệu:\* Ma trận vai trò, mô tả trách nhiệm và người phụ trách. Tham khảo \*\*Phụ lục H\*\* trong \`reports/SRS-master.md\`.\
+   \
+   \### 5.2. Kế hoạch chi phí\
+   \> \*Ghi chú nguồn nguyên liệu:\* Bảng tổng hợp chi phí nhân sự, hạ tầng cloud, API LLM, công cụ và dự phòng rủi ro. Tham khảo \*\*Phụ lục I\*\* trong \`reports/SRS-master.md\`.
+ có chỗ nào cách viết bị quá máy móc, theo kiẻu của AI quá không, dùng skill $humanizer:humanizer để gợi ý cho tôi các sửa(chỉ gợi ý chỗ bị lỗi và cách sửa, không tự sửa)"*
+  2. *"nhìn chung, thì phần 5.1 đang mô tả quá chi tiết, mở rộng so với bản SRS đúng không"*
+- **Chi tiết đối soát:**
+  - *Nội dung AI tạo:* Nhận xét cho phần 5.
+  - *Nội dung tự thực hiện & kiểm chứng:* Kiểm chứng và đối chiếu với mục 16., 16.1, phụ lục H, phụ lục I trong file SRS-master.md.
+  - *Minh chứng:* Phiên rà soát phản biện được thực hiện trực tiếp trên bản thảo Google Docs nội bộ của nhóm (không phát sinh commit mã nguồn riêng trên Git).
+
+---
+
+### <a id="entry-12"></a>Phiên ghi nhận #12: Thiết kế giao diện Helpdesk trên Figma
+- **Trích dẫn chuẩn:**
+  > **Claude Code.** *Claude Opus 5.5, Anthropic, Claude Code trong VS Code*; **Codex.** *OpenAI*; truy cập *từ 26/10/2026 đến 03/11/2026*, prompt (tóm lược): *“Dựng giao diện Helpdesk trên Figma qua plugin Figwright theo phương án A ‘Bàn làm việc yên tĩnh’ (Be Vietnam Pro, xanh coban, Light/Dark), bám SRS, chỉ dùng biến/style/component; sau đó rà soát và sửa các màn đã dựng”*, dùng để hỗ trợ thiết kế giao diện cho ba vai trò Customer, Agent, Admin, AI sinh màn hình, component và tài liệu mô tả trên Figma, sinh viên chọn phương án, duyệt đặc tả, đối chiếu từng màn với SRS và yêu cầu sửa các chỗ chưa đúng.
+- **Thành viên chịu trách nhiệm:** `24120121` - Lê Quý Phúc (Phân hệ A - AI Assistance)
+- **Chi tiết đối soát:**
+  - *Nội dung AI tạo:* Màn hình và component giao diện trên Figma, ảnh chụp và tài liệu mô tả trong `docs/design/`.
+  - *Nội dung tự thực hiện & kiểm chứng:* Chọn phương án thiết kế, duyệt đặc tả luồng, xem lại từng màn trên Figma, đối chiếu quyền và trạng thái ticket với SRS, kiểm tra tương phản Light/Dark.
+  - *Minh chứng:* Thư mục `docs/design/` (ảnh từng màn, kết quả kiểm tra trong `docs/design/kiem-tra/`).
+
+---
+
+### <a id="entry-13"></a>Phiên ghi nhận #13: Xây dựng Kế hoạch chi tiết Giai đoạn 2 (Template 1 & Cài đặt mã nguồn MVP) & Bộ khung tài liệu
+- **Trích dẫn chuẩn:**
+  > **Google Gemini.** *Gemini 3.8 Flash Medium, Google, via Antigravity IDE*, truy cập *10h00 - 20h30 ngày 03/11/2026*, prompt: *“Dựa vào SRS-master.md và các phản hồi rà soát kỹ thuật (5 trạng thái ticket, worker quét job SKIP LOCKED retry <= 3, 41 FRs, 17 Use Cases chuẩn hóa, tách Flyway V1-V5, interface chuẩn SRS), xây dựng kế hoạch hành động toàn diện cho Giai đoạn 2 (Template 1 và code MVP 4 module), thiết lập sổ tay hướng dẫn nhóm theo quy trình 2 giai đoạn Google Docs -> Git Markdown, chuẩn hóa danh mục task CSV cho Jira bulk create, và tạo cấu trúc thư mục rỗng reports/template1/”*, dùng để lập kế hoạch tổng thể và thiết lập hạ tầng quản trị Giai đoạn 2 (SCRUM-16 & SCRUM-T1), AI sinh bản nháp kế hoạch chi tiết, sơ đồ Mermaid, quy chuẩn Git/Jira và kịch bản CSV, sinh viên tự đối soát từng điều khoản SRS, chuẩn hóa sơ đồ UML theo chuẩn khóa trước (lưu .drawio kèm .svg), cân bằng khối lượng công việc giữa các thành viên và trực tiếp kiểm thử dry-run kịch bản nạp task Jira.
+- **Thành viên chịu trách nhiệm:** `24120269` - Ngô Viết Thanh Bình (DevOps / Lead)
+- **Chi tiết đối soát:**
+  - *Nội dung AI tạo:* Khung tài liệu `PLAN_TEMPLATE1_AND_DEVELOPMENT.md`, `TEAM_GUIDE_TEMPLATE1.md`, file backlog `scripts/jira/tasks_template1.csv` và cấu trúc thư mục `reports/template1/`.
+  - *Nội dung tự thực hiện & kiểm chứng:* Rà soát loại bỏ các use case và phân hệ tự bịa, chuẩn hóa thuật ngữ chuyên ngành (Module, Guest, Customer, Agent, Admin, System Worker), hiệu chỉnh mũi tên UML extend/include, tách rời migration Flyway độc lập, kiểm tra dry-run script Python tạo issue Jira.
+  - *Minh chứng:* File tài liệu kế hoạch `PLAN_TEMPLATE1_AND_DEVELOPMENT.md`, `TEAM_GUIDE_TEMPLATE1.md` và commit Git tương ứng.
+
+---
+
+### <a id="entry-14"></a>Phiên ghi nhận #14: Điều chỉnh deadline Template 1 và kế hoạch cài đặt MVP
+
+- **Công cụ:** Codex, OpenAI; phiên làm việc trong repository ngày 03/11/2026. Không tự suy đoán phiên bản model hoặc giờ truy cập.
+- **Prompt người dùng:** “vậy tôi nghĩ toàn bộ deadline template1 sẽ được thực hiện từ giờ cho đến 8/11 chốt. Và tất cả kế hoạch của phần code, bạn điều chỉnh và dời cho tôi thực hiện ngay sau đó từ 9/11 - 22/11. Bạn thấy sao”.
+- **Người yêu cầu/chịu trách nhiệm đối soát:** Ngô Viết Thanh Bình (`24120269`).
+- **Kết quả AI tạo:** Đồng bộ SRS Mục 17, A.2, G.2/G.5; kế hoạch tổng thể; sổ tay; CSV backlog và khung UC theo mốc Template 1 chốt 23:59 08/11, cài đặt P0 09–22/11. Thêm mốc tích hợp sớm và chuyển cài đặt P1 sang backlog sau 22/11; giữ phạm vi đặc tả P1.
+- **Kiểm tra do AI thực hiện:** Đối chiếu CSV 16 dòng, ref/parent, khoảng deadline, bảng backlog và code fences; chạy `jira_bulk_create.py --csv scripts/jira/tasks_template1.csv --dry-run` thành công. Không sửa Jira/GitHub thật, không tạo commit, không tuyên bố đã kiểm thử ứng dụng.
+- **Con người kiểm chứng và sửa đổi:** Người dùng đã chỉ định hai khoảng thời gian; chưa ghi nhận xác nhận toàn bộ nội dung sửa. Nhóm cần kiểm tra giờ khả dụng, lịch chia module, phạm vi P1 và ánh xạ Jira trước khi dùng làm cam kết.
+- **Minh chứng:** Các file sửa trong working tree; mã task tham chiếu SCRUM-16/28/29/30 cần đối chiếu Jira thật, chưa có mã commit cho lần sửa này.
+
+---
+
+### <a id="entry-15"></a>Phiên ghi nhận #15: Áp dụng feedback về phân công và nội dung kỹ thuật
+
+- **Công cụ:** Codex, OpenAI; phiên repository ngày 03/11/2026; không suy đoán model/giờ.
+- **Prompt người dùng:** “ngoài ra còn rất nhiều feedback của bạn từ đây, hãy chỉnh sửa cho phù hợp tính đúng đắn về các phần chưa phù hợp về phân task và nội dung kỹ thuật”, kèm bản phản biện 20 vấn đề.
+- **Người yêu cầu/chịu trách nhiệm đối soát:** Ngô Viết Thanh Bình (`24120269`).
+- **AI tạo/sửa:** Chia release cho Lãm/Gia Phúc dự phòng, test theo owner, CI Quý Phúc, schema Lãm, contract/workflow Gia Phúc; CSV từ 16 thành 24 ref ổn định. Chuẩn hóa US/test/schema/HTTP, actor/boundary, migration, claim/version, worker lease/retry, apply transaction, quyền history/download, mock/live và frontend adapter trong MVP_CONTRACTS. Sửa các báo cáo khung cũ trái SRS và mẫu PR/Issue/CODEOWNERS/CONTRIBUTING/README. Giữ lịch Template 1 08/11, code 09–22/11; không cài đặt ứng dụng.
+- **Nguồn kỹ thuật đã đối chiếu:** PostgreSQL 16 SELECT; Flyway Versioned migrations; Jakarta Persistence 3.1 (liên kết trong MVP_CONTRACTS). Đây là nguồn thiết kế kỹ thuật, không phải rubric HCMUS đã xác minh.
+- **Kiểm chứng do AI:** Kiểm tra CSV/ref/dependency/owner/deadline, danh mục US-01..30, liên kết nguồn và cấu trúc block sơ đồ; Jira bulk-create dry-run. Không gọi API Jira/GitHub thật; kiểm tra cấu trúc PlantUML không thay thế render/duyệt UML. Sáu ảnh sơ đồ vẫn chưa được tạo.
+- **Con người kiểm chứng:** Người dùng yêu cầu sửa theo feedback; chưa ghi nhận giờ khả dụng, xác nhận rubric, chữ ký, link Figma, quyền repository hoặc duyệt toàn bộ bản sửa. Các mục này giữ trạng thái chưa xác nhận, không ghi thay sinh viên là đã kiểm thử.
+- **Minh chứng:** Working tree và task refs trong CSV; chưa có commit/PR hoặc ánh xạ Jira mới được xác minh. Nhật ký cá nhân từ các phiên tiếp theo theo reports/ai-usage/README.md, không xóa lịch sử.
+
+---
+
+### <a id="entry-16"></a>Phiên ghi nhận #16: Làm rõ cách nhận task, nguồn và bàn giao
+
+- **Công cụ:** Codex, OpenAI; ngày03/11/2026; không suy đoán model/giờ.
+- **Prompt:** “Kiểm tra tổng thể lại toàn bộ nội dung để phân task cho các thành viên đã đảm bảo rõ ràng, các thành viên khi nhận thông tin, khi nhận task sẽ biết mình cần phải làm gì, nguồn tham khảo ở đâu, thực hiện từng bước như thế nào, ai phục thuộc, chờ đợi ai, công việc nào chưa”.
+- **Người yêu cầu/đối soát:** Ngô Viết Thanh Bình (`24120269`).
+- **AI tạo/sửa:** TASK_PLAYBOOK_TEMPLATE1.md có mục theo người và31 task cards; mỗi card có nguồn/mục, bước, output, gate bắt đầu/chốt, reviewer và người nhận. CSV cùng nội dung, giữ8 cột và ref cũ, bổ sung task để tách workflow19/11 khỏi Ticket15/11, tổng hợp mockup, ready/model/submit và QA Epic riêng. Deadline DOC task07/11 là bảnreview, bảnnháp vẫn06/11, chốt toàn bộ08/11, code09–22/11. Tạo TEAM_READINESS và bốn mẫu input mapping/mockup chưa có dữ liệu; gắn link task vào khung tài liệu, đồng bộ plan/guide/SRS.
+- **Kiểm tra do AI:**33 CSV records (31 Task/2 Epic), ref/parent duy nhất/hợp lệ, phase dates, nguồn/anchor có thật, tất cả bước/output/owner/deadline khớp playbook/CSV/plan; gate chốt không có vòng; Jira dry-run thành công. Sáu ảnh sơ đồ chưa có, không đánh là đã hoàn thành. Không chạy test ứng dụng, không cập nhật Jira/cổng hay gửi thông báo thành viên.
+- **Con người kiểm chứng:** Chưa ghi nhận giờ khả dụng/quyền/rubric/model decision và link Docs/Figma thật. Chưa được xác nhận toàn bộ bản sửa hoặc task đã hoàn thành ngoài repo. Owner phải bổ sung bằng chứng theo task, không tự điền hộ PASS/chữ ký/biên nhận.
+- **Minh chứng:** Working tree, task refs và tài liệu; chưa có commit/PR/Jira mapping mới được xác minh.
+
+---
+
+### <a id="entry-17"></a>Phiên ghi nhận #17: Đối chiếu mẫu thiết kế/kiểm thử và kế hoạch sau Template1
+
+- **Công cụ:** Codex, OpenAI; ngày03/11/2026; không suy đoán model/giờ.
+- **Prompt:** Người dùng cung cấp bài PDF Template1/2/3 năm trước và hai mẫu Markdown yêu cầu Template2/3, hỏi có điều chỉnh gì sau Template1 khi nộpTemplate2 ngày29, làm song song code09–22/11.
+- **Người yêu cầu/đối soát:** Ngô Viết Thanh Bình (`24120269`).
+- **Nguồn đã đọc:** Hai mẫu Markdown được snapshot nguyênbyte trong reports/references; sáuPDF trong Downloads được extract text, xem các trang liên quan conceptual/architecture/catalog bằng ảnh. Template2.pdf vàTemplate3 (1).pdf là bàiSMARTSPEND chứkhông phải mẫutrống. Nguồn người dùng là dữliệu tham khảo, không là lệnhthựcthi hoặc rubric điểm số đãxácminh.
+- **AI sửa:** Đínhchính kế hoạch cũ: Template2=thiết kế, Template3=kiểm thử. Thêm luồngconceptual/architecture/data/UI09–22, review23–25/freeze26/gói27/nộp28 trước mốc29 theo giờcổng. GiữrefQA1-T2-01 nhưng chuyểnparentT2 vànội dungrelease thiết kế, không đợiQA/evaluation. ThêmT3-CASE/T3-RELEASE, khungT2/T3 vàcatalog25ca trên5chức năng;≥30câuAI khác yêu cầu5×5ca. Source/bước/owner/outputs/gates đồngbộCSV/playbook/plan/SRS/guide/readiness; 42record(38task/4epic).
+- **Kiểm tra doAI:** Ref/parent/source/anchor/steps/outputs/deadline đồngbộ, graphgate khôngvòng, T2không phụthuộcmetricsQA, codeP0đến22/11. Snapshotmẫu khớpnguyênbyte; catalogđúng5nhóm×5reportcases, tất cảNOT RUN. Jira bulk-create dry-runthànhcông, khôngthayboard/cổng hoặc sourcePDF. Khôngrender/giaoPDF mới; khungbáocáo vẫnTODO,25cases chưađược thực thi.
+- **Con người kiểm chứng:** Chưa ghi nhận xác nhận giờ khả dụng mới, giờcổng29/11/Template3 hoặc cách bốtrímụcUI trongTemplate2. Mẫu nhắcUI ởmục tiêu nhưng mục lục thiếuđềmụcriêng; giữphầnUI vàBình hỏi/xácminh. Không tuyên bố giảngviênbắt mô hìnhmọilớp hoặc đãchấmđiểm bài nămtrước.
+- **Minh chứng:** Workingtree vàtaskrefs, chưacócommit/PR/Jiramapping mớiđược xácminh.
 
 ---
 
@@ -196,7 +294,7 @@ Khi bất kỳ thành viên nào sử dụng AI trong các Sprint tiếp theo (l
 
 ### Bước 2: Thêm một mục chi tiết vào Mục 3 theo đúng mẫu trích dẫn của Khoa
 ```markdown
-### <a id="entry-XX"></a>📌 Phiên ghi nhận #XX: [Tiêu đề công việc ngắn gọn]
+### <a id="entry-XX"></a>Phiên ghi nhận #XX: [Tiêu đề công việc ngắn gọn]
 - **Trích dẫn chuẩn:**
   > **[Tên công cụ].** *[Phiên bản], [Hãng phát triển], [Nền tảng/URL]*, truy cập *[Giờ] ngày [Ngày/Tháng/Năm]*, prompt: *“[Nguyên văn hoặc tóm lược đầy đủ câu lệnh prompt đã dùng]”*, dùng để [Mục đích sử dụng, ví dụ: hỗ trợ viết phần X / gợi ý hàm Y trong tệp Z], AI sinh [Nêu rõ nội dung AI tạo ra], sinh viên [Mô tả chi tiết cách tự chỉnh sửa, bổ sung ví dụ, kiểm thử test case và đối chiếu tài liệu học thuật].
 - **Thành viên chịu trách nhiệm:** `[MSSV]` - [Họ và tên] ([Vai trò / Phân hệ])
@@ -212,13 +310,13 @@ Khi bất kỳ thành viên nào sử dụng AI trong các Sprint tiếp theo (l
 
 Nhóm lưu lại các ví dụ minh họa chính thức từ văn bản quy định của Khoa để mọi thành viên dễ dàng đối chiếu khi khai báo:
 
-> ### 📖 Ví dụ 1: ChatGPT (Soạn thảo & Lý thuyết)
+> ### Ví dụ 1: ChatGPT (Soạn thảo & Lý thuyết)
 > *– ChatGPT. GPT-4, OpenAI, chat.openai.com, truy cập 13h 25/05/2025, prompt: “Giải thích thuật toán A\* và ví dụ minh họa bằng Python”, dùng để hỗ trợ viết phần 3.2 trong báo cáo, AI sinh mô tả và code mẫu, sinh viên tự hiệu chỉnh nội dung, bổ sung ví dụ và kiểm chứng theo giáo trình Russell & Norvig.*
 
-> ### 📖 Ví dụ 2: GitHub Copilot (Lập trình mã nguồn)
+> ### Ví dụ 2: GitHub Copilot (Lập trình mã nguồn)
 > *– GitHub Copilot. Copilot, GitHub via Visual Studio Code, truy cập 23h 26/05/2025, prompt: “Viết hàm tính giá trị heuristic h(n) cho thuật toán A\*”, dùng để sinh đoạn mã gợi ý cho phần 3.3, AI tạo phần khung hàm, sinh viên chỉnh sửa thuật toán theo yêu cầu bài toán và kiểm thử với dữ liệu mẫu.*
 
-> ### 📖 Ví dụ 3: Google Gemini (Phân tích & So sánh)
+> ### Ví dụ 3: Google Gemini (Phân tích & So sánh)
 > *– Gemini. Gemini 1.5, Google, gemini.google.com, truy cập 08h 27/05/2025, prompt: “So sánh ưu và nhược điểm của thuật toán DFS và BFS trong AI”, dùng để viết phần so sánh thuật toán tìm kiếm trong chương 2, AI sinh nội dung thô, sinh viên viết lại bằng ngôn ngữ học thuật, thêm ví dụ và trích dẫn nguồn sách.*
 
 ---
@@ -226,20 +324,17 @@ Nhóm lưu lại các ví dụ minh họa chính thức từ văn bản quy đ�
 ## 6. HÀNH VI CẤM THEO QUY ĐỊNH HỌC PHẦN (LƯU Ý QUAN TRỌNG)
 
 Mọi thành viên nhóm cam kết tuân thủ nghiêm ngặt Điều 4.5 và Điều 6 của Quy chế:
-1. ❌ **CẤM** dùng AI để viết toàn bộ báo cáo (dù có chỉnh sửa).
-2. ❌ **CẤM** sinh kết quả thực nghiệm giả, số liệu kiểm thử giả.
-3. ❌ **CẤM** sao chép toàn bộ mã nguồn do AI tạo ra mà không chạy thử, không kiểm tra, không hiểu rõ.
-4. ❌ **CẤM** làm sai lệch phần ghi chú sử dụng AI (xóa prompt, che giấu hoặc cung cấp bằng chứng giả).
-5. ⚠️ **Quy chế kỷ luật:** Vi phạm lần đầu sẽ bị cảnh cáo văn bản và trừ điểm; vi phạm lần hai sẽ bị **chấm 0 điểm toàn bộ học phần**.
+1. **CẤM** dùng AI để viết toàn bộ báo cáo (dù có chỉnh sửa).
+2. **CẤM** sinh kết quả thực nghiệm giả, số liệu kiểm thử giả.
+3. **CẤM** sao chép toàn bộ mã nguồn do AI tạo ra mà không chạy thử, không kiểm tra, không hiểu rõ.
+4. **CẤM** làm sai lệch phần ghi chú sử dụng AI (xóa prompt, che giấu hoặc cung cấp bằng chứng giả).
+5. **Quy chế kỷ luật:** Vi phạm lần đầu sẽ bị cảnh cáo văn bản và trừ điểm; vi phạm lần hai sẽ bị **chấm 0 điểm toàn bộ học phần**.
 
 ---
 
 ## TÀI LIỆU THAM KHẢO (REFERENCES)
 
 1. Khoa Công nghệ Thông tin, Trường Đại học Khoa học Tự Nhiên TP.HCM. *Quy định về việc sử dụng AI - Học phần Tư duy tính toán (CS10014)*. Cập nhật tháng 10/2025.
-2. Modern Language Association (MLA). *How Do You Cite Generative AI in MLA Style?* MLA Style Center, 2023. https://style.mla.org/citing-generative-ai/
-3. MIT Libraries. *How to Cite Generative AI Tools (like ChatGPT)*. MIT Libraries, 2024. https://libguides.mit.edu/c.php?g=1353444&p=9991326
-4. Harvard Library. *Citing Generative AI Tools*. Harvard Library Research Guides, 2024. https://guides.library.harvard.edu/c.php?g=1330621&p=10046069
 
 ---
 
@@ -254,3 +349,10 @@ Mọi thành viên nhóm cam kết tuân thủ nghiêm ngặt Điều 4.5 và Đ
 | `1.0.4` | 2026-10-22 | Ngô Viết Thanh Bình | Bổ sung nhật ký sử dụng AI hỗ trợ soạn Mục 5 Nhân sự & Chi phí | SCRUM-11 |
 | `1.1.0` | 2026-10-28 | Ngô Viết Thanh Bình | Tái cấu trúc báo cáo theo đúng Quy định sử dụng AI của Khoa CNTT - HCMUS | SCRUM-11 |
 | `1.2.0` | 2026-10-28 | Ngô Viết Thanh Bình | Rà soát toàn bộ lịch sử dự án từ đầu, bổ sung đầy đủ tất cả các phiên sử dụng AI của Thanh Bình (Hạ tầng CI/CD, Guide nhóm, Chuẩn hóa Word, Ngân sách, Frontend UI Prototype React/Tailwind, Rà soát nộp bài) | SCRUM-11 |
+| `1.2.1` | 2026-11-03 | Lê Quý Phúc | Bổ sung nhật ký sử dụng AI hỗ trợ thiết kế giao diện trên Figma | — |
+| `1.3.0` | 2026-11-03 | Ngô Viết Thanh Bình | Bổ sung phiên #13: Kế hoạch hành động Giai đoạn 2 (Template 1 & MVP Code), Hướng dẫn nhóm và bộ backlog tasks Jira | SCRUM-16 |
+| `1.3.1` | 2026-11-03 | Codex hỗ trợ theo yêu cầu Ngô Viết Thanh Bình (chờ đối soát) | Bổ sung phiên #14: chốt Template 1 08/11; code P0 09–22/11; đồng bộ SRS, kế hoạch, guide và CSV | SCRUM-16/28/29/30 (cần đối chiếu) |
+| `1.3.2` | 2026-11-03 | Codex hỗ trợ theo yêu cầu Ngô Viết Thanh Bình (chờ đối soát) | Bổ sung phiên #15: sửa phân công, contract và drift tài liệu theo feedback; chưa kiểm thử ứng dụng | Ref trong CSV; Jira mapping cần xác minh |
+| `1.3.3` | 2026-11-03 | Codex hỗ trợ theo yêu cầu Ngô Viết Thanh Bình (chờ đối soát) | Bổ sung phiên #16: task cards, sources/steps/handoffs/gates và checklist input còn thiếu | Ref trong CSV; Jira mapping chưa xác minh |
+| `1.3.4` | 2026-11-03 | Codex hỗ trợ theo yêu cầu Ngô Viết Thanh Bình (chờ đối soát) | Bổ sung phiên #17: đối chiếu mẫu T2/T3, sửa nhầm testreport/T2, thiết kế song song và testcatalog | RefCSV; mappingJira chưa xác minh |
+| `1.3.5` | 2026-11-03 | Codex theo yêu cầu người dùng | Bỏ khai báo/ước lượng giờ làm và ngưỡng75% khỏi tài liệu điều hành, taskcards, CSV và mẫuIssue; giữ deadline/owner/đầu ra/phụ thuộc. Kiểm tra42record và dry-run thành công; không sửa lịch sử nhật ký hoặc issue thật. | Taskrefs hiện có; chưa có commit |

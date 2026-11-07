@@ -1,73 +1,17 @@
-# BÁO CÁO ĐẶC TẢ CA SỬ DỤNG (USE CASE SPECIFICATION)
+# Đặc tả Use Case — chỉ mục baseline
 
-> **Dự án:** AI-Powered Helpdesk & Knowledge Base  
-> **Mã nhóm:** Group 04  
-> **Môn học:** Nhập môn Công nghệ Phần mềm - HCMUS
+> Cập nhật 03/11/2026. Bản khung UC01..UC07 cũ bị thay vì trái SRS; không dùng để triển khai hoặc nộp.
 
----
+Danh mục chuẩn là **UC-01..UC-17** tại [SRS Mục 3.3](SRS-master.md); các đặc tả trọng tâm ở Mục 6. Bản Template 1 có owner/reviewer và chín trường tại [template1/04-dac-ta-use-cases](template1/04-dac-ta-use-cases/04.1-so-do-tong-the.md).
 
-## THÔNG TIN TÀI LIỆU
-- **Tiêu đề (Title):** Use Case Specification - AI-Powered Helpdesk & Knowledge Base
-- **Phiên bản (Version):** 1.0.0-draft
-- **Ngày tạo (Date):** 2026-10-19
-- **Tác giả & Đóng góp (Authors + Contributions):**
-  - `24120121` - `Lê Quý Phúc`: Use Cases hỏi đáp với trợ lý AI và đề xuất thông minh (Module A)
-  - `24120083` - `Nguyễn Đức Lãm`: Use Cases tạo bài viết tri thức, duyệt bài và tra cứu (Module B)
-  - `24120503` - `Phan Gia Phúc`: Use Cases tạo, cập nhật, trao đổi và đóng ticket (Module C)
-  - `24120269` - `Ngô Viết Thanh Bình`: Use Cases quản trị tài khoản, phân quyền, xác thực và báo cáo SLA (Module D) *(Nhóm trưởng)*
-- **Phạm vi (Scope):** Mô tả chi tiết danh sách tác nhân (Actors), sơ đồ Use Case tổng thể và kịch bản tương tác chính/phụ (Main/Alternative Flows).
+| Nhóm | Use Cases | Owner |
+|---|---|---|
+| Identity | UC-01..04, UC-16 P1 | Bình |
+| Ticket | UC-05..10 | Gia Phúc |
+| Knowledge | UC-11..13 | Lãm |
+| AI | UC-14/15 | Quý Phúc |
+| Analytics nghiệp vụ Ticket | UC-17 P1, file đặc tả riêng | Quý Phúc; Gia Phúc review |
 
----
+Actor: Guest, Customer, Agent, Admin và dịch vụ ngoài khi có tương tác. Worker/DB/storage là thành phần nội bộ. Customer không tra cứu KB hay gọi AI trực tiếp; Agent chỉ xử lý ticket được giao, Admin quản trị KB. Không dùng auto-classification/auto-priority hoặc Customer chat AI từ bản khung cũ làm yêu cầu.
 
-## 1. DANH SÁCH TÁC NHÂN (ACTORS)
-- **End-User (Người dùng cuối):** Người gửi yêu cầu hỗ trợ, tìm kiếm bài viết và tương tác với AI Bot.
-- **Support Agent (Nhân viên hỗ trợ):** Người tiếp nhận xử lý ticket, phản hồi khách hàng và biên soạn bài viết.
-- **Admin (Quản trị viên):** Quản lý người dùng, cấu hình tham số hệ thống và xem báo cáo SLA.
-- **AI System (Hệ thống AI nền tảng):** Tác nhân phụ tự động phân loại, đề xuất bài viết và sinh câu trả lời mẫu.
-
----
-
-## 2. SƠ ĐỒ USE CASE TỔNG THỂ (USE CASE DIAGRAM)
-```mermaid
-graph TD
-    User([End-User])
-    Agent([Support Agent])
-    Admin([System Admin])
-
-    User --> UC_CreateTicket[UC01: Tạo Ticket Hỗ trợ]
-    User --> UC_SearchKB[UC02: Tìm kiếm Kho tri thức]
-    User --> UC_ChatAI[UC03: Tương tác Hỏi đáp AI]
-
-    Agent --> UC_ProcessTicket[UC04: Tiếp nhận & Xử lý Ticket]
-    Agent --> UC_WriteKB[UC05: Soạn thảo Bài viết Tri thức]
-
-    Admin --> UC_ManageUser[UC06: Quản lý Người dùng]
-    Admin --> UC_ViewAnalytics[UC07: Xem Thống kê & SLA]
-```
-
----
-
-## 3. ĐẶC TẢ CHI TIẾT CÁC CA SỬ DỤNG CHÍNH
-### 3.1. UC01: Tạo Ticket Hỗ Trợ
-- **Tác nhân chính:** End-User
-- **Tiền điều kiện:** Người dùng đã đăng nhập hệ thống.
-- **Luồng sự kiện chính (Main Flow):**
-  1. Người dùng chọn chức năng "Tạo Ticket mới".
-  2. Hệ thống hiển thị form nhập: Tiêu đề, danh mục, nội dung chi tiết và tệp đính kèm.
-  3. Khi người dùng nhập tiêu đề, hệ thống AI tự động gợi ý 3 bài viết Knowledge Base liên quan nhất.
-  4. Nếu bài viết giải quyết được vấn đề, người dùng nhấn "Đã giải quyết" và kết thúc luồng.
-  5. Nếu không, người dùng bấm "Gửi yêu cầu".
-  6. Hệ thống lưu ticket, AI gán độ ưu tiên dự kiến và thông báo thành công cho người dùng.
-
----
-
-## TÀI LIỆU THAM KHẢO (REFERENCES)
-1. Alistair Cockburn, "Writing Effective Use Cases", Addison-Wesley.
-2. Tài liệu đặc tả tổng thể: `reports/SRS-master.md`.
-
----
-
-## NHẬT KÝ THAY ĐỔI (CHANGE LOG)
-| Phiên bản | Ngày | Người sửa | Nội dung thay đổi | Mã Task Jira |
-| :--- | :--- | :--- | :--- | :--- |
-| `0.1.0` | 2026-10-19 | DevOps Engineer | Khởi tạo khung tài liệu ca sử dụng | SCRUM-6 |
+UC gộp có luồng riêng theo trigger/actor/state; hậu điều kiện thất bại và BR/test phải rõ. Tạo ticket dùng UC-05, gồm ticket + public message đầu + event trong một transaction. UC-11 kết thúc READY chưa publish; UC-12 publish/archive. UC-14 không gửi message; UC-15 chỉ gửi text đã được Agent duyệt. Sơ đồ tham khảo và quy tắc boundary ở [kế hoạch Mục 5](../PLAN_TEMPLATE1_AND_DEVELOPMENT.md); đây chưa phải bộ ảnh đã vẽ/xuất hoàn chỉnh.

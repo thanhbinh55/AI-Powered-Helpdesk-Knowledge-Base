@@ -1,0 +1,128 @@
+[
+ {
+  "fg": "text/primary",
+  "bg": "bg/subtle",
+  "threshold": 4.5,
+  "where": "Nhãn NavItem trên sidebar",
+  "Light": 15.36,
+  "Dark": 13.41,
+  "ok": true
+ },
+ {
+  "fg": "text/secondary",
+  "bg": "bg/subtle",
+  "threshold": 4.5,
+  "where": "Caption vai trò trên sidebar",
+  "Light": 5.67,
+  "Dark": 6.92,
+  "ok": true
+ },
+ {
+  "fg": "text/accent",
+  "bg": "accent/subtle",
+  "threshold": 4.5,
+  "where": "NavItem Active (hồ sơ)",
+  "Light": 6.95,
+  "Dark": 7.75,
+  "ok": true
+ },
+ {
+  "fg": "text/secondary",
+  "bg": "bg/surface",
+  "threshold": 4.5,
+  "where": "Tab Default, ghi chú trạng thái, mô tả sheet",
+  "Light": 6.36,
+  "Dark": 7.48,
+  "ok": true
+ },
+ {
+  "fg": "text/accent",
+  "bg": "bg/surface",
+  "threshold": 4.5,
+  "where": "Tab Active",
+  "Light": 7.97,
+  "Dark": 9.12,
+  "ok": true
+ },
+ {
+  "fg": "text/primary",
+  "bg": "bg/surface",
+  "threshold": 4.5,
+  "where": "Nút Ghost/Secondary, tiêu đề sheet",
+  "Light": 17.23,
+  "Dark": 14.49,
+  "ok": true
+ },
+ {
+  "fg": "text/on-accent",
+  "bg": "accent/default",
+  "threshold": 4.5,
+  "where": "Nút Primary trong sheet",
+  "Light": 6.5,
+  "Dark": 4.77,
+  "ok": true
+ },
+ {
+  "fg": "text/primary",
+  "bg": "ai/bg",
+  "threshold": 4.5,
+  "where": "Chữ trong AIPanel (đệm mới)",
+  "Light": 14.98,
+  "Dark": 12.88,
+  "ok": true
+ },
+ {
+  "fg": "text/secondary",
+  "bg": "ai/bg",
+  "threshold": 4.5,
+  "where": "Mô tả trong AIPanel",
+  "Light": 5.53,
+  "Dark": 6.65,
+  "ok": true
+ },
+ {
+  "fg": "text/primary",
+  "bg": "bg/canvas",
+  "threshold": 4.5,
+  "where": "Nút quay lại trên nền trang",
+  "Light": 16.07,
+  "Dark": 15.58,
+  "ok": true
+ },
+ {
+  "fg": "text/secondary",
+  "bg": "bg/subtle",
+  "threshold": 3.0,
+  "where": "Icon NavItem, icon rail tablet",
+  "Light": 5.67,
+  "Dark": 6.92,
+  "ok": true
+ },
+ {
+  "fg": "text/primary",
+  "bg": "bg/surface",
+  "threshold": 3.0,
+  "where": "Icon mũi tên quay lại, icon \"…\"",
+  "Light": 17.23,
+  "Dark": 14.49,
+  "ok": true
+ },
+ {
+  "fg": "accent/default",
+  "bg": "bg/surface",
+  "threshold": 3.0,
+  "where": "Gạch chân Tab Active",
+  "Light": 6.5,
+  "Dark": 4.4,
+  "ok": true
+ },
+ {
+  "fg": "border/strong",
+  "bg": "bg/surface",
+  "threshold": 3.0,
+  "where": "Viền nút Secondary (thay nút đỏ trên dòng bảng)",
+  "Light": 1.58,
+  "Dark": 1.75,
+  "ok": false
+ }
+]

@@ -1,26 +1,32 @@
 ---
 name: "Task / Feature"
-about: "Đề xuất công việc hoặc tính năng mới cho dự án"
-title: "[TASK] SCRUM-XXX: "
+about: "Công việc có owner, dependency và bằng chứng nghiệm thu"
+title: "[TASK] "
 labels: ["task"]
 assignees: ""
 ---
 
-### 📌 Jira Issue Key
-- Mã Jira: `SCRUM-XXX`
-- Link Jira: https://your-domain.atlassian.net/browse/SCRUM-XXX
+## Truy vết
 
-### 📝 Mô tả công việc
-<!-- Mô tả chi tiết mục tiêu và nội dung cần thực hiện -->
+- Ref ổn định trong CSV:
+- Jira key / URL đã xác minh (không đoán theo số issue):
+- FR / US theo SRS Phụ lục D / UC / BR / TC:
+- Module: identity / ticket / workflow / knowledge / ai / docs / CI-schema
+- P0 / P1; mục tiêu và sản phẩm bàn giao:
 
-### 📦 Phân hệ / Module
-- [ ] Module A: User & Authentication
-- [ ] Module B: Ticket & Helpdesk
-- [ ] Module C: Knowledge Base & Vector Search
-- [ ] Module D: AI Service & Analytics
-- [ ] Tài liệu / DevOps / Báo cáo
+## Phân công và thời gian
 
-### ✅ Tiêu chí hoàn thành (Acceptance Criteria)
-- [ ] Tiêu chí 1: ...
-- [ ] Tiêu chí 2: ...
-- [ ] Cập nhật báo cáo liên quan (nếu có).
+- Một owner:
+- Reviewer, người dự phòng (nếu cần):
+- Bắt đầu / hạn chót:
+- Dependency refs / handoff / owner gỡ blocker:
+
+## Nghiệm thu
+
+- Tiêu chí thành công quan sát được:
+- Nhánh lỗi/quyền/state bắt buộc:
+- Command / fixture / tài liệu đối chiếu và expected:
+- Ảnh hưởng migration/contract và owner phía nhận:
+- PR / CI / actual result (chưa chạy ghi NOT RUN):
+
+Jira theo dõi trạng thái task; GitHub giữ issue/PR và bằng chứng. Không đóng Done nếu chưa có sản phẩm được reviewer kiểm tra. Bulk-create không cập nhật issue đã tồn tại; không tạo lại ref cũ để đổi deadline.

@@ -8,6 +8,12 @@
 Hệ thống Hỗ trợ Kỹ thuật & Kho Tri thức Doanh nghiệp Thông minh tích hợp Trí tuệ Nhân tạo (AI-Powered Helpdesk & Knowledge Base).  
 Đồ án môn học: **Nhập môn Công nghệ Phần mềm** - Khoa Công nghệ Thông tin, Trường ĐH Khoa học Tự nhiên, ĐHQG-HCM (HCMUS).
 
+- **Kế hoạch Giai đoạn 2 (Master):** [PLAN_TEMPLATE1_AND_DEVELOPMENT.md](PLAN_TEMPLATE1_AND_DEVELOPMENT.md)
+- **Tài liệu làm việc nhóm (Google Docs):** [[SE - Nhóm 4] template1 - Google Tài liệu](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.p8jvgjthj2me)
+- **Kho bài mẫu tham khảo khóa K23 (Google Drive):** [Thư mục Template tham khảo K23](https://drive.google.com/drive/folders/1Vk7wPTVLxhoxhTLnqAhIQlQxfslToMGU?usp=sharing)
+- **Bộ 6 Sơ đồ UML chuẩn (`.drawio`, `.svg`, `.png`):** [reports/template1/assets/diagrams/](reports/template1/assets/diagrams/) *(Quy chuẩn chi tiết tại Mục 6 của [PLAN_TEMPLATE1_AND_DEVELOPMENT.md](PLAN_TEMPLATE1_AND_DEVELOPMENT.md#6-bộ-sơ-đồ-uml-toàn-diện--quy-chuẩn-đồng-nhất-toàn-nhóm-6-sơ-đồ-chuẩn-srs--google-docs))*
+- **Thiết kế giao diện Figma (Redesign v2):** [SE – Figma (Node 49:58)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev) · [Danh mục 151 frames](docs/design/README.md) · [Design System](design-system/helpdesk-workspace/MASTER.md) · [Mục 5 Template 1](reports/template1/05-prototype-mockup.md)
+
 ---
 
 ## 📌 1. THÀNH VIÊN NHÓM & PHÂN CÔNG (GROUP 04)
@@ -29,6 +35,7 @@ Thông tin chi tiết được quản lý tại tệp [members.csv](file:///User
 /
 ├── README.md                      # Giới thiệu dự án, hướng dẫn cài đặt và sơ đồ repo
 ├── CONTRIBUTING.md                # Quy định làm việc nhóm, chuẩn Git, Jira và review chéo
+├── DESIGN.md                      # Quy tắc UI và thứ tự ưu tiên tài liệu thiết kế
 ├── .gitignore                     # Loại trừ file nhạy cảm, build artifacts và cache
 ├── .gitattributes                 # Chuẩn hóa line endings (LF) và mã hoá UTF-8
 ├── .editorconfig                  # Cấu hình chuẩn định dạng mã nguồn nhất quán
@@ -55,6 +62,11 @@ Thông tin chi tiết được quản lý tại tệp [members.csv](file:///User
 │   ├── SRS-master.md              # Bản sao nguyên vẹn file đặc tả gốc
 │   ├── assets/                    # Hình ảnh, biểu đồ minh hoạ
 │   └── rendered/                  # Thư mục đầu ra HTML / PDF để nộp bài
+├── design-system/
+│   └── helpdesk-workspace/
+│       └── MASTER.md              # Token, typography và component giao diện (Redesign v2)
+├── docs/
+│   └── design/                    # Bảng màn hình, ảnh, manifest Figma và kết quả kiểm tra
 ├── backend/                       # Tài liệu cấu trúc Spring Boot dự kiến (Mục 9.3 & 15.3)
 ├── frontend/                      # Tài liệu cấu trúc React Vite dự kiến (Mục 9.3 & 15.3)
 ├── infra/                         # Tài liệu hạ tầng Docker Compose dự kiến

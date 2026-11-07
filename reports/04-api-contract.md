@@ -1,58 +1,22 @@
-# BÁO CÁO ĐẶC TẢ GIAO DIỆN LẬP TRÌNH (API SPECIFICATION & CONTRACT)
+# API Contract — chỉ mục baseline
 
-> **Dự án:** AI-Powered Helpdesk & Knowledge Base  
-> **Mã nhóm:** Group 04  
-> **Môn học:** Nhập môn Công nghệ Phần mềm - HCMUS
+> Cập nhật 03/11/2026. Gia Phúc điều phối OpenAPI/DTO/ports 09–10/11; mỗi owner viết phần mình, owner phía nhận review. Chưa có OpenAPI hoàn chỉnh được chạy kiểm chứng.
 
----
+Nguồn chuẩn: [SRS Mục 11](SRS-master.md), [MVP_CONTRACTS](MVP_CONTRACTS.md). Prefix `/api/v1`, JSON camelCase, UTC ISO 8601; wrapper data/page/error theo SRS. Principal lấy JWT đã xác minh, enabled kiểm tra server-side; cookie/CSRF/refresh theo contract.
 
-## THÔNG TIN TÀI LIỆU
-- **Tiêu đề (Title):** RESTful API Contract & OpenAPI Specification
-- **Phiên bản (Version):** 1.0.0-draft
-- **Ngày tạo (Date):** 2026-10-19
-- **Tác giả & Đóng góp (Authors + Contributions):**
-  - `24120121` - `Lê Quý Phúc`: API AI Suggestion & LLM Inference (`/api/v1/ai/*`) (Module A)
-  - `24120083` - `Nguyễn Đức Lãm`: API Knowledge Base & Semantic Search (`/api/v1/articles/*`) (Module B)
-  - `24120503` - `Phan Gia Phúc`: API Ticket Management (`/api/v1/tickets/*`) (Module C)
-  - `24120269` - `Ngô Viết Thanh Bình`: API Authentication, Profile & Analytics (`/api/v1/auth/*`, `/api/v1/users/*`, `/api/v1/analytics/*`) (Module D) *(Nhóm trưởng)*
-- **Phạm vi (Scope):** Định nghĩa cấu trúc Endpoint, HTTP Method, Request Header, Request Body, Response Code và JSON Schema chuẩn cho toàn bộ hệ thống.
+| Method | Endpoint đầy đủ | Quyền / kết quả |
+|---|---|---|
+| POST | /api/v1/auth/login | Public, kiểm tra credential/disabled |
+| POST | /api/v1/tickets | Customer, 201; không cho Agent tự tạo |
+| GET | /api/v1/tickets | Theo role/ownership, phân trang |
+| POST | /api/v1/tickets/{id}/claim | Agent/Admin, atomic claim và 409 khi tranh chấp |
+| POST | /api/v1/knowledge/documents | Admin, multipart upload 202 |
+| GET | /api/v1/knowledge/search | Agent/Admin; nguồn READY + published |
+| POST | /api/v1/tickets/{id}/ai-suggestions | Assigned Agent/Admin, không tự gửi message |
+| GET | /api/v1/tickets/{id}/ai-suggestions | Quyền ticket hiện tại, không Customer |
+| POST | /api/v1/tickets/{id}/messages | Body/visibility/suggestionId; recheck quyền/state, message+APPLIED nguyên tử |
+| POST | /api/v1/ai-suggestions/{id}/discard | Assigned Agent/Admin; GENERATED → DISCARDED |
 
----
+Không dùng `/articles/*`, `/ai/classify-ticket` hoặc KB search public của bản khung cũ. Mẫu JSON, nullability, pagination, timeout và mapping prototype có trong SRS/contract; phải bổ sung fixtures/OpenAPI và chạy fake/real cùng contract trước khi coi xong DEV-0.
 
-## 1. QUY ƯỚC CHUNG (GENERAL CONVENTIONS)
-- **Base URL:** `/api/v1`
-- **Định dạng dữ liệu:** `application/json; charset=UTF-8`
-- **Xác thực:** Header `Authorization: Bearer <jwt_token>` đối với các API yêu cầu đăng nhập.
-- **Mã phản hồi chuẩn:**
-  - `200 OK`: Truy vấn hoặc xử lý thành công.
-  - `201 Created`: Tạo mới tài nguyên thành công.
-  - `400 Bad Request`: Dữ liệu đầu vào không hợp lệ.
-  - `401 Unauthorized`: Chưa đăng nhập hoặc token hết hạn.
-  - `403 Forbidden`: Không có quyền truy cập tài nguyên.
-  - `404 Not Found`: Không tìm thấy tài nguyên.
-  - `500 Internal Server Error`: Lỗi máy chủ nội bộ.
-
----
-
-## 2. DANH SÁCH ENDPOINT TIÊU BIỂU
-| Method | Endpoint | Mô tả | Quyền truy cập |
-| :--- | :--- | :--- | :--- |
-| `POST` | `/api/v1/auth/login` | Đăng nhập và lấy JWT token | Public |
-| `GET` | `/api/v1/tickets` | Danh sách ticket có phân trang | Authenticated |
-| `POST` | `/api/v1/tickets` | Tạo mới một ticket hỗ trợ | End-User, Agent |
-| `GET` | `/api/v1/articles/search` | Tìm kiếm bài viết (hỗ trợ ngữ nghĩa) | Public |
-| `POST` | `/api/v1/ai/classify-ticket`| Phân loại ticket và gợi ý giải pháp | Agent, Admin |
-
----
-
-## TÀI LIỆU THAM KHẢO (REFERENCES)
-1. OpenAPI Specification v3.1.0.
-2. REST API Design Rulebook - Mark Masse (O'Reilly).
-3. Tài liệu đặc tả tổng thể: `reports/SRS-master.md`.
-
----
-
-## NHẬT KÝ THAY ĐỔI (CHANGE LOG)
-| Phiên bản | Ngày | Người sửa | Nội dung thay đổi | Mã Task Jira |
-| :--- | :--- | :--- | :--- | :--- |
-| `0.1.0` | 2026-10-19 | DevOps Engineer | Khởi tạo khung tài liệu giao ước API | SCRUM-6 |
+HTTP: 400 validation, 401 token sai/thiếu, 403 sai role/disabled, 404 không tồn tại hoặc không có quyền tài nguyên, 409 state/version, 413 upload quá lớn, 429 quota, 502 provider/output lỗi, 504 timeout. Không lộ raw secrets/provider error. Suggestion sourceId là **chunk UUID**, suggestionId là JSON còn source_suggestion_id là cột DB.

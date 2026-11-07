@@ -1,0 +1,303 @@
+{
+  "date": "2026-11-01",
+  "file": "SE",
+  "rootNodeId": "51:1635",
+  "darkPreviewNodeId": "52:883",
+  "scope": "Components — lượt 5; nhóm phản hồi",
+  "summary": {
+    "counts": {
+      "nodes": 199,
+      "frames": 61,
+      "components": 10,
+      "sets": 4,
+      "instances": 54,
+      "texts": 39,
+      "visibleNodes": 178
+    },
+    "issues": {
+      "rawPaint": [],
+      "textWithoutStyle": [],
+      "frameWithoutAuto": [],
+      "unboundSpacing": [],
+      "unboundRadius": [],
+      "overflow": []
+    },
+    "minTextContrast": 4.77,
+    "contrastSamples": 39,
+    "failingText": [],
+    "minByMode": [
+      {
+        "mode": "49:0",
+        "ratio": 5.52
+      },
+      {
+        "mode": "49:3",
+        "ratio": 4.77
+      }
+    ]
+  },
+  "propertyChecks": [
+    {
+      "id": "I52:1247;51:1651",
+      "passed": true
+    },
+    {
+      "id": "I52:1272;51:1670",
+      "passed": true
+    },
+    {
+      "id": "I52:1305;51:1699",
+      "passed": true
+    },
+    {
+      "id": "I52:1337;51:1685",
+      "passed": true
+    }
+  ],
+  "instanceChecks": {
+    "count": 54,
+    "missingMainComponent": []
+  },
+  "foundationsUnchanged": true,
+  "contrastMethod": "WCAG relative luminance from bound COLOR values in the nearest inherited Light/Dark mode; nearest opaque parent fill.",
+  "textContrasts": [
+    {
+      "id": "51:1636",
+      "mode": "49:0",
+      "text": "Phản hồi",
+      "ratio": 17.23
+    },
+    {
+      "id": "51:1637",
+      "mode": "49:0",
+      "text": "Toast báo kết quả; lỗi giữ thông báo và bản nháp để thử lại. Trạng thái trống chỉ rõ bước tiếp theo. Skeleton giữ nhịp bố cục. Dialog xác nhận đóng ticket, lưu trữ tài liệu hoặc vô hiệu hóa nhân viên.",
+      "ratio": 6.36
+    },
+    {
+      "id": "51:1650",
+      "mode": "49:0",
+      "text": "Đã gửi phản hồi cho khách hàng.",
+      "ratio": 15.32
+    },
+    {
+      "id": "51:1655",
+      "mode": "49:0",
+      "text": "Ticket HD-1048 đã chuyển sang Chờ khách phản hồi.",
+      "ratio": 15.32
+    },
+    {
+      "id": "51:1660",
+      "mode": "49:0",
+      "text": "Không gửi được. Nội dung vẫn còn trong bản nháp.",
+      "ratio": 15.32
+    },
+    {
+      "id": "51:1661",
+      "mode": "49:0",
+      "text": "Thử lại",
+      "ratio": 15.32
+    },
+    {
+      "id": "51:1665",
+      "mode": "49:0",
+      "text": "Chưa có ticket nào",
+      "ratio": 17.23
+    },
+    {
+      "id": "51:1666",
+      "mode": "49:0",
+      "text": "Ticket mới từ khách hàng sẽ hiện ở đây.",
+      "ratio": 6.36
+    },
+    {
+      "id": "51:1668",
+      "mode": "49:0",
+      "text": "Không tìm thấy ticket phù hợp",
+      "ratio": 17.23
+    },
+    {
+      "id": "51:1669",
+      "mode": "49:0",
+      "text": "Thử từ khóa khác hoặc bỏ bớt bộ lọc.",
+      "ratio": 6.36
+    },
+    {
+      "id": "I51:1670;51:661",
+      "mode": "49:0",
+      "text": "Xóa bộ lọc",
+      "ratio": 17.23
+    },
+    {
+      "id": "51:1698",
+      "mode": "49:0",
+      "text": "Đóng ticket HD-1048?",
+      "ratio": 17.23
+    },
+    {
+      "id": "51:1680",
+      "mode": "49:0",
+      "text": "Ticket sẽ chuyển sang Đã đóng và không thể gửi thêm tin nhắn. Chỉ đóng khi yêu cầu đã được giải quyết.",
+      "ratio": 6.36
+    },
+    {
+      "id": "I51:1702;51:661",
+      "mode": "49:0",
+      "text": "Hủy",
+      "ratio": 17.23
+    },
+    {
+      "id": "I51:1706;51:652",
+      "mode": "49:0",
+      "text": "Đóng ticket",
+      "ratio": 6.5
+    },
+    {
+      "id": "51:1710",
+      "mode": "49:0",
+      "text": "Lưu trữ tài liệu này?",
+      "ratio": 17.23
+    },
+    {
+      "id": "51:1683",
+      "mode": "49:0",
+      "text": "Ngay sau khi lưu trữ, AI không dùng tài liệu này cho gợi ý mới. Các gợi ý cũ vẫn giữ nguồn trích dẫn.",
+      "ratio": 6.36
+    },
+    {
+      "id": "I51:1714;51:661",
+      "mode": "49:0",
+      "text": "Hủy",
+      "ratio": 17.23
+    },
+    {
+      "id": "I51:1718;51:679",
+      "mode": "49:0",
+      "text": "Lưu trữ",
+      "ratio": 5.52
+    },
+    {
+      "id": "51:1685",
+      "mode": "49:0",
+      "text": "Nhận xử lý để trả lời ticket này",
+      "ratio": 15.32
+    },
+    {
+      "id": "52:885",
+      "mode": "49:3",
+      "text": "Phản hồi — Dark",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1247;51:1650",
+      "mode": "49:3",
+      "text": "Đã gửi phản hồi cho khách hàng.",
+      "ratio": 14.3
+    },
+    {
+      "id": "I52:1253;51:1655",
+      "mode": "49:3",
+      "text": "Ticket HD-1048 đã chuyển sang Chờ khách phản hồi.",
+      "ratio": 14.3
+    },
+    {
+      "id": "I52:1259;51:1660",
+      "mode": "49:3",
+      "text": "Không gửi được. Nội dung vẫn còn trong bản nháp.",
+      "ratio": 14.3
+    },
+    {
+      "id": "I52:1259;51:1661",
+      "mode": "49:3",
+      "text": "Thử lại",
+      "ratio": 14.3
+    },
+    {
+      "id": "I52:1266;51:1665",
+      "mode": "49:3",
+      "text": "Chưa có ticket nào",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1266;51:1666",
+      "mode": "49:3",
+      "text": "Ticket mới từ khách hàng sẽ hiện ở đây.",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1272;51:1668",
+      "mode": "49:3",
+      "text": "Không tìm thấy ticket phù hợp",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1272;51:1669",
+      "mode": "49:3",
+      "text": "Thử từ khóa khác hoặc bỏ bớt bộ lọc.",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1272;51:1670;51:661",
+      "mode": "49:3",
+      "text": "Xóa bộ lọc",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1305;51:1698",
+      "mode": "49:3",
+      "text": "Đóng ticket HD-1048?",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1305;51:1680",
+      "mode": "49:3",
+      "text": "Ticket sẽ chuyển sang Đã đóng và không thể gửi thêm tin nhắn. Chỉ đóng khi yêu cầu đã được giải quyết.",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1305;51:1702;51:661",
+      "mode": "49:3",
+      "text": "Hủy",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1305;51:1706;51:652",
+      "mode": "49:3",
+      "text": "Đóng ticket",
+      "ratio": 4.77
+    },
+    {
+      "id": "I52:1321;51:1710",
+      "mode": "49:3",
+      "text": "Lưu trữ tài liệu này?",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1321;51:1683",
+      "mode": "49:3",
+      "text": "Ngay sau khi lưu trữ, AI không dùng tài liệu này cho gợi ý mới. Các gợi ý cũ vẫn giữ nguồn trích dẫn.",
+      "ratio": 7.48
+    },
+    {
+      "id": "I52:1321;51:1714;51:661",
+      "mode": "49:3",
+      "text": "Hủy",
+      "ratio": 14.49
+    },
+    {
+      "id": "I52:1321;51:1718;51:679",
+      "mode": "49:3",
+      "text": "Lưu trữ",
+      "ratio": 7.51
+    },
+    {
+      "id": "I52:1337;51:1685",
+      "mode": "49:3",
+      "text": "Nhận xử lý để trả lời ticket này",
+      "ratio": 14.3
+    }
+  ],
+  "limits": [
+    "Static Figma component checks; no frontend keyboard, screen reader, timer or focus-trap runtime checks.",
+    "Dialog overlay/scrim belongs to screen composition and is not yet wired in this component board."
+  ]
+}

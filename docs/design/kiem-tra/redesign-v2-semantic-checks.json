@@ -1,0 +1,17 @@
+{
+  "openComposerLocked": true,
+  "aiInsertAndSendExact": true,
+  "distinctSourceReaders": true,
+  "waitingReplyPreservesStatus": true,
+  "customerSentMatchesDraft": true,
+  "reopenedCodePreserved": true,
+  "closedReadOnly": true,
+  "noCustomerInternalOrAI": true,
+  "passwordClearedAndDisabled": true,
+  "publicationSeparate": true,
+  "adminIdentityPreserved": true,
+  "reassignmentNotUndoneBySharedActions": true,
+  "rootParentAndSize": true,
+  "darkNative": true,
+  "oldPageMetadataAndFlows": true
+}
