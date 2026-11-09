@@ -1,6 +1,8 @@
+> Cập nhật 07/11/2026: thương hiệu Clarune; 229 màn hình, 82 điểm bắt đầu trên 5 page giao diện. Các audit ngày 01–03/11 là hồ sơ của phiên bản trước. [Logo và ảnh hiện tại](brand/README.md).
+
 # Bảng màn hình — Redesign v2
 
-Hoàn tất 01/11/2026, rà soát và sửa 03/11/2026: **33 nhóm màn chính, 151 frame**, gồm các trạng thái phụ, overlay và 5 mẫu Dark. File Figma **SE**; chọn flow trên từng page `Redesign v2 / …` để xem prototype.
+Hoàn tất 01/11/2026, rà soát và sửa 03/11/2026: **34 nhóm màn chính, 229 frame**, gồm các trạng thái phụ, overlay và 5 mẫu Dark. File Figma **SE**; chọn flow trên từng page `Redesign v2 / …` để xem prototype.
 
 | Module | Nhóm chính | Tổng frame | Page Figma | Audit |
 | --- | ---: | ---: | --- | --- |
@@ -10,7 +12,7 @@ Hoàn tất 01/11/2026, rà soát và sửa 03/11/2026: **33 nhóm màn chính, 
 | Knowledge Base | 6 | 33 | `54:1990` | [Đạt](kiem-tra/redesign-v2-knowledge-audit.json) |
 | Admin | 5 | 30 | `54:1991` | [Đạt](kiem-tra/redesign-v2-admin-audit.json) |
 
-709 reaction Codex ghi và đọc lại, cộng 17 reaction thêm ngày 03/11 (luồng thao tác trạng thái mobile, hai màn kết quả mobile, dòng HD-1052 ở D-Filtered); 56 điểm bắt đầu gồm màn chính, Dark và các trạng thái kiểm tra. [Manifest](figma-map.json) ghi chính xác các link được nối và những link bị bỏ qua; [kiểm tra cuối](kiem-tra/redesign-v2-final-audit.json) có số liệu và phạm vi.
+709 reaction Codex ghi và đọc lại, cộng 17 reaction thêm ngày 03/11 (luồng thao tác trạng thái mobile, hai màn kết quả mobile, dòng HD-1052 ở D-Filtered); 82 điểm bắt đầu gồm màn chính, Dark và các trạng thái kiểm tra. [Manifest](figma-map.json) ghi chính xác các link được nối và những link bị bỏ qua; [kiểm tra cuối](kiem-tra/redesign-v2-final-audit.json) có số liệu và phạm vi.
 
 ## Luồng để xem
 
@@ -211,3 +213,86 @@ Mỗi module có bảng đầy đủ; **chính** là một trong 33 nhóm đã c
 | D-AIInserted · Xử lý và lịch sử yêu cầu | `62:13844` | 1440 × 900 | Light | [PNG](anh/62-13844.png) |
 | D-AISent · Xử lý và lịch sử yêu cầu | `62:13845` | 1440 × 900 | Light | [PNG](anh/62-13845.png) |
 | D-AIReplace · Thay bản nháp từ gợi ý AI | `62:13846` | 1440 × 900 | Light | [PNG](anh/62-13846.png) |
+
+## Prototype bổ sung ngày 07/11/2026
+
+| Màn | Node | Ảnh |
+| --- | --- | --- |
+| A11 · UC-18 · Lịch sử gợi ý AI | `81:7585` | [Xem](anh/81-7585.png) |
+| A-HistoryLoading · UC-18 · Đang tải | `81:7878` | [Xem](anh/81-7878.png) |
+| A-HistoryEmpty · UC-18 · Chưa có lịch sử | `81:8153` | [Xem](anh/81-8153.png) |
+| A-HistoryError · UC-18 · Lỗi tải lịch sử | `81:8428` | [Xem](anh/81-8428.png) |
+| A12 · UC-18/19 · Gợi ý đã sử dụng | `81:8707` | [Xem](anh/81-8707.png) |
+| A-HistoryFailed · UC-18 · Lần tạo thất bại | `81:9018` | [Xem](anh/81-9018.png) |
+| A-HistoryInsufficient · UC-18 · Lần tạo thiếu căn cứ | `81:9294` | [Xem](anh/81-9294.png) |
+| A-HistoryDiscarded · UC-18 · Gợi ý đã bỏ | `81:9570` | [Xem](anh/81-9570.png) |
+| A-HistorySource1 · UC-18 · Snapshot nguồn | `82:9864` | [Xem](anh/82-9864.png) |
+| A-HistorySource2 · UC-18 · Snapshot nguồn | `82:10141` | [Xem](anh/82-10141.png) |
+| A-FeedbackError · UC-19 P1 · Lỗi lưu đánh giá | `82:10422` | [Xem](anh/82-10422.png) |
+| A-MobileHistory · UC-18 · Lịch sử gợi ý | `82:12970` | [Xem](anh/82-12970.png) |
+| A-MobileHistoryDetail · UC-18 · APPLIED | `82:13099` | [Xem](anh/82-13099.png) |
+| A-MobileHistoryDetail · UC-18 · FAILED | `82:13245` | [Xem](anh/82-13245.png) |
+| A-MobileHistoryDetail · UC-18 · INSUFFICIENT_EVIDENCE | `82:13356` | [Xem](anh/82-13356.png) |
+| A-MobileHistoryDetail · UC-18 · DISCARDED | `82:13467` | [Xem](anh/82-13467.png) |
+| A-MobileHistorySource1 · UC-18 · Snapshot | `82:13593` | [Xem](anh/82-13593.png) |
+| A-MobileHistorySource2 · UC-18 · Snapshot | `82:13705` | [Xem](anh/82-13705.png) |
+| A-TabletHistory · UC-18 · Lịch sử gợi ý | `82:13948` | [Xem](anh/82-13948.png) |
+| A-TabletHistoryDetail · UC-18 · APPLIED | `82:14233` | [Xem](anh/82-14233.png) |
+| A-TabletHistoryDetail · UC-18 · FAILED | `82:14535` | [Xem](anh/82-14535.png) |
+| A-TabletHistoryDetail · UC-18 · INSUFFICIENT_EVIDENCE | `82:14802` | [Xem](anh/82-14802.png) |
+| A-TabletHistoryDetail · UC-18 · DISCARDED | `82:15069` | [Xem](anh/82-15069.png) |
+| A-TabletHistorySource1 · UC-18 · Snapshot | `82:15351` | [Xem](anh/82-15351.png) |
+| A-TabletHistorySource2 · UC-18 · Snapshot | `82:15619` | [Xem](anh/82-15619.png) |
+| A-DarkHistory · UC-18 · Lịch sử gợi ý | `82:15952` | [Xem](anh/82-15952.png) |
+| A-DarkHistoryDetail · UC-18 · APPLIED | `82:16247` | [Xem](anh/82-16247.png) |
+| A-DarkHistoryDetail · UC-18 · FAILED | `82:16559` | [Xem](anh/82-16559.png) |
+| A-DarkHistoryDetail · UC-18 · INSUFFICIENT_EVIDENCE | `82:16836` | [Xem](anh/82-16836.png) |
+| A-DarkHistoryDetail · UC-18 · DISCARDED | `82:17113` | [Xem](anh/82-17113.png) |
+| A-DarkHistorySource1 · UC-18 · Snapshot | `82:17405` | [Xem](anh/82-17405.png) |
+| A-DarkHistorySource2 · UC-18 · Snapshot | `82:17683` | [Xem](anh/82-17683.png) |
+| A-HistoryLost · UC-18/19 · Quyền truy cập đã thay đổi | `82:17965` | [Xem](anh/82-17965.png) |
+| A-HistorySourceError · UC-18 · Lỗi tải snapshot | `82:18066` | [Xem](anh/82-18066.png) |
+| A-DiscardConfirm · UC-15 · Xác nhận bỏ gợi ý | `91:14771` | [Xem](anh/91-14771.png) |
+| A-Discarded · UC-15 · Gợi ý đã bỏ | `91:15058` | [Xem](anh/91-15058.png) |
+| A-HistoryAfterDiscard · UC-18 · Lịch sử sau khi bỏ | `91:15346` | [Xem](anh/91-15346.png) |
+| A-InsertedDiscardConfirm · UC-15 · Xác nhận bỏ gợi ý | `91:15641` | [Xem](anh/91-15641.png) |
+| A-InsertedDiscarded · UC-15 · Gợi ý đã bỏ | `91:15904` | [Xem](anh/91-15904.png) |
+| A-InsertedHistoryAfterDiscard · UC-18 · Lịch sử sau khi bỏ | `91:16177` | [Xem](anh/91-16177.png) |
+| A-MobileDiscardConfirm · UC-15 · Xác nhận bỏ gợi ý | `91:16472` | [Xem](anh/91-16472.png) |
+| A-MobileDiscarded · UC-15 · Gợi ý đã bỏ | `91:16589` | [Xem](anh/91-16589.png) |
+| A-MobileHistoryAfterDiscard · UC-18 · Lịch sử sau khi bỏ | `91:16712` | [Xem](anh/91-16712.png) |
+| A-TabletDiscardConfirm · UC-15 · Xác nhận bỏ gợi ý | `91:16842` | [Xem](anh/91-16842.png) |
+| A-TabletDiscarded · UC-15 · Gợi ý đã bỏ | `91:17118` | [Xem](anh/91-17118.png) |
+| A-TabletHistoryAfterDiscard · UC-18 · Lịch sử sau khi bỏ | `91:17397` | [Xem](anh/91-17397.png) |
+| A-DarkDiscardConfirm · UC-15 · Xác nhận bỏ gợi ý | `91:17683` | [Xem](anh/91-17683.png) |
+| A-DarkDiscarded · UC-15 · Gợi ý đã bỏ | `91:17969` | [Xem](anh/91-17969.png) |
+| A-DarkHistoryAfterDiscard · UC-18 · Lịch sử sau khi bỏ | `91:18258` | [Xem](anh/91-18258.png) |
+| A-ManualAfterDiscard · UC-15 · Tiếp tục soạn thủ công | `91:19215` | [Xem](anh/91-19215.png) |
+| A-ManualSentAfterDiscard · UC-08 · Đã gửi thủ công | `91:19477` | [Xem](anh/91-19477.png) |
+| A-DiscardError · UC-15 · Lỗi bỏ gợi ý | `91:19649` | [Xem](anh/91-19649.png) |
+| D-AIHistory · UC-18 · Lịch sử gợi ý | `82:10789` | [Xem](anh/82-10789.png) |
+| D-AIHistoryEmpty · UC-18 · Chưa có lịch sử | `82:11013` | [Xem](anh/82-11013.png) |
+| D-AIHistoryError · UC-18 · Lỗi tải | `82:11219` | [Xem](anh/82-11219.png) |
+| D-AIHistoryDetail · UC-18 · APPLIED | `82:11429` | [Xem](anh/82-11429.png) |
+| D-AIHistoryDetail · UC-18 · FAILED | `82:11646` | [Xem](anh/82-11646.png) |
+| D-AIHistoryDetail · UC-18 · INSUFFICIENT_EVIDENCE | `82:11852` | [Xem](anh/82-11852.png) |
+| D-AIHistoryDetail · UC-18 · DISCARDED | `82:12058` | [Xem](anh/82-12058.png) |
+| D-AIHistorySource1 · UC-18 · Snapshot | `82:12281` | [Xem](anh/82-12281.png) |
+| D-AIHistorySource2 · UC-18 · Snapshot | `82:12489` | [Xem](anh/82-12489.png) |
+| D-AIGenerating · UC-14 · Đang tạo lại | `82:12703` | [Xem](anh/82-12703.png) |
+| D-AIDiscardConfirm · UC-15 · Xác nhận bỏ gợi ý | `91:18554` | [Xem](anh/91-18554.png) |
+| D-AIDiscarded · UC-15 · Gợi ý đã bỏ | `91:18770` | [Xem](anh/91-18770.png) |
+| D-AIHistoryAfterDiscard · UC-18 · Lịch sử sau khi bỏ | `91:18989` | [Xem](anh/91-18989.png) |
+| D06 · UC-17 · Thống kê ticket | `91:19910` | [Xem](anh/91-19910.png) |
+| D-AnalyticsLoading · UC-17 · Đang tải | `91:20120` | [Xem](anh/91-20120.png) |
+| D-AnalyticsEmpty · UC-17 · Chưa có dữ liệu | `91:20309` | [Xem](anh/91-20309.png) |
+| D-AnalyticsError · UC-17 · Lỗi tải | `91:20498` | [Xem](anh/91-20498.png) |
+| D-AnalyticsForbidden · UC-17 · Không có quyền | `91:20659` | [Xem](anh/91-20659.png) |
+| D-MobileAnalytics · UC-17 · Thống kê ticket | `91:20820` | [Xem](anh/91-20820.png) |
+| D-TabletAnalytics · UC-17 · Thống kê ticket | `91:20884` | [Xem](anh/91-20884.png) |
+| D-DarkAnalytics · UC-17 · Thống kê ticket | `91:21094` | [Xem](anh/91-21094.png) |
+| D-AnalyticsEntry · UC-17 · Lối mở thống kê | `91:21306` | [Xem](anh/91-21306.png) |
+| D-AnalyticsLogin · UC-17 · Đăng nhập lại | `91:21450` | [Xem](anh/91-21450.png) |
+| D-MobileAnalyticsLoading · UC-17 · Đang tải | `91:21488` | [Xem](anh/91-21488.png) |
+| D-TabletAnalyticsLoading · UC-17 · Đang tải | `91:21533` | [Xem](anh/91-21533.png) |
+| D-DarkAnalyticsLoading · UC-17 · Đang tải | `91:21724` | [Xem](anh/91-21724.png) |

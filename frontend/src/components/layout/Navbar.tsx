@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Bot, LifeBuoy, Bell, Menu, PanelLeftClose, PanelLeft } from 'lucide-react';
+import { Sparkles, Bot, Bell, PanelLeftClose, PanelLeft } from 'lucide-react';
 import { UserRole, User } from '../../types';
 
 interface NavbarProps {
@@ -32,12 +32,10 @@ export const Navbar: React.FC<NavbarProps> = ({
         )}
 
         <div className="flex items-center space-x-2.5">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-helpdesk-600 to-indigo-500 flex items-center justify-center text-white shadow-sm shadow-blue-500/20">
-            <LifeBuoy className="w-5 h-5" />
-          </div>
+          <img src={`${import.meta.env.BASE_URL}brand/clarune-mark.svg`} alt="" className="w-8 h-8" />
           <div>
             <div className="flex items-center space-x-1.5">
-              <span className="font-bold text-slate-900 text-sm tracking-tight">HelpDesk</span>
+              <span className="font-bold text-slate-900 text-sm tracking-tight">Clarune</span>
               <span className="text-xs bg-helpdesk-100 text-helpdesk-700 px-1.5 py-0.2 rounded font-semibold flex items-center gap-1">
                 <Sparkles className="w-3 h-3 text-helpdesk-600" /> AI-Ready
               </span>

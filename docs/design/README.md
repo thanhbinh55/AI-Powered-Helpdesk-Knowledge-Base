@@ -1,3 +1,5 @@
+> Cập nhật 07/11/2026: thương hiệu Clarune; 229 màn hình, 82 điểm bắt đầu trên 5 page giao diện. Các audit ngày 01–03/11 là hồ sơ của phiên bản trước. [Logo và ảnh hiện tại](brand/README.md).
+
 # Bộ thiết kế giao diện — Redesign v2
 
 Thiết kế giao diện Helpdesk cho ba vai trò Customer, Agent và Admin, dựng trên file Figma **SE** bằng Figwright. Đọc [DESIGN.md](../../DESIGN.md) trước để biết thứ tự ưu tiên giữa các tài liệu.
@@ -10,12 +12,12 @@ Thiết kế giao diện Helpdesk cho ba vai trò Customer, Agent và Admin, d�
 
 | Đường dẫn | Nội dung |
 | --- | --- |
-| [man-hinh.md](man-hinh.md) | Bảng 151 frame theo module, ảnh từng màn, luồng prototype và giới hạn |
+| [man-hinh.md](man-hinh.md) | Bảng 229 frame theo module, ảnh từng màn, luồng prototype và giới hạn |
 | [dac-ta-inbox.md](dac-ta-inbox.md) | Đặc tả luồng, bố cục, responsive và hành vi AI; mục 7 (thị giác) đã thay bằng MASTER |
 | [figma-map.json](figma-map.json) | Manifest: ID page/frame Figma, reaction đã nối và link bị bỏ qua |
 | [anh/](anh/) | Ảnh PNG từng frame, tên file là ID node (`55-1992.png` là node `55:1992`) |
 | [anh/thanh-phan/](anh/thanh-phan/) | Ảnh các nhóm component trên page Components |
-| [kiem-tra/](kiem-tra/) | Kết quả kiểm tra: audit từng module, components, tương phản token, kiểm tra nghiệp vụ |
+| [kiem-tra/](kiem-tra/) | Kết quả kiểm tra: audit từng module, components, tương phản token, kiểm tra nghiệp vụ; [rà soát giao diện 07/11](kiem-tra/ra-soat-giao-dien-2026-11-07.md) có các việc cần nhóm quyết định |
 
 Token, typography và component nằm trong [MASTER](../../design-system/helpdesk-workspace/MASTER.md).
 
@@ -35,7 +37,7 @@ Biến nằm trong 3 collection `Helpdesk v2 / Color` (Light, Dark), `Dimension`
 
 ## Trạng thái
 
-- 33 nhóm màn chính, 151 frame, 5 mẫu Dark, 56 flow prototype. Hoàn tất 01/11/2026, rà soát và sửa 03/11/2026.
+- 34 nhóm màn chính, 229 frame, 5 mẫu Dark, 82 flow prototype. Hoàn tất 01/11/2026, rà soát và sửa 03/11/2026.
 - Prototype tĩnh: không có backend, auth, upload hay lưu trạng thái thật. Không dùng prototype làm bằng chứng backend hoặc phân quyền đã triển khai.
 - Chưa kiểm tra bàn phím, screen reader, focus trap, scroll và bàn phím ảo; các phần này kiểm tra khi code frontend.
 
