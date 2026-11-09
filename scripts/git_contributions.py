@@ -138,6 +138,7 @@ def build_full_report(members, commits):
     md.append("- **Mục đích tài liệu:** Thống kê minh bạch, chính xác toàn bộ lịch sử commit Git của từng thành viên từ lúc khởi tạo repository đến hiện tại, phục vụ công tác đối soát đóng góp cá nhân và thẩm định của Giảng viên.\n")
     md.append("---\n")
     md.append("## DANH SÁCH COMMIT CỦA MỖI THÀNH VIÊN\n")
+    md.append("<!-- GENERATED:START -->\n")
     md.append("Mỗi mục dưới đây thống kê chi tiết toàn bộ các commit của từng thành viên theo trật tự thời gian, bao gồm mã hash rút gọn (8 ký tự), ngày commit, thông điệp commit và danh sách các tệp tin thay đổi.\n")
 
     for idx, m in enumerate(members, 1):
@@ -182,6 +183,7 @@ def build_full_report(members, commits):
             md.append(f"| {c_idx} | `[{c['short_hash']}]` | `{c['author_name']}` | {c['date']} | {clean_sub} |")
         md.append("")
 
+    md.append("<!-- GENERATED:END -->\n")
     return "\n".join(md)
 
 
