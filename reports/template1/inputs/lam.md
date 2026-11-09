@@ -26,7 +26,7 @@
 - [ ] `reports/template1/assets/diagrams/uc-module-B.svg` & `uc-module-B.drawio` (Sơ đồ Use Case phân hệ Knowledge Base).
 - [ ] Ánh xạ màn hình Figma Knowledge Base (Frames Node ID `62:9092` đến `62:11768`, ảnh PNG tại `docs/design/anh/`).
 - [ ] Kiểm tra tiếp nhận đủ 4 biên bản bàn giao tại `reports/template1/inputs/{binh,gia-phuc,lam,quy-phuc}.md`.
-- [ ] Nhật ký AI Usage cá nhân cập nhật đầy đủ tại [reports/07-ai-usage.md](../../07-ai-usage.md).
+- [ ] Nhật ký AI Usage giai đoạn Template 1 cập nhật đầy đủ tại [reports/template1/06-ai-usage.md](../06-ai-usage.md) (theo đúng quy chuẩn 2 bước tại Mục 1.2 kế hoạch).
 
 ---
 

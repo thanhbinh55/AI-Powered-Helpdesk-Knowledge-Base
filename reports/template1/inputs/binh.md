@@ -24,7 +24,7 @@
 - [ ] `reports/template1/assets/diagrams/uc-overview.svg` & `uc-overview.drawio` (Sơ đồ Use Case tổng quan).
 - [ ] `reports/template1/assets/diagrams/uc-module-D.svg` & `uc-module-D.drawio` (Sơ đồ Use Case phân hệ Identity).
 - [ ] Ánh xạ màn hình Figma Identity (Frames Node ID `62:8214` đến `62:14361`, ảnh PNG tại `docs/design/anh/`).
-- [ ] Nhật ký AI Usage cá nhân cập nhật đầy đủ tại [reports/07-ai-usage.md](../../07-ai-usage.md).
+- [ ] Nhật ký AI Usage giai đoạn Template 1 cập nhật đầy đủ tại [reports/template1/06-ai-usage.md](../06-ai-usage.md) (theo đúng quy chuẩn 2 bước tại Mục 1.2 kế hoạch).
 
 ---
 

@@ -98,7 +98,7 @@ flowchart LR
      │   ├── 04.2-module-A-ai.md              # Lê Quý Phúc (2 UCs)
      │   └── 04.2-uc-17-analytics.md          # Lê Quý Phúc (Ticket Analytics P1)
      ├── 05-prototype-mockup.md               # Cả 4 thành viên (Lê Quý Phúc tổng hợp)
-     ├── 06-ai-usage.md                       # Trích xuất từ reports/07-ai-usage.md
+     ├── 06-ai-usage.md                       # Nhật ký sử dụng AI riêng cho giai đoạn Template 1
      ├── inputs/                              # 4 biên bản bàn giao & đối soát nộp bài
      │   ├── binh.md                          # Ngô Viết Thanh Bình
      │   ├── gia-phuc.md                      # Phan Gia Phúc
@@ -108,15 +108,48 @@ flowchart LR
          ├── diagrams/                        # Chứa các file sơ đồ .svg tự vẽ
          └── mockups/                         # Chứa các ảnh chụp màn hình UI Figma <= 500KB
      ```
+
+#### Bảng chỉ dẫn tra cứu vị trí file nộp bài cho từng thành viên:
+| STT | Đầu mục báo cáo Template 1 | File Markdown đích cần cập nhật | File sơ đồ / Assets kèm theo | Thành viên chịu trách nhiệm | Mã Task liên quan |
+| :---: | :--- | :--- | :--- | :--- | :---: |
+| **01** | Bìa & Bảng đóng góp thành viên | [`reports/template1/01-danh-gia-thanh-vien.md`](reports/template1/01-danh-gia-thanh-vien.md) | Chữ ký xác nhận tỷ lệ | **Lê Quý Phúc** | `T1-DOC-01` |
+| **02** | Mô tả bài toán & Bối cảnh hệ thống | [`reports/template1/02-mo-ta-bai-toan.md`](reports/template1/02-mo-ta-bai-toan.md) | - | **Lê Quý Phúc** | `T1-DOC-01` |
+| **03.1** | Phân tích các bên liên quan (Stakeholders) | [`reports/template1/03-tong-quan-yeu-cau/03.1-stakeholders.md`](reports/template1/03-tong-quan-yeu-cau/03.1-stakeholders.md) | `assets/diagrams/context-diagram.svg` | **Nguyễn Đức Lãm** | `T1-DOC-02` |
+| **03.2.1** | Yêu cầu chức năng (Ma trận 41 FRs ↔ 30 USs) | [`reports/template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md`](reports/template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md) | Ma trận truy vết FR/US/UC | **Phan Gia Phúc** | `T1-DOC-03` |
+| **03.2.2** | Yêu cầu phi chức năng (NFRs) | [`reports/template1/03-tong-quan-yeu-cau/03.2.2-yeu-cau-phi-chuc-nang.md`](reports/template1/03-tong-quan-yeu-cau/03.2.2-yeu-cau-phi-chuc-nang.md) | Thước đo kiểm chứng NFR | **Nguyễn Đức Lãm** | `T1-DOC-02` |
+| **04.1** | Sơ đồ Use Case tổng quan toàn hệ thống | [`reports/template1/04-dac-ta-use-cases/04.1-so-do-tong-the.md`](reports/template1/04-dac-ta-use-cases/04.1-so-do-tong-the.md) | `assets/diagrams/uc-overview.svg` | **Ngô Viết Thanh Bình** | `T1-DOC-04` |
+| **04.2** | Đặc tả 5 UCs Phân hệ Định danh (Identity) | [`reports/template1/04-dac-ta-use-cases/04.2-module-D-identity.md`](reports/template1/04-dac-ta-use-cases/04.2-module-D-identity.md) | `assets/diagrams/uc-module-D.svg` | **Ngô Viết Thanh Bình** | `T1-DOC-04` |
+| **04.2** | Đặc tả 6 UCs Phân hệ Quản lý Ticket | [`reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md`](reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md) | `assets/diagrams/uc-module-C.svg` | **Phan Gia Phúc** | `T1-DOC-05` |
+| **04.2** | Đặc tả 3 UCs Phân hệ Cơ sở tri thức (KB) | [`reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md`](reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md) | `assets/diagrams/uc-module-B.svg` | **Nguyễn Đức Lãm** | `T1-DOC-06` |
+| **04.2** | Đặc tả 2 UCs Phân hệ Trợ lý AI | [`reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md`](reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md) | `assets/diagrams/uc-module-A.svg` | **Lê Quý Phúc** | `T1-DOC-07` |
+| **04.2** | Đặc tả UC-17 Thống kê Ticket (Analytics P1) | [`reports/template1/04-dac-ta-use-cases/04.2-uc-17-analytics.md`](reports/template1/04-dac-ta-use-cases/04.2-uc-17-analytics.md) | Mockup frames Analytics | **Lê Quý Phúc** | `T1-DOC-07` |
+| **05** | Thiết kế Giao diện mẫu (Prototype & Mockup) | [`reports/template1/05-prototype-mockup.md`](reports/template1/05-prototype-mockup.md) | 33 nhóm UI Figma v2 (`docs/design/anh/`) | **Lê Quý Phúc** (Tổng hợp cả nhóm) | `T1-UI-01` |
+| **06** | Nhật ký sử dụng AI Template 1 | [`reports/template1/06-ai-usage.md`](reports/template1/06-ai-usage.md) | Minh chứng phiên prompt | **Cả 4 thành viên** (Lãm PUB rà soát) | `T1-DOC-*` |
+| **Inputs**| Biên bản bàn giao & đối soát cá nhân | `reports/template1/inputs/{binh,gia-phuc,lam,quy-phuc}.md` | Check-off checklist | **Từng cá nhân tương ứng** | `T1-DOC-MD` |
+
    - Mỗi thành viên tạo nhánh riêng (`docs/t1-<module>-<tên_bạn>`), commit file `.md` và file `.svg` của mình kèm mã Jira `SCRUM-xx`, mở Pull Request lên GitHub trước **23:59 ngày 10/11/2026**.
    - Từng thành viên hoàn tất cập nhật biên bản bàn giao tại `reports/template1/inputs/<tên>.md` làm căn cứ nghiệm thu bàn giao (Task `T1-DOC-MD`).
    - Nhờ tách file hoàn toàn, **tỷ lệ xung đột merge conflict là 0%**, và commit của từng thành viên hiển thị chính xác 100% trong `git log` để Giảng viên chấm điểm cá nhân.
    - **Ngày 11/11/2026:** Rà soát kỹ thuật, ghép nối tổng thể các file Markdown. Khởi động mã nguồn MVP P0 và Template 2.
    - **Ngày 12/11/2026 (trước 23:59):** Trưởng nhóm chạy lệnh ghép nối tự động các file thành file tổng `reports/submit/01-requirements-analysis.md`, render ra bản HTML/PDF khổ A4 chuẩn Word và nộp bài chính thức.
 
-### 1.2. Chính sách bắt buộc ghi nhật ký AI Usage
-- Mọi thành viên khi dùng AI (Gemini, ChatGPT, Copilot, v0...) để soạn thảo tài liệu, viết code, sinh test case hay tra cứu lỗi đều phải mở file [reports/07-ai-usage.md](reports/07-ai-usage.md) cập nhật bảng theo mẫu:
-  `| Ngày | Thành viên | Công cụ | Mục đích | Prompt chính | Kết quả AI sinh | Con người kiểm chứng & sửa đổi | Mã Task/Commit |`
+### 1.2. Chính sách bắt buộc ghi nhật ký AI Usage cho Template 1
+- **Phân định phạm vi:** Hồ sơ Template 0 tại `reports/07-ai-usage.md` và `reports/submit/ai-usage/` đã đóng băng nộp bài và được giữ nguyên vẹn 100%.
+- **Vị trí bổ sung cho Template 1:** Mọi thành viên khi sử dụng bất kỳ công cụ AI nào (Gemini, ChatGPT, Claude, Copilot, Cursor...) để hỗ trợ soạn thảo tài liệu, tra cứu, đối soát Use Case, viết code hay thiết kế giao diện đều **BẮT BUỘC** phải ghi chép trực tiếp vào file:
+  👉 **[`reports/template1/06-ai-usage.md`](reports/template1/06-ai-usage.md)**
+- **Quy chuẩn 2 bước cập nhật:**
+  1. **Bước 1 (Bảng tổng hợp Mục 6.2):** Thêm dòng mới vào bảng ma trận: `| STT | Thời gian | Thành viên (MSSV) | Công cụ & Nền tảng | Nội dung công việc trong Template 1 | Nội dung AI tạo & Con người tự kiểm chứng | Minh chứng / Commit |`.
+  2. **Bước 2 (Chi tiết phiên Mục 6.3):** Soạn thảo chi tiết phiên làm việc theo đúng 7 trường thông tin quy định của Khoa CNTT - HCMUS:
+     - *Thời gian thực hiện*
+     - *Tác giả chịu trách nhiệm (MSSV - Họ tên)*
+     - *Công cụ & Model cụ thể*
+     - *Câu prompt chính (đã khử bí mật, API key, credentials, dữ liệu nhạy cảm)*
+     - *Nội dung AI tạo ra*
+     - *Nội dung sinh viên tự đối chiếu, kiểm chứng thực tế và chỉnh sửa chuyên môn*
+     - *Minh chứng (tệp Markdown, Node Figma, Commit ID hoặc PR liên quan)*
+- **Quy định trong DoD (Definition of Done) của các Task Template 1:**
+  - Đối với tất cả các task tài liệu (`T1-DOC-01` đến `T1-DOC-07`), task thiết kế prototype (`T1-UI-01`) và task đóng gói nộp bài (`T1-PUB-01`), việc **cập nhật nhật ký AI vào `reports/template1/06-ai-usage.md`** là tiêu chí nghiệm thu bắt buộc (DoD) nếu thành viên có sử dụng AI trong quá trình thực hiện task.
+  - Lãm (chủ trì task `T1-PUB-01`) phối hợp cùng Gia Phúc và Bình rà soát toàn bộ file `reports/template1/06-ai-usage.md` trước khi kết xuất HTML/PDF đóng gói nộp bài vào ngày 12/11/2026.
 - Cam kết: **AI chỉ là trợ thủ, sinh viên chịu trách nhiệm 100% về tính chính xác của tài liệu và mã nguồn**.
 
 ---
@@ -266,6 +299,13 @@ gantt
 | Code/test P0 | [T1-DEV-02 — [Code] Identity P0 và Axios auth](#t1-dev-02) | 2026-11-15 |
 | Code/test P0 | [T1-TST-ID — [Test] Identity security và session](#t1-tst-id) | 2026-11-23 |
 
+> 📁 **Vị trí file Template 1 Bình phụ trách nộp (trước 23:59 10/11):**
+> - `reports/template1/04-dac-ta-use-cases/04.1-so-do-tong-the.md` (Sơ đồ Use Case tổng quan toàn hệ thống)
+> - `reports/template1/04-dac-ta-use-cases/04.2-module-D-identity.md` (Đặc tả 5 UCs Module Identity: UC-01..04, UC-16)
+> - `reports/template1/assets/diagrams/uc-overview.svg` & `uc-module-D.svg` (.drawio + .svg)
+> - `reports/template1/inputs/binh.md` (Biên bản đối soát & nghiệm thu cá nhân)
+> - `reports/template1/06-ai-usage.md` (Cập nhật nếu có sử dụng AI)
+
 #### 3.2.2. Phan Gia Phúc
 
 | Giai đoạn | Task cần nhận | Hạn task |
@@ -282,6 +322,13 @@ gantt
 | Thiết kế T2 | [T2-REVIEW-01 — [Design review] Đối soát Template 2 SRS và implementation](#t2-review-01) | 2026-11-27 |
 | Kiểm thử T3 | [T3-CASE-01 — [Test spec] Điều phối 5 chức năng mỗi chức năng ít nhất 5 ca kiểm thử](#t3-case-01) | 2026-11-28 |
 | QA (T3) | [QA1-REG-01 — [QA] Regression bảo mật concurrency hiệu năng và sửa lỗi](#qa1-reg-01) | 2026-12-02 |
+
+> 📁 **Vị trí file Template 1 Gia Phúc phụ trách nộp (trước 23:59 10/11):**
+> - `reports/template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md` (Ma trận 41 FRs ↔ 30 User Stories)
+> - `reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md` (Đặc tả 6 UCs Module Ticket: UC-05..10)
+> - `reports/template1/assets/diagrams/uc-module-C.svg` (.drawio + .svg)
+> - `reports/template1/inputs/gia-phuc.md` (Biên bản đối soát & nghiệm thu cá nhân)
+> - `reports/template1/06-ai-usage.md` (Cập nhật nếu có sử dụng AI)
 
 #### 3.2.3. Nguyễn Đức Lãm
 
@@ -301,6 +348,14 @@ gantt
 | Thiết kế T2 | [QA1-T2-01 — [Template 2] Chốt gói thiết kế và nộp trước 29/11](#qa1-t2-01) | 2026-11-28 |
 | Kiểm thử T3 | [T3-RELEASE-01 — [Template 3] Hoàn thiện báo cáo test gói cuối và biên nhận](#t3-release-01) | 2026-12-12 |
 
+> 📁 **Vị trí file Template 1 Lãm phụ trách nộp (trước 23:59 10/11):**
+> - `reports/template1/03-tong-quan-yeu-cau/03.1-stakeholders.md` (Phân tích các bên liên quan)
+> - `reports/template1/03-tong-quan-yeu-cau/03.2.2-yeu-cau-phi-chuc-nang.md` (Yêu cầu phi chức năng NFR)
+> - `reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md` (Đặc tả 3 UCs Module KB: UC-11..13)
+> - `reports/template1/assets/diagrams/context-diagram.svg` & `uc-module-B.svg` (.drawio + .svg)
+> - `reports/template1/inputs/lam.md` (Biên bản đối soát & nghiệm thu cá nhân, kiểm tra đủ 4 module)
+> - `reports/template1/06-ai-usage.md` (Cập nhật nếu có sử dụng AI; phối hợp rà soát toàn bộ trước khi nộp bài)
+
 #### 3.2.4. Lê Quý Phúc
 
 | Giai đoạn | Task cần nhận | Hạn task |
@@ -314,6 +369,16 @@ gantt
 | Thiết kế T2 | [T2-UI-01 — [Design] Đặc tả UI và luồng trạng thái theo UC API](#t2-ui-01) | 2026-11-22 |
 | Code/test P0 | [T1-TST-AI — [Test] RAG contract và send suggestion races](#t1-tst-ai) | 2026-11-23 |
 | QA (T3) | [QA1-EVAL-01 — [QA] Đánh giá AI trên bộ ít nhất 30 câu có nhãn](#qa1-eval-01) | 2026-12-02 |
+
+> 📁 **Vị trí file Template 1 Quý Phúc phụ trách nộp (trước 23:59 10/11):**
+> - `reports/template1/01-danh-gia-thanh-vien.md` (Trang bìa, danh sách nhóm, bảng phân công & tỷ lệ đóng góp)
+> - `reports/template1/02-mo-ta-bai-toan.md` (Bối cảnh, phát biểu bài toán, mục tiêu đo được, môi trường vận hành)
+> - `reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md` (Đặc tả 2 UCs Module Trợ lý AI: UC-14, UC-15)
+> - `reports/template1/04-dac-ta-use-cases/04.2-uc-17-analytics.md` (Đặc tả UC-17 Thống kê Ticket P1)
+> - `reports/template1/05-prototype-mockup.md` (Ma trận 33 nhóm UI Figma v2, liên kết Figma và ảnh PNG)
+> - `reports/template1/assets/diagrams/uc-module-A.svg` (.drawio + .svg)
+> - `reports/template1/inputs/quy-phuc.md` (Biên bản đối soát & nghiệm thu cá nhân)
+> - `reports/template1/06-ai-usage.md` (Cập nhật nếu có sử dụng AI)
 
 ### 3.3. Ma trận bàn giao để không ngồi chờ nhau (Handoff Matrix)
 
@@ -418,7 +483,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 **Đầu ra:** `reports/template1/01-danh-gia-thanh-vien.md và 02-mo-ta-bai-toan.md`.
 
-**CHỐT / DoD:** Gia Phúc approve; thông tin cá nhân/đóng góp có xác nhận và nguồn. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11.
+**CHỐT / DoD:** Gia Phúc approve; thông tin cá nhân/đóng góp có xác nhận và nguồn. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11. Nếu có sử dụng AI: ghi nhận nhật ký phiên vào [reports/template1/06-ai-usage.md](reports/template1/06-ai-usage.md) theo Mục 1.2.
 
 **Ai chờ kết quả:** Cả nhóm review chéo trên Docs trước 23:59 08/11; Lãm nhận Markdown trước 23:59 10/11.
 
@@ -438,7 +503,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 **Đầu ra:** `reports/template1/03-tong-quan-yeu-cau/03.1-stakeholders.md, 03.2.2-yeu-cau-phi-chuc-nang.md; assets/diagrams/context-diagram.drawio và .svg`.
 
-**CHỐT / DoD:** Bình review; đủ NFR/cách đo, source + SVG đọc được. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11.
+**CHỐT / DoD:** Bình review; đủ NFR/cách đo, source + SVG đọc được. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11. Nếu có sử dụng AI: ghi nhận nhật ký phiên vào [reports/template1/06-ai-usage.md](reports/template1/06-ai-usage.md) theo Mục 1.2.
 
 **Ai chờ kết quả:** Cả nhóm review chéo trên Docs trước 23:59 08/11; Lãm nhận Markdown trước 23:59 10/11.
 
@@ -458,7 +523,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 **Đầu ra:** `reports/template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md`.
 
-**CHỐT / DoD:** Không còn FR/US chưa được owner kiểm tra. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11.
+**CHỐT / DoD:** Không còn FR/US chưa được owner kiểm tra. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11. Nếu có sử dụng AI: ghi nhận nhật ký phiên vào [reports/template1/06-ai-usage.md](reports/template1/06-ai-usage.md) theo Mục 1.2.
 
 **Ai chờ kết quả:** Cả nhóm review chéo trên Docs trước 23:59 08/11; Lãm nhận Markdown trước 23:59 10/11.
 
@@ -479,7 +544,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 **Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-D-identity.md; assets/diagrams/uc-overview.drawio/.svg; assets/diagrams/uc-module-D.drawio/.svg; mapping màn hình Identity`.
 
-**CHỐT / DoD:** Reviewer approve, đủ scope đã giao, drawio/SVG/mockup. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11.
+**CHỐT / DoD:** Reviewer approve, đủ scope đã giao, drawio/SVG/mockup. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11. Nếu có sử dụng AI: ghi nhận nhật ký phiên vào [reports/template1/06-ai-usage.md](reports/template1/06-ai-usage.md) theo Mục 1.2.
 
 **Ai chờ kết quả:** Cả nhóm review chéo trên Docs trước 23:59 08/11; Lãm nhận Markdown/SVG trước 23:59 10/11.
 
@@ -500,7 +565,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 **Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md; assets/diagrams/uc-module-C.drawio và .svg; mapping màn hình Ticket`.
 
-**CHỐT / DoD:** Reviewer approve, đủ scope đã giao, drawio/SVG/mockup. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11.
+**CHỐT / DoD:** Reviewer approve, đủ scope đã giao, drawio/SVG/mockup. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11. Nếu có sử dụng AI: ghi nhận nhật ký phiên vào [reports/template1/06-ai-usage.md](reports/template1/06-ai-usage.md) theo Mục 1.2.
 
 **Ai chờ kết quả:** Cả nhóm review chéo trên Docs trước 23:59 08/11; Lãm nhận Markdown/SVG trước 23:59 10/11; Quý Phúc nhận phạm vi US-28.
 
@@ -521,7 +586,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 **Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md; assets/diagrams/uc-module-B.drawio và .svg; mapping màn hình KB`.
 
-**CHỐT / DoD:** Reviewer approve, đủ scope đã giao, drawio/SVG/mockup. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11.
+**CHỐT / DoD:** Reviewer approve, đủ scope đã giao, drawio/SVG/mockup. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11. Nếu có sử dụng AI: ghi nhận nhật ký phiên vào [reports/template1/06-ai-usage.md](reports/template1/06-ai-usage.md) theo Mục 1.2.
 
 **Ai chờ kết quả:** Cả nhóm review chéo trên Docs trước 23:59 08/11; Lãm nhận Markdown/SVG trước 23:59 10/11.
 
@@ -542,7 +607,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 **Đầu ra:** `reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md và 04.2-uc-17-analytics.md; assets/diagrams/uc-module-A.drawio/.svg; mapping màn hình AI`.
 
-**CHỐT / DoD:** Gia Phúc review UC-14/15 và UC-17 P1 riêng, đủ drawio/SVG/ảnh AI. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11. Tổng hợp màn hình của cả nhóm là task T1-UI-01 riêng.
+**CHỐT / DoD:** Gia Phúc review UC-14/15 và UC-17 P1 riêng, đủ drawio/SVG/ảnh AI. Bản nháp đủ nội dung trên Google Docs trước 23:59 07/11 (Draft Freeze); review chéo trước 23:59 08/11; sửa chữa và chuyển Markdown trước 23:59 10/11. Tổng hợp màn hình của cả nhóm là task T1-UI-01 riêng. Nếu có sử dụng AI: ghi nhận nhật ký phiên vào [reports/template1/06-ai-usage.md](reports/template1/06-ai-usage.md) theo Mục 1.2.
 
 **Ai chờ kết quả:** Cả nhóm review chéo trên Docs trước 23:59 08/11; Lãm nhận Markdown/SVG trước 23:59 10/11.
 
@@ -563,12 +628,12 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
    - **Nguyễn Đức Lãm:** `03.1-stakeholders.md`, `03.2.2-yeu-cau-phi-chuc-nang.md` (NFR), `04.2-module-B-knowledge.md` (3 UCs).
    - **Lê Quý Phúc:** `01-danh-gia-thanh-vien.md`, `02-mo-ta-bai-toan.md`, `04.2-module-A-ai.md` (2 UCs), `04.2-uc-17-analytics.md` (Ticket Analytics P1), `05-prototype-mockup.md`.
 3. **Xuất sơ đồ phân hệ vector (.svg):** Từng thành viên xuất các sơ đồ Use Case phân hệ tự vẽ sang định dạng `.svg` và `.drawio` đặt tại `reports/template1/assets/diagrams/` (`uc-overview.svg`, `uc-module-D.svg`, `uc-module-C.svg`, `uc-module-B.svg`, `uc-module-A.svg`, `context-diagram.svg`).
-4. **Cam kết Git & Bàn giao:** Mỗi thành viên commit file `.md` và file `.svg` lên nhánh của mình kèm mã Jira `SCRUM-xx`, mở Pull Request lên GitHub; đồng thời cập nhật biên bản bàn giao tại `reports/template1/inputs/<tên>.md` trước **23:59 ngày 10/11/2026**.
+4. **Ghi nhận AI & Cam kết Git:** Nếu có sử dụng AI trong quá trình soạn thảo tài liệu/vẽ sơ đồ/mockup, thành viên ghi nhận nhật ký phiên vào [`reports/template1/06-ai-usage.md`](reports/template1/06-ai-usage.md) (gồm bảng ma trận Mục 6.2 và chi tiết 7 trường Mục 6.3 theo quy chuẩn). Mỗi thành viên commit file `.md` và file `.svg` lên nhánh của mình kèm mã Jira `SCRUM-xx`, mở Pull Request lên GitHub; đồng thời cập nhật biên bản bàn giao tại `reports/template1/inputs/<tên>.md` trước **23:59 ngày 10/11/2026**.
 5. **Nghiệm thu tiếp nhận:** Lãm kiểm tra toàn bộ 4 module, đối soát danh mục file và sơ đồ trên repo; bàn giao toàn bộ kho tài liệu cho Bình và cả nhóm để thực hiện ghép nối kỹ thuật ngày 11/11 và render gói nộp ngày 12/11.
 
 **Đầu ra:** Toàn bộ các file Markdown `reports/template1/*.md` và sơ đồ `.svg` trong repo; 4 biên bản xác nhận tại `reports/template1/inputs/{binh,gia-phuc,lam,quy-phuc}.md`.
 
-**CHỐT / DoD:** 100% tài liệu Template 1 của cả 4 module đã được chuyển sang Markdown và sơ đồ SVG, commit thành công lên GitHub với mã Jira SCRUM-xx; không có liên kết ảnh bị hỏng; Gia Phúc approve; Lãm tiếp nhận trước **23:59 ngày 10/11/2026**.
+**CHỐT / DoD:** 100% tài liệu Template 1 của cả 4 module đã được chuyển sang Markdown và sơ đồ SVG, commit thành công lên GitHub với mã Jira SCRUM-xx; không có liên kết ảnh bị hỏng; nếu có sử dụng AI thì đã cập nhật đầy đủ vào `reports/template1/06-ai-usage.md`; Gia Phúc approve; Lãm tiếp nhận trước **23:59 ngày 10/11/2026**.
 
 **Ai chờ kết quả:** Lãm và Bình ghép nối kỹ thuật ngày 11/11; chuẩn bị render HTML/PDF nộp bài trước 23:59 ngày 12/11.
 
@@ -726,7 +791,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 **Đầu ra:** `reports/template1/release/ (gói nộp chuẩn theo mã nhóm, master HTML/PDF, assets, manifest và biên bản review)`.
 
-**CHỐT / DoD:** Cần các sản phẩm DOC-01..07 đã hoàn tất Markdown; Gia Phúc kiểm tra gói, không còn lỗi render, hoàn thành trước 23:59 12/11.
+**CHỐT / DoD:** Cần các sản phẩm DOC-01..07 đã hoàn tất Markdown; rà soát 100% nhật ký AI Template 1 trong `reports/template1/06-ai-usage.md`; Gia Phúc kiểm tra gói, không còn lỗi render, hoàn thành trước 23:59 12/11.
 
 **Ai chờ kết quả:** Bình nhận để nộp bài trước 23:59 12/11; Gia Phúc dự phòng.
 
@@ -1059,7 +1124,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 **Đầu ra:** `reports/template1/05-prototype-mockup.md; link Figma SE; bộ 151 ảnh PNG tại docs/design/anh/; Google Docs Mục 5`.
 
-**CHỐT / DoD:** Ma trận 33 nhóm màn hình / 151 frames đầy đủ, link view Figma hoạt động với tài khoản ngoài nhóm, và reviewer approve trước 23:59 10/11.
+**CHỐT / DoD:** Ma trận 33 nhóm màn hình / 151 frames đầy đủ, link view Figma hoạt động với tài khoản ngoài nhóm, và reviewer approve trước 23:59 10/11. Nếu có sử dụng AI: ghi nhận nhật ký phiên vào [reports/template1/06-ai-usage.md](reports/template1/06-ai-usage.md) theo Mục 1.2.
 
 **Ai chờ kết quả:** Lãm PUB để ghép/render; Gia Phúc kiểm tra độc lập.
 

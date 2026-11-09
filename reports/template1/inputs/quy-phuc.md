@@ -26,7 +26,7 @@
 - [ ] `reports/template1/05-prototype-mockup.md` (Ma trận tổng hợp 33 nhóm màn hình / 151 frames Figma).
 - [ ] `reports/template1/assets/diagrams/uc-module-A.svg` & `uc-module-A.drawio` (Sơ đồ Use Case phân hệ AI Assistance).
 - [ ] Ánh xạ màn hình Figma AI & Analytics (Frames Node ID `55:1874` đến `62:15617`, ảnh PNG tại `docs/design/anh/`).
-- [ ] Nhật ký AI Usage cá nhân cập nhật đầy đủ tại [reports/07-ai-usage.md](../../07-ai-usage.md).
+- [ ] Nhật ký AI Usage giai đoạn Template 1 cập nhật đầy đủ tại [reports/template1/06-ai-usage.md](../06-ai-usage.md) (theo đúng quy chuẩn 2 bước tại Mục 1.2 kế hoạch).
 
 ---
 

@@ -24,7 +24,7 @@
 - [ ] `reports/template1/assets/diagrams/uc-module-C.svg` & `uc-module-C.drawio` (Sơ đồ Use Case phân hệ Ticket Management).
 - [ ] Ánh xạ màn hình Figma Ticket (Frames Node ID `55:1992` đến `62:15156`, ảnh PNG tại `docs/design/anh/`).
 - [ ] Bàn giao phạm vi `US-28 / FR-TK-12` (Analytics P1) cho Quý Phúc để viết `04.2-uc-17-analytics.md`.
-- [ ] Nhật ký AI Usage cá nhân cập nhật đầy đủ tại [reports/07-ai-usage.md](../../07-ai-usage.md).
+- [ ] Nhật ký AI Usage giai đoạn Template 1 cập nhật đầy đủ tại [reports/template1/06-ai-usage.md](../06-ai-usage.md) (theo đúng quy chuẩn 2 bước tại Mục 1.2 kế hoạch).
 
 ---
 
