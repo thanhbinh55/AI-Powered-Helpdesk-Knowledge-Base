@@ -12,11 +12,79 @@ import re
 import html
 import subprocess
 import shutil
+from html.parser import HTMLParser
 
 REPORTS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "reports"))
 OUTPUT_DIR = os.path.join(REPORTS_DIR, "rendered")
 
 from template0_styles import UNIFIED_TEMPLATE0_CSS as CSS_STYLES
+
+
+class HtmlTableParser(HTMLParser):
+    """Render HTML tables with safe formatting tags and numeric cell spans only."""
+
+    SAFE_TAGS = {
+        "table", "thead", "tbody", "tfoot", "tr", "th", "td", "caption",
+        "strong", "em", "b", "i", "code", "br", "p", "ul", "ol", "li",
+    }
+
+    def __init__(self):
+        """Track the outer table and retain the source for incomplete blocks."""
+        super().__init__(convert_charrefs=True)
+        self.parts = []
+        self.source = []
+        self.depth = 0
+        self.started = False
+
+    @property
+    def complete(self):
+        """Return whether the outer table has closed."""
+        return self.started and self.depth == 0
+
+    def add_line(self, line):
+        """Feed one source line, including its newline, into the parser."""
+        self.source.append(line)
+        self.feed(line + "\n")
+
+    def render(self):
+        """Return safe HTML, or literal source if the table is incomplete."""
+        if not self.complete:
+            return "<pre>" + html.escape("\n".join(self.source)) + "</pre>"
+        return "".join(self.parts).rstrip("\n")
+
+    def handle_starttag(self, tag, attrs):
+        """Keep table markup and discard attributes other than valid cell spans."""
+        if tag == "table":
+            self.started = True
+            self.depth += 1
+        if not self.depth or tag not in self.SAFE_TAGS:
+            self.parts.append(html.escape(self.get_starttag_text()))
+            return
+        safe_attrs = ""
+        if tag in {"td", "th"}:
+            safe_attrs = "".join(
+                f' {name}="{value}"'
+                for name, value in attrs
+                if name in {"rowspan", "colspan"}
+                and value is not None
+                and re.fullmatch(r"[1-9][0-9]*", value)
+            )
+        self.parts.append(f"<{tag}{safe_attrs}>")
+
+    def handle_endtag(self, tag):
+        """Close allowed tags while tracking nested tables."""
+        if self.depth and tag in self.SAFE_TAGS:
+            if tag != "br":
+                self.parts.append(f"</{tag}>")
+            if tag == "table":
+                self.depth -= 1
+        else:
+            self.parts.append(html.escape(f"</{tag}>"))
+
+    def handle_data(self, data):
+        """Escape cell text, including text inside unsupported elements."""
+        self.parts.append(html.escape(data))
+
 
 def simple_markdown_to_html(md_text):
     """Bộ chuyển đổi Markdown sang HTML hỗ trợ tiếng Việt, bảng biểu và mermaid."""
@@ -27,6 +95,7 @@ def simple_markdown_to_html(md_text):
     code_buffer = []
     in_table = False
     table_buffer = []
+    html_table = None
 
     def flush_table():
         nonlocal in_table, table_buffer
@@ -87,6 +156,24 @@ def simple_markdown_to_html(md_text):
 
     for line in lines:
         stripped = line.strip()
+
+        if (
+            html_table is None
+            and not in_code_block
+            and re.match(r"<table(?:\s|>|$)", stripped, re.IGNORECASE)
+        ):
+            if in_table:
+                html_lines.append(flush_table())
+            if in_ul or in_ol:
+                html_lines.append(flush_lists())
+            html_table = HtmlTableParser()
+
+        if html_table is not None:
+            html_table.add_line(line)
+            if html_table.complete:
+                html_lines.append(html_table.render())
+                html_table = None
+            continue
 
         # Code block marker
         if stripped.startswith("```"):
@@ -182,6 +269,8 @@ def simple_markdown_to_html(md_text):
 
     if in_table:
         html_lines.append(flush_table())
+    if html_table is not None:
+        html_lines.append(html_table.render())
     if in_ul or in_ol:
         html_lines.append(flush_lists())
 

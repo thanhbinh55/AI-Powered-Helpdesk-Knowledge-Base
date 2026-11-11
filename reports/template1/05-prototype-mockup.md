@@ -85,13 +85,34 @@ Bên cạnh 33 màn hình chính, hệ thống đã thiết kế chi tiết các
 
 ---
 
-## 5.4 KẾT QUẢ KIỂM ĐỊNH TỰ ĐỘNG (AUDIT & SEMANTIC CHECKS)
+## 5.4 Giao diện Knowledge Base
 
-Toàn bộ 151 frames và bộ Design System đã được kiểm định tự động thông qua các công cụ phân tích tĩnh:
-* **Kiểm tra độ tương phản màu (WCAG 2.1 AA):** 100% các cặp màu chữ chính (`text/primary`), chữ phụ (`text/secondary`) và nhãn nút trên nền surface/subtle đạt tỉ lệ tương phản $\ge 4.74:1$ (vượt ngưỡng yêu cầu $4.5:1$). Viền ô nhập liệu (`border/control`) đạt $\ge 3.27:1$ (vượt ngưỡng $3:1$).
-* **Kiểm tra logic nghiệp vụ (`redesign-v2-semantic-checks.json`):**
-  - Khóa ô soạn thảo khi chưa Claim: `openComposerLocked = true`.
-  - Chèn gợi ý AI không tự động gửi: `aiInsertAndSendExact = true`.
-  - Khách hàng không thấy ghi chú nội bộ hoặc AI: `noCustomerInternalOrAI = true`.
-  - Tách bạch trạng thái kỹ thuật `READY` và kinh doanh `Đã công bố`: `publicationSeparate = true`.
-  - Mật khẩu đã đổi tự động xóa khỏi form: `passwordClearedAndDisabled = true`.
+### 5.4.1 Tìm kiếm tri thức
+
+Agent/Admin tìm kiếm tài liệu
+
+**Hình 5.14  Tìm kiếm tri thức**
+
+### 5.4.2 Đọc tài liệu tri thức
+
+Hiển thị nội dung tài liệu được phép.
+
+**Hình 5.15  Đọc tài liệu tri thức**
+
+### 5.4.3 Quản trị và công bố tài liệu
+
+Admin xem danh mục và trạng thái; READY không đồng nghĩa đã published. Upload, publish và archive theo quyền Admin.
+
+**Hình 5.16  Quản trị và công bố tài liệu**
+
+#### 5.4.4 Tải tài liệu mới lên Knowledge Base (Upload)
+
+Biểu mẫu chọn tệp tài liệu (PDF/TXT/MD, giới hạn kích thước &lt;= 10 MiB) để đưa vào hàng đợi bóc tách và lập chỉ mục Vector bất đồng bộ.
+
+***Hình 5.17 Tải tài liệu mới lên Knowledge Base***
+
+#### 5.4.5 Chi tiết tài liệu đã xử lý xong nhưng chưa công bố (READY — Unpublished)
+
+Minh họa trạng thái tài liệu đã hoàn tất bóc tách và nhúng vector nhưng đang chờ kiểm duyệt, chưa được công bố cho tìm kiếm hoặc RAG.
+
+***Hình 5.18 Chi tiết tài liệu ở trạng thái sẵn sàng nhưng chưa công bố***
