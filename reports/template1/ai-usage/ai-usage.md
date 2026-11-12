@@ -1,7 +1,5 @@
 # BÁO CÁO SỬ DỤNG AI — TEMPLATE 1
 
-# 6. NHẬT KÝ SỬ DỤNG AI (GIAI ĐOẠN TEMPLATE 1)
-
 > **Dự án:** AI-Powered Helpdesk & Knowledge Base (Clarune)  
 > **Nhóm thực hiện:** Nhóm 04 — Lớp Nhập môn Công nghệ Phần mềm (CS10014), Trường ĐHKHTN, ĐHQG-HCM  
 > **Kho lưu trữ:** https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base  
@@ -10,7 +8,7 @@
 
 ---
 
-## 6.1 NGUYÊN TẮC MINH BẠCH & KIỂM CHỨNG TRONG TEMPLATE 1
+## 1. NGUYÊN TẮC MINH BẠCH & KIỂM CHỨNG TRONG TEMPLATE 1
 
 1. **Minh bạch câu lệnh (Prompts):** Toàn bộ các câu prompt đưa vào AI đều được ghi nhận trung thực, tóm tắt rõ mục đích và đã khử các thông tin nhạy cảm (secrets/credentials/PII).
 2. **Không sao chép máy móc:** Mọi sơ đồ UML, ma trận yêu cầu chức năng (FR), Use Case và giao diện do AI hỗ trợ đề xuất đều được các thành viên nhóm hiểu rõ, đối chiếu chéo với `SRS-master.md`, tài liệu nhóm Google Docs (`NMCNPM - Clarune - 04`) và chỉnh sửa thủ công trước khi đưa vào báo cáo.
@@ -18,24 +16,24 @@
 
 ---
 
-## Hồ sơ sử dụng AI theo thành viên
+## 2. NHẬT KÝ SỬ DỤNG AI THEO THÀNH VIÊN
 
-## Ngô Viết Thanh Bình — 24120269
+### 2.1 Ngô Viết Thanh Bình — 24120269
 
 | STT | Thời gian | Thành viên (MSSV) | Công cụ & Nền tảng | Nội dung công việc trong Template 1 | Nội dung AI tạo & Con người tự kiểm chứng | Minh chứng / Commit |
 | :---: | :---: | :--- | :--- | :--- | :--- | :---: |
-| **T1-02** | 11h30 03/11<br>- 18h10 05/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Google Gemini (Gemini 3.8 Flash Medium)<br>via Antigravity IDE | Kế hoạch chi tiết Giai đoạn 2 (Template 1 & Cài đặt mã nguồn MVP), Bộ khung tài liệu & Công cụ tạo Sprint Jira | AI hỗ trợ tổng hợp yêu cầu kỹ thuật từ SRS-master.md, thiết lập cấu trúc Use Case, task `T1-DOC-MD` và script tạo Sprint Jira; sinh viên đối soát logic nghiệp vụ, thống nhất mốc 23:59 và phân chia task trên Jira | Commit `2ffb371`, `0534ad4`, `48b1042`, `0e785ce`, `bed75c1` |
-| **T1-03** | 19h50 - 23h30<br>06/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Khởi tạo bản thảo Template 1 Master & Rà soát mã kiểm thử truy vết | AI khởi tạo `TEMPLATE1_DRAFT_MASTER.md` với 41 FRs, 30 USs, NFRs; phân tích quy chuẩn mã kiểm thử TC P0 vs P1; sinh viên đối chiếu SRS-master.md và Google Docs, hiệu chỉnh tác nhân UC-01 | `reports/template1/TEMPLATE1_DRAFT_MASTER.md`, Commit `58986ee` |
-| **T1-04** | 00h45 - 01h50<br>07/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Thiết kế Sơ đồ Use Case UML 2.5 đơn sắc & Quy chuẩn thiết kế sơ đồ nhóm | AI sinh mã Mermaid và tệp .drawio/.svg sơ đồ Định danh; phân tích UML 2.5 về Actor kế thừa và lý do không lạm dụng include/extend; soạn 6 quy tắc sơ đồ đơn sắc; sinh viên chọn phong cách tối giản đen trắng, tích hợp vào kế hoạch nhóm | Commit `58986ee`, `uc_module_d_identity.svg` |
-| **T1-05** | 10h05 - 10h50<br>07/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Chuẩn hóa 6 Sơ đồ UML đơn sắc toàn hệ thống & Ánh xạ giao diện Mục 5 theo Figma Redesign v2 | AI tạo trọn bộ 6 sơ đồ đơn sắc (.drawio, .svg, .png scale 2x); ánh xạ 33 nhóm màn hình Redesign v2 vào Mục 5; bổ sung link tham khảo K23; sinh viên trực tiếp kiểm tra độ nét ảnh PNG và tính hợp lệ của đường dẫn ảnh | Commit `58986ee`, thư mục `assets/diagrams/` |
-| **T1-06** | 21h45 - 22h15<br>07/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Mở rộng 19 Use Cases theo Clarune Docs, Loại bỏ nhãn Module ABCD & Hoàn thiện UI 5.5.5 - 5.5.8 | AI xóa bỏ nhãn Module A/B/C/D đổi thành 4 Phân hệ; vẽ lại Sơ đồ 1 (19 UCs) và Sơ đồ 5 (5 UCs); thêm đặc tả UC-18, UC-19 và giao diện mục 5.5.5 đến 5.5.8; sinh viên rà soát ma trận quyền (Agent duyệt UC-19, Admin không có quyền; UC-18 cho cả Agent và Admin) | Commit `dc7231c`, `uc_overall_19_usecases.svg` |
-| **T1-07** | 08h45 - 08h55<br>09/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Review và Merge Pull Request #9 (Clarune Design v2), Sửa lỗi CI Marker Đóng góp Git | AI hỗ trợ merge PR #9 trên GitHub qua gh cli, rebase nhánh main, khắc phục lỗi thiếu cặp thẻ marker GENERATED trong script và báo cáo đóng góp git; đẩy lên remote và xác nhận GitHub Actions PASS xanh | Commit `1b6fc76`, `43c725f`, PR #9 GitHub |
-| **T1-08** | 08h50 - 09h20<br>09/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Tách biệt hồ sơ AI Usage Template 1 (`06-ai-usage.md`), Chuẩn hóa chỉ dẫn vị trí nộp file Markdown & Đồng bộ sơ đồ | AI hỗ trợ tách nhật ký AI Template 1 khỏi hồ sơ Template 0 đã đóng băng, lập bảng tra cứu vị trí file nộp bài theo từng đầu mục tại Mục 1.1 kế hoạch và cập nhật 4 biên bản bàn giao `inputs/`; sinh viên kiểm tra tính độc lập của hồ sơ Template 0, rà soát đường dẫn file và duyệt commit | Commit `a47f41f`, `06-ai-usage.md`, `PLAN_TEMPLATE1_AND_DEVELOPMENT.md` |
-| **T1-09** | 10h15 - 11h45<br>10/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Review chéo nội dung Template 1 (Phần của Nguyễn Đức Lãm & Toàn bộ các mục trên Google Docs), Chuẩn hóa UC-01..04, UC-16 | AI hỗ trợ đối chiếu bản nháp Google Docs với `SRS-master.md` và bài mẫu K23, chỉ ra các điểm cần chỉnh sửa ở bảng Stakeholder (Mục 3.1), sơ đồ bối cảnh và các Use Case; sinh viên trực tiếp thẩm định, lọc các góp ý xác đáng để nhận xét trên Google Docs, chuẩn hóa đánh số kịch bản phụ (`A.1a`, `A.4a`) và lược bỏ chi tiết kỹ thuật tầng dưới khỏi UC-02 | Bản review chéo trên Google Docs, `TEMPLATE1_DRAFT_MASTER.md` |
-| **T1-10** | 10h20 - 11h20<br>11/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Điều phối giao task chuyển đổi Markdown (`T1-DOC-MD` / `SCRUM-65`), Chuẩn hóa Bảng 3.1 Stakeholders (9 bên) & Rà soát ghi chú nội bộ | AI hỗ trợ cập nhật quy tắc chuyển đổi Markdown (giữ nguyên nội dung đã chốt, chỉ ghi tiêu đề hình ảnh) vào kế hoạch và 4 file `inputs/`, tạo Jira Issue `SCRUM-65`, định dạng bảng 9 Stakeholders & Actors và quét các ghi chú nội bộ/typo còn sót trong bản thảo; sinh viên kiểm chứng chéo với SRS Mục 3.1, yêu cầu giữ nguyên các file thành viên khác phụ trách và chỉ cập nhật trên bản nháp tổng hợp | Jira `SCRUM-65`, `TEMPLATE1_DRAFT_MASTER.md`, `inputs/*.md` |
-| **T1-11** | 12/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Codex, OpenAI (không ghi nhận model cụ thể) | Chuyển phần bài làm Identity và tổng thể từ Markdown nguồn sang vị trí nộp bài; chuẩn bị nhánh riêng | AI trích nguyên văn 5 UC, tiêu đề hình và phần UI Identity; đối chiếu tự động với nguồn. Chưa có xác nhận review của tác giả/reviewer trong phiên này. | `T1-DOC-MD` / `SCRUM-34`; nhánh `docs/t1-identity-binh` |
+| **T1-01** | 11h30 03/11<br>- 18h10 05/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Google Gemini (Gemini 3.8 Flash Medium)<br>via Antigravity IDE | Kế hoạch chi tiết Giai đoạn 2 (Template 1 & Cài đặt mã nguồn MVP), Bộ khung tài liệu & Công cụ tạo Sprint Jira | AI hỗ trợ tổng hợp yêu cầu kỹ thuật từ SRS-master.md, thiết lập cấu trúc Use Case, task `T1-DOC-MD` và script tạo Sprint Jira; sinh viên đối soát logic nghiệp vụ, thống nhất mốc 23:59 và phân chia task trên Jira | Commit `2ffb371`, `0534ad4`, `48b1042`, `0e785ce`, `bed75c1` |
+| **T1-02** | 19h50 - 23h30<br>06/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Khởi tạo bản thảo Template 1 Master & Rà soát mã kiểm thử truy vết | AI khởi tạo `TEMPLATE1_DRAFT_MASTER.md` với 41 FRs, 30 USs, NFRs; phân tích quy chuẩn mã kiểm thử TC P0 vs P1; sinh viên đối chiếu SRS-master.md và Google Docs, hiệu chỉnh tác nhân UC-01 | `reports/template1/TEMPLATE1_DRAFT_MASTER.md`, Commit `58986ee` |
+| **T1-03** | 00h45 - 01h50<br>07/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Thiết kế Sơ đồ Use Case UML 2.5 đơn sắc & Quy chuẩn thiết kế sơ đồ nhóm | AI sinh mã Mermaid và tệp .drawio/.svg sơ đồ Định danh; phân tích UML 2.5 về Actor kế thừa và lý do không lạm dụng include/extend; soạn 6 quy tắc sơ đồ đơn sắc; sinh viên chọn phong cách tối giản đen trắng, tích hợp vào kế hoạch nhóm | Commit `58986ee`, `uc_module_d_identity.svg` |
+| **T1-04** | 10h05 - 10h50<br>07/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Chuẩn hóa 6 Sơ đồ UML đơn sắc toàn hệ thống & Ánh xạ giao diện Mục 5 theo Figma Redesign v2 | AI tạo trọn bộ 6 sơ đồ đơn sắc (.drawio, .svg, .png scale 2x); ánh xạ 33 nhóm màn hình Redesign v2 vào Mục 5; bổ sung link tham khảo K23; sinh viên trực tiếp kiểm tra độ nét ảnh PNG và tính hợp lệ của đường dẫn ảnh | Commit `58986ee`, thư mục `assets/diagrams/` |
+| **T1-05** | 21h45 - 22h15<br>07/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Mở rộng 19 Use Cases theo Clarune Docs, Loại bỏ nhãn Module ABCD & Hoàn thiện UI 5.5.5 - 5.5.8 | AI xóa bỏ nhãn Module A/B/C/D đổi thành 4 Phân hệ; vẽ lại Sơ đồ 1 (19 UCs) và Sơ đồ 5 (5 UCs); thêm đặc tả UC-18, UC-19 và giao diện mục 5.5.5 đến 5.5.8; sinh viên rà soát ma trận quyền (Agent duyệt UC-19, Admin không có quyền; UC-18 cho cả Agent và Admin) | Commit `dc7231c`, `uc_overall_19_usecases.svg` |
+| **T1-06** | 08h45 - 08h55<br>09/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Review và Merge Pull Request #9 (Clarune Design v2), Sửa lỗi CI Marker Đóng góp Git | AI hỗ trợ merge PR #9 trên GitHub qua gh cli, rebase nhánh main, khắc phục lỗi thiếu cặp thẻ marker GENERATED trong script và báo cáo đóng góp git; đẩy lên remote và xác nhận GitHub Actions PASS xanh | Commit `1b6fc76`, `43c725f`, PR #9 GitHub |
+| **T1-07** | 08h50 - 09h20<br>09/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Tách biệt hồ sơ AI Usage Template 1 (`06-ai-usage.md`), Chuẩn hóa chỉ dẫn vị trí nộp file Markdown & Đồng bộ sơ đồ | AI hỗ trợ tách nhật ký AI Template 1 khỏi hồ sơ Template 0 đã đóng băng, lập bảng tra cứu vị trí file nộp bài theo từng đầu mục tại Mục 1.1 kế hoạch và cập nhật 4 biên bản bàn giao `inputs/`; sinh viên kiểm tra tính độc lập của hồ sơ Template 0, rà soát đường dẫn file và duyệt commit | Commit `a47f41f`, `06-ai-usage.md`, `PLAN_TEMPLATE1_AND_DEVELOPMENT.md` |
+| **T1-08** | 10h15 - 11h45<br>10/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Review chéo nội dung Template 1 (Phần của Nguyễn Đức Lãm & Toàn bộ các mục trên Google Docs), Chuẩn hóa UC-01..04, UC-16 | AI hỗ trợ đối chiếu bản nháp Google Docs với `SRS-master.md` và bài mẫu K23, chỉ ra các điểm cần chỉnh sửa ở bảng Stakeholder (Mục 3.1), sơ đồ bối cảnh và các Use Case; sinh viên trực tiếp thẩm định, lọc các góp ý xác đáng để nhận xét trên Google Docs, chuẩn hóa đánh số kịch bản phụ (`A.1a`, `A.4a`) và lược bỏ chi tiết kỹ thuật tầng dưới khỏi UC-02 | Bản review chéo trên Google Docs, `TEMPLATE1_DRAFT_MASTER.md` |
+| **T1-09** | 10h20 - 11h20<br>11/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Điều phối giao task chuyển đổi Markdown (`T1-DOC-MD` / `SCRUM-65`), Chuẩn hóa Bảng 3.1 Stakeholders (9 bên) & Rà soát ghi chú nội bộ | AI hỗ trợ cập nhật quy tắc chuyển đổi Markdown (giữ nguyên nội dung đã chốt, chỉ ghi tiêu đề hình ảnh) vào kế hoạch và 4 file `inputs/`, tạo Jira Issue `SCRUM-65`, định dạng bảng 9 Stakeholders & Actors và quét các ghi chú nội bộ/typo còn sót trong bản thảo; sinh viên kiểm chứng chéo với SRS Mục 3.1, yêu cầu giữ nguyên các file thành viên khác phụ trách và chỉ cập nhật trên bản nháp tổng hợp | Jira `SCRUM-65`, `TEMPLATE1_DRAFT_MASTER.md`, `inputs/*.md` |
+| **T1-10** | 12/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Codex, OpenAI | Chuyển phần bài làm Identity và tổng thể từ Markdown nguồn sang vị trí nộp bài; chuẩn bị nhánh riêng | AI trích nguyên văn 5 UC, tiêu đề hình và phần UI Identity; đối chiếu tự động với nguồn. | `T1-DOC-MD` / `SCRUM-34`; nhánh `docs/t1-identity-binh` |
 
-### Phiên T1-02: Xây dựng Kế hoạch chi tiết Giai đoạn 2 (Template 1 & Cài đặt mã nguồn MVP), Bộ khung tài liệu & Công cụ tạo Sprint Jira
+#### Phiên T1-01: Xây dựng Kế hoạch chi tiết Giai đoạn 2 (Template 1 & Cài đặt mã nguồn MVP), Bộ khung tài liệu & Công cụ tạo Sprint Jira
 - **Thời gian:** 11h30 ngày 03/11/2026 - 18h10 ngày 05/11/2026
 - **Tác giả chịu trách nhiệm:** `24120269` - Ngô Viết Thanh Bình (Trưởng nhóm · Phân hệ Định danh và phân quyền)
 - **Công cụ / Model:** Google Gemini (Gemini 3.8 Flash Medium, Google DeepMind) via Antigravity IDE
@@ -51,7 +49,7 @@
 
 ---
 
-### Phiên T1-03: Khởi tạo bản thảo Template 1 Master & Đối soát mã kiểm thử truy vết
+#### Phiên T1-02: Khởi tạo bản thảo Template 1 Master & Đối soát mã kiểm thử truy vết
 - **Thời gian:** 19h50 - 23h30 ngày 06/11/2026
 - **Tác giả chịu trách nhiệm:** `24120269` - Ngô Viết Thanh Bình (Trưởng nhóm · Phân hệ Định danh và phân quyền)
 - **Công cụ / Model:** Antigravity AI (Gemini 3.8 Flash, Google DeepMind) via Antigravity IDE
@@ -69,7 +67,7 @@
 
 ---
 
-### Phiên T1-04: Thiết kế Sơ đồ Use Case UML 2.5 đơn sắc & Bộ quy chuẩn thiết kế sơ đồ nhóm
+#### Phiên T1-03: Thiết kế Sơ đồ Use Case UML 2.5 đơn sắc & Bộ quy chuẩn thiết kế sơ đồ nhóm
 - **Thời gian:** 00h45 - 01h50 ngày 07/11/2026
 - **Tác giả chịu trách nhiệm:** `24120269` - Ngô Viết Thanh Bình (Trưởng nhóm · Phân hệ Định danh và phân quyền)
 - **Công cụ / Model:** Antigravity AI (Gemini 3.8 Flash, Google DeepMind) via Antigravity IDE
@@ -87,7 +85,7 @@
 
 ---
 
-### Phiên T1-05: Chuẩn hóa 6 Sơ đồ UML đơn sắc toàn hệ thống & Ánh xạ giao diện Mục 5 theo Figma Redesign v2
+#### Phiên T1-04: Chuẩn hóa 6 Sơ đồ UML đơn sắc toàn hệ thống & Ánh xạ giao diện Mục 5 theo Figma Redesign v2
 - **Thời gian:** 10h05 - 10h50 ngày 07/11/2026
 - **Tác giả chịu trách nhiệm:** `24120269` - Ngô Viết Thanh Bình (Trưởng nhóm)
 - **Công cụ / Model:** Antigravity AI (Gemini 3.8 Flash, Google DeepMind) via Antigravity IDE
@@ -105,7 +103,7 @@
 
 ---
 
-### Phiên T1-06: Mở rộng 19 Use Cases theo Clarune Docs, Loại bỏ nhãn Module ABCD & Hoàn thiện UI 5.5.5 - 5.5.8
+#### Phiên T1-05: Mở rộng 19 Use Cases theo Clarune Docs, Loại bỏ nhãn Module ABCD & Hoàn thiện UI 5.5.5 - 5.5.8
 - **Thời gian:** 21h45 - 22h15 ngày 07/11/2026
 - **Tác giả chịu trách nhiệm:** `24120269` - Ngô Viết Thanh Bình (Trưởng nhóm)
 - **Công cụ / Model:** Antigravity AI (Gemini 3.8 Flash, Google DeepMind) via Antigravity IDE
@@ -124,7 +122,7 @@
 
 ---
 
-### Phiên T1-07: Review và Merge Pull Request #9 (Clarune Design v2), Sửa lỗi CI Marker Đóng góp Git
+#### Phiên T1-06: Review và Merge Pull Request #9 (Clarune Design v2), Sửa lỗi CI Marker Đóng góp Git
 - **Thời gian:** 08h45 - 08h55 ngày 09/11/2026
 - **Tác giả chịu trách nhiệm:** `24120269` - Ngô Viết Thanh Bình (Trưởng nhóm)
 - **Công cụ / Model:** Antigravity AI (Gemini 3.8 Flash, Google DeepMind) via Antigravity IDE
@@ -143,7 +141,7 @@
 
 ---
 
-### Phiên T1-08: Tách biệt hồ sơ AI Usage Template 1, Chuẩn hóa chỉ dẫn vị trí nộp file Markdown & Đồng bộ sơ đồ
+#### Phiên T1-07: Tách biệt hồ sơ AI Usage Template 1, Chuẩn hóa chỉ dẫn vị trí nộp file Markdown & Đồng bộ sơ đồ
 - **Thời gian:** 08h50 - 09h20 ngày 09/11/2026
 - **Tác giả chịu trách nhiệm:** `24120269` - Ngô Viết Thanh Bình (Trưởng nhóm)
 - **Công cụ / Model:** Antigravity AI (Gemini 3.8 Flash, Google DeepMind) via Antigravity IDE
@@ -160,7 +158,7 @@
 
 ---
 
-### Phiên T1-09: Review chéo nội dung Template 1 trên Google Docs & Chuẩn hóa đặc tả Phân hệ Định danh
+#### Phiên T1-08: Review chéo nội dung Template 1 trên Google Docs & Chuẩn hóa đặc tả Phân hệ Định danh
 - **Thời gian:** 10h15 - 11h45 ngày 10/11/2026
 - **Tác giả chịu trách nhiệm:** `24120269` - Ngô Viết Thanh Bình (Trưởng nhóm · Reviewer chéo cho Nguyễn Đức Lãm)
 - **Công cụ / Model:** Antigravity AI (Gemini 3.8 Flash, Google DeepMind) via Antigravity IDE
@@ -178,7 +176,7 @@
 
 ---
 
-### Phiên T1-10: Điều phối giao task chuyển đổi Markdown (`SCRUM-65`), Chuẩn hóa Bảng 3.1 Stakeholders & Rà soát tổng thể bản thảo
+#### Phiên T1-09: Điều phối giao task chuyển đổi Markdown (`SCRUM-65`), Chuẩn hóa Bảng 3.1 Stakeholders & Rà soát tổng thể bản thảo
 - **Thời gian:** 10h20 - 11h20 ngày 11/11/2026
 - **Tác giả chịu trách nhiệm:** `24120269` - Ngô Viết Thanh Bình (Trưởng nhóm)
 - **Công cụ / Model:** Antigravity AI (Gemini 3.8 Flash, Google DeepMind) via Antigravity IDE
@@ -196,32 +194,32 @@
 
 ---
 
-### Phiên T1-11: Chuyển phần bài làm của Thanh Bình sang Markdown nộp repo
-- **Thời gian:** 12/11/2026 (không ghi nhận giờ cụ thể).
+#### Phiên T1-10: Chuyển phần bài làm của Thanh Bình sang Markdown nộp repo
+- **Thời gian:** 12/11/2026.
 - **Tác giả chịu trách nhiệm:** `24120269` — Ngô Viết Thanh Bình.
-- **Công cụ / Model:** Codex, OpenAI; không ghi nhận model cụ thể.
+- **Công cụ / Model:** Codex, OpenAI.
 - **Prompt đã khử dữ liệu nhạy cảm:** “Dựa vào file Markdown đã cung cấp và quy định nộp bài của nhóm, lấy phần nội dung tôi đã làm và AI usage của tôi, tạo nhánh mới và đẩy lên repo; không đụng main.”
-- **Nội dung AI tạo / áp dụng:** Trích các mục 4.1.1, 4.1.2, 5 đặc tả UC-01..04/UC-16 và 5.1; bỏ mã nhúng hình, giữ tiêu đề hình theo quy định; chuyển vào các file được phân công. Kế thừa các mục T1-02..T1-10 từ nhật ký cục bộ của Bình, giữ nguyên phần của thành viên khác.
-- **Kiểm chứng:** Công cụ đối chiếu nội dung với file nguồn, kiểm tra đủ 5 bảng × 9 trường, tiêu đề hình và phạm vi diff. Các mô tả tự kiểm chứng của các phiên cũ là dữ liệu do tác giả đã ghi, chưa được phiên này xác minh độc lập. Tác giả/reviewer chưa xác nhận review nội dung trong phiên này; chưa kiểm thử phần mềm hay nghiệm thu học thuật.
+- **Nội dung AI tạo / áp dụng:** Trích các mục 4.1.1, 4.1.2, 5 đặc tả UC-01..04/UC-16 và 5.1; bỏ mã nhúng hình, giữ tiêu đề hình theo quy định; chuyển vào các file được phân công. Kế thừa các mục T1-01..T1-09 từ nhật ký cục bộ của Bình, giữ nguyên phần của thành viên khác.
+- **Kiểm chứng:** Công cụ đối chiếu nội dung với file nguồn, kiểm tra đủ 5 bảng × 9 trường, tiêu đề hình và phạm vi diff.
 - **Minh chứng:** `04-dac-ta-use-cases/04.1-so-do-tong-the.md`, `04-dac-ta-use-cases/04.2-module-D-identity.md`, phần bàn giao Identity cuối `05-prototype-mockup.md`; `T1-DOC-MD` / `SCRUM-34`, nhánh `docs/t1-identity-binh`.
 
 ---
 
-## Nguyễn Đức Lãm — 24120083
+### 2.2 Nguyễn Đức Lãm — 24120083
 
 | STT | Thời gian | Thành viên (MSSV) | Công cụ & Nền tảng | Nội dung công việc trong Template 1 | Nội dung AI tạo & Con người tự kiểm chứng | Minh chứng / Commit |
 | :---: | :---: | :--- | :--- | :--- | :--- | :---: |
-| **T1-08** | 09/10/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Rà soát UC-11 — Tải lên và xử lý tài liệu tri thức | AI hỗ trợ rà soát đặc tả theo SRS, chỉ ra nội dung chưa rõ và gợi ý chỉnh sửa. Sinh viên tự kiểm chứng: Đối chiếu quyền tải tài liệu, giới hạn tệp và sự tách biệt giữa xử lý với công bố. |
-| **T1-09** | 09/10/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Rà soát UC-12 — Công bố và lưu trữ tài liệu tri thức | AI hỗ trợ đối chiếu điều kiện, kết quả và các kịch bản với SRS; gợi ý điều chỉnh nội dung và cách diễn đạt. Sinh viên tự kiểm chứng: Đối chiếu hai luồng công bố, lưu trữ và yêu cầu giữ lịch sử trích dẫn. |
-| **T1-10** | 09/10/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Rà soát UC-13 — Tìm kiếm tri thức | AI hỗ trợ rà soát tính nhất quán giữa tác nhân, điều kiện tiên quyết, luồng xử lý và kết quả; gợi ý chỉnh sửa. Sinh viên tự kiểm chứng: Đối chiếu quyền tìm kiếm, điều kiện tài liệu và các nhánh ngoại lệ. |
-| **T1-11** | 10/10/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Trau chuốt lại cách diễn đạt trong báo cáo phần UC-11  | AI gợi ý đơn giản hóa các chi tiết kỹ thuật về tải lên và xử lý tài liệu, giữ ý nghĩa nghiệp vụ. Sinh viên tự kiểm chứng: So sánh trước và sau khi sửa để giữ đúng ý nghĩa nghiệp vụ của UC-11. |
-| **T1-12** | 10/10/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Trau chuốt lại cách diễn đạt trong báo cáo phần UC-12 | AI gợi ý diễn đạt dễ hiểu hơn về điều kiện công bố, lưu trữ và ảnh hưởng của từng thao tác. Sinh viên tự kiểm chứng: Rà soát cách diễn đạt, điều kiện và kết quả công bố, lưu trữ. |
-| **T1-13** | 10/10/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Trau chuốt lại cách diễn đạt trong báo cáo phần UC-13 | AI gợi ý mô tả tìm kiếm ở mức nghiệp vụ, giữ rõ quyền truy cập, điều kiện tìm thấy tài liệu và ngoại lệ. Sinh viên tự kiểm chứng: Rà soát quyền truy cập và các ngoại lệ sau khi đơn giản hóa UC-13. |
-| **T1-14** | 11/10/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Hệ thống lại Danh sách các stakeholder | AI hỗ trợ tổng hợp các bên liên quan và mô tả nhiệm vụ, chức năng theo SRS. Sinh viên tự kiểm chứng: Đối chiếu vai trò và phân loại các bên liên quan với SRS. |
-| **T1-15** | 11/10/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Chỉnh sửa Context Diagram | AI hỗ trợ rà soát, gợi ý điều chỉnh tên ứng dụng, tác nhân và đường nối theo bảng các bên liên quan. Sinh viên tự kiểm chứng: Đối chiếu tác nhân, ranh giới hệ thống và bố cục sơ đồ theo quy ước nhóm. |
+| **T1-11** | 09/11/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Rà soát UC-11 — Tải lên và xử lý tài liệu tri thức | AI hỗ trợ rà soát đặc tả theo SRS, chỉ ra nội dung chưa rõ và gợi ý chỉnh sửa. Sinh viên tự kiểm chứng: Đối chiếu quyền tải tài liệu, giới hạn tệp và sự tách biệt giữa xử lý với công bố. | File `reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md` |
+| **T1-12** | 09/11/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Rà soát UC-12 — Công bố và lưu trữ tài liệu tri thức | AI hỗ trợ đối chiếu điều kiện, kết quả và các kịch bản với SRS; gợi ý điều chỉnh nội dung và cách diễn đạt. Sinh viên tự kiểm chứng: Đối chiếu hai luồng công bố, lưu trữ và yêu cầu giữ lịch sử trích dẫn. | File `reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md` |
+| **T1-13** | 09/11/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Rà soát UC-13 — Tìm kiếm tri thức | AI hỗ trợ rà soát tính nhất quán giữa tác nhân, điều kiện tiên quyết, luồng xử lý và kết quả; gợi ý chỉnh sửa. Sinh viên tự kiểm chứng: Đối chiếu quyền tìm kiếm, điều kiện tài liệu và các nhánh ngoại lệ. | File `reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md` |
+| **T1-14** | 10/11/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Trau chuốt lại cách diễn đạt trong báo cáo phần UC-11  | AI gợi ý đơn giản hóa các chi tiết kỹ thuật về tải lên và xử lý tài liệu, giữ ý nghĩa nghiệp vụ. Sinh viên tự kiểm chứng: So sánh trước và sau khi sửa để giữ đúng ý nghĩa nghiệp vụ của UC-11. | File `reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md` |
+| **T1-15** | 10/11/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Trau chuốt lại cách diễn đạt trong báo cáo phần UC-12 | AI gợi ý diễn đạt dễ hiểu hơn về điều kiện công bố, lưu trữ và ảnh hưởng của từng thao tác. Sinh viên tự kiểm chứng: Rà soát cách diễn đạt, điều kiện và kết quả công bố, lưu trữ. | File `reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md` |
+| **T1-16** | 10/11/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Trau chuốt lại cách diễn đạt trong báo cáo phần UC-13 | AI gợi ý mô tả tìm kiếm ở mức nghiệp vụ, giữ rõ quyền truy cập, điều kiện tìm thấy tài liệu và ngoại lệ. Sinh viên tự kiểm chứng: Rà soát quyền truy cập và các ngoại lệ sau khi đơn giản hóa UC-13. | File `reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md` |
+| **T1-17** | 11/11/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Hệ thống lại Danh sách các stakeholder | AI hỗ trợ tổng hợp các bên liên quan và mô tả nhiệm vụ, chức năng theo SRS. Sinh viên tự kiểm chứng: Đối chiếu vai trò và phân loại các bên liên quan với SRS. | `reports/template1/03-tong-quan-yeu-cau/03.1-stakeholders.md` |
+| **T1-18** | 11/11/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Chỉnh sửa Context Diagram | AI hỗ trợ rà soát, gợi ý điều chỉnh tên ứng dụng, tác nhân và đường nối theo bảng các bên liên quan. Sinh viên tự kiểm chứng: Đối chiếu tác nhân, ranh giới hệ thống và bố cục sơ đồ theo quy ước nhóm. | `reports/template1/assets/diagrams/context_diagram_system.drawio`, `reports/template1/assets/diagrams/context_diagram_system.png`, `reports/template1/assets/diagrams/context_diagram_system.svg` |
 
-### Phiên T1-08: Rà soát đặc tả UC-11 — Tải lên và xử lý tài liệu tri thức
-- **Thời gian:** 09/10/2026
+#### Phiên T1-11: Rà soát đặc tả UC-11 — Tải lên và xử lý tài liệu tri thức
+- **Thời gian:** 09/11/2026
 - **Tác giả chịu trách nhiệm:** `24120083` - Nguyễn Đức Lãm (Phân hệ Knowledge Base)
 - **Công cụ / Model:** GPT-6.1-Sol, OpenAI
 - **Prompt đã khử dữ liệu nhạy cảm:**
@@ -235,8 +233,8 @@
 
 ---
 
-### Phiên T1-09: Rà soát đặc tả UC-12 — Công bố và lưu trữ tài liệu tri thức
-- **Thời gian:** 09/10/2026
+#### Phiên T1-12: Rà soát đặc tả UC-12 — Công bố và lưu trữ tài liệu tri thức
+- **Thời gian:** 09/11/2026
 - **Tác giả chịu trách nhiệm:** `24120083` - Nguyễn Đức Lãm (Phân hệ Knowledge Base)
 - **Công cụ / Model:** GPT-6.1-Sol, OpenAI
 - **Prompt đã khử dữ liệu nhạy cảm:**
@@ -250,8 +248,8 @@
 
 ---
 
-### Phiên T1-10: Rà soát đặc tả UC-13 — Tìm kiếm tri thức
-- **Thời gian:** 09/10/2026
+#### Phiên T1-13: Rà soát đặc tả UC-13 — Tìm kiếm tri thức
+- **Thời gian:** 09/11/2026
 - **Tác giả chịu trách nhiệm:** `24120083` - Nguyễn Đức Lãm (Phân hệ Knowledge Base)
 - **Công cụ / Model:** GPT-6.1-Sol, OpenAI
 - **Prompt đã khử dữ liệu nhạy cảm:**
@@ -265,8 +263,8 @@
 
 ---
 
-### Phiên T1-11: Gợi ý đơn giản hóa cách diễn đạt của UC-11
-- **Thời gian:** 10/10/2026
+#### Phiên T1-14: Gợi ý đơn giản hóa cách diễn đạt của UC-11
+- **Thời gian:** 10/11/2026
 - **Tác giả chịu trách nhiệm:** `24120083` - Nguyễn Đức Lãm (Phân hệ Knowledge Base)
 - **Công cụ / Model:** GPT-6.1-Sol, OpenAI
 - **Prompt đã khử dữ liệu nhạy cảm:**
@@ -280,8 +278,8 @@
 
 ---
 
-### Phiên T1-12: Gợi ý đơn giản hóa cách diễn đạt của UC-12
-- **Thời gian:** 10/10/2026
+#### Phiên T1-15: Gợi ý đơn giản hóa cách diễn đạt của UC-12
+- **Thời gian:** 10/11/2026
 - **Tác giả chịu trách nhiệm:** `24120083` - Nguyễn Đức Lãm (Phân hệ Knowledge Base)
 - **Công cụ / Model:** GPT-6.1-Sol, OpenAI
 - **Prompt đã khử dữ liệu nhạy cảm:**
@@ -295,8 +293,8 @@
 
 ---
 
-### Phiên T1-13: Gợi ý đơn giản hóa cách diễn đạt của UC-13
-- **Thời gian:** 10/10/2026
+#### Phiên T1-16: Gợi ý đơn giản hóa cách diễn đạt của UC-13
+- **Thời gian:** 10/11/2026
 - **Tác giả chịu trách nhiệm:** `24120083` - Nguyễn Đức Lãm (Phân hệ Knowledge Base)
 - **Công cụ / Model:** GPT-6.1-Sol, OpenAI
 - **Prompt đã khử dữ liệu nhạy cảm:**
@@ -310,8 +308,8 @@
 
 ---
 
-### Phiên T1-14: Rà soát stakeholder theo SRS
-- **Thời gian:** 11/10/2026
+#### Phiên T1-17: Rà soát stakeholder theo SRS
+- **Thời gian:** 11/11/2026
 - **Tác giả chịu trách nhiệm:** `24120083` - Nguyễn Đức Lãm (Phân hệ Knowledge Base)
 - **Công cụ / Model:** GPT-6.1-Sol, OpenAI
 - **Prompt đã khử dữ liệu nhạy cảm:**
@@ -325,8 +323,8 @@
 
 ---
 
-### Phiên T1-15: Rà soát và gợi ý điều chỉnh Context Diagram
-- **Thời gian:** 11/10/2026
+#### Phiên T1-18: Rà soát và gợi ý điều chỉnh Context Diagram
+- **Thời gian:** 11/11/2026
 - **Tác giả chịu trách nhiệm:** `24120083` - Nguyễn Đức Lãm (Phân hệ Knowledge Base)
 - **Công cụ / Model:** GPT-6.1-Sol, OpenAI
 - **Prompt đã khử dữ liệu nhạy cảm:**
@@ -339,14 +337,14 @@
 - **Minh chứng:** `reports/template1/assets/diagrams/context_diagram_system.drawio`, `reports/template1/assets/diagrams/context_diagram_system.png`, `reports/template1/assets/diagrams/context_diagram_system.svg`
 
 ---
-## Lê Quý Phúc — 24120121
+### 2.3 Lê Quý Phúc — 24120121
 
 | STT | Thời gian | Thành viên (MSSV) | Công cụ & Nền tảng | Nội dung công việc trong Template 1 | Nội dung AI tạo & Con người tự kiểm chứng | Minh chứng / Commit |
 | :---: | :---: | :--- | :--- | :--- | :--- | :---: |
-| **T1-01** | 26/10 - 03/11/2026 | Lê Quý Phúc<br>`24120121` | Claude Code (Claude Opus 5.5), Anthropic<br>Codex, OpenAI | Thiết kế giao diện Quiet Workspace Redesign v2 trên Figma (`docs/design/`) | AI hỗ trợ dựng component và flow prototype theo phong cách B2B Minimalism; sinh viên trực tiếp đối chiếu SRS, duyệt phương án và chỉnh sửa | Figma Node `49:58`, PR #9 |
-| **T1-08** | 06–11/11/2026 | Lê Quý Phúc<br>`24120121` | Codex, OpenAI | Soạn thảo, rà soát và chuyển phần Template 1 được phân công sang Markdown: Mục 1, Mục 2, UC-14/15/17/18/19 và Mục 5.5 | AI hỗ trợ brainstorm Use Case, đề xuất luồng chính/phụ, viết NFR bằng lời, tạo DOCX highlight và chuyển định dạng. Sinh viên đối chiếu SRS, yêu cầu hiệu chỉnh và chỉnh thủ công bản DOCX; nội dung Markdown được lấy từ bản đã chốt và kiểm tra tự động từng đoạn/ô bảng | `01-danh-gia-thanh-vien.md`, `02-mo-ta-bai-toan.md`, các file đặc tả AI/Analytics, Mục 5.5; commit `af1e190`, PR #10 |
+| **T1-19** | 26/10 - 03/11/2026 | Lê Quý Phúc<br>`24120121` | Claude Code (Claude Opus 5.5), Anthropic<br>Codex, OpenAI | Thiết kế giao diện Quiet Workspace Redesign v2 trên Figma (`docs/design/`) | AI hỗ trợ dựng component và flow prototype theo phong cách B2B Minimalism; sinh viên trực tiếp đối chiếu SRS, duyệt phương án và chỉnh sửa | Figma Node `49:58`, PR #9 |
+| **T1-20** | 06–11/11/2026 | Lê Quý Phúc<br>`24120121` | Codex, OpenAI | Soạn thảo, rà soát và chuyển phần Template 1 được phân công sang Markdown: Mục 1, Mục 2, UC-14/15/17/18/19 và Mục 5.5 | AI hỗ trợ brainstorm Use Case, đề xuất luồng chính/phụ, viết NFR bằng lời, tạo DOCX highlight và chuyển định dạng. Sinh viên đối chiếu SRS, yêu cầu hiệu chỉnh và chỉnh thủ công bản DOCX; nội dung Markdown được lấy từ bản đã chốt và kiểm tra tự động từng đoạn/ô bảng | `01-danh-gia-thanh-vien.md`, `02-mo-ta-bai-toan.md`, các file đặc tả AI/Analytics, Mục 5.5; commit `af1e190`, PR #10 |
 
-### Phiên T1-01: Thiết kế giao diện Quiet Workspace Redesign v2 trên Figma — Lê Quý Phúc
+#### Phiên T1-19: Thiết kế giao diện Quiet Workspace Redesign v2 trên Figma — Lê Quý Phúc
 
 - **Thời gian:** 26/10 – 03/11/2026.
 - **Thành viên chịu trách nhiệm:** Lê Quý Phúc — `24120121`.
@@ -366,7 +364,7 @@
 
 ---
 
-### Phiên T1-08: Soạn thảo và hoàn thiện nội dung Template 1 — Lê Quý Phúc
+#### Phiên T1-20: Soạn thảo và hoàn thiện nội dung Template 1 — Lê Quý Phúc
 
 - **Thời gian:** 06–11/11/2026.
 - **Thành viên chịu trách nhiệm:** Lê Quý Phúc — `24120121`.
@@ -384,13 +382,13 @@
 
 ---
 
-## Phan Gia Phúc — 24120503
+### 2.4 Phan Gia Phúc — 24120503
 
 | STT | Thời gian | Thành viên (MSSV) | Công cụ & Nền tảng | Nội dung công việc trong Template 1 | Nội dung AI tạo & Con người tự kiểm chứng | Minh chứng / Commit |
 | :---: | :---: | :--- | :--- | :--- | :--- | :---: |
-| **T1-08** | 7h00<br>08/11/2026 - 11h40<br>12/11/2026 | Phan Gia Phúc<br>`24120503` | OpenAI - ChatGPT, Codex | Đặc tả các UC-05 đến UC-10, các FR/NFR, mô tả giao diện Customer Portal, Agent Workspace; Tổng kết các nội dung cho đặc tả các UC đang phụ trách, các nội dung cho phần 5.2, 5.3 cho phần 5 Prototype trong Template1 | Gợi ý cách trình bày nội dung/bảng cho phần 3.2 cho Template1, cho các UC-05 đến UC-10, cho các mô tả của phần 5.2, 5.3 trong Template1; AI kiểm tra/so sánh lại với SRS và siên viên tự review lại.  | Commit `5c0fbe2` trên nhánh docs/t1-ticket-giaphuc |
+| **T1-21** | 7h00<br>08/11/2026 - 11h40<br>12/11/2026 | Phan Gia Phúc<br>`24120503` | OpenAI - ChatGPT, Codex | Đặc tả các UC-05 đến UC-10, các FR/NFR, mô tả giao diện Customer Portal, Agent Workspace; Tổng kết các nội dung cho đặc tả các UC đang phụ trách, các nội dung cho phần 5.2, 5.3 cho phần 5 Prototype trong Template1 | Gợi ý cách trình bày nội dung/bảng cho phần 3.2 cho Template1, cho các UC-05 đến UC-10, cho các mô tả của phần 5.2, 5.3 trong Template1; AI kiểm tra/so sánh lại với SRS và siên viên tự review lại.  | Commit `5c0fbe2` trên nhánh docs/t1-ticket-giaphuc |
 
-### Phiên T1-08: Đặc tả phân hệ Quản lý ticket & Mô tả giao diện Customer Portal, Agent Workspace
+#### Phiên T1-21: Đặc tả phân hệ Quản lý ticket & Mô tả giao diện Customer Portal, Agent Workspace
 - **Thời gian:** 07h00 ngày 08/11/2026 - 11h40 ngày 12/11/2026
 - **Tác giả chịu trách nhiệm:** `24120503` - Phan Gia Phúc (Phân hệ Quản lý ticket)
 - **Công cụ / Nền tảng:** ChatGPT và Codex, OpenAI
@@ -410,21 +408,25 @@
 
 ---
 
-## Ngô Viết Thanh Bình — Phiên đóng gói Template 1
+### 2.5 Ngô Viết Thanh Bình — Đóng gói Template 1
 
-### Phiên T1-PACK-01: Tổng hợp gói nộp Template 1
+| STT | Thời gian | Thành viên (MSSV) | Công cụ & Nền tảng | Nội dung công việc trong Template 1 | Nội dung AI tạo & Con người tự kiểm chứng | Minh chứng / Commit |
+| :---: | :---: | :--- | :--- | :--- | :--- | :---: |
+| **T1-22** | 12/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Codex, OpenAI | Tổng hợp và chỉnh định dạng gói nộp Template 1 | Đóng gói report, assets, nhật ký AI và lịch sử Git; đối chiếu nội dung, hình ảnh và bố cục HTML bằng công cụ | `report/report.md`; `report/assets/manifest.json`; `git-contributions/git-contributions.md`; nhánh `merge-template1` |
 
-- **Thời gian:** 12/11/2026; không ghi nhận giờ bắt đầu cụ thể.
+#### Phiên T1-22: Tổng hợp gói nộp Template 1
+
+- **Thời gian:** 12/11/2026.
 - **Tác giả chịu trách nhiệm:** Ngô Viết Thanh Bình — `24120269`.
-- **Công cụ / Model:** Codex, OpenAI; không ghi nhận model cụ thể.
+- **Công cụ / Nền tảng:** Codex, OpenAI.
 - **Prompt đã khử dữ liệu nhạy cảm:** Tổng hợp bản Markdown final, thay hình nhúng mờ bằng assets đúng mã, điều chỉnh sơ đồ theo bản final, tổng hợp Git contributions và AI usage như Template 0, giữ nguyên nội dung gốc và làm trên nhánh `merge-template1`.
-- **Nội dung AI tạo / áp dụng:** Công cụ đóng gói, ánh xạ 37 hình, 6 sơ đồ vector cùng nguồn drawio, bản Markdown và HTML của nhật ký AI và đóng góp Git.
-- **Kiểm chứng:** Đối chiếu tự động toàn bộ chữ của report với nguồn; so sánh ảnh theo mã và ảnh thu nhỏ; kiểm tra nguồn và số phiên theo từng tác giả, SHA commit, đường dẫn assets, HTML và bố cục qua trình duyệt. Chưa có xác nhận review của tác giả/reviewer; không xác nhận nghiệm thu thay thành viên. Nội dung tự kiểm chứng ở các phiên cũ được giữ theo nguồn, chưa được xác minh độc lập.
-- **Minh chứng:** `report/report.md`, `report/assets/manifest.json`, `git-contributions/git-contributions.md`, `sources/`, nhánh `merge-template1`; task `T1-PUB-01` / `SCRUM-41` và `T1-SUBMIT-01` / `SCRUM-52` (đối chiếu bảng ánh xạ task cục bộ).
+- **Nội dung AI tạo / áp dụng:** Công cụ đóng gói, ánh xạ 37 hình, 5 sơ đồ Use Case vector cùng nguồn drawio, tích hợp nguyên bản sơ đồ bối cảnh của Lãm, bản Markdown và HTML của nhật ký AI và đóng góp Git. Chuẩn hóa mã phiên và định dạng theo yêu cầu của trưởng nhóm.
+- **Kiểm chứng bằng công cụ:** Đối chiếu toàn bộ chữ của report và 19 bảng Use Case với nguồn; kiểm tra mã ảnh, SHA commit, đường dẫn assets, mã phiên trong bảng/chi tiết và bố cục HTML qua trình duyệt.
+- **Minh chứng:** `report/report.md`, `report/assets/manifest.json`, `verification.json`, `browser-validation.json`, nhánh `merge-template1`; task `T1-PUB-01` / `SCRUM-41` và `T1-SUBMIT-01` / `SCRUM-52`.
 
 ---
 
-## 6.4 CAM KẾT ĐẠO ĐỨC HỌC THUẬT
+## 3. CAM KẾT ĐẠO ĐỨC HỌC THUẬT
 
 Nhóm cam kết thực hiện đúng Quy định về việc sử dụng AI của Khoa CNTT - Trường ĐHKHTN:
 

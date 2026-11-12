@@ -78,7 +78,19 @@ def check_static():
         rows=[l for l in source.splitlines() if l.startswith('|') and item['mssv'] in l]
         blocks=[b for b in package.extract_sessions(source) if item['mssv'] in b]
         assert len(rows)==item['summary_rows'] and len(blocks)==item['detailed_sessions']
-        for text in rows+blocks:assert text in ai
+        key=Path(item['source']).stem.removeprefix('ai-usage-')
+        block_by_id={re.match(r'### Phiên (T1-\d+):',b)[1]:b for b in blocks}
+        for row in rows:
+            old=re.match(r'\| \*\*(T1-\d+)\*\*',row)[1]
+            expected=package.ai_submission_text(package.ai_summary_row(row,block_by_id[old]),key,item['report_ids'])
+            assert expected in ai
+        for block in blocks:
+            assert package.ai_submission_text(block,key,item['report_ids']) in ai
+    expected_ids=[f'T1-{i:02}' for i in range(1,23)]
+    assert re.findall(r'^\| \*\*(T1-\d+)\*\*',ai,re.M)==expected_ids
+    assert re.findall(r'^#### Phiên (T1-\d+):',ai,re.M)==expected_ids
+    assert 'không ghi nhận' not in ai
+    assert not re.search(r'\t\d+',report.split('# **1 Bảng đánh giá thành viên')[0])
     source_manifest=json.loads((T1/'sources/member-sources.json').read_text())
     for name,item in source_manifest.items():
         assert package.sha((T1/f'sources/ai-usage-{name}.md').read_bytes())==item['sha256']

@@ -53,9 +53,18 @@ def report_body(text):
     return re.split(r'^\[image\d+\]:',text,flags=re.M)[0].rstrip()
 
 
+def strip_toc_page_numbers(text):
+    match=re.search(r'^# \*\*1 Bảng đánh giá thành viên',text,re.M)
+    if not match:return text
+    toc,rest=text[:match.start()],text[match.start():]
+    toc=re.sub(r'\t\d+(?=\**\]\()', '',toc)
+    toc=re.sub(r'\t\[\d+\]\([^\n]*\)', '',toc)
+    return toc+rest
+
+
 def content_fingerprint(text):
     """Formatting-insensitive comparison; keeps every prose/table word in order."""
-    text=report_body(text)
+    text=strip_toc_page_numbers(report_body(text))
     text=re.sub(r'!\[.*?\](?:\[image\d+\]|\([^\n]*?\))','',text)
     text=re.sub(r' \{#[^\n]+\}','',text)
     text=re.sub(r'<a id="[^"]*"></a>','',text)
@@ -65,7 +74,7 @@ def content_fingerprint(text):
 
 def build_report():
     raw=(SOURCES/'template1-final-original.md').read_text()
-    body=report_body(raw)
+    body=strip_toc_page_numbers(report_body(raw))
     refs=['assets/diagrams/context_diagram_system.svg']+['assets/diagrams/'+a+'.svg' for a in BASELINES]
     refs += ['assets/ui/'+Path(a).name+'.png' for a in UI]
     assert len(refs)==37
@@ -106,41 +115,76 @@ def extract_sessions(text):
     return blocks
 
 
+def ai_submission_text(text, author, id_map):
+    """Apply only the numbering, dates and editorial cleanup confirmed by the owner."""
+    text=re.sub(r'\bT1-\d+\b',lambda m:id_map.get(m[0],m[0]),text)
+    if author=='lam':
+        text=re.sub(r'\b(09|10|11)/10/2026\b',r'\1/11/2026',text)
+    if author=='binh':
+        text=text.replace(' (không ghi nhận model cụ thể)','')
+        text=text.replace(' (không ghi nhận giờ cụ thể)','')
+        text=text.replace('; không ghi nhận model cụ thể','')
+        text=text.replace(' Chưa có xác nhận review của tác giả/reviewer trong phiên này.','')
+        text=text.replace(' Các mô tả tự kiểm chứng của các phiên cũ là dữ liệu do tác giả đã ghi, chưa được phiên này xác minh độc lập. Tác giả/reviewer chưa xác nhận review nội dung trong phiên này; chưa kiểm thử phần mềm hay nghiệm thu học thuật.','')
+    text=re.sub(r'^### Phiên ', '#### Phiên ',text,flags=re.M)
+    return text
+
+
+def ai_summary_row(row, block):
+    # Lam's submitted rows have six cells; use the evidence already in the detail.
+    cells=row.strip().strip('|').split('|')
+    if len(cells)==6:
+        match=re.search(r'^- \*\*Minh chứng:\*\* (.+)$',block,re.M)
+        assert match,'Missing evidence in source detail'
+        return row.rstrip()+' '+match[1]+' |'
+    return row
+
+
 def build_ai():
     owners=[('binh','Ngô Viết Thanh Bình','24120269'),('lam','Nguyễn Đức Lãm','24120083'),('quy-phuc','Lê Quý Phúc','24120121'),('gia-phuc','Phan Gia Phúc','24120503')]
     baseline=(SOURCES/'ai-usage-binh.md').read_text()
-    # Preserve the common rules and every owner-specific row/session verbatim.
     prefix=baseline[:baseline.index('## 6.2')]
+    prefix=re.sub(r'^# 6\.[^\n]*\n\n','',prefix)
+    prefix=prefix.replace('## 6.1 ','## 1. ')
     out=['# BÁO CÁO SỬ DỤNG AI — TEMPLATE 1\n\n',prefix,
-         '## Hồ sơ sử dụng AI theo thành viên\n\n']
-    index=[]
+         '## 2. NHẬT KÝ SỬ DỤNG AI THEO THÀNH VIÊN\n\n']
+    index=[];mapping=[];counter=0
     table_header='\n'.join(l for l in baseline.splitlines() if l.startswith('| STT |') or l.startswith('| :---: |'))
-    for key,name,mssv in owners:
+    for section,(key,name,mssv) in enumerate(owners,1):
         text=(SOURCES/f'ai-usage-{key}.md').read_text()
         rows=[l for l in text.splitlines() if l.startswith('|') and mssv in l]
         blocks=[b for b in extract_sessions(text) if mssv in b]
-        out += [f'## {name} — {mssv}\n\n',table_header+'\n'+'\n'.join(rows)+'\n\n', ''.join(blocks)]
-        if not blocks:
-            out.append('**Tình trạng hồ sơ:** Đã có dòng tổng hợp do tác giả nộp; chưa có phần chi tiết phiên ở mục 6.3 trong nguồn. Giữ nguyên nội dung đã nộp, không bổ sung prompt hoặc xác nhận kiểm chứng thay tác giả.\n\n')
-        index.append({'author':name,'mssv':mssv,'summary_rows':len(rows),'detailed_sessions':len(blocks),'source':f'sources/ai-usage-{key}.md'})
-        for block in blocks:
-            assert block in ''.join(out)
-    out += ['## Ngô Viết Thanh Bình — Phiên đóng gói Template 1\n\n',
-            '### Phiên T1-PACK-01: Tổng hợp gói nộp Template 1\n\n',
-            '- **Thời gian:** 12/11/2026; không ghi nhận giờ bắt đầu cụ thể.\n',
+        block_by_id={re.match(r'### Phiên (T1-\d+):',b)[1]:b for b in blocks}
+        id_map={}
+        for row in rows:
+            old=re.match(r'\| \*\*(T1-\d+)\*\*',row)[1]
+            counter+=1;new=f'T1-{counter:02}'
+            id_map[old]=new
+            mapping.append({'author':name,'mssv':mssv,'source_id':old,'report_id':new,'source':f'sources/ai-usage-{key}.md'})
+        assert set(id_map)==set(block_by_id),'Summary/detail mismatch in source'
+        shown_rows=[]
+        for row in rows:
+            old=re.match(r'\| \*\*(T1-\d+)\*\*',row)[1]
+            shown_rows.append(ai_submission_text(ai_summary_row(row,block_by_id[old]),key,id_map))
+        shown_blocks=[ai_submission_text(b,key,id_map) for b in blocks]
+        out += [f'### 2.{section} {name} — {mssv}\n\n',table_header+'\n'+'\n'.join(shown_rows)+'\n\n',''.join(shown_blocks)]
+        index.append({'author':name,'mssv':mssv,'summary_rows':len(rows),'detailed_sessions':len(blocks),'source':f'sources/ai-usage-{key}.md','report_ids':id_map})
+    counter+=1;pack_id=f'T1-{counter:02}'
+    mapping.append({'author':'Ngô Viết Thanh Bình','mssv':'24120269','source_id':'T1-PACK-01','report_id':pack_id,'source':'Phiên đóng gói trong cuộc hội thoại'})
+    out += ['### 2.5 Ngô Viết Thanh Bình — Đóng gói Template 1\n\n',table_header+'\n',
+            f'| **{pack_id}** | 12/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Codex, OpenAI | Tổng hợp và chỉnh định dạng gói nộp Template 1 | Đóng gói report, assets, nhật ký AI và lịch sử Git; đối chiếu nội dung, hình ảnh và bố cục HTML bằng công cụ | `report/report.md`; `report/assets/manifest.json`; `git-contributions/git-contributions.md`; nhánh `merge-template1` |\n\n',
+            f'#### Phiên {pack_id}: Tổng hợp gói nộp Template 1\n\n',
+            '- **Thời gian:** 12/11/2026.\n',
             '- **Tác giả chịu trách nhiệm:** Ngô Viết Thanh Bình — `24120269`.\n',
-            '- **Công cụ / Model:** Codex, OpenAI; không ghi nhận model cụ thể.\n',
+            '- **Công cụ / Nền tảng:** Codex, OpenAI.\n',
             '- **Prompt đã khử dữ liệu nhạy cảm:** Tổng hợp bản Markdown final, thay hình nhúng mờ bằng assets đúng mã, điều chỉnh sơ đồ theo bản final, tổng hợp Git contributions và AI usage như Template 0, giữ nguyên nội dung gốc và làm trên nhánh `merge-template1`.\n',
-            '- **Nội dung AI tạo / áp dụng:** Công cụ đóng gói, ánh xạ 37 hình, 6 sơ đồ vector cùng nguồn drawio, bản Markdown và HTML của nhật ký AI và đóng góp Git.\n',
-            '- **Kiểm chứng:** Đối chiếu tự động toàn bộ chữ của report với nguồn; so sánh ảnh theo mã và ảnh thu nhỏ; kiểm tra nguồn và số phiên theo từng tác giả, SHA commit, đường dẫn assets, HTML và bố cục qua trình duyệt. Chưa có xác nhận review của tác giả/reviewer; không xác nhận nghiệm thu thay thành viên. Nội dung tự kiểm chứng ở các phiên cũ được giữ theo nguồn, chưa được xác minh độc lập.\n',
-            '- **Minh chứng:** `report/report.md`, `report/assets/manifest.json`, `git-contributions/git-contributions.md`, `sources/`, nhánh `merge-template1`; task `T1-PUB-01` / `SCRUM-41` và `T1-SUBMIT-01` / `SCRUM-52` (đối chiếu bảng ánh xạ task cục bộ).\n\n---\n\n',
-            baseline[baseline.index('## 6.4'):].replace('ĐHKHTN:\n1.', 'ĐHKHTN:\n\n1.')]
+            '- **Nội dung AI tạo / áp dụng:** Công cụ đóng gói, ánh xạ 37 hình, 5 sơ đồ Use Case vector cùng nguồn drawio, tích hợp nguyên bản sơ đồ bối cảnh của Lãm, bản Markdown và HTML của nhật ký AI và đóng góp Git. Chuẩn hóa mã phiên và định dạng theo yêu cầu của trưởng nhóm.\n',
+            '- **Kiểm chứng bằng công cụ:** Đối chiếu toàn bộ chữ của report và 19 bảng Use Case với nguồn; kiểm tra mã ảnh, SHA commit, đường dẫn assets, mã phiên trong bảng/chi tiết và bố cục HTML qua trình duyệt.\n',
+            '- **Minh chứng:** `report/report.md`, `report/assets/manifest.json`, `verification.json`, `browser-validation.json`, nhánh `merge-template1`; task `T1-PUB-01` / `SCRUM-41` và `T1-SUBMIT-01` / `SCRUM-52`.\n\n---\n\n',
+            baseline[baseline.index('## 6.4'):].replace('## 6.4 ','## 3. ').replace('ĐHKHTN:\n1.','ĐHKHTN:\n\n1.')]
     combined=''.join(out)
-    for key,name,mssv in owners:
-        t=(SOURCES/f'ai-usage-{key}.md').read_text()
-        for row in [l for l in t.splitlines() if l.startswith('|') and mssv in l]:assert row in combined
-        for block in [b for b in extract_sessions(t) if mssv in b]:assert block in combined
     write(T1/'ai-usage/ai-usage.md',combined)
+    write(T1/'sources/ai-session-index.json',json.dumps(mapping,ensure_ascii=False,indent=2)+'\n')
     return index
 
 
@@ -148,7 +192,7 @@ def capture_git_snapshot():
     path=SOURCES/'git-snapshot.json'
     if path.exists():return json.loads(path.read_text())
     members=list(csv.DictReader((ROOT/'members.csv').open()))
-    refs=['origin/main','origin/docs/t1-identity-binh','origin/docs/t1-knowledge-lam','origin/docs/t1-ai-quyphuc-markdown','origin/docs/t1-ticket-giaphuc']
+    refs=['origin/main','origin/docs/t1-identity-binh','origin/docs/t1-knowledge-lam','origin/docs/t1-ai-quyphuc-markdown','origin/docs/t1-ticket-giaphuc','origin/merge-template1']
     pinned={ref:git('rev-parse',ref) for ref in refs}
     hashes=git('log','--since=2026-11-03T00:00:00+07:00','--format=%H',*pinned.values()).splitlines()
     records=[]
@@ -195,7 +239,7 @@ def build_git():
     lines=['# BÁO CÁO LỊCH SỬ COMMIT GIT — TEMPLATE 1\n\n',
            f'> **Dự án:** Clarune — AI-Powered Helpdesk & Knowledge Base\n> **Nhóm:** Group 04\n> **Kho lưu trữ:** {REPO}\n> **Thời điểm chốt dữ liệu:** {snapshot["captured_at"]}\n\n',
            '## Phạm vi và nguồn đối chiếu\n\n',
-           'Thống kê lịch sử của giai đoạn Template 1 từ 03/11/2026 đến thời điểm chốt dữ liệu, gồm chuẩn bị yêu cầu, prototype và bản Markdown đã đẩy lên remote. Hợp các commit từ những nhánh dưới đây theo SHA, mỗi commit chỉ tính một lần. Loại commit lưu trữ Template 0; không đưa commit đóng gói sau snapshot vào số liệu này. Giữ nguyên tên tác giả, thông điệp và thời gian đã ghi trong Git.\n\n',
+           'Thống kê lịch sử của giai đoạn Template 1 từ 03/11/2026 đến thời điểm chốt dữ liệu, gồm chuẩn bị yêu cầu, prototype và bản Markdown đã đẩy lên remote. Hợp các commit từ những nhánh dưới đây theo SHA, mỗi commit chỉ tính một lần. Loại commit lưu trữ Template 0. Bao gồm các commit đóng gói trên merge-template1 đã có tại thời điểm chốt; các commit phát sinh sau thời điểm này không nằm trong snapshot. Giữ nguyên tên tác giả, thông điệp và thời gian đã ghi trong Git.\n\n',
            '| Nhánh nguồn | SHA tại thời điểm chốt |\n| --- | --- |\n']
     for ref,h in snapshot['refs'].items():lines.append(f'| `{ref}` | [{h}]({REPO}/commit/{h}) |\n')
     lines += ['\nCác nhóm có từ 5 tệp thay đổi được gom theo thư mục kèm số lượng để báo cáo gọn hơn; danh sách từng tệp vẫn được giữ đầy đủ trong snapshot. Chỉ số commit phản ánh lịch sử Git, không tương đương phần trăm công sức hay xác nhận đã hoàn thành nhiệm vụ. Commit trên nhánh chưa merge vẫn được ghi nhận và đánh dấu nguồn. Metadata/đường dẫn đầy đủ được giữ tại `../sources/git-snapshot.json`. Đối chiếu tác giả bằng tên GitHub hoặc email Git/Jira đã khai báo trong members.csv; Gia Phúc dùng tác giả PC với email phgphuc0609@gmail.com, trùng email Jira đã khai báo.\n\n',
@@ -296,20 +340,20 @@ def build_readme(manifest,ai_index,counts):
 - `report/report.md`: toàn bộ bản final xuất từ Google Docs, giữ nguyên câu chữ; ảnh dùng đường dẫn tương đối vào `report/assets/`.
 - `report/assets/ui/`: chỉ 31 ảnh giao diện có trong report, giữ nguyên tệp ảnh nguồn theo mã Figma.
 - `report/assets/diagrams/`: 6 sơ đồ SVG sắc nét và mã nguồn drawio tương ứng; Hình 3.1 giữ nguyên bản Lãm nộp, 5 sơ đồ Use Case chỉnh theo bản final.
-- `ai-usage/ai-usage.md` và `.html`: tổng hợp theo tác giả, giữ nguyên nội dung các phiên đã nộp.
+- `ai-usage/ai-usage.md` và `.html`: tổng hợp theo tác giả, đánh số phiên thống nhất và áp dụng các hiệu chỉnh do trưởng nhóm xác nhận; giữ nguồn gốc để đối soát.
 - `git-contributions/git-contributions.md` và `.html`: snapshot lịch sử Git Template 1, gồm cả nhánh nộp bài chưa merge. Nhóm nhiều tệp được gom thành thư mục kèm số lượng; danh sách đầy đủ giữ trong sources/git-snapshot.json.
 - `sources/`: bản final gốc có ảnh nhúng, draft dùng tra mã ảnh, nguyên bản nhật ký theo người và snapshot metadata Git; dùng đối soát, không thay thế nội dung report.
 
 **PDF report:** trưởng nhóm tự xuất từ Google Docs và đặt tại `report/report.pdf`. Công cụ này không tạo hoặc giả lập PDF đã nộp.
 
-## Nguồn và các điểm cần xác nhận
+## Nguồn và quy ước trình bày
 
 - Bản chữ duy nhất dùng đóng report là `sources/template1-final-original.md`; không lấy draft hoặc nội dung PR ghi đè bản final.
 - AI usage đã thu thập của cả 4 thành viên. Gia Phúc đã nộp cả dòng tổng hợp T1-08 và phần chi tiết mục 6.3 tại commit 3eb4181; giữ nguyên nội dung tác giả đã nộp.
-- Các mã phiên T1-08… bị trùng giữa tác giả được giữ nguyên, đặt dưới tên tác giả để không đổi dữ liệu nguồn.
-- Ngày 09–11/10/2026 trong nhật ký Lãm được giữ nguyên theo bản đã nộp, chưa có xác nhận đổi sang tháng 11.
+- Bản nộp dùng mã phiên duy nhất T1-01…T1-22 theo nhóm thành viên. Bảng và phần chi tiết khớp từng mã; bảng ánh xạ mã gốc nằm tại sources/ai-session-index.json. Nguồn lưu trữ giữ nguyên mã ban đầu.
+- Trưởng nhóm xác nhận 8 phiên của Lãm diễn ra 09–11/11/2026; bản nộp đã sửa tháng 10 thành tháng 11, nguyên bản lưu trữ giữ nguyên. Hai phiên Codex ngày 12/11 chỉ ghi ngày và tên công cụ theo xác nhận của trưởng nhóm.
 - Các PR nguồn chưa được tác vụ đóng gói này merge vào main; trạng thái ghi trong báo cáo Git là trạng thái tại snapshot. Nhánh docs/t1-ticket-giaphuc đã có 5 commit của Gia Phúc; tại lần thu thập chưa thấy PR tương ứng. Snapshot ban đầu được lưu ở sources/history/git-snapshot-initial.json.
-- Markdown gốc có mục lục kèm số trang từ Google Docs. Giữ nguyên các nhãn/số trang theo yêu cầu bảo toàn nội dung; đây không phải số trang do Markdown tự tính.
+- Mục lục Markdown đã bỏ số trang từ Google Docs theo yêu cầu trưởng nhóm; giữ nguyên tên mục và liên kết đến nội dung.
 - Ảnh hồ sơ trong bản final là `62-8328.png`; draft nêu cả `62-8216` và `62-8328`, chỉ lấy ảnh thực sự xuất hiện trong final.
 - Tệp `report/assets/manifest.json` ghi đủ 37 ánh xạ hình và SHA-256, trong đó 1 sơ đồ bối cảnh lấy nguyên tệp của Lãm, 5 sơ đồ Use Case được dựng lại và 31 hình UI sao chép nguyên tệp.
 

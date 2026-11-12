@@ -3,11 +3,11 @@
 > **Dự án:** Clarune — AI-Powered Helpdesk & Knowledge Base
 > **Nhóm:** Group 04
 > **Kho lưu trữ:** https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base
-> **Thời điểm chốt dữ liệu:** 2026-11-12T13:29:07+07:00
+> **Thời điểm chốt dữ liệu:** 2026-11-12T14:01:19+07:00
 
 ## Phạm vi và nguồn đối chiếu
 
-Thống kê lịch sử của giai đoạn Template 1 từ 03/11/2026 đến thời điểm chốt dữ liệu, gồm chuẩn bị yêu cầu, prototype và bản Markdown đã đẩy lên remote. Hợp các commit từ những nhánh dưới đây theo SHA, mỗi commit chỉ tính một lần. Loại commit lưu trữ Template 0; không đưa commit đóng gói sau snapshot vào số liệu này. Giữ nguyên tên tác giả, thông điệp và thời gian đã ghi trong Git.
+Thống kê lịch sử của giai đoạn Template 1 từ 03/11/2026 đến thời điểm chốt dữ liệu, gồm chuẩn bị yêu cầu, prototype và bản Markdown đã đẩy lên remote. Hợp các commit từ những nhánh dưới đây theo SHA, mỗi commit chỉ tính một lần. Loại commit lưu trữ Template 0. Bao gồm các commit đóng gói trên merge-template1 đã có tại thời điểm chốt; các commit phát sinh sau thời điểm này không nằm trong snapshot. Giữ nguyên tên tác giả, thông điệp và thời gian đã ghi trong Git.
 
 | Nhánh nguồn | SHA tại thời điểm chốt |
 | --- | --- |
@@ -16,6 +16,7 @@ Thống kê lịch sử của giai đoạn Template 1 từ 03/11/2026 đến th�
 | `origin/docs/t1-knowledge-lam` | [979179b55194e2010373de0b30547f966e3e59fe](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/979179b55194e2010373de0b30547f966e3e59fe) |
 | `origin/docs/t1-ai-quyphuc-markdown` | [8971284b6a590c84f5e8b76a3d1ddb9bc49d3c09](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/8971284b6a590c84f5e8b76a3d1ddb9bc49d3c09) |
 | `origin/docs/t1-ticket-giaphuc` | [3eb41819e02bb184a821bf1d22d7292fd65b0c02](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/3eb41819e02bb184a821bf1d22d7292fd65b0c02) |
+| `origin/merge-template1` | [d531633e09bf2309f6ec044ab3f0f0698143f857](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/d531633e09bf2309f6ec044ab3f0f0698143f857) |
 
 Các nhóm có từ 5 tệp thay đổi được gom theo thư mục kèm số lượng để báo cáo gọn hơn; danh sách từng tệp vẫn được giữ đầy đủ trong snapshot. Chỉ số commit phản ánh lịch sử Git, không tương đương phần trăm công sức hay xác nhận đã hoàn thành nhiệm vụ. Commit trên nhánh chưa merge vẫn được ghi nhận và đánh dấu nguồn. Metadata/đường dẫn đầy đủ được giữ tại `../sources/git-snapshot.json`. Đối chiếu tác giả bằng tên GitHub hoặc email Git/Jira đã khai báo trong members.csv; Gia Phúc dùng tác giả PC với email phgphuc0609@gmail.com, trùng email Jira đã khai báo.
 
@@ -23,7 +24,7 @@ Các nhóm có từ 5 tệp thay đổi được gom theo thư mục kèm số l
 
 | MSSV | Thành viên | GitHub | Commit |
 | --- | --- | --- | ---: |
-| 24120269 | Ngô Viết Thanh Bình | thanhbinh55 | 13 |
+| 24120269 | Ngô Viết Thanh Bình | thanhbinh55 | 19 |
 | 24120083 | Nguyễn Đức Lãm | Lamnguyen-code | 1 |
 | 24120503 | Phan Gia Phúc | t4lf4n | 5 |
 | 24120121 | Lê Quý Phúc | Shinkiisme | 6 |
@@ -37,25 +38,81 @@ Các nhóm có từ 5 tệp thay đổi được gom theo thư mục kèm số l
 - **Tài khoản Git:** `thanhbinh55`
 - **Email Git:** `ngovietthanhbinh2006@gmail.com`
 - **Module phụ trách:** D - Identity & Access (Nhóm trưởng)
-- **Tổng số commit ghi nhận:** 13
+- **Tổng số commit ghi nhận:** 19
 
 | STT | Mã Hash | Ngày commit (UTC+7) | Thông điệp commit (Jira Key) | Số tệp |
 | ---: | --- | --- | --- | ---: |
-| 1 | [4827ab99](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/4827ab99f117c448a9c7dc27688f40a45a92e3e9) | 12/11/2026 10:55 | docs(template1): submit Binh identity content and AI usage SCRUM-30 SCRUM-34 | 5 |
-| 2 | [a47f41fe](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/a47f41fe00aa3107fdf1a57d6b3eef0ba9e1ff03) | 09/11/2026 09:18 | docs(template1): cap nhat nhat ky ai usage, chi dan vi tri nop file va dong bo so do SCRUM-30 | 24 |
-| 3 | [43c725fe](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/43c725fedf7bed0e27dd8b4f2c09f42a459c243c) | 09/11/2026 08:49 | docs(reports): bo sung cap the GENERATED marker cho git contributions report SCRUM-30 | 3 |
-| 4 | [1b6fc763](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/1b6fc763b05e0f7bfa529b1e558786fb3d96a43f) | 09/11/2026 08:47 | Merge pull request #9 from thanhbinh55/docs/t1-ai-quyphuc | 263 |
-| 5 | [dc7231c6](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/dc7231c6af5066ac532e07a5b6a372bdfa4f03e8) | 07/11/2026 22:09 | docs(template1): cap nhat 19 use cases loai bo Module ABCD va bo sung UI 5.5.5-5.5.8 SCRUM-30 | 31 |
-| 6 | [58986ee0](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/58986ee04b7d6cef413eb73fcabe31160c24792d) | 07/11/2026 10:48 | docs(template1): chuan hoa 6 so do UML trang den va bo sung link tham khao K23 SCRUM-30 | 21 |
-| 7 | [111bfb75](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/111bfb7512d36d1c817473b94844f102dd976101) | 07/11/2026 09:54 | Update Google Docs link for group work document | 1 |
-| 8 | [bed75c10](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/bed75c1039311204999e6d1ba51437546af808fb) | 05/11/2026 18:09 | feat(jira): bo sung cong cu quan ly sprint va toi uu gan task sprint SCRUM-16 | 2 |
-| 9 | [0e785ce6](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0e785ce695b60e6e27f640c8cb23ff75304b3b9d) | 05/11/2026 17:57 | docs(plan): thong nhat deadline 23h59 va bo sung task nop markdown T1-DOC-MD SCRUM-16 | 14 |
-| 10 | [48b10425](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/48b1042560fbfce3afdbb64a9b3c569aeed7078f) | 03/11/2026 23:58 | docs(plan): lam ro quyen chu dong tinh chinh bo sung figma cua tung owner SCRUM-16 | 3 |
-| 11 | [0534ad49](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0534ad494904b3c1d5814420b4bb10b67af4f289) | 03/11/2026 23:49 | docs(plan): bo sung link figma, google docs va dieu chinh task playbook SCRUM-16 | 11 |
-| 12 | [728c76a1](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/728c76a10eef17acf42560f631d4fb14351df542) | 03/11/2026 23:42 | docs(design): tich hop bo thiet ke giao dien redesign v2 SCRUM-35 | 178 |
-| 13 | [2ffb371c](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/2ffb371cfa549e2d48e63bc2c71ca7c1ba0a6b02) | 03/11/2026 23:40 | docs(plan): hop nhat ke hoach giai doan 2 va khoi tao bo khung tai lieu template 1 SCRUM-16 | 57 |
+| 1 | [d531633e](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/d531633e09bf2309f6ec044ab3f0f0698143f857) | 12/11/2026 13:43 | docs(template1): group large commit file lists by folder SCRUM-41 | 6 |
+| 2 | [e9d3272f](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/e9d3272f31f490cb496f6ee667f6a6cb8a22e607) | 12/11/2026 13:32 | docs(template1): include Gia Phuc detailed AI log and latest commit SCRUM-41 SCRUM-65 | 13 |
+| 3 | [a8bf9c16](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/a8bf9c16274ce061756f31f28f455c06c08e6573) | 12/11/2026 13:21 | docs(template1): use Lam original context diagram in report SCRUM-41 | 12 |
+| 4 | [68d766f2](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/68d766f2b8b7e7f30a750fb483e4b95bbe16bad2) | 12/11/2026 13:05 | docs(template1): include Gia Phuc submission AI usage and four commits SCRUM-41 SCRUM-65 | 12 |
+| 5 | [9a21eab8](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/9a21eab8e2ab9a61bf18960faae1e3bd85ba4123) | 12/11/2026 11:29 | docs(template1): retain source-preservation notes when rebuilding SCRUM-41 | 1 |
+| 6 | [0cba8368](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0cba8368fcbf020c80f9cba94c91d48a28a598c4) | 12/11/2026 11:29 | docs(template1): package final report assets AI usage and Git evidence SCRUM-41 SCRUM-52 | 66 |
+| 7 | [4827ab99](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/4827ab99f117c448a9c7dc27688f40a45a92e3e9) | 12/11/2026 10:55 | docs(template1): submit Binh identity content and AI usage SCRUM-30 SCRUM-34 | 5 |
+| 8 | [a47f41fe](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/a47f41fe00aa3107fdf1a57d6b3eef0ba9e1ff03) | 09/11/2026 09:18 | docs(template1): cap nhat nhat ky ai usage, chi dan vi tri nop file va dong bo so do SCRUM-30 | 24 |
+| 9 | [43c725fe](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/43c725fedf7bed0e27dd8b4f2c09f42a459c243c) | 09/11/2026 08:49 | docs(reports): bo sung cap the GENERATED marker cho git contributions report SCRUM-30 | 3 |
+| 10 | [1b6fc763](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/1b6fc763b05e0f7bfa529b1e558786fb3d96a43f) | 09/11/2026 08:47 | Merge pull request #9 from thanhbinh55/docs/t1-ai-quyphuc | 263 |
+| 11 | [dc7231c6](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/dc7231c6af5066ac532e07a5b6a372bdfa4f03e8) | 07/11/2026 22:09 | docs(template1): cap nhat 19 use cases loai bo Module ABCD va bo sung UI 5.5.5-5.5.8 SCRUM-30 | 31 |
+| 12 | [58986ee0](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/58986ee04b7d6cef413eb73fcabe31160c24792d) | 07/11/2026 10:48 | docs(template1): chuan hoa 6 so do UML trang den va bo sung link tham khao K23 SCRUM-30 | 21 |
+| 13 | [111bfb75](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/111bfb7512d36d1c817473b94844f102dd976101) | 07/11/2026 09:54 | Update Google Docs link for group work document | 1 |
+| 14 | [bed75c10](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/bed75c1039311204999e6d1ba51437546af808fb) | 05/11/2026 18:09 | feat(jira): bo sung cong cu quan ly sprint va toi uu gan task sprint SCRUM-16 | 2 |
+| 15 | [0e785ce6](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0e785ce695b60e6e27f640c8cb23ff75304b3b9d) | 05/11/2026 17:57 | docs(plan): thong nhat deadline 23h59 va bo sung task nop markdown T1-DOC-MD SCRUM-16 | 14 |
+| 16 | [48b10425](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/48b1042560fbfce3afdbb64a9b3c569aeed7078f) | 03/11/2026 23:58 | docs(plan): lam ro quyen chu dong tinh chinh bo sung figma cua tung owner SCRUM-16 | 3 |
+| 17 | [0534ad49](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0534ad494904b3c1d5814420b4bb10b67af4f289) | 03/11/2026 23:49 | docs(plan): bo sung link figma, google docs va dieu chinh task playbook SCRUM-16 | 11 |
+| 18 | [728c76a1](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/728c76a10eef17acf42560f631d4fb14351df542) | 03/11/2026 23:42 | docs(design): tich hop bo thiet ke giao dien redesign v2 SCRUM-35 | 178 |
+| 19 | [2ffb371c](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/2ffb371cfa549e2d48e63bc2c71ca7c1ba0a6b02) | 03/11/2026 23:40 | docs(plan): hop nhat ke hoach giai doan 2 va khoi tao bo khung tai lieu template 1 SCRUM-16 | 57 |
 
 #### Tệp/thư mục thay đổi và nguồn nhánh
+
+**[d531633e](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/d531633e09bf2309f6ec044ab3f0f0698143f857)** — docs(template1): group large commit file lists by folder SCRUM-41
+
+Nguồn: `origin/merge-template1`.
+
+- `reports/template1/README.md`
+- `reports/template1/browser-validation.json`
+- `reports/template1/git-contributions/git-contributions.html`
+- `reports/template1/git-contributions/git-contributions.md`
+- `scripts/package_template1.py`
+- `scripts/verify_template1.py`
+
+**[e9d3272f](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/e9d3272f31f490cb496f6ee667f6a6cb8a22e607)** — docs(template1): include Gia Phuc detailed AI log and latest commit SCRUM-41 SCRUM-65
+
+Nguồn: `origin/merge-template1`.
+
+- `reports/template1/` — 12 tệp thay đổi
+- `scripts/package_template1.py`
+
+**[a8bf9c16](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/a8bf9c16274ce061756f31f28f455c06c08e6573)** — docs(template1): use Lam original context diagram in report SCRUM-41
+
+Nguồn: `origin/merge-template1`.
+
+- `reports/template1/` — 9 tệp thay đổi
+- `scripts/package_template1.py`
+- `scripts/template1/diagrams.py`
+- `scripts/verify_template1.py`
+
+**[68d766f2](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/68d766f2b8b7e7f30a750fb483e4b95bbe16bad2)** — docs(template1): include Gia Phuc submission AI usage and four commits SCRUM-41 SCRUM-65
+
+Nguồn: `origin/merge-template1`.
+
+- `reports/template1/` — 11 tệp thay đổi
+- `scripts/package_template1.py`
+
+**[9a21eab8](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/9a21eab8e2ab9a61bf18960faae1e3bd85ba4123)** — docs(template1): retain source-preservation notes when rebuilding SCRUM-41
+
+Nguồn: `origin/merge-template1`.
+
+- `scripts/package_template1.py`
+
+**[0cba8368](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0cba8368fcbf020c80f9cba94c91d48a28a598c4)** — docs(template1): package final report assets AI usage and Git evidence SCRUM-41 SCRUM-52
+
+Nguồn: `origin/merge-template1`.
+
+- `reports/template1/` — 62 tệp thay đổi
+- `scripts/package_template1.py`
+- `scripts/template1/diagrams.py`
+- `scripts/template1/requirements.txt`
+- `scripts/verify_template1.py`
 
 **[4827ab99](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/4827ab99f117c448a9c7dc27688f40a45a92e3e9)** — docs(template1): submit Binh identity content and AI usage SCRUM-30 SCRUM-34
 
@@ -65,14 +122,14 @@ Nguồn: `origin/docs/t1-identity-binh`.
 
 **[a47f41fe](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/a47f41fe00aa3107fdf1a57d6b3eef0ba9e1ff03)** — docs(template1): cap nhat nhat ky ai usage, chi dan vi tri nop file va dong bo so do SCRUM-30
 
-Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`.
+Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`, `origin/merge-template1`.
 
 - `PLAN_TEMPLATE1_AND_DEVELOPMENT.md`
 - `reports/template1/` — 23 tệp thay đổi
 
 **[43c725fe](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/43c725fedf7bed0e27dd8b4f2c09f42a459c243c)** — docs(reports): bo sung cap the GENERATED marker cho git contributions report SCRUM-30
 
-Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`.
+Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`, `origin/merge-template1`.
 
 - `reports/08-git-contributions.md`
 - `reports/submit/git-contributions/git-contributions.md`
@@ -80,7 +137,7 @@ Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledg
 
 **[1b6fc763](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/1b6fc763b05e0f7bfa529b1e558786fb3d96a43f)** — Merge pull request #9 from thanhbinh55/docs/t1-ai-quyphuc
 
-Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`.
+Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`, `origin/merge-template1`.
 
 - `design-system/helpdesk-workspace/MASTER.md`
 - `docs/design/` — 242 tệp thay đổi
@@ -92,7 +149,7 @@ Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledg
 
 **[dc7231c6](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/dc7231c6af5066ac532e07a5b6a372bdfa4f03e8)** — docs(template1): cap nhat 19 use cases loai bo Module ABCD va bo sung UI 5.5.5-5.5.8 SCRUM-30
 
-Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`.
+Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`, `origin/merge-template1`.
 
 - `PLAN_TEMPLATE1_AND_DEVELOPMENT.md`
 - `docs/design/anh/thanh-phan/81-7560.png`
@@ -100,7 +157,7 @@ Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledg
 
 **[58986ee0](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/58986ee04b7d6cef413eb73fcabe31160c24792d)** — docs(template1): chuan hoa 6 so do UML trang den va bo sung link tham khao K23 SCRUM-30
 
-Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`.
+Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`, `origin/merge-template1`.
 
 - `PLAN_TEMPLATE1_AND_DEVELOPMENT.md`
 - `README.md`
@@ -108,20 +165,20 @@ Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledg
 
 **[111bfb75](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/111bfb7512d36d1c817473b94844f102dd976101)** — Update Google Docs link for group work document
 
-Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`.
+Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`, `origin/merge-template1`.
 
 - `README.md`
 
 **[bed75c10](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/bed75c1039311204999e6d1ba51437546af808fb)** — feat(jira): bo sung cong cu quan ly sprint va toi uu gan task sprint SCRUM-16
 
-Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`.
+Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`, `origin/merge-template1`.
 
 - `scripts/jira/jira_bulk_create.py`
 - `scripts/jira/jira_sprint_manager.py`
 
 **[0e785ce6](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0e785ce695b60e6e27f640c8cb23ff75304b3b9d)** — docs(plan): thong nhat deadline 23h59 va bo sung task nop markdown T1-DOC-MD SCRUM-16
 
-Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`.
+Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`, `origin/merge-template1`.
 
 - `PLAN_TEMPLATE1_AND_DEVELOPMENT.md`
 - `reports/01-requirements.md`
@@ -135,7 +192,7 @@ Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledg
 
 **[48b10425](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/48b1042560fbfce3afdbb64a9b3c569aeed7078f)** — docs(plan): lam ro quyen chu dong tinh chinh bo sung figma cua tung owner SCRUM-16
 
-Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`.
+Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`, `origin/merge-template1`.
 
 - `PLAN_TEMPLATE1_AND_DEVELOPMENT.md`
 - `reports/template1/05-prototype-mockup.md`
@@ -143,7 +200,7 @@ Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledg
 
 **[0534ad49](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0534ad494904b3c1d5814420b4bb10b67af4f289)** — docs(plan): bo sung link figma, google docs va dieu chinh task playbook SCRUM-16
 
-Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`.
+Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`, `origin/merge-template1`.
 
 - `DESIGN.md`
 - `PLAN_TEMPLATE1_AND_DEVELOPMENT.md`
@@ -155,7 +212,7 @@ Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledg
 
 **[728c76a1](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/728c76a10eef17acf42560f631d4fb14351df542)** — docs(design): tich hop bo thiet ke giao dien redesign v2 SCRUM-35
 
-Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`.
+Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`, `origin/merge-template1`.
 
 - `DESIGN.md`
 - `README.md`
@@ -165,7 +222,7 @@ Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledg
 
 **[2ffb371c](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/2ffb371cfa549e2d48e63bc2c71ca7c1ba0a6b02)** — docs(plan): hop nhat ke hoach giai doan 2 va khoi tao bo khung tai lieu template 1 SCRUM-16
 
-Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`.
+Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`, `origin/merge-template1`.
 
 - `.github/CODEOWNERS`
 - `.github/ISSUE_TEMPLATE/task.md`
@@ -286,20 +343,20 @@ Nguồn: `origin/docs/t1-ai-quyphuc-markdown`.
 
 **[55499dbb](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/55499dbb0ec302a3c0c46e4197fed6d3f62fdda6)** — docs(design): chot mau thieu can cu, loi vao thong ke va ky hieu nguon SCRUM-35
 
-Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`.
+Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`, `origin/merge-template1`.
 
 - `design-system/helpdesk-workspace/MASTER.md`
 - `docs/design/` — 83 tệp thay đổi
 
 **[96dcd66e](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/96dcd66ea08d1583db2d36bd59c71acb4b04ed42)** — docs(design): cap nhat prototype UC-15 UC-17 UC-18 UC-19 va nhan dien Clarune SCRUM-35
 
-Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`.
+Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`, `origin/merge-template1`.
 
 - `docs/design/` — 242 tệp thay đổi
 
 **[8f001673](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/8f001673f6dc4349e8f39c16e98ba4846db5e3dc)** — feat(frontend): doi logo va ten ung dung sang Clarune SCRUM-35
 
-Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`.
+Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`, `origin/merge-template1`.
 
 - `frontend/index.html`
 - `frontend/public/` — 5 tệp thay đổi
@@ -309,7 +366,7 @@ Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledg
 
 **[ee769454](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/ee769454e34e7c4edb9389e89c063ec48cbd039c)** — docs(design): bo sung bo thiet ke giao dien redesign v2
 
-Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`.
+Nguồn: `origin/main`, `origin/docs/t1-identity-binh`, `origin/docs/t1-knowledge-lam`, `origin/docs/t1-ai-quyphuc-markdown`, `origin/docs/t1-ticket-giaphuc`, `origin/merge-template1`.
 
 - `DESIGN.md`
 - `README.md`

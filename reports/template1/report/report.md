@@ -2,147 +2,147 @@
 
 # **MỤC LỤC**
 
-[**1 Bảng đánh giá thành viên	5**](#1-bảng-đánh-giá-thành-viên)
+[**1 Bảng đánh giá thành viên**](#1-bảng-đánh-giá-thành-viên)
 
-[1.1 Phân công theo module	5](#1.1-phân-công-theo-module)
+[1.1 Phân công theo module](#1.1-phân-công-theo-module)
 
-[**2 Mô tả bài toán	6**](#2-mô-tả-bài-toán)
+[**2 Mô tả bài toán**](#2-mô-tả-bài-toán)
 
-[2.1 Bối cảnh và vấn đề	6](#2.1-bối-cảnh-và-vấn-đề)
+[2.1 Bối cảnh và vấn đề](#2.1-bối-cảnh-và-vấn-đề)
 
-[2.2 Mục tiêu, phạm vi và đối tượng sử dụng	6](#2.2-mục-tiêu,-phạm-vi-và-đối-tượng-sử-dụng)
+[2.2 Mục tiêu, phạm vi và đối tượng sử dụng](#2.2-mục-tiêu,-phạm-vi-và-đối-tượng-sử-dụng)
 
-[2.3 Môi trường vận hành và ràng buộc	7](#2.3-môi-trường-vận-hành-và-ràng-buộc)
+[2.3 Môi trường vận hành và ràng buộc](#2.3-môi-trường-vận-hành-và-ràng-buộc)
 
-[**3 Tổng quan yêu cầu	8**](#3-tổng-quan-yêu-cầu)
+[**3 Tổng quan yêu cầu**](#3-tổng-quan-yêu-cầu)
 
-[3.1 Danh sách các stakeholder](#3.1-danh-sách-các-stakeholder)	[9](#ghi-chú:-tiến-trình-nền-bóc-tách-tài-liệu-\(worker\)-và-hệ-quản-trị-cơ-sở-dữ-liệu-\(postgresql/pgvector\)-là-các-thành-phần-kỹ-thuật-nội-bộ,-không-phải-tác-nhân-bên-ngoài-ranh-giới-hệ-thống.-bảng-trên-đã-bao-quát-trọn-vẹn-từ-các-bên-liên-quan-quản-trị-dự-án-học-thuật-đến-các-tác-nhân-tương-tác-trực-tiếp-theo-chuẩn-uml.)
+[3.1 Danh sách các stakeholder](#3.1-danh-sách-các-stakeholder)
 
-[3.1.1 Sơ đồ bối cảnh	9](#3.1.1-sơ-đồ-bối-cảnh)
+[3.1.1 Sơ đồ bối cảnh](#3.1.1-sơ-đồ-bối-cảnh)
 
-[3.2 Danh sách yêu cầu	9](#3.2-danh-sách-yêu-cầu)
+[3.2 Danh sách yêu cầu](#3.2-danh-sách-yêu-cầu)
 
-[3.2.1 Đặc tả yêu cầu chức năng	9](#3.2.1-đặc-tả-yêu-cầu-chức-năng)
+[3.2.1 Đặc tả yêu cầu chức năng](#3.2.1-đặc-tả-yêu-cầu-chức-năng)
 
-[3.2.2 Đặc tả yêu cầu phi chức năng	19](#3.2.2-đặc-tả-yêu-cầu-phi-chức-năng)
+[3.2.2 Đặc tả yêu cầu phi chức năng](#3.2.2-đặc-tả-yêu-cầu-phi-chức-năng)
 
-[**4 Phân tích yêu cầu	22**](#4-phân-tích-yêu-cầu)
+[**4 Phân tích yêu cầu**](#4-phân-tích-yêu-cầu)
 
-[4.1 Sơ đồ Use Case	22](#4.1-sơ-đồ-use-case)
+[4.1 Sơ đồ Use Case](#4.1-sơ-đồ-use-case)
 
-[4.1.1 Sơ đồ Use Case tổng thể	22](#4.1.1-sơ-đồ-use-case-tổng-thể)
+[4.1.1 Sơ đồ Use Case tổng thể](#4.1.1-sơ-đồ-use-case-tổng-thể)
 
-[4.1.2 Sơ đồ Use Case Module Định danh và phân quyền	23](#4.1.2-sơ-đồ-use-case-module-định-danh-và-phân-quyền)
+[4.1.2 Sơ đồ Use Case Module Định danh và phân quyền](#4.1.2-sơ-đồ-use-case-module-định-danh-và-phân-quyền)
 
-[4.1.3 Sơ đồ Use Case Module Quản lý ticket	24](#4.1.3-sơ-đồ-use-case-module-quản-lý-ticket)
+[4.1.3 Sơ đồ Use Case Module Quản lý ticket](#4.1.3-sơ-đồ-use-case-module-quản-lý-ticket)
 
-[4.1.4 Sơ đồ Use Case Module Cơ sở tri thức	24](#4.1.4-sơ-đồ-use-case-module-cơ-sở-tri-thức)
+[4.1.4 Sơ đồ Use Case Module Cơ sở tri thức](#4.1.4-sơ-đồ-use-case-module-cơ-sở-tri-thức)
 
-[4.1.5 Sơ đồ Use Case Module Trợ lý AI	25](#4.1.5-sơ-đồ-use-case-module-trợ-lý-ai)
+[4.1.5 Sơ đồ Use Case Module Trợ lý AI](#4.1.5-sơ-đồ-use-case-module-trợ-lý-ai)
 
-[4.2 Đặc tả Use Case	26](#4.2-đặc-tả-use-case)
+[4.2 Đặc tả Use Case](#4.2-đặc-tả-use-case)
 
-[4.2.1 Đăng ký và đăng nhập hệ thống \[UC-01\]	26](#4.2.1-đăng-ký-và-đăng-nhập-hệ-thống-[uc-01])
+[4.2.1 Đăng ký và đăng nhập hệ thống \[UC-01\]](#4.2.1-đăng-ký-và-đăng-nhập-hệ-thống-[uc-01])
 
-[4.2.2 Làm mới phiên và đăng xuất \[UC-02\]	27](#4.2.2-làm-mới-phiên-và-đăng-xuất-[uc-02])
+[4.2.2 Làm mới phiên và đăng xuất \[UC-02\]](#4.2.2-làm-mới-phiên-và-đăng-xuất-[uc-02])
 
-[4.2.3 Xem và cập nhật hồ sơ cá nhân \[UC-03\]	29](#4.2.3-xem-và-cập-nhật-hồ-sơ-cá-nhân-[uc-03])
+[4.2.3 Xem và cập nhật hồ sơ cá nhân \[UC-03\]](#4.2.3-xem-và-cập-nhật-hồ-sơ-cá-nhân-[uc-03])
 
-[4.2.4 Quản lý tài khoản Agent \[UC-04\]	30](#4.2.4-quản-lý-tài-khoản-agent-[uc-04])
+[4.2.4 Quản lý tài khoản Agent \[UC-04\]](#4.2.4-quản-lý-tài-khoản-agent-[uc-04])
 
-[4.2.5 Đặt lại mật khẩu \[UC-16\]	31](#4.2.5-đặt-lại-mật-khẩu-[uc-16])
+[4.2.5 Đặt lại mật khẩu \[UC-16\]](#4.2.5-đặt-lại-mật-khẩu-[uc-16])
 
-[4.2.6 Tạo yêu cầu hỗ trợ \[UC-05\]	32](#4.2.6-tạo-yêu-cầu-hỗ-trợ-[uc-05])
+[4.2.6 Tạo yêu cầu hỗ trợ \[UC-05\]](#4.2.6-tạo-yêu-cầu-hỗ-trợ-[uc-05])
 
-[4.2.7 Xem danh sách và chi tiết ticket \[UC-06\]	33](#4.2.7-xem-danh-sách-và-chi-tiết-ticket-[uc-06])
+[4.2.7 Xem danh sách và chi tiết ticket \[UC-06\]](#4.2.7-xem-danh-sách-và-chi-tiết-ticket-[uc-06])
 
-[4.2.8 Tiếp nhận và phân công ticket \[UC-07\]	34](#4.2.8-tiếp-nhận-và-phân-công-ticket-[uc-07])
+[4.2.8 Tiếp nhận và phân công ticket \[UC-07\]](#4.2.8-tiếp-nhận-và-phân-công-ticket-[uc-07])
 
-[4.2.9 Gửi tin nhắn công khai và ghi chú nội bộ \[UC-08\]	36](#4.2.9-gửi-tin-nhắn-công-khai-và-ghi-chú-nội-bộ-[uc-08])
+[4.2.9 Gửi tin nhắn công khai và ghi chú nội bộ \[UC-08\]](#4.2.9-gửi-tin-nhắn-công-khai-và-ghi-chú-nội-bộ-[uc-08])
 
-[4.2.10 Chuyển trạng thái ticket \[UC-09\]	38](#4.2.10-chuyển-trạng-thái-ticket-[uc-09])
+[4.2.10 Chuyển trạng thái ticket \[UC-09\]](#4.2.10-chuyển-trạng-thái-ticket-[uc-09])
 
-[4.2.11 Xem lịch sử sự kiện ticket \[UC-10\]	40](#4.2.11-xem-lịch-sử-sự-kiện-ticket-[uc-10])
+[4.2.11 Xem lịch sử sự kiện ticket \[UC-10\]](#4.2.11-xem-lịch-sử-sự-kiện-ticket-[uc-10])
 
-[4.2.12 Tải lên và xử lý tài liệu tri thức \[UC-11\]	41](#4.2.12-tải-lên-và-xử-lý-tài-liệu-tri-thức-[uc-11])
+[4.2.12 Tải lên và xử lý tài liệu tri thức \[UC-11\]](#4.2.12-tải-lên-và-xử-lý-tài-liệu-tri-thức-[uc-11])
 
-[4.2.13 Công bố và lưu trữ tài liệu tri thức \[UC-12\]	43](#4.2.13-công-bố-và-lưu-trữ-tài-liệu-tri-thức-[uc-12])
+[4.2.13 Công bố và lưu trữ tài liệu tri thức \[UC-12\]](#4.2.13-công-bố-và-lưu-trữ-tài-liệu-tri-thức-[uc-12])
 
-[4.2.14 Tìm kiếm tri thức \[UC-13\]	45](#4.2.14-tìm-kiếm-tri-thức-[uc-13])
+[4.2.14 Tìm kiếm tri thức \[UC-13\]](#4.2.14-tìm-kiếm-tri-thức-[uc-13])
 
-[4.2.15 Tạo gợi ý câu trả lời bằng AI \[UC-14\]	47](#4.2.15-tạo-gợi-ý-câu-trả-lời-bằng-ai-[uc-14])
+[4.2.15 Tạo gợi ý câu trả lời bằng AI \[UC-14\]](#4.2.15-tạo-gợi-ý-câu-trả-lời-bằng-ai-[uc-14])
 
-[4.2.16 Kiểm duyệt, chỉnh sửa và gửi phản hồi từ gợi ý AI \[UC-15\]	49](#4.2.16-kiểm-duyệt,-chỉnh-sửa-và-gửi-phản-hồi-từ-gợi-ý-ai-[uc-15])
+[4.2.16 Kiểm duyệt, chỉnh sửa và gửi phản hồi từ gợi ý AI \[UC-15\]](#4.2.16-kiểm-duyệt,-chỉnh-sửa-và-gửi-phản-hồi-từ-gợi-ý-ai-[uc-15])
 
-[4.2.17 Xem thống kê ticket \[UC-17\]	51](#4.2.17-xem-thống-kê-ticket-[uc-17])
+[4.2.17 Xem thống kê ticket \[UC-17\]](#4.2.17-xem-thống-kê-ticket-[uc-17])
 
-[4.2.18 Xem lịch sử gợi ý AI \[UC-18\]	52](#4.2.18-xem-lịch-sử-gợi-ý-ai-[uc-18])
+[4.2.18 Xem lịch sử gợi ý AI \[UC-18\]](#4.2.18-xem-lịch-sử-gợi-ý-ai-[uc-18])
 
-[4.2.19 Đánh giá gợi ý AI hữu ích hoặc không hữu ích \[UC-19\]	53](#4.2.19-đánh-giá-gợi-ý-ai-hữu-ích-hoặc-không-hữu-ích-[uc-19])
+[4.2.19 Đánh giá gợi ý AI hữu ích hoặc không hữu ích \[UC-19\]](#4.2.19-đánh-giá-gợi-ý-ai-hữu-ích-hoặc-không-hữu-ích-[uc-19])
 
-[**5 Bản mẫu (Prototype)	55**](#5-bản-mẫu-\(prototype\))
+[**5 Bản mẫu (Prototype)**](#5-bản-mẫu-\(prototype\))
 
-[5.1 Giao diện định danh và tài khoản	55](#5.1-giao-diện-định-danh-và-tài-khoản)
+[5.1 Giao diện định danh và tài khoản](#5.1-giao-diện-định-danh-và-tài-khoản)
 
-[5.1.1 Đăng nhập hệ thống	55](#5.1.1-đăng-nhập-hệ-thống)
+[5.1.1 Đăng nhập hệ thống](#5.1.1-đăng-nhập-hệ-thống)
 
-[5.1.2 Đăng ký Customer	56](#5.1.2-đăng-ký-customer)
+[5.1.2 Đăng ký Customer](#5.1.2-đăng-ký-customer)
 
-[5.1.3 Hồ sơ cá nhân	57](#5.1.3-hồ-sơ-cá-nhân)
+[5.1.3 Hồ sơ cá nhân](#5.1.3-hồ-sơ-cá-nhân)
 
-[5.1.4 Quản lý danh sách tài khoản Agent (Admin)	58](#5.1.4-quản-lý-danh-sách-tài-khoản-agent-\(admin\))
+[5.1.4 Quản lý danh sách tài khoản Agent (Admin)](#5.1.4-quản-lý-danh-sách-tài-khoản-agent-\(admin\))
 
-[5.1.5 Tạo tài khoản Agent mới và Vô hiệu hóa tài khoản (Admin)	59](#5.1.5-tạo-tài-khoản-agent-mới-và-vô-hiệu-hóa-tài-khoản-\(admin\))
+[5.1.5 Tạo tài khoản Agent mới và Vô hiệu hóa tài khoản (Admin)](#5.1.5-tạo-tài-khoản-agent-mới-và-vô-hiệu-hóa-tài-khoản-\(admin\))
 
-[5.2 Giao diện Customer Portal	60](#5.2-giao-diện-customer-portal)
+[5.2 Giao diện Customer Portal](#5.2-giao-diện-customer-portal)
 
-[5.2.1 Danh sách yêu cầu của tôi	60](#5.2.1-danh-sách-yêu-cầu-của-tôi)
+[5.2.1 Danh sách yêu cầu của tôi](#5.2.1-danh-sách-yêu-cầu-của-tôi)
 
-[5.2.2 Tạo yêu cầu hỗ trợ	61](#5.2.2-tạo-yêu-cầu-hỗ-trợ)
+[5.2.2 Tạo yêu cầu hỗ trợ](#5.2.2-tạo-yêu-cầu-hỗ-trợ)
 
-[5.2.3 Chi tiết và hội thoại công khai	62](#5.2.3-chi-tiết-và-hội-thoại-công-khai)
+[5.2.3 Chi tiết và hội thoại công khai](#5.2.3-chi-tiết-và-hội-thoại-công-khai)
 
-[5.2.4 Xác nhận đóng hoặc mở lại yêu cầu	62](#5.2.4-xác-nhận-đóng-hoặc-mở-lại-yêu-cầu)
+[5.2.4 Xác nhận đóng hoặc mở lại yêu cầu](#5.2.4-xác-nhận-đóng-hoặc-mở-lại-yêu-cầu)
 
-[5.2.5 Chi tiết yêu cầu đã đóng	63](#5.2.5-chi-tiết-yêu-cầu-đã-đóng)
+[5.2.5 Chi tiết yêu cầu đã đóng](#5.2.5-chi-tiết-yêu-cầu-đã-đóng)
 
-[5.3 Giao diện Agent Workspace	65](#5.3-giao-diện-agent-workspace)
+[5.3 Giao diện Agent Workspace](#5.3-giao-diện-agent-workspace)
 
-[5.3.1 Hàng đợi và nhận xử lý	65](#5.3.1-hàng-đợi-và-nhận-xử-lý)
+[5.3.1 Hàng đợi và nhận xử lý](#5.3.1-hàng-đợi-và-nhận-xử-lý)
 
-[5.3.2 Xử lý ticket và ghi chú nội bộ	66](#5.3.2-xử-lý-ticket-và-ghi-chú-nội-bộ)
+[5.3.2 Xử lý ticket và ghi chú nội bộ](#5.3.2-xử-lý-ticket-và-ghi-chú-nội-bộ)
 
-[5.3.3 Xung đột nhận ticket	67](#5.3.3-xung-đột-nhận-ticket)
+[5.3.3 Xung đột nhận ticket](#5.3.3-xung-đột-nhận-ticket)
 
-[5.4 Giao diện Knowledge Base	68](#5.4-giao-diện-knowledge-base)
+[5.4 Giao diện Knowledge Base](#5.4-giao-diện-knowledge-base)
 
-[5.4.1 Tìm kiếm tri thức	68](#5.4.1-tìm-kiếm-tri-thức)
+[5.4.1 Tìm kiếm tri thức](#5.4.1-tìm-kiếm-tri-thức)
 
-[5.4.2 Đọc tài liệu tri thức	69](#5.4.2-đọc-tài-liệu-tri-thức)
+[5.4.2 Đọc tài liệu tri thức](#5.4.2-đọc-tài-liệu-tri-thức)
 
-[5.4.3 Quản trị và công bố tài liệu	70](#5.4.3-quản-trị-và-công-bố-tài-liệu)
+[5.4.3 Quản trị và công bố tài liệu](#5.4.3-quản-trị-và-công-bố-tài-liệu)
 
-[5.4.4 Tải tài liệu mới lên Knowledge Base (Upload)	70](#5.4.4-tải-tài-liệu-mới-lên-knowledge-base-\(upload\))
+[5.4.4 Tải tài liệu mới lên Knowledge Base (Upload)](#5.4.4-tải-tài-liệu-mới-lên-knowledge-base-\(upload\))
 
-[5.4.5 Chi tiết tài liệu đã xử lý xong nhưng chưa công bố (READY — Unpublished)	71](#5.4.5-chi-tiết-tài-liệu-đã-xử-lý-xong-nhưng-chưa-công-bố-\(ready-—-unpublished\))
+[5.4.5 Chi tiết tài liệu đã xử lý xong nhưng chưa công bố (READY — Unpublished)](#5.4.5-chi-tiết-tài-liệu-đã-xử-lý-xong-nhưng-chưa-công-bố-\(ready-—-unpublished\))
 
-[5.5 Giao diện AI và tham chiếu quản trị	72](#5.5-giao-diện-ai-và-tham-chiếu-quản-trị)
+[5.5 Giao diện AI và tham chiếu quản trị](#5.5-giao-diện-ai-và-tham-chiếu-quản-trị)
 
-[5.5.1 Gợi ý AI và trích dẫn	72](#5.5.1-gợi-ý-ai-và-trích-dẫn)
+[5.5.1 Gợi ý AI và trích dẫn](#5.5.1-gợi-ý-ai-và-trích-dẫn)
 
-[5.5.2 Xem nguồn trích dẫn	73](#5.5.2-xem-nguồn-trích-dẫn)
+[5.5.2 Xem nguồn trích dẫn](#5.5.2-xem-nguồn-trích-dẫn)
 
-[5.5.3 Danh sách yêu cầu quản trị	74](#5.5.3-danh-sách-yêu-cầu-quản-trị)
+[5.5.3 Danh sách yêu cầu quản trị](#5.5.3-danh-sách-yêu-cầu-quản-trị)
 
-[5.5.4 Xử lý, lịch sử yêu cầu và phân công nhân viên	75](#5.5.4-xử-lý,-lịch-sử-yêu-cầu-và-phân-công-nhân-viên)
+[5.5.4 Xử lý, lịch sử yêu cầu và phân công nhân viên](#5.5.4-xử-lý,-lịch-sử-yêu-cầu-và-phân-công-nhân-viên)
 
-[5.5.5 Lịch sử gợi ý AI	77](#5.5.5-lịch-sử-gợi-ý-ai)
+[5.5.5 Lịch sử gợi ý AI](#5.5.5-lịch-sử-gợi-ý-ai)
 
-[5.5.6 Đánh giá gợi ý AI (P1)	79](#5.5.6-đánh-giá-gợi-ý-ai-\(p1\))
+[5.5.6 Đánh giá gợi ý AI (P1)](#5.5.6-đánh-giá-gợi-ý-ai-\(p1\))
 
-[5.5.7 Bỏ gợi ý và tiếp tục soạn thủ công	80](#5.5.7-bỏ-gợi-ý-và-tiếp-tục-soạn-thủ-công)
+[5.5.7 Bỏ gợi ý và tiếp tục soạn thủ công](#5.5.7-bỏ-gợi-ý-và-tiếp-tục-soạn-thủ-công)
 
-[5.5.8 Thống kê ticket (P1)	82](#5.5.8-thống-kê-ticket-\(p1\))
+[5.5.8 Thống kê ticket (P1)](#5.5.8-thống-kê-ticket-\(p1\))
 
 <a id="1-bảng-đánh-giá-thành-viên"></a>
 
