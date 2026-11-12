@@ -95,3 +95,93 @@ Toàn bộ 151 frames và bộ Design System đã được kiểm định tự �
   - Khách hàng không thấy ghi chú nội bộ hoặc AI: `noCustomerInternalOrAI = true`.
   - Tách bạch trạng thái kỹ thuật `READY` và kinh doanh `Đã công bố`: `publicationSeparate = true`.
   - Mật khẩu đã đổi tự động xóa khỏi form: `passwordClearedAndDisabled = true`.
+
+---
+
+> **Ghi chú: Phần Phan Gia Phúc phụ trách.**
+
+## **5.2 Giao diện Customer Portal**
+
+### **5.2.1 Danh sách yêu cầu của tôi**
+
+Màn hình hiển thị các yêu cầu hỗ trợ do Customer hiện tại tạo, kèm trạng thái xử lý để khách hàng theo dõi tiến độ. Người dùng có thể tìm kiếm, lọc, chuyển trang và chọn một yêu cầu để xem chi tiết.
+
+Giao diện phân biệt các trạng thái đang tải, chưa có yêu cầu, không có kết quả phù hợp và lỗi tải dữ liệu.
+
+![](../../docs/design/anh/58-6763.png)
+
+**Hình 5.6  Danh sách yêu cầu của tôi**
+
+### **5.2.2 Tạo yêu cầu hỗ trợ**
+
+Customer nhập tiêu đề và nội dung mô tả, sau đó chọn Gửi yêu cầu. Hệ thống kiểm tra dữ liệu và hiển thị lỗi tại nội dung cần điều chỉnh nếu thông tin không hợp lệ.
+
+Khi tạo thành công, yêu cầu có trạng thái Mới tạo (OPEN), chưa có nhân viên phụ trách và được mở ở trang chi tiết. Nội dung mô tả xuất hiện trong hội thoại công khai đầu tiên.
+
+![](../../docs/design/anh/58-6764.png)
+
+**Hình 5.7  Tạo yêu cầu hỗ trợ**
+
+### **5.2.3 Chi tiết và hội thoại công khai**
+
+Customer xem thông tin, trạng thái xử lý và các tin nhắn công khai của yêu cầu thuộc sở hữu của mình. Giao diện không hiển thị ghi chú INTERNAL hoặc lịch sử sự kiện nội bộ.
+
+Khách hàng gửi phản hồi khi trạng thái yêu cầu cho phép. Nếu yêu cầu đang Chờ khách hàng phản hồi (WAITING\_CUSTOMER), việc gửi phản hồi thành công đưa yêu cầu về Đang xử lý (IN\_PROGRESS).
+
+Khi yêu cầu chuyển sang Đã giải quyết (RESOLVED), giao diện cung cấp lựa chọn xác nhận đóng hoặc yêu cầu xử lý tiếp theo Mục 5.2.4.
+
+![](../../docs/design/anh/58-6765.png)
+
+**Hình 5.8 Chi tiết và hội thoại công khai khi yêu cầu đang được xử lý**
+
+#### **5.2.4 Xác nhận đóng hoặc mở lại yêu cầu**
+
+Khi yêu cầu ở trạng thái Đã giải quyết (RESOLVED), Customer xem lại nội dung xử lý và lựa chọn:
+
+\- Đóng yêu cầu (CLOSE): Xác nhận vấn đề đã được giải quyết, chuyển yêu cầu sang CLOSED.
+
+\- Yêu cầu xử lý tiếp (REOPEN): Thông báo vấn đề chưa được giải quyết, chuyển yêu cầu về IN\_PROGRESS.
+
+Hệ thống kiểm tra quyền sở hữu và trạng thái hiện tại trước khi thực hiện. Nếu thao tác thất bại hoặc trạng thái đã thay đổi, giao diện thông báo phù hợp và không hiển thị kết quả thành công.
+
+***![](../../docs/design/anh/62-6953.png)***
+
+**Hình 5.9 Yêu cầu đã giải quyết, chờ Customer xác nhận đóng hoặc mở lại**
+
+#### **5.2.5 Chi tiết yêu cầu đã đóng**
+
+Khi yêu cầu ở trạng thái Đã đóng (CLOSED), Customer vẫn được xem thông tin và hội thoại công khai của yêu cầu thuộc sở hữu của mình.
+
+Giao diện chuyển sang chế độ chỉ đọc, khóa ô soạn phản hồi và không cho phép gửi thêm tin nhắn hoặc mở lại yêu cầu đã đóng. Trạng thái CLOSED được hiển thị rõ để khách hàng phân biệt với yêu cầu đang chờ xác nhận giải quyết.
+
+***![](../../docs/design/anh/62-6954.png)***
+
+**Hình 5.10 Chi tiết yêu cầu đã đóng ở chế độ chỉ đọc**
+
+## **5.3 Giao diện Agent Workspace**
+
+### **5.3.1 Hàng đợi và nhận xử lý**
+
+Hiển thị hàng đợi các ticket đang mở (OPEN), có thể chọn xem nội dung chi tiết từng ticket, có thể tìm kiếm ticket thông qua ô tìm yêu cầu; Mã ticket và trạng thái “Mới” được hiển thị rõ; Thao tác với nút “Nhận xử lý” để nhận ticket; Ticket chưa được Agent đang đăng nhập nhận thì Agent này không được soạn phản hồi → các tính năng liên quan đến xử lý ticket bị khóa (giao diện soạn phản hồi, sử dụng Trợ lý AI, xem/soạn ghi chú nội bộ).
+
+![](../../docs/design/anh/55-1992.png)
+
+**Hình 5.11  Hàng đợi và nhận xử lý**
+
+### **5.3.2 Xử lý ticket và ghi chú nội bộ**
+
+Ticket đang được xử lý có thể được đánh dấu đã giải quyết hoặc yêu cầu thêm thông tin từ Customer, Agent có thể dùng tính năng Trợ lý AI để hỗ trợ xử lý ticket. Trạng thái của ticket khi này được hiển thị rõ “Đang xử lý”.
+
+Chỉ Agent được giao ticket/Admin được tạo và xem ghi chú nội bộ. Vùng soạn ghi chú/ghi chú đã thêm được hiển thị nổi bật trên giao diện.
+
+![](../../docs/design/anh/55-2537.png)
+
+**Hình 5.12  Xử lý ticket và ghi chú nội bộ**
+
+### **5.3.3 Xung đột nhận ticket**
+
+Thông báo ticket đã có Agent khác nhận xử lý, thao tác với nút “Về hàng đợi” để tải lại hàng đợi ticket → Agent thua claim không được tiếp tục xử lý ticket ngoài quyền.
+
+![](../../docs/design/anh/56-3104.png)
+
+**Hình 5.13  Xung đột nhận ticket**
