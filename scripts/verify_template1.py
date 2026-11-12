@@ -88,6 +88,13 @@ def check_static():
         assert package.git('show','-s','--format=%s',c['sha'])==c['subject']
         assert c['sha'] in gitmd
         assert c['subject'].replace('|','&#124;') in gitmd or c['subject'] in gitmd
+        coverage=[]
+        for path,count,is_folder in package.summarize_changed_paths(c['files']):
+            covered=[f for f in c['files'] if f.startswith(path)] if is_folder else [path]
+            assert len(covered)==count
+            coverage.extend(covered)
+        assert sorted(coverage)==sorted(c['files']), 'Grouping lost or duplicated paths'
+
     print('PASS: report wording, 19 literal UC tables, 37 mapped figures, 31 original UI assets, 6 valid/consistent UML graphs, all AI source entries, unique Git metadata.')
 
 

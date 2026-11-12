@@ -167,6 +167,29 @@ def capture_git_snapshot():
     return snapshot
 
 
+def summarize_changed_paths(files, threshold=5):
+    """Partition paths into small file lists or whole directory subtrees."""
+    tree={}
+    for path in sorted(files):
+        node=tree
+        for part in Path(path).parts[:-1]:
+            node=node.setdefault(part,{})
+        node[Path(path).name]=path
+
+    def walk(node, prefix):
+        children=[v for v in node.values() if isinstance(v,str)]
+        def leaves(n):
+            return [p for v in n.values() for p in (leaves(v) if isinstance(v,dict) else [v])]
+        paths=leaves(node)
+        if prefix and len(paths)>=threshold and (len(prefix)>=2 or len(children)>=threshold):
+            return [('/'.join(prefix)+'/',len(paths),True)]
+        result=[]
+        for name,value in sorted(node.items()):
+            result.extend(walk(value,prefix+[name]) if isinstance(value,dict) else [(value,1,False)])
+        return result
+    return walk(tree,[])
+
+
 def build_git():
     snapshot=capture_git_snapshot();commits=snapshot['commits'];members=snapshot['members']
     lines=['# BÁO CÁO LỊCH SỬ COMMIT GIT — TEMPLATE 1\n\n',
@@ -175,7 +198,7 @@ def build_git():
            'Thống kê lịch sử của giai đoạn Template 1 từ 03/11/2026 đến thời điểm chốt dữ liệu, gồm chuẩn bị yêu cầu, prototype và bản Markdown đã đẩy lên remote. Hợp các commit từ những nhánh dưới đây theo SHA, mỗi commit chỉ tính một lần. Loại commit lưu trữ Template 0; không đưa commit đóng gói sau snapshot vào số liệu này. Giữ nguyên tên tác giả, thông điệp và thời gian đã ghi trong Git.\n\n',
            '| Nhánh nguồn | SHA tại thời điểm chốt |\n| --- | --- |\n']
     for ref,h in snapshot['refs'].items():lines.append(f'| `{ref}` | [{h}]({REPO}/commit/{h}) |\n')
-    lines += ['\nChỉ số commit phản ánh lịch sử Git, không tương đương phần trăm công sức hay xác nhận đã hoàn thành nhiệm vụ. Commit trên nhánh chưa merge vẫn được ghi nhận và đánh dấu nguồn. Metadata/đường dẫn đầy đủ được giữ tại `../sources/git-snapshot.json`. Đối chiếu tác giả bằng tên GitHub hoặc email Git/Jira đã khai báo trong members.csv; Gia Phúc dùng tác giả PC với email phgphuc0609@gmail.com, trùng email Jira đã khai báo.\n\n',
+    lines += ['\nCác nhóm có từ 5 tệp thay đổi được gom theo thư mục kèm số lượng để báo cáo gọn hơn; danh sách từng tệp vẫn được giữ đầy đủ trong snapshot. Chỉ số commit phản ánh lịch sử Git, không tương đương phần trăm công sức hay xác nhận đã hoàn thành nhiệm vụ. Commit trên nhánh chưa merge vẫn được ghi nhận và đánh dấu nguồn. Metadata/đường dẫn đầy đủ được giữ tại `../sources/git-snapshot.json`. Đối chiếu tác giả bằng tên GitHub hoặc email Git/Jira đã khai báo trong members.csv; Gia Phúc dùng tác giả PC với email phgphuc0609@gmail.com, trùng email Jira đã khai báo.\n\n',
               '## Bảng tổng hợp\n\n| MSSV | Thành viên | GitHub | Commit |\n| --- | --- | --- | ---: |\n']
     grouped={}
     for m in members:
@@ -196,11 +219,13 @@ def build_git():
             when=datetime.fromisoformat(c['authored_at']).astimezone(ZoneInfo('Asia/Ho_Chi_Minh')).strftime('%d/%m/%Y %H:%M')
             subject=c['subject'].replace('|','&#124;')
             lines.append(f'| {j} | [{c["sha"][:8]}]({REPO}/commit/{c["sha"]}) | {when} | {subject} | {len(c["files"])} |\n')
-        lines.append('\n#### Tệp thay đổi và nguồn nhánh\n\n')
+        lines.append('\n#### Tệp/thư mục thay đổi và nguồn nhánh\n\n')
         for c in own:
             lines += [f'**[{c["sha"][:8]}]({REPO}/commit/{c["sha"]})** — {c["subject"]}\n\n',
                       'Nguồn: '+', '.join('`'+r+'`' for r in c['refs'])+'.\n\n']
-            if c['files']:lines.append('\n'.join('- `'+f+'`' for f in c['files'])+'\n\n')
+            if c['files']:
+                groups=summarize_changed_paths(c['files'])
+                lines.append('\n'.join('- `'+path+'`'+(' — '+str(count)+' tệp thay đổi' if is_folder else '') for path,count,is_folder in groups)+'\n\n')
             else:lines.append('Merge commit / không có tệp thay đổi trực tiếp.\n\n')
     lines.append('## Pull Request liên quan\n\n| PR | Nội dung | Nhánh | Trạng thái tại thời điểm chốt |\n| --- | --- | --- | --- |\n')
     for p in snapshot['pull_requests']:
@@ -272,7 +297,7 @@ def build_readme(manifest,ai_index,counts):
 - `report/assets/ui/`: chỉ 31 ảnh giao diện có trong report, giữ nguyên tệp ảnh nguồn theo mã Figma.
 - `report/assets/diagrams/`: 6 sơ đồ SVG sắc nét và mã nguồn drawio tương ứng; Hình 3.1 giữ nguyên bản Lãm nộp, 5 sơ đồ Use Case chỉnh theo bản final.
 - `ai-usage/ai-usage.md` và `.html`: tổng hợp theo tác giả, giữ nguyên nội dung các phiên đã nộp.
-- `git-contributions/git-contributions.md` và `.html`: snapshot lịch sử Git Template 1, gồm cả nhánh nộp bài chưa merge.
+- `git-contributions/git-contributions.md` và `.html`: snapshot lịch sử Git Template 1, gồm cả nhánh nộp bài chưa merge. Nhóm nhiều tệp được gom thành thư mục kèm số lượng; danh sách đầy đủ giữ trong sources/git-snapshot.json.
 - `sources/`: bản final gốc có ảnh nhúng, draft dùng tra mã ảnh, nguyên bản nhật ký theo người và snapshot metadata Git; dùng đối soát, không thay thế nội dung report.
 
 **PDF report:** trưởng nhóm tự xuất từ Google Docs và đặt tại `report/report.pdf`. Công cụ này không tạo hoặc giả lập PDF đã nộp.

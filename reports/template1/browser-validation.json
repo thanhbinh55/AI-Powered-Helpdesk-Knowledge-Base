@@ -5,9 +5,9 @@
     "rendered_source_nodes": 1012
   },
   "git-contributions": {
-    "pages": 40,
+    "pages": 10,
     "overflow": [],
-    "rendered_source_nodes": 1684
+    "rendered_source_nodes": 626
   },
   "report": {
     "images": 37,
@@ -19,7 +19,7 @@
     "report/report.md": "798917c59db3cb75ebd6c8d1038af6b36f0f31a383b9224fea7b5391256a5a82",
     "ai-usage/ai-usage.md": "09a168a28763951b63449ba9d16e2ecc2c3bb5faa95b73d94d737e9dbe4836fe",
     "ai-usage/ai-usage.html": "32db35e6344be84968b43173b0b4e07995426814ed449e66e91e99be4ac8a5a3",
-    "git-contributions/git-contributions.md": "b044a23b0693e2028e938dc1904f5fd5924d7bfc080fc4ab079fa1fcab356305",
-    "git-contributions/git-contributions.html": "56624ac3d5b74e4b9e11a591956be3583af74523c64a0af9ab40c45c54de53e0"
+    "git-contributions/git-contributions.md": "a763048f6458f1b850684a687a42dd53431b73b26475d2cd60409f41b668f413",
+    "git-contributions/git-contributions.html": "c70c9cd668fa6b96c068967dd0acc90ba4194101c6dadf35ef7f5265fa32c4ea"
   }
 }
