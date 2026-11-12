@@ -1,15 +1,28 @@
 [
   {
     "name": "context_diagram_system",
-    "title": "Clarune — Sơ đồ bối cảnh",
+    "title": "Clarune — Sơ đồ bối cảnh của Nguyễn Đức Lãm",
+    "provenance": {
+      "author": "Nguyễn Đức Lãm",
+      "commit": "979179b55194e2010373de0b30547f966e3e59fe",
+      "ref": "docs/t1-knowledge-lam",
+      "files": {
+        "svg": {
+          "path": "reports/template1/sources/diagrams/context_diagram_system.svg",
+          "upstream_path": "reports/template1/assets/diagrams/context_diagram_system.svg",
+          "sha256": "2b05463dd7e54c4ee53a6d8d09c50689a462cabfcdaa1268348061a542e19c6a"
+        },
+        "drawio": {
+          "path": "reports/template1/sources/diagrams/context_diagram_system.drawio",
+          "upstream_path": "reports/template1/assets/diagrams/context_diagram_system.drawio",
+          "sha256": "963280253f7febc62fff7f9663daadecd935cae7af27ea4f8fcfffd3612763be"
+        }
+      }
+    },
     "nodes": [
       {
-        "id": "clarune",
+        "id": "sys-box",
         "kind": "box",
-        "x": 620,
-        "y": 320,
-        "w": 250,
-        "h": 150,
         "lines": [
           "Clarune"
         ]
@@ -17,202 +30,64 @@
       {
         "id": "actor-guest",
         "kind": "actor",
-        "x": 40,
-        "y": 35,
-        "w": 240,
-        "h": 82,
         "lines": [
-          "Guest / Unauthenticated User",
-          "(Người dùng chưa xác thực)"
+          "Guest"
         ]
       },
       {
         "id": "actor-customer",
         "kind": "actor",
-        "x": 40,
-        "y": 225,
-        "w": 240,
-        "h": 82,
         "lines": [
-          "Customer",
-          "(Khách hàng)"
+          "Customer"
         ]
       },
       {
         "id": "actor-agent",
         "kind": "actor",
-        "x": 40,
-        "y": 415,
-        "w": 240,
-        "h": 82,
         "lines": [
-          "Support Agent",
-          "(Nhân viên hỗ trợ)"
+          "Agent"
         ]
       },
       {
         "id": "actor-admin",
         "kind": "actor",
-        "x": 40,
-        "y": 605,
-        "w": 240,
-        "h": 82,
         "lines": [
-          "System Administrator",
-          "(Quản trị viên hệ thống)"
+          "Admin"
         ]
       },
       {
-        "id": "actor-llm",
+        "id": "ext-llm",
         "kind": "actor",
-        "x": 1230,
-        "y": 195,
-        "w": 240,
-        "h": 82,
         "lines": [
-          "«system»",
-          "Embedding / LLM Provider"
-        ]
-      },
-      {
-        "id": "actor-mail",
-        "kind": "actor",
-        "x": 1230,
-        "y": 565,
-        "w": 240,
-        "h": 82,
-        "lines": [
-          "«system»",
-          "Mail Service (P1)"
+          "«system» Embedding hoặc LLM Provider"
         ]
       }
     ],
     "edges": [
       {
         "source": "actor-guest",
-        "target": "clarune",
-        "points": [
-          [
-            184,
-            71
-          ],
-          [
-            440,
-            71
-          ],
-          [
-            620,
-            350
-          ]
-        ],
-        "generalization": false,
-        "arrow": true,
-        "label": "Đăng ký, đăng nhập,\nđặt lại mật khẩu (P1)"
+        "target": "sys-box",
+        "generalization": false
       },
       {
         "source": "actor-customer",
-        "target": "clarune",
-        "points": [
-          [
-            184,
-            261
-          ],
-          [
-            440,
-            261
-          ],
-          [
-            620,
-            378
-          ]
-        ],
-        "generalization": false,
-        "arrow": true,
-        "label": "Tạo/xem ticket, trao đổi,\nxác nhận đóng hoặc mở lại"
+        "target": "sys-box",
+        "generalization": false
       },
       {
         "source": "actor-agent",
-        "target": "clarune",
-        "points": [
-          [
-            184,
-            451
-          ],
-          [
-            440,
-            451
-          ],
-          [
-            620,
-            406
-          ]
-        ],
-        "generalization": false,
-        "arrow": true,
-        "label": "Nhận và xử lý ticket,\ntra cứu tri thức, duyệt gợi ý AI"
+        "target": "sys-box",
+        "generalization": false
       },
       {
         "source": "actor-admin",
-        "target": "clarune",
-        "points": [
-          [
-            184,
-            641
-          ],
-          [
-            440,
-            641
-          ],
-          [
-            620,
-            434
-          ]
-        ],
-        "generalization": false,
-        "arrow": true,
-        "label": "Quản lý Agent, phân công,\nquản trị tri thức, thống kê"
+        "target": "sys-box",
+        "generalization": false
       },
       {
-        "source": "clarune",
-        "target": "actor-llm",
-        "points": [
-          [
-            870,
-            360
-          ],
-          [
-            1030,
-            231
-          ],
-          [
-            1326,
-            231
-          ]
-        ],
-        "generalization": false,
-        "arrow": true,
-        "label": "Embedding và gợi ý AI"
-      },
-      {
-        "source": "clarune",
-        "target": "actor-mail",
-        "points": [
-          [
-            870,
-            430
-          ],
-          [
-            1030,
-            601
-          ],
-          [
-            1326,
-            601
-          ]
-        ],
-        "generalization": false,
-        "arrow": true,
-        "label": "Gửi liên kết đặt lại mật khẩu (P1)"
+        "source": "sys-box",
+        "target": "ext-llm",
+        "generalization": false
       }
     ]
   },

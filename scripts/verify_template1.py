@@ -46,6 +46,11 @@ def check_static():
     for drawing in diagrams:
         folder=T1/'report/assets/diagrams'
         ET.parse(folder/(drawing['name']+'.svg'));ET.parse(folder/(drawing['name']+'.drawio'))
+        if 'provenance' in drawing:
+            for suffix,item in drawing['provenance']['files'].items():
+                asset=folder/(drawing['name']+'.'+suffix)
+                assert asset.read_bytes()==(ROOT/item['path']).read_bytes()
+                assert package.sha(asset.read_bytes())==item['sha256']
         ids={n['id'] for n in drawing['nodes']}
         for e in drawing['edges']:assert e['source'] in ids and e['target'] in ids
         for n in drawing['nodes']:

@@ -4,6 +4,7 @@
   "figures": 37,
   "ui_assets": 31,
   "diagrams": 6,
+  "context_diagram_source": "sources/diagrams/context-diagram-source.json",
   "ai_sources": [
     {
       "author": "Ngô Viết Thanh Bình",

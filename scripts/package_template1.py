@@ -270,7 +270,7 @@ def build_readme(manifest,ai_index,counts):
 
 - `report/report.md`: toàn bộ bản final xuất từ Google Docs, giữ nguyên câu chữ; ảnh dùng đường dẫn tương đối vào `report/assets/`.
 - `report/assets/ui/`: chỉ 31 ảnh giao diện có trong report, giữ nguyên tệp ảnh nguồn theo mã Figma.
-- `report/assets/diagrams/`: 6 sơ đồ SVG sắc nét và mã nguồn drawio tương ứng, chỉnh theo bản final.
+- `report/assets/diagrams/`: 6 sơ đồ SVG sắc nét và mã nguồn drawio tương ứng; Hình 3.1 giữ nguyên bản Lãm nộp, 5 sơ đồ Use Case chỉnh theo bản final.
 - `ai-usage/ai-usage.md` và `.html`: tổng hợp theo tác giả, giữ nguyên nội dung các phiên đã nộp.
 - `git-contributions/git-contributions.md` và `.html`: snapshot lịch sử Git Template 1, gồm cả nhánh nộp bài chưa merge.
 - `sources/`: bản final gốc có ảnh nhúng, draft dùng tra mã ảnh, nguyên bản nhật ký theo người và snapshot metadata Git; dùng đối soát, không thay thế nội dung report.
@@ -286,11 +286,11 @@ def build_readme(manifest,ai_index,counts):
 - Các PR nguồn chưa được tác vụ đóng gói này merge vào main; trạng thái ghi trong báo cáo Git là trạng thái tại snapshot. Nhánh docs/t1-ticket-giaphuc đã có 4 commit của Gia Phúc; tại lần thu thập chưa thấy PR tương ứng. Snapshot ban đầu được lưu ở sources/history/git-snapshot-initial.json.
 - Markdown gốc có mục lục kèm số trang từ Google Docs. Giữ nguyên các nhãn/số trang theo yêu cầu bảo toàn nội dung; đây không phải số trang do Markdown tự tính.
 - Ảnh hồ sơ trong bản final là `62-8328.png`; draft nêu cả `62-8216` và `62-8328`, chỉ lấy ảnh thực sự xuất hiện trong final.
-- Tệp `report/assets/manifest.json` ghi đủ 37 ánh xạ hình và SHA-256, trong đó 6 hình là sơ đồ được dựng lại, 31 hình là UI sao chép nguyên tệp.
+- Tệp `report/assets/manifest.json` ghi đủ 37 ánh xạ hình và SHA-256, trong đó 1 sơ đồ bối cảnh lấy nguyên tệp của Lãm, 5 sơ đồ Use Case được dựng lại và 31 hình UI sao chép nguyên tệp.
 
 ## Quy tắc sơ đồ
 
-Dựa vào graph của các tệp drawio hiện có; cập nhật tên Use Case theo 19 bảng đặc tả final. Người dùng là actor người que, Use Case là ellipse bên trong ranh giới hệ thống, actor/dịch vụ ngoài ranh giới. Association nét liền không mũi tên; generalization nét liền với tam giác rỗng hướng về actor cha. Không tự thêm include/extend. Worker, CSDL và storage là thành phần nội bộ, không vẽ thành actor. Các mô tả P1 và quyền hạn được đối chiếu với bản final.
+Hình 3.1 dùng nguyên văn SVG/drawio của Lãm tại commit 979179b, theo lựa chọn của trưởng nhóm; không vẽ lại hoặc thêm actor Mail Service. Nguồn được lưu tại sources/diagrams cùng SHA-256. Năm sơ đồ Use Case còn lại dựa vào graph của các tệp drawio hiện có; cập nhật tên Use Case theo 19 bảng đặc tả final. Người dùng là actor người que, Use Case là ellipse bên trong ranh giới hệ thống, actor/dịch vụ ngoài ranh giới. Association nét liền không mũi tên; generalization nét liền với tam giác rỗng hướng về actor cha. Không tự thêm include/extend. Worker, CSDL và storage là thành phần nội bộ, không vẽ thành actor. Các mô tả P1 và quyền hạn được đối chiếu với bản final.
 
 Sơ đồ tổng thể và module dùng cùng nguồn tên UC và quan hệ; thay tên lỗi của graph tổng thể cũ (đặc biệt UC-07..10), sửa generalization Admin→Authenticated User bị thiếu target trong mã cũ, giữ UC-19 riêng cho Agent và UC-17 riêng cho Admin. Bản vẽ gốc vẫn còn nguyên ở thư mục assets/diagrams cũ; gói nộp trỏ tới bản đã chỉnh trong report/assets/diagrams.
 
@@ -311,7 +311,7 @@ Bản nguồn lưu trữ giữ nguyên cả khoảng trắng và Markdown hard-b
 '''
     write(T1/'README.md',text)
     audit={'report_wording_preserved':True,'source_sha256':sha((SOURCES/'template1-final-original.md').read_bytes()),
-           'figures':len(manifest),'ui_assets':len(UI),'diagrams':6,'ai_sources':ai_index,'git_commit_counts':counts}
+           'figures':len(manifest),'ui_assets':len(UI),'diagrams':6,'context_diagram_source':'sources/diagrams/context-diagram-source.json','ai_sources':ai_index,'git_commit_counts':counts}
     write(T1/'verification.json',json.dumps(audit,ensure_ascii=False,indent=2)+'\n')
 
 

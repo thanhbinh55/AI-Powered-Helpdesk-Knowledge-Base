@@ -1,6 +1,8 @@
 """Vector UML diagrams derived from the existing drawio graphs and final UC tables."""
 from pathlib import Path
 import html
+import shutil
+import json
 import re
 import textwrap
 import xml.etree.ElementTree as ET
@@ -155,15 +157,17 @@ def generate(repo, source):
                 if actor!=a:p=p[::-1]
             d.edge(a,b,p,generalization=general)
         records.append(d.write(folder,baseline))
-    # The context drawing retains external actors only; infrastructure stays internal.
-    d=Diagram('Clarune — Sơ đồ bối cảnh',1500,850)
-    d.node('clarune','box',620,320,250,150,['Clarune'])
-    for i,a in enumerate(['actor-guest','actor-customer','actor-agent','actor-admin']):
-        y=35+i*190;d.node(a,'actor',40,y,240,82,ACTORS[a])
-        labels=['Đăng ký, đăng nhập,','đặt lại mật khẩu (P1)'] if i==0 else (['Tạo/xem ticket, trao đổi,','xác nhận đóng hoặc mở lại'] if i==1 else (['Nhận và xử lý ticket,','tra cứu tri thức, duyệt gợi ý AI'] if i==2 else ['Quản lý Agent, phân công,','quản trị tri thức, thống kê']))
-        # Label near the actor, connectors enter distinct points on the central boundary.
-        d.edge(a,'clarune',[(184,y+36),(440,y+36),(620,350+i*28)],arrow=True,label='\n'.join(labels))
-    for a,y,label in [('actor-llm',195,'Embedding và gợi ý AI'),('actor-mail',565,'Gửi liên kết đặt lại mật khẩu (P1)')]:
-        d.node(a,'actor',1230,y,240,82,ACTORS[a]);d.edge('clarune',a,[(870,360 if y<300 else 430),(1030,y+36),(1326,y+36)],arrow=True,label=label)
-    records.insert(0,d.write(folder,'context_diagram_system'))
+    # Preserve Lam's submitted context diagram exactly, as selected by the leader.
+    source_folder=repo/'reports/template1/sources/diagrams'
+    provenance=json.loads((source_folder/'context-diagram-source.json').read_text())
+    for suffix in ['svg','drawio']:
+        shutil.copy2(source_folder/('context_diagram_system.'+suffix),folder/('context_diagram_system.'+suffix))
+    nodes=[];edges=[]
+    for cell in ET.parse(source_folder/'context_diagram_system.drawio').iter('mxCell'):
+        if cell.get('vertex')=='1':
+            label=re.sub('<[^>]+>',' ',html.unescape(cell.get('value',''))).strip()
+            nodes.append({'id':cell.get('id'),'kind':'actor' if 'shape=umlActor' in cell.get('style','') else 'box','lines':[label]})
+        elif cell.get('edge')=='1':
+            edges.append({'source':cell.get('source'),'target':cell.get('target'),'generalization':False})
+    records.insert(0,{'name':'context_diagram_system','title':'Clarune — Sơ đồ bối cảnh của Nguyễn Đức Lãm','provenance':provenance,'nodes':nodes,'edges':edges})
     return records
