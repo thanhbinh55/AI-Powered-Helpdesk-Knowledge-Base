@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" type="device" version="24.0.0">
+  <diagram id="uc_module_c_ticketing" name="Clarune — Quản lý ticket">
+    <mxGraphModel grid="1" gridSize="10" page="1" pageScale="1" pageWidth="1320" pageHeight="872">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="system" value="Clarune — Quản lý ticket" style="shape=rect;verticalAlign=top;spacingTop=12;fontStyle=1;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="380.0" y="25" width="560" height="822" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-05" value="UC-05&lt;br&gt;Tạo yêu cầu hỗ trợ" style="ellipse;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="420.0" y="90" width="480" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-06" value="UC-06&lt;br&gt;Xem danh sách và chi tiết ticket" style="ellipse;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="420.0" y="202" width="480" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-07" value="UC-07&lt;br&gt;Tiếp nhận và phân công ticket" style="ellipse;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="420.0" y="314" width="480" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-08" value="UC-08&lt;br&gt;Gửi tin nhắn công khai và ghi chú nội bộ" style="ellipse;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="420.0" y="426" width="480" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-09" value="UC-09&lt;br&gt;Chuyển trạng thái ticket" style="ellipse;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="420.0" y="538" width="480" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-10" value="UC-10&lt;br&gt;Xem lịch sử sự kiện ticket" style="ellipse;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="420.0" y="650" width="480" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-customer" value="Customer&lt;br&gt;(Khách hàng)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="55" y="65" width="230" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-agent" value="Support Agent&lt;br&gt;(Nhân viên hỗ trợ)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="55" y="713" width="230" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-admin" value="System Administrator&lt;br&gt;(Quản trị viên hệ thống)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="377" width="230" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-0" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-customer" target="uc-05">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="380.0" y="101" />
+              <mxPoint x="380.0" y="133.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-1" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-customer" target="uc-06">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="380.0" y="101" />
+              <mxPoint x="380.0" y="245.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-2" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-customer" target="uc-08">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="380.0" y="101" />
+              <mxPoint x="380.0" y="469.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-3" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-customer" target="uc-09">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="380.0" y="101" />
+              <mxPoint x="380.0" y="581.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-4" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-agent" target="uc-06">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="348.0" y="749" />
+              <mxPoint x="348.0" y="245.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-5" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-agent" target="uc-07">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="348.0" y="749" />
+              <mxPoint x="348.0" y="357.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-6" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-agent" target="uc-08">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="348.0" y="749" />
+              <mxPoint x="348.0" y="469.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-7" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-agent" target="uc-09">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="348.0" y="749" />
+              <mxPoint x="348.0" y="581.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-8" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-agent" target="uc-10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="348.0" y="749" />
+              <mxPoint x="348.0" y="693.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-9" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-admin" target="uc-06">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="940.0" y="413" />
+              <mxPoint x="940.0" y="245.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-10" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-admin" target="uc-07">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="940.0" y="413" />
+              <mxPoint x="940.0" y="357.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-11" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-admin" target="uc-08">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="940.0" y="413" />
+              <mxPoint x="940.0" y="469.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-12" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-admin" target="uc-09">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="940.0" y="413" />
+              <mxPoint x="940.0" y="581.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-13" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-admin" target="uc-10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="940.0" y="413" />
+              <mxPoint x="940.0" y="693.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

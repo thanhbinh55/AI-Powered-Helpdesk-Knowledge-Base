@@ -1,0 +1,17 @@
+{
+  "author": "Nguyễn Đức Lãm",
+  "commit": "979179b55194e2010373de0b30547f966e3e59fe",
+  "ref": "docs/t1-knowledge-lam",
+  "files": {
+    "svg": {
+      "path": "reports/template1/sources/diagrams/context_diagram_system.svg",
+      "upstream_path": "reports/template1/assets/diagrams/context_diagram_system.svg",
+      "sha256": "2b05463dd7e54c4ee53a6d8d09c50689a462cabfcdaa1268348061a542e19c6a"
+    },
+    "drawio": {
+      "path": "reports/template1/sources/diagrams/context_diagram_system.drawio",
+      "upstream_path": "reports/template1/assets/diagrams/context_diagram_system.drawio",
+      "sha256": "963280253f7febc62fff7f9663daadecd935cae7af27ea4f8fcfffd3612763be"
+    }
+  }
+}

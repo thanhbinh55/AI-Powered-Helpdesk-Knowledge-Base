@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" type="device" version="24.0.0">
+  <diagram id="uc_module_d_identity" name="Clarune — Định danh và phân quyền">
+    <mxGraphModel grid="1" gridSize="10" page="1" pageScale="1" pageWidth="1320" pageHeight="760">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="system" value="Clarune — Định danh và phân quyền" style="shape=rect;verticalAlign=top;spacingTop=12;fontStyle=1;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="380.0" y="25" width="560" height="710" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-01" value="UC-01&lt;br&gt;Đăng ký và đăng nhập hệ thống" style="ellipse;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="420.0" y="90" width="480" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-16" value="UC-16&lt;br&gt;Đặt lại mật khẩu (P1)" style="ellipse;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="420.0" y="202" width="480" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-02" value="UC-02&lt;br&gt;Làm mới phiên và đăng xuất" style="ellipse;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="420.0" y="314" width="480" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-03" value="UC-03&lt;br&gt;Xem và cập nhật hồ sơ cá nhân" style="ellipse;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="420.0" y="426" width="480" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-04" value="UC-04&lt;br&gt;Quản lý tài khoản Agent" style="ellipse;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="420.0" y="538" width="480" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-guest" value="Guest / Unauthenticated User&lt;br&gt;(Người dùng chưa xác thực)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="55" y="65" width="230" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-auth" value="Authenticated User&lt;br&gt;(Người dùng đã xác thực)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="55" y="601" width="230" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-admin" value="System Administrator&lt;br&gt;(Quản trị viên hệ thống)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="65" width="230" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-mail" value="«system»&lt;br&gt;Mail Service (P1)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="601" width="230" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-0" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=block;endFill=0;endSize=14;" edge="1" parent="1" source="actor-admin" target="actor-auth">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1295" y="147" />
+              <mxPoint x="1295" y="748" />
+              <mxPoint x="25" y="748" />
+              <mxPoint x="25" y="579" />
+              <mxPoint x="170.0" y="579" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-1" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-guest" target="uc-01">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="380.0" y="101" />
+              <mxPoint x="380.0" y="133.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-2" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-guest" target="uc-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="380.0" y="101" />
+              <mxPoint x="380.0" y="245.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-3" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-auth" target="uc-02">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="348.0" y="637" />
+              <mxPoint x="348.0" y="357.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-4" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-auth" target="uc-03">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="348.0" y="637" />
+              <mxPoint x="348.0" y="469.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-5" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-admin" target="uc-04">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="940.0" y="101" />
+              <mxPoint x="940.0" y="581.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-6" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="uc-16" target="actor-mail">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="972.0" y="245.0" />
+              <mxPoint x="972.0" y="637" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

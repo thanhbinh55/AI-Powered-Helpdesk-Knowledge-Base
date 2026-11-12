@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="700" viewBox="0 0 1320 700" role="img" aria-labelledby="title">
+<title id="title">Clarune — Cơ sở tri thức</title>
+<defs><marker id="generalization" viewBox="0 0 14 14" markerWidth="14" markerHeight="14" refX="13" refY="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 1 L13 7 L1 13 Z" fill="white" stroke="#111" stroke-width="1.5"/></marker><marker id="arrow" viewBox="0 0 10 10" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#111" stroke-width="1.5"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<g style="font-family:Arial,sans-serif;font-size:16px;fill:#111">
+<rect x="380.0" y="25" width="560" height="650" fill="white" stroke="#111" stroke-width="1.7"/>
+<text x="660.0" y="53" text-anchor="middle" font-weight="bold">Clarune — Cơ sở tri thức</text>
+<polyline points="1126.0,101 940.0,101 940.0,133.0 900.0,133.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline points="1126.0,101 940.0,101 940.0,245.0 900.0,245.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline points="1126.0,101 940.0,101 940.0,357.0 900.0,357.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline points="194.0,301 380.0,301 380.0,357.0 420.0,357.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline points="900.0,133.0 972.0,133.0 972.0,525 1126.0,525" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline points="900.0,357.0 972.0,357.0 972.0,525 1126.0,525" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<ellipse cx="660.0" cy="133.0" rx="240.0" ry="43.0" fill="white" stroke="#111" stroke-width="1.7"/>
+<text x="660.0" y="127.0" text-anchor="middle" font-weight="bold">UC-11</text>
+<text x="660.0" y="149.0" text-anchor="middle">Tải lên và xử lý tài liệu tri thức</text>
+<ellipse cx="660.0" cy="245.0" rx="240.0" ry="43.0" fill="white" stroke="#111" stroke-width="1.7"/>
+<text x="660.0" y="239.0" text-anchor="middle" font-weight="bold">UC-12</text>
+<text x="660.0" y="261.0" text-anchor="middle">Công bố và lưu trữ tài liệu tri thức</text>
+<ellipse cx="660.0" cy="357.0" rx="240.0" ry="43.0" fill="white" stroke="#111" stroke-width="1.7"/>
+<text x="660.0" y="351.0" text-anchor="middle" font-weight="bold">UC-13</text>
+<text x="660.0" y="373.0" text-anchor="middle">Tìm kiếm tri thức</text>
+<circle cx="170.0" cy="278" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
+<path d="M170.0 289 V322 M147.0 301 H193.0 M170.0 322 L148.0 347 M170.0 322 L192.0 347" fill="none" stroke="#111" stroke-width="1.7"/>
+<text x="170.0" y="373" text-anchor="middle">Support Agent</text>
+<text x="170.0" y="395" text-anchor="middle">(Nhân viên hỗ trợ)</text>
+<circle cx="1150.0" cy="78" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
+<path d="M1150.0 89 V122 M1127.0 101 H1173.0 M1150.0 122 L1128.0 147 M1150.0 122 L1172.0 147" fill="none" stroke="#111" stroke-width="1.7"/>
+<text x="1150.0" y="173" text-anchor="middle">System Administrator</text>
+<text x="1150.0" y="195" text-anchor="middle">(Quản trị viên hệ thống)</text>
+<circle cx="1150.0" cy="502" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
+<path d="M1150.0 513 V546 M1127.0 525 H1173.0 M1150.0 546 L1128.0 571 M1150.0 546 L1172.0 571" fill="none" stroke="#111" stroke-width="1.7"/>
+<text x="1150.0" y="597" text-anchor="middle">«system»</text>
+<text x="1150.0" y="619" text-anchor="middle">Embedding Provider</text>
+</g></svg>

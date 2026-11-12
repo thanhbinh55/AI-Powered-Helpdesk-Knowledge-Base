@@ -1,0 +1,156 @@
+[
+  {
+    "author": "Ngô Viết Thanh Bình",
+    "mssv": "24120269",
+    "source_id": "T1-02",
+    "report_id": "T1-01",
+    "source": "sources/ai-usage-binh.md"
+  },
+  {
+    "author": "Ngô Viết Thanh Bình",
+    "mssv": "24120269",
+    "source_id": "T1-03",
+    "report_id": "T1-02",
+    "source": "sources/ai-usage-binh.md"
+  },
+  {
+    "author": "Ngô Viết Thanh Bình",
+    "mssv": "24120269",
+    "source_id": "T1-04",
+    "report_id": "T1-03",
+    "source": "sources/ai-usage-binh.md"
+  },
+  {
+    "author": "Ngô Viết Thanh Bình",
+    "mssv": "24120269",
+    "source_id": "T1-05",
+    "report_id": "T1-04",
+    "source": "sources/ai-usage-binh.md"
+  },
+  {
+    "author": "Ngô Viết Thanh Bình",
+    "mssv": "24120269",
+    "source_id": "T1-06",
+    "report_id": "T1-05",
+    "source": "sources/ai-usage-binh.md"
+  },
+  {
+    "author": "Ngô Viết Thanh Bình",
+    "mssv": "24120269",
+    "source_id": "T1-07",
+    "report_id": "T1-06",
+    "source": "sources/ai-usage-binh.md"
+  },
+  {
+    "author": "Ngô Viết Thanh Bình",
+    "mssv": "24120269",
+    "source_id": "T1-08",
+    "report_id": "T1-07",
+    "source": "sources/ai-usage-binh.md"
+  },
+  {
+    "author": "Ngô Viết Thanh Bình",
+    "mssv": "24120269",
+    "source_id": "T1-09",
+    "report_id": "T1-08",
+    "source": "sources/ai-usage-binh.md"
+  },
+  {
+    "author": "Ngô Viết Thanh Bình",
+    "mssv": "24120269",
+    "source_id": "T1-10",
+    "report_id": "T1-09",
+    "source": "sources/ai-usage-binh.md"
+  },
+  {
+    "author": "Ngô Viết Thanh Bình",
+    "mssv": "24120269",
+    "source_id": "T1-11",
+    "report_id": "T1-10",
+    "source": "sources/ai-usage-binh.md"
+  },
+  {
+    "author": "Nguyễn Đức Lãm",
+    "mssv": "24120083",
+    "source_id": "T1-08",
+    "report_id": "T1-11",
+    "source": "sources/ai-usage-lam.md"
+  },
+  {
+    "author": "Nguyễn Đức Lãm",
+    "mssv": "24120083",
+    "source_id": "T1-09",
+    "report_id": "T1-12",
+    "source": "sources/ai-usage-lam.md"
+  },
+  {
+    "author": "Nguyễn Đức Lãm",
+    "mssv": "24120083",
+    "source_id": "T1-10",
+    "report_id": "T1-13",
+    "source": "sources/ai-usage-lam.md"
+  },
+  {
+    "author": "Nguyễn Đức Lãm",
+    "mssv": "24120083",
+    "source_id": "T1-11",
+    "report_id": "T1-14",
+    "source": "sources/ai-usage-lam.md"
+  },
+  {
+    "author": "Nguyễn Đức Lãm",
+    "mssv": "24120083",
+    "source_id": "T1-12",
+    "report_id": "T1-15",
+    "source": "sources/ai-usage-lam.md"
+  },
+  {
+    "author": "Nguyễn Đức Lãm",
+    "mssv": "24120083",
+    "source_id": "T1-13",
+    "report_id": "T1-16",
+    "source": "sources/ai-usage-lam.md"
+  },
+  {
+    "author": "Nguyễn Đức Lãm",
+    "mssv": "24120083",
+    "source_id": "T1-14",
+    "report_id": "T1-17",
+    "source": "sources/ai-usage-lam.md"
+  },
+  {
+    "author": "Nguyễn Đức Lãm",
+    "mssv": "24120083",
+    "source_id": "T1-15",
+    "report_id": "T1-18",
+    "source": "sources/ai-usage-lam.md"
+  },
+  {
+    "author": "Lê Quý Phúc",
+    "mssv": "24120121",
+    "source_id": "T1-01",
+    "report_id": "T1-19",
+    "source": "sources/ai-usage-quy-phuc.md"
+  },
+  {
+    "author": "Lê Quý Phúc",
+    "mssv": "24120121",
+    "source_id": "T1-08",
+    "report_id": "T1-20",
+    "source": "sources/ai-usage-quy-phuc.md"
+  },
+  {
+    "author": "Phan Gia Phúc",
+    "mssv": "24120503",
+    "source_id": "T1-08",
+    "report_id": "T1-21",
+    "source": "sources/ai-usage-gia-phuc.md"
+  },
+  {
+    "author": "Ngô Viết Thanh Bình",
+    "mssv": "24120269",
+    "source_id": "T1-PACK-01",
+    "report_id": "T1-22",
+    "source": "Phiên đóng gói trong cuộc hội thoại"
+  }
+]
