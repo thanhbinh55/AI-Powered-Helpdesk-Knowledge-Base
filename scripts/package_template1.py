@@ -107,7 +107,7 @@ def extract_sessions(text):
 
 
 def build_ai():
-    owners=[('binh','Ngô Viết Thanh Bình','24120269'),('lam','Nguyễn Đức Lãm','24120083'),('quy-phuc','Lê Quý Phúc','24120121')]
+    owners=[('binh','Ngô Viết Thanh Bình','24120269'),('lam','Nguyễn Đức Lãm','24120083'),('quy-phuc','Lê Quý Phúc','24120121'),('gia-phuc','Phan Gia Phúc','24120503')]
     baseline=(SOURCES/'ai-usage-binh.md').read_text()
     # Preserve the common rules and every owner-specific row/session verbatim.
     prefix=baseline[:baseline.index('## 6.2')]
@@ -120,12 +120,12 @@ def build_ai():
         rows=[l for l in text.splitlines() if l.startswith('|') and mssv in l]
         blocks=[b for b in extract_sessions(text) if mssv in b]
         out += [f'## {name} — {mssv}\n\n',table_header+'\n'+'\n'.join(rows)+'\n\n', ''.join(blocks)]
+        if not blocks:
+            out.append('**Tình trạng hồ sơ:** Đã có dòng tổng hợp do tác giả nộp; chưa có phần chi tiết phiên ở mục 6.3 trong nguồn. Giữ nguyên nội dung đã nộp, không bổ sung prompt hoặc xác nhận kiểm chứng thay tác giả.\n\n')
         index.append({'author':name,'mssv':mssv,'summary_rows':len(rows),'detailed_sessions':len(blocks),'source':f'sources/ai-usage-{key}.md'})
         for block in blocks:
             assert block in ''.join(out)
-    out += ['## Phan Gia Phúc — 24120503\n\n',
-            'Chưa có nhật ký AI usage Template 1 của thành viên này trong các nguồn đã nộp được thu thập tại thời điểm đóng gói. Trạng thái này không xác nhận thành viên không sử dụng AI.\n\n',
-            '## Ngô Viết Thanh Bình — Phiên đóng gói Template 1\n\n',
+    out += ['## Ngô Viết Thanh Bình — Phiên đóng gói Template 1\n\n',
             '### Phiên T1-PACK-01: Tổng hợp gói nộp Template 1\n\n',
             '- **Thời gian:** 12/11/2026; không ghi nhận giờ bắt đầu cụ thể.\n',
             '- **Tác giả chịu trách nhiệm:** Ngô Viết Thanh Bình — `24120269`.\n',
@@ -148,7 +148,7 @@ def capture_git_snapshot():
     path=SOURCES/'git-snapshot.json'
     if path.exists():return json.loads(path.read_text())
     members=list(csv.DictReader((ROOT/'members.csv').open()))
-    refs=['origin/main','origin/docs/t1-identity-binh','origin/docs/t1-knowledge-lam','origin/docs/t1-ai-quyphuc-markdown']
+    refs=['origin/main','origin/docs/t1-identity-binh','origin/docs/t1-knowledge-lam','origin/docs/t1-ai-quyphuc-markdown','origin/docs/t1-ticket-giaphuc']
     pinned={ref:git('rev-parse',ref) for ref in refs}
     hashes=git('log','--since=2026-11-03T00:00:00+07:00','--format=%H',*pinned.values()).splitlines()
     records=[]
@@ -175,11 +175,11 @@ def build_git():
            'Thống kê lịch sử của giai đoạn Template 1 từ 03/11/2026 đến thời điểm chốt dữ liệu, gồm chuẩn bị yêu cầu, prototype và bản Markdown đã đẩy lên remote. Hợp các commit từ những nhánh dưới đây theo SHA, mỗi commit chỉ tính một lần. Loại commit lưu trữ Template 0; không đưa commit đóng gói sau snapshot vào số liệu này. Giữ nguyên tên tác giả, thông điệp và thời gian đã ghi trong Git.\n\n',
            '| Nhánh nguồn | SHA tại thời điểm chốt |\n| --- | --- |\n']
     for ref,h in snapshot['refs'].items():lines.append(f'| `{ref}` | [{h}]({REPO}/commit/{h}) |\n')
-    lines += ['\nChỉ số commit phản ánh lịch sử Git, không tương đương phần trăm công sức hay xác nhận đã hoàn thành nhiệm vụ. Commit trên nhánh chưa merge vẫn được ghi nhận và đánh dấu nguồn. Metadata/đường dẫn đầy đủ được giữ tại `../sources/git-snapshot.json`.\n\n',
+    lines += ['\nChỉ số commit phản ánh lịch sử Git, không tương đương phần trăm công sức hay xác nhận đã hoàn thành nhiệm vụ. Commit trên nhánh chưa merge vẫn được ghi nhận và đánh dấu nguồn. Metadata/đường dẫn đầy đủ được giữ tại `../sources/git-snapshot.json`. Đối chiếu tác giả bằng tên GitHub hoặc email Git/Jira đã khai báo trong members.csv; Gia Phúc dùng tác giả PC với email phgphuc0609@gmail.com, trùng email Jira đã khai báo.\n\n',
               '## Bảng tổng hợp\n\n| MSSV | Thành viên | GitHub | Commit |\n| --- | --- | --- | ---: |\n']
     grouped={}
     for m in members:
-        own=[c for c in commits if c['author_email'].lower()==m['git_email'].lower() or c['author'].lower()==m['git_username'].lower()]
+        own=[c for c in commits if c['author_email'].lower() in {m['git_email'].lower(), m['jira_email'].lower()} or c['author'].lower()==m['git_username'].lower()]
         own.sort(key=lambda c:(c['authored_at'],c['sha']),reverse=True)
         grouped[m['mssv']]=own
         lines.append(f'| {m["mssv"]} | {m["full_name"]} | {m["git_username"]} | {len(own)} |\n')
@@ -204,7 +204,7 @@ def build_git():
             else:lines.append('Merge commit / không có tệp thay đổi trực tiếp.\n\n')
     lines.append('## Pull Request liên quan\n\n| PR | Nội dung | Nhánh | Trạng thái tại thời điểm chốt |\n| --- | --- | --- | --- |\n')
     for p in snapshot['pull_requests']:
-        if p['number'] in [8,9,10,11,12]:
+        if p['headRefName'].startswith('docs/t1-') or p['number']==8:
             lines.append(f'| [#{p["number"]}]({p["url"]}) | {p["title"]} | `{p["headRefName"]}` | {p["state"]} |\n')
     write(T1/'git-contributions/git-contributions.md',''.join(lines))
     return {m['full_name']:len(grouped[m['mssv']]) for m in members}
@@ -280,10 +280,10 @@ def build_readme(manifest,ai_index,counts):
 ## Nguồn và các điểm cần xác nhận
 
 - Bản chữ duy nhất dùng đóng report là `sources/template1-final-original.md`; không lấy draft hoặc nội dung PR ghi đè bản final.
-- AI usage đã thu thập của Bình, Lãm và Quý Phúc. Chưa tìm thấy bản Template 1 của Gia Phúc; bản tổng hợp ghi đúng trạng thái này, không suy diễn thành “không dùng AI”.
+- AI usage đã thu thập của cả 4 thành viên. Gia Phúc đã nộp 1 dòng tổng hợp T1-08, chưa có phần chi tiết mục 6.3; giữ nguyên cả lỗi gõ trong nguồn, không tự viết thay tác giả.
 - Các mã phiên T1-08… bị trùng giữa tác giả được giữ nguyên, đặt dưới tên tác giả để không đổi dữ liệu nguồn.
 - Ngày 09–11/10/2026 trong nhật ký Lãm được giữ nguyên theo bản đã nộp, chưa có xác nhận đổi sang tháng 11.
-- Các PR nguồn #10/#11/#12 chưa được tác vụ đóng gói này merge vào main; trạng thái ghi trong báo cáo Git là trạng thái tại snapshot.
+- Các PR nguồn chưa được tác vụ đóng gói này merge vào main; trạng thái ghi trong báo cáo Git là trạng thái tại snapshot. Nhánh docs/t1-ticket-giaphuc đã có 4 commit của Gia Phúc; tại lần thu thập chưa thấy PR tương ứng. Snapshot ban đầu được lưu ở sources/history/git-snapshot-initial.json.
 - Markdown gốc có mục lục kèm số trang từ Google Docs. Giữ nguyên các nhãn/số trang theo yêu cầu bảo toàn nội dung; đây không phải số trang do Markdown tự tính.
 - Ảnh hồ sơ trong bản final là `62-8328.png`; draft nêu cả `62-8216` và `62-8328`, chỉ lấy ảnh thực sự xuất hiện trong final.
 - Tệp `report/assets/manifest.json` ghi đủ 37 ánh xạ hình và SHA-256, trong đó 6 hình là sơ đồ được dựng lại, 31 hình là UI sao chép nguyên tệp.

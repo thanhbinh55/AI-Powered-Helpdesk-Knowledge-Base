@@ -1,11 +1,12 @@
 {
-  "captured_at": "2026-11-12T11:22:52+07:00",
+  "captured_at": "2026-11-12T13:03:14+07:00",
   "period_start": "2026-11-03T00:00:00+07:00",
   "refs": {
     "origin/main": "a47f41fe00aa3107fdf1a57d6b3eef0ba9e1ff03",
     "origin/docs/t1-identity-binh": "4827ab99f117c448a9c7dc27688f40a45a92e3e9",
     "origin/docs/t1-knowledge-lam": "979179b55194e2010373de0b30547f966e3e59fe",
-    "origin/docs/t1-ai-quyphuc-markdown": "8971284b6a590c84f5e8b76a3d1ddb9bc49d3c09"
+    "origin/docs/t1-ai-quyphuc-markdown": "8971284b6a590c84f5e8b76a3d1ddb9bc49d3c09",
+    "origin/docs/t1-ticket-giaphuc": "f435005bc48a070f69f06f75bc1fc967b6746bb5"
   },
   "members": [
     {
@@ -43,6 +44,40 @@
   ],
   "commits": [
     {
+      "sha": "f435005bc48a070f69f06f75bc1fc967b6746bb5",
+      "author": "PC",
+      "author_email": "phgphuc0609@gmail.com",
+      "authored_at": "2026-11-12T12:20:02+07:00",
+      "committer": "PC",
+      "committer_email": "phgphuc0609@gmail.com",
+      "committed_at": "2026-11-12T12:20:02+07:00",
+      "subject": "docs(template1): hoàn thiện nội dung markdown cho các phần 3.2, 5.2, 5.3 cho Template1 và thêm AI usage SCRUM-65",
+      "parents": "5c0fbe27b8da9e4ac532116c73e71e3dcab0e5fd",
+      "files": [
+        "reports/template1/06-ai-usage.md"
+      ],
+      "refs": [
+        "origin/docs/t1-ticket-giaphuc"
+      ]
+    },
+    {
+      "sha": "5c0fbe27b8da9e4ac532116c73e71e3dcab0e5fd",
+      "author": "PC",
+      "author_email": "phgphuc0609@gmail.com",
+      "authored_at": "2026-11-12T12:18:56+07:00",
+      "committer": "PC",
+      "committer_email": "phgphuc0609@gmail.com",
+      "committed_at": "2026-11-12T12:18:56+07:00",
+      "subject": "xong 5.2, 5.3",
+      "parents": "8fb3ab9108831b442e9c95797c08c7f44130252f",
+      "files": [
+        "reports/template1/05-prototype-mockup.md"
+      ],
+      "refs": [
+        "origin/docs/t1-ticket-giaphuc"
+      ]
+    },
+    {
       "sha": "4827ab99f117c448a9c7dc27688f40a45a92e3e9",
       "author": "Ngô Viết Thanh Bình",
       "author_email": "ngovietthanhbinh2006@gmail.com",
@@ -61,6 +96,40 @@
       ],
       "refs": [
         "origin/docs/t1-identity-binh"
+      ]
+    },
+    {
+      "sha": "8fb3ab9108831b442e9c95797c08c7f44130252f",
+      "author": "PC",
+      "author_email": "phgphuc0609@gmail.com",
+      "authored_at": "2026-11-12T10:45:45+07:00",
+      "committer": "PC",
+      "committer_email": "phgphuc0609@gmail.com",
+      "committed_at": "2026-11-12T10:45:45+07:00",
+      "subject": "xong 6 dac ta use case module C",
+      "parents": "69c3d3cd2407b8e053861bda7efd5fddbba30998",
+      "files": [
+        "reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md"
+      ],
+      "refs": [
+        "origin/docs/t1-ticket-giaphuc"
+      ]
+    },
+    {
+      "sha": "69c3d3cd2407b8e053861bda7efd5fddbba30998",
+      "author": "PC",
+      "author_email": "phgphuc0609@gmail.com",
+      "authored_at": "2026-11-12T10:43:34+07:00",
+      "committer": "PC",
+      "committer_email": "phgphuc0609@gmail.com",
+      "committed_at": "2026-11-12T10:43:34+07:00",
+      "subject": "xong 3.2.1",
+      "parents": "a47f41fe00aa3107fdf1a57d6b3eef0ba9e1ff03",
+      "files": [
+        "reports/template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md"
+      ],
+      "refs": [
+        "origin/docs/t1-ticket-giaphuc"
       ]
     },
     {
@@ -166,7 +235,8 @@
         "origin/main",
         "origin/docs/t1-identity-binh",
         "origin/docs/t1-knowledge-lam",
-        "origin/docs/t1-ai-quyphuc-markdown"
+        "origin/docs/t1-ai-quyphuc-markdown",
+        "origin/docs/t1-ticket-giaphuc"
       ]
     },
     {
@@ -188,7 +258,8 @@
         "origin/main",
         "origin/docs/t1-identity-binh",
         "origin/docs/t1-knowledge-lam",
-        "origin/docs/t1-ai-quyphuc-markdown"
+        "origin/docs/t1-ai-quyphuc-markdown",
+        "origin/docs/t1-ticket-giaphuc"
       ]
     },
     {
@@ -238,7 +309,8 @@
         "origin/main",
         "origin/docs/t1-identity-binh",
         "origin/docs/t1-knowledge-lam",
-        "origin/docs/t1-ai-quyphuc-markdown"
+        "origin/docs/t1-ai-quyphuc-markdown",
+        "origin/docs/t1-ticket-giaphuc"
       ]
     },
     {
@@ -520,7 +592,8 @@
         "origin/main",
         "origin/docs/t1-identity-binh",
         "origin/docs/t1-knowledge-lam",
-        "origin/docs/t1-ai-quyphuc-markdown"
+        "origin/docs/t1-ai-quyphuc-markdown",
+        "origin/docs/t1-ticket-giaphuc"
       ]
     },
     {
@@ -623,7 +696,8 @@
         "origin/main",
         "origin/docs/t1-identity-binh",
         "origin/docs/t1-knowledge-lam",
-        "origin/docs/t1-ai-quyphuc-markdown"
+        "origin/docs/t1-ai-quyphuc-markdown",
+        "origin/docs/t1-ticket-giaphuc"
       ]
     },
     {
@@ -662,7 +736,8 @@
         "origin/main",
         "origin/docs/t1-identity-binh",
         "origin/docs/t1-knowledge-lam",
-        "origin/docs/t1-ai-quyphuc-markdown"
+        "origin/docs/t1-ai-quyphuc-markdown",
+        "origin/docs/t1-ticket-giaphuc"
       ]
     },
     {
@@ -923,7 +998,8 @@
         "origin/main",
         "origin/docs/t1-identity-binh",
         "origin/docs/t1-knowledge-lam",
-        "origin/docs/t1-ai-quyphuc-markdown"
+        "origin/docs/t1-ai-quyphuc-markdown",
+        "origin/docs/t1-ticket-giaphuc"
       ]
     },
     {
@@ -963,7 +1039,8 @@
         "origin/main",
         "origin/docs/t1-identity-binh",
         "origin/docs/t1-knowledge-lam",
-        "origin/docs/t1-ai-quyphuc-markdown"
+        "origin/docs/t1-ai-quyphuc-markdown",
+        "origin/docs/t1-ticket-giaphuc"
       ]
     },
     {
@@ -983,7 +1060,8 @@
         "origin/main",
         "origin/docs/t1-identity-binh",
         "origin/docs/t1-knowledge-lam",
-        "origin/docs/t1-ai-quyphuc-markdown"
+        "origin/docs/t1-ai-quyphuc-markdown",
+        "origin/docs/t1-ticket-giaphuc"
       ]
     },
     {
@@ -1004,7 +1082,8 @@
         "origin/main",
         "origin/docs/t1-identity-binh",
         "origin/docs/t1-knowledge-lam",
-        "origin/docs/t1-ai-quyphuc-markdown"
+        "origin/docs/t1-ai-quyphuc-markdown",
+        "origin/docs/t1-ticket-giaphuc"
       ]
     },
     {
@@ -1037,7 +1116,8 @@
         "origin/main",
         "origin/docs/t1-identity-binh",
         "origin/docs/t1-knowledge-lam",
-        "origin/docs/t1-ai-quyphuc-markdown"
+        "origin/docs/t1-ai-quyphuc-markdown",
+        "origin/docs/t1-ticket-giaphuc"
       ]
     },
     {
@@ -1059,7 +1139,8 @@
         "origin/main",
         "origin/docs/t1-identity-binh",
         "origin/docs/t1-knowledge-lam",
-        "origin/docs/t1-ai-quyphuc-markdown"
+        "origin/docs/t1-ai-quyphuc-markdown",
+        "origin/docs/t1-ticket-giaphuc"
       ]
     },
     {
@@ -1089,7 +1170,8 @@
         "origin/main",
         "origin/docs/t1-identity-binh",
         "origin/docs/t1-knowledge-lam",
-        "origin/docs/t1-ai-quyphuc-markdown"
+        "origin/docs/t1-ai-quyphuc-markdown",
+        "origin/docs/t1-ticket-giaphuc"
       ]
     },
     {
@@ -1286,7 +1368,8 @@
         "origin/main",
         "origin/docs/t1-identity-binh",
         "origin/docs/t1-knowledge-lam",
-        "origin/docs/t1-ai-quyphuc-markdown"
+        "origin/docs/t1-ai-quyphuc-markdown",
+        "origin/docs/t1-ticket-giaphuc"
       ]
     },
     {
@@ -1362,7 +1445,8 @@
         "origin/main",
         "origin/docs/t1-identity-binh",
         "origin/docs/t1-knowledge-lam",
-        "origin/docs/t1-ai-quyphuc-markdown"
+        "origin/docs/t1-ai-quyphuc-markdown",
+        "origin/docs/t1-ticket-giaphuc"
       ]
     },
     {
@@ -1559,11 +1643,26 @@
         "origin/main",
         "origin/docs/t1-identity-binh",
         "origin/docs/t1-knowledge-lam",
-        "origin/docs/t1-ai-quyphuc-markdown"
+        "origin/docs/t1-ai-quyphuc-markdown",
+        "origin/docs/t1-ticket-giaphuc"
       ]
     }
   ],
   "pull_requests": [
+    {
+      "author": {
+        "id": "U_kgDOCpeVGA",
+        "is_bot": false,
+        "login": "thanhbinh55",
+        "name": "Ngô Viết Thanh Bình"
+      },
+      "headRefName": "merge-template1",
+      "mergedAt": null,
+      "number": 13,
+      "state": "OPEN",
+      "title": "docs(template1): đóng gói report, assets và minh chứng nộp bài SCRUM-41 SCRUM-52",
+      "url": "https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/pull/13"
+    },
     {
       "author": {
         "id": "U_kgDOCpeVGA",

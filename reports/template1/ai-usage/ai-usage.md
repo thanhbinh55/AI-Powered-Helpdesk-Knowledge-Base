@@ -386,7 +386,11 @@
 
 ## Phan Gia Phúc — 24120503
 
-Chưa có nhật ký AI usage Template 1 của thành viên này trong các nguồn đã nộp được thu thập tại thời điểm đóng gói. Trạng thái này không xác nhận thành viên không sử dụng AI.
+| STT | Thời gian | Thành viên (MSSV) | Công cụ & Nền tảng | Nội dung công việc trong Template 1 | Nội dung AI tạo & Con người tự kiểm chứng | Minh chứng / Commit |
+| :---: | :---: | :--- | :--- | :--- | :--- | :---: |
+| **T1-08** | 7h00<br>08/11/2026 - 11h40<br>12/11/2026 | Phan Gia Phúc<br>`24120503` | OpenAI - ChatGPT, Codex | Đặc tả các UC-05 đến UC-10, các FR/NFR, mô tả giao diện Customer Portal, Agent Workspace; Tổng kết các nội dung cho đặc tả các UC đang phụ trách, các nội dung cho phần 5.2, 5.3 cho phần 5 Prototype trong Template1 | Gợi ý cách trình bày nội dung/bảng cho phần 3.2 cho Template1, cho các UC-05 đến UC-10, cho các mô tả của phần 5.2, 5.3 trong Template1; AI kiểm tra/so sánh lại với SRS và siên viên tự review lại.  | Commit `5c0fbe2` trên nhánh docs/t1-ticket-giaphuc |
+
+**Tình trạng hồ sơ:** Đã có dòng tổng hợp do tác giả nộp; chưa có phần chi tiết phiên ở mục 6.3 trong nguồn. Giữ nguyên nội dung đã nộp, không bổ sung prompt hoặc xác nhận kiểm chứng thay tác giả.
 
 ## Ngô Viết Thanh Bình — Phiên đóng gói Template 1
 

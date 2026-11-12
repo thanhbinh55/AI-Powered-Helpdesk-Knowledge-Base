@@ -25,12 +25,19 @@
       "summary_rows": 2,
       "detailed_sessions": 2,
       "source": "sources/ai-usage-quy-phuc.md"
+    },
+    {
+      "author": "Phan Gia Phúc",
+      "mssv": "24120503",
+      "summary_rows": 1,
+      "detailed_sessions": 0,
+      "source": "sources/ai-usage-gia-phuc.md"
     }
   ],
   "git_commit_counts": {
     "Ngô Viết Thanh Bình": 13,
     "Nguyễn Đức Lãm": 1,
-    "Phan Gia Phúc": 0,
+    "Phan Gia Phúc": 4,
     "Lê Quý Phúc": 6
   }
 }

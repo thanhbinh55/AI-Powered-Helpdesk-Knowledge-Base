@@ -13,5 +13,10 @@
     "ref": "origin/docs/t1-ai-quyphuc-markdown",
     "commit": "8971284b6a590c84f5e8b76a3d1ddb9bc49d3c09",
     "sha256": "2fb271f493e66d5565c9faef2417e3836b1fea70f327cbd88bc19a21638f4036"
+  },
+  "gia-phuc": {
+    "ref": "origin/docs/t1-ticket-giaphuc",
+    "commit": "f435005bc48a070f69f06f75bc1fc967b6746bb5",
+    "sha256": "cb5b96652875d0fcf1e299bd1ba56f069d66e48cc501ba21875c8bbf8160e761"
   }
 }
