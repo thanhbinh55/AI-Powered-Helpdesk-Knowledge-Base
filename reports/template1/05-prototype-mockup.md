@@ -95,3 +95,45 @@ Toàn bộ 151 frames và bộ Design System đã được kiểm định tự �
   - Khách hàng không thấy ghi chú nội bộ hoặc AI: `noCustomerInternalOrAI = true`.
   - Tách bạch trạng thái kỹ thuật `READY` và kinh doanh `Đã công bố`: `publicationSeparate = true`.
   - Mật khẩu đã đổi tự động xóa khỏi form: `passwordClearedAndDisabled = true`.
+
+---
+
+<!-- Phần bàn giao Identity của Ngô Viết Thanh Bình; giữ nguyên nội dung thiết kế chung phía trên. -->
+
+> **Người phụ trách:** Ngô Viết Thanh Bình (MSSV: 24120269).
+> **Nguồn:** `[SE - Nhóm 4] Template 1 (1).md` — bản xuất Markdown do tác giả cung cấp.
+> **Task:** `T1-DOC-04` / `SCRUM-30`; `T1-DOC-MD` / `SCRUM-34`.
+
+## **5.1 Giao diện định danh và tài khoản**
+
+### **5.1.1 Đăng nhập hệ thống**
+
+Biểu mẫu email và mật khẩu, thông báo lỗi chung, chuyển hướng theo vai trò. Không đưa Google OAuth vào phạm vi đăng nhập MVP.
+
+**Hình 5.1  Đăng nhập hệ thống**
+
+### **5.1.2 Đăng ký Customer**
+
+Nhập họ tên, email, mật khẩu và xác nhận; tài khoản tự đăng ký luôn mang vai trò CUSTOMER.
+
+**Hình 5.2  Đăng ký Customer**
+
+### **5.1.3 Hồ sơ cá nhân**
+
+Xem và cập nhật thông tin được phép của chính mình; đổi mật khẩu có kiểm tra mật khẩu hiện tại.
+
+**Hình 5.3  Hồ sơ cá nhân**
+
+### **5.1.4 Quản lý danh sách tài khoản Agent (Admin)**
+
+Quản trị viên xem danh sách nhân viên hỗ trợ, lọc theo trạng thái hoạt động và kích hoạt/vô hiệu hóa tài khoản Agent.
+
+**Hình 5.4 Quản lý danh sách nhân viên (Admin)**
+
+### **5.1.5 Tạo tài khoản Agent mới và Vô hiệu hóa tài khoản (Admin)**
+
+Quản trị viên tạo mới tài khoản Support Agent hoặc xác nhận vô hiệu hóa tài khoản Agent (thu hồi phiên đăng nhập hiện hành).
+
+**Hình 5.5a Biểu mẫu tạo tài khoản nhân viên mới**
+
+**Hình 5.5b Xác nhận vô hiệu hóa tài khoản nhân viên**

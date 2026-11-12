@@ -24,11 +24,30 @@
 - [ ] `reports/template1/assets/diagrams/uc-overview.svg` & `uc-overview.drawio` (Sơ đồ Use Case tổng quan).
 - [ ] `reports/template1/assets/diagrams/uc-module-D.svg` & `uc-module-D.drawio` (Sơ đồ Use Case phân hệ Identity).
 - [ ] Ánh xạ màn hình Figma Identity (Frames Node ID `62:8214` đến `62:14361`, ảnh PNG tại `docs/design/anh/`).
-- [ ] Nhật ký AI Usage giai đoạn Template 1 cập nhật đầy đủ tại [reports/template1/06-ai-usage.md](../06-ai-usage.md) (theo đúng quy chuẩn 2 bước tại Mục 1.2 kế hoạch).
+- [x] Nhật ký AI Usage giai đoạn Template 1 cập nhật đầy đủ tại [reports/template1/06-ai-usage.md](../06-ai-usage.md) (theo đúng quy chuẩn 2 bước tại Mục 1.2 kế hoạch).
 
 ---
 
 ## 3. Tiêu chí Nghiệm thu Bàn giao (DoD)
-1. 100% Use Cases của module D có đủ 9 trường chuẩn (Actor, Preconditions, Trigger, Happy path, Alternative/Exception, Postconditions, Business Rules, UI Mockup mapping, Test Traceability).
-2. Sơ đồ Use Case vẽ chuẩn UML, xuất định dạng `.svg` sắc nét, không gãy font tiếng Việt.
-3. Commit Git có gắn mã Jira `SCRUM-xx`, PR mở trước **23:59 ngày 10/11/2026** và đã được reviewer approve.
+1. 100% Use Cases của module D có đủ 9 trường chuẩn, văn phong nghiệp vụ ngắn gọn, không sa đà vào chi tiết cài đặt backend.
+2. Sơ đồ Use Case tổng thể 19 Use Cases xuất file `.svg` chuẩn UML, nét liền tam giác rỗng generalization và người que.
+3. Chuyển đổi chính xác từ Google Docs sang các file Markdown được phân công, **giữ nguyên 100% nội dung đã thống nhất**.
+4. **LƯU Ý VỀ HÌNH ẢNH:** Thành viên chỉ cần ghi tiêu đề ảnh (Hình 4.xx, 5.xx...); Trưởng nhóm sẽ tự tổng hợp và chèn mã nhúng ảnh thật vào tài liệu master.
+5. Cập nhật nhật ký AI Usage nếu có vào [`reports/template1/06-ai-usage.md`](../06-ai-usage.md).
+6. Commit Git có gắn mã Jira `SCRUM-xx`, PR mở và merge vào `main`.
+
+---
+
+## 4. Bàn giao Markdown từ bản xuất ngày 12/11/2026
+
+- **Nguồn:** `[SE - Nhóm 4] Template 1 (1).md` do Thanh Bình cung cấp.
+- **Task đã ánh xạ:** `T1-DOC-04` → `SCRUM-30`; `T1-DOC-MD` → `SCRUM-34` (theo `scripts/jira/tasks_created.csv`). `SCRUM-65` là task thông báo phân công, không thay mã task chuyển đổi.
+- [x] Chuyển mục 4.1.1 vào `04-dac-ta-use-cases/04.1-so-do-tong-the.md`: tổng thể **19 Use Cases**.
+- [x] Chuyển mục 4.1.2 và đủ 5 bảng đặc tả (9 trường/bảng) UC-01, UC-02, UC-03, UC-04, UC-16 vào `04-dac-ta-use-cases/04.2-module-D-identity.md`.
+- [x] Bổ sung phần 5.1 Identity từ nguồn ở cuối `05-prototype-mockup.md` để người tổng hợp UI tiếp nhận; giữ nguyên phần thiết kế chung hiện có.
+- [x] Giữ nguyên câu chữ nguồn và tiêu đề hình; không nhúng hình theo quy định chuyển đổi Markdown. Các tệp SVG/drawio hiện có được giữ nguyên, chưa đối chiếu hình nguồn trong phiên này.
+- [x] Cập nhật phần AI usage của Bình trong `06-ai-usage.md`; giữ nguyên phần của thành viên khác.
+- [ ] Quý Phúc review nội dung và xác nhận nghiệm thu.
+- [ ] Trưởng nhóm tổng hợp hình ảnh và bản nộp cuối.
+
+**Lưu ý đối soát:** Các dòng nhắc 17 Use Cases/Module D ở biên bản cũ là thông tin lịch sử; bản nguồn hiện tại có 19 Use Cases và dùng tên phân hệ. Việc chuyển đổi không xác nhận các checklist review/merge trước đó đã hoàn thành.
