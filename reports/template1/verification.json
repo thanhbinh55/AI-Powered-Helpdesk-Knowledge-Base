@@ -1,0 +1,36 @@
+{
+  "report_wording_preserved": true,
+  "source_sha256": "f8c7d39be2d80e0528320f7a144b05c3a0f0049bcb97bc0ad9b00319b457bff5",
+  "figures": 37,
+  "ui_assets": 31,
+  "diagrams": 6,
+  "ai_sources": [
+    {
+      "author": "Ngô Viết Thanh Bình",
+      "mssv": "24120269",
+      "summary_rows": 10,
+      "detailed_sessions": 10,
+      "source": "sources/ai-usage-binh.md"
+    },
+    {
+      "author": "Nguyễn Đức Lãm",
+      "mssv": "24120083",
+      "summary_rows": 8,
+      "detailed_sessions": 8,
+      "source": "sources/ai-usage-lam.md"
+    },
+    {
+      "author": "Lê Quý Phúc",
+      "mssv": "24120121",
+      "summary_rows": 2,
+      "detailed_sessions": 2,
+      "source": "sources/ai-usage-quy-phuc.md"
+    }
+  ],
+  "git_commit_counts": {
+    "Ngô Viết Thanh Bình": 13,
+    "Nguyễn Đức Lãm": 1,
+    "Phan Gia Phúc": 0,
+    "Lê Quý Phúc": 6
+  }
+}

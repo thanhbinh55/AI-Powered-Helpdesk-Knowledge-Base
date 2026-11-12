@@ -1,0 +1,25 @@
+{
+  "ai-usage": {
+    "pages": 21,
+    "overflow": [],
+    "rendered_source_nodes": 958
+  },
+  "git-contributions": {
+    "pages": 39,
+    "overflow": [],
+    "rendered_source_nodes": 1590
+  },
+  "report": {
+    "images": 37,
+    "broken_images": [],
+    "broken_anchors": []
+  },
+  "command": "python scripts/verify_template1.py --browser",
+  "files_sha256": {
+    "report/report.md": "798917c59db3cb75ebd6c8d1038af6b36f0f31a383b9224fea7b5391256a5a82",
+    "ai-usage/ai-usage.md": "0d6e440c281b172ca94c8830422a2b4fbe69b102d2430840b711a9cf6544c03c",
+    "ai-usage/ai-usage.html": "7892ceff9513e80b838a6f9382315f6a5d7d185b9fa4dbca649b69f05ace8310",
+    "git-contributions/git-contributions.md": "5003a2cc1749fc6cea5f4fddd3af2be0d35c975edf55fda3fa87bd5ff59f7d0e",
+    "git-contributions/git-contributions.html": "fdea888c5388a3335c7e461ec22b429e3e931005392d577079acfa95b3fd1cd1"
+  }
+}

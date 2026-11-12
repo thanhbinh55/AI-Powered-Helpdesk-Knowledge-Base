@@ -1,0 +1,2896 @@
+[
+  {
+    "name": "context_diagram_system",
+    "title": "Clarune — Sơ đồ bối cảnh",
+    "nodes": [
+      {
+        "id": "clarune",
+        "kind": "box",
+        "x": 620,
+        "y": 320,
+        "w": 250,
+        "h": 150,
+        "lines": [
+          "Clarune"
+        ]
+      },
+      {
+        "id": "actor-guest",
+        "kind": "actor",
+        "x": 40,
+        "y": 35,
+        "w": 240,
+        "h": 82,
+        "lines": [
+          "Guest / Unauthenticated User",
+          "(Người dùng chưa xác thực)"
+        ]
+      },
+      {
+        "id": "actor-customer",
+        "kind": "actor",
+        "x": 40,
+        "y": 225,
+        "w": 240,
+        "h": 82,
+        "lines": [
+          "Customer",
+          "(Khách hàng)"
+        ]
+      },
+      {
+        "id": "actor-agent",
+        "kind": "actor",
+        "x": 40,
+        "y": 415,
+        "w": 240,
+        "h": 82,
+        "lines": [
+          "Support Agent",
+          "(Nhân viên hỗ trợ)"
+        ]
+      },
+      {
+        "id": "actor-admin",
+        "kind": "actor",
+        "x": 40,
+        "y": 605,
+        "w": 240,
+        "h": 82,
+        "lines": [
+          "System Administrator",
+          "(Quản trị viên hệ thống)"
+        ]
+      },
+      {
+        "id": "actor-llm",
+        "kind": "actor",
+        "x": 1230,
+        "y": 195,
+        "w": 240,
+        "h": 82,
+        "lines": [
+          "«system»",
+          "Embedding / LLM Provider"
+        ]
+      },
+      {
+        "id": "actor-mail",
+        "kind": "actor",
+        "x": 1230,
+        "y": 565,
+        "w": 240,
+        "h": 82,
+        "lines": [
+          "«system»",
+          "Mail Service (P1)"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "source": "actor-guest",
+        "target": "clarune",
+        "points": [
+          [
+            184,
+            71
+          ],
+          [
+            440,
+            71
+          ],
+          [
+            620,
+            350
+          ]
+        ],
+        "generalization": false,
+        "arrow": true,
+        "label": "Đăng ký, đăng nhập,\nđặt lại mật khẩu (P1)"
+      },
+      {
+        "source": "actor-customer",
+        "target": "clarune",
+        "points": [
+          [
+            184,
+            261
+          ],
+          [
+            440,
+            261
+          ],
+          [
+            620,
+            378
+          ]
+        ],
+        "generalization": false,
+        "arrow": true,
+        "label": "Tạo/xem ticket, trao đổi,\nxác nhận đóng hoặc mở lại"
+      },
+      {
+        "source": "actor-agent",
+        "target": "clarune",
+        "points": [
+          [
+            184,
+            451
+          ],
+          [
+            440,
+            451
+          ],
+          [
+            620,
+            406
+          ]
+        ],
+        "generalization": false,
+        "arrow": true,
+        "label": "Nhận và xử lý ticket,\ntra cứu tri thức, duyệt gợi ý AI"
+      },
+      {
+        "source": "actor-admin",
+        "target": "clarune",
+        "points": [
+          [
+            184,
+            641
+          ],
+          [
+            440,
+            641
+          ],
+          [
+            620,
+            434
+          ]
+        ],
+        "generalization": false,
+        "arrow": true,
+        "label": "Quản lý Agent, phân công,\nquản trị tri thức, thống kê"
+      },
+      {
+        "source": "clarune",
+        "target": "actor-llm",
+        "points": [
+          [
+            870,
+            360
+          ],
+          [
+            1030,
+            231
+          ],
+          [
+            1326,
+            231
+          ]
+        ],
+        "generalization": false,
+        "arrow": true,
+        "label": "Embedding và gợi ý AI"
+      },
+      {
+        "source": "clarune",
+        "target": "actor-mail",
+        "points": [
+          [
+            870,
+            430
+          ],
+          [
+            1030,
+            601
+          ],
+          [
+            1326,
+            601
+          ]
+        ],
+        "generalization": false,
+        "arrow": true,
+        "label": "Gửi liên kết đặt lại mật khẩu (P1)"
+      }
+    ]
+  },
+  {
+    "name": "uc_overall_19_usecases",
+    "title": "Clarune — Tổng thể 19 Use Case",
+    "nodes": [
+      {
+        "id": "system",
+        "kind": "boundary",
+        "x": 500.0,
+        "y": 25,
+        "w": 560,
+        "h": 2278,
+        "lines": [
+          "Clarune — Tổng thể 19 Use Case"
+        ]
+      },
+      {
+        "id": "uc-01",
+        "kind": "uc",
+        "x": 540.0,
+        "y": 90,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-01",
+          "Đăng ký và đăng nhập hệ thống"
+        ]
+      },
+      {
+        "id": "uc-16",
+        "kind": "uc",
+        "x": 540.0,
+        "y": 202,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-16",
+          "Đặt lại mật khẩu (P1)"
+        ]
+      },
+      {
+        "id": "uc-02",
+        "kind": "uc",
+        "x": 540.0,
+        "y": 314,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-02",
+          "Làm mới phiên và đăng xuất"
+        ]
+      },
+      {
+        "id": "uc-03",
+        "kind": "uc",
+        "x": 540.0,
+        "y": 426,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-03",
+          "Xem và cập nhật hồ sơ cá nhân"
+        ]
+      },
+      {
+        "id": "uc-04",
+        "kind": "uc",
+        "x": 540.0,
+        "y": 538,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-04",
+          "Quản lý tài khoản Agent"
+        ]
+      },
+      {
+        "id": "uc-05",
+        "kind": "uc",
+        "x": 540.0,
+        "y": 650,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-05",
+          "Tạo yêu cầu hỗ trợ"
+        ]
+      },
+      {
+        "id": "uc-06",
+        "kind": "uc",
+        "x": 540.0,
+        "y": 762,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-06",
+          "Xem danh sách và chi tiết ticket"
+        ]
+      },
+      {
+        "id": "uc-07",
+        "kind": "uc",
+        "x": 540.0,
+        "y": 874,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-07",
+          "Tiếp nhận và phân công ticket"
+        ]
+      },
+      {
+        "id": "uc-08",
+        "kind": "uc",
+        "x": 540.0,
+        "y": 986,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-08",
+          "Gửi tin nhắn công khai và ghi chú nội bộ"
+        ]
+      },
+      {
+        "id": "uc-09",
+        "kind": "uc",
+        "x": 540.0,
+        "y": 1098,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-09",
+          "Chuyển trạng thái ticket"
+        ]
+      },
+      {
+        "id": "uc-10",
+        "kind": "uc",
+        "x": 540.0,
+        "y": 1210,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-10",
+          "Xem lịch sử sự kiện ticket"
+        ]
+      },
+      {
+        "id": "uc-11",
+        "kind": "uc",
+        "x": 540.0,
+        "y": 1322,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-11",
+          "Tải lên và xử lý tài liệu tri thức"
+        ]
+      },
+      {
+        "id": "uc-12",
+        "kind": "uc",
+        "x": 540.0,
+        "y": 1434,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-12",
+          "Công bố và lưu trữ tài liệu tri thức"
+        ]
+      },
+      {
+        "id": "uc-13",
+        "kind": "uc",
+        "x": 540.0,
+        "y": 1546,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-13",
+          "Tìm kiếm tri thức"
+        ]
+      },
+      {
+        "id": "uc-14",
+        "kind": "uc",
+        "x": 540.0,
+        "y": 1658,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-14",
+          "Tạo gợi ý câu trả lời bằng AI"
+        ]
+      },
+      {
+        "id": "uc-15",
+        "kind": "uc",
+        "x": 540.0,
+        "y": 1770,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-15",
+          "Kiểm duyệt, chỉnh sửa và gửi phản hồi từ",
+          "gợi ý AI"
+        ]
+      },
+      {
+        "id": "uc-18",
+        "kind": "uc",
+        "x": 540.0,
+        "y": 1882,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-18",
+          "Xem lịch sử gợi ý AI"
+        ]
+      },
+      {
+        "id": "uc-19",
+        "kind": "uc",
+        "x": 540.0,
+        "y": 1994,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-19 (P1)",
+          "Đánh giá gợi ý AI hữu ích hoặc không hữu",
+          "ích"
+        ]
+      },
+      {
+        "id": "uc-17",
+        "kind": "uc",
+        "x": 540.0,
+        "y": 2106,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-17",
+          "Xem thống kê ticket (P1)"
+        ]
+      },
+      {
+        "id": "actor-guest",
+        "kind": "actor",
+        "x": 55,
+        "y": 65,
+        "w": 230,
+        "h": 82,
+        "lines": [
+          "Guest / Unauthenticated User",
+          "(Người dùng chưa xác thực)"
+        ]
+      },
+      {
+        "id": "actor-auth",
+        "kind": "actor",
+        "x": 55,
+        "y": 825,
+        "w": 230,
+        "h": 82,
+        "lines": [
+          "Authenticated User",
+          "(Người dùng đã xác thực)"
+        ]
+      },
+      {
+        "id": "actor-customer",
+        "kind": "actor",
+        "x": 55,
+        "y": 1497,
+        "w": 230,
+        "h": 82,
+        "lines": [
+          "Customer",
+          "(Khách hàng)"
+        ]
+      },
+      {
+        "id": "actor-agent",
+        "kind": "actor",
+        "x": 55,
+        "y": 2169,
+        "w": 230,
+        "h": 82,
+        "lines": [
+          "Support Agent",
+          "(Nhân viên hỗ trợ)"
+        ]
+      },
+      {
+        "id": "actor-admin",
+        "kind": "actor",
+        "x": 1275,
+        "y": 65,
+        "w": 230,
+        "h": 82,
+        "lines": [
+          "System Administrator",
+          "(Quản trị viên hệ thống)"
+        ]
+      },
+      {
+        "id": "actor-mail",
+        "kind": "actor",
+        "x": 1275,
+        "y": 1161,
+        "w": 230,
+        "h": 82,
+        "lines": [
+          "«system»",
+          "Mail Service (P1)"
+        ]
+      },
+      {
+        "id": "actor-llm",
+        "kind": "actor",
+        "x": 1275,
+        "y": 2169,
+        "w": 230,
+        "h": 82,
+        "lines": [
+          "«system»",
+          "Embedding / LLM Provider"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "source": "actor-customer",
+        "target": "actor-auth",
+        "points": [
+          [
+            146.0,
+            1533
+          ],
+          [
+            25,
+            1533
+          ],
+          [
+            25,
+            803
+          ],
+          [
+            170.0,
+            803
+          ],
+          [
+            170.0,
+            827
+          ]
+        ],
+        "generalization": true,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-agent",
+        "target": "actor-auth",
+        "points": [
+          [
+            146.0,
+            2205
+          ],
+          [
+            25,
+            2205
+          ],
+          [
+            25,
+            803
+          ],
+          [
+            170.0,
+            803
+          ],
+          [
+            170.0,
+            827
+          ]
+        ],
+        "generalization": true,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "actor-auth",
+        "points": [
+          [
+            1390.0,
+            147
+          ],
+          [
+            1535,
+            147
+          ],
+          [
+            1535,
+            2316
+          ],
+          [
+            25,
+            2316
+          ],
+          [
+            25,
+            803
+          ],
+          [
+            170.0,
+            803
+          ],
+          [
+            170.0,
+            827
+          ]
+        ],
+        "generalization": true,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-guest",
+        "target": "uc-01",
+        "points": [
+          [
+            194.0,
+            101
+          ],
+          [
+            500.0,
+            101
+          ],
+          [
+            500.0,
+            133.0
+          ],
+          [
+            540.0,
+            133.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-guest",
+        "target": "uc-16",
+        "points": [
+          [
+            194.0,
+            101
+          ],
+          [
+            500.0,
+            101
+          ],
+          [
+            500.0,
+            245.0
+          ],
+          [
+            540.0,
+            245.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-auth",
+        "target": "uc-02",
+        "points": [
+          [
+            194.0,
+            861
+          ],
+          [
+            468.0,
+            861
+          ],
+          [
+            468.0,
+            357.0
+          ],
+          [
+            540.0,
+            357.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-auth",
+        "target": "uc-03",
+        "points": [
+          [
+            194.0,
+            861
+          ],
+          [
+            468.0,
+            861
+          ],
+          [
+            468.0,
+            469.0
+          ],
+          [
+            540.0,
+            469.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-customer",
+        "target": "uc-05",
+        "points": [
+          [
+            194.0,
+            1533
+          ],
+          [
+            436.0,
+            1533
+          ],
+          [
+            436.0,
+            693.0
+          ],
+          [
+            540.0,
+            693.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-customer",
+        "target": "uc-06",
+        "points": [
+          [
+            194.0,
+            1533
+          ],
+          [
+            436.0,
+            1533
+          ],
+          [
+            436.0,
+            805.0
+          ],
+          [
+            540.0,
+            805.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-customer",
+        "target": "uc-08",
+        "points": [
+          [
+            194.0,
+            1533
+          ],
+          [
+            436.0,
+            1533
+          ],
+          [
+            436.0,
+            1029.0
+          ],
+          [
+            540.0,
+            1029.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-customer",
+        "target": "uc-09",
+        "points": [
+          [
+            194.0,
+            1533
+          ],
+          [
+            436.0,
+            1533
+          ],
+          [
+            436.0,
+            1141.0
+          ],
+          [
+            540.0,
+            1141.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-agent",
+        "target": "uc-06",
+        "points": [
+          [
+            194.0,
+            2205
+          ],
+          [
+            404.0,
+            2205
+          ],
+          [
+            404.0,
+            805.0
+          ],
+          [
+            540.0,
+            805.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-agent",
+        "target": "uc-07",
+        "points": [
+          [
+            194.0,
+            2205
+          ],
+          [
+            404.0,
+            2205
+          ],
+          [
+            404.0,
+            917.0
+          ],
+          [
+            540.0,
+            917.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-agent",
+        "target": "uc-08",
+        "points": [
+          [
+            194.0,
+            2205
+          ],
+          [
+            404.0,
+            2205
+          ],
+          [
+            404.0,
+            1029.0
+          ],
+          [
+            540.0,
+            1029.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-agent",
+        "target": "uc-09",
+        "points": [
+          [
+            194.0,
+            2205
+          ],
+          [
+            404.0,
+            2205
+          ],
+          [
+            404.0,
+            1141.0
+          ],
+          [
+            540.0,
+            1141.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-agent",
+        "target": "uc-10",
+        "points": [
+          [
+            194.0,
+            2205
+          ],
+          [
+            404.0,
+            2205
+          ],
+          [
+            404.0,
+            1253.0
+          ],
+          [
+            540.0,
+            1253.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-agent",
+        "target": "uc-13",
+        "points": [
+          [
+            194.0,
+            2205
+          ],
+          [
+            404.0,
+            2205
+          ],
+          [
+            404.0,
+            1589.0
+          ],
+          [
+            540.0,
+            1589.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-agent",
+        "target": "uc-14",
+        "points": [
+          [
+            194.0,
+            2205
+          ],
+          [
+            404.0,
+            2205
+          ],
+          [
+            404.0,
+            1701.0
+          ],
+          [
+            540.0,
+            1701.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-agent",
+        "target": "uc-15",
+        "points": [
+          [
+            194.0,
+            2205
+          ],
+          [
+            404.0,
+            2205
+          ],
+          [
+            404.0,
+            1813.0
+          ],
+          [
+            540.0,
+            1813.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-agent",
+        "target": "uc-18",
+        "points": [
+          [
+            194.0,
+            2205
+          ],
+          [
+            404.0,
+            2205
+          ],
+          [
+            404.0,
+            1925.0
+          ],
+          [
+            540.0,
+            1925.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-agent",
+        "target": "uc-19",
+        "points": [
+          [
+            194.0,
+            2205
+          ],
+          [
+            404.0,
+            2205
+          ],
+          [
+            404.0,
+            2037.0
+          ],
+          [
+            540.0,
+            2037.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-04",
+        "points": [
+          [
+            1366.0,
+            101
+          ],
+          [
+            1060.0,
+            101
+          ],
+          [
+            1060.0,
+            581.0
+          ],
+          [
+            1020.0,
+            581.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-06",
+        "points": [
+          [
+            1366.0,
+            101
+          ],
+          [
+            1060.0,
+            101
+          ],
+          [
+            1060.0,
+            805.0
+          ],
+          [
+            1020.0,
+            805.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-07",
+        "points": [
+          [
+            1366.0,
+            101
+          ],
+          [
+            1060.0,
+            101
+          ],
+          [
+            1060.0,
+            917.0
+          ],
+          [
+            1020.0,
+            917.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-08",
+        "points": [
+          [
+            1366.0,
+            101
+          ],
+          [
+            1060.0,
+            101
+          ],
+          [
+            1060.0,
+            1029.0
+          ],
+          [
+            1020.0,
+            1029.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-09",
+        "points": [
+          [
+            1366.0,
+            101
+          ],
+          [
+            1060.0,
+            101
+          ],
+          [
+            1060.0,
+            1141.0
+          ],
+          [
+            1020.0,
+            1141.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-10",
+        "points": [
+          [
+            1366.0,
+            101
+          ],
+          [
+            1060.0,
+            101
+          ],
+          [
+            1060.0,
+            1253.0
+          ],
+          [
+            1020.0,
+            1253.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-11",
+        "points": [
+          [
+            1366.0,
+            101
+          ],
+          [
+            1060.0,
+            101
+          ],
+          [
+            1060.0,
+            1365.0
+          ],
+          [
+            1020.0,
+            1365.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-12",
+        "points": [
+          [
+            1366.0,
+            101
+          ],
+          [
+            1060.0,
+            101
+          ],
+          [
+            1060.0,
+            1477.0
+          ],
+          [
+            1020.0,
+            1477.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-13",
+        "points": [
+          [
+            1366.0,
+            101
+          ],
+          [
+            1060.0,
+            101
+          ],
+          [
+            1060.0,
+            1589.0
+          ],
+          [
+            1020.0,
+            1589.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-14",
+        "points": [
+          [
+            1366.0,
+            101
+          ],
+          [
+            1060.0,
+            101
+          ],
+          [
+            1060.0,
+            1701.0
+          ],
+          [
+            1020.0,
+            1701.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-15",
+        "points": [
+          [
+            1366.0,
+            101
+          ],
+          [
+            1060.0,
+            101
+          ],
+          [
+            1060.0,
+            1813.0
+          ],
+          [
+            1020.0,
+            1813.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-18",
+        "points": [
+          [
+            1366.0,
+            101
+          ],
+          [
+            1060.0,
+            101
+          ],
+          [
+            1060.0,
+            1925.0
+          ],
+          [
+            1020.0,
+            1925.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-17",
+        "points": [
+          [
+            1366.0,
+            101
+          ],
+          [
+            1060.0,
+            101
+          ],
+          [
+            1060.0,
+            2149.0
+          ],
+          [
+            1020.0,
+            2149.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-mail",
+        "target": "uc-16",
+        "points": [
+          [
+            1366.0,
+            1197
+          ],
+          [
+            1092.0,
+            1197
+          ],
+          [
+            1092.0,
+            245.0
+          ],
+          [
+            1020.0,
+            245.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-llm",
+        "target": "uc-11",
+        "points": [
+          [
+            1366.0,
+            2205
+          ],
+          [
+            1124.0,
+            2205
+          ],
+          [
+            1124.0,
+            1365.0
+          ],
+          [
+            1020.0,
+            1365.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-llm",
+        "target": "uc-13",
+        "points": [
+          [
+            1366.0,
+            2205
+          ],
+          [
+            1124.0,
+            2205
+          ],
+          [
+            1124.0,
+            1589.0
+          ],
+          [
+            1020.0,
+            1589.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-llm",
+        "target": "uc-14",
+        "points": [
+          [
+            1366.0,
+            2205
+          ],
+          [
+            1124.0,
+            2205
+          ],
+          [
+            1124.0,
+            1701.0
+          ],
+          [
+            1020.0,
+            1701.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      }
+    ]
+  },
+  {
+    "name": "uc_module_d_identity",
+    "title": "Clarune — Định danh và phân quyền",
+    "nodes": [
+      {
+        "id": "system",
+        "kind": "boundary",
+        "x": 380.0,
+        "y": 25,
+        "w": 560,
+        "h": 710,
+        "lines": [
+          "Clarune — Định danh và phân quyền"
+        ]
+      },
+      {
+        "id": "uc-01",
+        "kind": "uc",
+        "x": 420.0,
+        "y": 90,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-01",
+          "Đăng ký và đăng nhập hệ thống"
+        ]
+      },
+      {
+        "id": "uc-16",
+        "kind": "uc",
+        "x": 420.0,
+        "y": 202,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-16",
+          "Đặt lại mật khẩu (P1)"
+        ]
+      },
+      {
+        "id": "uc-02",
+        "kind": "uc",
+        "x": 420.0,
+        "y": 314,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-02",
+          "Làm mới phiên và đăng xuất"
+        ]
+      },
+      {
+        "id": "uc-03",
+        "kind": "uc",
+        "x": 420.0,
+        "y": 426,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-03",
+          "Xem và cập nhật hồ sơ cá nhân"
+        ]
+      },
+      {
+        "id": "uc-04",
+        "kind": "uc",
+        "x": 420.0,
+        "y": 538,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-04",
+          "Quản lý tài khoản Agent"
+        ]
+      },
+      {
+        "id": "actor-guest",
+        "kind": "actor",
+        "x": 55,
+        "y": 65,
+        "w": 230,
+        "h": 82,
+        "lines": [
+          "Guest / Unauthenticated User",
+          "(Người dùng chưa xác thực)"
+        ]
+      },
+      {
+        "id": "actor-auth",
+        "kind": "actor",
+        "x": 55,
+        "y": 601,
+        "w": 230,
+        "h": 82,
+        "lines": [
+          "Authenticated User",
+          "(Người dùng đã xác thực)"
+        ]
+      },
+      {
+        "id": "actor-admin",
+        "kind": "actor",
+        "x": 1035,
+        "y": 65,
+        "w": 230,
+        "h": 82,
+        "lines": [
+          "System Administrator",
+          "(Quản trị viên hệ thống)"
+        ]
+      },
+      {
+        "id": "actor-mail",
+        "kind": "actor",
+        "x": 1035,
+        "y": 601,
+        "w": 230,
+        "h": 82,
+        "lines": [
+          "«system»",
+          "Mail Service (P1)"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "source": "actor-admin",
+        "target": "actor-auth",
+        "points": [
+          [
+            1150.0,
+            147
+          ],
+          [
+            1295,
+            147
+          ],
+          [
+            1295,
+            748
+          ],
+          [
+            25,
+            748
+          ],
+          [
+            25,
+            579
+          ],
+          [
+            170.0,
+            579
+          ],
+          [
+            170.0,
+            603
+          ]
+        ],
+        "generalization": true,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-guest",
+        "target": "uc-01",
+        "points": [
+          [
+            194.0,
+            101
+          ],
+          [
+            380.0,
+            101
+          ],
+          [
+            380.0,
+            133.0
+          ],
+          [
+            420.0,
+            133.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-guest",
+        "target": "uc-16",
+        "points": [
+          [
+            194.0,
+            101
+          ],
+          [
+            380.0,
+            101
+          ],
+          [
+            380.0,
+            245.0
+          ],
+          [
+            420.0,
+            245.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-auth",
+        "target": "uc-02",
+        "points": [
+          [
+            194.0,
+            637
+          ],
+          [
+            348.0,
+            637
+          ],
+          [
+            348.0,
+            357.0
+          ],
+          [
+            420.0,
+            357.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-auth",
+        "target": "uc-03",
+        "points": [
+          [
+            194.0,
+            637
+          ],
+          [
+            348.0,
+            637
+          ],
+          [
+            348.0,
+            469.0
+          ],
+          [
+            420.0,
+            469.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-04",
+        "points": [
+          [
+            1126.0,
+            101
+          ],
+          [
+            940.0,
+            101
+          ],
+          [
+            940.0,
+            581.0
+          ],
+          [
+            900.0,
+            581.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "uc-16",
+        "target": "actor-mail",
+        "points": [
+          [
+            900.0,
+            245.0
+          ],
+          [
+            972.0,
+            245.0
+          ],
+          [
+            972.0,
+            637
+          ],
+          [
+            1126.0,
+            637
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      }
+    ]
+  },
+  {
+    "name": "uc_module_c_ticketing",
+    "title": "Clarune — Quản lý ticket",
+    "nodes": [
+      {
+        "id": "system",
+        "kind": "boundary",
+        "x": 380.0,
+        "y": 25,
+        "w": 560,
+        "h": 822,
+        "lines": [
+          "Clarune — Quản lý ticket"
+        ]
+      },
+      {
+        "id": "uc-05",
+        "kind": "uc",
+        "x": 420.0,
+        "y": 90,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-05",
+          "Tạo yêu cầu hỗ trợ"
+        ]
+      },
+      {
+        "id": "uc-06",
+        "kind": "uc",
+        "x": 420.0,
+        "y": 202,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-06",
+          "Xem danh sách và chi tiết ticket"
+        ]
+      },
+      {
+        "id": "uc-07",
+        "kind": "uc",
+        "x": 420.0,
+        "y": 314,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-07",
+          "Tiếp nhận và phân công ticket"
+        ]
+      },
+      {
+        "id": "uc-08",
+        "kind": "uc",
+        "x": 420.0,
+        "y": 426,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-08",
+          "Gửi tin nhắn công khai và ghi chú nội bộ"
+        ]
+      },
+      {
+        "id": "uc-09",
+        "kind": "uc",
+        "x": 420.0,
+        "y": 538,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-09",
+          "Chuyển trạng thái ticket"
+        ]
+      },
+      {
+        "id": "uc-10",
+        "kind": "uc",
+        "x": 420.0,
+        "y": 650,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-10",
+          "Xem lịch sử sự kiện ticket"
+        ]
+      },
+      {
+        "id": "actor-customer",
+        "kind": "actor",
+        "x": 55,
+        "y": 65,
+        "w": 230,
+        "h": 82,
+        "lines": [
+          "Customer",
+          "(Khách hàng)"
+        ]
+      },
+      {
+        "id": "actor-agent",
+        "kind": "actor",
+        "x": 55,
+        "y": 713,
+        "w": 230,
+        "h": 82,
+        "lines": [
+          "Support Agent",
+          "(Nhân viên hỗ trợ)"
+        ]
+      },
+      {
+        "id": "actor-admin",
+        "kind": "actor",
+        "x": 1035,
+        "y": 377,
+        "w": 230,
+        "h": 82,
+        "lines": [
+          "System Administrator",
+          "(Quản trị viên hệ thống)"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "source": "actor-customer",
+        "target": "uc-05",
+        "points": [
+          [
+            194.0,
+            101
+          ],
+          [
+            380.0,
+            101
+          ],
+          [
+            380.0,
+            133.0
+          ],
+          [
+            420.0,
+            133.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-customer",
+        "target": "uc-06",
+        "points": [
+          [
+            194.0,
+            101
+          ],
+          [
+            380.0,
+            101
+          ],
+          [
+            380.0,
+            245.0
+          ],
+          [
+            420.0,
+            245.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-customer",
+        "target": "uc-08",
+        "points": [
+          [
+            194.0,
+            101
+          ],
+          [
+            380.0,
+            101
+          ],
+          [
+            380.0,
+            469.0
+          ],
+          [
+            420.0,
+            469.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-customer",
+        "target": "uc-09",
+        "points": [
+          [
+            194.0,
+            101
+          ],
+          [
+            380.0,
+            101
+          ],
+          [
+            380.0,
+            581.0
+          ],
+          [
+            420.0,
+            581.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-agent",
+        "target": "uc-06",
+        "points": [
+          [
+            194.0,
+            749
+          ],
+          [
+            348.0,
+            749
+          ],
+          [
+            348.0,
+            245.0
+          ],
+          [
+            420.0,
+            245.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-agent",
+        "target": "uc-07",
+        "points": [
+          [
+            194.0,
+            749
+          ],
+          [
+            348.0,
+            749
+          ],
+          [
+            348.0,
+            357.0
+          ],
+          [
+            420.0,
+            357.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-agent",
+        "target": "uc-08",
+        "points": [
+          [
+            194.0,
+            749
+          ],
+          [
+            348.0,
+            749
+          ],
+          [
+            348.0,
+            469.0
+          ],
+          [
+            420.0,
+            469.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-agent",
+        "target": "uc-09",
+        "points": [
+          [
+            194.0,
+            749
+          ],
+          [
+            348.0,
+            749
+          ],
+          [
+            348.0,
+            581.0
+          ],
+          [
+            420.0,
+            581.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-agent",
+        "target": "uc-10",
+        "points": [
+          [
+            194.0,
+            749
+          ],
+          [
+            348.0,
+            749
+          ],
+          [
+            348.0,
+            693.0
+          ],
+          [
+            420.0,
+            693.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-06",
+        "points": [
+          [
+            1126.0,
+            413
+          ],
+          [
+            940.0,
+            413
+          ],
+          [
+            940.0,
+            245.0
+          ],
+          [
+            900.0,
+            245.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-07",
+        "points": [
+          [
+            1126.0,
+            413
+          ],
+          [
+            940.0,
+            413
+          ],
+          [
+            940.0,
+            357.0
+          ],
+          [
+            900.0,
+            357.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-08",
+        "points": [
+          [
+            1126.0,
+            413
+          ],
+          [
+            940.0,
+            413
+          ],
+          [
+            940.0,
+            469.0
+          ],
+          [
+            900.0,
+            469.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-09",
+        "points": [
+          [
+            1126.0,
+            413
+          ],
+          [
+            940.0,
+            413
+          ],
+          [
+            940.0,
+            581.0
+          ],
+          [
+            900.0,
+            581.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-10",
+        "points": [
+          [
+            1126.0,
+            413
+          ],
+          [
+            940.0,
+            413
+          ],
+          [
+            940.0,
+            693.0
+          ],
+          [
+            900.0,
+            693.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      }
+    ]
+  },
+  {
+    "name": "uc_module_b_kb",
+    "title": "Clarune — Cơ sở tri thức",
+    "nodes": [
+      {
+        "id": "system",
+        "kind": "boundary",
+        "x": 380.0,
+        "y": 25,
+        "w": 560,
+        "h": 650,
+        "lines": [
+          "Clarune — Cơ sở tri thức"
+        ]
+      },
+      {
+        "id": "uc-11",
+        "kind": "uc",
+        "x": 420.0,
+        "y": 90,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-11",
+          "Tải lên và xử lý tài liệu tri thức"
+        ]
+      },
+      {
+        "id": "uc-12",
+        "kind": "uc",
+        "x": 420.0,
+        "y": 202,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-12",
+          "Công bố và lưu trữ tài liệu tri thức"
+        ]
+      },
+      {
+        "id": "uc-13",
+        "kind": "uc",
+        "x": 420.0,
+        "y": 314,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-13",
+          "Tìm kiếm tri thức"
+        ]
+      },
+      {
+        "id": "actor-agent",
+        "kind": "actor",
+        "x": 55,
+        "y": 265,
+        "w": 230,
+        "h": 82,
+        "lines": [
+          "Support Agent",
+          "(Nhân viên hỗ trợ)"
+        ]
+      },
+      {
+        "id": "actor-admin",
+        "kind": "actor",
+        "x": 1035,
+        "y": 65,
+        "w": 230,
+        "h": 82,
+        "lines": [
+          "System Administrator",
+          "(Quản trị viên hệ thống)"
+        ]
+      },
+      {
+        "id": "actor-embed",
+        "kind": "actor",
+        "x": 1035,
+        "y": 489,
+        "w": 230,
+        "h": 82,
+        "lines": [
+          "«system»",
+          "Embedding Provider"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "source": "actor-admin",
+        "target": "uc-11",
+        "points": [
+          [
+            1126.0,
+            101
+          ],
+          [
+            940.0,
+            101
+          ],
+          [
+            940.0,
+            133.0
+          ],
+          [
+            900.0,
+            133.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-12",
+        "points": [
+          [
+            1126.0,
+            101
+          ],
+          [
+            940.0,
+            101
+          ],
+          [
+            940.0,
+            245.0
+          ],
+          [
+            900.0,
+            245.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-13",
+        "points": [
+          [
+            1126.0,
+            101
+          ],
+          [
+            940.0,
+            101
+          ],
+          [
+            940.0,
+            357.0
+          ],
+          [
+            900.0,
+            357.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-agent",
+        "target": "uc-13",
+        "points": [
+          [
+            194.0,
+            301
+          ],
+          [
+            380.0,
+            301
+          ],
+          [
+            380.0,
+            357.0
+          ],
+          [
+            420.0,
+            357.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "uc-11",
+        "target": "actor-embed",
+        "points": [
+          [
+            900.0,
+            133.0
+          ],
+          [
+            972.0,
+            133.0
+          ],
+          [
+            972.0,
+            525
+          ],
+          [
+            1126.0,
+            525
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "uc-13",
+        "target": "actor-embed",
+        "points": [
+          [
+            900.0,
+            357.0
+          ],
+          [
+            972.0,
+            357.0
+          ],
+          [
+            972.0,
+            525
+          ],
+          [
+            1126.0,
+            525
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      }
+    ]
+  },
+  {
+    "name": "uc_module_a_ai_analytics",
+    "title": "Clarune — Trợ lý AI và thống kê",
+    "nodes": [
+      {
+        "id": "system",
+        "kind": "boundary",
+        "x": 380.0,
+        "y": 25,
+        "w": 560,
+        "h": 710,
+        "lines": [
+          "Clarune — Trợ lý AI và thống kê"
+        ]
+      },
+      {
+        "id": "uc-14",
+        "kind": "uc",
+        "x": 420.0,
+        "y": 90,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-14",
+          "Tạo gợi ý câu trả lời bằng AI"
+        ]
+      },
+      {
+        "id": "uc-15",
+        "kind": "uc",
+        "x": 420.0,
+        "y": 202,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-15",
+          "Kiểm duyệt, chỉnh sửa và gửi phản hồi từ",
+          "gợi ý AI"
+        ]
+      },
+      {
+        "id": "uc-18",
+        "kind": "uc",
+        "x": 420.0,
+        "y": 314,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-18",
+          "Xem lịch sử gợi ý AI"
+        ]
+      },
+      {
+        "id": "uc-19",
+        "kind": "uc",
+        "x": 420.0,
+        "y": 426,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-19 (P1)",
+          "Đánh giá gợi ý AI hữu ích hoặc không hữu",
+          "ích"
+        ]
+      },
+      {
+        "id": "uc-17",
+        "kind": "uc",
+        "x": 420.0,
+        "y": 538,
+        "w": 480,
+        "h": 86,
+        "lines": [
+          "UC-17",
+          "Xem thống kê ticket (P1)"
+        ]
+      },
+      {
+        "id": "actor-agent",
+        "kind": "actor",
+        "x": 55,
+        "y": 265,
+        "w": 230,
+        "h": 82,
+        "lines": [
+          "Support Agent",
+          "(Nhân viên hỗ trợ)"
+        ]
+      },
+      {
+        "id": "actor-admin",
+        "kind": "actor",
+        "x": 1035,
+        "y": 65,
+        "w": 230,
+        "h": 82,
+        "lines": [
+          "System Administrator",
+          "(Quản trị viên hệ thống)"
+        ]
+      },
+      {
+        "id": "actor-llm",
+        "kind": "actor",
+        "x": 1035,
+        "y": 601,
+        "w": 230,
+        "h": 82,
+        "lines": [
+          "«system»",
+          "Embedding / LLM Provider"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "source": "actor-agent",
+        "target": "uc-14",
+        "points": [
+          [
+            194.0,
+            301
+          ],
+          [
+            380.0,
+            301
+          ],
+          [
+            380.0,
+            133.0
+          ],
+          [
+            420.0,
+            133.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-agent",
+        "target": "uc-15",
+        "points": [
+          [
+            194.0,
+            301
+          ],
+          [
+            380.0,
+            301
+          ],
+          [
+            380.0,
+            245.0
+          ],
+          [
+            420.0,
+            245.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-agent",
+        "target": "uc-18",
+        "points": [
+          [
+            194.0,
+            301
+          ],
+          [
+            380.0,
+            301
+          ],
+          [
+            380.0,
+            357.0
+          ],
+          [
+            420.0,
+            357.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-agent",
+        "target": "uc-19",
+        "points": [
+          [
+            194.0,
+            301
+          ],
+          [
+            380.0,
+            301
+          ],
+          [
+            380.0,
+            469.0
+          ],
+          [
+            420.0,
+            469.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-14",
+        "points": [
+          [
+            1126.0,
+            101
+          ],
+          [
+            940.0,
+            101
+          ],
+          [
+            940.0,
+            133.0
+          ],
+          [
+            900.0,
+            133.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-15",
+        "points": [
+          [
+            1126.0,
+            101
+          ],
+          [
+            940.0,
+            101
+          ],
+          [
+            940.0,
+            245.0
+          ],
+          [
+            900.0,
+            245.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-18",
+        "points": [
+          [
+            1126.0,
+            101
+          ],
+          [
+            940.0,
+            101
+          ],
+          [
+            940.0,
+            357.0
+          ],
+          [
+            900.0,
+            357.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-admin",
+        "target": "uc-17",
+        "points": [
+          [
+            1126.0,
+            101
+          ],
+          [
+            940.0,
+            101
+          ],
+          [
+            940.0,
+            581.0
+          ],
+          [
+            900.0,
+            581.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      },
+      {
+        "source": "actor-llm",
+        "target": "uc-14",
+        "points": [
+          [
+            1126.0,
+            637
+          ],
+          [
+            972.0,
+            637
+          ],
+          [
+            972.0,
+            133.0
+          ],
+          [
+            900.0,
+            133.0
+          ]
+        ],
+        "generalization": false,
+        "arrow": false,
+        "label": ""
+      }
+    ]
+  }
+]

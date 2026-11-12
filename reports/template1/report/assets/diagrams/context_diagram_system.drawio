@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" type="device" version="24.0.0">
+  <diagram id="context_diagram_system" name="Clarune — Sơ đồ bối cảnh">
+    <mxGraphModel grid="1" gridSize="10" page="1" pageScale="1" pageWidth="1500" pageHeight="850">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="clarune" value="Clarune" style="shape=rect;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="620" y="320" width="250" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-guest" value="Guest / Unauthenticated User&lt;br&gt;(Người dùng chưa xác thực)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="40" y="35" width="240" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-customer" value="Customer&lt;br&gt;(Khách hàng)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="40" y="225" width="240" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-agent" value="Support Agent&lt;br&gt;(Nhân viên hỗ trợ)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="40" y="415" width="240" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-admin" value="System Administrator&lt;br&gt;(Quản trị viên hệ thống)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="40" y="605" width="240" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-llm" value="«system»&lt;br&gt;Embedding / LLM Provider" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="195" width="240" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-mail" value="«system»&lt;br&gt;Mail Service (P1)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="565" width="240" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-0" value="Đăng ký, đăng nhập,&#10;đặt lại mật khẩu (P1)" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=open;" edge="1" parent="1" source="actor-guest" target="clarune">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="71" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-1" value="Tạo/xem ticket, trao đổi,&#10;xác nhận đóng hoặc mở lại" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=open;" edge="1" parent="1" source="actor-customer" target="clarune">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="261" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-2" value="Nhận và xử lý ticket,&#10;tra cứu tri thức, duyệt gợi ý AI" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=open;" edge="1" parent="1" source="actor-agent" target="clarune">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="451" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-3" value="Quản lý Agent, phân công,&#10;quản trị tri thức, thống kê" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=open;" edge="1" parent="1" source="actor-admin" target="clarune">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="641" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-4" value="Embedding và gợi ý AI" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=open;" edge="1" parent="1" source="clarune" target="actor-llm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1030" y="231" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-5" value="Gửi liên kết đặt lại mật khẩu (P1)" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=open;" edge="1" parent="1" source="clarune" target="actor-mail">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1030" y="601" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

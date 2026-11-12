@@ -1,0 +1,261 @@
+[
+  {
+    "reference": "image1",
+    "caption": "Hình 3.1  Ranh giới hệ thống và các tác nhân bên ngoài",
+    "asset": "assets/diagrams/context_diagram_system.svg",
+    "source": null,
+    "sha256": "acd19d519b9282c039bc69ae1c510ece966b06fa01e34ab08e62d4b19292d715"
+  },
+  {
+    "reference": "image2",
+    "caption": "Hình 4.1  Tổng thể 19 Use Case trong ranh giới hệ thống",
+    "asset": "assets/diagrams/uc_overall_19_usecases.svg",
+    "source": null,
+    "sha256": "9c280523b15767d0158630475365f71e48c5440f8557bd2653204456424411a6"
+  },
+  {
+    "reference": "image3",
+    "caption": "Hình 4.2  Use Case Module Định danh và phân quyền",
+    "asset": "assets/diagrams/uc_module_d_identity.svg",
+    "source": null,
+    "sha256": "bc9f31a730cdce7183ae4c1c8a77fd718969e06a87f7a41a1b68fc173882e78f"
+  },
+  {
+    "reference": "image4",
+    "caption": "Hình 4.3  Use Case Module Quản lý ticket",
+    "asset": "assets/diagrams/uc_module_c_ticketing.svg",
+    "source": null,
+    "sha256": "16f5de5d42be52e20e5b37c77a7c3875d786222809397c9944fb221ff7a7d38c"
+  },
+  {
+    "reference": "image5",
+    "caption": "Hình 4.4  Use Case Module Cơ sở tri thức",
+    "asset": "assets/diagrams/uc_module_b_kb.svg",
+    "source": null,
+    "sha256": "f0e186444990504192bd6e33a0e3d2ed391b3b3749c58939f4c372b9219e0b3d"
+  },
+  {
+    "reference": "image6",
+    "caption": "Hình 4.5  Use Case Module Trợ lý AI",
+    "asset": "assets/diagrams/uc_module_a_ai_analytics.svg",
+    "source": null,
+    "sha256": "4a2e5c3c5079b74548140674e71a4a8ad8590c2be4164fb80496888269e961db"
+  },
+  {
+    "reference": "image7",
+    "caption": "Hình 5.1  Đăng nhập hệ thống",
+    "asset": "assets/ui/62-8214.png",
+    "source": "docs/design/anh/62-8214.png",
+    "sha256": "98e9f94945b40cfc78b717b58d841d40163dcce1f7bc2e8985c02de20fdc3286"
+  },
+  {
+    "reference": "image8",
+    "caption": "Hình 5.2  Đăng ký Customer",
+    "asset": "assets/ui/62-8215.png",
+    "source": "docs/design/anh/62-8215.png",
+    "sha256": "09866766bb3e7bfe846a66eaba60fb12ccc1baf13e83dbcd98e100050451c23a"
+  },
+  {
+    "reference": "image9",
+    "caption": "Hình 5.3  Hồ sơ cá nhân",
+    "asset": "assets/ui/62-8328.png",
+    "source": "docs/design/anh/62-8328.png",
+    "sha256": "459a688a962f351d9ec9209e1252d5397785fd2f312930dbee30cf16389ab324"
+  },
+  {
+    "reference": "image10",
+    "caption": "Hình 5.4 Quản lý danh sách nhân viên (Admin)",
+    "asset": "assets/ui/62-10225.png",
+    "source": "docs/design/anh/62-10225.png",
+    "sha256": "0ddf151a8dc75649c1d77b2c074e6e90015ae08bdd154830d5e8f2c13e93e0d2"
+  },
+  {
+    "reference": "image11",
+    "caption": "Hình 5.5a Biểu mẫu tạo tài khoản nhân viên mới",
+    "asset": "assets/ui/62-10226.png",
+    "source": "docs/design/anh/62-10226.png",
+    "sha256": "e8540304c6888f405aa85668229d78ac99eab0ad46186c8297233a3b91b9e35f"
+  },
+  {
+    "reference": "image12",
+    "caption": "Hình 5.5b Xác nhận vô hiệu hóa tài khoản nhân viên",
+    "asset": "assets/ui/62-13238.png",
+    "source": "docs/design/anh/62-13238.png",
+    "sha256": "1882949c4c7ae9419428f3fbadbd6e0a4faac85e67b77f1dda3ef17d5f356887"
+  },
+  {
+    "reference": "image13",
+    "caption": "Hình 5.6  Danh sách yêu cầu của tôi",
+    "asset": "assets/ui/58-6763.png",
+    "source": "docs/design/anh/58-6763.png",
+    "sha256": "c3d35b7dbc38673e4d27f2f0b58c51bfebd29ffc81d8e511fea6a54944c50fa7"
+  },
+  {
+    "reference": "image14",
+    "caption": "Hình 5.7  Tạo yêu cầu hỗ trợ",
+    "asset": "assets/ui/58-6764.png",
+    "source": "docs/design/anh/58-6764.png",
+    "sha256": "f870e4f9e5f69d874e981263b34d3c181d47b01c2f200c1436e585c703a5fed4"
+  },
+  {
+    "reference": "image15",
+    "caption": "Hình 5.8 Chi tiết và hội thoại công khai khi yêu cầu đang được xử lý",
+    "asset": "assets/ui/58-6765.png",
+    "source": "docs/design/anh/58-6765.png",
+    "sha256": "69807141102d92660923f9814aad3dda77ab51f5377dccf4161b503372de2819"
+  },
+  {
+    "reference": "image16",
+    "caption": "Hình 5.9 Yêu cầu đã giải quyết, chờ Customer xác nhận đóng hoặc mở lại",
+    "asset": "assets/ui/62-6953.png",
+    "source": "docs/design/anh/62-6953.png",
+    "sha256": "d923e2a22a4c6fd64bd02a86e4aee0654e6b03cfaa07ab58ee2806d86aa1ce8d"
+  },
+  {
+    "reference": "image17",
+    "caption": "Hình 5.10 Chi tiết yêu cầu đã đóng ở chế độ chỉ đọc",
+    "asset": "assets/ui/62-6954.png",
+    "source": "docs/design/anh/62-6954.png",
+    "sha256": "11d5d4eca3aa3062eaedd8d6160d5aaf904d3d7f2847f7469f3f1b205b4ec5a4"
+  },
+  {
+    "reference": "image18",
+    "caption": "Hình 5.11  Hàng đợi và nhận xử lý",
+    "asset": "assets/ui/55-1992.png",
+    "source": "docs/design/anh/55-1992.png",
+    "sha256": "f80a38527afd347fe78ac9ed234cec7bf631676ca3ad0d4a47440556dbb668b6"
+  },
+  {
+    "reference": "image19",
+    "caption": "Hình 5.12  Xử lý ticket và ghi chú nội bộ",
+    "asset": "assets/ui/55-2537.png",
+    "source": "docs/design/anh/55-2537.png",
+    "sha256": "95c6d4b1a00665ae065dfbb573c52258a3f1a6806ec025b9b1e76c1ddd99235d"
+  },
+  {
+    "reference": "image20",
+    "caption": "Hình 5.13  Xung đột nhận ticket",
+    "asset": "assets/ui/56-3104.png",
+    "source": "docs/design/anh/56-3104.png",
+    "sha256": "e320152125a4f9c7cb82d1c74c49b0fec1a93359f7229519ffc725b818e1afc4"
+  },
+  {
+    "reference": "image21",
+    "caption": "Hình 5.14  Tìm kiếm tri thức",
+    "asset": "assets/ui/62-9092.png",
+    "source": "docs/design/anh/62-9092.png",
+    "sha256": "8f0ac16c362b270ba75f0c2523d6ea9b690991649456b8472c97f8c91593663d"
+  },
+  {
+    "reference": "image22",
+    "caption": "Hình 5.15  Đọc tài liệu tri thức",
+    "asset": "assets/ui/62-9094.png",
+    "source": "docs/design/anh/62-9094.png",
+    "sha256": "c773d4f9647a490c995139b28aef86f124cc692739e424eb054cbae518b0dd73"
+  },
+  {
+    "reference": "image23",
+    "caption": "Hình 5.16  Quản trị và công bố tài liệu",
+    "asset": "assets/ui/62-9240.png",
+    "source": "docs/design/anh/62-9240.png",
+    "sha256": "02543500bcdae6926932df1e3fcb1d935874e1924b5c65152c8649e6e45e824f"
+  },
+  {
+    "reference": "image24",
+    "caption": "Hình 5.17 Tải tài liệu mới lên Knowledge Base",
+    "asset": "assets/ui/62-9241.png",
+    "source": "docs/design/anh/62-9241.png",
+    "sha256": "20d20e4eb983fa311688f82fb3a641e314ca73d89926c825ba961e5f008e5432"
+  },
+  {
+    "reference": "image25",
+    "caption": "Hình 5.18 Chi tiết tài liệu ở trạng thái sẵn sàng nhưng chưa công bố",
+    "asset": "assets/ui/62-9783.png",
+    "source": "docs/design/anh/62-9783.png",
+    "sha256": "37b967850df18dccc21dc370f9f7e843b9f56e6f90e73ca0ae911d261d149b2b"
+  },
+  {
+    "reference": "image26",
+    "caption": "Hình 5.19 Gợi ý AI, nguồn trích dẫn và thao tác hỗ trợ nhân viên",
+    "asset": "assets/ui/55-1994.png",
+    "source": "docs/design/anh/55-1994.png",
+    "sha256": "3436014bf9cc1d779dd3bf335932474d628b75adb59bda50ccc90eb674d4a416"
+  },
+  {
+    "reference": "image27",
+    "caption": "Hình 5.20 Xem đoạn nguồn trích dẫn của gợi ý",
+    "asset": "assets/ui/56-3578.png",
+    "source": "docs/design/anh/56-3578.png",
+    "sha256": "e52518f7ced5f6ccd5bdd2d4a76a4ad83d03d91b40e72e8ebf7cf453cc254fa5"
+  },
+  {
+    "reference": "image28",
+    "caption": "Hình 5.21 Danh sách yêu cầu quản trị",
+    "asset": "assets/ui/62-9943.png",
+    "source": "docs/design/anh/62-9943.png",
+    "sha256": "bd186990c837f68b39d32c9af8e729fabbd340c6a716270dbf6e0f69527a4713"
+  },
+  {
+    "reference": "image29",
+    "caption": "Hình 5.22a Chi tiết xử lý và lịch sử yêu cầu (Admin — D02)",
+    "asset": "assets/ui/62-9944.png",
+    "source": "docs/design/anh/62-9944.png",
+    "sha256": "c9c134e56a7469b16fa9f3d4483b51fd6d833157841c614aefd2e77ba254aad3"
+  },
+  {
+    "reference": "image30",
+    "caption": "Hình 5.22b Biểu mẫu phân công nhân viên phụ trách (Admin — D03)",
+    "asset": "assets/ui/62-9945.png",
+    "source": "docs/design/anh/62-9945.png",
+    "sha256": "abc49e116265676392e8e1d80f751adadc5cf07b2dc665c0196ad2b0f907b2ed"
+  },
+  {
+    "reference": "image31",
+    "caption": "Hình 5.23a Danh sách các lần tạo gợi ý AI",
+    "asset": "assets/ui/81-7585.png",
+    "source": "docs/design/anh/81-7585.png",
+    "sha256": "e11628f821ab1ca56027a93eeae919e1c151ccc9e30d7dd552f9b597bb7abfad"
+  },
+  {
+    "reference": "image32",
+    "caption": "Hình 5.23b Chi tiết gợi ý AI đã lưu",
+    "asset": "assets/ui/81-8707.png",
+    "source": "docs/design/anh/81-8707.png",
+    "sha256": "46fc8fdfbea18ae003e76b5dcbe4e10b907188124226b4aac4ff403e2f595b6d"
+  },
+  {
+    "reference": "image33",
+    "caption": "Hình 5.24a Trạng thái đã lưu đánh giá hữu ích",
+    "asset": "assets/ui/81-7560.png",
+    "source": "docs/design/anh/thanh-phan/81-7560.png",
+    "sha256": "fd55223bc0148431d1e084ebc29a98f04d151a30416e57f81ece872b1bb9930b"
+  },
+  {
+    "reference": "image34",
+    "caption": "Hình 5.24b Thông báo lỗi lưu đánh giá và thao tác thử lại",
+    "asset": "assets/ui/82-10422.png",
+    "source": "docs/design/anh/82-10422.png",
+    "sha256": "7494e412626f7f9cf807001e5cba9f32166c7ac665aa15cbeab02df5cd450119"
+  },
+  {
+    "reference": "image35",
+    "caption": "Hình 5.25 Xác nhận bỏ gợi ý AI",
+    "asset": "assets/ui/91-15641.png",
+    "source": "docs/design/anh/91-15641.png",
+    "sha256": "b35a44e4ded92c2a137d882f4c1e890e23c21750c3297b30a3c58982e6219403"
+  },
+  {
+    "reference": "image36",
+    "caption": "Hình 5.26 Đã bỏ gợi ý AI và lựa chọn tiếp tục soạn thủ công",
+    "asset": "assets/ui/91-15904.png",
+    "source": "docs/design/anh/91-15904.png",
+    "sha256": "76081314a4291dd2f9156b3a85f846dfe385722024b9c81f971ec46f5fa71840"
+  },
+  {
+    "reference": "image37",
+    "caption": "Hình 5.27 Thống kê ticket theo trạng thái và người phụ trách",
+    "asset": "assets/ui/91-19910.png",
+    "source": "docs/design/anh/91-19910.png",
+    "sha256": "41d86a6ef7deade20da7ab1f97a8759a226bdfa72620b9b58025c1e8a701b70c"
+  }
+]
