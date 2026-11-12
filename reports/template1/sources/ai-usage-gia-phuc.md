@@ -124,6 +124,26 @@
 
 ---
 
+### Phiên T1-08: Đặc tả phân hệ Quản lý ticket & Mô tả giao diện Customer Portal, Agent Workspace
+- **Thời gian:** 07h00 ngày 08/11/2026 - 11h40 ngày 12/11/2026
+- **Tác giả chịu trách nhiệm:** `24120503` - Phan Gia Phúc (Phân hệ Quản lý ticket)
+- **Công cụ / Nền tảng:** ChatGPT và Codex, OpenAI
+- **Prompt đã khử dữ liệu nhạy cảm (tổng hợp lại từ các yêu cầu trong phiên):**
+  > *“Đọc SRS của nhóm và đối chiếu với nội dung tôi đang soạn cho phân hệ Quản lý ticket trong Template 1. Gợi ý cách trình bày bảng yêu cầu chức năng ở Mục 3.2 và hoàn thiện cách diễn đạt các đặc tả UC-05 đến UC-10 theo mẫu 9 trường: mã, tên, tóm tắt, tác nhân, điều kiện tiên quyết, kết quả, kịch bản chính, kịch bản phụ và ràng buộc phi chức năng. Kiểm tra quyền của Customer, Agent, Admin; việc nhận ticket đồng thời chỉ cho một người thành công; phạm vi tin nhắn công khai, ghi chú nội bộ; các thao tác chuyển trạng thái và quyền xem lịch sử. Phân biệt yêu cầu P0 với phần mở rộng P1, không tự thêm chức năng hoặc số liệu ngoài tài liệu nguồn. Với phần bản mẫu, hỗ trợ trình bày mô tả Customer Portal ở Mục 5.2 và Agent Workspace ở Mục 5.3, bảo đảm các thao tác khớp với Use Case phụ trách. Tổng hợp nội dung từ bản báo cáo tôi cung cấp, thay các ký hiệu ảnh bằng đường dẫn PNG tương ứng trong kho mã nguồn. Chỉ bổ sung phần của Phan Gia Phúc, giữ nguyên nội dung có sẵn và chỉ ra điểm chưa thống nhất để tôi tự rà soát trước khi đưa vào báo cáo.”*
+- **Nội dung AI tạo:**
+  - Gợi ý cấu trúc bảng và cách diễn đạt các yêu cầu chức năng thuộc phân hệ Quản lý ticket trong Mục 3.2 của Template 1.
+  - Hỗ trợ trình bày 6 bảng đặc tả UC-05 đến UC-10, gồm luồng chính, luồng phụ và các ràng buộc phi chức năng liên quan đến phân quyền, tính toàn vẹn, xử lý đồng thời và trải nghiệm người dùng.
+  - Hỗ trợ đối chiếu các quy tắc nghiệp vụ với SRS: quyền sở hữu ticket, nhận và phân công xử lý, phân biệt PUBLIC/INTERNAL, chuyển trạng thái và xem lịch sử sự kiện.
+  - Tổng hợp mô tả 5 màn hình Customer Portal và 3 màn hình Agent Workspace từ bản báo cáo được cung cấp; thay 8 ký hiệu ảnh bằng đường dẫn PNG trong `05-prototype-mockup.md`.
+- **Nội dung tự kiểm chứng & hiệu chỉnh:**
+  - Sinh viên tự review nội dung AI gợi ý, đối chiếu các FR/NFR và đặc tả UC-05 đến UC-10 với `reports/SRS-master.md` trước khi sử dụng trong báo cáo.
+  - Rà soát quyền thao tác theo vai trò và trạng thái ticket: Customer không xem ghi chú nội bộ hoặc lịch sử nội bộ; Agent chưa nhận ticket không được xử lý; ticket CLOSED chỉ được xem lại và không được mở lại.
+  - Đối chiếu mô tả Customer Portal, Agent Workspace với các Use Case phụ trách; yêu cầu chỉ lấy phần 5.2, 5.3 từ file nguồn và bổ sung vào cuối file đích, giữ nguyên nội dung có sẵn.
+  - Yêu cầu AI hỗ trợ trình bày và kiểm tra tính nhất quán; sinh viên tự rà soát, chỉnh sửa và chịu trách nhiệm về nội dung cuối cùng.
+- **Minh chứng:** Các file `reports/template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md`, `reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md`, `reports/template1/05-prototype-mockup.md`; commit `5c0fbe2` trên nhánh `docs/t1-ticket-giaphuc` ghi nhận phần bổ sung mô tả giao diện 5.2, 5.3.
+
+---
+
 ## 6.4 CAM KẾT ĐẠO ĐỨC HỌC THUẬT
 
 Nhóm cam kết thực hiện đúng Quy định về việc sử dụng AI của Khoa CNTT - Trường ĐHKHTN:

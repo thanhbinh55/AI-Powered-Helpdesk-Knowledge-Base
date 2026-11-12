@@ -280,10 +280,10 @@ def build_readme(manifest,ai_index,counts):
 ## Nguồn và các điểm cần xác nhận
 
 - Bản chữ duy nhất dùng đóng report là `sources/template1-final-original.md`; không lấy draft hoặc nội dung PR ghi đè bản final.
-- AI usage đã thu thập của cả 4 thành viên. Gia Phúc đã nộp 1 dòng tổng hợp T1-08, chưa có phần chi tiết mục 6.3; giữ nguyên cả lỗi gõ trong nguồn, không tự viết thay tác giả.
+- AI usage đã thu thập của cả 4 thành viên. Gia Phúc đã nộp cả dòng tổng hợp T1-08 và phần chi tiết mục 6.3 tại commit 3eb4181; giữ nguyên nội dung tác giả đã nộp.
 - Các mã phiên T1-08… bị trùng giữa tác giả được giữ nguyên, đặt dưới tên tác giả để không đổi dữ liệu nguồn.
 - Ngày 09–11/10/2026 trong nhật ký Lãm được giữ nguyên theo bản đã nộp, chưa có xác nhận đổi sang tháng 11.
-- Các PR nguồn chưa được tác vụ đóng gói này merge vào main; trạng thái ghi trong báo cáo Git là trạng thái tại snapshot. Nhánh docs/t1-ticket-giaphuc đã có 4 commit của Gia Phúc; tại lần thu thập chưa thấy PR tương ứng. Snapshot ban đầu được lưu ở sources/history/git-snapshot-initial.json.
+- Các PR nguồn chưa được tác vụ đóng gói này merge vào main; trạng thái ghi trong báo cáo Git là trạng thái tại snapshot. Nhánh docs/t1-ticket-giaphuc đã có 5 commit của Gia Phúc; tại lần thu thập chưa thấy PR tương ứng. Snapshot ban đầu được lưu ở sources/history/git-snapshot-initial.json.
 - Markdown gốc có mục lục kèm số trang từ Google Docs. Giữ nguyên các nhãn/số trang theo yêu cầu bảo toàn nội dung; đây không phải số trang do Markdown tự tính.
 - Ảnh hồ sơ trong bản final là `62-8328.png`; draft nêu cả `62-8216` và `62-8328`, chỉ lấy ảnh thực sự xuất hiện trong final.
 - Tệp `report/assets/manifest.json` ghi đủ 37 ánh xạ hình và SHA-256, trong đó 1 sơ đồ bối cảnh lấy nguyên tệp của Lãm, 5 sơ đồ Use Case được dựng lại và 31 hình UI sao chép nguyên tệp.

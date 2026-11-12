@@ -1,13 +1,13 @@
 {
   "ai-usage": {
-    "pages": 21,
+    "pages": 23,
     "overflow": [],
-    "rendered_source_nodes": 978
+    "rendered_source_nodes": 1012
   },
   "git-contributions": {
     "pages": 40,
     "overflow": [],
-    "rendered_source_nodes": 1673
+    "rendered_source_nodes": 1684
   },
   "report": {
     "images": 37,
@@ -17,9 +17,9 @@
   "command": "python scripts/verify_template1.py --browser",
   "files_sha256": {
     "report/report.md": "798917c59db3cb75ebd6c8d1038af6b36f0f31a383b9224fea7b5391256a5a82",
-    "ai-usage/ai-usage.md": "b4635e3921d7decb5d22702cbaefa0462afcf87abb31bd6b3100ca4a0a466b5b",
-    "ai-usage/ai-usage.html": "d211b08c29866ff09ccb87d71e85320d226a83a7c230c56b9ad8377f9120c9f8",
-    "git-contributions/git-contributions.md": "5d35b33853e5d826cadd9fe691dc9f868bcf1e1d42365de70c81d97556288350",
-    "git-contributions/git-contributions.html": "b8770ecda170f1ce705317bcf3f7009f0372c41ddd2e772e50685c25390fede3"
+    "ai-usage/ai-usage.md": "09a168a28763951b63449ba9d16e2ecc2c3bb5faa95b73d94d737e9dbe4836fe",
+    "ai-usage/ai-usage.html": "32db35e6344be84968b43173b0b4e07995426814ed449e66e91e99be4ac8a5a3",
+    "git-contributions/git-contributions.md": "b044a23b0693e2028e938dc1904f5fd5924d7bfc080fc4ab079fa1fcab356305",
+    "git-contributions/git-contributions.html": "56624ac3d5b74e4b9e11a591956be3583af74523c64a0af9ab40c45c54de53e0"
   }
 }

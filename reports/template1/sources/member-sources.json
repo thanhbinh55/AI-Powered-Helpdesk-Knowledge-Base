@@ -16,7 +16,7 @@
   },
   "gia-phuc": {
     "ref": "origin/docs/t1-ticket-giaphuc",
-    "commit": "f435005bc48a070f69f06f75bc1fc967b6746bb5",
-    "sha256": "cb5b96652875d0fcf1e299bd1ba56f069d66e48cc501ba21875c8bbf8160e761"
+    "commit": "3eb41819e02bb184a821bf1d22d7292fd65b0c02",
+    "sha256": "f1946312dfdb05812ca16e1271c8af2903d169ee9e963fdc8a3aa9386e183372"
   }
 }

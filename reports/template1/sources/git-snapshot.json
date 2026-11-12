@@ -1,12 +1,12 @@
 {
-  "captured_at": "2026-11-12T13:03:14+07:00",
+  "captured_at": "2026-11-12T13:29:07+07:00",
   "period_start": "2026-11-03T00:00:00+07:00",
   "refs": {
     "origin/main": "a47f41fe00aa3107fdf1a57d6b3eef0ba9e1ff03",
     "origin/docs/t1-identity-binh": "4827ab99f117c448a9c7dc27688f40a45a92e3e9",
     "origin/docs/t1-knowledge-lam": "979179b55194e2010373de0b30547f966e3e59fe",
     "origin/docs/t1-ai-quyphuc-markdown": "8971284b6a590c84f5e8b76a3d1ddb9bc49d3c09",
-    "origin/docs/t1-ticket-giaphuc": "f435005bc48a070f69f06f75bc1fc967b6746bb5"
+    "origin/docs/t1-ticket-giaphuc": "3eb41819e02bb184a821bf1d22d7292fd65b0c02"
   },
   "members": [
     {
@@ -43,6 +43,23 @@
     }
   ],
   "commits": [
+    {
+      "sha": "3eb41819e02bb184a821bf1d22d7292fd65b0c02",
+      "author": "PC",
+      "author_email": "phgphuc0609@gmail.com",
+      "authored_at": "2026-11-12T13:25:46+07:00",
+      "committer": "PC",
+      "committer_email": "phgphuc0609@gmail.com",
+      "committed_at": "2026-11-12T13:25:46+07:00",
+      "subject": "bo sung chi tiet AI usage",
+      "parents": "f435005bc48a070f69f06f75bc1fc967b6746bb5",
+      "files": [
+        "reports/template1/06-ai-usage.md"
+      ],
+      "refs": [
+        "origin/docs/t1-ticket-giaphuc"
+      ]
+    },
     {
       "sha": "f435005bc48a070f69f06f75bc1fc967b6746bb5",
       "author": "PC",

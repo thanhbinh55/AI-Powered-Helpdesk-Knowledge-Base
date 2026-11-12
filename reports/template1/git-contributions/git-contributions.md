@@ -3,7 +3,7 @@
 > **Dự án:** Clarune — AI-Powered Helpdesk & Knowledge Base
 > **Nhóm:** Group 04
 > **Kho lưu trữ:** https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base
-> **Thời điểm chốt dữ liệu:** 2026-11-12T13:03:14+07:00
+> **Thời điểm chốt dữ liệu:** 2026-11-12T13:29:07+07:00
 
 ## Phạm vi và nguồn đối chiếu
 
@@ -15,7 +15,7 @@ Thống kê lịch sử của giai đoạn Template 1 từ 03/11/2026 đến th�
 | `origin/docs/t1-identity-binh` | [4827ab99f117c448a9c7dc27688f40a45a92e3e9](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/4827ab99f117c448a9c7dc27688f40a45a92e3e9) |
 | `origin/docs/t1-knowledge-lam` | [979179b55194e2010373de0b30547f966e3e59fe](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/979179b55194e2010373de0b30547f966e3e59fe) |
 | `origin/docs/t1-ai-quyphuc-markdown` | [8971284b6a590c84f5e8b76a3d1ddb9bc49d3c09](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/8971284b6a590c84f5e8b76a3d1ddb9bc49d3c09) |
-| `origin/docs/t1-ticket-giaphuc` | [f435005bc48a070f69f06f75bc1fc967b6746bb5](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/f435005bc48a070f69f06f75bc1fc967b6746bb5) |
+| `origin/docs/t1-ticket-giaphuc` | [3eb41819e02bb184a821bf1d22d7292fd65b0c02](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/3eb41819e02bb184a821bf1d22d7292fd65b0c02) |
 
 Chỉ số commit phản ánh lịch sử Git, không tương đương phần trăm công sức hay xác nhận đã hoàn thành nhiệm vụ. Commit trên nhánh chưa merge vẫn được ghi nhận và đánh dấu nguồn. Metadata/đường dẫn đầy đủ được giữ tại `../sources/git-snapshot.json`. Đối chiếu tác giả bằng tên GitHub hoặc email Git/Jira đã khai báo trong members.csv; Gia Phúc dùng tác giả PC với email phgphuc0609@gmail.com, trùng email Jira đã khai báo.
 
@@ -25,7 +25,7 @@ Chỉ số commit phản ánh lịch sử Git, không tương đương phần tr
 | --- | --- | --- | ---: |
 | 24120269 | Ngô Viết Thanh Bình | thanhbinh55 | 13 |
 | 24120083 | Nguyễn Đức Lãm | Lamnguyen-code | 1 |
-| 24120503 | Phan Gia Phúc | t4lf4n | 4 |
+| 24120503 | Phan Gia Phúc | t4lf4n | 5 |
 | 24120121 | Lê Quý Phúc | Shinkiisme | 6 |
 
 ## DANH SÁCH COMMIT CỦA MỖI THÀNH VIÊN
@@ -771,16 +771,23 @@ Nguồn: `origin/docs/t1-knowledge-lam`.
 - **Tài khoản Git:** `t4lf4n`
 - **Email Git:** `24120503@student.hcmus.edu.vn`
 - **Module phụ trách:** C - Ticket Management
-- **Tổng số commit ghi nhận:** 4
+- **Tổng số commit ghi nhận:** 5
 
 | STT | Mã Hash | Ngày commit (UTC+7) | Thông điệp commit (Jira Key) | Số tệp |
 | ---: | --- | --- | --- | ---: |
-| 1 | [f435005b](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/f435005bc48a070f69f06f75bc1fc967b6746bb5) | 12/11/2026 12:20 | docs(template1): hoàn thiện nội dung markdown cho các phần 3.2, 5.2, 5.3 cho Template1 và thêm AI usage SCRUM-65 | 1 |
-| 2 | [5c0fbe27](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/5c0fbe27b8da9e4ac532116c73e71e3dcab0e5fd) | 12/11/2026 12:18 | xong 5.2, 5.3 | 1 |
-| 3 | [8fb3ab91](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/8fb3ab9108831b442e9c95797c08c7f44130252f) | 12/11/2026 10:45 | xong 6 dac ta use case module C | 1 |
-| 4 | [69c3d3cd](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/69c3d3cd2407b8e053861bda7efd5fddbba30998) | 12/11/2026 10:43 | xong 3.2.1 | 1 |
+| 1 | [3eb41819](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/3eb41819e02bb184a821bf1d22d7292fd65b0c02) | 12/11/2026 13:25 | bo sung chi tiet AI usage | 1 |
+| 2 | [f435005b](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/f435005bc48a070f69f06f75bc1fc967b6746bb5) | 12/11/2026 12:20 | docs(template1): hoàn thiện nội dung markdown cho các phần 3.2, 5.2, 5.3 cho Template1 và thêm AI usage SCRUM-65 | 1 |
+| 3 | [5c0fbe27](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/5c0fbe27b8da9e4ac532116c73e71e3dcab0e5fd) | 12/11/2026 12:18 | xong 5.2, 5.3 | 1 |
+| 4 | [8fb3ab91](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/8fb3ab9108831b442e9c95797c08c7f44130252f) | 12/11/2026 10:45 | xong 6 dac ta use case module C | 1 |
+| 5 | [69c3d3cd](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/69c3d3cd2407b8e053861bda7efd5fddbba30998) | 12/11/2026 10:43 | xong 3.2.1 | 1 |
 
 #### Tệp thay đổi và nguồn nhánh
+
+**[3eb41819](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/3eb41819e02bb184a821bf1d22d7292fd65b0c02)** — bo sung chi tiet AI usage
+
+Nguồn: `origin/docs/t1-ticket-giaphuc`.
+
+- `reports/template1/06-ai-usage.md`
 
 **[f435005b](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/f435005bc48a070f69f06f75bc1fc967b6746bb5)** — docs(template1): hoàn thiện nội dung markdown cho các phần 3.2, 5.2, 5.3 cho Template1 và thêm AI usage SCRUM-65
 
