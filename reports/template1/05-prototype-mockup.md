@@ -95,3 +95,61 @@ Toàn bộ 151 frames và bộ Design System đã được kiểm định tự �
   - Khách hàng không thấy ghi chú nội bộ hoặc AI: `noCustomerInternalOrAI = true`.
   - Tách bạch trạng thái kỹ thuật `READY` và kinh doanh `Đã công bố`: `publicationSeparate = true`.
   - Mật khẩu đã đổi tự động xóa khỏi form: `passwordClearedAndDisabled = true`.
+
+## 5.5 Giao diện AI và tham chiếu quản trị
+
+### 5.5.1 Gợi ý AI và trích dẫn
+
+Agent tạo gợi ý, đọc nguồn và chủ động chèn vào bản nháp để kiểm duyệt trước khi gửi. Ngăn AI có lối mở lịch sử và thao tác đánh giá gợi ý; thao tác chèn hoặc đánh giá không tự gửi phản hồi.
+
+*Hình 5.19 Gợi ý AI, nguồn trích dẫn và thao tác hỗ trợ nhân viên*
+
+### 5.5.2 Xem nguồn trích dẫn
+
+Người dùng mở đoạn nguồn để kiểm tra nội dung gợi ý. Bản chụp đã lưu tại thời điểm tạo được giữ nguyên, kể cả khi tài liệu nguồn hiện đã lưu trữ; quyền tải tài liệu gốc được kiểm tra riêng.
+
+*Hình 5.20 Xem đoạn nguồn trích dẫn của gợi ý*
+
+### 5.5.3 Danh sách yêu cầu quản trị
+
+Admin xem danh sách toàn bộ ticket và sử dụng bộ lọc để tìm yêu cầu cần theo dõi hoặc xử lý.
+
+*Hình 5.21 Danh sách yêu cầu quản trị*
+
+### 5.5.4 Xử lý, lịch sử yêu cầu và phân công nhân viên
+
+Quản trị viên xem toàn bộ lịch sử xử lý, bao gồm ghi chú nội bộ (INTERNAL), và thực hiện gán hoặc chuyển người phụ trách ticket.
+
+*Hình 5.22a Chi tiết xử lý và lịch sử yêu cầu (Admin — D02)*
+
+*Hình 5.22b Biểu mẫu phân công nhân viên phụ trách (Admin — D03)*
+
+### 5.5.5 Lịch sử gợi ý AI
+
+Agent được giao ticket và Admin xem các lần tạo gợi ý, người yêu cầu, thời điểm và kết quả đã lưu. Người dùng chọn một lần tạo để đọc lại nội dung và bản chụp nguồn. Giao diện có các trạng thái đang tải, trống, lỗi và mất quyền.
+
+*Hình 5.23a Danh sách các lần tạo gợi ý AI*
+
+*Hình 5.23b Chi tiết gợi ý AI đã lưu*
+
+### 5.5.6 Đánh giá gợi ý AI (P1)
+
+Agent được giao ticket chọn Hữu ích hoặc Không hữu ích trên gợi ý ở trạng thái GENERATED hoặc APPLIED. Giao diện hiển thị lựa chọn đã lưu, cho phép đổi lựa chọn và thử lại khi lưu lỗi. Đánh giá không tự gửi phản hồi hoặc thay đổi trạng thái gợi ý. Admin không có thao tác đánh giá.
+
+*Hình 5.24a Trạng thái đã lưu đánh giá hữu ích*
+
+*Hình 5.24b Thông báo lỗi lưu đánh giá và thao tác thử lại*
+
+### 5.5.7 Bỏ gợi ý và tiếp tục soạn thủ công
+
+Người dùng xác nhận trước khi bỏ gợi ý ở trạng thái GENERATED. Sau khi bỏ, gợi ý chuyển sang DISCARDED và vẫn được lưu trong lịch sử; bản nháp được giữ nguyên, không có phản hồi nào được gửi. Nếu bản nháp đã được chèn từ gợi ý, người dùng phải chọn Tiếp tục soạn thủ công trước khi kiểm duyệt và gửi. Việc gửi thủ công không chuyển gợi ý đã bỏ thành APPLIED.
+
+*Hình 5.25 Xác nhận bỏ gợi ý AI*
+
+*Hình 5.26 Đã bỏ gợi ý AI và lựa chọn tiếp tục soạn thủ công*
+
+### 5.5.8 Thống kê ticket (P1)
+
+Admin xem tổng số ticket, phân bố theo trạng thái và người phụ trách hiện tại, cùng thời điểm lấy dữ liệu. Ticket chưa được giao hiển thị thành nhóm riêng; nhân viên đã vô hiệu hóa vẫn được giữ trong thống kê nếu còn ticket. Tổng các nhóm trong mỗi bảng bằng tổng số ticket. Giao diện hỗ trợ tải lại dữ liệu và có các trạng thái đang tải, không có dữ liệu, lỗi và không đủ quyền.
+
+*Hình 5.27 Thống kê ticket theo trạng thái và người phụ trách*
