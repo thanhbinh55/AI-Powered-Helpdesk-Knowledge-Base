@@ -1,5 +1,7 @@
 # ĐẶC TẢ DỰ ÁN — AI-POWERED HELPDESK & KNOWLEDGE BASE
 
+> Baseline yêu cầu ngày 12/11/2026: [Report.pdf](template1/report/Report.pdf) và [bản Markdown đối chiếu](template1/report/report.md). Các phần yêu cầu và use case dưới đây đã đồng bộ theo bản final; thiết kế kỹ thuật là tài liệu triển khai, không phải bằng chứng tính năng đã chạy.
+
 ---
 
 ## 1. Tổng quan dự án
@@ -38,7 +40,7 @@ Người dùng gửi thắc mắc hoặc sự cố nhưng doanh nghiệp/đơn v
 - AI sử dụng qua model provider có API hoặc model tương thích, cấu hình bằng environment variables; **có mock AI** để demo/test không phụ thuộc kết nối bên ngoài.
 - Tài liệu demo là **dữ liệu giả lập hoặc có quyền sử dụng**; không đưa dữ liệu khách hàng thật lên dịch vụ AI bên ngoài.
 - Mọi thao tác phân quyền được kiểm tra ở backend, không tin vào frontend.
-- **Không tự động gửi email, không tự đóng ticket theo lịch, không để AI tự thực thi hành động.**
+- **Không tích hợp email hỗ trợ trong P0; email đặt lại mật khẩu thuộc P1. Không tự đóng ticket theo lịch hoặc để AI tự thực thi hành động.**
 
 ---
 
@@ -72,14 +74,15 @@ Người dùng gửi thắc mắc hoặc sự cố nhưng doanh nghiệp/đơn v
 
 | Actor | Mô tả | Trách nhiệm chính |
 |---|---|---|
-| Guest | Chưa đăng nhập | Đăng ký Customer, đăng nhập |
+| Guest | Chưa đăng nhập | Đăng ký Customer, đăng nhập, đặt lại mật khẩu P1 |
 | Customer | Người gửi yêu cầu | Tạo/xem ticket của chính mình, gửi tin nhắn công khai, xác nhận đóng hoặc yêu cầu xử lý tiếp |
 | Agent | Nhân viên hỗ trợ | Xem queue ticket chưa phân công; claim ticket; xử lý ticket được giao; xem KB; sử dụng AI |
-| Admin | Quản trị viên | Toàn quyền nghiệp vụ ticket; quản lý Agent, KB; sử dụng AI phục vụ xử lý ticket |
+| Admin | Quản trị viên | Quản lý Agent, KB; phân công, xử lý ticket và dùng AI theo đúng trạng thái; không đánh giá gợi ý thay Agent |
+| External Mail Service (P1) | Dịch vụ ngoài ranh giới hệ thống | Gửi liên kết đặt lại mật khẩu qua UC-16 |
 | External Embedding/LLM Provider | Dịch vụ ngoài ranh giới hệ thống | Trả embedding/văn bản, không có quyền thực thi hành động nội bộ |
 
 
-**System Worker là thành phần nội bộ, không phải actor bên ngoài của toàn hệ thống.** Khi mô hình một subsystem khác phải ghi rõ subject trước khi xác định actor. Context Diagram không trình bày chi tiết DB/storage/worker.
+**System Worker là thành phần nội bộ, không phải actor bên ngoài của toàn hệ thống.** Khi mô hình một subsystem khác phải ghi rõ subject trước khi xác định actor. Context Diagram chỉ thể hiện P0, không trình bày DB/storage/worker; dịch vụ Email P1 được mô tả ở UC-16 và sơ đồ Định danh và phân quyền.
 
 ### 3.2 Ma trận quyền MVP
 
@@ -91,7 +94,7 @@ Người dùng gửi thắc mắc hoặc sự cố nhưng doanh nghiệp/đơn v
 | Xem/sửa profile của mình | ✓ | ✓ | ✓ |
 | Tạo ticket | ✓ | — | — (tạo thay Customer là P1) |
 | Xem ticket | Own | Assigned + Open queue | Tất cả |
-| Nhận ticket chưa phân công | — | Open | ✓ |
+| Nhận ticket chưa phân công | — | Open | Phân công cho Agent qua ASSIGN |
 | Phân công/chuyển Agent | — | — | ✓ |
 | Gửi public message | Own và trạng thái cho phép | Assigned | ✓ |
 | Ghi internal note | — | Assigned | ✓ |
@@ -108,23 +111,25 @@ Người dùng gửi thắc mắc hoặc sự cố nhưng doanh nghiệp/đơn v
 
 | UC | Tên | Actor | Mức độ |
 |---|---|---|---|
-| UC-01 | Register & Login | Guest | P0 |
-| UC-02 | Refresh & Logout | Authenticated User | P0 |
-| UC-03 | Manage Profile | Authenticated User | P0 |
-| UC-04 | Admin Manage Agents | Admin | P0 |
-| UC-05 | Create Ticket | Customer | P0 |
-| UC-06 | List/View Ticket | Customer, Agent, Admin | P0 |
-| UC-07 | Claim/Assign Ticket | Agent, Admin | P0 |
-| UC-08 | Send Message / Internal Note | Customer, Agent, Admin | P0 |
-| UC-09 | Transition Ticket State | Customer, Agent, Admin | P0 |
-| UC-10 | View Ticket Event History | Agent (Assigned), Admin | P0 |
-| UC-11 | Upload & Process Document | Admin | P0 |
-| UC-12 | Publish/Archive Document | Admin | P0 |
-| UC-13 | Search Knowledge | Agent, Admin | P0 |
-| UC-14 | Generate AI Suggestion | Agent (Assigned), Admin | P0 |
-| UC-15 | Review/Edit/Send AI Suggestion | Agent (Assigned), Admin | P0 |
-| UC-16 | Reset Password | User | P1 |
-| UC-17 | View Analytics | Admin | P1 |
+| UC-01 | Đăng ký và đăng nhập hệ thống | Guest / người dùng chưa xác thực | P0 |
+| UC-02 | Làm mới phiên và đăng xuất | Customer, Agent, Admin | P0 |
+| UC-03 | Xem và cập nhật hồ sơ cá nhân | Customer, Agent, Admin | P0 |
+| UC-04 | Quản lý tài khoản Agent | Admin | P0 |
+| UC-05 | Tạo yêu cầu hỗ trợ | Customer | P0 |
+| UC-06 | Xem danh sách và chi tiết ticket | Customer, Agent, Admin | P0 |
+| UC-07 | Tiếp nhận và phân công ticket | Agent, Admin | P0 |
+| UC-08 | Gửi tin nhắn công khai và ghi chú nội bộ | Customer, Agent, Admin | P0 |
+| UC-09 | Chuyển trạng thái ticket | Customer, Agent, Admin | P0 |
+| UC-10 | Xem lịch sử sự kiện ticket | Agent được giao, Admin | P0 |
+| UC-11 | Tải lên và xử lý tài liệu tri thức | Admin; Embedding Provider | P0 |
+| UC-12 | Công bố và lưu trữ tài liệu tri thức | Admin | P0 |
+| UC-13 | Tìm kiếm tri thức | Agent, Admin; Embedding Provider | P0 |
+| UC-14 | Tạo gợi ý câu trả lời bằng AI | Agent được giao, Admin; AI Provider | P0 |
+| UC-15 | Kiểm duyệt, chỉnh sửa và gửi phản hồi từ gợi ý AI | Agent được giao, Admin | P0 |
+| UC-16 | Đặt lại mật khẩu (P1) | Người dùng chưa đăng nhập; Mail Service P1 | P1 |
+| UC-17 | Xem thống kê ticket (P1) | Admin | P1 |
+| UC-18 | Xem lịch sử gợi ý AI | Agent được giao, Admin | P0 |
+| UC-19 | Đánh giá gợi ý AI hữu ích hoặc không hữu ích | Agent được giao | P1 |
 
 ---
 
@@ -136,51 +141,51 @@ Mỗi FR phải có ít nhất 1 acceptance criterion và 1 test case tương �
 
 | ID | Mức | Yêu cầu | Acceptance criteria |
 |---|---|---|---|
-| FR-ID-01 | P0 | Guest đăng ký Customer bằng email, tên và mật khẩu | Email duy nhất; validate email/mật khẩu; role mặc định CUSTOMER; không nhận role từ request |
-| FR-ID-02 | P0 | Login bằng email + password | Sai thông tin trả lỗi chung; thành công cấp access/refresh token |
-| FR-ID-03 | P0 | Hash và kiểm tra mật khẩu an toàn | Sử dụng `PasswordEncoder` (BCrypt/Argon2 được cấu hình); không lưu/log raw password |
-| FR-ID-04 | P0 | Refresh token có rotation | Refresh hợp lệ cấp token mới; token cũ không thể sử dụng lại |
-| FR-ID-05 | P0 | Logout thiết bị hiện tại | Thu hồi refresh session; access JWT cũ có thể còn hiệu lực đến hết hạn (được tài liệu hóa) |
-| FR-ID-06 | P0 | Xem/sửa profile, đổi mật khẩu | Chỉ sửa chính mình; đổi mật khẩu cần kiểm tra mật khẩu cũ |
-| FR-ID-07 | P0 | RBAC và ownership | Truy cập trái phép trả 401/403 nếu sai role endpoint, 404 nếu không có quyền tài nguyên theo policy ở MVP_CONTRACTS Mục 2 |
-| FR-ID-08 | P0 | Admin tạo/vô hiệu hóa Agent | Không thể self-register làm Agent/Admin; tài khoản vô hiệu bị từ chối login, refresh và request authenticated tiếp theo |
-| FR-ID-09 | P1 | Forgot/reset password | Token một lần, có hạn sử dụng và không lộ việc email có tồn tại |
+| FR-ID-01 | P0 | Đăng ký tài khoản | \- Người dùng mới đăng ký tài khoản khách hàng bằng họ tên, email và mật khẩu. \- Hệ thống kiểm tra định dạng email, yêu cầu mật khẩu và bảo đảm email chưa được sử dụng. Tài khoản tự đăng ký luôn có vai trò khách hàng; người đăng ký không được tự chọn quyền nhân viên hoặc quản trị viên. |
+| FR-ID-02 | P0 | Đăng nhập và bảo vệ mật khẩu | \- Người dùng đăng nhập bằng email và mật khẩu. Nếu thông tin không đúng, hệ thống thông báo lỗi chung, không tiết lộ email có tồn tại hay không. \- Khi đăng nhập thành công, hệ thống cấp mã xác thực để truy cập và mã gia hạn để duy trì phiên đăng nhập. |
+| FR-ID-03 | P0 | Đăng nhập và bảo vệ mật khẩu | \- Mật khẩu được kiểm tra và lưu dưới dạng băm một chiều bằng thuật toán chuyên dụng, không lưu hoặc ghi nhật ký mật khẩu nguyên bản. |
+| FR-ID-04 | P0 | Duy trì phiên và đăng xuất | \- Khi phiên truy cập cần được gia hạn, hệ thống kiểm tra mã gia hạn còn hợp lệ và cấp bộ mã xác thực mới; mã gia hạn cũ không được sử dụng lại. |
+| FR-ID-05 | P0 | Duy trì phiên và đăng xuất | \- Người dùng có thể đăng xuất khỏi thiết bị hiện tại. Hệ thống thu hồi khả năng gia hạn của phiên đó. \- Mã xác thực truy cập đã cấp trước khi đăng xuất có thể còn hiệu lực đến khi hết hạn; giới hạn này phải được nêu rõ trong tài liệu. |
+| FR-ID-06 | P0 | Quản lý hồ sơ cá nhân | \- Người dùng xem, cập nhật thông tin cá nhân và thay đổi mật khẩu của chính mình. \- Khi đổi mật khẩu, hệ thống phải kiểm tra mật khẩu hiện tại trước khi lưu mật khẩu mới. |
+| FR-ID-07 | P0 | Phân quyền truy cập | \- Hệ thống kiểm tra quyền theo vai trò người dùng và quyền sở hữu hoặc phạm vi phụ trách đối với từng dữ liệu. \- Nếu chưa đăng nhập hoặc phiên xác thực không hợp lệ, hệ thống yêu cầu đăng nhập lại. Nếu không có quyền sử dụng chức năng, hệ thống từ chối thao tác. \- Với dữ liệu người dùng không được phép truy cập, hệ thống thông báo như trường hợp không tìm thấy dữ liệu, tránh tiết lộ dữ liệu có tồn tại hay không. |
+| FR-ID-08 | P0 | Quản lý tài khoản nhân viên | \- Chỉ quản trị viên được tạo hoặc vô hiệu hóa tài khoản nhân viên hỗ trợ. Người dùng không được tự đăng ký thành nhân viên hoặc quản trị viên. \- Tài khoản đã bị vô hiệu hóa không thể đăng nhập, gia hạn phiên hoặc tiếp tục sử dụng chức năng cần đăng nhập, kể cả khi mã xác thực cũ chưa hết hạn. |
+| FR-ID-09 | P1 | Đặt lại mật khẩu (mở rộng) | \- Người dùng quên mật khẩu có thể yêu cầu đặt lại mật khẩu trong giai đoạn mở rộng. \- Mã đặt lại mật khẩu chỉ được dùng một lần và có thời hạn. Thông báo xử lý không được tiết lộ email có tồn tại trong hệ thống hay không. |
 
-**Quyết định kỹ thuật:** Access token sống 15 phút; refresh token sống 7 ngày (đều cấu hình được). Refresh token ngẫu nhiên độ entropy cao, lưu **hash** trong DB; không dùng JWT refresh stateless cho MVP. Dùng HTTPS trong triển khai công khai. Nếu lưu refresh token bằng cookie thì dùng `HttpOnly`, `Secure`, `SameSite` phù hợp và có CSRF strategy; nếu lưu phía client khác, phải đánh giá rủi ro XSS. **Không lưu raw refresh token trong DB hoặc log.**
+**Quyết định kỹ thuật:** Access token sống 15 phút; refresh token sống 7 ngày (đều cấu hình được). Refresh token ngẫu nhiên độ entropy cao, lưu **hash** trong DB; không dùng JWT refresh stateless cho MVP. Dùng HTTPS trong triển khai công khai. Access Token chỉ lưu trong bộ nhớ ứng dụng; Refresh Token bắt buộc dùng cookie `HttpOnly`, `Secure` khi HTTPS, `SameSite` phù hợp và bảo vệ CSRF cho refresh/logout. **Không lưu raw refresh token trong DB hoặc log.**
 
 ### 4.2 Nhóm 2 — Ticket Management
 
 | ID | Mức | Yêu cầu | Acceptance criteria |
 |---|---|---|---|
-| FR-TK-01 | P0 | Customer tạo ticket gồm subject, description | Tạo ticket và public message đầu tiên trong cùng transaction; mã ticket duy nhất |
-| FR-TK-02 | P0 | Danh sách ticket theo vai trò | Customer chỉ own; Agent thấy own assigned và OPEN; Admin thấy tất cả |
-| FR-TK-03 | P0 | Xem chi tiết gồm thread và trạng thái | Không lộ `INTERNAL` notes cho Customer |
-| FR-TK-04 | P0 | Agent claim ticket OPEN | Chỉ một request thắng khi claim đồng thời; chuyển `OPEN → IN_PROGRESS` |
-| FR-TK-05 | P0 | Admin phân công/chuyển người phụ trách | Ghi event; validate Agent đang enabled; không chuyển vô hiệu |
-| FR-TK-06 | P0 | Customer/Agent gửi public message | Tạo message; author được xác minh theo token, không tin userId từ request |
-| FR-TK-07 | P0 | Agent/Admin thêm internal note | Chỉ Agent được giao/Admin xem; Customer không thể suy đoán qua API |
-| FR-TK-08 | P0 | Transition ticket theo state machine | Trạng thái không hợp lệ trả `INVALID_TICKET_TRANSITION` |
-| FR-TK-09 | P0 | Event/Audit trail | Ghi ai/lúc nào/thao tác gì cho claim, assign, state transition; append-only ở tầng nghiệp vụ |
-| FR-TK-10 | P0 | Filter/search/pagination | Filter status, assignedAgent, created date; pagination, sort whitelist, giới hạn page size |
-| FR-TK-11 | P1 | Ticket attachments | Giới hạn file, xác thực quyền download và scan loại file |
-| FR-TK-12 | P1 | Dashboard | Số ticket theo trạng thái/nhân viên, thống kê cơ bản |
+| FR-TK-01 | P0 | Tạo yêu cầu hỗ trợ | \- Khách hàng tạo yêu cầu hỗ trợ bằng cách nhập tiêu đề và nội dung mô tả. \- Hệ thống cấp mã yêu cầu duy nhất, đồng thời lưu yêu cầu và tin nhắn công khai đầu tiên từ nội dung mô tả; không lưu thành công một phần nếu có lỗi. |
+| FR-TK-02 | P0 | Xem, tìm kiếm và lọc yêu cầu | \- Khách hàng chỉ xem yêu cầu của mình; nhân viên xem yêu cầu được giao và các yêu cầu mới chưa phân công; quản trị viên xem toàn bộ yêu cầu. |
+| FR-TK-03 | P0 | Xem, tìm kiếm và lọc yêu cầu | \- Trang chi tiết hiển thị cuộc trao đổi và trạng thái xử lý. Nội dung trả về cho khách hàng không bao gồm ghi chú nội bộ. \- Người dùng tìm theo từ khóa, lọc theo trạng thái, người phụ trách và ngày tạo. Kết quả được phân trang, giới hạn số mục mỗi trang và chỉ sắp xếp theo các tiêu chí hệ thống hỗ trợ. |
+| FR-TK-04 | P0 | Tiếp nhận và phân công | \- Nhân viên nhận xử lý yêu cầu mới chưa có người phụ trách. Nếu nhiều người cùng nhận, chỉ một người thành công; yêu cầu chuyển từ “Mới tạo” sang “Đang xử lý”. |
+| FR-TK-05 | P0 | Tiếp nhận và phân công | \- Quản trị viên có thể phân công hoặc chuyển yêu cầu cho nhân viên khác đang hoạt động; hệ thống từ chối phân công cho tài khoản đã bị vô hiệu hóa. \- Mọi lần nhận hoặc phân công đều được ghi vào lịch sử xử lý cùng với thay đổi người phụ trách. |
+| FR-TK-06 | P0 | Trao đổi với khách hàng | \- Khách hàng, nhân viên phụ trách và quản trị viên gửi tin nhắn công khai trên yêu cầu hỗ trợ trong phạm vi quyền và trạng thái cho phép. \- Hệ thống xác định người gửi từ tài khoản đã đăng nhập, không dựa vào thông tin người gửi tự khai trong nội dung gửi lên. |
+| FR-TK-07 | P0 | Ghi chú nội bộ | \- Nhân viên được phân công và quản trị viên thêm ghi chú nội bộ để phục vụ xử lý yêu cầu. \- Chỉ nhân viên phụ trách và quản trị viên được xem ghi chú; dữ liệu trả về cho khách hàng không được làm lộ nội dung hoặc sự tồn tại của ghi chú nội bộ. |
+| FR-TK-08 | P0 | Cập nhật trạng thái | \- Người dùng thực hiện các thao tác yêu cầu thêm thông tin, đánh dấu đã giải quyết, mở lại hoặc xác nhận đóng theo đúng vai trò và trạng thái hiện tại của yêu cầu. |
+| FR-TK-09 | P0 | Cập nhật trạng thái | \- Hệ thống chỉ cho phép chuyển trạng thái theo quy trình xử lý đã quy định; nếu thao tác không hợp lệ, hệ thống thông báo lý do và giữ nguyên trạng thái. |
+| FR-TK-10 | P0 | Xem lịch sử xử lý | \- Nhân viên được phân công và quản trị viên xem lịch sử tiếp nhận, phân công và chuyển trạng thái của yêu cầu. \- Mỗi sự kiện ghi rõ người thực hiện, thời điểm và nội dung thay đổi. Lịch sử chỉ được ghi bổ sung, không được tự ý sửa hoặc xóa các sự kiện đã lưu qua chức năng nghiệp vụ. |
+| FR-TK-11 | P1 | Tệp đính kèm (mở rộng) | \- Hỗ trợ đính kèm tệp vào yêu cầu trong giai đoạn mở rộng. \- Hệ thống kiểm tra loại và dung lượng tệp; chỉ cho phép người có quyền truy cập yêu cầu tải tệp xuống. |
+| FR-TK-12 | P1 | Thống kê tổng quan (mở rộng) | \- Quản trị viên xem bảng tổng quan và các thống kê cơ bản trong giai đoạn mở rộng. \- Thống kê gồm số lượng yêu cầu theo trạng thái và theo nhân viên phụ trách. |
 
-**Field MVP:** `subject` 5–150 ký tự; `description` 10–5000; public/internal message 1–5000; ưu tiên ticket mặc định `NORMAL`. Agent/Admin có thể đặt `LOW/NORMAL/HIGH`; Customer không thể tự nâng priority. Giới hạn và thông báo validation có thể điều chỉnh khi chốt UI.
+**Field MVP:** `subject` 5–150 ký tự; `description` 10–5000; public/internal message 1–5000; ưu tiên ticket mặc định `NORMAL`. Bản final chỉ chốt mức ưu tiên mặc định `NORMAL`; thao tác thay đổi priority chưa được đặc tả trong Report.pdf, không coi là chức năng P0 đã chốt.
 
 ### 4.3 Nhóm 3 — Knowledge Base
 
 | ID | Mức | Yêu cầu | Acceptance criteria |
 |---|---|---|---|
-| FR-KB-01 | P0 | Admin upload PDF văn bản, TXT, MD | Kiểm tra type, extension, nội dung cơ bản, size tối đa 10 MiB/file |
-| FR-KB-02 | P0 | Lưu file và tạo job xử lý | Upload thành công tạo metadata + ingestion job; không chạy LLM trong request upload |
-| FR-KB-03 | P0 | Worker trích xuất text | Xử lý tài liệu text-based; PDF ảnh không có text được báo `FAILED/UNSUPPORTED_SCANNED_PDF` |
-| FR-KB-04 | P0 | Chunk & embedding | Chia text có metadata `page_number`, `chunk_index`; vector đúng số chiều được chọn |
-| FR-KB-05 | P0 | Quản lý trạng thái xử lý | `UPLOADED → PROCESSING → READY/FAILED`; retry giới hạn; lỗi có mô tả an toàn |
-| FR-KB-06 | P0 | Admin publish tài liệu READY | Document chỉ được publish khi `READY` |
-| FR-KB-07 | P0 | Search documents/chunks | Chỉ kết quả `READY + published + not archived`, có lọc quyền |
-| FR-KB-08 | P0 | Admin archive tài liệu | Ngay sau archive không còn xuất hiện trong truy xuất mới |
-| FR-KB-09 | P0 | Admin xem danh sách và trạng thái | Có pagination và tiến độ ở mức trạng thái |
-| FR-KB-10 | P1 | Versioning/OCR | Tách thành mục mở rộng, không ảnh hưởng MVP |
+| FR-KB-01 | P0 | Tải lên và lưu tài liệu | \- Quản trị viên tải lên tài liệu PDF có lớp văn bản, tệp văn bản thuần hoặc tệp Markdown. |
+| FR-KB-02 | P0 | Tải lên và lưu tài liệu | \- Hệ thống kiểm tra định dạng, phần mở rộng, nội dung cơ bản và dung lượng tối đa 10 MiB cho mỗi tệp. \- Khi tải lên thành công, hệ thống lưu tệp, thông tin mô tả và tạo công việc xử lý nền. Việc xử lý tài liệu được thực hiện sau đó, không gọi mô hình AI trong lúc tiếp nhận tệp. |
+| FR-KB-03 | P0 | Trích xuất và lập chỉ mục | \- Hệ thống trích xuất văn bản từ các tài liệu được hỗ trợ. Nếu PDF chỉ chứa ảnh quét và không có lớp văn bản, hệ thống thông báo xử lý thất bại do chưa hỗ trợ loại tài liệu này. |
+| FR-KB-04 | P0 | Trích xuất và lập chỉ mục | \- Văn bản được chia thành các đoạn nhỏ, kèm thông tin số trang khi có và thứ tự đoạn để xác định vị trí nguồn. \- Mỗi đoạn được chuyển thành một dãy số biểu diễn ý nghĩa, theo số chiều đã cấu hình, phục vụ tìm kiếm nội dung liên quan. |
+| FR-KB-05 | P0 | Theo dõi và xử lý lỗi | \- Quản trị viên theo dõi tiến trình xử lý của từng tài liệu qua các trạng thái “Đã tải lên”, “Đang xử lý”, “Sẵn sàng” hoặc “Thất bại”. \- Khi gặp lỗi tạm thời, hệ thống tự thử lại với tổng số lần xử lý không quá 3, kể cả lần đầu. Nếu vẫn thất bại, hệ thống hiển thị lý do phù hợp, không tiết lộ thông tin kỹ thuật nhạy cảm. |
+| FR-KB-06 | P0 | Công bố tài liệu | \- Quản trị viên công bố tài liệu để đưa vào sử dụng. \- Chỉ được công bố khi tài liệu đã xử lý thành công và ở trạng thái “Sẵn sàng”; tải lên thành công không đồng nghĩa với đã công bố. |
+| FR-KB-07 | P0 | Tìm kiếm tri thức | \- Nhân viên và quản trị viên tìm kiếm tài liệu hoặc các đoạn nội dung liên quan trong kho tri thức. \- Chỉ hiển thị kết quả thuộc phạm vi được phép truy cập, đã xử lý thành công, đã công bố và chưa được đưa vào lưu trữ. |
+| FR-KB-08 | P0 | Lưu trữ tài liệu | \- Quản trị viên đưa tài liệu không còn sử dụng vào trạng thái lưu trữ. \- Ngay sau khi thao tác được lưu thành công, tài liệu không còn được dùng cho các lần tìm kiếm hoặc tạo gợi ý AI mới. |
+| FR-KB-09 | P0 | Xem danh mục tài liệu | Quản trị viên xem danh sách tài liệu có phân trang và mở chi tiết từng tài liệu. Danh sách hiển thị tên tài liệu, thời điểm tải lên, trạng thái xử lý và tình trạng công bố/lưu trữ. |
+| FR-KB-10 | P1 | Phiên bản và OCR (mở rộng) | \- Quản lý các phiên bản tài liệu và nhận dạng chữ trong tài liệu ảnh quét thuộc giai đoạn mở rộng. \- Các chức năng này không thuộc phạm vi triển khai ban đầu. |
 
 **Lưu ý tính nhất quán:** File được lưu trong **Docker volume/private storage**, DB lưu `storage_key`, không phục vụ file trực tiếp bằng public URL. Nếu transaction tạo DB metadata thành công nhưng ghi file thất bại, cập nhật trạng thái FAILED và dọn tài nguyên; có cleanup job hoặc quy trình dọn thủ công. Mọi document được archive bằng trạng thái mềm, không xóa vĩnh viễn trong MVP nhằm giữ provenance của AI suggestion cũ.
 
@@ -188,16 +193,16 @@ Mỗi FR phải có ít nhất 1 acceptance criterion và 1 test case tương �
 
 | ID | Mức | Yêu cầu | Acceptance criteria |
 |---|---|---|---|
-| FR-AI-01 | P0 | Agent được giao/Admin yêu cầu gợi ý trả lời | Truy cập đúng role và ownership; không sửa ticket khi generate |
-| FR-AI-02 | P0 | Lấy ngữ cảnh ticket an toàn | Chỉ lấy public messages cần thiết và metadata đã lọc; không gửi internal notes mặc định |
-| FR-AI-03 | P0 | Truy xuất chunk qua pgvector | Chỉ dùng tài liệu publish, READY, không archive; top-k, threshold cấu hình |
-| FR-AI-04 | P0 | Sinh câu trả lời dựa trên nguồn | Prompt phân biệt instruction hệ thống với nội dung tài liệu; giới hạn output |
-| FR-AI-05 | P0 | Citation được xác minh | Chỉ trả về source IDs thuộc tập chunk đã truy xuất; lưu snapshot đoạn trích |
-| FR-AI-06 | P0 | Không đủ bằng chứng thì abstain | Trả `INSUFFICIENT_EVIDENCE`; không tự bịa chính sách/điều khoản |
-| FR-AI-07 | P0 | Agent xem, sửa và chủ động gửi | Suggestion không tự gửi; nội dung được Agent sửa mới thành public message |
-| FR-AI-08 | P0 | Lưu request/suggestion/status/source | Ghi người yêu cầu, ticket, model, timestamps, citation; không lưu khóa API |
-| FR-AI-09 | P0 | Timeout/rate limit/failure handling | Provider lỗi trả trạng thái rõ, ticket còn dùng bình thường; giới hạn số request |
-| FR-AI-10 | P1 | AI feedback/evaluation dashboard | Agent đánh giá useful/not useful, thống kê chất lượng |
+| FR-AI-01 | P0 | Yêu cầu gợi ý và lấy ngữ cảnh | \- Nhân viên được phân công hoặc quản trị viên yêu cầu AI gợi ý câu trả lời cho yêu cầu hỗ trợ mà mình có quyền truy cập. Việc tạo gợi ý không tự thay đổi yêu cầu hỗ trợ. |
+| FR-AI-02 | P0 | Yêu cầu gợi ý và lấy ngữ cảnh | \- Hệ thống chỉ lấy các tin nhắn công khai cần thiết và thông tin liên quan đã được lọc để gửi cho AI; mặc định không gửi ghi chú nội bộ. |
+| FR-AI-03 | P0 | Truy xuất tri thức | \- Hệ thống tìm các đoạn tri thức có ý nghĩa phù hợp với nội dung cần trả lời, dựa trên dữ liệu tìm kiếm đã lập chỉ mục. \- Chỉ sử dụng tài liệu đã xử lý thành công, đã công bố và chưa được lưu trữ. Số đoạn được chọn và mức độ liên quan tối thiểu có thể cấu hình. |
+| FR-AI-04 | P0 | Sinh câu trả lời và dẫn nguồn | \- AI tạo bản nháp câu trả lời dựa trên các đoạn tri thức đã tìm được; hệ thống giới hạn độ dài nội dung tạo ra. |
+| FR-AI-05 | P0 | Sinh câu trả lời và dẫn nguồn | \- Hướng dẫn gửi cho AI phải phân biệt rõ yêu cầu của hệ thống với nội dung tài liệu tham khảo, tránh coi câu lệnh trong tài liệu là chỉ dẫn cần thực hiện. \- Hệ thống kiểm tra để mỗi dẫn nguồn trỏ đúng một đoạn đã được truy xuất và lưu bản chụp đoạn trích tại thời điểm tạo gợi ý để có thể đối chiếu về sau. |
+| FR-AI-06 | P0 | Xử lý khi thiếu căn cứ | \- Nếu không có đủ thông tin đáng tin cậy trong tài liệu, hệ thống thông báo chưa đủ căn cứ để tạo câu trả lời. \- AI không được tự đặt ra chính sách, điều khoản hoặc dẫn nguồn không có thật để hoàn thiện câu trả lời. |
+| FR-AI-07 | P0 | Kiểm duyệt và gửi phản hồi | \- Nhân viên phụ trách hoặc quản trị viên đọc bản nháp, đối chiếu nguồn và chỉnh sửa khi cần trước khi chủ động gửi. \- Gợi ý AI không tự gửi cho khách hàng. Chỉ nội dung đã được người có quyền duyệt và chọn gửi mới trở thành tin nhắn công khai. |
+| FR-AI-08 | P0 | Lưu lịch sử gợi ý | \- Hệ thống lưu người yêu cầu, yêu cầu hỗ trợ liên quan, mô hình AI sử dụng, thời điểm tạo, nội dung gợi ý, trạng thái xử lý và các nguồn trích dẫn. \- Lịch sử cho phép đối chiếu yêu cầu tạo gợi ý với kết quả và nguồn đã sử dụng; không lưu khóa truy cập dịch vụ AI. |
+| FR-AI-09 | P0 | Giới hạn và xử lý sự cố | \- Hệ thống giới hạn số lần yêu cầu tạo gợi ý và thời gian chờ dịch vụ AI. \- Khi dịch vụ AI gặp lỗi, hết hạn mức hoặc phản hồi quá chậm, hệ thống thông báo rõ tình trạng. Các chức năng tạo, xử lý và trả lời yêu cầu hỗ trợ vẫn hoạt động bình thường. |
+| FR-AI-10 | P1 | Đánh giá gợi ý (mở rộng) | \- Nhân viên đang được phân công ticket đánh giá gợi ý AI là Hữu ích hoặc Không hữu ích trong giai đoạn mở rộng (P1). Chỉ cho phép đánh giá gợi ý ở trạng thái GENERATED hoặc APPLIED. Mỗi cặp nhân viên-gợi ý chỉ có một đánh giá hiện hành; nhân viên có thể thay đổi lựa chọn của chính mình. Việc đánh giá không gửi phản hồi, thay đổi ticket hoặc trạng thái gợi ý. |
 
 **Không bảo đảm tuyệt đối AI không hallucinate.** Thiết kế phải có cơ chế giảm rủi ro, bắt buộc human-in-the-loop và bộ đánh giá đo tỷ lệ trả lời có căn cứ.
 
@@ -240,7 +245,7 @@ stateDiagram-v2
 
 | Trạng thái hiện tại | Hành động | Actor | Trạng thái sau | Ghi chú |
 |---|---|---|---|---|
-| OPEN | CLAIM | Agent/Admin | IN_PROGRESS | Gán Agent; atomic |
+| OPEN | CLAIM | Agent | IN_PROGRESS | Gán Agent; atomic |
 | OPEN | ASSIGN | Admin | IN_PROGRESS | Agent phải enabled |
 | IN_PROGRESS | REQUEST_INFO | Assigned Agent/Admin | WAITING_CUSTOMER | Ghi event, Agent thường phải có public message giải thích |
 | WAITING_CUSTOMER | CUSTOMER_REPLY | Customer sở hữu | IN_PROGRESS | Gửi public message và transition trong một transaction |
@@ -264,102 +269,254 @@ stateDiagram-v2
 
 ## 6. Đặc tả use cases trọng tâm
 
-### UC-05 — Create Ticket
+Toàn bộ 19 Use Case, mỗi bảng gồm 9 trường, đồng bộ theo Report.pdf.
 
-| Thuộc tính | Nội dung |
-|---|---|
-| Actor | Customer |
-| Trigger | Chọn "Create ticket" |
-| Precondition | Đã xác thực; tài khoản enabled |
-| Input | `subject`, `description` |
-| Main flow | (1) UI gửi request; (2) xác thực + validate; (3) sinh `ticket_number`; (4) tạo ticket `OPEN/NORMAL`; (5) tạo `PUBLIC` message đầu tiên; (6) commit; (7) trả 201 + ticket ID |
-| Alternative | Trường thiếu/quá dài: trả 400 `VALIDATION_ERROR`; token không hợp lệ: 401 |
-| Postcondition | Ticket có requester = principal; event `TICKET_CREATED` |
-| Related | FR-TK-01; BR-03, BR-14, BR-15; TC-TK-01 |
+### UC-01 — Đăng ký và đăng nhập hệ thống
 
-### UC-07 — Claim Ticket (Concurrency Critical)
+| Use case ID | UC-01 |
+| :---- | :---- |
+| **Tên Use Case** | Đăng ký và đăng nhập hệ thống |
+| **Tóm tắt** | \- Khách đăng ký tài khoản Customer. \- Người dùng xác thực bằng email và mật khẩu để bắt đầu phiên làm việc. |
+| **Tác nhân** | \- Khách chưa có tài khoản khi đăng ký (Guest / Unauthenticated User). \- Customer, Support Agent, System Administrator ở trạng thái chưa xác thực phiên khi đăng nhập. |
+| **Điều kiện tiên quyết** | \- Người dùng truy cập được ứng dụng. Đăng ký áp dụng cho người chưa có tài khoản. \- Đăng nhập áp dụng cho người đã có tài khoản. |
+| **Kết quả** | \- Đăng ký thành công tạo tài khoản CUSTOMER.  \- Đăng nhập thành công cấp Access Token và Refresh Token, chuyển đến giao diện theo vai trò.  \- Nhánh lỗi không cấp phiên đăng nhập. |
+| **Kịch bản chính** | Luồng A \- Đăng ký \- A.1. Khách chọn Đăng ký; hệ thống hiển thị biểu mẫu họ tên, email, mật khẩu và xác nhận mật khẩu. \- A.2. Khách nhập dữ liệu và gửi biểu mẫu. \- A.3. Hệ thống kiểm tra dữ liệu, xác nhận mật khẩu và tính duy nhất của email. \- A.4. Hệ thống băm mật khẩu bằng PasswordEncoder đã cấu hình, gán CUSTOMER ở phía máy chủ; không chấp nhận vai trò do khách tự gửi. \- A.5. Hệ thống lưu tài khoản, báo thành công và chuyển về Đăng nhập; luồng A kết thúc. Luồng B \- Đăng nhập \- B.1. Người dùng nhập email, mật khẩu và chọn Đăng nhập. \- B.2. Hệ thống kiểm tra thông tin xác thực và trạng thái enabled của tài khoản. \- B.3. Hệ thống cấp Access Token 15 phút và Refresh Token 7 ngày theo cấu hình; chỉ lưu bản băm Refresh Token. \- B.4. Hệ thống trả phiên an toàn và mở trang phù hợp với vai trò; luồng B kết thúc. |
+| **Kịch bản phụ** | \- A.3a. Thông tin đăng ký không hợp lệ → Hệ thống hiển thị lỗi và yêu cầu nhập lại. \- A.3b. Email đã tồn tại → Hệ thống thông báo email đã được sử dụng, không tạo tài khoản mới. \- B.2a. Email hoặc mật khẩu không chính xác → Hệ thống thông báo lỗi chung và yêu cầu đăng nhập lại. \- B.2b. Tài khoản bị vô hiệu hóa → Hệ thống từ chối đăng nhập và thông báo lỗi. |
+| **Ràng buộc phi chức năng** | \- Mật khẩu và Refresh Token phải được lưu dưới dạng mã băm an toàn, không lưu giá trị nguyên bản trên máy chủ. \- Không tiết lộ thông tin tài khoản khi đăng nhập thất bại. \- Các chức năng yêu cầu đăng nhập phải được kiểm tra phân quyền và bảo vệ thông tin xác thực. |
 
-| Thuộc tính | Nội dung |
-|---|---|
-| Actor | Agent, Admin |
-| Trigger | Chọn "Claim" ở OPEN queue |
-| Precondition | Ticket còn OPEN; chưa assigned; Agent enabled |
-| Main flow | (1) Kiểm tra role; (2) atomic claim update; (3) cập nhật IN_PROGRESS; (4) ghi event `CLAIMED`; (5) commit; (6) trả ticket mới |
-| Alternative | Nếu người khác nhận trước: trả 409 `TICKET_ALREADY_CLAIMED`; không tồn tại: 404; account disabled: 403 |
-| Postcondition | Chính xác một Agent được gán; không mất event |
-| Related | FR-TK-04; BR-05/06/15; TC-TK-05, TC-CON-01 |
+### UC-02 — Làm mới phiên và đăng xuất
 
-### UC-08 — Send Public Message / Internal Note
+| Use case ID | UC-02 |
+| :---- | :---- |
+| **Tên Use Case** | Làm mới phiên và đăng xuất |
+| **Tóm tắt** | \- Tự động làm mới phiên làm việc bằng Refresh Token có xoay vòng. \- Đăng xuất thu hồi phiên trên thiết bị hiện tại. |
+| **Tác nhân** | Người dùng đã đăng nhập (Customer, Support Agent, System Administrator). |
+| **Điều kiện tiên quyết** | \- Luồng A: Client có phiên hợp lệ với Refresh Token còn hiệu lực. \- Luồng B: Người dùng chọn kết thúc phiên làm việc hiện tại. |
+| **Kết quả** | \- Làm mới thành công: cấp Access Token mới và xoay vòng Refresh Token mới; token cũ bị vô hiệu hóa. \- Đăng xuất: thu hồi phiên trên máy chủ, xóa token trong bộ nhớ ứng dụng và xóa cookie phiên trên trình duyệt. \- Access Token cũ có thể còn hiệu lực ngắn cho đến khi tự hết hạn theo quy định an toàn. |
+| **Kịch bản chính** | Luồng A \- Làm mới phiên: \- A.1. Ứng dụng phát hiện Access Token hết hạn, gửi yêu cầu làm mới. Refresh Token được trình duyệt tự động gửi kèm qua cookie an toàn (HttpOnly) cùng mã chống giả mạo (CSRF). \- A.2. Hệ thống kiểm tra mã CSRF, tính hợp lệ của Refresh Token, thời hạn phiên và trạng thái tài khoản đang hoạt động. \- A.3. Hệ thống thực hiện vô hiệu hóa Refresh Token cũ và cấp cặp token mới trong cùng một xử lý nguyên tử (cùng thành công hoặc cùng hủy). \- A.4. Hệ thống cập nhật cookie an toàn mới cho trình duyệt, trả Access Token mới cho ứng dụng tiếp tục thao tác; Luồng A kết thúc. Luồng B \- Đăng xuất: \- B.1. Người dùng chọn Đăng xuất; ứng dụng gửi yêu cầu kết thúc phiên kèm mã CSRF và cookie phiên. \- B.2. Hệ thống thu hồi phiên làm việc trên máy chủ và gửi yêu cầu xóa cookie an toàn trên trình duyệt. \- B.3. Ứng dụng xóa Access Token khỏi bộ nhớ tạm và chuyển người dùng về màn hình Đăng nhập; Luồng B kết thúc. |
+| **Kịch bản phụ** | \- A.2a. Token không hợp lệ, hết hạn, bị thu hồi hoặc sai mã CSRF: Hệ thống từ chối làm mới phiên, xóa cookie phiên và yêu cầu người dùng đăng nhập lại. \- A.2b. Xử lý nhiều yêu cầu làm mới đồng thời:   \+ Phía ứng dụng (Client): Dùng một yêu cầu làm mới chung cho các tác vụ đồng thời bị hết hạn, chỉ thử lại tác vụ ban đầu một lần và không tạo vòng lặp làm mới.   \+ Phía hệ thống (Server): Với hai yêu cầu gửi cùng một Refresh Token cũ, hệ thống chỉ chấp nhận xoay vòng cho yêu cầu đầu tiên; yêu cầu còn lại bị từ chối và không sinh thêm phiên hợp lệ. \- A.2c. Tài khoản bị vô hiệu hóa trong khi phiên còn hạn: Hệ thống từ chối làm mới phiên, hủy các phiên đang hoạt động của người dùng và chuyển về màn hình đăng nhập. \- B.2a. Mất kết nối khi đăng xuất:   \+ Ứng dụng xóa ngay Access Token trong bộ nhớ tạm trên thiết bị và chuyển về màn hình Đăng nhập.   \+ Do mất mạng, cookie an toàn (HttpOnly) trên trình duyệt và phiên trên máy chủ chưa được hủy tức thì, nhưng sẽ tự động hết hiệu lực theo thời gian hoặc khi có kết nối trở lại. |
+| **Ràng buộc phi chức năng** | \- Bảo mật: Không lưu hoặc hiển thị Refresh Token dưới dạng văn bản gốc trong nhật ký hệ thống. Access Token chỉ lưu trong bộ nhớ tạm (memory) của ứng dụng; Refresh Token bắt buộc bảo vệ bằng cookie HttpOnly và kiểm tra mã CSRF. \- Toàn vẹn phiên: Quá trình xoay vòng token phải đảm bảo tính nguyên tử để ngăn chặn việc tái sử dụng token cũ hoặc mất phiên bất thường. |
 
-| Thuộc tính | Nội dung |
-|---|---|
-| Actor | Customer, Assigned Agent, Admin |
-| Trigger | Người dùng gửi nội dung trong ticket |
-| Precondition | Có quyền theo ticket ownership; trạng thái cho phép |
-| Main flow | (1) Validate content/visibility; (2) server xác định author; (3) kiểm tra ticket state; (4) lưu message; (5) nếu Customer reply khi WAITING_CUSTOMER thì transition IN_PROGRESS; (6) ghi event cần thiết; (7) trả message |
-| Alternative | Customer gửi INTERNAL: 403; ticket CLOSED/RESOLVED: 409; access ticket khác: 404 theo policy tài nguyên |
-| Postcondition | Thread hiển thị đúng vai trò, không lộ internal note |
-| Related | FR-TK-06/07/08; BR-07/08/09; TC-TK-04/06/07 |
+### UC-03 — Xem và cập nhật hồ sơ cá nhân
 
-### UC-09 — Transition Ticket State
+| Use case ID | UC-03 |
+| :---- | :---- |
+| **Tên Use Case** | Xem và cập nhật hồ sơ cá nhân |
+| **Tóm tắt** | Người dùng xem, cập nhật hồ sơ của chính mình hoặc đổi mật khẩu sau khi xác minh mật khẩu hiện tại. |
+| **Tác nhân** | Mọi người dùng đã xác thực (Customer, Support Agent, Administrator). |
+| **Điều kiện tiên quyết** | Người dùng đã xác thực, tài khoản enabled. |
+| **Kết quả** | Hồ sơ hoặc mật khẩu được cập nhật khi hợp lệ. Nhánh lỗi giữ nguyên dữ liệu đã lưu. |
+| **Kịch bản chính** | Luồng A \- Hồ sơ cá nhân \- A.1. Người dùng mở trang Hồ sơ cá nhân. \- A.2. Hệ thống hiển thị thông tin hồ sơ; email và vai trò không được chỉnh sửa. \- A.3. Người dùng thay đổi thông tin được phép và chọn Lưu. \- A.4. Hệ thống kiểm tra, cập nhật thông tin và thông báo thành công; luồng A kết thúc. Luồng B \- Đổi mật khẩu \- B.1. Từ hồ sơ, người dùng chọn Đổi mật khẩu, nhập mật khẩu hiện tại, mật khẩu mới và xác nhận. \- B.2. Hệ thống đối chiếu mật khẩu hiện tại, kiểm tra mật khẩu mới và phần xác nhận theo chính sách cấu hình. \- B.3. Hệ thống lưu mật khẩu mới dưới dạng mã băm và thông báo thành công; luồng B kết thúc. |
+| **Kịch bản phụ** | \- A.4a. Thông tin cập nhật không hợp lệ → Hệ thống hiển thị lỗi, không lưu thay đổi và yêu cầu nhập lại. \- B.2a. Mật khẩu hiện tại không chính xác → Hệ thống thông báo lỗi và yêu cầu nhập lại. \- B.2b. Mật khẩu mới không hợp lệ hoặc xác nhận không khớp → Hệ thống thông báo lỗi và yêu cầu nhập lại. |
+| **Ràng buộc phi chức năng** | \- Bảo mật thông tin cá nhân và mật khẩu của người dùng. \- Không lưu hoặc ghi nhật ký mật khẩu nguyên bản. \- Ngăn chặn truy cập trái phép vào hồ sơ của người dùng khác. |
 
-| Thuộc tính | Nội dung |
-|---|---|
-| Actor | Assigned Agent, Admin, Customer (một số action) |
-| Trigger | Chọn Request Info, Resolve, Reopen, Close |
-| Precondition | Có quyền action; ticket ở trạng thái nguồn tương ứng |
-| Main flow | (1) Nhận action enum; (2) tìm ticket được phép thao tác; (3) validate state transition; (4) cập nhật version/status; (5) ghi event; (6) commit |
-| Alternative | Transition không hợp lệ: 409 `INVALID_TICKET_TRANSITION`; optimistic conflict: 409 `TICKET_VERSION_CONFLICT` |
-| Postcondition | State được cập nhật hợp lệ và audit đầy đủ |
-| Related | FR-TK-08/09; BR-07/09/15; TC-TK-08 |
+### UC-04 — Quản lý tài khoản Agent
 
-### UC-11 — Upload and Process Knowledge Document
+| Use case ID | UC-04 |
+| :---- | :---- |
+| **Tên Use Case** | Quản lý tài khoản Agent |
+| **Tóm tắt** | Admin tạo tài khoản Agent, vô hiệu hóa hoặc kích hoạt lại Agent. |
+| **Tác nhân** | Quản trị viên hệ thống (System Administrator). |
+| **Điều kiện tiên quyết** | Admin đã xác thực, tài khoản enabled và có quyền quản lý Agent. |
+| **Kết quả** | Tài khoản Agent được tạo hoặc cập nhật enabled. Agent bị vô hiệu hóa không thể đăng nhập, làm mới phiên hoặc thực hiện các yêu cầu có xác thực tiếp theo, kể cả khi Access Token cũ chưa hết hạn. |
+| **Kịch bản chính** | Luồng A \- Tạo Agent \- A.1. Admin mở Quản trị người dùng; hệ thống hiển thị danh sách Agent và trạng thái. \- A.2. Admin chọn Thêm nhân viên, nhập họ tên, email và mật khẩu khởi tạo. \- A.3. Hệ thống kiểm tra thông tin, tạo tài khoản với vai trò Agent. \- A.4. Hệ thống lưu tài khoản, cập nhật danh sách; kết thúc luồng A. Luồng B \- Vô hiệu hóa \- B.1. Admin chọn một Agent đang hoạt động và yêu cầu vô hiệu hóa. \- B.2. Admin xác nhận yêu cầu. \- B.3. Hệ thống vô hiệu hóa tài khoản, chặn đăng nhập và các truy cập tiếp theo. \- B.4. Hệ thống cập nhật trạng thái tài khoản; kết thúc luồng B. Luồng C \- Kích hoạt lại \- C.1. Admin chọn Agent đã bị vô hiệu hóa. \- C.2. Admin yêu cầu kích hoạt lại tài khoản. \- C.3. Hệ thống lưu trạng thái kích hoạt lại tài khoản và thông báo thành công; kết thúc luồng C. |
+| **Kịch bản phụ** | \- A.1a. Người dùng không có quyền quản trị hoặc phiên làm việc hết hạn: Hệ thống từ chối truy cập, không hiển thị danh sách người dùng và chuyển về trang thông báo lỗi phân quyền. \- A.3a. Email đã tồn tại hoặc thông tin không hợp lệ: Hệ thống hiển thị thông báo lỗi, không tạo tài khoản và yêu cầu nhập lại thông tin. \- A.4a, B.3a hoặc C.3a. Không lưu được thay đổi: Hệ thống hủy các thay đổi của thao tác và thông báo thất bại, cho phép thử lại. Nếu tạo mới thất bại, không tạo tài khoản Agent. Nếu vô hiệu hóa hoặc kích hoạt lại thất bại, giữ nguyên trạng thái tài khoản trước thao tác. \- B.2a. Admin hủy yêu cầu vô hiệu hóa: Hệ thống đóng hộp thoại xác nhận và giữ nguyên trạng thái tài khoản. |
+| **Ràng buộc phi chức năng** | \- Bảo đảm chỉ Admin được truy cập chức năng quản lý Agent. \- Không lưu hoặc ghi nhật ký mật khẩu khởi tạo dưới dạng nguyên bản. \- Các chức năng quản trị phải được kiểm thử phân quyền và truy cập trái phép. |
 
-| Thuộc tính | Nội dung |
-|---|---|
-| Actor | Admin; xử lý nền là bước nội bộ của hệ thống |
-| Trigger | Admin upload file |
-| Precondition | Admin authenticated; loại file hỗ trợ |
-| Main flow | (1) Kiểm tra file; (2) lưu file private storage; (3) ghi document UPLOADED và job PENDING; (4) trả 202; (5) worker nhận job; (6) extract text; (7) split chunks; (8) sinh embeddings; (9) ghi chunks; (10) chuyển READY; (11) Admin xem trạng thái READY; publish là UC-12 riêng |
-| Alternative | PDF scan/không có text: FAILED; model embedding lỗi: retry bounded; file quá lớn: 413 |
-| Postcondition | READY vẫn **chưa publish** nếu Admin chưa bấm Publish |
-| Related | FR-KB-01..06; BR-11; TC-KB-01/03 |
+### UC-16 — Đặt lại mật khẩu (P1)
 
-### UC-12 — Publish / Archive Knowledge
+| Use case ID | UC-16 |
+| :---- | :---- |
+| **Tên Use Case** | Đặt lại mật khẩu (P1) |
+| **Tóm tắt** | Người dùng yêu cầu liên kết đặt lại mật khẩu bằng token một lần có thời hạn. Đây là chức năng P1. |
+| **Tác nhân** | Người dùng chưa đăng nhập (Unauthenticated User). |
+| **Điều kiện tiên quyết** | Người dùng truy cập được biểu mẫu Quên mật khẩu. Không cần phiên đăng nhập. |
+| **Kết quả** | Khi token và mật khẩu mới hợp lệ, mật khẩu được thay đổi và token bị đánh dấu đã dùng. Phản hồi yêu cầu ban đầu không tiết lộ email có tồn tại. |
+| **Kịch bản chính** | 1\. Người dùng chọn Quên mật khẩu tại trang Đăng nhập. 2\. Hệ thống hiển thị biểu mẫu yêu cầu nhập email. 3\. Người dùng nhập email và gửi yêu cầu. 4\. Hệ thống kiểm tra thông tin và gửi liên kết đặt lại mật khẩu nếu tài khoản tồn tại. 5\. Người dùng mở liên kết, nhập mật khẩu mới và xác nhận. 6\. Hệ thống kiểm tra liên kết và mật khẩu mới. 7\. Hệ thống cập nhật mật khẩu, vô hiệu hóa liên kết đã sử dụng và thông báo thành công; Use Case kết thúc. |
+| **Kịch bản phụ** | \- 3a. Email không hợp lệ → Hệ thống hiển thị lỗi và yêu cầu nhập lại. \- 4a. Email không tồn tại → Hệ thống vẫn hiển thị thông báo chung, không tiết lộ thông tin tài khoản. \- 6a. Liên kết không hợp lệ, hết hạn hoặc đã sử dụng → Hệ thống từ chối đặt lại mật khẩu và yêu cầu thực hiện lại. \- 6b. Mật khẩu mới không hợp lệ hoặc xác nhận không khớp → Hệ thống thông báo lỗi và yêu cầu nhập lại. |
+| **Ràng buộc phi chức năng** | \- Không tiết lộ email có tồn tại trong hệ thống hay không. \- Bảo mật token đặt lại mật khẩu và không lưu token nguyên bản. \- Không lưu hoặc ghi nhật ký mật khẩu mới dưới dạng nguyên bản. |
 
-| Thuộc tính | Nội dung |
-|---|---|
-| Actor | Admin |
-| Trigger | Publish hoặc Archive document |
-| Precondition | Document READY nếu Publish; không ARCHIVED nếu Archive |
-| Main flow | Validate quyền/status; update `published_at` hoặc `status=ARCHIVED`, `published=false`; ghi audit; trả trạng thái mới |
-| Alternative | Publish khi FAILED/PROCESSING: 409 `DOCUMENT_NOT_READY` |
-| Postcondition | Mọi truy vấn AI **mới** loại bỏ archived/unpublished ngay sau commit |
-| Related | FR-KB-06/08; TC-KB-05 |
+### UC-05 — Tạo yêu cầu hỗ trợ
 
-### UC-14 — Generate AI Suggestion
+| Use case ID | UC-05 |
+| :---- | :---- |
+| **Tên Use Case** | Tạo yêu cầu hỗ trợ |
+| **Tóm tắt** | Khách hàng tạo yêu cầu hỗ trợ bằng cách nhập tiêu đề và nội dung mô tả. Chức năng đính kèm tệp thuộc giai đoạn mở rộng. |
+| **Tác nhân** | Khách hàng đã đăng nhập. |
+| **Điều kiện tiên quyết** | Khách hàng đã đăng nhập và tài khoản đang hoạt động. |
+| **Kết quả** | Yêu cầu hỗ trợ được tạo ở trạng thái “Mới tạo”, có mức ưu tiên “Bình thường” và chưa có nhân viên phụ trách. Nội dung mô tả được lưu thành tin nhắn công khai đầu tiên; lịch sử đồng thời ghi nhận việc tạo yêu cầu. |
+| **Kịch bản chính** | 1\. Khách hàng chọn “Tạo yêu cầu mới”; hệ thống hiển thị biểu mẫu gồm tiêu đề và nội dung mô tả. 2\. Khách hàng nhập tiêu đề từ 5 đến 150 ký tự, mô tả từ 10 đến 5000 ký tự và chọn “Gửi yêu cầu”. 3\. Hệ thống xác định người tạo từ tài khoản đã đăng nhập, kiểm tra quyền tạo yêu cầu và tính hợp lệ của nội dung. 4\. Hệ thống cấp mã yêu cầu duy nhất, gắn yêu cầu với khách hàng đang đăng nhập, đặt trạng thái “Mới tạo”, mức ưu tiên “Bình thường” và chưa phân công nhân viên. Yêu cầu, tin nhắn công khai đầu tiên và sự kiện tạo yêu cầu được lưu cùng nhau. 5\. Hệ thống thông báo tạo yêu cầu thành công và mở trang chi tiết; Use Case kết thúc. |
+| **Kịch bản phụ** | \- 2a. Đính kèm tệp trong giai đoạn mở rộng: Khách hàng chọn tệp; hệ thống kiểm tra loại tệp, dung lượng và quyền tải xuống. Nếu hợp lệ, tiếp tục bước 3; nếu không, thông báo lý do và quay lại bước 2\. \- 3a. Tiêu đề hoặc mô tả không hợp lệ: Hệ thống chỉ rõ nội dung cần sửa, không tạo yêu cầu và quay lại bước 2\. \- 4a. Không lưu được dữ liệu: Hệ thống hủy toàn bộ dữ liệu vừa tạo, gồm yêu cầu, tin nhắn đầu tiên và sự kiện liên quan; thông báo tạo yêu cầu thất bại; nhánh kết thúc. |
+| **Ràng buộc phi chức năng** | \- Bảo mật: Kiểm tra quyền tạo yêu cầu trên máy chủ. Nếu có tệp đính kèm, chỉ chấp nhận loại tệp được cho phép, dung lượng tối đa 10 MiB; tên tệp phải được xử lý an toàn và tệp tải lên không được thực thi. \- Tính toàn vẹn: Yêu cầu hỗ trợ, tin nhắn đầu tiên và sự kiện tạo yêu cầu phải được lưu đồng thời; nếu có lỗi, toàn bộ thay đổi phải được hủy. \- Độ tin cậy: Khách hàng vẫn tạo được yêu cầu hỗ trợ khi dịch vụ AI gặp sự cố. \- Hiệu năng: Mục tiêu xử lý dưới 800 mili giây cho ít nhất 95% yêu cầu tạo ticket khi kiểm thử với 20 người dùng giả lập đồng thời; hạ tầng và dữ liệu mẫu phải được ghi rõ. \- Trải nghiệm người dùng: Biểu mẫu dễ sử dụng trên máy tính và điện thoại; hiển thị rõ trạng thái đang gửi, kết quả thành công và lỗi cần sửa. |
 
-| Thuộc tính | Nội dung |
-|---|---|
-| Actor | Assigned Agent/Admin |
-| Trigger | Chọn "Suggest Reply" |
-| Precondition | Ticket có quyền truy cập, không CLOSED; provider AI được cấu hình (hoặc chế độ mock) |
-| Main flow | (1) Check role/ownership; (2) lấy public conversation phù hợp; (3) tạo search query; (4) retrieve các chunk đã publish; (5) nếu thiếu bằng chứng thì abstain; (6) gửi prompt có source IDs; (7) validate citation; (8) lưu suggestion và snapshot nguồn; (9) trả suggestion cho Agent |
-| Alternative | Không có kết quả: `INSUFFICIENT_EVIDENCE`; timeout: `AI_PROVIDER_TIMEOUT`; quota/rate limit: 429; model trả citation sai: fail closed, status FAILED và mã AI_INVALID_CITATION; không trả draft GENERATED thiếu citation |
-| Postcondition | **Không tạo ticket_message**; ticket không đổi trạng thái |
-| Related | FR-AI-01..06/08/09; BR-10..13; TC-AI-01/03/05 |
+### UC-06 — Xem danh sách và chi tiết ticket
 
-### UC-15 — Review, Edit and Send AI Suggestion
+| Use case ID | UC-06 |
+| :---- | :---- |
+| **Tên Use Case** | Xem danh sách và chi tiết ticket |
+| **Tóm tắt** | Người dùng tìm kiếm, lọc và xem chi tiết các yêu cầu hỗ trợ trong phạm vi được phép truy cập. |
+| **Tác nhân** | Khách hàng, nhân viên hỗ trợ và quản trị viên. |
+| **Điều kiện tiên quyết** | Người dùng đã đăng nhập và tài khoản đang hoạt động. |
+| **Kết quả** | Người dùng xem được danh sách hoặc chi tiết yêu cầu hỗ trợ trong phạm vi quyền của mình. Nội dung trả về cho khách hàng không bao gồm ghi chú nội bộ. |
+| **Kịch bản chính** | 1\. Người dùng mở danh sách yêu cầu hỗ trợ. 2\. Hệ thống xác định tài khoản đang đăng nhập và giới hạn dữ liệu được xem: khách hàng chỉ thấy yêu cầu của mình; nhân viên thấy yêu cầu mới chưa có người phụ trách và các yêu cầu được giao cho mình; quản trị viên thấy toàn bộ yêu cầu. 3\. Hệ thống hiển thị danh sách có phân trang và cho phép sắp xếp theo các tiêu chí được hỗ trợ. 4\. Người dùng tìm theo từ khóa hoặc lọc theo trạng thái, người phụ trách và ngày tạo. Hệ thống hiển thị kết quả phù hợp trong phạm vi được phép xem. 5\. Người dùng chọn một yêu cầu để mở trang chi tiết. 6\. Hệ thống kiểm tra lại quyền truy cập tại thời điểm mở yêu cầu. Khách hàng chỉ xem được các tin nhắn công khai; nhân viên phụ trách và quản trị viên được xem nội dung theo quyền. Nhân viên xem yêu cầu chưa phân công phải nhận xử lý trước khi có thể gửi tin nhắn. 7\. Hệ thống hiển thị chi tiết yêu cầu; Use Case kết thúc. |
+| **Kịch bản phụ** | \- 3a hoặc 4a. Không có kết quả: Hệ thống hiển thị “Không có yêu cầu phù hợp”; người dùng có thể thay đổi bộ lọc ở bước 4\. \- 6a. Yêu cầu không tồn tại hoặc người dùng không có quyền xem: Hệ thống đều thông báo “Không tìm thấy yêu cầu”, không trả nội dung và không tiết lộ yêu cầu có tồn tại hay không; nhánh kết thúc. \- 6b. Yêu cầu vừa được nhân viên khác nhận: Hệ thống kiểm tra lại quyền truy cập theo thông tin mới nhất; nếu người dùng không còn quyền xem, xử lý như trường hợp 6a. |
+| **Ràng buộc phi chức năng** | \- Bảo mật: Kiểm tra quyền truy cập trên máy chủ khi xem danh sách và chi tiết ticket. Khách hàng chỉ được xem ticket của mình và không được nhận ghi chú nội bộ trong dữ liệu trả về. \- An toàn dữ liệu: Từ khóa tìm kiếm và bộ lọc phải được xử lý bằng truy vấn có tham số, tránh để dữ liệu nhập vào làm thay đổi câu lệnh truy vấn. \- Hiệu năng: Mục tiêu xử lý dưới 800 mili giây cho ít nhất 95% yêu cầu xem, tìm kiếm và lọc ticket khi kiểm thử với 20 người dùng giả lập đồng thời; hạ tầng và dữ liệu mẫu phải được ghi rõ. \- Trải nghiệm người dùng: Danh sách và chi tiết ticket dễ đọc trên máy tính và điện thoại; hiển thị rõ khi đang tải, không có kết quả hoặc xảy ra lỗi. |
 
-| Thuộc tính | Nội dung |
-|---|---|
-| Actor | Assigned Agent/Admin |
-| Trigger | Sau khi xem suggestion, bấm Send |
-| Precondition | Suggestion thuộc đúng ticket, do nhân sự có quyền truy cập sử dụng; ticket cho phép reply |
-| Main flow | (1) Agent có thể chỉnh nội dung draft; (2) UI gửi message `PUBLIC` + optional `suggestionId`; (3) backend xác thực tất cả liên kết; (4) lưu message; (5) đánh dấu suggestion APPLIED; (6) commit; (7) Customer nhìn thấy message đã gửi |
-| Alternative | Agent bỏ qua: suggestion vẫn GENERATED hoặc DISCARD; ticket RESOLVED/CLOSED: không gửi được |
-| Postcondition | Chỉ bản text được Agent duyệt mới hiển thị cho Customer; source audit vẫn lưu |
-| Related | FR-AI-07/08; BR-10; TC-AI-06/07, TC-WF-01..04 |
+### UC-07 — Tiếp nhận và phân công ticket
+
+| Use case ID | UC-07 |
+| :---- | :---- |
+| **Tên Use Case** | Tiếp nhận và phân công ticket |
+| **Tóm tắt** | Nhân viên tiếp nhận yêu cầu hỗ trợ mới chưa có người phụ trách. Quản trị viên có thể phân công ban đầu hoặc chuyển yêu cầu cho một nhân viên khác đang hoạt động. |
+| **Tác nhân** | Nhân viên hỗ trợ thực hiện việc nhận xử lý; quản trị viên thực hiện việc phân công hoặc chuyển người phụ trách. |
+| **Điều kiện tiên quyết** | Người thực hiện đã đăng nhập và tài khoản đang hoạt động. Khi nhận xử lý, yêu cầu phải ở trạng thái “Mới tạo” và chưa có người phụ trách. Khi phân công hoặc chuyển người phụ trách, người thực hiện phải là quản trị viên và trạng thái yêu cầu phải cho phép thao tác đó. |
+| **Kết quả** | Khi nhận xử lý hoặc phân công lần đầu thành công, yêu cầu được gán cho một nhân viên và chuyển từ “Mới tạo” sang “Đang xử lý”. Khi chuyển người phụ trách, yêu cầu giữ nguyên trạng thái “Đang xử lý” hoặc “Chờ khách hàng phản hồi”. Hệ thống ghi nhận phiên bản dữ liệu mới và sự kiện tương ứng cùng với thay đổi. |
+| **Kịch bản chính** | Luồng A \- Nhân viên nhận xử lý \- A.1. Nhân viên chọn “Nhận xử lý” trên một yêu cầu mới chưa có người phụ trách. \- A.2. Hệ thống xác định nhân viên đang đăng nhập và kiểm tra quyền nhận yêu cầu. \- A.3. Hệ thống kiểm tra yêu cầu vẫn ở trạng thái “Mới”, chưa có người phụ trách và chưa bị thay đổi kể từ lúc nhân viên xem. Nếu hợp lệ, hệ thống gán yêu cầu cho nhân viên, chuyển sang “Đang xử lý” và ghi nhận phiên bản dữ liệu mới. Việc kiểm tra và cập nhật phải bảo đảm chỉ một người nhận thành công. \- A.4. Hệ thống lưu thông tin tiếp nhận và sự kiện tương ứng cùng nhau. \- A.5. Hệ thống đưa yêu cầu vào danh sách do nhân viên phụ trách và thông báo nhận xử lý thành công; kết thúc luồng A. Luồng B \- Quản trị viên phân công hoặc chuyển người phụ trách \- B.1. Quản trị viên mở yêu cầu, chọn “Phân công” và chọn một nhân viên đang hoạt động. \- B.2. Hệ thống kiểm tra quyền quản trị viên, tình trạng tài khoản nhân viên được chọn và thông tin mới nhất của yêu cầu. Chỉ phân công lần đầu khi yêu cầu ở trạng thái “Mới”; chỉ chuyển người phụ trách khi yêu cầu ở trạng thái “Đang xử lý” hoặc “Chờ khách hàng phản hồi”. \- B.3. Hệ thống gán nhân viên được chọn làm người phụ trách. Nếu phân công lần đầu, yêu cầu chuyển sang “Đang xử lý”; nếu chuyển người phụ trách, trạng thái được giữ nguyên. Hệ thống ghi nhận phiên bản dữ liệu mới, người phụ trách cũ, người phụ trách mới và người thực hiện trong cùng lần lưu. B.4. Hệ thống lưu thành công và hiển thị kết quả; kết thúc luồng B. |
+| **Kịch bản phụ** | \- A.3a. Yêu cầu đã được người khác nhận: Hệ thống không thay đổi người phụ trách, thông báo yêu cầu đã có người nhận và tải lại danh sách; kết thúc luồng A. \- A.3b hoặc B.2a. Yêu cầu đã được cập nhật sau khi người dùng mở xem: Hệ thống không ghi đè dữ liệu mới, thông báo có thay đổi và yêu cầu tải lại trước khi thao tác; nhánh kết thúc. \- B.2b. Tài khoản nhân viên được chọn đã bị vô hiệu hóa: Hệ thống từ chối phân công và yêu cầu chọn nhân viên khác ở bước B.1. \- B.2c. Trạng thái yêu cầu không cho phép phân công hoặc chuyển người phụ trách: Hệ thống thông báo lý do và không lưu thay đổi; nhánh kết thúc. \- A.4a hoặc B.3a. Không ghi được sự kiện: Hệ thống hủy toàn bộ thay đổi liên quan, giữ nguyên người phụ trách và trạng thái trước thao tác, đồng thời thông báo thất bại; nhánh kết thúc. |
+| **Ràng buộc phi chức năng** | \- Bảo mật: Quyền nhận và phân công ticket phải được kiểm tra trên máy chủ, theo vai trò và phạm vi phụ trách của người thực hiện. \- Tính nhất quán: Khi hai nhân viên cùng nhận một ticket, chỉ một người được nhận thành công; người còn lại phải được thông báo ticket đã có người nhận. Kết quả này phải được bảo đảm trong cả 20 lần kiểm thử đồng thời. \- Tính toàn vẹn: Thông tin người phụ trách, trạng thái ticket và sự kiện liên quan phải được lưu trong cùng một giao dịch; nếu có lỗi, toàn bộ thay đổi phải được hủy. \- Hiệu năng: Mục tiêu xử lý dưới 800 mili giây cho ít nhất 95% yêu cầu nhận hoặc phân công ticket khi kiểm thử với 20 người dùng giả lập đồng thời; hạ tầng và dữ liệu mẫu phải được ghi rõ. \- Trải nghiệm người dùng: Thao tác nhận và phân công dễ sử dụng trên máy tính và điện thoại; thông báo rõ kết quả, lỗi hoặc việc ticket đã được người khác nhận. |
+
+### UC-08 — Gửi tin nhắn công khai và ghi chú nội bộ
+
+| Use case ID | UC-08 |
+| :---- | :---- |
+| **Tên Use Case** | Gửi tin nhắn công khai và ghi chú nội bộ |
+| **Tóm tắt** | Khách hàng và nhân viên trao đổi qua tin nhắn công khai trong yêu cầu hỗ trợ. Nhân viên được phân công và quản trị viên có thể lưu ghi chú nội bộ để phục vụ xử lý. |
+| **Tác nhân** | Khách hàng sở hữu yêu cầu hỗ trợ, nhân viên được phân công phụ trách và quản trị viên. |
+| **Điều kiện tiên quyết** | Người gửi đã đăng nhập và có quyền truy cập yêu cầu. Trạng thái hiện tại phải cho phép gửi tin nhắn hoặc lưu ghi chú; không được thêm nội dung khi yêu cầu đã ở trạng thái “Đã giải quyết” hoặc “Đã đóng”. |
+| **Kết quả** | Nội dung được lưu đúng người gửi và phạm vi hiển thị. Khi khách hàng trả lời một yêu cầu đang “Chờ khách hàng phản hồi”, hệ thống đồng thời chuyển yêu cầu sang “Đang xử lý” và ghi nhận sự kiện thay đổi. Các trường hợp gửi nội dung khác không tự làm thay đổi trạng thái. |
+| **Kịch bản chính** | Luồng A \- Gửi tin nhắn công khai \- A.1. Người dùng nhập nội dung từ 1 đến 5000 ký tự và chọn “Gửi phản hồi”. \- A.2. Hệ thống xác định người gửi từ tài khoản đã đăng nhập, kiểm tra nội dung, quyền truy cập và trạng thái yêu cầu. Khách hàng được gửi tin nhắn trên yêu cầu của mình khi yêu cầu đang “Mới tạo”, “Đang xử lý” hoặc “Chờ khách hàng phản hồi”. Nhân viên phụ trách và quản trị viên được gửi khi yêu cầu đang “Đang xử lý” hoặc “Chờ khách hàng phản hồi”. \- A.3. Hệ thống lưu tin nhắn công khai. Nếu khách hàng trả lời khi yêu cầu đang “Chờ khách hàng phản hồi”, hệ thống đồng thời chuyển sang “Đang xử lý” và ghi nhận sự kiện chuyển trạng thái. \- A.4. Hệ thống lưu thành công và hiển thị tin nhắn trong cuộc trao đổi; kết thúc luồng A. Luồng B \- Lưu ghi chú nội bộ \- B.1. Nhân viên phụ trách hoặc quản trị viên chọn “Ghi chú nội bộ”, nhập nội dung và chọn “Lưu”. \- B.2. Hệ thống xác định người ghi chú từ tài khoản đã đăng nhập, kiểm tra nội dung từ 1 đến 5000 ký tự, quyền phụ trách hoặc quyền quản trị và trạng thái yêu cầu cho phép. \- B.3. Hệ thống lưu ghi chú với phạm vi nội bộ; chỉ nhân viên được phân công và quản trị viên được đọc; kết thúc luồng B. |
+| **Kịch bản phụ** | \- A.2a hoặc B.2a. Nội dung không hợp lệ: Hệ thống chỉ rõ lỗi, không lưu nội dung và yêu cầu nhập lại ở bước A.1 hoặc B.1. \- A.2b hoặc B.2b. Yêu cầu đã được giải quyết hoặc đã đóng: Hệ thống thông báo không thể thêm nội dung và không lưu thay đổi. Với yêu cầu đã giải quyết, khách hàng phải chọn “Mở lại yêu cầu” trước khi tiếp tục trao đổi; yêu cầu đã đóng không được trao đổi tiếp; nhánh kết thúc. \- B.2c. Khách hàng cố tạo ghi chú nội bộ: Hệ thống thông báo không có quyền thực hiện và không tạo ghi chú; nhánh kết thúc. \- A.2c hoặc B.2d. Người gửi không có quyền truy cập yêu cầu: Hệ thống thông báo “Không tìm thấy yêu cầu” như trường hợp yêu cầu không tồn tại, không tiết lộ nội dung; nhánh kết thúc. \- A.3a hoặc B.3a. Không lưu được dữ liệu: Hệ thống hủy tin nhắn hoặc ghi chú vừa tạo cùng mọi thay đổi liên quan, đồng thời thông báo thất bại; nhánh kết thúc. \- A.2d hoặc B.2e. Phiên đăng nhập hết hạn: hệ thống yêu cầu đăng nhập lại và không lưu nội dung. Nếu tài khoản bị ngừng hoạt động, hệ thống từ chối thao tác và thông báo phù hợp; nhánh kết thúc. |
+| **Ràng buộc phi chức năng** | \- Bảo mật: Kiểm tra quyền đọc và gửi nội dung trên máy chủ. Ghi chú nội bộ chỉ dành cho nhân viên được phân công và quản trị viên, không xuất hiện trong dữ liệu trả về cho khách hàng. \- Tính toàn vẹn: Tin nhắn, thay đổi trạng thái và sự kiện phát sinh phải được lưu đồng thời; nếu có lỗi, toàn bộ thay đổi liên quan phải được hủy. \- Độ tin cậy: Người dùng vẫn gửi được tin nhắn công khai và lưu ghi chú nội bộ khi dịch vụ AI gặp sự cố. \- Hiệu năng: Mục tiêu xử lý dưới 800 mili giây cho ít nhất 95% yêu cầu gửi tin nhắn hoặc lưu ghi chú khi kiểm thử với 20 người dùng giả lập đồng thời; hạ tầng và dữ liệu mẫu phải được ghi rõ. \- Trải nghiệm người dùng: Phân biệt rõ tin nhắn công khai và ghi chú nội bộ trên máy tính và điện thoại; hiển thị trạng thái đang gửi, gửi thành công hoặc lỗi. |
+
+### UC-09 — Chuyển trạng thái ticket
+
+| Use case ID | UC-09 |
+| :---- | :---- |
+| **Tên Use Case** | Chuyển trạng thái ticket |
+| **Tóm tắt** | Người dùng cập nhật trạng thái yêu cầu hỗ trợ theo quy trình xử lý. Thao tác được phép phụ thuộc vào vai trò, quyền truy cập và trạng thái hiện tại của yêu cầu. |
+| **Tác nhân** | Nhân viên hỗ trợ được phân công, quản trị viên và khách hàng sở hữu yêu cầu. Khách hàng chỉ được mở lại hoặc xác nhận đóng yêu cầu đã giải quyết. |
+| **Điều kiện tiên quyết** | Người dùng đã đăng nhập, có quyền truy cập yêu cầu và được phép thực hiện thao tác đã chọn ở trạng thái hiện tại. |
+| **Kết quả** | Trạng thái mới, phiên bản dữ liệu mới và sự kiện thay đổi được lưu cùng nhau. Nếu thao tác thất bại, trạng thái cũ được giữ nguyên và không ghi nhận sự kiện thành công. |
+| **Kịch bản chính** | 1\. Người dùng chọn thao tác: nhân viên phụ trách hoặc quản trị viên chọn “Yêu cầu thêm thông tin” hoặc “Đánh dấu đã giải quyết”; khách hàng sở hữu yêu cầu chọn “Mở lại yêu cầu” hoặc “Xác nhận đóng”. Quản trị viên cũng được xác nhận đóng yêu cầu đã giải quyết. 2\. Hệ thống xác định người thực hiện từ tài khoản đã đăng nhập, tìm yêu cầu trong phạm vi được phép truy cập và kiểm tra quyền thực hiện thao tác. 3\. Hệ thống kiểm tra trạng thái hiện tại và thao tác đã chọn. Yêu cầu “Đang xử lý” được chuyển sang “Chờ khách hàng phản hồi” khi nhân viên phụ trách hoặc quản trị viên yêu cầu thêm thông tin, hoặc sang “Đã giải quyết” khi họ xác nhận xử lý xong. Yêu cầu “Đã giải quyết” được chuyển về “Đang xử lý” khi khách hàng mở lại, hoặc sang “Đã đóng” khi khách hàng hay quản trị viên xác nhận đóng. 4\. Hệ thống kiểm tra yêu cầu chưa bị cập nhật kể từ khi người dùng mở xem, sau đó lưu trạng thái mới và ghi nhận phiên bản dữ liệu mới. Người thực hiện, trạng thái trước và sau thay đổi được lưu vào lịch sử cùng với lần cập nhật này. 5\. Hệ thống thông báo thành công và hiển thị trạng thái mới; Use Case kết thúc. Lưu ý: Yêu cầu tự chuyển từ “Mới tạo” sang “Đang xử lý” khi nhân viên nhận hoặc được phân công; yêu cầu chuyển từ “Chờ khách hàng phản hồi” về “Đang xử lý” khi khách hàng gửi phản hồi. Hai trường hợp này được thực hiện trong chức năng tương ứng, không phải thao tác đổi trạng thái tùy ý. |
+| **Kịch bản phụ** | \- 2a. Người dùng không có quyền thực hiện thao tác: Hệ thống thông báo không được phép và không cập nhật. Nếu người dùng không có quyền truy cập yêu cầu hoặc yêu cầu không tồn tại, hệ thống đều thông báo “Không tìm thấy yêu cầu”; nhánh kết thúc. \- 3a. Thao tác không phù hợp với trạng thái hiện tại: Hệ thống thông báo không thể chuyển trạng thái, hiển thị trạng thái hiện tại và không lưu thay đổi; nhánh kết thúc. \- 4a. Yêu cầu đã được cập nhật bởi thao tác khác: Hệ thống không ghi đè thay đổi mới, thông báo có xung đột và yêu cầu tải lại trước khi thực hiện thao tác khác; nhánh kết thúc. \- 4b. Không lưu được trạng thái hoặc sự kiện thay đổi: Hệ thống hủy toàn bộ thay đổi của thao tác và thông báo thất bại; nhánh kết thúc. |
+| **Ràng buộc phi chức năng** | \- Bảo mật: Quyền chuyển trạng thái phải được kiểm tra trên máy chủ, theo vai trò và quyền truy cập ticket của người thực hiện. \- Tính toàn vẹn: Trạng thái mới và sự kiện ghi nhận thay đổi phải được lưu trong cùng một giao dịch; nếu có lỗi, giữ nguyên dữ liệu trước thao tác. Khi nhiều người cùng cập nhật, hệ thống phải phát hiện xung đột để tránh ghi đè thay đổi của nhau. \- Khả năng theo dõi: Nhật ký xử lý phải có mã theo dõi yêu cầu để hỗ trợ tra cứu lỗi, không ghi mật khẩu, token hoặc thông tin bí mật. \- Hiệu năng: Mục tiêu xử lý dưới 800 mili giây cho ít nhất 95% yêu cầu chuyển trạng thái khi kiểm thử với 20 người dùng giả lập đồng thời; hạ tầng và dữ liệu mẫu phải được ghi rõ. \- Trải nghiệm người dùng: Hiển thị rõ trạng thái sau thao tác trên máy tính và điện thoại; thông báo dễ hiểu khi thao tác thất bại hoặc cần tải lại do xung đột cập nhật. |
+
+### UC-10 — Xem lịch sử sự kiện ticket
+
+| Use case ID | UC-10 |
+| :---- | :---- |
+| **Tên Use Case** | Xem lịch sử sự kiện ticket |
+| **Tóm tắt** | Nhân viên được phân công và quản trị viên xem lại các sự kiện xử lý yêu cầu hỗ trợ theo thứ tự thời gian. |
+| **Tác nhân** | Nhân viên hỗ trợ được phân công và quản trị viên hệ thống. |
+| **Điều kiện tiên quyết** | Nhân viên được phân công hoặc quản trị viên đã đăng nhập và tài khoản đang hoạt động. |
+| **Kết quả** | Hệ thống chỉ hiển thị lịch sử trong phạm vi người dùng được phép xem. Việc xem lịch sử không làm thay đổi yêu cầu hỗ trợ hoặc các sự kiện đã ghi nhận. |
+| **Kịch bản chính** | 1\. Nhân viên được phân công hoặc quản trị viên mở yêu cầu và chọn “Lịch sử sự kiện”. 2\. Hệ thống xác định tài khoản đang đăng nhập, kiểm tra quyền xem yêu cầu và lịch sử nội bộ. 3\. Hệ thống lấy các sự kiện đã ghi nhận theo thứ tự thời gian, gồm người thực hiện, thời điểm, thao tác và nội dung thay đổi được phép hiển thị. 4\. Hệ thống hiển thị lịch sử dưới dạng dòng thời gian, gồm các lần tạo yêu cầu, nhận xử lý, phân công, chuyển người phụ trách và chuyển trạng thái. 5\. Người dùng xem lịch sử xử lý; Use Case kết thúc. |
+| **Kịch bản phụ** | \- 2a. Khách hàng truy cập chức năng chỉ dành cho nhân viên và quản trị viên: Hệ thống thông báo không có quyền thực hiện, không trả lịch sử nội bộ; nhánh kết thúc. \- 2b. Nhân viên không được phân công yêu cầu hoặc yêu cầu không tồn tại: Hệ thống đều thông báo “Không tìm thấy yêu cầu”, không tiết lộ lịch sử; nhánh kết thúc. \- 3a. Chưa có sự kiện phù hợp: Hệ thống hiển thị thông báo “Chưa có sự kiện”; Use Case kết thúc. |
+| **Ràng buộc phi chức năng** | \- Bảo mật: Quyền xem lịch sử phải được kiểm tra trên máy chủ. Chỉ nhân viên được phân công và quản trị viên được xem lịch sử nội bộ của ticket; không trả dữ liệu này cho khách hàng hoặc người không có quyền. \- Tính nhất quán: Lịch sử phải phản ánh đúng những thay đổi đã được lưu thành công; không hiển thị sự kiện thành công của một thao tác đã bị hủy do lỗi. \- Khả năng theo dõi: Nhật ký xử lý yêu cầu xem lịch sử phải có mã theo dõi để hỗ trợ tra cứu lỗi, không ghi mật khẩu, token hoặc thông tin bí mật. \- Hiệu năng: Mục tiêu xử lý dưới 800 mili giây cho ít nhất 95% yêu cầu xem lịch sử khi kiểm thử với 20 người dùng giả lập đồng thời; hạ tầng và dữ liệu mẫu phải được ghi rõ. \- Trải nghiệm người dùng: Dòng thời gian dễ đọc trên máy tính và điện thoại, thể hiện rõ người thực hiện, thời điểm và thay đổi; có thông báo khi đang tải, chưa có sự kiện hoặc xảy ra lỗi. |
+
+### UC-11 — Tải lên và xử lý tài liệu tri thức
+
+| Use case ID | UC-11 |
+| :---- | :---- |
+| **Tên Use Case** | Tải lên và xử lý tài liệu tri thức |
+| **Tóm tắt** | Quản trị viên tải tài liệu PDF dạng văn bản, TXT hoặc MD lên hệ thống. Hệ thống tự động xử lý nội dung để phục vụ tra cứu sau khi được công bố, đồng thời cho phép quản trị viên theo dõi kết quả xử lý. |
+| **Tác nhân** | \- Quản trị viên hệ thống (System Administrator). \- Tác nhân hỗ trợ: Dịch vụ Embedding Provider. |
+| **Điều kiện tiên quyết** | Quản trị viên đã đăng nhập, tài khoản đang hoạt động và có quyền tải tài liệu lên hệ thống. |
+| **Kết quả** | \- Tài liệu hợp lệ được tiếp nhận và xử lý. Nếu xử lý thành công, tài liệu sẵn sàng để quản trị viên kiểm duyệt nhưng chưa được công bố. \- Nếu tải lên hoặc xử lý thất bại, hệ thống thông báo lý do phù hợp để quản trị viên biết và khắc phục. |
+| **Kịch bản chính** | 1\. Quản trị viên mở Quản lý tri thức, chọn Tải tài liệu và chọn tệp cần tải lên. 2\. Hệ thống kiểm tra quyền tải tài liệu, định dạng, nội dung cơ bản và dung lượng tối đa 10 MiB. 3\. Hệ thống tiếp nhận và lưu tài liệu an toàn. Chỉ người có quyền mới được truy cập tài liệu. 4\. Hệ thống thông báo đã tiếp nhận tài liệu và cho phép quản trị viên theo dõi tình trạng xử lý. 5\. Hệ thống bắt đầu xử lý tài liệu. Trong thời gian chờ, quản trị viên có thể tiếp tục sử dụng các chức năng khác. 6\. Hệ thống đọc nội dung tài liệu, trích xuất văn bản, chia đoạn(chunk) kèm số trang/thứ tự đoạn và sinh vector embedding, chuẩn bị cho việc tra cứu sau khi được công bố. 7\. Khi xử lý hoàn tất, hệ thống cập nhật tình trạng tài liệu để quản trị viên biết tài liệu đã được xử lý xong. Tài liệu chưa được tự động công bố. 8\. Quản trị viên xem kết quả xử lý trong danh sách hoặc trang chi tiết tài liệu. Việc công bố được thực hiện riêng qua UC-12; Use Case kết thúc. |
+| **Kịch bản phụ** | \- 2a. Tệp vượt quá dung lượng 10 MiB: hệ thống từ chối tiếp nhận và thông báo giới hạn dung lượng; quản trị viên quay lại bước 1 để chọn tệp khác. \- 2b. Tệp không thuộc định dạng được hỗ trợ hoặc nội dung không hợp lệ: hệ thống từ chối tiếp nhận và thông báo lý do; quản trị viên quay lại bước 1\. \- 3a. Không thể lưu tài liệu: hệ thống thông báo tải lên thất bại và không ghi nhận việc tải lên thành công. Quản trị viên có thể thử lại sau; nhánh kết thúc. \- 6a. Tài liệu PDF không có văn bản đọc được, chẳng hạn chỉ chứa ảnh quét: hệ thống thông báo hiện chưa hỗ trợ đọc chữ từ loại tài liệu này và đề nghị tải lên PDF dạng văn bản. Tài liệu không được công bố; nhánh kết thúc. \- 6b. Quá trình xử lý gặp lỗi tạm thời: hệ thống chờ một khoảng thời gian phù hợp rồi thử lại, với tổng số lần xử lý không quá 3 lần, kể cả lần đầu. Trong thời gian này, tài liệu vẫn được hiển thị là đang xử lý. Nếu thành công, tiếp tục bước 7; nếu hết số lần cho phép, hệ thống thông báo xử lý thất bại kèm lý do phù hợp. Việc thử lại không được ghi nhận trùng kết quả của cùng một lần tải lên. \- 5a hoặc 7a. Quá trình xử lý bị gián đoạn: hệ thống tự khôi phục và thử xử lý lại trong giới hạn cho phép. Chỉ kết quả hợp lệ được ghi nhận, tránh trùng lặp hoặc ghi đè kết quả mới. Nếu không thể hoàn tất, hệ thống thông báo xử lý thất bại để quản trị viên biết. |
+| **Ràng buộc phi chức năng** | \- Bảo mật: Chỉ tiếp nhận PDF dạng văn bản, TXT hoặc MD, dung lượng tối đa 10 MiB. Hệ thống kiểm tra loại và nội dung cơ bản của tệp, không thực thi tệp tải lên. Tài liệu được lưu an toàn và chỉ người có quyền mới được truy cập. \- Hiệu năng: Mục tiêu xử lý xong tài liệu PDF dạng văn bản khoảng 1 MiB trong 60 giây ở môi trường thử nghiệm chuẩn. Mức đáp ứng được xác nhận bằng kết quả kiểm thử thực tế. \- Quy tắc nghiệp vụ: Tài liệu xử lý xong vẫn chưa được công bố. Chỉ tài liệu đã xử lý thành công, đã công bố và chưa lưu trữ mới được sử dụng cho tra cứu và hỗ trợ AI. Việc công bố được thực hiện riêng qua UC-12. |
+
+### UC-12 — Công bố và lưu trữ tài liệu tri thức
+
+| Use case ID | UC-12 |
+| :---- | :---- |
+| **Tên Use Case** | Công bố và lưu trữ tài liệu tri thức |
+| **Tóm tắt** | Quản trị viên công bố tài liệu đã được xử lý thành công để phục vụ tra cứu và hỗ trợ AI. Khi tài liệu không còn phù hợp, quản trị viên lưu trữ tài liệu để ngừng sử dụng cho các tìm kiếm và yêu cầu AI mới. |
+| **Tác nhân** | Quản trị viên hệ thống (System Administrator). |
+| **Điều kiện tiên quyết** | \- Quản trị viên đã đăng nhập, tài khoản đang hoạt động và có quyền quản lý tài liệu. \- Tài liệu cần thao tác tồn tại trong hệ thống. Để công bố, tài liệu phải được xử lý thành công và chưa lưu trữ. Để lưu trữ, tài liệu phải chưa được lưu trữ trước đó. \- Hệ thống kiểm tra lại quyền và tình trạng tài liệu khi thực hiện thao tác. |
+| **Kết quả** | \- Công bố: Tài liệu được phép sử dụng cho tra cứu và hỗ trợ AI trong phạm vi quyền truy cập cho phép. \- Lưu trữ: Tài liệu ngừng xuất hiện trong các tìm kiếm và không được sử dụng cho các yêu cầu AI mới. Dữ liệu tài liệu và nội dung trích dẫn đã lưu trong lịch sử AI vẫn được giữ lại. |
+| **Kịch bản chính** | Luồng A — Công bố tài liệu \- A.1. Quản trị viên mở chi tiết tài liệu đã xử lý thành công để kiểm duyệt nội dung. \- A.2. Quản trị viên chọn Công bố tài liệu. \- A.3. Hệ thống kiểm tra quyền của quản trị viên và xác nhận tài liệu đã được xử lý thành công, chưa lưu trữ. \- A.4. Hệ thống ghi nhận việc công bố tài liệu, thời điểm công bố và người thực hiện. \- A.5. Hệ thống thông báo công bố thành công. Tài liệu bắt đầu được sử dụng cho tra cứu và hỗ trợ AI theo quyền truy cập cho phép; kết thúc luồng A. Luồng B — Lưu trữ tài liệu \- B.1. Quản trị viên chọn Lưu trữ đối với tài liệu cần ngừng sử dụng. \- B.2. Hệ thống hiển thị yêu cầu xác nhận; quản trị viên đồng ý lưu trữ. \- B.3. Hệ thống kiểm tra quyền của quản trị viên và xác nhận tài liệu chưa được lưu trữ. \- B.4. Hệ thống ghi nhận việc lưu trữ tài liệu, thời điểm lưu trữ và người thực hiện. Tài liệu ngừng được sử dụng cho các tìm kiếm và yêu cầu AI mới. \- B.5. Hệ thống thông báo lưu trữ thành công. Nội dung trích dẫn đã lưu trong lịch sử AI được giữ nguyên; kết thúc luồng B. |
+| **Kịch bản phụ** | \- A.3a. Tài liệu chưa được xử lý thành công hoặc đã được lưu trữ: hệ thống từ chối công bố và thông báo lý do; không thay đổi tài liệu; nhánh kết thúc. \- B.3a. Tài liệu đã được lưu trữ trước đó: hệ thống thông báo tình trạng hiện tại và không thực hiện lưu trữ lại; nhánh kết thúc. \- B.2a. Quản trị viên hủy xác nhận: hệ thống không thay đổi tài liệu; kết thúc luồng B. \- A.3b hoặc B.3b. Tài liệu không tồn tại hoặc không được phép truy cập: hệ thống thông báo không thể truy cập tài liệu; không thực hiện thao tác; nhánh kết thúc. \- A.3c hoặc B.3c. Người dùng chưa đăng nhập hoặc phiên làm việc đã hết hạn: hệ thống yêu cầu đăng nhập lại. Nếu tài khoản bị ngừng hoạt động hoặc không đủ quyền, hệ thống từ chối thao tác và thông báo phù hợp; nhánh kết thúc. \- A.4a hoặc B.4a. Có lỗi khi lưu thay đổi hoặc ghi nhật ký thao tác: hệ thống giữ nguyên tài liệu như trước khi thực hiện, không thông báo thành công và đề nghị quản trị viên thử lại sau; nhánh kết thúc. |
+| **Ràng buộc phi chức năng** | \- Phân quyền: Chỉ quản trị viên có tài khoản đang hoạt động được công bố hoặc lưu trữ tài liệu. Quyền được kiểm tra mỗi lần thực hiện thao tác. \- Nhật ký: Ghi nhận người thực hiện, thời điểm và thao tác công bố hoặc lưu trữ. Không ghi mật khẩu hoặc thông tin bí mật vào nhật ký. \- Quy tắc nghiệp vụ:   \+ Chỉ tài liệu đã xử lý thành công, đã công bố và chưa lưu trữ mới được sử dụng cho tra cứu và các yêu cầu AI mới.   \+ Giữ nguyên nội dung nguồn đã lưu kèm các gợi ý AI trước đó. Việc lưu trữ tài liệu không làm thay đổi lịch sử trích dẫn. \- Sau khi lưu trữ, tài liệu không còn xuất hiện trong các kết quả tìm kiếm mới. |
+
+### UC-13 — Tìm kiếm tri thức
+
+| Use case ID | UC-13 |
+| :---- | :---- |
+| **Tên Use Case** | Tìm kiếm tri thức |
+| **Tóm tắt** | Nhân viên hỗ trợ hoặc quản trị viên tìm kiếm tài liệu và các đoạn nội dung liên quan để tham khảo khi hỗ trợ khách hàng. Chỉ những tài liệu đã được công bố và được phép truy cập mới xuất hiện trong kết quả. |
+| **Tác nhân** | \- Nhân viên hỗ trợ (Support Agent), Quản trị viên (Admin). \- Tác nhân hỗ trợ: Dịch vụ Embedding Provider. |
+| **Điều kiện tiên quyết** | Người dùng đã đăng nhập, tài khoản đang hoạt động và có vai trò nhân viên hỗ trợ hoặc quản trị viên. |
+| **Kết quả** | \- Hệ thống hiển thị các tài liệu và đoạn nội dung phù hợp với yêu cầu tìm kiếm. Kết quả chỉ gồm tài liệu đã xử lý thành công, đã công bố, chưa lưu trữ và nằm trong phạm vi quyền truy cập. \- Nếu không có kết quả phù hợp, hệ thống thông báo để người dùng điều chỉnh nội dung tìm kiếm. \- Việc tìm kiếm và đọc không làm thay đổi nội dung tài liệu. |
+| **Kịch bản chính** | 1\. Nhân viên hỗ trợ hoặc quản trị viên mở chức năng Tìm kiếm tri thức. 2\. Người dùng nhập câu hỏi hoặc từ khóa và chọn Tìm kiếm. 3\. Hệ thống kiểm tra quyền truy cập, tình trạng tài khoản và nội dung tìm kiếm. 4\. Hệ thống xác định nội dung người dùng cần tìm từ câu hỏi hoặc từ khóa đã nhập. 5\. Hệ thống tìm trong các tài liệu đã xử lý thành công, đã công bố, chưa lưu trữ và được phép truy cập. Các kết quả phù hợp được sắp xếp theo mức độ liên quan. 6\. Hệ thống hiển thị danh sách kết quả gồm tên tài liệu, đoạn nội dung liên quan, nguồn tài liệu và số trang nếu có. 7\. Người dùng chọn một kết quả. Hệ thống kiểm tra lại quyền truy cập và tình trạng tài liệu trước khi hiển thị nội dung chi tiết. 8\. Người dùng đọc tài liệu; Use Case kết thúc. |
+| **Kịch bản phụ** | \- 3a. Người dùng chưa nhập nội dung hoặc nội dung tìm kiếm không hợp lệ: hệ thống thông báo và yêu cầu điều chỉnh; chưa thực hiện tìm kiếm; quay lại bước 2\. \- 3b. Người dùng chưa đăng nhập hoặc phiên làm việc đã hết hạn: hệ thống yêu cầu đăng nhập lại; nhánh kết thúc. \- 3c. Tài khoản bị ngừng hoạt động hoặc người dùng không có quyền sử dụng chức năng: hệ thống từ chối tìm kiếm và thông báo phù hợp; nhánh kết thúc. \- 4a. Chức năng tìm kiếm tạm thời bị gián đoạn hoặc không thể hoàn tất: hệ thống thông báo và đề nghị người dùng thử lại sau; không tạo kết quả giả để thay thế; nhánh kết thúc. \- 6a. Không tìm thấy nội dung phù hợp: hệ thống hiển thị “Không tìm thấy tài liệu phù hợp”. Người dùng có thể thay đổi câu hỏi hoặc từ khóa và quay lại bước 2\. \- 7a. Tài liệu đã được lưu trữ, ngừng công bố hoặc không còn đáp ứng điều kiện sử dụng sau khi kết quả tìm kiếm được hiển thị: hệ thống không hiển thị nội dung chi tiết, thông báo tài liệu không còn khả dụng và đề nghị tìm kiếm lại từ bước 2\. \- 7b. Tài liệu không còn tồn tại hoặc người dùng không còn quyền truy cập: hệ thống thông báo không thể truy cập tài liệu và không hiển thị nội dung; nhánh kết thúc. |
+| **Ràng buộc phi chức năng** | \- Phân quyền: Chỉ nhân viên hỗ trợ hoặc quản trị viên có tài khoản đang hoạt động được sử dụng chức năng. Quyền truy cập được kiểm tra khi tìm kiếm và khi mở tài liệu. \- Bảo vệ dữ liệu: Kiểm tra nội dung người dùng nhập để ngăn việc lợi dụng chức năng tìm kiếm nhằm truy cập hoặc thay đổi dữ liệu trái phép. \- Giao diện: Thể hiện rõ khi hệ thống đang tìm kiếm, không tìm thấy kết quả hoặc gặp lỗi. Thông báo dễ hiểu để người dùng điều chỉnh nội dung tìm kiếm hoặc thử lại. \- Quy tắc nghiệp vụ: Chỉ tài liệu đã xử lý thành công, đã công bố và chưa lưu trữ mới được đưa vào kết quả tìm kiếm. Hệ thống kiểm tra lại các điều kiện này trước khi hiển thị nội dung tài liệu được chọn. \- Tài liệu đã lưu trữ không xuất hiện trong các kết quả tìm kiếm mới. |
+
+### UC-14 — Tạo gợi ý câu trả lời bằng AI
+
+| Use case ID | UC-14 |
+| :---- | :---- |
+| **Tên Use Case** | Tạo gợi ý câu trả lời bằng AI |
+| **Tóm tắt** | Nhân viên được giao ticket hoặc Admin yêu cầu AI tạo gợi ý trả lời dựa trên hội thoại và kho tri thức. Gợi ý có nguồn để nhân viên kiểm tra trước khi sử dụng. |
+| **Tác nhân** | \- Tác nhân chính: Agent hiện được giao ticket, Admin. \- Tác nhân hỗ trợ: dịch vụ cung cấp mô hình AI bên ngoài khi sử dụng dịch vụ thật. |
+| **Điều kiện tiên quyết** | \- Người dùng đã đăng nhập, tài khoản đang hoạt động và có quyền xử lý yêu cầu hỗ trợ tương ứng. \- Yêu cầu hỗ trợ chưa được đóng. \- Dịch vụ AI đã được cấu hình và sẵn sàng sử dụng. \- Kho tri thức không bắt buộc phải có tài liệu phù hợp; nếu không tìm thấy thông tin đủ căn cứ, hệ thống sẽ xử lý theo kịch bản phụ. |
+| **Kết quả** | \- Thành công: Hệ thống lưu gợi ý đã tạo, bao gồm nội dung phản hồi, người yêu cầu, thời điểm tạo và bản lưu các đoạn tài liệu được sử dụng làm nguồn trích dẫn. \- Thiếu căn cứ: Hệ thống ghi nhận việc không đủ thông tin để đưa ra gợi ý, không tạo câu trả lời hoặc trích dẫn thiếu căn cứ. \- Xử lý thất bại: Nếu xảy ra sự cố sau khi yêu cầu đã được ghi nhận, hệ thống lưu trạng thái xử lý thất bại tương ứng. \- Ràng buộc: Việc tạo gợi ý không tự động gửi tin nhắn đến khách hàng, không thay đổi trạng thái hoặc người phụ trách yêu cầu hỗ trợ. |
+| **Kịch bản chính** | Luồng A \- Tạo gợi ý câu trả lời AI \- A.1. Người dùng mở ticket và chọn tạo gợi ý trả lời. \- A.2. Hệ thống kiểm tra quyền hiện tại, trạng thái ticket và lấy thông tin hội thoại cần thiết. Ghi chú nội bộ và dữ liệu nhạy cảm không cần thiết được loại khỏi ngữ cảnh gửi cho AI. \- A.3. Hệ thống tìm các đoạn tri thức phù hợp trong tài liệu đã xử lý xong, đã công bố và chưa lưu trữ. \- A.4. Khi có đủ căn cứ, hệ thống yêu cầu AI tạo câu trả lời dựa trên các đoạn đã tìm được. \- A.5. Hệ thống kiểm tra kết quả và bảo đảm các mã nguồn trích dẫn thuộc các đoạn đã cung cấp cho AI. \- A.6. Trước khi lưu và trả kết quả, hệ thống kiểm tra lại quyền, ngữ cảnh ticket và tính hợp lệ của các nguồn. \- A.7. Hệ thống lưu gợi ý cùng bản chụp nguồn, rồi hiển thị nội dung và các liên kết xem nguồn. Người dùng có thể chuyển sang UC-15 để kiểm duyệt hoặc UC-18 để xem lịch sử. |
+| **Kịch bản phụ** | \- A.2a. Người dùng chưa đăng nhập, tài khoản bị vô hiệu hóa hoặc không có quyền truy cập → Hệ thống từ chối yêu cầu và không cung cấp dữ liệu AI liên quan đến ticket. \- A.2b. Ticket đã được đóng → Hệ thống thông báo không thể tạo gợi ý mới; người dùng vẫn có thể xem lịch sử gợi ý đã lưu nếu có quyền truy cập. \- A.3a. Không tìm thấy tài liệu phù hợp hoặc không đủ căn cứ → Hệ thống thông báo không đủ thông tin để đưa ra gợi ý và không yêu cầu AI tạo câu trả lời thiếu căn cứ. \- A.4a. Dịch vụ AI phản hồi quá thời gian cho phép, vượt giới hạn sử dụng hoặc gặp sự cố → Hệ thống hiển thị thông báo phù hợp; nhân viên vẫn có thể soạn và gửi phản hồi thủ công. \- A.5a. Kết quả AI không đúng định dạng hoặc chứa thông tin trích dẫn không hợp lệ → Hệ thống không chấp nhận và không hiển thị kết quả đó như một gợi ý hợp lệ. \- A.6a. Ticket được chuyển cho nhân viên khác hoặc tài khoản người dùng bị vô hiệu hóa trong quá trình xử lý → Hệ thống kiểm tra lại quyền truy cập và từ chối yêu cầu nếu người dùng không còn đủ quyền. \- A.6b. Nội dung hội thoại hoặc thông tin ticket thay đổi trong quá trình tạo gợi ý → Hệ thống thông báo ngữ cảnh đã thay đổi và yêu cầu nhân viên tạo lại gợi ý dựa trên thông tin mới nhất. \- A.6c. Tài liệu nguồn bị lưu trữ hoặc không còn đủ điều kiện sử dụng trong quá trình xử lý → Hệ thống không chấp nhận kết quả làm gợi ý hợp lệ và thông báo nhân viên thử lại. \- A.7a. Hệ thống không thể lưu kết quả gợi ý → Hiển thị thông báo lỗi và không ghi nhận quá trình tạo gợi ý là thành công. |
+| **Ràng buộc phi chức năng** | \- Phải kiểm tra quyền truy cập hiện tại trước khi tạo, lưu và trả gợi ý; không để người không có quyền đọc dữ liệu của ticket. \- Dữ liệu cá nhân không cần thiết và thông tin bí mật phải được loại khỏi ngữ cảnh gửi cho dịch vụ AI; không gửi ghi chú nội bộ không cần thiết. \- Nội dung tài liệu nguồn phải được xử lý như dữ liệu tham khảo; các chỉ dẫn trong tài liệu không được khiến AI tự thực hiện hành động nội bộ hoặc tiết lộ thông tin bí mật. \- Khi dịch vụ AI lỗi hoặc quá thời gian chờ, các chức năng tạo, xử lý và trả lời ticket vẫn phải hoạt động bình thường; lỗi AI phải được thông báo rõ ràng. \- Khi dịch vụ AI ổn định, mục tiêu thời gian phản hồi ở phân vị 95 phải dưới 12 giây. \- Trên bộ đánh giá có ít nhất 30 câu hỏi kèm đáp án hoặc tài liệu tham chiếu, mục tiêu độ chính xác trích dẫn đạt ít nhất 90% ở nhóm có căn cứ và tỷ lệ từ chối trả lời thiếu căn cứ đạt ít nhất 80% ở nhóm không có căn cứ. |
+
+### UC-15 — Kiểm duyệt, chỉnh sửa và gửi phản hồi từ gợi ý AI
+
+| Use case ID | UC-15 |
+| :---- | :---- |
+| **Tên Use Case** | Kiểm duyệt, chỉnh sửa và gửi phản hồi từ gợi ý AI |
+| **Tóm tắt** | \- Nhân viên được giao ticket hoặc Admin đọc gợi ý và nguồn, có thể chỉnh sửa nội dung, rồi chủ động gửi phản hồi công khai cho Customer. \- Chức năng cũng cho phép bỏ một gợi ý chưa sử dụng. |
+| **Tác nhân** | Agent hiện được giao ticket, Admin. |
+| **Điều kiện tiên quyết** | \- Người dùng đã đăng nhập, tài khoản đang hoạt động và có quyền xử lý yêu cầu hỗ trợ tương ứng. \- Gợi ý thuộc đúng yêu cầu hỗ trợ và đã được tạo thành công, chưa bị loại bỏ hoặc gửi đi. \- Khi gửi phản hồi, yêu cầu hỗ trợ phải ở trạng thái cho phép trao đổi công khai. Hệ thống kiểm tra lại các điều kiện này tại thời điểm gửi. |
+| **Kết quả** | \- Gửi thành công: Hệ thống tạo một tin nhắn công khai duy nhất với nội dung đã được nhân viên kiểm tra, chỉnh sửa và xác nhận gửi. Đồng thời, gợi ý được ghi nhận là đã sử dụng. \- Bỏ gợi ý: Hệ thống ghi nhận gợi ý đã bị loại bỏ và không gửi bất kỳ tin nhắn nào đến khách hàng. \- Chỉ xem, chèn gợi ý vào bản nháp hoặc đóng ngăn AI: Hệ thống chưa ghi nhận gợi ý là đã sử dụng và giữ nguyên trạng thái đã tạo, chưa gửi. Việc đánh giá mức độ hữu ích của gợi ý được thực hiện độc lập trong UC-19. |
+| **Kịch bản chính** | Luồng A \- Kiểm duyệt và gửi phản hồi \- A.1. Người dùng mở gợi ý và xem các nguồn trích dẫn để kiểm tra tính chính xác của nội dung. \- A.2. Người dùng chọn chèn gợi ý vào ô soạn phản hồi công khai. Nếu ô soạn đã có nội dung, hệ thống yêu cầu xác nhận trước khi thay thế. \- A.3. Người dùng giữ nguyên hoặc chỉnh sửa nội dung bản nháp, sau đó chủ động chọn Gửi trả lời. \- A.4. Hệ thống kiểm tra lại quyền truy cập của người gửi, trạng thái hiện tại của ticket, tính hợp lệ của nội dung và tình trạng sử dụng của gợi ý. \- A.5. Hệ thống lưu một tin nhắn công khai với nội dung đã được nhân viên xác nhận và đồng thời ghi nhận gợi ý đã được sử dụng. Hai thao tác phải hoàn thành cùng nhau trước khi hệ thống hiển thị phản hồi đã gửi. Luồng B \- Bỏ gợi ý \- B.1. Người dùng chọn Bỏ gợi ý đối với gợi ý chưa được sử dụng. Hệ thống yêu cầu xác nhận, đồng thời thông báo rằng nội dung bản nháp sẽ được giữ nguyên và không có phản hồi nào được gửi. \- B.2. Người dùng xác nhận. Hệ thống kiểm tra lại quyền truy cập và tình trạng gợi ý, sau đó ghi nhận gợi ý đã bị loại bỏ và thông báo kết quả. Gợi ý vẫn được lưu trong lịch sử. \- B.3. Nếu gợi ý đã được chèn vào bản nháp, hệ thống giữ nguyên nội dung nhưng không cho phép tiếp tục gửi dưới hình thức sử dụng gợi ý đã loại bỏ. Người dùng phải chọn Tiếp tục soạn thủ công để kiểm tra và gửi nội dung như một phản hồi thông thường. Gợi ý vẫn được ghi nhận là đã bị loại bỏ. |
+| **Kịch bản phụ** | \- A.2a. Người dùng hủy xác nhận thay thế bản nháp → Hệ thống giữ nguyên nội dung đang soạn. \- A.2b. Người dùng đang soạn ghi chú nội bộ → Hệ thống yêu cầu chuyển sang ô soạn phản hồi công khai trước khi chèn gợi ý, không tự động đưa gợi ý vào ghi chú nội bộ. \- A.3a. Nội dung phản hồi rỗng hoặc không hợp lệ → Hệ thống hiển thị thông báo lỗi và giữ nguyên bản nháp để người dùng chỉnh sửa. \- A.4a hoặc B.2a. Người dùng không còn quyền xử lý ticket hoặc tài khoản đã bị vô hiệu hóa → Hệ thống từ chối thao tác và không cung cấp thông tin vượt quá quyền truy cập của người dùng. \- A.4b. Ticket đã được giải quyết → Hệ thống yêu cầu khách hàng mở lại ticket trước khi tiếp tục trao đổi. Nếu ticket đã đóng, hệ thống không cho phép gửi thêm phản hồi. \- A.4c. Thông tin ticket hoặc nội dung hội thoại thay đổi trong quá trình kiểm duyệt → Hệ thống yêu cầu tải lại thông tin và kiểm tra bản nháp trước khi gửi. \- A.4d hoặc B.2b. Gợi ý thuộc ticket khác, đã được sử dụng hoặc đã bị loại bỏ → Hệ thống từ chối thao tác và không cho phép gửi phản hồi dưới hình thức sử dụng gợi ý không còn hợp lệ. \- A.5a. Có nhiều yêu cầu gửi phản hồi hoặc thao tác gửi và bỏ gợi ý diễn ra đồng thời → Hệ thống chỉ chấp nhận một thao tác hợp lệ, bảo đảm không tạo tin nhắn trùng lặp. \- A.5b. Quá trình lưu phản hồi gặp sự cố → Hệ thống bảo đảm việc lưu tin nhắn và ghi nhận gợi ý đã được sử dụng phải cùng thành công hoặc cùng không được áp dụng. Bản nháp được giữ nguyên và người dùng nhận được thông báo lỗi. \- A.5c. Người dùng không nhận được xác nhận sau khi gửi → Hệ thống kiểm tra lại kết quả xử lý trước khi cho phép thử lại nhằm tránh gửi trùng phản hồi. \- B.1a. Người dùng hủy xác nhận bỏ gợi ý → Hệ thống giữ nguyên gợi ý và nội dung bản nháp, cho phép người dùng tiếp tục kiểm duyệt. \- B.2c. Hệ thống không thể lưu thao tác bỏ gợi ý → Trạng thái gợi ý được giữ nguyên như trước khi thực hiện và hệ thống hiển thị thông báo lỗi. |
+| **Ràng buộc phi chức năng** | \- Phải kiểm tra lại quyền xử lý ticket tại thời điểm gửi phản hồi hoặc bỏ gợi ý; người không còn quyền phải bị từ chối thao tác. \- Tin nhắn công khai và trạng thái đã sử dụng của gợi ý phải được lưu đầy đủ cùng nhau; thao tác lặp hoặc đồng thời không được tạo tin nhắn trùng. \- Khi lưu thất bại, hệ thống phải giữ bản nháp, thông báo lỗi rõ ràng và không hiển thị kết quả thành công khi dữ liệu chưa được lưu. \- Với thao tác ghi thông thường, mục tiêu thời gian phản hồi ở phân vị 95 phải dưới 800 mili giây khi có 20 người dùng đồng thời. |
+
+### UC-17 — Xem thống kê ticket (P1)
+
+| Use case ID | UC-17 |
+| :---- | :---- |
+| **Tên Use Case** | Xem thống kê ticket (P1) |
+| **Tóm tắt** | Admin xem tổng số ticket theo trạng thái và người phụ trách để nắm tình hình xử lý yêu cầu. |
+| **Tác nhân** | Admin. |
+| **Điều kiện tiên quyết** | \- Admin đã đăng nhập và tài khoản đang hoạt động. \- Chức năng thống kê được cung cấp. \- Hệ thống có thể chưa có ticket. |
+| **Kết quả** | Hiển thị số lượng ticket theo trạng thái và người phụ trách, kèm thời điểm lấy dữ liệu; hoặc hiển thị trạng thái rỗng/lỗi. Việc xem thống kê không làm thay đổi ticket. |
+| **Kịch bản chính** | Luồng A \- Xem thống kê ticket \- A.1. Quản trị viên mở chức năng Thống kê ticket. \- A.2. Hệ thống kiểm tra quyền truy cập của quản trị viên và truy xuất dữ liệu ticket phục vụ thống kê. \- A.3. Hệ thống thống kê số lượng ticket theo từng trạng thái: chưa tiếp nhận, đang xử lý, đang chờ khách hàng phản hồi, đã giải quyết và đã đóng. \- A.4. Hệ thống thống kê số lượng ticket theo nhân viên phụ trách hiện tại. Các ticket chưa được phân công được tính vào một nhóm riêng. Ticket vẫn được thống kê ngay cả khi tài khoản của nhân viên phụ trách đã bị vô hiệu hóa. \- A.5. Hệ thống hiển thị kết quả dưới dạng bảng hoặc biểu đồ, kèm theo thời điểm lấy dữ liệu để quản trị viên theo dõi. |
+| **Kịch bản phụ** | \- A.2a. Chưa đăng nhập, tài khoản bị vô hiệu hóa hoặc không có quyền Admin → từ chối truy cập, không trả số liệu. \- A.3a. Chưa có ticket → hiển thị số 0 và thông báo chưa có dữ liệu. \- A.3b. Không lấy được số liệu → thông báo lỗi và cho phép tải lại; không dùng số 0 thay cho dữ liệu lỗi. |
+| **Ràng buộc phi chức năng** | \- Chỉ quản trị viên có quyền mới được truy cập số liệu thống kê; phải kiểm tra quyền trước khi trả dữ liệu. \- Số liệu phải nhất quán trên cùng phạm vi dữ liệu; tổng các nhóm trong mỗi bảng phải bằng tổng số ticket được thống kê. \- Nhãn thống kê và thời điểm lấy dữ liệu phải được hiển thị rõ ràng; giao diện phải phân biệt trạng thái đang tải, không có dữ liệu và lỗi lấy dữ liệu. |
+
+### UC-18 — Xem lịch sử gợi ý AI
+
+| Use case ID | UC-18 |
+| :---- | :---- |
+| **Tên Use Case** | Xem lịch sử gợi ý AI |
+| **Tóm tắt** | Nhân viên được giao ticket hoặc Admin xem lại các lần tạo gợi ý, nội dung đã lưu và bản chụp nguồn trích dẫn. |
+| **Tác nhân** | Agent hiện được giao ticket, Admin. |
+| **Điều kiện tiên quyết** | \- Người dùng đã đăng nhập, tài khoản đang hoạt động và hiện có quyền xem dữ liệu AI của ticket. \- Quyền được xác định theo người phụ trách hiện tại, không theo người từng tạo gợi ý. \- Có thể xem lịch sử trên ticket đã đóng nếu vẫn có quyền; ticket cũng có thể chưa có gợi ý nào. |
+| **Kết quả** | Hiển thị danh sách và chi tiết các lần tạo gợi ý được phép truy cập, kể cả kết quả thiếu căn cứ hoặc thất bại. Việc xem không tạo gợi ý mới, gửi tin nhắn hay thay đổi ticket và trạng thái gợi ý. |
+| **Kịch bản chính** | Luồng A \- Xem lịch sử gợi ý AI \- A.1. Người dùng mở ticket và chọn chức năng Lịch sử gợi ý AI. \- A.2. Hệ thống kiểm tra quyền truy cập hiện tại của người dùng trước khi truy xuất và hiển thị dữ liệu. \- A.3. Hệ thống hiển thị danh sách các lần tạo gợi ý theo thứ tự thời gian, bao gồm tình trạng xử lý, người yêu cầu và thời điểm tạo. \- A.4. Người dùng chọn một lần tạo gợi ý để xem nội dung hoặc kết quả đã lưu. Hệ thống chỉ hiển thị thông tin có sẵn, không tạo lại câu trả lời khi xem lịch sử. \- A.5. Nếu gợi ý có nguồn trích dẫn, người dùng có thể xem lại bản lưu các đoạn tài liệu được sử dụng tại thời điểm tạo. Hệ thống kiểm tra quyền truy cập trước khi hiển thị nội dung. \- A.6. Người dùng quay lại danh sách hoặc kết thúc thao tác. Những gợi ý đã tạo thành công và chưa được sử dụng hoặc loại bỏ có thể tiếp tục được kiểm duyệt theo UC-15. Khi chức năng đánh giá được triển khai, nhân viên có thể đánh giá các gợi ý đủ điều kiện theo UC-19. |
+| **Kịch bản phụ** | \- A.2a. Chưa đăng nhập, tài khoản bị vô hiệu hóa hoặc không còn được giao ticket → từ chối truy cập và không hiển thị dữ liệu ngoài quyền. \- A.3a. Chưa có lần tạo nào → hiển thị lịch sử trống. \- A.3b. Tải danh sách thất bại → thông báo lỗi và cho phép thử lại; không tạo lại gợi ý để thay thế lịch sử. \- A.4a. Lần tạo đã thất bại hoặc thiếu căn cứ → hiển thị kết quả tương ứng, không trình bày như một câu trả lời có thể gửi. \- A.4b. Không tìm thấy gợi ý hoặc gợi ý không thuộc ticket đang xem → thông báo không thể truy cập; không mở dữ liệu của ticket khác. \- A.5a. Tài liệu nguồn đã bị lưu trữ → vẫn cho xem bản chụp đã lưu theo quyền ticket; không tự cấp quyền tải tài liệu gốc. \- A.5b. Không tải được bản chụp → thông báo lỗi và cho phép thử lại; không thay thế bằng nội dung tài liệu mới. \- A.4c hoặc A.5c. Quyền thay đổi trong khi đang xem → dừng trả thêm dữ liệu, ẩn nội dung không còn được phép và thông báo cho người dùng. |
+| **Ràng buộc phi chức năng** | \- Phải kiểm tra quyền truy cập ticket hiện tại trước khi trả danh sách, chi tiết gợi ý hoặc bản chụp nguồn; việc từng tạo gợi ý không tự cấp quyền xem lịch sử. \- Nội dung gợi ý và bản chụp nguồn phải được giữ nguyên theo dữ liệu đã lưu, không tự thay bằng nội dung tài liệu mới khi xem lại. \- Nhật ký hệ thống phải hỗ trợ truy vết yêu cầu nhưng không được ghi mật khẩu, thông tin xác thực hoặc dữ liệu bí mật. \- Giao diện phải thể hiện rõ các trạng thái đang tải, lịch sử trống, lỗi và mất quyền truy cập; không tiếp tục hiển thị dữ liệu ngoài quyền. \- Với thao tác đọc thông thường, mục tiêu thời gian phản hồi ở phân vị 95 phải dưới 800 mili giây khi có 20 người dùng đồng thời. |
+
+### UC-19 — Đánh giá gợi ý AI hữu ích hoặc không hữu ích
+
+| Use case ID | UC-19 |
+| :---- | :---- |
+| **Tên Use Case** | Đánh giá gợi ý AI hữu ích hoặc không hữu ích |
+| **Tóm tắt** | \- Agent đánh giá mức hữu ích của một gợi ý đã đọc bằng một trong hai lựa chọn Hữu ích hoặc Không hữu ích. \- Thao tác này độc lập với việc gửi phản hồi cho Customer. |
+| **Tác nhân** | Agent hiện được giao ticket. |
+| **Điều kiện tiên quyết** | \- Nhân viên hỗ trợ đã đăng nhập, tài khoản đang hoạt động và có quyền truy cập yêu cầu hỗ trợ tương ứng. \- Chức năng đánh giá mức độ hữu ích của gợi ý AI đã được triển khai và sẵn sàng sử dụng. \- Gợi ý thuộc đúng yêu cầu hỗ trợ, có nội dung phản hồi và đã được tạo thành công hoặc đã được sử dụng để gửi phản hồi. |
+| **Kết quả** | Lưu lựa chọn hiện hành của Agent đối với gợi ý. Mỗi cặp nhân viên–gợi ý có một đánh giá hiện hành; nhân viên được đổi lựa chọn của chính mình. Đánh giá không sửa nội dung hoặc nguồn, không đổi trạng thái gợi ý, gửi tin nhắn hay thay đổi ticket. |
+| **Kịch bản chính** | Luồng A \- Đánh giá gợi ý AI \- A.1. Agent mở gợi ý hiện tại hoặc chọn một gợi ý từ lịch sử. \- A.2. Agent đọc nội dung, kiểm tra nguồn nếu cần và chọn Hữu ích hoặc Không hữu ích. \- A.3. Hệ thống kiểm tra danh tính, quyền hiện tại, liên kết gợi ý với ticket và điều kiện được đánh giá. \- A.4. Hệ thống lưu mới hoặc cập nhật lựa chọn hiện hành của chính Agent đối với gợi ý đó. \- A.5. Khi lưu thành công, giao diện hiển thị lựa chọn đã lưu. Agent có thể chọn mức còn lại để thay đổi đánh giá. |
+| **Kịch bản phụ** | \- A.3a. Chưa đăng nhập, tài khoản bị vô hiệu hóa hoặc không còn được giao ticket → từ chối thao tác, không lưu đánh giá. \- A.3b. Customer hoặc Admin yêu cầu đánh giá → từ chối vì thao tác này dành cho Agent. \- A.3c. Gợi ý không tồn tại hoặc không thuộc ticket → từ chối, không gắn đánh giá sang ticket khác. \- A.3d. Gợi ý thất bại, không có đủ bằng chứng hoặc bị loại bỏ → không cung cấp thao tác đánh giá cho lần tạo này. \- A.3e. Lựa chọn không thuộc Hữu ích/Không hữu ích → báo dữ liệu không hợp lệ và không lưu. \- A.4a. Agent chọn lại cùng một mức hoặc gửi trùng yêu cầu → giữ một đánh giá hiện hành, không tăng số phiếu. \- A.4b. Agent đổi mức đánh giá → cập nhật lựa chọn của chính người đó; không sửa đánh giá của người khác. \- A.4c. Lưu thất bại → hiển thị lỗi và cho phép thử lại; không báo đã lưu, không làm mất đánh giá đã lưu trước đó. |
+| **Ràng buộc phi chức năng** | \- Phải kiểm tra quyền của nhân viên đang được giao ticket tại thời điểm lưu đánh giá; người không còn quyền phải bị từ chối thao tác. \- Mỗi cặp nhân viên và gợi ý chỉ có một đánh giá hiện hành; yêu cầu lặp không được làm tăng số phiếu và việc đổi lựa chọn không được sửa đánh giá của người khác. \- Giao diện phải phân biệt rõ trạng thái chưa đánh giá, đang lưu, đã lưu và lỗi; khi lưu thất bại phải giữ lựa chọn đã lưu trước đó và không báo thành công. \- Với thao tác ghi thông thường, mục tiêu thời gian phản hồi ở phân vị 95 phải dưới 800 mili giây khi có 20 người dùng đồng thời. |
 
 ---
 
@@ -405,7 +562,7 @@ stateDiagram-v2
 | NFR-MAIN-01 | Maintainability | Cấu trúc module rõ, migration versioned, API docs, reviewer khác author cho PR chính |
 | NFR-TEST-01 | Testing | Test tự động cho workflow, RBAC, concurrency, retrieval filter; CI phải pass trước merge |
 | NFR-DEPLOY-01 | Reproducibility | Docker Compose + `.env.example` + seed data + README chạy demo trên máy mới |
-| NFR-PRIV-01 | Privacy | Dữ liệu demo giả lập; loại bỏ PII không cần thiết trước LLM; công bố nếu dùng provider ngoài |
+| NFR-PRIV-01 | Privacy | Dữ liệu demo giả lập; loại bỏ PII không cần thiết, ghi chú nội bộ và bí mật hệ thống trước LLM; công bố nếu dùng provider ngoài |
 | NFR-UX-01 | Usability | UI responsive desktop/mobile; loading/error/empty states rõ; mỗi tác vụ chính có phản hồi dễ hiểu |
 
 **Cách đo:** Ghi rõ commit, phiên bản image, CPU/RAM, dữ liệu seed, cấu hình DB, 5 phút warm-up và 5 phút đo cho benchmark; lưu raw logs, ảnh chụp và số liệu. Không tự ghi “đạt” nếu chưa đo.
@@ -1180,7 +1337,7 @@ Theo dõi tiến độ theo owner, deadline, đầu ra và blocker; không yêu 
 
 | Thời gian | Cột mốc | Công việc và deliverables | Exit gate |
 |---|---|---|---|
-| 03–12/11 | Template 1 | 17 UC, 41 FR/30 story, NFR, 6 sơ đồ, mockup Figma 151 frames, review chéo, render và gói nộp | Draft Freeze 23:59 07/11; review chéo 23:59 08/11; nộp Markdown T1-DOC-MD 23:59 10/11; nộp bài 23:59 12/11 |
+| 03–12/11 | Template 1 | 19 UC (16 P0, 3 P1), 41 FR/30 story, 19 NFR, 6 sơ đồ, mockup Figma 229 frames, review chéo, render và gói nộp | Draft Freeze 23:59 07/11; review chéo 23:59 08/11; nộp Markdown T1-DOC-MD 23:59 10/11; nộp bài 23:59 12/11 |
 | 11–12/11 | Foundation & Technical Baseline | Spring Boot 3, Docker pgvector, CI, schema V1–V5, OpenAPI contract DTOs, Embedding decision | Khung chạy, schema V1-V5 chốt 12/11, contract dùng chung |
 | 12–15/11 | Identity P0 | Auth JWT, token, RBAC, profile, Agent management và UI | Test Identity; principal thật cho lát cắt Ticket 15/11 |
 | 13–17/11 | Ticket P0 | Create/list, claim concurrency 409, messages, transitions, audit và UI | Ticket E2E thật; ownership/concurrency/version tests |
@@ -1537,8 +1694,8 @@ Bảng bên dưới gom các FR của Mục 4 thành các dòng "Nhu cầu / Yê
 | US-13 | Là nhân viên được giao ticket, tôi muốn trao đổi công khai với khách hàng. | Gửi phản hồi công khai trên ticket được giao. | FR-TK-06, UC-08 | P0 |
 | US-14 | Là nhân viên được giao ticket, tôi muốn ghi chú nội bộ. | Ghi chú nội bộ chỉ Agent được giao và Admin thấy. | FR-TK-07, BR-08, UC-08 | P0 |
 | US-15 | Là nhân viên được giao ticket, tôi muốn cập nhật trạng thái và mức ưu tiên. | Yêu cầu thêm thông tin, đánh dấu đã giải quyết; đặt ưu tiên LOW/NORMAL/HIGH; chuyển trạng thái theo quy trình, từ chối chuyển không hợp lệ. | FR-TK-08, UC-09 | P0 |
-| US-16 | Là nhân viên hoặc quản trị viên, tôi muốn xem lịch sử xử lý ticket. | Xem sự kiện nhận, phân công, đổi trạng thái (ai, lúc nào, làm gì). | FR-TK-09, UC-10 | P0 |
-| US-17 | Là người dùng, tôi muốn tìm và lọc ticket nhanh. | Lọc theo trạng thái, người phụ trách, ngày tạo; phân trang và sắp xếp. | FR-TK-10, UC-06 | P0 |
+| US-16 | Là nhân viên hoặc quản trị viên, tôi muốn xem lịch sử xử lý ticket. | Xem sự kiện nhận, phân công, đổi trạng thái (ai, lúc nào, làm gì). | FR-TK-10, UC-10 | P0 |
+| US-17 | Là người dùng, tôi muốn tìm và lọc ticket nhanh. | Lọc theo trạng thái, người phụ trách, ngày tạo; phân trang và sắp xếp. | FR-TK-03, UC-06 | P0 |
 | US-18 | Là quản trị viên, tôi muốn đưa tài liệu chính sách vào kho tri thức. | Tải lên PDF văn bản, TXT, MD (≤ 10 MiB); hệ thống kiểm tra file và tạo tác vụ xử lý nền. | FR-KB-01/02, UC-11 | P0 |
 | US-19 | Là quản trị viên, tôi muốn biết tài liệu đã xử lý xong hay lỗi. | Theo dõi trạng thái UPLOADED/PROCESSING/READY/FAILED; thử lại có giới hạn khi lỗi. | FR-KB-03/04/05/09, UC-11 | P0 |
 | US-20 | Là quản trị viên, tôi muốn kiểm duyệt tài liệu trước khi AI được dùng. | Công bố tài liệu READY; lưu trữ (archive) tài liệu để AI không dùng nữa. | FR-KB-06/08, UC-12 | P0 |
@@ -1551,7 +1708,7 @@ Bảng bên dưới gom các FR của Mục 4 thành các dòng "Nhu cầu / Yê
 | US-27 | Là người dùng quên mật khẩu, tôi muốn đặt lại mật khẩu. | Đặt lại mật khẩu qua token dùng một lần có thời hạn. | FR-ID-09, UC-16 | P1 |
 | US-28 | Là quản trị viên, tôi muốn xem thống kê tổng quan. | Dashboard số ticket theo trạng thái và theo nhân viên. | FR-TK-12, UC-17 | P1 |
 | US-29 | Là khách hàng, tôi muốn đính kèm tệp vào ticket. | Tải tệp đính kèm có giới hạn và kiểm tra quyền tải xuống. | FR-TK-11 | P1 |
-| US-30 | Là nhân viên, tôi muốn đánh giá chất lượng gợi ý của AI. | Đánh giá hữu ích/không hữu ích và thống kê chất lượng. | FR-AI-10 | P1 |
+| US-30 | Là nhân viên, tôi muốn đánh giá chất lượng gợi ý của AI. | Agent được giao đánh giá GENERATED/APPLIED là Hữu ích/Không hữu ích; một đánh giá hiện hành cho mỗi cặp Agent–gợi ý, được đổi lựa chọn; không có dashboard chất lượng AI. | FR-AI-10 | P1 |
 
 **Các quy định liên quan (tóm tắt từ Mục 5):**
 

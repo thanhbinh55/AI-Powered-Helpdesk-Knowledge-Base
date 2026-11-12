@@ -4,6 +4,8 @@
 
 Hoàn tất 01/11/2026, rà soát và sửa 03/11/2026: **34 nhóm màn chính, 229 frame**, gồm các trạng thái phụ, overlay và 5 mẫu Dark. File Figma **SE**; chọn flow trên từng page `Redesign v2 / …` để xem prototype.
 
+> Số lượng theo module trong bảng dưới là snapshot ngày 03/11/2026 (33 nhóm, 151 frame), được giữ để đối soát các audit cũ. Tổng hiện hành là 34 nhóm, 229 frames và 82 flow points theo [Report.pdf](../../reports/template1/report/Report.pdf); bảng này chưa phân bổ lại số frame mới theo module.
+
 | Module | Nhóm chính | Tổng frame | Page Figma | Audit |
 | --- | ---: | ---: | --- | --- |
 | Agent | 10 | 41 | `54:1987` | [Đạt](kiem-tra/redesign-v2-agent-audit.json) |
@@ -36,7 +38,7 @@ Các mục điều hướng khác page, đăng nhập tới workspace và đăng
 
 ## Inventory
 
-Mỗi module có bảng đầy đủ; **chính** là một trong 33 nhóm đã chốt. Ảnh chụp ngày 03/11/2026, sau đợt rà soát.
+Các bảng theo module bên dưới giữ nhãn **chính** và ảnh của snapshot ngày 03/11/2026 để đối soát. Danh mục ảnh dùng trong bản final nằm tại [Mục 5 Template 1](../../reports/template1/05-prototype-mockup.md).
 
 ### Agent
 

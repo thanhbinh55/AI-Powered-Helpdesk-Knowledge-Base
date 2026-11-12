@@ -190,4 +190,6 @@ Xem [bàn giao](../../docs/design/README.md) để biết luồng nào đã nố
 
 ## Màn hình v2 đã bàn giao
 
+Baseline báo cáo hiện hành ngày 12/11/2026: **34 nhóm màn hình chính, 229 frames và 82 flow points**, theo [Report.pdf](../../reports/template1/report/Report.pdf). Report sử dụng 31 ảnh UI; xem [prototype đồng bộ](../../reports/template1/05-prototype-mockup.md). Đoạn dưới ghi lịch sử phiên bản trước, không phải tổng số của bản final.
+
 Ngày 01/11/2026 hoàn tất 33 nhóm màn chính trên 5 page v2, có 5 mẫu Dark; sau rà soát ngày 03/11/2026 có 151 frame. [Bảng ảnh và phạm vi prototype](../../docs/design/man-hinh.md), [manifest](../../docs/design/figma-map.json), [audit cuối](../../docs/design/kiem-tra/redesign-v2-final-audit.json). Bộ biến, styles và cây Components giữ nguyên qua readback trong lượt dựng màn.

@@ -2,6 +2,8 @@
 
 > Baseline rà soát 03/11/2026. Chỉ phản ánh bằng chứng trong repo, chưa kiểm tra Jira/Docs/Figma/cổng. Không mặc định thành viên chưa làm ở nơi khác. Owner cập nhật trạng thái/link thật khi nhận task; bảng này không thay trạng thái Jira.
 
+> Nội dung yêu cầu hiện hành đã chốt theo [Report.pdf](../template1/report/Report.pdf) ngày 12/11/2026: 41 FR, 19 NFR, 19 UC; prototype 34 nhóm màn hình, 229 frames và 82 flow points. Các trạng thái xác minh dưới đây là hồ sơ điều phối theo mốc ghi trên bảng, không phải kết luận về bản final hay việc đã nộp bài.
+
 Nguồn: [task cards](../../TASK_PLAYBOOK_TEMPLATE1.md), [kế hoạch](../../PLAN_TEMPLATE1_AND_DEVELOPMENT.md), [CSV](../../scripts/jira/tasks_template1.csv).
 
 ## 1. Thông tin cần xác nhận trước khi phân công được coi là cam kết
@@ -32,7 +34,7 @@ Mỗi thành viên chỉ cần xác nhận đã hiểu phạm vi, đầu ra, dea
 | Nhóm | Bằng chứng hiện thấy | Owner bổ sung | Cách đóng mục |
 |---|---|---|---|
 | Template 1 | Có file khung; chưa đủ UC chi tiết, SVG/drawio/mockup/link thật | DOC owners; Lãm tổng hợp | PR reviewer approve, artifact thật và kiểm tra trực quan |
-| Soạn thảo Google Docs & Mockup | Soạn thảo trực tiếp trên Google Docs nhóm; mockup Figma 151 frames sẵn sàng | Từng owner; Quý Phúc tổng hợp | Draft Freeze 23:59 07/11; Review chéo 23:59 08/11; Markdown T1-DOC-MD 23:59 10/11 |
+| Soạn thảo Google Docs & Mockup | Soạn thảo trực tiếp trên Google Docs nhóm; mockup final 34 nhóm màn hình, 229 frames, 82 flow points | Từng owner; Quý Phúc tổng hợp | Draft Freeze 23:59 07/11; Review chéo 23:59 08/11; Markdown T1-DOC-MD 23:59 10/11 |
 | Backend/schema/CI/API contract chạy thật | Có thiết kế/README; chưa có nghiệm thu ứng dụng | DEV/CONTRACT/SCHEMA/CI owners | Log chạy/PR/test theo các gate 11–24/11 |
 | Source provider/model và chất lượng AI | DEC-06 OPEN; chưa có kết quả live/evaluation | Lãm + Quý Phúc | Decision 12/11, smoke 21/11, evaluation 26/11–02/12 |
 | Gói nộp/biên nhận Template 1 | Chưa có gói đã duyệt/biên nhận được xác minh | Lãm → Gia Phúc → Bình | PUB và SUBMIT 23:59 12/11 |

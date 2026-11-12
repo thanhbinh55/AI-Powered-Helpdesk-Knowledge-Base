@@ -2,6 +2,8 @@
 
 > Cập nhật 03/11/2026. Đây là thiết kế cần cài đặt và kiểm chứng, không phải báo cáo tính năng đã chạy. Yêu cầu nghiệp vụ và ID chuẩn ở [SRS-master.md](SRS-master.md); lịch và phân công ở [kế hoạch](../PLAN_TEMPLATE1_AND_DEVELOPMENT.md). P1 vẫn có đặc tả nhưng chưa nằm trong cam kết code trước 22/11.
 
+> Đồng bộ nghiệp vụ ngày 12/11/2026 theo [Report.pdf](template1/report/Report.pdf) và [report.md](template1/report/report.md). UC-18 (lịch sử gợi ý) là P0; UC-16/17/19 là P1. FR-AI-10 chỉ lưu/đổi đánh giá Hữu ích/Không hữu ích, không có dashboard chất lượng AI.
+
 ## 1. Chủ sở hữu và cách thay đổi contract
 
 | Phạm vi | Người thực hiện chính | Người phối hợp / review |

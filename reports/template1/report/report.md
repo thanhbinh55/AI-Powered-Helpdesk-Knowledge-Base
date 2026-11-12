@@ -239,7 +239,7 @@ Các chỉ tiêu hiệu năng và chất lượng cần được đánh giá b�
 
 **Hình 3.1  Ranh giới hệ thống và các tác nhân bên ngoài**
 
-Worker, cơ sở dữ liệu và private storage là thành phần nội bộ, không phải actor ngoài ranh giới toàn hệ thống.
+Sơ đồ bối cảnh thể hiện phạm vi P0. Dịch vụ Email phục vụ đặt lại mật khẩu thuộc P1 nên chưa được thể hiện trong hình; tương tác này được mô tả tại UC-16 và sơ đồ Use Case Module Định danh và phân quyền. Worker, cơ sở dữ liệu và private storage là các thành phần nội bộ của hệ thống.
 
 <a id="3.2-danh-sách-yêu-cầu"></a>
 
@@ -279,8 +279,8 @@ Các chức năng được nhóm theo nghiệp vụ. Những chức năng ghi �
 |  |  | FR–KB–02 | \- Hệ thống kiểm tra định dạng, phần mở rộng, nội dung cơ bản và dung lượng tối đa 10 MiB cho mỗi tệp. \- Khi tải lên thành công, hệ thống lưu tệp, thông tin mô tả và tạo công việc xử lý nền. Việc xử lý tài liệu được thực hiện sau đó, không gọi mô hình AI trong lúc tiếp nhận tệp. |
 |  |  Trích xuất và lập chỉ mục | FR–KB–03 | \- Hệ thống trích xuất văn bản từ các tài liệu được hỗ trợ. Nếu PDF chỉ chứa ảnh quét và không có lớp văn bản, hệ thống thông báo xử lý thất bại do chưa hỗ trợ loại tài liệu này. |
 |  |  | FR–KB–04 | \- Văn bản được chia thành các đoạn nhỏ, kèm thông tin số trang khi có và thứ tự đoạn để xác định vị trí nguồn. \- Mỗi đoạn được chuyển thành một dãy số biểu diễn ý nghĩa, theo số chiều đã cấu hình, phục vụ tìm kiếm nội dung liên quan. |
-|  | Theo dõi và xử lý lỗi | FR–KB–05 | \- Quản trị viên xem danh sách tài liệu có phân trang và theo dõi tiến độ qua các trạng thái “Đã tải lên”, “Đang xử lý”, “Sẵn sàng” hoặc “Thất bại”. \- Khi xảy ra lỗi có thể khắc phục, hệ thống thử lại trong giới hạn cho phép. Thông báo lỗi phải dễ hiểu và không tiết lộ thông tin kỹ thuật nhạy cảm. |
-|  |  | FR–KB–09 | \- Quản trị viên xem danh sách tài liệu có phân trang. \- Mỗi tài liệu hiển thị trạng thái xử lý hiện tại để quản trị viên theo dõi tiến độ. |
+|  | Theo dõi và xử lý lỗi | FR–KB–05 | \- Quản trị viên theo dõi tiến trình xử lý của từng tài liệu qua các trạng thái “Đã tải lên”, “Đang xử lý”, “Sẵn sàng” hoặc “Thất bại”. \- Khi gặp lỗi tạm thời, hệ thống tự thử lại với tổng số lần xử lý không quá 3, kể cả lần đầu. Nếu vẫn thất bại, hệ thống hiển thị lý do phù hợp, không tiết lộ thông tin kỹ thuật nhạy cảm. |
+|  | Xem danh mục tài liệu | FR–KB–09 | Quản trị viên xem danh sách tài liệu có phân trang và mở chi tiết từng tài liệu. Danh sách hiển thị tên tài liệu, thời điểm tải lên, trạng thái xử lý và tình trạng công bố/lưu trữ. |
 | **3\. Cơ sở tri thức** |  Công bố tài liệu | FR–KB–06 | \- Quản trị viên công bố tài liệu để đưa vào sử dụng. |
 |  |  |  | \- Chỉ được công bố khi tài liệu đã xử lý thành công và ở trạng thái “Sẵn sàng”; tải lên thành công không đồng nghĩa với đã công bố. |
 |  | Tìm kiếm tri thức | FR–KB–07 | \- Nhân viên và quản trị viên tìm kiếm tài liệu hoặc các đoạn nội dung liên quan trong kho tri thức. \- Chỉ hiển thị kết quả thuộc phạm vi được phép truy cập, đã xử lý thành công, đã công bố và chưa được đưa vào lưu trữ. |
@@ -296,7 +296,7 @@ Các chức năng được nhóm theo nghiệp vụ. Những chức năng ghi �
 |  | Kiểm duyệt và gửi phản hồi | FR–AI–07 | \- Nhân viên phụ trách hoặc quản trị viên đọc bản nháp, đối chiếu nguồn và chỉnh sửa khi cần trước khi chủ động gửi. \- Gợi ý AI không tự gửi cho khách hàng. Chỉ nội dung đã được người có quyền duyệt và chọn gửi mới trở thành tin nhắn công khai. |
 |  | Lưu lịch sử gợi ý | FR–AI–08 | \- Hệ thống lưu người yêu cầu, yêu cầu hỗ trợ liên quan, mô hình AI sử dụng, thời điểm tạo, nội dung gợi ý, trạng thái xử lý và các nguồn trích dẫn. \- Lịch sử cho phép đối chiếu yêu cầu tạo gợi ý với kết quả và nguồn đã sử dụng; không lưu khóa truy cập dịch vụ AI. |
 |  | Giới hạn và xử lý sự cố | FR–AI–09 | \- Hệ thống giới hạn số lần yêu cầu tạo gợi ý và thời gian chờ dịch vụ AI. \- Khi dịch vụ AI gặp lỗi, hết hạn mức hoặc phản hồi quá chậm, hệ thống thông báo rõ tình trạng. Các chức năng tạo, xử lý và trả lời yêu cầu hỗ trợ vẫn hoạt động bình thường. |
-|  | Đánh giá gợi ý (mở rộng) | FR–AI–10 | \- Nhân viên đánh giá gợi ý AI là hữu ích hoặc không hữu ích trong giai đoạn mở rộng. \- Hệ thống tổng hợp đánh giá và hiển thị các thống kê phục vụ theo dõi chất lượng gợi ý. |
+|  | Đánh giá gợi ý (mở rộng) | FR–AI–10 | \- Nhân viên đang được phân công ticket đánh giá gợi ý AI là Hữu ích hoặc Không hữu ích trong giai đoạn mở rộng (P1). Chỉ cho phép đánh giá gợi ý ở trạng thái GENERATED hoặc APPLIED. Mỗi cặp nhân viên-gợi ý chỉ có một đánh giá hiện hành; nhân viên có thể thay đổi lựa chọn của chính mình. Việc đánh giá không gửi phản hồi, thay đổi ticket hoặc trạng thái gợi ý. |
 
 <a id="3.2.2-đặc-tả-yêu-cầu-phi-chức-năng"></a>
 
@@ -436,8 +436,8 @@ Mỗi bảng gồm 9 trường. Luồng A/B/C là các luồng độc lập; nh�
 | **Tác nhân** | Quản trị viên hệ thống (System Administrator). |
 | **Điều kiện tiên quyết** | Admin đã xác thực, tài khoản enabled và có quyền quản lý Agent. |
 | **Kết quả** | Tài khoản Agent được tạo hoặc cập nhật enabled. Agent bị vô hiệu hóa không thể đăng nhập, làm mới phiên hoặc thực hiện các yêu cầu có xác thực tiếp theo, kể cả khi Access Token cũ chưa hết hạn. |
-| **Kịch bản chính** | Luồng A \- Tạo Agent \- A.1. Admin mở Quản trị người dùng; hệ thống hiển thị danh sách Agent và trạng thái. \- A.2. Admin chọn Thêm nhân viên, nhập họ tên, email và mật khẩu khởi tạo. \- A.3. Hệ thống kiểm tra thông tin, tạo tài khoản với vai trò Agent. \- A.4. Hệ thống lưu tài khoản, cập nhật danh sách; kết thúc luồng A. Luồng B \- Vô hiệu hóa \- B.1. Admin chọn một Agent đang hoạt động và yêu cầu vô hiệu hóa. \- B.2. Admin xác nhận yêu cầu. \- B.3. Hệ thống vô hiệu hóa tài khoản, chặn đăng nhập và các truy cập tiếp theo. \- B.4. Hệ thống cập nhật trạng thái tài khoản; kết thúc luồng B. Luồng C \- Kích hoạt lại \- C.1. Admin chọn Agent đã bị vô hiệu hóa. \- C.2. Admin yêu cầu kích hoạt lại tài khoản. \- C.3. Hệ thống kích hoạt tài khoản và thông báo thành công; kết thúc luồng C. |
-| **Kịch bản phụ** | \- A.1a. Người dùng không có quyền quản trị hoặc phiên làm việc hết hạn: Hệ thống từ chối truy cập, không hiển thị danh sách người dùng và chuyển về trang thông báo lỗi phân quyền. \- A.3a. Email đã tồn tại hoặc thông tin không hợp lệ: Hệ thống hiển thị thông báo lỗi, không tạo tài khoản và yêu cầu nhập lại thông tin. \- A.4a. Lỗi lưu dữ liệu (Tạo mới, Vô hiệu hóa hoặc Kích hoạt lại thất bại): Hệ thống hủy thao tác, giữ nguyên trạng thái tài khoản ban đầu và hiển thị thông báo "Không thể lưu thay đổi do sự cố hệ thống, vui lòng thử lại sau". \- B.2a. Admin hủy yêu cầu vô hiệu hóa: Hệ thống đóng hộp thoại xác nhận và giữ nguyên trạng thái tài khoản. |
+| **Kịch bản chính** | Luồng A \- Tạo Agent \- A.1. Admin mở Quản trị người dùng; hệ thống hiển thị danh sách Agent và trạng thái. \- A.2. Admin chọn Thêm nhân viên, nhập họ tên, email và mật khẩu khởi tạo. \- A.3. Hệ thống kiểm tra thông tin, tạo tài khoản với vai trò Agent. \- A.4. Hệ thống lưu tài khoản, cập nhật danh sách; kết thúc luồng A. Luồng B \- Vô hiệu hóa \- B.1. Admin chọn một Agent đang hoạt động và yêu cầu vô hiệu hóa. \- B.2. Admin xác nhận yêu cầu. \- B.3. Hệ thống vô hiệu hóa tài khoản, chặn đăng nhập và các truy cập tiếp theo. \- B.4. Hệ thống cập nhật trạng thái tài khoản; kết thúc luồng B. Luồng C \- Kích hoạt lại \- C.1. Admin chọn Agent đã bị vô hiệu hóa. \- C.2. Admin yêu cầu kích hoạt lại tài khoản. \- C.3. Hệ thống lưu trạng thái kích hoạt lại tài khoản và thông báo thành công; kết thúc luồng C. |
+| **Kịch bản phụ** | \- A.1a. Người dùng không có quyền quản trị hoặc phiên làm việc hết hạn: Hệ thống từ chối truy cập, không hiển thị danh sách người dùng và chuyển về trang thông báo lỗi phân quyền. \- A.3a. Email đã tồn tại hoặc thông tin không hợp lệ: Hệ thống hiển thị thông báo lỗi, không tạo tài khoản và yêu cầu nhập lại thông tin. \- A.4a, B.3a hoặc C.3a. Không lưu được thay đổi: Hệ thống hủy các thay đổi của thao tác và thông báo thất bại, cho phép thử lại. Nếu tạo mới thất bại, không tạo tài khoản Agent. Nếu vô hiệu hóa hoặc kích hoạt lại thất bại, giữ nguyên trạng thái tài khoản trước thao tác. \- B.2a. Admin hủy yêu cầu vô hiệu hóa: Hệ thống đóng hộp thoại xác nhận và giữ nguyên trạng thái tài khoản. |
 | **Ràng buộc phi chức năng** | \- Bảo đảm chỉ Admin được truy cập chức năng quản lý Agent. \- Không lưu hoặc ghi nhật ký mật khẩu khởi tạo dưới dạng nguyên bản. \- Các chức năng quản trị phải được kiểm thử phân quyền và truy cập trái phép. |
 
 <a id="4.2.5-đặt-lại-mật-khẩu-[uc-16]"></a>
@@ -669,7 +669,7 @@ Mỗi bảng gồm 9 trường. Luồng A/B/C là các luồng độc lập; nh�
 
 # **5 Bản mẫu (Prototype)**
 
-Bộ giao diện tham chiếu: Quiet Workspace, Redesign v2; 34 nhóm màn hình chính, 229 frames và 82 flow points theo danh mục thiết kế. Light/Dark Mode và responsive là định hướng thiết kế; các hành vi tương tác phải tuân thủ quyền và workflow ở Mục 4\.
+Bộ giao diện tham chiếu: Redesign v2; 34 nhóm màn hình chính, 229 frames và 82 flow points theo danh mục thiết kế. Light/Dark Mode và responsive là định hướng thiết kế; các hành vi tương tác phải tuân thủ quyền và workflow ở Mục 4\.
 
 [Mở thiết kế Figma chính thức \- Node 49:58](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev)
 

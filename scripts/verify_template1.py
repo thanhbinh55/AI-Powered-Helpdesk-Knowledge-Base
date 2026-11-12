@@ -21,9 +21,15 @@ T1=package.T1
 
 
 def check_static():
-    raw=(T1/'sources/template1-final-original.md').read_text()
+    raw=package.report_source_path().read_text()
     report=(T1/'report/report.md').read_text()
     assert package.content_fingerprint(raw)==package.content_fingerprint(report),'Report wording differs'
+    baseline=json.loads((T1/'sources/report-baseline.json').read_text())
+    assert package.sha((T1/baseline['authority']).read_bytes())==baseline['pdf_sha256'],'PDF baseline changed; review the new PDF first'
+    assert package.sha(package.report_source_path().read_bytes())==baseline['markdown_sha256'],'Reviewed transcription changed'
+    from report_sync import working_documents
+    for path, expected in working_documents(T1,report).items():
+        assert path.read_text()==expected, f'Working document is stale: {path}'
     assert 'data:image' not in report and '[image' not in report
     assets=json.loads((T1/'report/assets/manifest.json').read_text())
     assert len(assets)==37 and len(set(x['asset'] for x in assets))==37

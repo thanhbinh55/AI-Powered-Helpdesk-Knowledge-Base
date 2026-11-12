@@ -4,12 +4,13 @@
 > **Nhóm thực hiện:** Group 04  
 > **Trưởng nhóm (Project Manager & DevOps):** Ngô Viết Thanh Bình (MSSV: `24120269`)  
 > **Thời gian áp dụng:** 03/11/2026 – 24/11/2026; **chốt và nộp Template 1 lúc 23:59 ngày 12/11/2026**; **bắt đầu code ngày 11/11/2026**, **chốt MVP P0 lúc 23:59 ngày 24/11/2026**; Template 2 Thiết kế phần mềm (bắt đầu 11/11/2026, nộp trước 28/11/2026); Template 3 Kiểm thử phần mềm (diễn ra SAU MVP từ 25/11/2026 đến 12/12/2026).  
-> **Tài liệu tham chiếu chuẩn:** [reports/SRS-master.md](reports/SRS-master.md) (v1.1) & [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md)  
+> **Nguồn yêu cầu final:** [Report.pdf](reports/template1/report/Report.pdf), bản chữ [report.md](reports/template1/report/report.md).
+> **Tài liệu tham chiếu kỹ thuật:** [reports/SRS-master.md](reports/SRS-master.md) (v1.1) & [reports/MVP_CONTRACTS.md](reports/MVP_CONTRACTS.md)
 > **Tài liệu soạn thảo nhóm (Google Docs):** [NMCNPM - Clarune - 04 (Google Docs làm việc chung)](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.p8jvgjthj2me)  
 > **Kho bài mẫu tham khảo khóa K23 (Google Drive):** [Thư mục Template tham khảo K23 (Katling, Planora,...)](https://drive.google.com/drive/folders/1Vk7wPTVLxhoxhTLnqAhIQlQxfslToMGU?usp=sharing)  
-> **Bộ 6 Sơ đồ UML chuẩn (`.drawio`, `.svg`, `.png` tông Trắng - Đen):** Đã dựng sẵn tại [reports/template1/assets/diagrams/](reports/template1/assets/diagrams/) để các thành viên tham khảo, chỉnh sửa và chèn trực tiếp vào báo cáo.  
-> **Bản thiết kế giao diện Figma (Redesign v2):** [SE – Figma (Node 49:58)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev) · [Danh mục 151 frames](docs/design/man-hinh.md) · [Mục 5 Template 1](reports/template1/05-prototype-mockup.md)  
-> *LƯU Ý: Đây là tài liệu duy nhất và toàn diện nhất của nhóm, tích hợp toàn bộ Quy chế vận hành (Team Guide), Sổ tay nhận việc từng cá nhân (Playbook), Tư liệu mẫu đặc tả Template 1, Bộ 6 sơ đồ UML, Baseline kỹ thuật mã nguồn và Danh mục Backlog Tasks. Mọi thành viên chỉ cần mở duy nhất file này để tra cứu và thực thi.*
+> **Bộ 6 Sơ đồ UML chuẩn (`.drawio`, `.svg`, `.png` tông Trắng - Đen):** Đã dựng sẵn tại [reports/template1/report/assets/diagrams/](reports/template1/report/assets/diagrams/) theo bản final.
+> **Bản thiết kế giao diện Figma (Redesign v2):** [SE – Figma (Node 49:58)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev) · [Danh mục 229 frames](docs/design/man-hinh.md) · [Mục 5 Template 1](reports/template1/05-prototype-mockup.md)
+> *LƯU Ý: Đây là tài liệu duy nhất và toàn diện nhất của nhóm, tích hợp toàn bộ Quy chế vận hành (Team Guide), Sổ tay nhận việc từng cá nhân (Playbook), Tư liệu mẫu đặc tả Template 1, Bộ 6 sơ đồ UML, Baseline kỹ thuật mã nguồn và Danh mục Backlog Tasks. Dùng tài liệu này để điều phối; nội dung yêu cầu final tra tại Report.pdf và các mục Markdown đã đồng bộ.*
 
 ---
 
@@ -73,8 +74,8 @@ flowchart LR
 
 1. **Giai đoạn 1 (03/11 – 07/11): Soạn thảo & Đóng băng bản nháp trực tiếp trên Google Docs**
    - Link tài liệu làm việc chung: **[[SE - Nhóm 4] template1 - Google Tài liệu](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0)** (đã dựng sẵn cấu trúc đề mục từ Mục 1 đến Mục 5 theo mẫu chuẩn của Khoa).
-   - Từng thành viên viết nội dung phần việc của mình trực tiếp trên Google Docs (Mô tả bài toán, Stakeholders, NFR, ma trận 41 FR / 30 User Stories, 17 Use Cases).
-   - **Tư nguyên thiết kế UI đã có sẵn (Baseline):** Lê Quý Phúc đã dựng sẵn bộ khung thiết kế chuẩn Redesign v2 gồm 151 màn hình / 33 nhóm chính tại [Figma SE (Redesign v2)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev) và trích xuất PNG tại `docs/design/anh/`. **Bộ khung này đóng vai trò là baseline chuẩn chung; các thành viên chủ động rà soát, kế thừa và có toàn quyền tinh chỉnh, bổ sung màn hình/trạng thái** trên Figma cho khớp chính xác với nghiệp vụ và kịch bản Use Case của module mình.
+   - Từng thành viên viết nội dung phần việc của mình trực tiếp trên Google Docs (Mô tả bài toán, Stakeholders, NFR, ma trận 41 FR / 30 User Stories, 19 Use Cases).
+   - **Tư nguyên thiết kế UI đã có sẵn (Baseline):** Lê Quý Phúc đã dựng sẵn bộ khung thiết kế chuẩn Redesign v2 gồm 229 frames / 34 nhóm chính tại [Figma SE (Redesign v2)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev) và trích xuất PNG tại `docs/design/anh/`. **Bộ khung này đóng vai trò là baseline chuẩn chung; các thành viên chủ động rà soát, kế thừa và có toàn quyền tinh chỉnh, bổ sung màn hình/trạng thái** trên Figma cho khớp chính xác với nghiệp vụ và kịch bản Use Case của module mình.
    - Các thành viên sử dụng tính năng **Comment** và chế độ **Suggesting** để nhận xét, chỉnh sửa câu chữ, phản biện các kịch bản Use Case của nhau một cách trực quan, nhanh chóng mà không gây áp lực về cú pháp Markdown.
    - Sơ đồ Use Case được phác thảo và thống nhất các quan hệ include/extend trước khi xuất file đồ họa `.drawio` và `.svg`.
    - **Đóng băng bản nháp (Draft Freeze):** lúc **23:59 ngày 07/11/2026** trên Google Docs.
@@ -121,16 +122,20 @@ flowchart LR
 | **04.2** | Đặc tả 5 UCs Phân hệ Định danh (Identity) | [`reports/template1/04-dac-ta-use-cases/04.2-module-D-identity.md`](reports/template1/04-dac-ta-use-cases/04.2-module-D-identity.md) | `assets/diagrams/uc-module-D.svg` | **Ngô Viết Thanh Bình** | `T1-DOC-04` |
 | **04.2** | Đặc tả 6 UCs Phân hệ Quản lý Ticket | [`reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md`](reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md) | `assets/diagrams/uc-module-C.svg` | **Phan Gia Phúc** | `T1-DOC-05` |
 | **04.2** | Đặc tả 3 UCs Phân hệ Cơ sở tri thức (KB) | [`reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md`](reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md) | `assets/diagrams/uc-module-B.svg` | **Nguyễn Đức Lãm** | `T1-DOC-06` |
-| **04.2** | Đặc tả 2 UCs Phân hệ Trợ lý AI | [`reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md`](reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md) | `assets/diagrams/uc-module-A.svg` | **Lê Quý Phúc** | `T1-DOC-07` |
+| **04.2** | Đặc tả 4 UCs Phân hệ Trợ lý AI (UC-14, 15, 18, 19) | [`reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md`](reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md) | `assets/diagrams/uc-module-A.svg` | **Lê Quý Phúc** | `T1-DOC-07` |
 | **04.2** | Đặc tả UC-17 Thống kê Ticket (Analytics P1) | [`reports/template1/04-dac-ta-use-cases/04.2-uc-17-analytics.md`](reports/template1/04-dac-ta-use-cases/04.2-uc-17-analytics.md) | Mockup frames Analytics | **Lê Quý Phúc** | `T1-DOC-07` |
-| **05** | Thiết kế Giao diện mẫu (Prototype & Mockup) | [`reports/template1/05-prototype-mockup.md`](reports/template1/05-prototype-mockup.md) | 33 nhóm UI Figma v2 (`docs/design/anh/`) | **Lê Quý Phúc** (Tổng hợp cả nhóm) | `T1-UI-01` |
+| **05** | Thiết kế Giao diện mẫu (Prototype & Mockup) | [`reports/template1/05-prototype-mockup.md`](reports/template1/05-prototype-mockup.md) | 34 nhóm UI Figma v2 (`docs/design/anh/`) | **Lê Quý Phúc** (Tổng hợp cả nhóm) | `T1-UI-01` |
 | **06** | Nhật ký sử dụng AI Template 1 | [`reports/template1/06-ai-usage.md`](reports/template1/06-ai-usage.md) | Minh chứng phiên prompt | **Cả 4 thành viên** (Lãm PUB rà soát) | `T1-DOC-*` |
 | **Inputs**| Biên bản bàn giao & đối soát cá nhân | `reports/template1/inputs/{binh,gia-phuc,lam,quy-phuc}.md` | Check-off checklist | **Từng cá nhân tương ứng** | `T1-DOC-MD` |
 
-   - Mỗi thành viên tạo nhánh riêng (`docs/t1-<module>-<tên_bạn>`), commit file `.md` và file `.svg` của mình kèm mã Jira `SCRUM-xx`, mở Pull Request lên GitHub trước **23:59 ngày 10/11/2026**.
+   - Mỗi thành viên tạo nhánh riêng (`docs/t1-<module>-<tên_bạn>`), chuyển đổi chính xác phần nội dung mình phụ trách từ Google Docs sang file Markdown (`.md`) tương ứng và mở Pull Request lên GitHub.
+   - **Quy tắc chuyển đổi nội dung bắt buộc:**
+     1. **Giữ nguyên 100% nội dung đã chốt:** Chuyển đúng nội dung từ Google Docs sang Markdown, tuyệt đối **không tự ý thay đổi câu chữ, kịch bản hay số liệu** đã qua thống nhất và review chéo.
+     2. **LƯU Ý VỀ HÌNH ẢNH / SƠ ĐỒ / MOCKUP:** Những phần nào có hình ảnh thì thành viên **chỉ cần ghi tiêu đề của ảnh** (ví dụ: `Hình 4.xx [Tên sơ đồ]`, `Hình 5.xx [Tên màn hình]`) đúng theo vị trí trên Google Docs; **KHÔNG CẦN chèn đường dẫn ảnh hay tải file ảnh lên**. Trưởng nhóm (Ngô Viết Thanh Bình) sẽ tự thêm ảnh thật vào mã Markdown tổng hợp sau.
+     3. **Nhật ký sử dụng AI:** Bất kỳ thành viên nào có dùng AI hỗ trợ viết tài liệu/tạo prompt bắt buộc ghi nhận vào [`reports/template1/06-ai-usage.md`](reports/template1/06-ai-usage.md) theo chuẩn 2 bước.
    - Từng thành viên hoàn tất cập nhật biên bản bàn giao tại `reports/template1/inputs/<tên>.md` làm căn cứ nghiệm thu bàn giao (Task `T1-DOC-MD`).
    - Nhờ tách file hoàn toàn, **tỷ lệ xung đột merge conflict là 0%**, và commit của từng thành viên hiển thị chính xác 100% trong `git log` để Giảng viên chấm điểm cá nhân.
-   - **Ngày 11/11/2026:** Rà soát kỹ thuật, ghép nối tổng thể các file Markdown. Khởi động mã nguồn MVP P0 và Template 2.
+   - **Ngày 11/11/2026:** Rà soát kỹ thuật, Trưởng nhóm ghép nối tổng thể các file Markdown và nhúng toàn bộ hình ảnh thật. Khởi động mã nguồn MVP P0 và Template 2.
    - **Ngày 12/11/2026 (trước 23:59):** Trưởng nhóm chạy lệnh ghép nối tự động các file thành file tổng `reports/submit/01-requirements-analysis.md`, render ra bản HTML/PDF khổ A4 chuẩn Word và nộp bài chính thức.
 
 ### 1.2. Chính sách bắt buộc ghi nhật ký AI Usage cho Template 1
@@ -242,7 +247,7 @@ gantt
 ### Bảng tóm tắt các cột mốc bắt buộc:
 | Cột mốc | Thời hạn chót | Mục tiêu & Tiêu chí nghiệm thu (Exit Criteria) |
 | :---: | :---: | :--- |
-| **Mốc 1** | **23:59 ngày 07/11/2026** | **Đóng băng bản nháp (Draft Freeze) Template 1:** Toàn bộ 17 Use Cases, 41 FRs, 30 User Stories, Stakeholders, NFR và liên kết Figma prototype đã được hoàn thành đầy đủ trên Google Docs. |
+| **Mốc 1** | **23:59 ngày 07/11/2026** | **Đóng băng bản nháp (Draft Freeze) Template 1:** Toàn bộ 19 Use Cases, 41 FRs, 30 User Stories, Stakeholders, NFR và liên kết Figma prototype đã được hoàn thành đầy đủ trên Google Docs. |
 | **Mốc 2** | **23:59 ngày 08/11/2026** | **Hoàn tất Review chéo xoay vòng:** 100% nội dung Use Cases và sơ đồ được các cặp thành viên review, comment góp ý trực tiếp trên Google Docs. |
 | **Mốc 3** | **23:59 ngày 10/11/2026** | **Task T1-DOC-MD — Hoàn tất chuyển đổi & nộp Markdown, SVG:** 4 thành viên hoàn tất sửa chữa sau review chéo, chuyển nội dung sang `.md`, xuất sơ đồ `.svg`, mở PR có mã Jira `SCRUM-xx` và cập nhật biên bản bàn giao tại `reports/template1/inputs/`. |
 | **Mốc 4** | **23:59 ngày 11/11/2026** | **Khởi động Code MVP P0 & Template 2:** Bắt đầu dựng Scaffolding Spring Boot 3, Docker pgvector (`T1-DEV-01`); bắt đầu soạn Mô hình quan niệm và Kiến trúc Template 2 (`T2-MODEL-01`, `T2-ARCH-01`). Ghép nối kỹ thuật Template 1. |
@@ -375,7 +380,7 @@ gantt
 > - `reports/template1/02-mo-ta-bai-toan.md` (Bối cảnh, phát biểu bài toán, mục tiêu đo được, môi trường vận hành)
 > - `reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md` (Đặc tả 2 UCs Module Trợ lý AI: UC-14, UC-15)
 > - `reports/template1/04-dac-ta-use-cases/04.2-uc-17-analytics.md` (Đặc tả UC-17 Thống kê Ticket P1)
-> - `reports/template1/05-prototype-mockup.md` (Ma trận 33 nhóm UI Figma v2, liên kết Figma và ảnh PNG)
+> - `reports/template1/05-prototype-mockup.md` (Ma trận 34 nhóm UI Figma v2, liên kết Figma và ảnh PNG)
 > - `reports/template1/assets/diagrams/uc-module-A.svg` (.drawio + .svg)
 > - `reports/template1/inputs/quy-phuc.md` (Biên bản đối soát & nghiệm thu cá nhân)
 > - `reports/template1/06-ai-usage.md` (Cập nhật nếu có sử dụng AI)
@@ -1114,9 +1119,9 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 **Owner:** Quý Phúc. **Reviewer:** Gia Phúc; Lãm kiểm tra gói. **Bắt đầu:** 03/11/2026. **Hạn task:** 2026-11-10.
 
-**Đọc trước:** [reports/template1/05-prototype-mockup.md](reports/template1/05-prototype-mockup.md) — ma trận màn hình; [docs/design/man-hinh.md](docs/design/man-hinh.md) — 151 frames chi tiết; [design-system/helpdesk-workspace/MASTER.md](design-system/helpdesk-workspace/MASTER.md) — tokens & components; [Google Docs nhóm](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0).
+**Đọc trước:** [reports/template1/05-prototype-mockup.md](reports/template1/05-prototype-mockup.md) — ma trận màn hình; [docs/design/man-hinh.md](docs/design/man-hinh.md) — 229 frames chi tiết; [design-system/helpdesk-workspace/MASTER.md](design-system/helpdesk-workspace/MASTER.md) — tokens & components; [Google Docs nhóm](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0).
 
-**BẮT ĐẦU:** Thiết kế Redesign v2 đã hoàn thành 100% trước hạn (151 frames / 33 nhóm chính). Tập trung hoàn thiện tài liệu Mục 5 và hỗ trợ nhóm ánh xạ Use Case.
+**BẮT ĐẦU:** Thiết kế Redesign v2 đã hoàn thành 100% trước hạn (229 frames / 34 nhóm chính). Tập trung hoàn thiện tài liệu Mục 5 và hỗ trợ nhóm ánh xạ Use Case.
 
 1. Đã hoàn thành bộ thiết kế Redesign v2 trên Figma SE: [Figma Node 49:58](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev), xuất trọn bộ 151 ảnh PNG tại `docs/design/anh/`. Đảm bảo quyền chia sẻ link là "Anyone with the link can view".
 2. Hỗ trợ 3 owner lấy đúng Node ID và ảnh PNG ánh xạ vào các Use Case UC-01..17 trong `docs/design/man-hinh.md`; rà soát đầy đủ loading/error/empty/disabled và các trạng thái máy ticket theo SRS.
@@ -1124,7 +1129,7 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 **Đầu ra:** `reports/template1/05-prototype-mockup.md; link Figma SE; bộ 151 ảnh PNG tại docs/design/anh/; Google Docs Mục 5`.
 
-**CHỐT / DoD:** Ma trận 33 nhóm màn hình / 151 frames đầy đủ, link view Figma hoạt động với tài khoản ngoài nhóm, và reviewer approve trước 23:59 10/11. Nếu có sử dụng AI: ghi nhận nhật ký phiên vào [reports/template1/06-ai-usage.md](reports/template1/06-ai-usage.md) theo Mục 1.2.
+**CHỐT / DoD:** Ma trận 34 nhóm màn hình / 229 frames đầy đủ, link view Figma hoạt động với tài khoản ngoài nhóm, và reviewer approve trước 23:59 10/11. Nếu có sử dụng AI: ghi nhận nhật ký phiên vào [reports/template1/06-ai-usage.md](reports/template1/06-ai-usage.md) theo Mục 1.2.
 
 **Ai chờ kết quả:** Lãm PUB để ghép/render; Gia Phúc kiểm tra độc lập.
 
@@ -1275,341 +1280,60 @@ Tất cả thành viên khi thực hiện nhiệm vụ bắt buộc phải mở 
 
 ## 5. KẾ HOẠCH CHI TIẾT LUỒNG 1: BIÊN SOẠN TÀI LIỆU TEMPLATE 1 & TƯ LIỆU MẪU
 
-Tài liệu được thiết kế theo đúng quy chuẩn mẫu giáo trình môn học HCMUS (Khoa CNTT - ĐHQG-HCM) và cấu trúc chuẩn của hai bài mẫu đạt điểm xuất sắc `Group03 (Katling)` và `Group06 (Planora)`.
+Baseline nội dung ngày 12/11/2026 là [Report.pdf](reports/template1/report/Report.pdf), đối chiếu trong [report.md](reports/template1/report/report.md). Bản master và các mục 01–05 được tạo lại từ nguồn final; không dùng bản khung cũ làm đặc tả triển khai.
 
-### 5.1. Danh mục 19 Use Cases chuẩn hóa theo SRS-master & Clarune Docs
-Thay vì tự ý chia nhỏ vụn vặt làm mất tính nguyên tử của Use Case hoặc tự vẽ thêm module không có thực, toàn bộ hệ thống bám sát **chính xác 17 Use Cases** được định nghĩa chính thức tại **Mục 3.3 của [reports/SRS-master.md](reports/SRS-master.md)** (gồm 15 Use Cases cốt lõi P0 và 2 Use Cases mở rộng P1), tương ứng trực tiếp với 30 User Stories trong Phụ lục D và 30 Functional Requirements trong Mục 4:
+### 5.1. Danh mục 19 Use Cases chuẩn hóa theo Report.pdf
 
-| Module | Mã Use Case | Tên Use Case | Tác nhân chính (Actors) | Mức độ | Người phụ trách | Dẫn chiếu SRS |
-| :---: | :---: | :--- | :--- | :---: | :---: | :---: |
-| **Phân hệ Định danh & Phân quyền** | **UC-01** | Đăng ký & Đăng nhập | Guest, User | P0 | Ngô Viết Thanh Bình | FR-ID-01..03, US-01..02 |
-| | **UC-02** | Làm mới phiên & Đăng xuất | Authenticated User | P0 | Ngô Viết Thanh Bình | FR-ID-04..05, US-03 |
-| | **UC-03** | Quản lý hồ sơ cá nhân & Đổi mật khẩu | Authenticated User | P0 | Ngô Viết Thanh Bình | FR-ID-06, US-04 |
-| | **UC-04** | Quản lý nhân viên hỗ trợ | Admin | P0 | Ngô Viết Thanh Bình | FR-ID-08, US-05 |
-| | **UC-16** | Đặt lại mật khẩu qua email | Guest, User | P1 | Ngô Viết Thanh Bình | FR-ID-09, US-27 |
-| **Phân hệ Quản lý ticket** | **UC-05** | Tạo ticket mới | Customer | P0 | Phan Gia Phúc | FR-TK-01, US-07 |
-| | **UC-06** | Xem danh sách & Chi tiết ticket | Customer, Agent, Admin | P0 | Phan Gia Phúc | FR-TK-02..03, 10; US-08, 17 |
-| | **UC-07** | Nhận & Phân công ticket | Agent, Admin | P0 | Phan Gia Phúc | FR-TK-04..05, US-11..12 |
-| | **UC-08** | Gửi trao đổi công khai & Ghi chú nội bộ | Customer, Agent, Admin | P0 | Phan Gia Phúc | FR-TK-06..07; US-09, 13..14 |
-| | **UC-09** | Chuyển trạng thái ticket | Customer, Agent, Admin | P0 | Phan Gia Phúc | FR-TK-08, US-10, 15 |
-| | **UC-10** | Xem lịch sử sự kiện ticket | Agent, Admin | P0 | Phan Gia Phúc | FR-TK-09, US-16 |
-| | **UC-18** | Xem lịch sử gợi ý AI | Agent, Admin | P0 | Lê Quý Phúc | FR-AI-08, US-23 |
-| | **UC-19** | Đánh giá gợi ý AI hữu ích (P1) | Agent | P1 | Lê Quý Phúc | FR-AI-07, US-30 |
-| | **UC-17** | Xem thống kê ticket | Admin | P1 | Phan Gia Phúc | FR-TK-12, US-28 |
-| **Phân hệ Cơ sở tri thức** | **UC-11** | Tải lên & Xử lý tài liệu | Admin, System Worker | P0 | Nguyễn Đức Lãm | FR-KB-01..05, 09; US-18..19 |
-| | **UC-12** | Công bố & Lưu trữ tài liệu | Admin | P0 | Nguyễn Đức Lãm | FR-KB-06, 08; US-20 |
-| | **UC-13** | Tìm kiếm tri thức theo ngữ nghĩa | Agent, Admin | P0 | Nguyễn Đức Lãm | FR-KB-07, US-21 |
-| **Phân hệ Trợ lý AI & Thống kê** | **UC-14** | Tạo gợi ý câu trả lời AI | Agent, Admin | P0 | Lê Quý Phúc | FR-AI-01..06, 09; US-22..23, 26 |
-| | **UC-15** | Rà soát, chỉnh sửa & Gửi phản hồi AI | Agent, Admin | P0 | Lê Quý Phúc | FR-AI-07..08, US-24..25 |
+Hệ thống có 41 FR, 19 NFR, 19 Use Case (16 P0, 3 P1). Danh sách tên và actor theo PDF:
 
-> **Phân định phạm vi rõ ràng giữa Mục 3.2.1 và Mục 4.2 của Template 1:**
-> - **Mục 3.2.1 (Đặc tả yêu cầu chức năng):** Phan Gia Phúc phụ trách tổng hợp bảng **30 User Stories (`US-01` đến `US-30`)** từ Phụ lục D trong `SRS-master.md`.
-> - **Mục 4.2 (Đặc tả Use Case):** Cả 4 thành viên soạn thảo chi tiết **17 bảng đặc tả Use Case chuẩn** theo mẫu 8 trường thông tin bên dưới, phân công đúng theo module phụ trách.
+| UC | Tên | Actor | Mức độ |
+|---|---|---|---|
+| UC-01 | Đăng ký và đăng nhập hệ thống | Guest / người dùng chưa xác thực | P0 |
+| UC-02 | Làm mới phiên và đăng xuất | Customer, Agent, Admin | P0 |
+| UC-03 | Xem và cập nhật hồ sơ cá nhân | Customer, Agent, Admin | P0 |
+| UC-04 | Quản lý tài khoản Agent | Admin | P0 |
+| UC-05 | Tạo yêu cầu hỗ trợ | Customer | P0 |
+| UC-06 | Xem danh sách và chi tiết ticket | Customer, Agent, Admin | P0 |
+| UC-07 | Tiếp nhận và phân công ticket | Agent, Admin | P0 |
+| UC-08 | Gửi tin nhắn công khai và ghi chú nội bộ | Customer, Agent, Admin | P0 |
+| UC-09 | Chuyển trạng thái ticket | Customer, Agent, Admin | P0 |
+| UC-10 | Xem lịch sử sự kiện ticket | Agent được giao, Admin | P0 |
+| UC-11 | Tải lên và xử lý tài liệu tri thức | Admin; Embedding Provider | P0 |
+| UC-12 | Công bố và lưu trữ tài liệu tri thức | Admin | P0 |
+| UC-13 | Tìm kiếm tri thức | Agent, Admin; Embedding Provider | P0 |
+| UC-14 | Tạo gợi ý câu trả lời bằng AI | Agent được giao, Admin; AI Provider | P0 |
+| UC-15 | Kiểm duyệt, chỉnh sửa và gửi phản hồi từ gợi ý AI | Agent được giao, Admin | P0 |
+| UC-16 | Đặt lại mật khẩu (P1) | Người dùng chưa đăng nhập; Mail Service P1 | P1 |
+| UC-17 | Xem thống kê ticket (P1) | Admin | P1 |
+| UC-18 | Xem lịch sử gợi ý AI | Agent được giao, Admin | P0 |
+| UC-19 | Đánh giá gợi ý AI hữu ích hoặc không hữu ích | Agent được giao | P1 |
 
-### 5.2. Cấu trúc chuẩn của từng bảng Đặc tả Use Case (Bắt buộc dùng form này)
-Tất cả 17 Use Case trên phải được viết dưới dạng bảng Markdown chuẩn 8 trường thông tin (đồng bộ hoàn toàn với cấu trúc đặc tả tại Mục 6 của `SRS-master.md`):
+Phân công: Bình phụ trách UC-01..04/16; Gia Phúc UC-05..10; Lãm UC-11..13; Quý Phúc UC-14/15/17/18/19. UC-17 là thống kê ticket P1, Gia Phúc review nghiệp vụ. UC-18 là lịch sử gợi ý P0; UC-19 là đánh giá gợi ý P1 theo FR-AI-10, chỉ Agent được giao được đánh giá, không có dashboard chất lượng AI.
 
-| Thuộc tính | Nội dung chi tiết |
-| :--- | :--- |
-| **Mã Use Case** | `UC-XX` (Từ `UC-01` đến `UC-17`) |
-| **Tên Use Case** | Tên hành động tiếng Việt ngắn gọn, rõ ràng (Ví dụ: *Nhận và phân công ticket*) |
-| **Tóm tắt** | Mô tả tóm lược 2-3 câu về mục tiêu của ca sử dụng |
-| **Tác nhân** | Tác nhân chính thực hiện (Ví dụ: *Nhân viên hỗ trợ, Quản trị viên*) |
-| **Điều kiện tiên quyết** | Các điều kiện bắt buộc trước khi kích hoạt (Ví dụ: *Nhân viên đã đăng nhập, ticket đang ở trạng thái OPEN*) |
-| **Kết quả** | Trạng thái hệ thống và dữ liệu sau khi thực hiện thành công |
-| **Kịch bản chính** | Các bước tuần tự đánh số: 1, 2, 3, 4, 5... từ khi tác nhân tương tác đến khi nhận phản hồi |
-| **Kịch bản phụ** | Các trường hợp lỗi hoặc luồng rẽ nhánh: 2.1, 3.1, 4.1... (Ví dụ: *4.1 Ticket đã bị nhân viên khác nhận trước -> trả về lỗi 409 Conflict*) |
-| **Ràng buộc & Quy tắc nghiệp vụ** | Quy tắc nghiệp vụ liên quan (`BR-xx`), yêu cầu hiệu năng, tính nguyên tử transaction, bảo mật... |
+FR-TK-03 bao gồm tìm kiếm/lọc/phân trang; FR-TK-09 quy định chuyển trạng thái hợp lệ; FR-TK-10 là lịch sử xử lý. FR-KB-05 theo dõi tiến trình và thử lại, FR-KB-09 xem danh mục. User Stories US-01..30 trong SRS là lớp truy vết hỗ trợ; bảng FR của PDF là nguồn yêu cầu final.
 
----
+### 5.2. Cấu trúc chuẩn của từng bảng Đặc tả Use Case
 
----
+Mỗi bảng có 9 trường: Use case ID, Tên Use Case, Tóm tắt, Tác nhân, Điều kiện tiên quyết, Kết quả, Kịch bản chính, Kịch bản phụ, Ràng buộc phi chức năng. Các luồng A/B/C độc lập; nhánh A.3a phát sinh tại bước A.3.
+
+Đặc tả đầy đủ và ảnh final tại [chỉ mục Use Case](reports/02-use-cases.md), [prototype](reports/template1/05-prototype-mockup.md) và [master đồng bộ](reports/template1/TEMPLATE1_DRAFT_MASTER.md). Các chỉ tiêu NFR giữ nguyên theo PDF; không bổ sung quy trình đo mới vào bản final hoặc coi mục tiêu là kết quả đã đạt.
 
 ## 6. BỘ SƠ ĐỒ UML TOÀN DIỆN & QUY CHUẨN ĐỒNG NHẤT TOÀN NHÓM (6 SƠ ĐỒ CHUẨN SRS & GOOGLE DOCS)
 
-Cấu trúc chuẩn của hệ thống gồm **đúng 4 module chức năng (17 Use Cases từ `UC-01` đến `UC-17`)** bám sát 100% `SRS-master.md` và tài liệu làm việc chung Google Docs (`NMCNPM - Clarune - 04`). Hệ thống gồm **6 sơ đồ chuẩn**:
+Dùng [bộ 6 sơ đồ final SVG/drawio](reports/template1/report/assets/diagrams/) và [bản có chú thích](reports/template1/04-dac-ta-use-cases/04.1-so-do-tong-the.md). Không lấy sơ đồ 17 UC hoặc graph cũ ở thư mục assets làm bản nộp.
 
-```
-[BỘ 6 SƠ ĐỒ ĐẶC TẢ YÊU CẦU MÔN NMCNPM — NHÓM 04]
-├── Sơ đồ 0: Sơ đồ bối cảnh hệ thống (Hình 3.1 - Mục 3.1.1 — Phụ trách: Nguyễn Đức Lãm)
-├── Sơ đồ 1: Sơ đồ Use Case tổng thể 17 Use Cases (Hình 4.1 - Mục 4.1.1 — Phụ trách: Ngô Viết Thanh Bình)
-├── Sơ đồ 2: Sơ đồ Use Case Module D - Định danh và phân quyền (Hình 4.2 - Mục 4.1.2 — Phụ trách: Ngô Viết Thanh Bình)
-├── Sơ đồ 3: Sơ đồ Use Case Module C - Quản lý ticket (Hình 4.3 - Mục 4.1.3 — Phụ trách: Phan Gia Phúc)
-├── Sơ đồ 4: Sơ đồ Use Case Module B - Cơ sở tri thức (Hình 4.4 - Mục 4.1.4 — Phụ trách: Nguyễn Đức Lãm)
-└── Sơ đồ 5: Sơ đồ Use Case Module A - Trợ lý AI và thống kê (Hình 4.5 - Mục 4.1.5 — Phụ trách: Lê Quý Phúc)
-```
+| Hình | Nội dung | Tệp trong report/assets/diagrams |
+|---|---|---|
+| 3.1 | Bối cảnh P0; Email P1 giải thích bằng văn bản và UC-16 | context_diagram_system.svg |
+| 4.1 | Tổng thể 19 Use Case | uc_overall_19_usecases.svg |
+| 4.2 | Định danh và phân quyền: UC-01/02/03/04/16 | uc_module_d_identity.svg |
+| 4.3 | Quản lý ticket: UC-05..10 | uc_module_c_ticketing.svg |
+| 4.4 | Cơ sở tri thức: UC-11..13 | uc_module_b_kb.svg |
+| 4.5 | Trợ lý AI và thống kê: UC-14/15/18/19/17 | uc_module_a_ai_analytics.svg |
 
-> [!IMPORTANT]
-> **QUY CHUẨN BẮT BUỘC KHI VẼ SƠ ĐỒ USE CASE (UML 2.5 — TÔNG TRẮNG ĐEN HỌC THUẬT):**
-> Để 5 sơ đồ Use Case khi ghép vào Google Docs và Markdown đồng nhất tuyệt đối như do một người vẽ, toàn bộ thành viên tuân thủ **4 quy tắc bất di bất dịch** sau:
->
-> 1. **Quy tắc 1 — Ánh xạ 1:1 với 17 mã Use Case (`UC-01` đến `UC-17`) trong Mục 4.2:**
->    - Mỗi hình Elip trên sơ đồ **BẮT BUỘC** tương ứng 1:1 với 1 bảng đặc tả trong Mục 4.2.
->    - Nhãn trong mỗi hình Elip gồm 2 dòng: Dòng 1 in đậm mã **`UC-xx`**, dòng 2 ghi đúng **Tên Use Case** trong Mục 4.2.
->    - **TUYỆT ĐỐI KHÔNG** vẽ các bước kiểm tra kỹ thuật nội bộ (như *"Kiểm tra chính sách mật khẩu"*, *"Ghi nhận sự kiện tự động"*, *"Kiểm tra khóa tránh nhận trùng"*, *"Trích xuất văn bản"*, *"Chia nhỏ đoạn văn bản"*, *"Kiểm chứng trích dẫn"*) thành hình Elip rời rồi nối `«include»` / `«extend»`. Đó là lỗi phân rã chức năng (*Functional Decomposition*) và làm lệch số lượng Use Case so với SRS.
->    - **Không dùng viền nét đứt cho hình Elip** (kể cả các chức năng P1 như `UC-16`, `UC-17`). Mọi Use Case chuẩn UML đều vẽ bằng **Elip viền nét liền**.
->
-> 2. **Quy tắc 2 — Tông màu Trắng - Đen (Monochrome UML) dễ quan sát, chuẩn báo cáo học thuật:**
->    - Nền tất cả các hình (System Boundary, Elip Use Case, Actor): **Trắng (`#FFFFFF`)**.
->    - Đường viền và dây nối: **Đen (`#000000`)**, độ dày nét `1.5 pt`, không đổ bóng (No Shadow), không tô màu sặc sỡ.
->    - Font chữ: `Arial` hoặc `Segoe UI`, cỡ chữ `12–13 pt`, màu đen.
->
-> 3. **Quy tắc 3 — Vị trí Tác nhân (Actor) và Ranh giới hệ thống (System Boundary):**
->    - **System Boundary:** Khung chữ nhật đứng bao quanh các hình Elip của phân hệ, tiêu đề đặt ở chính giữa phía trên bên trong khung.
->    - **Tác nhân chính (Primary Actors):** Vẽ bằng ký hiệu **Stickman (Hình người que)** đặt ở **bên trái** ngoài khung hệ thống.
->    - **Tác nhân phụ / Hệ thống ngoài (Secondary Actors):** Đặt ở **bên phải** ngoài khung hệ thống, có stereotype `«system»` (VD: `«system» Mail Service`, `«system» Embedding / LLM Provider`).
->    - **Lưu ý quan trọng theo Mục 3.1.1:** `System Worker`, `Database (PostgreSQL + pgvector)` và `Private Storage` là **thành phần nội bộ của hệ thống**, **TUYỆT ĐỐI KHÔNG** vẽ thành Actor bên ngoài ranh giới hệ thống!
->
-> 4. **Quy tắc 4 — Chuẩn ký hiệu Đường nối UML 2.5 trên Draw.io:**
->    - **Association (Actor ─── Use Case):** Đường thẳng **nét liền, KHÔNG có đầu mũi tên**.
->    - **Generalization / Kế thừa (Actor con ──▷ Actor cha):** Đường thẳng **nét liền, đầu mũi tên tam giác rỗng** trỏ về Actor cha (KHÔNG dùng nét đứt và KHÔNG ghi chữ *"Kế thừa"* đè lên dây).
->    - **Chỉ dùng `«include»` / `«extend»` khi cả 2 đầu mũi tên đều là các Use Case có mã `UC-xx` thật trong SRS** (ví dụ ở Module A: `UC-15` có thể độc lập hoặc nối với `UC-14`; ở Module D, C, B các Use Case đều là các mục tiêu độc lập nên nối trực tiếp với Actor, không ép buộc dùng `«include»` giả tạo).
->
-> 📁 **TÀI LIỆU & BỘ FILE MẪU THAM KHẢO BẮT BUỘC CHO CÁC THÀNH VIÊN:**
-> 1. **Kho bài mẫu xuất sắc khóa K23 (Google Drive):** [Mở thư mục Template tham khảo K23](https://drive.google.com/drive/folders/1Vk7wPTVLxhoxhTLnqAhIQlQxfslToMGU?usp=sharing) *(Dùng để tham khảo bố cục trình bày báo cáo, cách đặt tên hình và phong cách sơ đồ trắng-đen học thuật; lưu ý không lặp lại lỗi lạm dụng `«include»` cho các bước nhập liệu nhỏ).*
-> 2. **Bộ 6 Sơ đồ chuẩn (`.drawio`, `.svg`, `.png`) đã được Trưởng nhóm dựng sẵn tại:** [`reports/template1/assets/diagrams/`](reports/template1/assets/diagrams/)
->    - **Cách sử dụng cho các thành viên (Phan Gia Phúc, Nguyễn Đức Lãm, Lê Quý Phúc):**
->      * Có thể dùng ngay các file `.png` / `.svg` tương ứng trong `reports/template1/assets/diagrams/` để chèn vào Google Docs ([NMCNPM - Clarune - 04](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.p8jvgjthj2me)) và file Markdown.
->      * Nếu cần tinh chỉnh thêm chi tiết, mở trực tiếp file `.drawio` của phân hệ mình trên **app.diagrams.net (Draw.io)** để sửa trên đúng khung chuẩn, giữ nguyên tông Trắng - Đen (`#FFFFFF` / `#000000`), font chữ và kích thước hình Elip để cả 6 sơ đồ trong báo cáo đồng nhất 100%.
+Actor nằm ngoài ranh giới; Use Case là ellipse bên trong ranh giới. Association nét liền không mũi tên; generalization hướng tam giác rỗng về actor cha. Không thêm include/extend cho bước xử lý nội bộ. Worker, DB và storage là thành phần nội bộ. UC-19 liên kết Agent, UC-17 liên kết Admin. Hình 3.1 giữ nguồn tác giả theo PDF.
 
----
-
-### SƠ ĐỒ 0: Sơ đồ bối cảnh hệ thống (Context Diagram — Hình 3.1, Mục 3.1.1)
-- **Phụ trách:** Nguyễn Đức Lãm
-- **File chuẩn:** `reports/template1/assets/diagrams/context_diagram_system.drawio` | `.svg` | `.png`
-- **Nguyên tắc theo Mục 3.1.1:** `Worker`, `PostgreSQL + pgvector` và `Private Storage` nằm **bên trong** ranh giới hệ thống, không phải Actor ngoài.
-
-```mermaid
-flowchart LR
-    subgraph Actors_Left["TÁC NHÂN NGƯỜI DÙNG (PRIMARY ACTORS)"]
-        Guest(["Guest\n(Khách chưa xác thực)"])
-        Customer(["Customer\n(Khách hàng)"])
-        Agent(["Support Agent\n(Nhân viên hỗ trợ)"])
-        Admin(["System Administrator\n(Quản trị viên)"])
-    end
-
-    subgraph SystemBoundary["RANH GIỚI HỆ THỐNG: AI-POWERED HELPDESK & KNOWLEDGE BASE"]
-        CoreSys["Hệ thống Helpdesk & Knowledge Base\n(React SPA + Spring Boot Modular Monolith +\nBackground Worker + PostgreSQL/pgvector + Private Storage)"]
-    end
-
-    subgraph Actors_Right["TÁC NHÂN HỆ THỐNG NGOÀI (EXTERNAL SYSTEMS)"]
-        AIProvider(["«system»\nEmbedding / LLM Provider"])
-        MailService(["«system»\nMail Service (P1)"])
-    end
-
-    Guest ---|"Đăng ký Customer, Đăng nhập,\nYêu cầu đặt lại mật khẩu (P1)"| CoreSys
-    Customer ---|"Tạo ticket, Xem & gửi phản hồi công khai,\nXác nhận Đóng / Mở lại ticket"| CoreSys
-    Agent ---|"Xem OPEN queue, Claim & xử lý ticket,\nTra cứu KB, Kiểm duyệt & gửi gợi ý AI"| CoreSys
-    Admin ---|"Quản lý Agent, Phân công ticket,\nTải lên / Công bố / Lưu trữ KB, Xem thống kê (P1)"| CoreSys
-
-    CoreSys -->|"Gửi truy vấn Embedding &\nPrompt sinh gợi ý RAG có nguồn"| AIProvider
-    CoreSys -->|"Gửi liên kết đặt lại mật khẩu (P1)"| MailService
-```
-
----
-
-### SƠ ĐỒ 1: Sơ đồ Use Case tổng thể 19 Use Cases (Hình 4.1, Mục 4.1.1)
-- **Phụ trách:** Ngô Viết Thanh Bình
-- **File chuẩn:** `reports/template1/assets/diagrams/uc_overall_17_usecases.drawio` | `.svg` | `.png`
-- **Nguyên tắc theo Mục 4.1.1:** Hiển thị đầy đủ **19 Use Cases (`UC-01` đến `UC-19`)** chia theo 4 phân hệ bên trong ranh giới hệ thống. `Customer`, `Support Agent`, `System Administrator` kế thừa khả năng thao tác phiên (`UC-02`) và hồ sơ (`UC-03`) của `Authenticated User`.
-
-```mermaid
-flowchart LR
-    Guest(["Guest / Unauthenticated User"])
-    AuthUser(["Authenticated User"])
-    Customer(["Customer"])
-    Agent(["Support Agent"])
-    Admin(["System Administrator"])
-
-    MailService(["«system»\nMail Service"])
-    AIProvider(["«system»\nEmbedding / LLM Provider"])
-
-    Customer -.->|"Generalization (──▷)"| AuthUser
-    Agent -.->|"Generalization (──▷)"| AuthUser
-    Admin -.->|"Generalization (──▷)"| AuthUser
-
-    subgraph System["AI-POWERED HELPDESK & KNOWLEDGE BASE (17 USE CASES)"]
-        subgraph Mod_D["Module D — Định danh và phân quyền"]
-            UC01(["UC-01: Đăng ký và đăng nhập hệ thống"])
-            UC16(["UC-16: Đặt lại mật khẩu"])
-            UC02(["UC-02: Làm mới phiên và đăng xuất"])
-            UC03(["UC-03: Xem và cập nhật hồ sơ cá nhân"])
-            UC04(["UC-04: Quản lý tài khoản Agent"])
-        end
-
-        subgraph Mod_C["Module C — Quản lý ticket"]
-            UC05(["UC-05: Tạo yêu cầu hỗ trợ"])
-            UC06(["UC-06: Xem danh sách và chi tiết ticket"])
-            UC07(["UC-07: Tiếp nhận và phân công ticket"])
-            UC08(["UC-08: Gửi tin nhắn công khai và ghi chú nội bộ"])
-            UC09(["UC-09: Chuyển trạng thái ticket"])
-            UC10(["UC-10: Xem lịch sử sự kiện ticket"])
-        end
-
-        subgraph Mod_B["Module B — Cơ sở tri thức"]
-            UC11(["UC-11: Tải lên và xử lý tài liệu tri thức"])
-            UC12(["UC-12: Công bố và lưu trữ tài liệu tri thức"])
-            UC13(["UC-13: Tìm kiếm tri thức"])
-        end
-
-        subgraph Mod_A["Module A — Trợ lý AI và thống kê"]
-            UC14(["UC-14: Tạo gợi ý trả lời bằng AI"])
-            UC15(["UC-15: Kiểm duyệt chỉnh sửa và gửi gợi ý AI"])
-            UC17(["UC-17: Xem thống kê ticket"])
-        end
-    end
-
-    Guest --- UC01 & UC16
-    UC16 --- MailService
-    AuthUser --- UC02 & UC03
-
-    Customer --- UC05 & UC06 & UC08 & UC09
-    Agent --- UC06 & UC07 & UC08 & UC09 & UC10 & UC13 & UC14 & UC15
-    Admin --- UC04 & UC06 & UC07 & UC08 & UC09 & UC10 & UC11 & UC12 & UC13 & UC14 & UC15 & UC17
-
-    UC11 --- AIProvider
-    UC13 --- AIProvider
-    UC14 --- AIProvider
-```
-
----
-
-### SƠ ĐỒ 2: Phân hệ Định danh và phân quyền (Hình 4.2, Mục 4.1.2)
-- **Phụ trách:** Ngô Viết Thanh Bình
-- **File chuẩn:** `reports/template1/assets/diagrams/uc_module_d_identity.drawio` | `.svg` | `.png`
-- **Ánh xạ 1:1 với Mục 4.2.1 – 4.2.5:** Gồm đúng 5 Use Cases (`UC-01`, `UC-16`, `UC-02`, `UC-03`, `UC-04`). Không vẽ các bước kiểm tra mật khẩu hay thu hồi phiên thành Use Case phụ.
-
-```mermaid
-flowchart LR
-    Guest(["Guest / Unauthenticated User\n(Người dùng chưa xác thực)"])
-    AuthUser(["Authenticated User\n(Customer / Agent / Admin)"])
-    Admin(["System Administrator\n(Quản trị viên hệ thống)"])
-    MailService(["«system»\nMail Service"])
-
-    Admin -.->|"Generalization (──▷)"| AuthUser
-
-    subgraph Mod_Identity["Phân hệ Định danh và Phân quyền (Identity & Access Management)"]
-        UC01(["UC-01\nĐăng ký và đăng nhập hệ thống"])
-        UC16(["UC-16\nĐặt lại mật khẩu"])
-        UC02(["UC-02\nLàm mới phiên và đăng xuất"])
-        UC03(["UC-03\nXem và cập nhật hồ sơ cá nhân"])
-        UC04(["UC-04\nQuản lý tài khoản Agent"])
-    end
-
-    Guest --- UC01
-    Guest --- UC16
-    UC16 --- MailService
-
-    AuthUser --- UC02
-    AuthUser --- UC03
-
-    Admin --- UC04
-```
-
----
-
-### SƠ ĐỒ 3: Phân hệ Quản lý ticket (Hình 4.3, Mục 4.1.3)
-- **Phụ trách:** Phan Gia Phúc
-- **File chuẩn tham khảo:** `reports/template1/assets/diagrams/uc_module_c_ticketing.drawio` | `.svg` | `.png`
-- **Ánh xạ 1:1 với Mục 4.2.6 – 4.2.11:** Gồm đúng **6 Use Cases (`UC-05`, `UC-06`, `UC-07`, `UC-08`, `UC-09`, `UC-10`)**.
-  - Lưu ý: `UC-07` đã gộp cả Luồng A (Agent Claim) và Luồng B (Admin Assign/Reassign); `UC-08` đã gộp cả Luồng A (Public Message) và Luồng B (Internal Note); `UC-17 (Xem thống kê ticket)` thuộc Module A (Mục 4.1.5), không vẽ lặp ở Module C.
-  - Không vẽ các bước kỹ thuật nội bộ (`RecordEvent`, `ConcurrencyCheck`) thành hình Elip rời.
-
-```mermaid
-flowchart LR
-    Customer(["Customer\n(Khách hàng)"])
-    Agent(["Support Agent\n(Nhân viên hỗ trợ)"])
-    Admin(["System Administrator\n(Quản trị viên hệ thống)"])
-
-    subgraph Mod_Ticket["Phân hệ Quản lý Ticket (Ticket Management)"]
-        UC05(["UC-05\nTạo yêu cầu hỗ trợ"])
-        UC06(["UC-06\nXem danh sách và chi tiết ticket"])
-        UC07(["UC-07\nTiếp nhận và phân công ticket"])
-        UC08(["UC-08\nGửi tin nhắn công khai và ghi chú nội bộ"])
-        UC09(["UC-09\nChuyển trạng thái ticket"])
-        UC10(["UC-10\nXem lịch sử sự kiện ticket"])
-    end
-
-    Customer --- UC05
-    Customer --- UC06
-    Customer --- UC08
-    Customer --- UC09
-
-    Agent --- UC06
-    Agent --- UC07
-    Agent --- UC08
-    Agent --- UC09
-    Agent --- UC10
-
-    Admin --- UC06
-    Admin --- UC07
-    Admin --- UC08
-    Admin --- UC09
-    Admin --- UC10
-```
-
----
-
-### SƠ ĐỒ 4: Phân hệ Cơ sở tri thức (Hình 4.4, Mục 4.1.4)
-- **Phụ trách:** Nguyễn Đức Lãm
-- **File chuẩn tham khảo:** `reports/template1/assets/diagrams/uc_module_b_kb.drawio` | `.svg` | `.png`
-- **Ánh xạ 1:1 với Mục 4.2.12 – 4.2.14:** Gồm đúng **3 Use Cases (`UC-11`, `UC-12`, `UC-13`)**.
-  - Lưu ý quan trọng: Theo Mục 2.3 và 3.1.1, chỉ **Admin** có quyền Upload (`UC-11`) và Publish/Archive (`UC-12`); cả **Support Agent** và **Admin** đều có quyền Tìm kiếm tri thức (`UC-13`).
-  - `Worker` là thành phần nội bộ thực thi bên trong `UC-11`, **không vẽ `System Worker` làm Actor ngoài** và không tách các bước `Extract`, `Chunk`, `Embed` thành Use Case rời. Tác nhân phụ bên phải là `«system» Embedding Provider`.
-
-```mermaid
-flowchart LR
-    Agent(["Support Agent\n(Nhân viên hỗ trợ)"])
-    Admin(["System Administrator\n(Quản trị viên hệ thống)"])
-    EmbeddingProvider(["«system»\nEmbedding Provider"])
-
-    subgraph Mod_Knowledge["Phân hệ Cơ sở tri thức (Knowledge Base Management)"]
-        UC11(["UC-11\nTải lên và xử lý tài liệu tri thức"])
-        UC12(["UC-12\nCông bố và lưu trữ tài liệu tri thức"])
-        UC13(["UC-13\nTìm kiếm tri thức"])
-    end
-
-    Admin --- UC11
-    Admin --- UC12
-    Admin --- UC13
-
-    Agent --- UC13
-
-    UC11 --- EmbeddingProvider
-    UC13 --- EmbeddingProvider
-```
-
----
-
-### SƠ ĐỒ 5: Phân hệ Trợ lý AI và thống kê (Hình 4.5, Mục 4.1.5)
-- **Phụ trách:** Lê Quý Phúc
-- **File chuẩn tham khảo:** `reports/template1/assets/diagrams/uc_module_a_ai_analytics.drawio` | `.svg` | `.png`
-- **Ánh xạ 1:1 với Mục 4.2.15 – 4.2.17:** Gồm đúng **3 Use Cases (`UC-14`, `UC-15`, `UC-17`)**.
-  - Lưu ý: Không vẽ các bước xử lý nội bộ của pipeline RAG (`RetrieveContext`, `VerifyCitation`, `Abstain`) thành các hình Elip rời. Tác nhân phụ bên phải là `«system» Embedding / LLM Provider` kết nối với `UC-14`.
-
-```mermaid
-flowchart LR
-    Agent(["Support Agent\n(Nhân viên được giao ticket)"])
-    Admin(["System Administrator\n(Quản trị viên hệ thống)"])
-    LLMProvider(["«system»\nEmbedding / LLM Provider"])
-
-    subgraph Mod_AI["Module A — Trợ lý AI và Thống kê (AI Assistance & Analytics)"]
-        UC14(["UC-14\nTạo gợi ý trả lời bằng AI"])
-        UC15(["UC-15\nKiểm duyệt chỉnh sửa và gửi gợi ý AI"])
-        UC17(["UC-17\nXem thống kê ticket"])
-    end
-
-    Agent --- UC14
-    Agent --- UC15
-
-    Admin --- UC14
-    Admin --- UC15
-    Admin --- UC17
-
-    UC14 --- LLMProvider
-```
-
----
+Bản quy hoạch/sơ đồ trước khi chốt được lưu tại [sources/history/planning-specifications-before-final-pdf.md](reports/template1/sources/history/planning-specifications-before-final-pdf.md) để đối soát, không dùng làm baseline hiện hành.
 
 ---
 
@@ -1855,7 +1579,7 @@ Dưới đây là danh mục tasks chuẩn mực theo mốc điều phối mới
 | **T1-DOC-05** | [Doc] Ticket 6 UC và mockup Ticket | Sơ đồ Module C (.drawio + .svg), đặc tả 6 Use Case: UC-05..10 | Phan Gia Phúc | Nguyễn Đức Lãm | 2026-11-10 |
 | **T1-DOC-06** | [Doc] Knowledge 3 UC và mockup KB | Sơ đồ Module B (.drawio + .svg), đặc tả 3 Use Case: UC-11..13 | Nguyễn Đức Lãm | Ngô Viết Thanh Bình | 2026-11-10 |
 | **T1-DOC-07** | [Doc] AI 2 UC Analytics P1 riêng và tổng hợp mockup | Sơ đồ Module A (.drawio + .svg), đặc tả UC-14, 15 và UC-17 (P1 Analytics) | Lê Quý Phúc | Phan Gia Phúc | 2026-11-10 |
-| **T1-DOC-MD** | [Markdown] Chuyển đổi và nộp bản Markdown (.md) sau khi chốt Google Docs | 4 thành viên nộp bản .md, sơ đồ .svg của module mình vào repo và cập nhật biên bản bàn giao | Nguyễn Đức Lãm | Phan Gia Phúc | **2026-11-10** (23:59) |
+| **T1-DOC-MD** | [Markdown] Chuyển đổi và nộp bản Markdown (.md) sau khi chốt Google Docs | 4 thành viên chuyển nội dung phần mình từ Google Docs sang .md (giữ nguyên 100% nội dung; phần có ảnh chỉ ghi tiêu đề ảnh, Trưởng nhóm tự thêm ảnh thật sau); cập nhật biên bản bàn giao & AI usage | Nguyễn Đức Lãm | Phan Gia Phúc | **2026-11-10** (23:59) |
 | **T1-UI-01** | [Mockup] Tổng hợp prototype và kiểm tra quyền xem | Tổng hợp liên kết Figma và ảnh chụp màn hình vào Mục 5 Template 1 | Lê Quý Phúc | Cả nhóm | 2026-11-10 |
 | **T1-PUB-01** | [Release] Review render và đóng gói Template 1 | Ghép nối Markdown, kiểm tra link ảnh, render HTML/PDF, tạo gói nộp bài | Nguyễn Đức Lãm | Phan Gia Phúc | **2026-11-12** (23:59) |
 | **T1-SUBMIT-01** | [Submit] Nộp Template 1 và lưu biên nhận | Kiểm tra gói giải nén độc lập, nộp lên cổng trường và lưu biên nhận nộp bài | Ngô Viết Thanh Bình | Phan Gia Phúc | **2026-11-12** (23:59) |

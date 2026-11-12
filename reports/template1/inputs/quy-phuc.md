@@ -2,9 +2,9 @@
 
 > **Thành viên phụ trách:** Lê Quý Phúc (AI & UI/UX Lead)  
 > **Mã task liên quan:** [T1-DOC-01](../../../PLAN_TEMPLATE1_AND_DEVELOPMENT.md#t1-doc-01), [T1-DOC-07](../../../PLAN_TEMPLATE1_AND_DEVELOPMENT.md#t1-doc-07), [T1-UI-01](../../../PLAN_TEMPLATE1_AND_DEVELOPMENT.md#t1-ui-01), [T1-DOC-MD](../../../PLAN_TEMPLATE1_AND_DEVELOPMENT.md#t1-doc-md).  
-> **Phạm vi nghiệp vụ:** Module A (AI Assistance): `FR-AI-01`..`10`, `US-22`..`26`, `30`, `UC-14`, `15`; Ticket Analytics P1: `UC-17`; Trang bìa & Đóng góp thành viên; Mô tả bài toán; Tổng hợp Prototype Figma 151 frames.  
+> **Phạm vi nghiệp vụ:** Module A (AI Assistance): `FR-AI-01`..`10`, `US-22`..`26`, `30`, `UC-14`, `15`, `18`, `19` (P1); Ticket Analytics P1: `UC-17`; Trang bìa & Đóng góp thành viên; Mô tả bài toán; Tổng hợp Prototype Figma 229 frames.
 > **Tài liệu soạn thảo chung:** [[SE - Nhóm 4] template1 - Google Docs](https://docs.google.com/document/d/1vSMrk5GCPtOlhbWMRMqZvDq8575tSIz2IXgcp-K0WAg/edit?tab=t.0).  
-> **Bản thiết kế Figma (Redesign v2):** [SE – Figma (Node 49:58)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev) & kho 151 ảnh PNG tại `docs/design/anh/`.
+> **Bản thiết kế Figma (Redesign v2):** [SE – Figma (Node 49:58)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=49-58&p=f&m=dev) & bộ thiết kế 34 nhóm màn hình, 229 frames, 82 flow points; ảnh final tại `report/assets/ui/`.
 
 ---
 
@@ -23,8 +23,8 @@
 - [ ] `reports/template1/02-mo-ta-bai-toan.md` (Bối cảnh, phát biểu bài toán, mục tiêu đo được, môi trường vận hành).
 - [ ] `reports/template1/04-dac-ta-use-cases/04.2-module-A-ai.md` (Đặc tả 2 Use Cases chuẩn 9 trường: UC-14, UC-15).
 - [ ] `reports/template1/04-dac-ta-use-cases/04.2-uc-17-analytics.md` (Đặc tả Use Case phân tích báo cáo: UC-17).
-- [ ] `reports/template1/05-prototype-mockup.md` (Ma trận tổng hợp 33 nhóm màn hình / 151 frames Figma).
-- [ ] `reports/template1/assets/diagrams/uc-module-A.svg` & `uc-module-A.drawio` (Sơ đồ Use Case phân hệ AI Assistance).
+- [ ] `reports/template1/05-prototype-mockup.md` (Ma trận tổng hợp 34 nhóm màn hình / 229 frames Figma).
+- [ ] `reports/template1/report/assets/diagrams/uc_module_a_ai_analytics.svg` & `uc-module-A.drawio` (Sơ đồ Use Case phân hệ AI Assistance).
 - [ ] Ánh xạ màn hình Figma AI & Analytics (Frames Node ID `55:1874` đến `62:15617`, ảnh PNG tại `docs/design/anh/`).
 - [ ] Nhật ký AI Usage giai đoạn Template 1 cập nhật đầy đủ tại [reports/template1/06-ai-usage.md](../06-ai-usage.md) (theo đúng quy chuẩn 2 bước tại Mục 1.2 kế hoạch).
 
@@ -33,5 +33,7 @@
 ## 3. Tiêu chí Nghiệm thu Bàn giao (DoD)
 1. 100% Use Cases của module A và Analytics có đủ 9 trường chuẩn, thể hiện rõ citation verification, abstention rule và workflow duyệt gợi ý.
 2. Link view Figma hoạt động ổn định với tài khoản bên ngoài nhóm (không yêu cầu đăng nhập chỉnh sửa).
-3. Sơ đồ Use Case phân hệ xuất file `.svg` chuẩn, link ảnh trong Markdown không bị hỏng.
-4. Commit Git có gắn mã Jira `SCRUM-xx`, PR mở trước **23:59 ngày 10/11/2026** và đã được reviewer approve.
+3. Chuyển đổi chính xác từ Google Docs sang các file Markdown được phân công, **giữ nguyên 100% nội dung đã thống nhất (tuyệt đối không tự ý thay đổi nội dung)**.
+4. **LƯU Ý VỀ HÌNH ẢNH / MOCKUP:** Những phần nào có hình ảnh/sơ đồ/mockup, thành viên **chỉ cần ghi tiêu đề của ảnh** (ví dụ: `Hình 4.xx ...`, `Hình 5.xx ...`) đúng theo vị trí trên Google Docs; **KHÔNG CẦN chèn link ảnh hay tải file ảnh lên**. Trưởng nhóm (Bình) sẽ tự thêm mã nhúng ảnh thật trong mã Markdown tổng hợp sau.
+5. Nếu có sử dụng AI trong quá trình làm bài, cập nhật đầy đủ nhật ký vào [`reports/template1/06-ai-usage.md`](../06-ai-usage.md) theo chuẩn 2 bước.
+6. Commit Git có gắn mã Jira `SCRUM-xx`, PR mở trước **23:59 ngày 10/11/2026** và đã được reviewer approve.

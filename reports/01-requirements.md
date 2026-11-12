@@ -1,16 +1,15 @@
 # Báo cáo yêu cầu — chỉ mục baseline hiện hành
 
-> Group 04. Cập nhật 03/11/2026. Bản khung 19/10 đã được thay vì dùng mã và chức năng không khớp SRS. Tài liệu này không định nghĩa lại bộ ID yêu cầu.
+> Cập nhật 12/11/2026 theo [Report.pdf](template1/report/Report.pdf). Bản Markdown đối chiếu: [report.md](template1/report/report.md). PDF final được ưu tiên khi có khác biệt với nguồn soạn thảo cũ.
 
-**Nguồn chuẩn:** [SRS Mục 3–8 và Phụ lục D](SRS-master.md). Bản nộp Template 1 được soạn tại [template1](template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md), Draft Freeze 23:59 07/11, Review chéo 23:59 08/11, Task T1-DOC-MD nộp Markdown 23:59 10/11 và nộp bài chính thức trước 23:59 ngày 12/11/2026. Owner mỗi module cung cấp mapping; Gia Phúc tổng hợp, Lãm review.
+Bộ yêu cầu gồm **41 FR, 19 NFR và 19 Use Case**. Các bản theo mục đã đồng bộ:
 
-- Identity — Bình: xác thực/session/profile, quản lý Agent, RBAC/ownership.
-- Ticket — Gia Phúc: tạo/xem/lọc, claim/assign, public/internal, state và audit; đủ WAITING_CUSTOMER.
-- Knowledge — Lãm: Admin upload PDF/TXT/MD, xử lý nền, publish/archive, Agent/Admin tra cứu.
-- AI — Quý Phúc: RAG dựa nguồn, citation, abstention, duyệt/sửa/gửi thủ công; không tự phân loại/đổi priority hay tự gửi cho Customer.
+- [Mô tả bài toán và phạm vi P0/P1](template1/02-mo-ta-bai-toan.md).
+- [Stakeholder và sơ đồ bối cảnh P0](template1/03-tong-quan-yeu-cau/03.1-stakeholders.md); Email đặt lại mật khẩu là P1 tại UC-16.
+- [41 yêu cầu chức năng](template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md).
+- [19 yêu cầu phi chức năng](template1/03-tong-quan-yeu-cau/03.2.2-yeu-cau-phi-chuc-nang.md); giữ nguyên mục tiêu của PDF, chưa phải kết quả đo đạt.
+- [Prototype](template1/05-prototype-mockup.md): 34 nhóm màn hình, 229 frames, 82 flow points; bản report dùng 31 ảnh UI.
 
-41 FR dùng mã FR-ID/FR-TK/FR-KB/FR-AI của SRS Mục 4. US-01..30 chỉ theo Phụ lục D; NFR dùng đúng mã, mục tiêu và điều kiện đo của SRS Mục 8. Không dùng mã FR-AUTH/FR-TCK hoặc mục tiêu 500ms/100 concurrent từ bản khung cũ làm cam kết. Attachments, OCR, reset password, Analytics và feedback là P1 theo SRS; các tính năng ngoài SRS cần change request, không tự thêm vào MVP.
+FR–TK–03 bao gồm tìm kiếm/lọc/phân trang; FR–TK–09 quy định chuyển trạng thái hợp lệ; FR–TK–10 là lịch sử xử lý. FR–KB–05 theo dõi tiến trình và thử lại tối đa 3 lần kể cả lần đầu; FR–KB–09 xem danh mục tài liệu. FR–AI–10 chỉ đánh giá Hữu ích/Không hữu ích, không yêu cầu dashboard chất lượng AI.
 
-Khả năng chạy mock là chế độ test/demo được công bố, không phải tự chuyển từ live sang câu trả lời giả khi provider lỗi. Runtime timeout phải thông báo rõ và Ticket vẫn dùng được.
-
-Truy vết FR → story → UC → BR → mockup/test/PR là nhiều-nhiều; coverage cross-cutting security/privacy không được bỏ sót. Báo cáo này là chỉ mục, chưa chứng minh bản nộp Template 1 đã hoàn tất hoặc NFR đã đo đạt.
+[SRS](SRS-master.md) giữ chi tiết triển khai và 30 user stories. [MVP contracts](MVP_CONTRACTS.md) mô tả giao tiếp kỹ thuật. Attachments, OCR/quản lý phiên bản, reset password, thống kê ticket và đánh giá AI là P1. Xem lịch sử gợi ý AI (UC-18) thuộc P0. Không tự mở rộng phạm vi hoặc dùng mock/prototype làm bằng chứng tính năng thật đã hoạt động.

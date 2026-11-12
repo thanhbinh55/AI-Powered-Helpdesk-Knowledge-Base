@@ -1,14 +1,23 @@
-# 1. BẢNG ĐÁNH GIÁ THÀNH VIÊN
+> Đồng bộ theo [Report.pdf](report/Report.pdf) ngày 12/11/2026. Nội dung trích từ [report.md](report/report.md); ảnh dùng chung với bản final.
 
-> **Hướng dẫn nhận việc:** [T1-DOC-01 — nguồn đọc, từng bước, đầu ra và bàn giao](../../TASK_PLAYBOOK_TEMPLATE1.md#t1-doc-01). File khung chưa phải bằng chứng task đã hoàn thành.
+<a id="1-bảng-đánh-giá-thành-viên"></a>
 
-> **Người phụ trách:** Lê Quý Phúc (MSSV: 24120121) | **Task ref:** `T1-DOC-01` (Jira key cần đối chiếu)
+# **1 Bảng đánh giá thành viên**
 
-| MSSV | Họ Tên | % đóng góp (theo mẫu đã xác minh) | Chữ ký |
-| :---: | :--- | :---: | :---: |
-| 24120269 | Ngô Viết Thanh Bình | Chờ nhóm xác nhận | Chờ thành viên ký |
-| 24120503 | Phan Gia Phúc | Chờ nhóm xác nhận | Chờ thành viên ký |
-| 24120083 | Nguyễn Đức Lãm | Chờ nhóm xác nhận | Chờ thành viên ký |
-| 24120121 | Lê Quý Phúc | Chờ nhóm xác nhận | Chờ thành viên ký |
+| STT | MSSV | Họ và tên | Đóng góp | Chữ ký |
+| :---- | :---- | :---- | :---- | :---- |
+| 1 | 24120269 | Ngô Viết Thanh Bình | 100% |  |
+| 2 | 24120503 | Phan Gia Phúc | 100% |  |
+| 3 | 24120083 | Nguyễn Đức Lãm | 100% |  |
+| 4 | 24120121 | Lê Quý Phúc | 100% |  |
 
-Không mặc định đã ký hoặc tỷ lệ đóng góp. Đối chiếu rubric để biết tỷ lệ theo tổng nhóm hay mức hoàn thành cá nhân; dùng task/PR/Docs và xác nhận từng người làm bằng chứng.
+<a id="1.1-phân-công-theo-module"></a>
+
+## **1.1 Phân công theo module**
+
+| Thành viên | Phạm vi phụ trách |
+| :---- | :---- |
+| Ngô Viết Thanh Bình | Trưởng nhóm; Module Identity, Access Management và nền tảng hệ thống. UC-01, UC-02, UC-03, UC-04, UC-16. |
+| Phan Gia Phúc | Module Ticket Management, state machine và concurrency claim. UC-05, UC-06, UC-07, UC-08, UC-09, UC-10; phối hợp review thống kê ticket. |
+| Nguyễn Đức Lãm | Module Knowledge Base, ingestion, embeddings và tìm kiếm. UC-11, UC-12, UC-13. |
+| Lê Quý Phúc | Module AI Assistance, RAG và human-in-the-loop; UC-14, UC-15, UC-17, UC-18, UC-19 và tổng hợp UI . Soạn đặc tả Analytics P1. |
