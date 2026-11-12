@@ -27,7 +27,14 @@
 | **T1-05** | 03h00 - 12h00<br>07/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Chuẩn hóa 6 Sơ đồ UML đơn sắc toàn hệ thống & Ánh xạ giao diện Mục 5 theo Figma Redesign v2 | AI tạo trọn bộ 6 sơ đồ đơn sắc (.drawio, .svg, .png scale 2x); ánh xạ 33 nhóm màn hình Redesign v2 vào Mục 5; bổ sung link tham khảo K23; sinh viên trực tiếp kiểm tra độ nét ảnh PNG và tính hợp lệ của đường dẫn ảnh | Commit `58986ee`, thư mục `assets/diagrams/` |
 | **T1-06** | 21h30 07/11<br>- 00h30 08/11 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Mở rộng 19 Use Cases theo Clarune Docs, Loại bỏ nhãn Module ABCD & Hoàn thiện UI 5.5.5 - 5.5.8 | AI xóa bỏ nhãn Module A/B/C/D đổi thành 4 Phân hệ; vẽ lại Sơ đồ 1 (19 UCs) và Sơ đồ 5 (5 UCs); thêm đặc tả UC-18, UC-19 và giao diện mục 5.5.5 đến 5.5.8; sinh viên rà soát ma trận quyền (Agent duyệt UC-19, Admin không có quyền; UC-18 cho cả Agent và Admin) | Commit `dc7231c`, `uc_overall_19_usecases.svg` |
 | **T1-07** | 08h45 - 08h55<br>09/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Review và Merge Pull Request #9 (Clarune Design v2), Sửa lỗi CI Marker Đóng góp Git | AI hỗ trợ merge PR #9 trên GitHub qua gh cli, rebase nhánh main, khắc phục lỗi thiếu cặp thẻ marker GENERATED trong script và báo cáo đóng góp git; đẩy lên remote và xác nhận GitHub Actions PASS xanh | Commit `43c725f`, PR #9 GitHub |
-
+| **T1-08** | 09/10/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Rà soát UC-11 — Tải lên và xử lý tài liệu tri thức | AI hỗ trợ rà soát đặc tả theo SRS, chỉ ra nội dung chưa rõ và gợi ý chỉnh sửa. Sinh viên tự kiểm chứng: Đối chiếu quyền tải tài liệu, giới hạn tệp và sự tách biệt giữa xử lý với công bố. |
+| **T1-09** | 09/10/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Rà soát UC-12 — Công bố và lưu trữ tài liệu tri thức | AI hỗ trợ đối chiếu điều kiện, kết quả và các kịch bản với SRS; gợi ý điều chỉnh nội dung và cách diễn đạt. Sinh viên tự kiểm chứng: Đối chiếu hai luồng công bố, lưu trữ và yêu cầu giữ lịch sử trích dẫn. |
+| **T1-10** | 09/10/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Rà soát UC-13 — Tìm kiếm tri thức | AI hỗ trợ rà soát tính nhất quán giữa tác nhân, điều kiện tiên quyết, luồng xử lý và kết quả; gợi ý chỉnh sửa. Sinh viên tự kiểm chứng: Đối chiếu quyền tìm kiếm, điều kiện tài liệu và các nhánh ngoại lệ. |
+| **T1-11** | 10/10/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Trau chuốt lại cách diễn đạt trong báo cáo phần UC-11  | AI gợi ý đơn giản hóa các chi tiết kỹ thuật về tải lên và xử lý tài liệu, giữ ý nghĩa nghiệp vụ. Sinh viên tự kiểm chứng: So sánh trước và sau khi sửa để giữ đúng ý nghĩa nghiệp vụ của UC-11. |
+| **T1-12** | 10/10/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Trau chuốt lại cách diễn đạt trong báo cáo phần UC-12 | AI gợi ý diễn đạt dễ hiểu hơn về điều kiện công bố, lưu trữ và ảnh hưởng của từng thao tác. Sinh viên tự kiểm chứng: Rà soát cách diễn đạt, điều kiện và kết quả công bố, lưu trữ. |
+| **T1-13** | 10/10/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Trau chuốt lại cách diễn đạt trong báo cáo phần UC-13 | AI gợi ý mô tả tìm kiếm ở mức nghiệp vụ, giữ rõ quyền truy cập, điều kiện tìm thấy tài liệu và ngoại lệ. Sinh viên tự kiểm chứng: Rà soát quyền truy cập và các ngoại lệ sau khi đơn giản hóa UC-13. |
+| **T1-14** | 11/10/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Hệ thống lại Danh sách các stakeholder | AI hỗ trợ tổng hợp các bên liên quan và mô tả nhiệm vụ, chức năng theo SRS. Sinh viên tự kiểm chứng: Đối chiếu vai trò và phân loại các bên liên quan với SRS. |
+| **T1-15** | 11/10/2026 | Nguyễn Đức Lãm<br>`24120083` | GPT-6.1-Sol<br>OpenAI | Chỉnh sửa Context Diagram | AI hỗ trợ rà soát, gợi ý điều chỉnh tên ứng dụng, tác nhân và đường nối theo bảng các bên liên quan. Sinh viên tự kiểm chứng: Đối chiếu tác nhân, ranh giới hệ thống và bố cục sơ đồ theo quy ước nhóm. |
 ---
 
 ## 6.3 CHI TIẾT CÁC PHIÊN LÀM VIỆC VỚI AI TRONG TEMPLATE 1
@@ -124,6 +131,125 @@
 
 ---
 
+### Phiên T1-08: Rà soát đặc tả UC-11 — Tải lên và xử lý tài liệu tri thức
+- **Thời gian:** 09/10/2026
+- **Tác giả chịu trách nhiệm:** `24120083` - Nguyễn Đức Lãm (Phân hệ Knowledge Base)
+- **Công cụ / Model:** GPT-6.1-Sol, OpenAI
+- **Prompt đã khử dữ liệu nhạy cảm:**
+  > *"Hãy rà soát đặc tả UC-11 trong ảnh, đối chiếu với tài liệu SRS hiện tại. Chỉ ra những nội dung mâu thuẫn, chưa chính xác hoặc chưa rõ ràng và gợi ý chỉnh sửa."*
+- **Nội dung AI tạo:**
+  - Nhận xét về những điểm chưa thống nhất hoặc chưa rõ trong đặc tả UC-11 và gợi ý điều chỉnh tương ứng.
+- **Nội dung tự kiểm chứng & hiệu chỉnh:**
+  - Đối chiếu từng mục của UC-11 với SRS và tài liệu nguồn, tập trung vào quyền tải tài liệu, định dạng được hỗ trợ, giới hạn 10 MiB và các trường hợp xử lý thất bại.
+  - Rà soát để phân biệt việc xử lý thành công với việc công bố tài liệu; lựa chọn và điều chỉnh các gợi ý phù hợp với phạm vi Use Case.
+- **Minh chứng:** File `reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md`
+
+---
+
+### Phiên T1-09: Rà soát đặc tả UC-12 — Công bố và lưu trữ tài liệu tri thức
+- **Thời gian:** 09/10/2026
+- **Tác giả chịu trách nhiệm:** `24120083` - Nguyễn Đức Lãm (Phân hệ Knowledge Base)
+- **Công cụ / Model:** GPT-6.1-Sol, OpenAI
+- **Prompt đã khử dữ liệu nhạy cảm:**
+  > *"Hãy tiếp tục rà soát đặc tả UC-12, đối chiếu các điều kiện thực hiện, kết quả, kịch bản chính và kịch bản phụ với tài liệu SRS hiện tại. Chỉ ra những điểm cần điều chỉnh và gợi ý cách diễn đạt phù hợp."*
+- **Nội dung AI tạo:**
+  - Nhận xét và gợi ý chỉnh sửa điều kiện thực hiện, kết quả, kịch bản chính và kịch bản phụ của UC-12 theo SRS.
+- **Nội dung tự kiểm chứng & hiệu chỉnh:**
+  - Đối chiếu hai luồng công bố và lưu trữ với SRS; rà soát quyền quản trị viên, điều kiện tài liệu và các nhánh từ chối thao tác.
+  - Kiểm tra cách mô tả việc ngừng sử dụng tài liệu đã lưu trữ cho yêu cầu mới.
+- **Minh chứng:** File `reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md`
+
+---
+
+### Phiên T1-10: Rà soát đặc tả UC-13 — Tìm kiếm tri thức
+- **Thời gian:** 09/10/2026
+- **Tác giả chịu trách nhiệm:** `24120083` - Nguyễn Đức Lãm (Phân hệ Knowledge Base)
+- **Công cụ / Model:** GPT-6.1-Sol, OpenAI
+- **Prompt đã khử dữ liệu nhạy cảm:**
+  > *"Hãy rà soát đặc tả UC-13 và đối chiếu với tài liệu SRS hiện tại. Kiểm tra tính nhất quán giữa tác nhân, điều kiện tiên quyết, các luồng xử lý và kết quả; gợi ý chỉnh sửa những nội dung chưa phù hợp."*
+- **Nội dung AI tạo:**
+  - Nhận xét và gợi ý điều chỉnh tác nhân, điều kiện tiên quyết, luồng xử lý và kết quả của UC-13.
+- **Nội dung tự kiểm chứng & hiệu chỉnh:**
+  - Đối chiếu tác nhân và điều kiện tiên quyết của UC-13 với SRS, bảo đảm mô tả dành cho nhân viên hỗ trợ hoặc quản trị viên có quyền.
+  - Rà soát điều kiện tài liệu được tìm thấy, việc kiểm tra lại quyền khi mở chi tiết và các trường hợp không có kết quả hoặc tài liệu không còn khả dụng.
+- **Minh chứng:** File `reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md`
+
+---
+
+### Phiên T1-11: Gợi ý đơn giản hóa cách diễn đạt của UC-11
+- **Thời gian:** 10/10/2026
+- **Tác giả chịu trách nhiệm:** `24120083` - Nguyễn Đức Lãm (Phân hệ Knowledge Base)
+- **Công cụ / Model:** GPT-6.1-Sol, OpenAI
+- **Prompt đã khử dữ liệu nhạy cảm:**
+  > *"Đặc tả UC-11 đang chứa nhiều chi tiết kỹ thuật như READY, FAILED, UPLOADED, PENDING, RUNNING và PROCESSING. Hãy chỉ ra những phần quá sâu về triển khai và gợi ý diễn đạt bằng ngôn ngữ đơn giản, phù hợp với báo cáo, đồng thời giữ đúng ý nghĩa nghiệp vụ."*
+- **Nội dung AI tạo:**
+  - Gợi ý thay các trạng thái và mô tả xử lý nội bộ bằng cách diễn đạt dễ hiểu ở mức nghiệp vụ.
+- **Nội dung tự kiểm chứng & hiệu chỉnh:**
+  - Rà soát các thuật ngữ kỹ thuật trong UC-11 và lựa chọn cách diễn đạt tiếng Việt phù hợp với báo cáo.
+  - Đối chiếu trước và sau khi chỉnh sửa để giữ nguyên ý nghĩa về tiếp nhận, xử lý, thử lại, thông báo lỗi và việc công bố riêng qua UC-12.
+- **Minh chứng:** File `reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md`
+
+---
+
+### Phiên T1-12: Gợi ý đơn giản hóa cách diễn đạt của UC-12
+- **Thời gian:** 10/10/2026
+- **Tác giả chịu trách nhiệm:** `24120083` - Nguyễn Đức Lãm (Phân hệ Knowledge Base)
+- **Công cụ / Model:** GPT-6.1-Sol, OpenAI
+- **Prompt đã khử dữ liệu nhạy cảm:**
+  > *"Hãy tiếp tục rà soát cách diễn đạt trong UC-12. Gợi ý thay thế các thuật ngữ về trạng thái dữ liệu, mã lỗi và xử lý nội bộ bằng lời giải thích dễ hiểu, giữ rõ điều kiện công bố, lưu trữ và ảnh hưởng của từng thao tác."*
+- **Nội dung AI tạo:**
+  - Gợi ý đơn giản hóa thuật ngữ kỹ thuật trong UC-12, làm rõ điều kiện và kết quả của thao tác công bố, lưu trữ.
+- **Nội dung tự kiểm chứng & hiệu chỉnh:**
+  - Đọc lại hai luồng công bố và lưu trữ sau khi đơn giản hóa cách diễn đạt; đối chiếu với SRS để giữ đúng điều kiện thực hiện và kết quả của từng thao tác.
+  - Rà soát các nhánh hủy, từ chối và lỗi lưu thay đổi, cùng yêu cầu giữ nguyên lịch sử trích dẫn.
+- **Minh chứng:** File `reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md`
+
+---
+
+### Phiên T1-13: Gợi ý đơn giản hóa cách diễn đạt của UC-13
+- **Thời gian:** 10/10/2026
+- **Tác giả chịu trách nhiệm:** `24120083` - Nguyễn Đức Lãm (Phân hệ Knowledge Base)
+- **Công cụ / Model:** GPT-6.1-Sol, OpenAI
+- **Prompt đã khử dữ liệu nhạy cảm:**
+  > *"Hãy rà soát những phần mô tả quá chi tiết về kỹ thuật tìm kiếm trong UC-13 và gợi ý cách diễn đạt ở mức nghiệp vụ. Nội dung cần dễ hiểu nhưng vẫn thể hiện đúng quyền truy cập, điều kiện tài liệu được tìm thấy và các trường hợp ngoại lệ."*
+- **Nội dung AI tạo:**
+  - Gợi ý thay mô tả triển khai tìm kiếm bằng mô tả nghiệp vụ về truy cập tài liệu, kết quả tìm kiếm và ngoại lệ.
+- **Nội dung tự kiểm chứng & hiệu chỉnh:**
+  - Rà soát cách diễn đạt của UC-13 sau khi lược bớt chi tiết triển khai tìm kiếm.
+  - Đối chiếu với SRS để giữ rõ quyền truy cập, điều kiện sử dụng tài liệu, cách hiển thị kết quả và các trường hợp ngoại lệ; điều chỉnh những câu có thể làm sai ý nghĩa nghiệp vụ.
+- **Minh chứng:** File `reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md`
+
+---
+
+### Phiên T1-14: Rà soát stakeholder theo SRS
+- **Thời gian:** 11/10/2026
+- **Tác giả chịu trách nhiệm:** `24120083` - Nguyễn Đức Lãm (Phân hệ Knowledge Base)
+- **Công cụ / Model:** GPT-6.1-Sol, OpenAI
+- **Prompt đã khử dữ liệu nhạy cảm:**
+  > *"Hãy rà soát các stakeholder trong file SRS, xác định những bên liên quan được đề cập và mô tả nhiệm vụ, chức năng của từng bên theo nội dung tài liệu."*
+- **Nội dung AI tạo:**
+  - Tổng hợp các bên liên quan trong SRS và mô tả nhiệm vụ, chức năng của từng bên.
+- **Nội dung tự kiểm chứng & hiệu chỉnh:**
+  - Đối chiếu danh sách các bên liên quan và mô tả vai trò với SRS.
+  - Rà soát sự khác nhau giữa bên liên quan của dự án, người dùng tương tác trực tiếp và dịch vụ bên ngoài; kiểm tra để tránh xem worker, cơ sở dữ liệu hoặc nơi lưu trữ nội bộ là tác nhân ngoài hệ thống.
+- **Minh chứng:** `reports/template1/03-tong-quan-yeu-cau/03.1-stakeholders.md`
+
+---
+
+### Phiên T1-15: Rà soát và gợi ý điều chỉnh Context Diagram
+- **Thời gian:** 11/10/2026
+- **Tác giả chịu trách nhiệm:** `24120083` - Nguyễn Đức Lãm (Phân hệ Knowledge Base)
+- **Công cụ / Model:** GPT-6.1-Sol, OpenAI
+- **Prompt đã khử dữ liệu nhạy cảm:**
+  > *"Hãy rà soát hình context_diagram_system và đối chiếu với bảng các bên liên quan được cung cấp. Gợi ý lược bỏ các chi tiết kỹ thuật trong hình chữ nhật trung tâm, chỉ giữ tên ứng dụng Clarune, đồng thời điều chỉnh các tác nhân và đường nối cho phù hợp."*
+- **Nội dung AI tạo:**
+  - Nhận xét, gợi ý điều chỉnh và bản sửa sơ đồ với tên ứng dụng Clarune ở trung tâm, các tác nhân và đường nối theo bảng các bên liên quan.
+- **Nội dung tự kiểm chứng & hiệu chỉnh:**
+  - Đối chiếu các tác nhân và quan hệ trên sơ đồ với bảng các bên liên quan; rà soát ranh giới hệ thống và tên ứng dụng Clarune.
+  - Kiểm tra bố cục, nhãn và đường nối, chú ý tránh chữ đè lên nét vẽ và chừa khoảng cách giữa biểu tượng người que với đường nối; lựa chọn các điều chỉnh phù hợp với quy ước của nhóm.
+- **Minh chứng:** `reports/template1/assets/diagrams/context_diagram_system.drawio`, `reports/template1/assets/diagrams/context_diagram_system.png`, `reports/template1/assets/diagrams/context_diagram_system.svg`
+
+---
 ## 6.4 CAM KẾT ĐẠO ĐỨC HỌC THUẬT
 
 Nhóm cam kết thực hiện đúng Quy định về việc sử dụng AI của Khoa CNTT - Trường ĐHKHTN:

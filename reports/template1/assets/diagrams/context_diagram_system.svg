@@ -1,99 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 620" width="1180" height="620" font-family="Arial, 'Segoe UI', Roboto, sans-serif">
-  <defs>
-    <marker id="open-arrow" viewBox="0 0 14 14" refX="12" refY="7" markerWidth="9" markerHeight="9" orient="auto">
-      <path d="M 2 2 L 12 7 L 2 12" fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-  </defs>
-
-  <rect width="1180" height="620" fill="#FFFFFF"/>
-
-  <!-- Central System Box -->
-  <rect x="380" y="140" width="420" height="340" fill="#FFFFFF" stroke="#000000" stroke-width="2"/>
-  <text x="590" y="185" text-anchor="middle" font-size="15" font-weight="700" fill="#000000">
-    AI-Powered Helpdesk &amp;
-  </text>
-  <text x="590" y="206" text-anchor="middle" font-size="15" font-weight="700" fill="#000000">
-    Knowledge Base System
-  </text>
-  <line x1="400" y1="224" x2="780" y2="224" stroke="#000000" stroke-width="1"/>
-
-  <text x="590" y="254" text-anchor="middle" font-size="12.5" font-weight="700" fill="#000000">Thành phần nội bộ trong ranh giới hệ thống:</text>
-  <text x="590" y="280" text-anchor="middle" font-size="12" fill="#222222">• Web Application (React + TypeScript + Tailwind CSS)</text>
-  <text x="590" y="304" text-anchor="middle" font-size="12" fill="#222222">• Backend API (Spring Boot 3 — Modular Monolith)</text>
-  <text x="590" y="328" text-anchor="middle" font-size="12" fill="#222222">• Background Ingestion Worker (Trích xuất &amp; Chia đoạn)</text>
-  <text x="590" y="352" text-anchor="middle" font-size="12" fill="#222222">• CSDL PostgreSQL + pgvector (Lưu dữ liệu &amp; Embeddings)</text>
-  <text x="590" y="376" text-anchor="middle" font-size="12" fill="#222222">• Private File Storage (Lưu trữ tệp tài liệu nội bộ)</text>
-
-  <!-- Actors Left -->
-  <!-- Guest -->
-  <g stroke="#000000" stroke-width="1.6" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="110" cy="65" r="11"/>
-    <line x1="110" y1="76" x2="110" y2="102"/>
-    <line x1="90" y1="86" x2="130" y2="86"/>
-    <line x1="110" y1="102" x2="94" y2="124"/>
-    <line x1="110" y1="102" x2="126" y2="124"/>
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="700" viewBox="0 0 1160 700" content="&lt;mxfile host=&quot;app.diagrams.net&quot; modified=&quot;2026-11-10T16:03:58Z&quot; agent=&quot;Codex&quot; version=&quot;24.0.0&quot; type=&quot;device&quot;&gt;&#10;  &lt;diagram id=&quot;context-diagram&quot; name=&quot;Clarune - Context Diagram&quot;&gt;&#10;    &lt;mxGraphModel dx=&quot;1160&quot; dy=&quot;700&quot; grid=&quot;1&quot; gridSize=&quot;10&quot; guides=&quot;1&quot; tooltips=&quot;1&quot; connect=&quot;1&quot; arrows=&quot;1&quot; fold=&quot;1&quot; page=&quot;1&quot; pageScale=&quot;1&quot; pageWidth=&quot;1160&quot; pageHeight=&quot;700&quot; math=&quot;0&quot; shadow=&quot;0&quot; background=&quot;#FFFFFF&quot;&gt;&#10;      &lt;root&gt;&#10;        &lt;mxCell id=&quot;0&quot; /&gt;&#10;        &lt;mxCell id=&quot;1&quot; parent=&quot;0&quot; /&gt;&#10;        &lt;mxCell id=&quot;sys-box&quot; value=&quot;&amp;lt;b&amp;gt;Clarune&amp;lt;/b&amp;gt;&quot; style=&quot;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;shape=rect;verticalAlign=middle;whiteSpace=wrap;align=center;fontSize=28;spacing=0;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&#10;          &lt;mxGeometry x=&quot;500&quot; y=&quot;230&quot; width=&quot;220&quot; height=&quot;240&quot; as=&quot;geometry&quot; /&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;actor-guest&quot; value=&quot;Guest&quot; style=&quot;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;fontSize=12;fontStyle=0;spacingTop=8;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&#10;          &lt;mxGeometry x=&quot;80&quot; y=&quot;113.33333333333333&quot; width=&quot;40&quot; height=&quot;80&quot; as=&quot;geometry&quot; /&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;actor-customer&quot; value=&quot;Customer&quot; style=&quot;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;fontSize=12;fontStyle=0;spacingTop=8;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&#10;          &lt;mxGeometry x=&quot;80&quot; y=&quot;253.33333333333334&quot; width=&quot;40&quot; height=&quot;80&quot; as=&quot;geometry&quot; /&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;actor-agent&quot; value=&quot;Agent&quot; style=&quot;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;fontSize=12;fontStyle=0;spacingTop=8;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&#10;          &lt;mxGeometry x=&quot;80&quot; y=&quot;393.3333333333333&quot; width=&quot;40&quot; height=&quot;80&quot; as=&quot;geometry&quot; /&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;actor-admin&quot; value=&quot;Admin&quot; style=&quot;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;fontSize=12;fontStyle=0;spacingTop=8;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&#10;          &lt;mxGeometry x=&quot;80&quot; y=&quot;533.3333333333334&quot; width=&quot;40&quot; height=&quot;80&quot; as=&quot;geometry&quot; /&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;ext-llm&quot; value=&quot;«system»&amp;lt;br&amp;gt;Embedding hoặc LLM&amp;lt;br&amp;gt;Provider&quot; style=&quot;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;fontSize=12;fontStyle=0;spacingTop=8;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&#10;          &lt;mxGeometry x=&quot;1010&quot; y=&quot;323.3333333333333&quot; width=&quot;40&quot; height=&quot;80&quot; as=&quot;geometry&quot; /&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;e1&quot; value=&quot;Đăng ký, đăng nhập&amp;lt;br&amp;gt;Yêu cầu đặt lại mật khẩu&quot; style=&quot;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;edgeStyle=none;rounded=0;startArrow=none;endArrow=none;fontSize=12;align=center;verticalAlign=middle;labelBackgroundColor=#FFFFFF;spacing=0;exitX=1;exitY=0.3333333333333333;exitDx=12;exitPerimeter=0;entryX=0;entryY=0.1875;entryDx=0;entryPerimeter=0;&quot; edge=&quot;1&quot; parent=&quot;1&quot; source=&quot;actor-guest&quot; target=&quot;sys-box&quot;&gt;&#10;          &lt;mxGeometry relative=&quot;1&quot; as=&quot;geometry&quot; x=&quot;-0.38532529672659155&quot; y=&quot;0&quot;&gt;&#10;            &lt;Array as=&quot;points&quot;&gt;&#10;              &lt;mxPoint x=&quot;400&quot; y=&quot;140&quot; /&gt;&#10;            &lt;/Array&gt;&#10;            &lt;mxPoint x=&quot;0&quot; y=&quot;-30&quot; as=&quot;offset&quot; /&gt;&#10;          &lt;/mxGeometry&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;e2&quot; value=&quot;Tạo, xem và trao đổi về yêu cầu&amp;lt;br&amp;gt;Đóng hoặc yêu cầu mở lại&quot; style=&quot;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;edgeStyle=none;rounded=0;startArrow=none;endArrow=none;fontSize=12;align=center;verticalAlign=middle;labelBackgroundColor=#FFFFFF;spacing=0;exitX=1;exitY=0.3333333333333333;exitDx=12;exitPerimeter=0;entryX=0;entryY=0.3958333333333333;entryDx=0;entryPerimeter=0;&quot; edge=&quot;1&quot; parent=&quot;1&quot; source=&quot;actor-customer&quot; target=&quot;sys-box&quot;&gt;&#10;          &lt;mxGeometry relative=&quot;1&quot; as=&quot;geometry&quot; x=&quot;-0.29036429283563525&quot; y=&quot;0&quot;&gt;&#10;            &lt;Array as=&quot;points&quot;&gt;&#10;              &lt;mxPoint x=&quot;400&quot; y=&quot;280&quot; /&gt;&#10;            &lt;/Array&gt;&#10;            &lt;mxPoint x=&quot;0&quot; y=&quot;-30&quot; as=&quot;offset&quot; /&gt;&#10;          &lt;/mxGeometry&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;e3&quot; value=&quot;Tiếp nhận, xử lý yêu cầu được giao&amp;lt;br&amp;gt;Tra cứu tri thức, duyệt gợi ý AI&quot; style=&quot;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;edgeStyle=none;rounded=0;startArrow=none;endArrow=none;fontSize=12;align=center;verticalAlign=middle;labelBackgroundColor=#FFFFFF;spacing=0;exitX=1;exitY=0.3333333333333333;exitDx=12;exitPerimeter=0;entryX=0;entryY=0.6041666666666666;entryDx=0;entryPerimeter=0;&quot; edge=&quot;1&quot; parent=&quot;1&quot; source=&quot;actor-agent&quot; target=&quot;sys-box&quot;&gt;&#10;          &lt;mxGeometry relative=&quot;1&quot; as=&quot;geometry&quot; x=&quot;-0.29036429283563525&quot; y=&quot;0&quot;&gt;&#10;            &lt;Array as=&quot;points&quot;&gt;&#10;              &lt;mxPoint x=&quot;400&quot; y=&quot;420&quot; /&gt;&#10;            &lt;/Array&gt;&#10;            &lt;mxPoint x=&quot;0&quot; y=&quot;-30&quot; as=&quot;offset&quot; /&gt;&#10;          &lt;/mxGeometry&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;e4&quot; value=&quot;Quản lý nhân viên, yêu cầu và tri thức&amp;lt;br&amp;gt;Xem thống kê&quot; style=&quot;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;edgeStyle=none;rounded=0;startArrow=none;endArrow=none;fontSize=12;align=center;verticalAlign=middle;labelBackgroundColor=#FFFFFF;spacing=0;exitX=1;exitY=0.3333333333333333;exitDx=12;exitPerimeter=0;entryX=0;entryY=0.8125;entryDx=0;entryPerimeter=0;&quot; edge=&quot;1&quot; parent=&quot;1&quot; source=&quot;actor-admin&quot; target=&quot;sys-box&quot;&gt;&#10;          &lt;mxGeometry relative=&quot;1&quot; as=&quot;geometry&quot; x=&quot;-0.38532529672659155&quot; y=&quot;0&quot;&gt;&#10;            &lt;Array as=&quot;points&quot;&gt;&#10;              &lt;mxPoint x=&quot;400&quot; y=&quot;560&quot; /&gt;&#10;            &lt;/Array&gt;&#10;            &lt;mxPoint x=&quot;0&quot; y=&quot;-30&quot; as=&quot;offset&quot; /&gt;&#10;          &lt;/mxGeometry&gt;&#10;        &lt;/mxCell&gt;&#10;        &lt;mxCell id=&quot;e5&quot; value=&quot;Hỗ trợ tìm kiếm tri thức&amp;lt;br&amp;gt;và sinh gợi ý trả lời&quot; style=&quot;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;edgeStyle=none;rounded=0;startArrow=none;endArrow=none;fontSize=12;align=center;verticalAlign=middle;labelBackgroundColor=#FFFFFF;spacing=0;exitX=1;exitY=0.5;exitDx=0;exitPerimeter=0;entryX=0;entryY=0.3333333333333333;entryDx=-12;entryPerimeter=0;&quot; edge=&quot;1&quot; parent=&quot;1&quot; source=&quot;sys-box&quot; target=&quot;ext-llm&quot;&gt;&#10;          &lt;mxGeometry relative=&quot;1&quot; as=&quot;geometry&quot; x=&quot;0&quot; y=&quot;0&quot;&gt;&#10;            &lt;mxPoint x=&quot;0&quot; y=&quot;-30&quot; as=&quot;offset&quot; /&gt;&#10;          &lt;/mxGeometry&gt;&#10;        &lt;/mxCell&gt;&#10;      &lt;/root&gt;&#10;    &lt;/mxGraphModel&gt;&#10;  &lt;/diagram&gt;&#10;&lt;/mxfile&gt;&#10;" font-family="Arial" fill="#000000">
+  <title>Sơ đồ bối cảnh hệ thống Clarune</title>
+  <desc>Khung Clarune nhỏ gọn ở trung tâm; Guest, Customer, Agent, Admin ở bên trái; dịch vụ Embedding hoặc LLM ở bên phải. Các nhãn nằm trên đoạn nối ngang và đường nối cách tay tác nhân 12 pixel.</desc>
+  <rect width="1160" height="700" fill="#FFFFFF" />
+  <rect id="sys-box" x="500.0" y="230.0" width="220.0" height="240.0" fill="#FFFFFF" stroke="#000000" stroke-width="1.5" />
+  <g id="sys-box-label">
+    <text x="610.0" y="360.0" text-anchor="middle" font-size="28.0" font-weight="700" fill="#000000">Clarune</text>
   </g>
-  <text x="110" y="142" text-anchor="middle" font-size="12.5" font-weight="700" fill="#000000">Guest</text>
-
-  <!-- Customer -->
-  <g stroke="#000000" stroke-width="1.6" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="110" cy="205" r="11"/>
-    <line x1="110" y1="216" x2="110" y2="242"/>
-    <line x1="90" y1="226" x2="130" y2="226"/>
-    <line x1="110" y1="242" x2="94" y2="264"/>
-    <line x1="110" y1="242" x2="126" y2="264"/>
+  <g id="actor-guest" fill="#FFFFFF" stroke="#000000" stroke-width="1.5">
+    <ellipse cx="100.0" cy="123.33333333333333" rx="10.0" ry="10.0" />
+    <path d="M 100.0 133.33333333333331 V 166.66666666666666 M 80.0 140.0 H 120.0 M 80.0 193.33333333333331 L 100.0 166.66666666666666 L 120.0 193.33333333333331" fill="none" />
   </g>
-  <text x="110" y="282" text-anchor="middle" font-size="12.5" font-weight="700" fill="#000000">Customer</text>
-
-  <!-- Support Agent -->
-  <g stroke="#000000" stroke-width="1.6" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="110" cy="345" r="11"/>
-    <line x1="110" y1="356" x2="110" y2="382"/>
-    <line x1="90" y1="366" x2="130" y2="366"/>
-    <line x1="110" y1="382" x2="94" y2="404"/>
-    <line x1="110" y1="382" x2="126" y2="404"/>
+  <g id="actor-guest-label">
+    <text x="100.0" y="213.73333333333332" text-anchor="middle" font-size="12.0" font-weight="400" fill="#000000">Guest</text>
   </g>
-  <text x="110" y="422" text-anchor="middle" font-size="12.5" font-weight="700" fill="#000000">Support Agent</text>
-
-  <!-- System Administrator -->
-  <g stroke="#000000" stroke-width="1.6" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="110" cy="485" r="11"/>
-    <line x1="110" y1="496" x2="110" y2="522"/>
-    <line x1="90" y1="506" x2="130" y2="506"/>
-    <line x1="110" y1="522" x2="94" y2="544"/>
-    <line x1="110" y1="522" x2="126" y2="544"/>
+  <g id="actor-customer" fill="#FFFFFF" stroke="#000000" stroke-width="1.5">
+    <ellipse cx="100.0" cy="263.33333333333337" rx="10.0" ry="10.0" />
+    <path d="M 100.0 273.33333333333337 V 306.6666666666667 M 80.0 280.0 H 120.0 M 80.0 333.33333333333337 L 100.0 306.6666666666667 L 120.0 333.33333333333337" fill="none" />
   </g>
-  <text x="110" y="562" text-anchor="middle" font-size="12.5" font-weight="700" fill="#000000">System Administrator</text>
-
-  <!-- External Actors Right -->
-  <!-- Embedding / LLM Provider -->
-  <rect x="970" y="180" width="175" height="75" fill="#FFFFFF" stroke="#000000" stroke-width="1.5"/>
-  <text x="1057" y="206" text-anchor="middle" font-size="11.5" font-style="italic" fill="#000000">«external actor»</text>
-  <text x="1057" y="226" text-anchor="middle" font-size="12.5" font-weight="700" fill="#000000">Embedding / LLM</text>
-  <text x="1057" y="243" text-anchor="middle" font-size="12.5" font-weight="700" fill="#000000">Provider</text>
-
-  <!-- Mail Service -->
-  <rect x="970" y="355" width="175" height="75" fill="#FFFFFF" stroke="#000000" stroke-width="1.5"/>
-  <text x="1057" y="381" text-anchor="middle" font-size="11.5" font-style="italic" fill="#000000">«external actor»</text>
-  <text x="1057" y="401" text-anchor="middle" font-size="12.5" font-weight="700" fill="#000000">Mail Service (P1)</text>
-
-  <!-- Lines & Labels -->
-  <line x1="145" y1="100" x2="380" y2="195" stroke="#000000" stroke-width="1.4" marker-end="url(#open-arrow)"/>
-  <text x="255" y="130" text-anchor="middle" font-size="11" fill="#000000">Đăng ký, Đăng nhập, Reset MK</text>
-
-  <line x1="145" y1="240" x2="380" y2="265" stroke="#000000" stroke-width="1.4" marker-end="url(#open-arrow)"/>
-  <text x="260" y="242" text-anchor="middle" font-size="11" fill="#000000">Tạo/xem ticket, Gửi tin nhắn, Đóng/Mở lại</text>
-
-  <line x1="145" y1="380" x2="380" y2="345" stroke="#000000" stroke-width="1.4" marker-end="url(#open-arrow)"/>
-  <text x="260" y="352" text-anchor="middle" font-size="11" fill="#000000">Claim &amp; xử lý ticket, Tra cứu KB, Duyệt AI</text>
-
-  <line x1="145" y1="515" x2="380" y2="425" stroke="#000000" stroke-width="1.4" marker-end="url(#open-arrow)"/>
-  <text x="265" y="488" text-anchor="middle" font-size="11" fill="#000000">Quản lý Agent, Phân công, Quản trị KB, Thống kê</text>
-
-  <line x1="800" y1="220" x2="970" y2="220" stroke="#000000" stroke-width="1.4" marker-end="url(#open-arrow)"/>
-  <text x="885" y="208" text-anchor="middle" font-size="11" fill="#000000">Yêu cầu Vector &amp; Sinh gợi ý RAG</text>
-
-  <line x1="800" y1="392" x2="970" y2="392" stroke="#000000" stroke-width="1.4" marker-end="url(#open-arrow)"/>
-  <text x="885" y="380" text-anchor="middle" font-size="11" fill="#000000">Gửi liên kết đặt lại mật khẩu</text>
+  <g id="actor-customer-label">
+    <text x="100.0" y="353.73333333333335" text-anchor="middle" font-size="12.0" font-weight="400" fill="#000000">Customer</text>
+  </g>
+  <g id="actor-agent" fill="#FFFFFF" stroke="#000000" stroke-width="1.5">
+    <ellipse cx="100.0" cy="403.3333333333333" rx="10.0" ry="10.0" />
+    <path d="M 100.0 413.3333333333333 V 446.66666666666663 M 80.0 420.0 H 120.0 M 80.0 473.3333333333333 L 100.0 446.66666666666663 L 120.0 473.3333333333333" fill="none" />
+  </g>
+  <g id="actor-agent-label">
+    <text x="100.0" y="493.7333333333333" text-anchor="middle" font-size="12.0" font-weight="400" fill="#000000">Agent</text>
+  </g>
+  <g id="actor-admin" fill="#FFFFFF" stroke="#000000" stroke-width="1.5">
+    <ellipse cx="100.0" cy="543.3333333333334" rx="10.0" ry="10.0" />
+    <path d="M 100.0 553.3333333333334 V 586.6666666666667 M 80.0 560.0 H 120.0 M 80.0 613.3333333333334 L 100.0 586.6666666666667 L 120.0 613.3333333333334" fill="none" />
+  </g>
+  <g id="actor-admin-label">
+    <text x="100.0" y="633.7333333333333" text-anchor="middle" font-size="12.0" font-weight="400" fill="#000000">Admin</text>
+  </g>
+  <g id="ext-llm" fill="#FFFFFF" stroke="#000000" stroke-width="1.5">
+    <ellipse cx="1030.0" cy="333.3333333333333" rx="10.0" ry="10.0" />
+    <path d="M 1030.0 343.3333333333333 V 376.66666666666663 M 1010.0 350.0 H 1050.0 M 1010.0 403.3333333333333 L 1030.0 376.66666666666663 L 1050.0 403.3333333333333" fill="none" />
+  </g>
+  <g id="ext-llm-label">
+    <text x="1030.0" y="423.7333333333333" text-anchor="middle" font-size="12.0" font-weight="400" fill="#000000">«system»</text>
+    <text x="1030.0" y="440.5333333333333" text-anchor="middle" font-size="12.0" font-weight="400" fill="#000000">Embedding hoặc LLM</text>
+    <text x="1030.0" y="457.33333333333326" text-anchor="middle" font-size="12.0" font-weight="400" fill="#000000">Provider</text>
+  </g>
+  <path id="e1" d="M 132.0 140.0 L 400.0 140.0 L 500.0 275.0" fill="none" stroke="#000000" stroke-width="1.5" />
+  <g id="e1-label">
+    <text x="266.0" y="105.6" text-anchor="middle" font-size="12.0" font-weight="400" fill="#000000">Đăng ký, đăng nhập</text>
+    <text x="266.0" y="122.4" text-anchor="middle" font-size="12.0" font-weight="400" fill="#000000">Yêu cầu đặt lại mật khẩu</text>
+  </g>
+  <path id="e2" d="M 132.0 280.0 L 400.0 280.0 L 500.0 325.0" fill="none" stroke="#000000" stroke-width="1.5" />
+  <g id="e2-label">
+    <text x="266.0" y="245.6" text-anchor="middle" font-size="12.0" font-weight="400" fill="#000000">Tạo, xem và trao đổi về yêu cầu</text>
+    <text x="266.0" y="262.4" text-anchor="middle" font-size="12.0" font-weight="400" fill="#000000">Đóng hoặc yêu cầu mở lại</text>
+  </g>
+  <path id="e3" d="M 132.0 420.0 L 400.0 420.0 L 500.0 375.0" fill="none" stroke="#000000" stroke-width="1.5" />
+  <g id="e3-label">
+    <text x="266.0" y="385.59999999999997" text-anchor="middle" font-size="12.0" font-weight="400" fill="#000000">Tiếp nhận, xử lý yêu cầu được giao</text>
+    <text x="266.0" y="402.4" text-anchor="middle" font-size="12.0" font-weight="400" fill="#000000">Tra cứu tri thức, duyệt gợi ý AI</text>
+  </g>
+  <path id="e4" d="M 132.0 560.0 L 400.0 560.0 L 500.0 425.0" fill="none" stroke="#000000" stroke-width="1.5" />
+  <g id="e4-label">
+    <text x="266.0" y="525.6" text-anchor="middle" font-size="12.0" font-weight="400" fill="#000000">Quản lý nhân viên, yêu cầu và tri thức</text>
+    <text x="266.0" y="542.4" text-anchor="middle" font-size="12.0" font-weight="400" fill="#000000">Xem thống kê</text>
+  </g>
+  <path id="e5" d="M 720.0 350.0 L 998.0 350.0" fill="none" stroke="#000000" stroke-width="1.5" />
+  <g id="e5-label">
+    <text x="859.0" y="315.59999999999997" text-anchor="middle" font-size="12.0" font-weight="400" fill="#000000">Hỗ trợ tìm kiếm tri thức</text>
+    <text x="859.0" y="332.4" text-anchor="middle" font-size="12.0" font-weight="400" fill="#000000">và sinh gợi ý trả lời</text>
+  </g>
 </svg>
-
