@@ -27,10 +27,31 @@
 | **T1-05** | 03h00 - 12h00<br>07/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Chuẩn hóa 6 Sơ đồ UML đơn sắc toàn hệ thống & Ánh xạ giao diện Mục 5 theo Figma Redesign v2 | AI tạo trọn bộ 6 sơ đồ đơn sắc (.drawio, .svg, .png scale 2x); ánh xạ 33 nhóm màn hình Redesign v2 vào Mục 5; bổ sung link tham khảo K23; sinh viên trực tiếp kiểm tra độ nét ảnh PNG và tính hợp lệ của đường dẫn ảnh | Commit `58986ee`, thư mục `assets/diagrams/` |
 | **T1-06** | 21h30 07/11<br>- 00h30 08/11 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Mở rộng 19 Use Cases theo Clarune Docs, Loại bỏ nhãn Module ABCD & Hoàn thiện UI 5.5.5 - 5.5.8 | AI xóa bỏ nhãn Module A/B/C/D đổi thành 4 Phân hệ; vẽ lại Sơ đồ 1 (19 UCs) và Sơ đồ 5 (5 UCs); thêm đặc tả UC-18, UC-19 và giao diện mục 5.5.5 đến 5.5.8; sinh viên rà soát ma trận quyền (Agent duyệt UC-19, Admin không có quyền; UC-18 cho cả Agent và Admin) | Commit `dc7231c`, `uc_overall_19_usecases.svg` |
 | **T1-07** | 08h45 - 08h55<br>09/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE | Review và Merge Pull Request #9 (Clarune Design v2), Sửa lỗi CI Marker Đóng góp Git | AI hỗ trợ merge PR #9 trên GitHub qua gh cli, rebase nhánh main, khắc phục lỗi thiếu cặp thẻ marker GENERATED trong script và báo cáo đóng góp git; đẩy lên remote và xác nhận GitHub Actions PASS xanh | Commit `43c725f`, PR #9 GitHub |
+| **T1-08** | 06–11/11/2026 | Lê Quý Phúc<br>`24120121` | Codex, OpenAI | Soạn thảo, rà soát và chuyển phần Template 1 được phân công sang Markdown: Mục 1, Mục 2, UC-14/15/17/18/19 và Mục 5.5 | AI hỗ trợ brainstorm Use Case, đề xuất luồng chính/phụ, viết NFR bằng lời, tạo DOCX highlight và chuyển định dạng. Sinh viên đối chiếu SRS, yêu cầu hiệu chỉnh và chỉnh thủ công bản DOCX; nội dung Markdown được lấy từ bản đã chốt và kiểm tra tự động từng đoạn/ô bảng | `01-danh-gia-thanh-vien.md`, `02-mo-ta-bai-toan.md`, các file đặc tả AI/Analytics, Mục 5.5; commit `af1e190`, PR #10 |
 
 ---
 
 ## 6.3 CHI TIẾT CÁC PHIÊN LÀM VIỆC VỚI AI TRONG TEMPLATE 1
+
+### Phiên T1-01: Thiết kế giao diện Quiet Workspace Redesign v2 trên Figma — Lê Quý Phúc
+
+- **Thời gian:** 26/10 – 03/11/2026.
+- **Thành viên chịu trách nhiệm:** Lê Quý Phúc — `24120121`.
+- **Công cụ:** Claude Code, Anthropic; Codex, OpenAI.
+- **Mục đích và yêu cầu tóm tắt:** Thiết kế prototype Helpdesk theo phong cách “Bàn làm việc yên tĩnh” (Quiet Workspace), ưu tiên khả năng đọc và xử lý ticket liên tục; bám sát quyền Customer, Agent, Admin và luồng kiểm duyệt gợi ý AI trong SRS.
+- **Nội dung AI hỗ trợ:**
+  - Đề xuất bố cục, màu sắc, typography, khoảng cách và các thành phần giao diện dùng chung; tổ chức thành Foundations và Components để tái sử dụng trong Figma.
+  - Dựng các màn hình cho Agent Workspace, Customer Portal, định danh/tài khoản, Kho tri thức và quản trị; bổ sung các trạng thái đang tải, trống và lỗi.
+  - Thiết kế bố cục desktop, tablet, mobile và chế độ sáng/tối; nối các màn hình thành luồng prototype để minh họa thao tác.
+  - Xuất ảnh PNG, lập danh mục màn hình và lưu ánh xạ Node Figma để nhóm sử dụng khi viết báo cáo và triển khai giao diện.
+- **Nội dung con người kiểm chứng và hiệu chỉnh:**
+  - Sinh viên đối chiếu phương án với SRS, lựa chọn hướng Quiet Workspace và yêu cầu chỉnh sửa bố cục, cách trình bày thông tin, thành phần và luồng thao tác.
+  - Rà soát cách phân biệt trả lời công khai với ghi chú nội bộ, quyền thao tác theo vai trò và việc chèn gợi ý AI không tự gửi phản hồi.
+  - Kiểm tra các màn hình và ảnh xuất phục vụ báo cáo; tiếp nhận phản hồi và hiệu chỉnh phương án trước khi bàn giao cho nhóm.
+- **Giới hạn:** Đây là prototype minh họa, không phải bằng chứng backend, xác thực hoặc lưu dữ liệu đã hoạt động. Các kiểm tra bàn phím, screen reader và hành vi đầu cuối của ứng dụng cần thực hiện khi triển khai frontend.
+- **Minh chứng:** Figma SE, Node `49:58`; [tài liệu thiết kế](../../docs/design/README.md), [danh mục màn hình](../../docs/design/man-hinh.md), [ánh xạ Node Figma](../../docs/design/figma-map.json), [Design System MASTER](../../design-system/helpdesk-workspace/MASTER.md) và [PR #9](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/pull/9).
+
+---
 
 ### Phiên T1-03: Khởi tạo bản thảo Template 1 Master & Đối soát mã kiểm thử truy vết
 - **Thời gian:** 14h00 - 18h30 ngày 06/11/2026
@@ -121,6 +142,24 @@
   - Sinh viên xác nhận PR #9 đã được đóng trên GitHub với đầy đủ các màn hình prototype Clarune Redesign v2.
   - Kiểm tra trạng thái CI GitHub Actions chuyển sang trạng thái xanh (PASS 100%).
 - **Minh chứng:** Pull Request #9 trên GitHub, commit `43c725f`.
+
+---
+
+### Phiên T1-08: Soạn thảo và hoàn thiện nội dung Template 1 — Lê Quý Phúc
+
+- **Thời gian:** 06–11/11/2026.
+- **Thành viên chịu trách nhiệm:** Lê Quý Phúc — `24120121`.
+- **Công cụ:** Codex, OpenAI.
+- **Mục đích và yêu cầu tóm tắt:** Hỗ trợ hoàn thiện phần được phân công trong Template 1; phân tích sâu Use Case và ngoại lệ; chỉ chỉnh phần Quý Phúc; trình bày theo UC-01, viết ràng buộc phi chức năng bằng lời; chuyển đúng nội dung đã chốt sang Markdown và chỉ giữ chú thích hình.
+- **Nội dung AI hỗ trợ:**
+  - Brainstorm và rà soát đặc tả UC-14, UC-15, UC-17, UC-18, UC-19; làm rõ tác nhân, điều kiện, luồng chính/phụ, kết quả và phân quyền.
+  - Gợi ý cách trình bày các bảng UC theo UC-01; diễn đạt NFR thành yêu cầu bằng lời; tạo DOCX highlight để người dùng đối chiếu và sửa thủ công.
+  - Hỗ trợ biên tập mô tả giao diện Mục 5.5, rà soát hình minh họa và liên kết với các UC tương ứng.
+  - Chuyển Mục 1, Mục 2, năm UC và Mục 5.5 từ DOCX đã chốt sang đúng các file Markdown được giao, giữ nguyên câu chữ và chú thích hình.
+- **Nội dung con người kiểm chứng và hiệu chỉnh:** Sinh viên đối chiếu từng đề xuất, yêu cầu sửa luồng bỏ gợi ý, cách trình bày NFR và nội dung mockup, rồi chỉnh thủ công trong tài liệu nhóm. Bản DOCX cuối do người dùng cung cấp được dùng làm nguồn chuyển đổi, không lấy các bản gợi ý hoặc highlight cũ làm nội dung nộp.
+- **Kiểm tra bằng công cụ:** Đối chiếu từng đoạn/ô bảng giữa DOCX và Markdown; kiểm đủ năm UC, mỗi UC chín trường và 12 chú thích hình ở Mục 5.5; kiểm tra diff để bảo toàn phần của thành viên khác.
+- **Giới hạn:** Kiểm tra cấu trúc tài liệu và prototype không chứng minh nghiệp vụ backend đã được triển khai; lượt chuyển Markdown không truy cập Google Docs để kiểm tra cập nhật mới hơn DOCX.
+- **Minh chứng:** Các file Markdown phần Quý Phúc trong `reports/template1/`, commit `af1e190` và [PR #10](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/pull/10).
 
 ---
 
