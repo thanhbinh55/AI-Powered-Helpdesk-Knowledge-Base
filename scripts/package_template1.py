@@ -325,7 +325,7 @@ def build_git(refresh=False):
             else:lines.append('Merge commit / không có tệp thay đổi trực tiếp.\n\n')
     lines.append('## Pull Request liên quan\n\n| PR | Nội dung | Nhánh | Trạng thái tại thời điểm chốt |\n| --- | --- | --- | --- |\n')
     for p in snapshot['pull_requests']:
-        if p['headRefName'].startswith('docs/t1-') or p['number']==8:
+        if p['headRefName'].startswith('docs/t1-') or p['headRefName']=='merge-template1' or p['number']==8:
             lines.append(f'| [#{p["number"]}]({p["url"]}) | {p["title"]} | `{p["headRefName"]}` | {p["state"]} |\n')
     write(T1/'git-contributions/git-contributions.md',''.join(lines))
     return {m['full_name']:len(grouped[m['mssv']]) for m in members}
