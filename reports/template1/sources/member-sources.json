@@ -1,0 +1,22 @@
+{
+  "binh": {
+    "ref": "origin/docs/t1-identity-binh",
+    "commit": "4827ab99f117c448a9c7dc27688f40a45a92e3e9",
+    "sha256": "288e092fa82a22ebaa8fac2e4c61d1a88b485c9358f8238ab316b79fe4d0bced"
+  },
+  "lam": {
+    "ref": "origin/docs/t1-knowledge-lam",
+    "commit": "979179b55194e2010373de0b30547f966e3e59fe",
+    "sha256": "ce0a813c4e10149c6a7442eadd44006108f78b1eef2add2b95355628ef91e6e0"
+  },
+  "quy-phuc": {
+    "ref": "origin/docs/t1-ai-quyphuc-markdown",
+    "commit": "8971284b6a590c84f5e8b76a3d1ddb9bc49d3c09",
+    "sha256": "2fb271f493e66d5565c9faef2417e3836b1fea70f327cbd88bc19a21638f4036"
+  },
+  "gia-phuc": {
+    "ref": "origin/docs/t1-ticket-giaphuc",
+    "commit": "3eb41819e02bb184a821bf1d22d7292fd65b0c02",
+    "sha256": "f1946312dfdb05812ca16e1271c8af2903d169ee9e963fdc8a3aa9386e183372"
+  }
+}

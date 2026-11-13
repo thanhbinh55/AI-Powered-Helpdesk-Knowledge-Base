@@ -1,0 +1,18 @@
+{
+  "confirmed_by": "Ngô Viết Thanh Bình — trong cuộc hội thoại",
+  "date": "2026-11-12",
+  "decisions": [
+    "8 phiên của Lãm diễn ra 09–11/11/2026, không phải tháng 10.",
+    "Hai phiên Codex ngày 12/11 chỉ ghi ngày và tên công cụ.",
+    "Để trống cột chữ ký như nguồn.",
+    "Bỏ số trang ở mục lục Markdown; giữ tiêu đề và liên kết.",
+    "Bổ sung commit đóng gói trên merge-template1 vào snapshot Git."
+  ],
+  "editorial_rules": [
+    "Đánh mã phiên liên tục T1-01…T1-22 theo nhóm thành viên; bảng và chi tiết dùng cùng mã.",
+    "Giữ nguyên bản nguồn; lưu ánh xạ mã cũ/mới.",
+    "Bỏ ghi chú thao tác chưa biết giờ/model khỏi bản nộp; không bịa giá trị thay thế.",
+    "Ghi nhận kiểm tra bằng công cụ; không khẳng định ai đã review hoặc approve khi chưa có dữ liệu."
+  ],
+  "review_status": "Không có tên reviewer/xác nhận approve trong thông tin được cung cấp. Đây là ghi chú đối soát, không kết luận bài chưa đạt."
+}

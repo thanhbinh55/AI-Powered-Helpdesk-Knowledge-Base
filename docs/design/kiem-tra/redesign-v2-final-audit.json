@@ -1,0 +1,197 @@
+{
+  "date": "2026-11-01",
+  "primaryGroups": 33,
+  "screenFrames": 148,
+  "modules": [
+    {
+      "module": "agent",
+      "primary": 10,
+      "frames": 38,
+      "counts": {
+        "nodes": 4920,
+        "visibleNodes": 3671,
+        "frames": 1002,
+        "texts": 1851,
+        "instances": 1503
+      },
+      "textContrastSamples": 1481,
+      "disabledSamples": 9,
+      "minByMode": {
+        "Light": 4.74,
+        "Dark": 4.77
+      },
+      "issues": 0
+    },
+    {
+      "module": "customer",
+      "primary": 7,
+      "frames": 29,
+      "counts": {
+        "nodes": 1791,
+        "visibleNodes": 1402,
+        "frames": 429,
+        "texts": 625,
+        "instances": 524
+      },
+      "textContrastSamples": 574,
+      "disabledSamples": 7,
+      "minByMode": {
+        "Light": 4.74,
+        "Dark": 4.77
+      },
+      "issues": 0
+    },
+    {
+      "module": "identity",
+      "primary": 5,
+      "frames": 18,
+      "counts": {
+        "nodes": 943,
+        "visibleNodes": 728,
+        "frames": 181,
+        "texts": 422,
+        "instances": 251
+      },
+      "textContrastSamples": 304,
+      "disabledSamples": 26,
+      "minByMode": {
+        "Light": 5.52,
+        "Dark": 4.77
+      },
+      "issues": 0
+    },
+    {
+      "module": "knowledge",
+      "primary": 6,
+      "frames": 33,
+      "counts": {
+        "nodes": 2117,
+        "visibleNodes": 1710,
+        "frames": 343,
+        "texts": 756,
+        "instances": 684
+      },
+      "textContrastSamples": 642,
+      "disabledSamples": 14,
+      "minByMode": {
+        "Light": 4.74,
+        "Dark": 4.77
+      },
+      "issues": 0
+    },
+    {
+      "module": "admin",
+      "primary": 5,
+      "frames": 30,
+      "counts": {
+        "nodes": 2797,
+        "visibleNodes": 2118,
+        "frames": 495,
+        "texts": 999,
+        "instances": 908
+      },
+      "textContrastSamples": 839,
+      "disabledSamples": 3,
+      "minByMode": {
+        "Light": 4.74,
+        "Dark": 4.77
+      },
+      "issues": 0
+    }
+  ],
+  "reactions": {
+    "applied": 709,
+    "verified": 709,
+    "flows": 56
+  },
+  "preservation": {
+    "variables": true,
+    "styles": true,
+    "components": true,
+    "originalPageMetadataAndFlows": true
+  },
+  "controlBorderContrast": [
+    {
+      "mode": "49:0",
+      "bg": "bg/surface",
+      "ratio": 3.67
+    },
+    {
+      "mode": "49:0",
+      "bg": "bg/subtle",
+      "ratio": 3.27
+    },
+    {
+      "mode": "49:3",
+      "bg": "bg/surface",
+      "ratio": 4.51
+    },
+    {
+      "mode": "49:3",
+      "bg": "bg/subtle",
+      "ratio": 4.18
+    }
+  ],
+  "limits": [
+    "Prototype native tĩnh; chưa click-test trong Presentation viewer.",
+    "Figma không hỗ trợ NAVIGATE qua page; dùng entry flow riêng.",
+    "Chưa mô phỏng mọi tổ hợp responsive, tìm kiếm, nhập liệu hoặc phân trang. Chỉ các link trong manifest đã được nối.",
+    "State minh họa theo nhánh; không có persistence, backend, upload hay auth thật.",
+    "Keyboard, scroll, screen reader, focus trap và bàn phím ảo cần kiểm tra khi triển khai frontend."
+  ],
+  "semanticChecks": {
+    "openComposerLocked": true,
+    "aiInsertAndSendExact": true,
+    "distinctSourceReaders": true,
+    "waitingReplyPreservesStatus": true,
+    "customerSentMatchesDraft": true,
+    "reopenedCodePreserved": true,
+    "closedReadOnly": true,
+    "noCustomerInternalOrAI": true,
+    "passwordClearedAndDisabled": true,
+    "publicationSeparate": true,
+    "adminIdentityPreserved": true,
+    "reassignmentNotUndoneBySharedActions": true,
+    "rootParentAndSize": true,
+    "darkNative": true,
+    "oldPageMetadataAndFlows": true
+  },
+  "note": "Số liệu tương phản và đếm node ở trên là của Codex ngày 01/11/2026, chưa đo lại. Lượt 03/11 chỉ dùng biến, style và component sẵn có.",
+  "review_2026_11_03": {
+    "report": "Lưu ngoài repo (hồ sơ quá trình thiết kế).",
+    "screenFrames": 151,
+    "method": "Xem trực tiếp 33 màn chính và các mẫu Dark/tablet/mobile; quét 1.563 instance của 5 page bằng audit_instances.py.",
+    "fixed": {
+      "sidebars": 87,
+      "aiPanelPadding": 5,
+      "tabPairs": 11,
+      "backLinks": 60,
+      "iconButtonsShrunk": 19,
+      "eventOrder": 28,
+      "hiddenDuplicateMessages": 14,
+      "mobileStatusMenus": 6,
+      "customerNavTabs": 20,
+      "rowDangerToSecondary": 2
+    },
+    "afterScan": {
+      "iconButtonsShrunk": 0,
+      "aiPanelPaddingWrong": 0,
+      "sidebarsActiveNotOne": 0
+    },
+    "prototype": {
+      "flows": 56,
+      "reactionsAdded": 17,
+      "swappedInstancesKeepReactions": true
+    },
+    "limits": [
+      "Tương phản đo theo cặp token dùng trong đợt sửa, không quét lại từng node chữ."
+    ],
+    "contrast": {
+      "file": "redesign-v2-contrast-2026-11-03.json",
+      "pairs": 14,
+      "pass": 13,
+      "note": "border/strong trên bg/surface 1,58 (Light) / 1,75 (Dark): viền nút Secondary, có từ Components ban đầu. WCAG 1.4.11 không bắt buộc 3:1 khi nhãn chữ đã nhận diện nút; ô nhập dùng border/control đạt ≥ 3,27:1.",
+      "decision": "Giữ border/strong; xem báo cáo rà soát."
+    }
+  }
+}

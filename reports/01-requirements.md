@@ -1,61 +1,15 @@
-# BÁO CÁO ĐẶC TẢ YÊU CẦU PHẦN MỀM (SOFTWARE REQUIREMENTS SPECIFICATION)
+# Báo cáo yêu cầu — chỉ mục baseline hiện hành
 
-> **Dự án:** AI-Powered Helpdesk & Knowledge Base  
-> **Mã nhóm:** Group 04  
-> **Môn học:** Nhập môn Công nghệ Phần mềm - HCMUS
+> Cập nhật 12/11/2026 theo [Report.pdf](template1/report/Report.pdf). Bản Markdown đối chiếu: [report.md](template1/report/report.md). PDF final được ưu tiên khi có khác biệt với nguồn soạn thảo cũ.
 
----
+Bộ yêu cầu gồm **41 FR, 19 NFR và 19 Use Case**. Các bản theo mục đã đồng bộ:
 
-## THÔNG TIN TÀI LIỆU
-- **Tiêu đề (Title):** Software Requirements Specification (SRS)
-- **Phiên bản (Version):** 1.0.0-draft
-- **Ngày tạo (Date):** 2026-10-19
-- **Tác giả & Đóng góp (Authors + Contributions):**
-  - `24120121` - `Lê Quý Phúc`: Yêu cầu phân hệ Trợ lý AI & Báo cáo phân tích (Module A)
-  - `24120083` - `Nguyễn Đức Lãm`: Yêu cầu phân hệ Kho tri thức (Knowledge Base) & Vector Search (Module B)
-  - `24120503` - `Phan Gia Phúc`: Yêu cầu phân hệ Quản lý Ticket & Luồng xử lý sự cố (Module C)
-  - `24120269` - `Ngô Viết Thanh Bình`: Yêu cầu phân hệ Quản trị & Xác thực người dùng (Module D) *(Nhóm trưởng)*
-- **Phạm vi (Scope):** Chi tiết hóa các yêu cầu chức năng, phi chức năng, ràng buộc kỹ thuật và tiêu chuẩn nghiệm thu của toàn bộ hệ thống.
+- [Mô tả bài toán và phạm vi P0/P1](template1/02-mo-ta-bai-toan.md).
+- [Stakeholder và sơ đồ bối cảnh P0](template1/03-tong-quan-yeu-cau/03.1-stakeholders.md); Email đặt lại mật khẩu là P1 tại UC-16.
+- [41 yêu cầu chức năng](template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md).
+- [19 yêu cầu phi chức năng](template1/03-tong-quan-yeu-cau/03.2.2-yeu-cau-phi-chuc-nang.md); giữ nguyên mục tiêu của PDF, chưa phải kết quả đo đạt.
+- [Prototype](template1/05-prototype-mockup.md): 34 nhóm màn hình, 229 frames, 82 flow points; bản report dùng 31 ảnh UI.
 
----
+FR–TK–03 bao gồm tìm kiếm/lọc/phân trang; FR–TK–09 quy định chuyển trạng thái hợp lệ; FR–TK–10 là lịch sử xử lý. FR–KB–05 theo dõi tiến trình và thử lại tối đa 3 lần kể cả lần đầu; FR–KB–09 xem danh mục tài liệu. FR–AI–10 chỉ đánh giá Hữu ích/Không hữu ích, không yêu cầu dashboard chất lượng AI.
 
-## 1. YÊU CẦU CHỨC NĂNG (FUNCTIONAL REQUIREMENTS)
-### 1.1. Phân hệ A: Trợ lý AI & Báo cáo phân tích (Module A)
-- **FR-AI-01:** Tự động gợi ý bài viết tri thức liên quan khi người dùng nhập nội dung ticket.
-- **FR-AI-02:** Tự động phân loại mức độ ưu tiên và phòng ban xử lý bằng mô hình ngôn ngữ lớn (LLM).
-- **FR-AI-03:** Thống kê SLA, thời gian phản hồi trung bình và tỷ lệ giải quyết ticket.
-
-### 1.2. Phân hệ B: Kho tri thức (Knowledge Base) (Module B)
-- **FR-KB-01:** Quản lý bài viết hướng dẫn (FAQ / Articles) theo cây chuyên mục.
-- **FR-KB-02:** Tìm kiếm toàn văn và tìm kiếm ngữ nghĩa (Semantic Vector Search).
-- **FR-KB-03:** Đánh giá độ hữu ích của bài viết (Thích / Không thích / Bình chọn).
-
-### 1.3. Phân hệ C: Quản lý Ticket & Helpdesk (Module C)
-- **FR-TCK-01:** Tạo mới ticket với phân loại danh mục, mức độ ưu tiên và đính kèm tệp.
-- **FR-TCK-02:** Quy trình chuyển trạng thái ticket: *Open -> In Progress -> Resolved -> Closed*.
-- **FR-TCK-03:** Bình luận, trao đổi giữa người dùng và nhân viên hỗ trợ.
-
-### 1.4. Phân hệ D: Quản trị & Xác thực người dùng (Module D)
-- **FR-AUTH-01:** Đăng ký, đăng nhập hệ thống và xác thực qua JWT.
-- **FR-AUTH-02:** Phân quyền theo vai trò (Admin, Support Agent, End-user).
-- **FR-AUTH-03:** Quản lý thông tin hồ sơ và nhật ký đăng nhập.
-
----
-
-## 2. YÊU CẦU PHI CHỨC NĂNG (NON-FUNCTIONAL REQUIREMENTS)
-- **NFR-SEC-01:** Mã hóa mật khẩu người dùng bằng thuật toán an toàn (BCrypt).
-- **NFR-PERF-01:** Thời gian phản hồi của các API tra cứu không vượt quá 500ms dưới tải 100 concurrent requests.
-- **NFR-AVAIL-01:** Hệ thống hỗ trợ chế độ Mock AI khi không có kết nối Internet hoặc chưa cấu hình API Key.
-
----
-
-## TÀI LIỆU THAM KHẢO (REFERENCES)
-1. IEEE Std 830-1998, Recommended Practice for Software Requirements Specifications.
-2. Tài liệu đặc tả tổng thể: `reports/SRS-master.md`.
-
----
-
-## NHẬT KÝ THAY ĐỔI (CHANGE LOG)
-| Phiên bản | Ngày | Người sửa | Nội dung thay đổi | Mã Task Jira |
-| :--- | :--- | :--- | :--- | :--- |
-| `0.1.0` | 2026-10-19 | DevOps Engineer | Khởi tạo khung tài liệu yêu cầu | SCRUM-6 |
+[SRS](SRS-master.md) giữ chi tiết triển khai và 30 user stories. [MVP contracts](MVP_CONTRACTS.md) mô tả giao tiếp kỹ thuật. Attachments, OCR/quản lý phiên bản, reset password, thống kê ticket và đánh giá AI là P1. Xem lịch sử gợi ý AI (UC-18) thuộc P0. Không tự mở rộng phạm vi hoặc dùng mock/prototype làm bằng chứng tính năng thật đã hoạt động.

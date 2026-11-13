@@ -1,10 +1,7 @@
-# BÁO CÁO ĐỀ XUẤT ĐỒ ÁN (PROJECT PROPOSAL - TEMPLATE 0)
+# NMCNPM - AI-Powered Helpdesk & Knowledge Base - Group 04
 
-> **Môn học:** Nhập môn Công nghệ Phần mềm (NMCNPM) - Trường ĐH Khoa học Tự nhiên (HCMUS)  
-> **Đề tài:** AI-Powered Helpdesk & Knowledge Base  
-> **Mã nhóm:** Group 04  
+<div style="page-break-after: always; break-after: page;"></div>
 
----
 
 ## MỤC LỤC
 1. [Bảng đánh giá thành viên](#1-bảng-đánh-giá-thành-viên)
@@ -27,22 +24,26 @@
    4.3. [Cài đặt (implement) phần mềm](#43-cài-đặt-implement-phần-mềm)  
    4.4. [Kiểm thử phần mềm](#44-kiểm-thử-phần-mềm)  
    4.5. [Triển khai, bảo trì](#45-triển-khai-bảo-trì)
-5. [Kế hoạch nhân sự & chi phí](#5-kế-hoạch-nhân-sự--chi-phí)  
+5. [Kế hoạch nhân sự & chi phí](#5-kế-hoạch-nhân-sự-chi-phí)  
    5.1. [Cấu trúc nhân sự](#51-cấu-trúc-nhân-sự)  
-   5.2. [Kế hoạch chi phí](#52-kế-hoạch-chi-phí)
+   5.2. [Kế hoạch chi phí](#52-kế-hoạch-chi-phí)  
+[Tài liệu tham khảo (References)](#tài-liệu-tham-khảo-references)  
+[Phụ lục: Tuyên bố và Ghi chú sử dụng AI](#phụ-lục-tuyên-bố-và-ghi-chú-sử-dụng-ai)
 
----
+<div style="page-break-after: always; break-after: page;"></div>
 
 # 1. Bảng đánh giá thành viên
 
+<p class="table-caption" style="text-align: center; font-weight: 700; margin-bottom: 8px; font-size: 12pt;">Bảng 1. Bảng đánh giá đóng góp của thành viên</p>
+
 | MSSV | Họ Tên | % đóng góp (tối đa 100%) | Chữ ký |
-| :--- | :--- | :---: | :---: |
+| :---: | :---: | :---: | :---: |
 | 24120121 | Lê Quý Phúc | 100% | |
 | 24120503 | Phan Gia Phúc | 100% | |
 | 24120083 | Nguyễn Đức Lãm | 100% | |
 | 24120269 | Ngô Viết Thanh Bình | 100% | |
 
----
+<div style="page-break-after: always; break-after: page;"></div>
 
 # 2. Phát biểu bài toán sơ lược
 
@@ -101,7 +102,7 @@ Sản phẩm được thiết kế để chứng minh một luồng sử dụng 
 
 Giá trị kỳ vọng của hệ thống là **giúp người dùng gửi yêu cầu hỗ trợ rõ ràng**, **giúp nhân viên tìm căn cứ nhanh hơn** và **giữ được trách nhiệm của con người đối với nội dung gửi đi**.
 
----
+<div style="page-break-after: always; break-after: page;"></div>
 
 # 3. Giải pháp đề xuất
 
@@ -146,65 +147,29 @@ Giá trị kỳ vọng của hệ thống là **giúp người dùng gửi yêu 
 
 ### 3.1.2. Kiến trúc tổng thể phần mềm
 
-Hệ thống được thiết kế theo kiến trúc Modular Monolith, với backend là một ứng dụng Spring Boot gồm bốn module nghiệp vụ: `identity`, `ticket`, `knowledge` và `ai`. Các module tương ứng với bốn nhóm chức năng của phần mềm và có ranh giới trách nhiệm riêng. Cách tổ chức này phù hợp với phạm vi MVP phục vụ một đơn vị và quy mô nhóm bốn người, giúp nhóm phát triển, kiểm thử và triển khai trên cùng một ứng dụng.
+Hệ thống được thiết kế theo kiến trúc Modular Monolith, với backend là một ứng dụng Spring Boot gồm bốn module nghiệp vụ: `Identity`, `Ticket`, `Knowledge` và `AI`. Các module tương ứng với bốn nhóm chức năng của phần mềm và có ranh giới trách nhiệm riêng. Cách tổ chức này phù hợp với phạm vi MVP phục vụ một đơn vị và quy mô nhóm bốn người, giúp nhóm phát triển, kiểm thử và triển khai trên cùng một ứng dụng.
 
 #### a. Sơ đồ kiến trúc tổng thể
 
-```mermaid
-flowchart TB
-    UI["Giao diện web React + TypeScript"]
-
-    subgraph Backend["Backend Spring Boot: Modular Monolith"]
-        API["REST API và kiểm tra quyền truy cập"]
-        ID["identity<br/>Tài khoản và phân quyền"]
-        TK["ticket<br/>Quản lý yêu cầu hỗ trợ"]
-        KB["knowledge<br/>Quản lý kho tri thức"]
-        AI["ai<br/>Gợi ý phản hồi"]
-        WR["Document worker<br/>Xử lý tài liệu nền"]
-
-        API --> ID
-        API --> TK
-        API --> KB
-        API --> AI
-        AI -->|"Lấy ngữ cảnh ticket"| TK
-        AI -->|"Truy xuất nguồn"| KB
-        WR -->|"Xử lý tài liệu"| KB
-    end
-
-    UI -->|"HTTPS / JSON"| API
-
-    PG[("PostgreSQL + pgvector")]
-    FS[("Kho tệp riêng tư")]
-    MODEL["Dịch vụ LLM và Embedding API"]
-
-    ID --> PG
-    TK --> PG
-    KB --> PG
-    AI --> PG
-    KB --> FS
-    AI -->|"Sinh bản nháp"| MODEL
-    WR -->|"Tạo embedding"| MODEL
-```
-<p align="center" style="font-size: 0.85em;">
-  <em>Kiến trúc tổng thể hệ thống</em>
-</p>
+![Hình 1. Kiến trúc tổng thể phần mềm](./kien-truc-tong-the.svg)
+<p class="figure-caption" style="text-align: center; font-style: italic; font-size: 11.5pt; margin-top: 8px; margin-bottom: 14px;">Hình 1. Kiến trúc tổng thể phần mềm</p>
 
 #### b. Các thành phần và trách nhiệm
 
 | Thành phần | Trách nhiệm |
 |---|---|
-| Giao diện web | Sử dụng React và TypeScript, cung cấp các màn hình theo vai trò Customer, Agent và Admin. Frontend tổ chức theo tính năng `auth`, `tickets`, `knowledge`, `ai`; gửi yêu cầu REST/JSON qua HTTPS và đính kèm access token với các thao tác cần xác thực. |
-| Module `identity` | Xử lý đăng ký, đăng nhập, làm mới token, đăng xuất, quản lý hồ sơ và tài khoản Agent. Backend kiểm tra vai trò và quyền sở hữu dữ liệu trước khi thực hiện nghiệp vụ. |
-| Module `ticket` | Quản lý ticket, phân công nhân viên, tin nhắn công khai, ghi chú nội bộ, mức ưu tiên và lịch sử xử lý. Module kiểm soát việc nhận ticket đồng thời và các bước chuyển trạng thái. |
-| Module `knowledge` | Quản lý tải lên, xử lý, công bố và lưu trữ tài liệu; cung cấp chức năng tìm kiếm các đoạn nội dung liên quan. |
-| Module `ai` | Lấy ngữ cảnh ticket, truy xuất tài liệu, dựng yêu cầu gửi mô hình, kiểm tra nguồn trích dẫn và lưu lịch sử gợi ý. |
+| Giao diện web | Sử dụng React và TypeScript, cung cấp các màn hình theo vai trò Customer, Agent và Admin. Frontend tổ chức theo tính năng `Identity`, `Ticket`, `Knowledge`, `AI`; gửi yêu cầu REST/JSON qua HTTPS và đính kèm access token với các thao tác cần xác thực. |
+| Module `Identity` | Xử lý đăng ký, đăng nhập, làm mới token, đăng xuất, quản lý hồ sơ và tài khoản Agent. Backend kiểm tra vai trò và quyền sở hữu dữ liệu trước khi thực hiện nghiệp vụ. |
+| Module `Ticket` | Quản lý ticket, phân công nhân viên, tin nhắn công khai, ghi chú nội bộ, mức ưu tiên và lịch sử xử lý. Module kiểm soát việc nhận ticket đồng thời và các bước chuyển trạng thái. |
+| Module `Knowledge` | Quản lý tải lên, xử lý, công bố và lưu trữ tài liệu; cung cấp chức năng tìm kiếm các đoạn nội dung liên quan. |
+| Module `AI` | Lấy ngữ cảnh ticket, truy xuất tài liệu, dựng yêu cầu gửi mô hình, kiểm tra nguồn trích dẫn và lưu lịch sử gợi ý. |
 | Document worker | Chạy trong cùng ứng dụng backend, nhận công việc từ bảng tác vụ trong cơ sở dữ liệu để trích xuất văn bản, chia đoạn và tạo vector biểu diễn nội dung. |
 | PostgreSQL và kho tệp | PostgreSQL lưu dữ liệu nghiệp vụ, tác vụ xử lý và các gợi ý AI; phần mở rộng pgvector lưu vector phục vụ tìm kiếm theo ngữ nghĩa. Tài liệu gốc được lưu trong kho riêng tư trên Docker volume, không công khai qua URL. |
 | Dịch vụ AI bên ngoài | Cung cấp mô hình tạo embedding và mô hình sinh ngôn ngữ qua API. Hệ thống có chế độ giả lập (mock) để phục vụ kiểm thử và trình diễn. |
 
 Bên trong mỗi module, mã nguồn được chia thành các phần `api`, `application`, `domain` và `infrastructure`, lần lượt phụ trách giao tiếp HTTP, điều phối ca sử dụng, quy tắc nghiệp vụ và tích hợp hạ tầng.
 
-Các module trao đổi qua application service hoặc interface có kiểm soát. Cụ thể, `ai` lấy ngữ cảnh ticket qua `TicketContextProvider` và truy xuất tri thức qua `KnowledgeRetriever`. Dữ liệu ticket do module `ticket` quản lý; dữ liệu tài liệu và quá trình tìm kiếm thuộc trách nhiệm của `knowledge`.
+Các module trao đổi qua application service hoặc interface có kiểm soát. Cụ thể, `AI` lấy ngữ cảnh ticket qua `TicketContextProvider` và truy xuất tri thức qua `KnowledgeRetriever`. Dữ liệu ticket do module `Ticket` quản lý; dữ liệu tài liệu và quá trình tìm kiếm thuộc trách nhiệm của `Knowledge`.
 
 #### c. Luồng vận hành
 
@@ -222,11 +187,11 @@ Worker nhận tác vụ, trích xuất văn bản, chia thành các đoạn có 
 
 ##### Sinh và sử dụng gợi ý AI
 
-Khi Agent được giao ticket yêu cầu gợi ý phản hồi, backend kiểm tra quyền và lấy ngữ cảnh từ nội dung trao đổi công khai. Ghi chú nội bộ không được đưa vào ngữ cảnh gửi mô hình. Module `ai` truy xuất những đoạn liên quan trong các tài liệu đã xử lý xong, đã công bố và chưa lưu trữ. Nếu không có đủ căn cứ, hệ thống lưu trạng thái `INSUFFICIENT_EVIDENCE` và thông báo cho Agent.
+Khi Agent được giao ticket yêu cầu gợi ý phản hồi, backend kiểm tra quyền và lấy ngữ cảnh từ nội dung trao đổi công khai. Ghi chú nội bộ không được đưa vào ngữ cảnh gửi mô hình. Module `AI` truy xuất những đoạn liên quan trong các tài liệu đã xử lý xong, đã công bố và chưa lưu trữ. Nếu không có đủ căn cứ, hệ thống lưu trạng thái `INSUFFICIENT_EVIDENCE` và thông báo cho Agent.
 
 Khi có nguồn phù hợp, hệ thống gửi ngữ cảnh cùng các đoạn tài liệu cho mô hình để tạo bản nháp. Backend kiểm tra các mã nguồn trích dẫn có thuộc tập đoạn đã truy xuất hay không, sau đó lưu gợi ý và bản chụp nội dung nguồn tại thời điểm tạo. Việc kiểm tra mã nguồn giúp xác nhận nguồn trích dẫn hợp lệ; Agent vẫn cần đối chiếu nội dung trước khi sử dụng.
 
-Agent xem, chỉnh sửa và chủ động gửi bản nháp. Thao tác gửi đi qua application service của module `ticket` để tạo tin nhắn công khai; gợi ý chỉ được đánh dấu đã sử dụng khi giao dịch chung thành công. AI không có quyền tự gửi tin nhắn, phân công hay thay đổi trạng thái ticket.
+Agent xem, chỉnh sửa và chủ động gửi bản nháp. Thao tác gửi đi qua application service của module `Ticket` để tạo tin nhắn công khai; gợi ý chỉ được đánh dấu đã sử dụng khi giao dịch chung thành công. AI không có quyền tự gửi tin nhắn, phân công hay thay đổi trạng thái ticket.
 
 Các lời gọi dịch vụ AI được thực hiện ngoài giao dịch xử lý ticket. Khi dịch vụ AI gặp lỗi hoặc quá tải, hệ thống thông báo cho Agent và vẫn cho phép tạo ticket, trao đổi và xử lý yêu cầu theo quy trình thông thường.
 
@@ -262,7 +227,7 @@ Các lời gọi dịch vụ AI được thực hiện ngoài giao dịch xử l
 | NFR-DEPLOY-01 | Khả năng triển khai lại | Docker Compose, `.env.example`, dữ liệu demo và README đủ để một máy mới chạy hệ thống theo hướng dẫn. |
 | NFR-UX-01 | Khả dụng giao diện | Giao diện responsive; các trạng thái đang tải, rỗng và lỗi có thông báo rõ ràng; các thao tác chính thực hiện trên trình duyệt hiện đại. |
 
----
+<div style="page-break-after: always; break-after: page;"></div>
 
 # 4. Kế hoạch phát triển
 
@@ -310,7 +275,7 @@ Giai đoạn thiết kế diễn ra từ ngày 19/10/2026 đến ngày 25/10/202
 
 Kết thúc giai đoạn, nhóm cần có tài liệu thiết kế gồm kiến trúc hệ thống, ERD, đặc tả API và wireframe, cùng kết quả thử nghiệm kỹ thuật và các quyết định lựa chọn công nghệ.
 
-### 4.3. Cài đặt phần mềm
+### 4.3. Cài đặt (implement) phần mềm
 
 Giai đoạn cài đặt kéo dài bốn tuần, từ ngày 26/10/2026 đến ngày 22/11/2026. Công việc được phân chia theo bốn phân hệ nghiệp vụ chính; cả bốn thành viên đều trực tiếp viết mã nguồn.
 
@@ -339,7 +304,7 @@ Cả bốn thành viên tham gia đợt kiểm thử tập trung từ ngày 23/1
 
 Kết quả cần đạt là báo cáo kiểm thử có minh chứng và các lỗi P0 đã được sửa. Số liệu đo phải ghi rõ điều kiện môi trường thực hiện.
 
-### 4.5. Triển khai, bảo trì và hoàn thiện tài liệu
+### 4.5. Triển khai, bảo trì
 
 Giai đoạn cuối diễn ra trong hai tuần, từ ngày 30/11/2026 đến ngày 13/12/2026, với sự tham gia của cả bốn thành viên.
 
@@ -352,7 +317,7 @@ Giai đoạn cuối diễn ra trong hai tuần, từ ngày 30/11/2026 đến ng�
 | 5 | Đóng gói `GroupID.zip`, kiểm tra giới hạn 20 tệp/20 MB | 12/12/2026 | 12/12/2026 |
 | 6 | Trình bày và demo sản phẩm trong Presentation Day | 13/12/2026 | 13/12/2026 |
 
----
+<div style="page-break-after: always; break-after: page;"></div>
 
 # 5. Kế hoạch nhân sự & chi phí
 
@@ -394,11 +359,11 @@ Dự án dự kiến thực hiện trong 9 tuần, từ ngày 12/10/2026 đến 
 | **10** | **Dự phòng rủi ro (10%)** | 10% tổng chi phí trực tiếp | **~4.353.000** | Dự phòng biến động giá, tỷ giá và mức sử dụng API (làm tròn lên). |
 | **TỔNG** | **TỔNG NGÂN SÁCH DỰ TOÁN** | — | **~47.840.000** | *(Bằng chữ: Khoảng bốn mươi bảy triệu tám trăm bốn mươi nghìn đồng)* |
 
-> **Ghi chú:**
-> • Các chi phí được tính toán dựa trên quy mô nhóm nhỏ (4 thành viên) và mô hình triển khai thử nghiệm (prototype / MVP).
-> • Chi phí thực tế có thể thay đổi tùy theo quy mô hệ thống, số lượng người dùng, và gói dịch vụ hạ tầng được chọn khi triển khai chính thức.
+**Ghi chú:**
+- Các chi phí được tính toán dựa trên quy mô nhóm nhỏ (4 thành viên) và mô hình triển khai thử nghiệm (prototype / MVP).
+- Chi phí thực tế có thể thay đổi tùy theo quy mô hệ thống, số lượng người dùng, và gói dịch vụ hạ tầng được chọn khi triển khai chính thức.
 
----
+<div style="page-break-after: always; break-after: page;"></div>
 
 ## TÀI LIỆU THAM KHẢO (REFERENCES)
 1. DigitalOcean. Droplet Pricing. https://www.digitalocean.com/pricing/droplets
@@ -407,3 +372,20 @@ Dự án dự kiến thực hiện trong 9 tuần, từ ngày 12/10/2026 đến 
 4. OpenAI. text-embedding-3-small. https://developers.openai.com/api/docs/models/text-embedding-3-small
 5. OpenAI. ChatGPT Pricing (Codex / Plus). https://chatgpt.com/vi-VN/pricing
 6. Cloudflare. Universal SSL/TLS Certificates. https://developers.cloudflare.com/ssl/edge-certificates/universal-ssl/
+
+<div style="page-break-after: always; break-after: page;"></div>
+
+## PHỤ LỤC: TUYÊN BỐ VÀ GHI CHÚ SỬ DỤNG AI
+
+*(Căn cứ theo Mục 5 Quy định về việc sử dụng AI trong học phần — Khoa Công nghệ Thông tin, Trường Đại học Khoa học Tự Nhiên TP.HCM)*
+
+### 1. Tuyên bố bắt buộc về việc sử dụng AI (Mục 5.B)
+> *"Trong suốt quá trình thực hiện đồ án, nhóm có sử dụng các công cụ Trí tuệ nhân tạo (bao gồm ChatGPT của OpenAI, Google Gemini / Antigravity IDE của Google, GitHub Copilot) với mục đích hỗ trợ tra cứu kiến thức, gợi ý cấu trúc báo cáo, rà soát ngữ pháp - chính tả, và gợi ý khung mã nguồn. Tất cả các nội dung do AI đề xuất đều được các thành viên nhóm hiểu rõ bản chất, đối chiếu với tài liệu học thuật chính thống, chỉnh sửa bổ sung bằng năng lực cá nhân, chạy thử nghiệm test case thực tế và chịu hoàn toàn trách nhiệm về tính đúng đắn trước Giảng viên."*
+
+### 2. Ghi chú sử dụng AI và Tài liệu đính kèm
+Để đảm bảo tính minh bạch học thuật theo Điều 2 và Điều 5 của Quy định, toàn bộ nhật ký đối soát chi tiết quá trình tương tác với AI (bao gồm: tên công cụ, phiên bản, thời gian truy cập, câu prompt nguyên văn, mục đích sử dụng, nội dung AI tạo, chi tiết đối soát kiểm chứng và bằng chứng commit git tương ứng của 11 phiên làm việc) được nhóm tổng hợp và trình bày chi tiết trong tài liệu riêng:
+
+* **Tên tài liệu:** **Báo cáo sử dụng AI (AI Usage Transparency & Accountability Report)**
+* **Định dạng tài liệu đính kèm theo bài nộp:**
+  * **File Markdown (.md) & HTML (.html):** File `Báo cáo sử dụng AI` (`ai-usage.md`/`ai-usage.html` đính kèm trong thư mục nộp bài).
+

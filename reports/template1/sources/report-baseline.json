@@ -1,0 +1,25 @@
+{
+  "authority": "report/Report.pdf",
+  "pdf_sha256": "152ce6ca368ff560abef6a405d94d7ee6306667119ec0d7c1c2da3274af16913",
+  "markdown_source": "sources/template1-final-current.md",
+  "markdown_sha256": "634fe7f2871140540a81420a2754771c95bdc2a232645e545ee2fd21417c6bd5",
+  "review_date": "2026-11-13",
+  "pages": 70,
+  "toc_entries_checked": 71,
+  "functional_requirements": 41,
+  "nonfunctional_requirements": 19,
+  "use_cases": 19,
+  "figures": 37,
+  "decisions": [
+    "FR–AI–10 chỉ lưu và thay đổi đánh giá hữu ích/không hữu ích; không có dashboard chất lượng AI.",
+    "Giữ nguyên yêu cầu phi chức năng của PDF; không bổ sung phương pháp đo mới.",
+    "Sơ đồ bối cảnh thể hiện P0; dịch vụ Email P1 được giải thích bằng văn bản.",
+    "FR–KB–05 theo dõi tiến trình/thử lại; FR–KB–09 xem danh mục tài liệu.",
+    "UC-04 dẫn nhánh lỗi A.4a, B.3a hoặc C.3a.",
+    "Đồng bộ PDF mới ngày 13/11/2026: cập nhật đoạn stakeholder, giải thích phạm vi P0 và dấu đầu dòng FR–AI–10; các khác biệt ngắt trang/tiêu đề bảng lặp không đưa vào nội dung Markdown.",
+    "Giữ 6 sơ đồ vector đã chỉnh; hình trong PDF mới khớp nội dung sơ đồ. Năm ảnh Knowledge Base dùng đúng ảnh nhúng từ PDF (1462×894), không thay bằng bản Figma khác tỉ lệ."
+  ],
+  "original_export": "sources/template1-final-original.md",
+  "status": "Đã đối chiếu toàn bộ văn bản với PDF, không sửa PDF và không xác nhận nộp bài/reviewer.",
+  "previous_pdf_sha256": "0c67ba2259117a8ccb49c253168d4ea464937e236bafaa170875206b1f2d8e92"
+}

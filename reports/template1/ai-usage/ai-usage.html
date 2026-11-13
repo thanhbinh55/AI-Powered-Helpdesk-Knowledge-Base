@@ -1,0 +1,1476 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Template 1 — AI Usage Report</title><style>
+:root {
+  --page-width: 210mm;
+  --page-height: 297mm;
+  --page-margin-top: 25mm;
+  --page-margin-bottom: 20mm;
+  --page-margin-left: 30mm;
+  --page-margin-right: 20mm;
+
+  --primary-blue: #548dd4;
+  --header-blue: #548dd4;
+  --sub-blue: #4f81bd;
+  --dark-blue: #366091;
+  --text-dark: #000000;
+  --border-dark: #cbd5e1;
+  --table-stripe: #f8fafc;
+  --quote-bg: #f8fafc;
+}
+
+*, *::before, *::after,
+html, body, p, span, div, a, li, ul, ol, blockquote, table, th, td, tr, 
+h1, h2, h3, h4, h5, h6, input, button, select, textarea, b, strong, em, i, 
+code, pre, small, sub, sup, header, footer, section, article, caption {
+  font-family: 'Times New Roman', Times, serif !important;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+body {
+  font-family: 'Times New Roman', Times, serif !important;
+  color: var(--text-dark);
+  background-color: #f1f5f9;
+  margin: 0;
+  padding: 20px 0 60px 0;
+  line-height: 1.5;
+  font-size: 12pt;
+}
+
+.doc-page, .report-container, .container {
+  background-color: #ffffff;
+  max-width: 900px;
+  margin: 0 auto 35px auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.cover-page {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  min-height: 297mm;
+  height: 297mm;
+  width: var(--page-width);
+  padding: 30mm 25mm 25mm 25mm !important;
+  box-sizing: border-box !important;
+  background-color: #ffffff;
+  margin: 12mm auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+}
+
+.cover-top-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.cover-doc-id {
+  text-align: center;
+  font-size: 15pt !important;
+  font-weight: 700 !important;
+  color: #000000 !important;
+  line-height: 1.4;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+}
+
+.proposal-banner {
+  background: linear-gradient(135deg, #548dd4 0%, #366091 100%);
+  color: #ffffff !important;
+  padding: 30px 25px;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(84, 141, 212, 0.25);
+  margin-bottom: 25px;
+}
+
+.banner-title {
+  font-size: 24pt !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+  color: #ffffff !important;
+}
+
+.banner-subtitle {
+  font-size: 13.5pt !important;
+  font-style: italic;
+  opacity: 0.95;
+  color: #ffffff !important;
+}
+
+.cover-meta-box {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  padding: 16px 20px;
+  margin: 15px 0 20px 0;
+  border-radius: 4px;
+  font-size: 11pt !important;
+  line-height: 1.5;
+}
+
+.cover-institution-block-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-top: auto;
+  margin-bottom: 5px;
+}
+
+.cover-logo-wrapper {
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+}
+
+.cover-logo-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cover-inst-text {
+  text-align: left;
+  line-height: 1.35;
+}
+
+.inst-line-dept {
+  font-size: 11.5pt !important;
+  font-weight: 700 !important;
+  color: #366091;
+  text-transform: uppercase;
+}
+
+.inst-line-faculty {
+  font-size: 12.5pt !important;
+  font-weight: 700 !important;
+  color: #000000;
+  text-transform: uppercase;
+}
+
+.inst-line-school {
+  font-size: 13.5pt !important;
+  font-weight: 700 !important;
+  color: #548dd4;
+  text-transform: uppercase;
+}
+
+/* Page Frame for Word-like pagination */
+.page {
+  width: var(--page-width);
+  height: var(--page-height);
+  min-height: var(--page-height);
+  max-height: var(--page-height);
+  background-color: #ffffff;
+  margin: 12mm auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+  padding: var(--page-margin-top) var(--page-margin-right) var(--page-margin-bottom) var(--page-margin-left);
+}
+
+.page .template-header-bar {
+  flex: none;
+  margin-bottom: 4mm;
+}
+
+.page .template-footer-bar {
+  flex: none;
+  margin-top: 4mm;
+}
+
+.page-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.page-body > :first-child {
+  margin-top: 0 !important;
+}
+
+.template-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2px solid #548dd4;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  width: 100%;
+}
+
+.template-footer-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-top: 2px solid #548dd4;
+  margin-top: 0;
+  padding-top: 0;
+  width: 100%;
+}
+
+.header-tab {
+  background-color: #548dd4 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 11pt !important;
+  line-height: 1.2;
+  padding: 4px 20px;
+  display: inline-block;
+  margin-bottom: -1px;
+  letter-spacing: 0.2px;
+}
+
+.header-title {
+  color: #000000 !important;
+  font-weight: 700 !important;
+  font-size: 11pt !important;
+  line-height: 1.2;
+  padding-bottom: 4px;
+  padding-right: 2px;
+  text-align: right;
+  letter-spacing: 0.2px;
+}
+
+.footer-left {
+  color: #000000 !important;
+  font-size: 10.5pt !important;
+  padding-top: 5px;
+  line-height: 1.2;
+}
+
+.footer-tab {
+  background-color: #548dd4 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 11pt !important;
+  padding: 4px 22px;
+  min-width: 45px;
+  text-align: center;
+  line-height: 1.2;
+  margin-top: -2px;
+  display: inline-block;
+  letter-spacing: 0.2px;
+}
+
+p {
+  margin: 0 0 9px 0;
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 1.45;
+  font-size: 12pt;
+}
+
+h2 {
+  color: #000000;
+  font-size: 13.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 14px;
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+h3 {
+  color: #000000;
+  font-size: 12.5pt;
+  font-weight: 700;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+ul, ol {
+  margin: 0 0 9px 0;
+  padding-left: 22px;
+  line-height: 1.45;
+  font-size: 12pt;
+}
+
+li {
+  margin-bottom: 3px;
+  text-align: justify;
+}
+
+blockquote {
+  margin: 6px 0 9px 0;
+  padding: 7px 12px;
+  background-color: var(--quote-bg);
+  border: 1px solid var(--border-dark);
+  border-radius: 4px;
+  font-style: normal;
+  font-size: 11pt;
+  line-height: 1.45;
+}
+
+blockquote p {
+  margin: 0;
+  font-style: normal;
+  text-align: justify;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #cbd5e1;
+  margin: 8px 0 10px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 6px 0 10px 0;
+  font-size: 10.5pt;
+  line-height: 1.35;
+}
+
+th, td {
+  border: 1px solid #94a3b8;
+  padding: 4px 6px;
+  vertical-align: top;
+}
+
+th {
+  background-color: #548dd4 !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  text-align: center;
+}
+
+tr:nth-child(even) td {
+  background-color: var(--table-stripe);
+}
+
+.align-center { text-align: center; }
+.align-right { text-align: right; }
+.align-left { text-align: left; }
+
+code {
+  font-family: 'Times New Roman', Times, serif !important;
+  background-color: #f1f5f9;
+  padding: 1px 4px;
+  border-radius: 3px;
+  border: 1px solid #cbd5e1;
+  font-size: 11pt;
+}
+
+a {
+  color: #366091;
+  text-decoration: underline;
+}
+
+.toc-page-num {
+  font-weight: 700;
+  color: #366091;
+}
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+@media print {
+  html, body {
+    background: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .page, .cover-page {
+    margin: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    height: 296.5mm !important;
+    overflow: hidden !important;
+    break-after: page !important;
+    page-break-after: always !important;
+  }
+  .page:last-of-type {
+    break-after: auto !important;
+    page-break-after: auto !important;
+  }
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  #source, .back-to-top {
+    display: none !important;
+  }
+}
+
+#source {
+  position: absolute;
+  left: -99999px;
+  top: 0;
+  width: calc(var(--page-width) - var(--page-margin-left) - var(--page-margin-right));
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #548dd4;
+  color: #ffffff !important;
+  padding: 10px 18px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 11pt;
+  box-shadow: 0 4px 12px rgba(84, 141, 212, 0.4);
+  z-index: 9999;
+  transition: all 0.2s ease;
+}
+.back-to-top:hover {
+  background-color: #366091;
+  transform: translateY(-2px);
+}
+
+
+.page-body { overflow-wrap: anywhere; }
+.page-body table { table-layout: fixed; width: 100%; font-size: 9pt; line-height: 1.3; }
+.page-body td, .page-body th { overflow-wrap: anywhere; word-break: normal; }
+.page-body pre { white-space: pre-wrap; }
+.page-body table code { font-size: inherit; padding: 0 1px; }
+.page .header-title { max-width: 57%; font-size: 10pt !important; white-space: normal; text-align: right; }
+.page-body li { font-size: 11pt; }
+.page-body h1 { font-size: 18pt; }
+.page-body blockquote { margin-left: 0; margin-right: 0; }
+.cover-meta-box { font-size: 10pt; }
+#source { width: 160mm; }
+</style></head><body>
+<!-- TRANG 1: TRANG BÌA (COVER PAGE) -->
+<section class="doc-page cover-page" id="trang-bia">
+  <div class="cover-top-section">
+    <div class="cover-doc-id">NMCNPM - Clarune - Group 04 | Template 1</div>
+
+    <div class="proposal-banner">
+      <div class="banner-title">AI Usage Report</div>
+      <div class="banner-subtitle">Báo cáo Sử dụng AI — Giai đoạn Template 1</div>
+    </div>
+
+    <div class="cover-meta-box">
+      <div><strong>Học phần:</strong> Nhập môn Công nghệ Phần mềm (CS10014) — Học kỳ 1 / Năm học 2026 - 2027</div>
+      <div><strong>Đề tài:</strong> AI-Powered Helpdesk &amp; Knowledge Base</div>
+      <div><strong>Mã nhóm:</strong> Group 04</div>
+      <div><strong>Kho lưu trữ (Repository):</strong> <a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base" target="_blank" rel="noopener noreferrer">https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base</a></div>
+      <div><strong>Chuẩn quy định:</strong> Mục 5 Quy định về việc sử dụng AI trong học phần — Khoa Công nghệ Thông tin, HCMUS</div>
+      <div><strong>Mục đích &amp; Phạm vi tài liệu:</strong> Ghi nhận việc sử dụng AI trong giai đoạn Template 1 của dự án Clarune.</div>
+      <div><strong>Ngày cập nhật:</strong> 13/11/2026</div>
+      <div style="margin-top: 14px;">
+        <table style="width: 100%; margin: 6px 0 0 0; border-collapse: collapse; font-size: 10.5pt;">
+          <thead>
+            <tr>
+              <th style="padding: 5px 6px; text-align: center; width: 45px;">STT</th>
+              <th style="padding: 5px 6px; text-align: center; width: 85px;">MSSV</th>
+              <th style="padding: 5px 8px; text-align: left;">Họ và Tên</th>
+              <th style="padding: 5px 8px; text-align: center; width: 120px;">GitHub</th>
+              <th style="padding: 5px 8px; text-align: left;">Module phụ trách</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center; padding: 5px 6px;">1</td>
+              <td style="text-align: center; padding: 5px 6px;"><code>24120269</code></td>
+              <td style="padding: 5px 8px;">Ngô Viết Thanh Bình (Nhóm trưởng)</td>
+              <td style="text-align: center; padding: 5px 8px;"><code>thanhbinh55</code></td>
+              <td style="padding: 5px 8px;">D - Identity &amp; Access</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 5px 6px;">2</td>
+              <td style="text-align: center; padding: 4px 6px;"><code>24120083</code></td>
+              <td style="padding: 5px 8px;">Nguyễn Đức Lãm</td>
+              <td style="text-align: center; padding: 5px 8px;"><code>Lamnguyen-code</code></td>
+              <td style="padding: 5px 8px;">B - Knowledge Base</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 5px 6px;">3</td>
+              <td style="text-align: center; padding: 5px 6px;"><code>24120503</code></td>
+              <td style="padding: 5px 8px;">Phan Gia Phúc</td>
+              <td style="text-align: center; padding: 5px 8px;"><code>t4lf4n</code></td>
+              <td style="padding: 5px 8px;">C - Ticket Management</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 5px 6px;">4</td>
+              <td style="text-align: center; padding: 5px 6px;"><code>24120121</code></td>
+              <td style="padding: 5px 8px;">Lê Quý Phúc</td>
+              <td style="text-align: center; padding: 5px 8px;"><code>Shinkiisme</code></td>
+              <td style="padding: 5px 8px;">A - AI Assistance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-bottom-section">
+    <div class="cover-institution-block-bottom">
+      <div class="cover-logo-wrapper">
+        <img src="data:image/png;base64,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" alt="HCMUS Logo">
+      </div>
+      <div class="cover-inst-text">
+        <div class="inst-line-dept">Bộ môn Công nghệ phần mềm</div>
+        <div class="inst-line-faculty">Khoa Công nghệ thông tin</div>
+        <div class="inst-line-school">Đại học Khoa học tự nhiên TP HCM</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="pages"></div><div id="source"><h1>BÁO CÁO SỬ DỤNG AI — TEMPLATE 1</h1>
+<blockquote>
+<p><strong>Dự án:</strong> AI-Powered Helpdesk &amp; Knowledge Base (Clarune)<br>
+<strong>Nhóm thực hiện:</strong> Nhóm 04 — Lớp Nhập môn Công nghệ Phần mềm (CS10014), Trường ĐHKHTN, ĐHQG-HCM<br>
+<strong>Kho lưu trữ:</strong> https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base<br>
+<strong>Chuẩn quy định:</strong> Mục 5 Quy định về việc sử dụng AI trong học phần — Khoa Công nghệ Thông tin, HCMUS<br>
+<strong>Phạm vi tài liệu:</strong> Nhật ký ghi nhận các phiên sử dụng công cụ AI phục vụ trực tiếp cho Báo cáo Template 1 (kế thừa và tiếp nối độc lập sau khi đã nộp hoàn tất Template 0).  </p>
+</blockquote>
+<hr>
+<h2>1. NGUYÊN TẮC MINH BẠCH &amp; KIỂM CHỨNG TRONG TEMPLATE 1</h2>
+<ol>
+<li><strong>Minh bạch câu lệnh (Prompts):</strong> Toàn bộ các câu prompt đưa vào AI đều được ghi nhận trung thực, tóm tắt rõ mục đích và đã khử các thông tin nhạy cảm (secrets/credentials/PII).</li>
+<li><strong>Không sao chép máy móc:</strong> Mọi sơ đồ UML, ma trận yêu cầu chức năng (FR), Use Case và giao diện do AI hỗ trợ đề xuất đều được các thành viên nhóm hiểu rõ, đối chiếu chéo với <code>SRS-master.md</code>, tài liệu nhóm Google Docs (<code>NMCNPM - Clarune - 04</code>) và chỉnh sửa thủ công trước khi đưa vào báo cáo.</li>
+<li><strong>Phân định trách nhiệm cá nhân:</strong> Tác giả từng phân hệ chịu trách nhiệm trực tiếp về phần nội dung con người đã kiểm chứng, không có tình trạng tạo dữ liệu giả hoặc nghiệm thu hình thức.</li>
+</ol>
+<hr>
+<h2>2. NHẬT KÝ SỬ DỤNG AI THEO THÀNH VIÊN</h2>
+<h3>2.1 Ngô Viết Thanh Bình — 24120269</h3>
+<table><colgroup><col style="width:8%"><col style="width:13%"><col style="width:12%"><col style="width:13%"><col style="width:18%"><col style="width:25%"><col style="width:11%"></colgroup>
+<thead>
+<tr>
+<th style="text-align: center;">STT</th>
+<th style="text-align: center;">Thời gian</th>
+<th style="text-align: left;">Thành viên (MSSV)</th>
+<th style="text-align: left;">Công cụ &amp; Nền tảng</th>
+<th style="text-align: left;">Nội dung công việc trong Template 1</th>
+<th style="text-align: left;">Nội dung AI tạo &amp; Con người tự kiểm chứng</th>
+<th style="text-align: center;">Minh chứng / Commit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>T1-01</strong></td>
+<td style="text-align: center;">11h30 03/11<br>- 18h10 05/11/2026</td>
+<td style="text-align: left;">Ngô Viết Thanh Bình<br><code>24120269</code></td>
+<td style="text-align: left;">Google Gemini (Gemini 3.8 Flash Medium)<br>via Antigravity IDE</td>
+<td style="text-align: left;">Kế hoạch chi tiết Giai đoạn 2 (Template 1 &amp; Cài đặt mã nguồn MVP), Bộ khung tài liệu &amp; Công cụ tạo Sprint Jira</td>
+<td style="text-align: left;">AI hỗ trợ tổng hợp yêu cầu kỹ thuật từ SRS-master.md, thiết lập cấu trúc Use Case, task <code>T1-DOC-MD</code> và script tạo Sprint Jira; sinh viên đối soát logic nghiệp vụ, thống nhất mốc 23:59 và phân chia task trên Jira</td>
+<td style="text-align: center;">Commit <code>2ffb371</code>, <code>0534ad4</code>, <code>48b1042</code>, <code>0e785ce</code>, <code>bed75c1</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>T1-02</strong></td>
+<td style="text-align: center;">19h50 - 23h30<br>06/11/2026</td>
+<td style="text-align: left;">Ngô Viết Thanh Bình<br><code>24120269</code></td>
+<td style="text-align: left;">Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE</td>
+<td style="text-align: left;">Khởi tạo bản thảo Template 1 Master &amp; Rà soát mã kiểm thử truy vết</td>
+<td style="text-align: left;">AI khởi tạo <code>TEMPLATE1_DRAFT_MASTER.md</code> với 41 FRs, 30 USs, NFRs; phân tích quy chuẩn mã kiểm thử TC P0 vs P1; sinh viên đối chiếu SRS-master.md và Google Docs, hiệu chỉnh tác nhân UC-01</td>
+<td style="text-align: center;"><code>reports/template1/TEMPLATE1_DRAFT_MASTER.md</code>, Commit <code>58986ee</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>T1-03</strong></td>
+<td style="text-align: center;">00h45 - 01h50<br>07/11/2026</td>
+<td style="text-align: left;">Ngô Viết Thanh Bình<br><code>24120269</code></td>
+<td style="text-align: left;">Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE</td>
+<td style="text-align: left;">Thiết kế Sơ đồ Use Case UML 2.5 đơn sắc &amp; Quy chuẩn thiết kế sơ đồ nhóm</td>
+<td style="text-align: left;">AI sinh mã Mermaid và tệp .drawio/.svg sơ đồ Định danh; phân tích UML 2.5 về Actor kế thừa và lý do không lạm dụng include/extend; soạn 6 quy tắc sơ đồ đơn sắc; sinh viên chọn phong cách tối giản đen trắng, tích hợp vào kế hoạch nhóm</td>
+<td style="text-align: center;">Commit <code>58986ee</code>, <code>uc_module_d_identity.svg</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>T1-04</strong></td>
+<td style="text-align: center;">10h05 - 10h50<br>07/11/2026</td>
+<td style="text-align: left;">Ngô Viết Thanh Bình<br><code>24120269</code></td>
+<td style="text-align: left;">Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE</td>
+<td style="text-align: left;">Chuẩn hóa 6 Sơ đồ UML đơn sắc toàn hệ thống &amp; Ánh xạ giao diện Mục 5 theo Figma Redesign v2</td>
+<td style="text-align: left;">AI tạo trọn bộ 6 sơ đồ đơn sắc (.drawio, .svg, .png scale 2x); ánh xạ 33 nhóm màn hình Redesign v2 vào Mục 5; bổ sung link tham khảo K23; sinh viên trực tiếp kiểm tra độ nét ảnh PNG và tính hợp lệ của đường dẫn ảnh</td>
+<td style="text-align: center;">Commit <code>58986ee</code>, thư mục <code>assets/diagrams/</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>T1-05</strong></td>
+<td style="text-align: center;">21h45 - 22h15<br>07/11/2026</td>
+<td style="text-align: left;">Ngô Viết Thanh Bình<br><code>24120269</code></td>
+<td style="text-align: left;">Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE</td>
+<td style="text-align: left;">Mở rộng 19 Use Cases theo Clarune Docs, Loại bỏ nhãn Module ABCD &amp; Hoàn thiện UI 5.5.5 - 5.5.8</td>
+<td style="text-align: left;">AI xóa bỏ nhãn Module A/B/C/D đổi thành 4 Phân hệ; vẽ lại Sơ đồ 1 (19 UCs) và Sơ đồ 5 (5 UCs); thêm đặc tả UC-18, UC-19 và giao diện mục 5.5.5 đến 5.5.8; sinh viên rà soát ma trận quyền (Agent duyệt UC-19, Admin không có quyền; UC-18 cho cả Agent và Admin)</td>
+<td style="text-align: center;">Commit <code>dc7231c</code>, <code>uc_overall_19_usecases.svg</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>T1-06</strong></td>
+<td style="text-align: center;">08h45 - 08h55<br>09/11/2026</td>
+<td style="text-align: left;">Ngô Viết Thanh Bình<br><code>24120269</code></td>
+<td style="text-align: left;">Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE</td>
+<td style="text-align: left;">Review và Merge Pull Request #9 (Clarune Design v2), Sửa lỗi CI Marker Đóng góp Git</td>
+<td style="text-align: left;">AI hỗ trợ merge PR #9 trên GitHub qua gh cli, rebase nhánh main, khắc phục lỗi thiếu cặp thẻ marker GENERATED trong script và báo cáo đóng góp git; đẩy lên remote và xác nhận GitHub Actions PASS xanh</td>
+<td style="text-align: center;">Commit <code>1b6fc76</code>, <code>43c725f</code>, PR #9 GitHub</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>T1-07</strong></td>
+<td style="text-align: center;">08h50 - 09h20<br>09/11/2026</td>
+<td style="text-align: left;">Ngô Viết Thanh Bình<br><code>24120269</code></td>
+<td style="text-align: left;">Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE</td>
+<td style="text-align: left;">Tách biệt hồ sơ AI Usage Template 1 (<code>06-ai-usage.md</code>), Chuẩn hóa chỉ dẫn vị trí nộp file Markdown &amp; Đồng bộ sơ đồ</td>
+<td style="text-align: left;">AI hỗ trợ tách nhật ký AI Template 1 khỏi hồ sơ Template 0 đã đóng băng, lập bảng tra cứu vị trí file nộp bài theo từng đầu mục tại Mục 1.1 kế hoạch và cập nhật 4 biên bản bàn giao <code>inputs/</code>; sinh viên kiểm tra tính độc lập của hồ sơ Template 0, rà soát đường dẫn file và duyệt commit</td>
+<td style="text-align: center;">Commit <code>a47f41f</code>, <code>06-ai-usage.md</code>, <code>PLAN_TEMPLATE1_AND_DEVELOPMENT.md</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>T1-08</strong></td>
+<td style="text-align: center;">10h15 - 11h45<br>10/11/2026</td>
+<td style="text-align: left;">Ngô Viết Thanh Bình<br><code>24120269</code></td>
+<td style="text-align: left;">Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE</td>
+<td style="text-align: left;">Review chéo nội dung Template 1 (Phần của Nguyễn Đức Lãm &amp; Toàn bộ các mục trên Google Docs), Chuẩn hóa UC-01..04, UC-16</td>
+<td style="text-align: left;">AI hỗ trợ đối chiếu bản nháp Google Docs với <code>SRS-master.md</code> và bài mẫu K23, chỉ ra các điểm cần chỉnh sửa ở bảng Stakeholder (Mục 3.1), sơ đồ bối cảnh và các Use Case; sinh viên trực tiếp thẩm định, lọc các góp ý xác đáng để nhận xét trên Google Docs, chuẩn hóa đánh số kịch bản phụ (<code>A.1a</code>, <code>A.4a</code>) và lược bỏ chi tiết kỹ thuật tầng dưới khỏi UC-02</td>
+<td style="text-align: center;">Bản review chéo trên Google Docs, <code>TEMPLATE1_DRAFT_MASTER.md</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>T1-09</strong></td>
+<td style="text-align: center;">10h20 - 11h20<br>11/11/2026</td>
+<td style="text-align: left;">Ngô Viết Thanh Bình<br><code>24120269</code></td>
+<td style="text-align: left;">Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE</td>
+<td style="text-align: left;">Điều phối giao task chuyển đổi Markdown (<code>T1-DOC-MD</code> / <code>SCRUM-65</code>), Chuẩn hóa Bảng 3.1 Stakeholders (9 bên) &amp; Rà soát ghi chú nội bộ</td>
+<td style="text-align: left;">AI hỗ trợ cập nhật quy tắc chuyển đổi Markdown (giữ nguyên nội dung đã chốt, chỉ ghi tiêu đề hình ảnh) vào kế hoạch và 4 file <code>inputs/</code>, tạo Jira Issue <code>SCRUM-65</code>, định dạng bảng 9 Stakeholders &amp; Actors và quét các ghi chú nội bộ/typo còn sót trong bản thảo; sinh viên kiểm chứng chéo với SRS Mục 3.1, yêu cầu giữ nguyên các file thành viên khác phụ trách và chỉ cập nhật trên bản nháp tổng hợp</td>
+<td style="text-align: center;">Jira <code>SCRUM-65</code>, <code>TEMPLATE1_DRAFT_MASTER.md</code>, <code>inputs/*.md</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>T1-10</strong></td>
+<td style="text-align: center;">12/11/2026</td>
+<td style="text-align: left;">Ngô Viết Thanh Bình<br><code>24120269</code></td>
+<td style="text-align: left;">Codex, OpenAI</td>
+<td style="text-align: left;">Chuyển phần bài làm Identity và tổng thể từ Markdown nguồn sang vị trí nộp bài; chuẩn bị nhánh riêng</td>
+<td style="text-align: left;">AI trích nguyên văn 5 UC, tiêu đề hình và phần UI Identity; đối chiếu tự động với nguồn.</td>
+<td style="text-align: center;"><code>T1-DOC-MD</code> / <code>SCRUM-34</code>; nhánh <code>docs/t1-identity-binh</code></td>
+</tr>
+</tbody>
+</table>
+<h4>Phiên T1-01: Xây dựng Kế hoạch chi tiết Giai đoạn 2 (Template 1 &amp; Cài đặt mã nguồn MVP), Bộ khung tài liệu &amp; Công cụ tạo Sprint Jira</h4>
+<ul>
+<li><strong>Thời gian:</strong> 11h30 ngày 03/11/2026 - 18h10 ngày 05/11/2026</li>
+<li><strong>Tác giả chịu trách nhiệm:</strong> <code>24120269</code> - Ngô Viết Thanh Bình (Trưởng nhóm · Phân hệ Định danh và phân quyền)</li>
+<li><strong>Công cụ / Model:</strong> Google Gemini (Gemini 3.8 Flash Medium, Google DeepMind) via Antigravity IDE</li>
+<li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong><blockquote>
+<p><em>“Dựa vào SRS-master.md và các phản hồi rà soát kỹ thuật (5 trạng thái ticket, worker quét job SKIP LOCKED retry &lt;= 3, 41 FRs, 17 Use Cases chuẩn hóa, tách Flyway V1-V5, interface chuẩn SRS), xây dựng kế hoạch hành động toàn diện cho Giai đoạn 2 (Template 1 và code MVP 4 module), thiết lập sổ tay hướng dẫn nhóm theo quy trình 2 giai đoạn Google Docs -&gt; Git Markdown, chuẩn hóa danh mục task CSV cho Jira bulk create, tạo cấu trúc thư mục rỗng reports/template1/, bổ sung task T1-DOC-MD và công cụ tạo Sprint Jira tự động.”</em></p>
+</blockquote>
+</li>
+<li><strong>Nội dung AI tạo:</strong><ul>
+<li>Khung tài liệu <code>PLAN_TEMPLATE1_AND_DEVELOPMENT.md</code>, file backlog <code>scripts/jira/tasks_template1.csv</code>, công cụ quản lý Sprint Jira và cấu trúc thư mục <code>reports/template1/</code>.</li>
+<li>Sơ đồ lộ trình Gantt tổng thể và hướng dẫn quy trình phối hợp 2 giai đoạn (soạn thảo trên Google Docs trước, chuyển đổi sang Markdown trên Git sau).</li>
+</ul>
+</li>
+<li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong><ul>
+<li>Sinh viên trực tiếp đối soát từng điều khoản với <code>SRS-master.md</code>, loại bỏ các use case ngoài phạm vi, chuẩn hóa thuật ngữ các tác nhân (Guest, Customer, Support Agent, System Administrator).</li>
+<li>Cân bằng khối lượng công việc giữa 4 thành viên, thống nhất mốc hạn chót 23:59 và chạy kiểm thử kịch bản tạo Sprint / gán task trên Jira.</li>
+</ul>
+</li>
+<li><strong>Minh chứng:</strong> File <code>PLAN_TEMPLATE1_AND_DEVELOPMENT.md</code>, <code>scripts/jira/tasks_template1.csv</code> và chuỗi commit <code>2ffb371</code>, <code>0534ad4</code>, <code>48b1042</code>, <code>0e785ce</code>, <code>bed75c1</code>.</li>
+</ul>
+<hr>
+<h4>Phiên T1-02: Khởi tạo bản thảo Template 1 Master &amp; Đối soát mã kiểm thử truy vết</h4>
+<ul>
+<li><strong>Thời gian:</strong> 19h50 - 23h30 ngày 06/11/2026</li>
+<li><strong>Tác giả chịu trách nhiệm:</strong> <code>24120269</code> - Ngô Viết Thanh Bình (Trưởng nhóm · Phân hệ Định danh và phân quyền)</li>
+<li><strong>Công cụ / Model:</strong> Antigravity AI (Gemini 3.8 Flash, Google DeepMind) via Antigravity IDE</li>
+<li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong><blockquote>
+<p><em>“Soạn thảo cực kỳ chi tiết, đầy đủ bản thảo tổng hợp Template 1 theo cấu trúc mẫu: Mục 1 Đánh giá đóng góp thành viên, Mục 2 Mô tả bài toán, Mục 3 Tổng quan yêu cầu (41 FRs, 30 USs, NFRs), Mục 4 Mô hình Use Case. Rà soát ý nghĩa của mã TC là gì, các mã TC trong bản thảo nhưng chưa có ở Test Matrix SRS (TC-ID-07..09, TC-TK-12, TC-KB-07, TC-AI-08..10), xác định rõ phạm vi trách nhiệm của Thanh Bình và nghiêm cấm tự ý commit khi chưa kiểm tra.”</em></p>
+</blockquote>
+</li>
+<li><strong>Nội dung AI tạo:</strong><ul>
+<li>Khung file <code>TEMPLATE1_DRAFT_MASTER.md</code> tổng hợp toàn diện các nội dung đã thống nhất.</li>
+<li>Phân tích và phân loại các mã Test Case: làm rõ các mã TC thuộc Core MVP P0 (đã có kịch bản kiểm thử chính thức trong SRS 14.2) và các mã TC thuộc Post-MVP P1 (mã giữ chỗ đối soát, chưa có ca kiểm thử chính thức).</li>
+<li>Phân định rõ trách nhiệm của Thanh Bình: phụ trách Phân hệ Định danh và phân quyền, sơ đồ tổng thể, rà soát ma trận quyền và điều phối Template 1.</li>
+</ul>
+</li>
+<li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong><ul>
+<li>Sinh viên trực tiếp đối chiếu từng mã FR, US với tài liệu <code>SRS-master.md</code> và Google Docs của nhóm (<code>NMCNPM - Clarune - 04</code>).</li>
+<li>Sửa đổi điều kiện tiên quyết và tác nhân trong <code>4.2.1 [UC-01]</code> (làm rõ tác nhân Khách chưa có tài khoản khi đăng ký).</li>
+<li>Nghiêm cấm AI commit tự động khi chưa được kiểm tra bằng tay.</li>
+</ul>
+</li>
+<li><strong>Minh chứng:</strong> File <code>reports/template1/TEMPLATE1_DRAFT_MASTER.md</code> và commit <code>58986ee</code>.</li>
+</ul>
+<hr>
+<h4>Phiên T1-03: Thiết kế Sơ đồ Use Case UML 2.5 đơn sắc &amp; Bộ quy chuẩn thiết kế sơ đồ nhóm</h4>
+<ul>
+<li><strong>Thời gian:</strong> 00h45 - 01h50 ngày 07/11/2026</li>
+<li><strong>Tác giả chịu trách nhiệm:</strong> <code>24120269</code> - Ngô Viết Thanh Bình (Trưởng nhóm · Phân hệ Định danh và phân quyền)</li>
+<li><strong>Công cụ / Model:</strong> Antigravity AI (Gemini 3.8 Flash, Google DeepMind) via Antigravity IDE</li>
+<li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong><blockquote>
+<p><em>“Vẽ Sơ đồ Use Case Phân hệ Định danh và phân quyền chuẩn với hệ thống của nhóm. Cung cấp mã Mermaid và tệp XML drawio/svg. Giải thích tại sao UC-16 lại elip nét đứt, tại sao hệ thống bài khác dùng «include»/«extend», phân biệt P0 và P1. Thiết kế lại theo hướng tối giản, ít màu sắc, cơ bản dễ quan sát (trắng đen monochrome). Xây dựng bộ quy tắc thiết kế sơ đồ để đưa vào kế hoạch hướng dẫn các thành viên khác vẽ đồng nhất.”</em></p>
+</blockquote>
+</li>
+<li><strong>Nội dung AI tạo:</strong><ul>
+<li>Mã Mermaid và tệp <code>uc_module_d_identity.drawio</code>, <code>.svg</code>.</li>
+<li>Phân tích chuẩn UML 2.5: không lạm dụng <code>«include»</code>/<code>«extend»</code> khi các ca sử dụng là mục tiêu độc lập; giải thích cơ chế kế thừa tác nhân trừu tượng <code>Authenticated User</code>.</li>
+<li>Dự thảo 6 nguyên tắc thiết kế sơ đồ đơn sắc đen - trắng (#FFFFFF/#000000, viền 1.5pt, không bóng mờ, xuất song song .drawio và .svg).</li>
+</ul>
+</li>
+<li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong><ul>
+<li>Sinh viên phản biện, yêu cầu loại bỏ màu sắc sặc sỡ, chuyển toàn bộ sang phong cách tài liệu kỹ thuật đơn sắc đen - trắng chuẩn mực.</li>
+<li>Sửa lại UC-16 vẽ bằng nét liền elip chuẩn UML (chỉ ghi chú <code>(P1)</code> bằng văn bản chứ không vẽ nét đứt gây sai lệch chuẩn UML).</li>
+<li>Đưa quy chuẩn vào Mục 6 của <code>PLAN_TEMPLATE1_AND_DEVELOPMENT.md</code> để các thành viên khác tuân thủ.</li>
+</ul>
+</li>
+<li><strong>Minh chứng:</strong> Tệp <code>reports/template1/assets/diagrams/uc_module_d_identity.svg</code> và commit <code>58986ee</code>.</li>
+</ul>
+<hr>
+<h4>Phiên T1-04: Chuẩn hóa 6 Sơ đồ UML đơn sắc toàn hệ thống &amp; Ánh xạ giao diện Mục 5 theo Figma Redesign v2</h4>
+<ul>
+<li><strong>Thời gian:</strong> 10h05 - 10h50 ngày 07/11/2026</li>
+<li><strong>Tác giả chịu trách nhiệm:</strong> <code>24120269</code> - Ngô Viết Thanh Bình (Trưởng nhóm)</li>
+<li><strong>Công cụ / Model:</strong> Antigravity AI (Gemini 3.8 Flash, Google DeepMind) via Antigravity IDE</li>
+<li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong><blockquote>
+<p><em>“Kéo bản PLAN_TEMPLATE1_AND_DEVELOPMENT.md mới nhất từ GitHub xuống, bổ sung và vẽ lại toàn bộ các sơ đồ Use Case theo quy chuẩn đơn sắc đã thống nhất. Tích hợp link thư mục Google Drive chứa các bài mẫu tham khảo K23 vào kế hoạch. Ánh xạ danh mục 33 nhóm màn hình Redesign v2 (Quiet Workspace) vào Mục 5, ghi đúng Node Figma, tệp ảnh nguồn và vị trí chèn ảnh.”</em></p>
+</blockquote>
+</li>
+<li><strong>Nội dung AI tạo:</strong><ul>
+<li>Trọn bộ 6 sơ đồ đơn sắc: Sơ đồ 0 (Bối cảnh), Sơ đồ 1 (Tổng thể), Sơ đồ 2 (Định danh), Sơ đồ 3 (Ticket), Sơ đồ 4 (Tri thức), Sơ đồ 5 (Trợ lý AI và thống kê).</li>
+<li>Cấu hình script headless Google Chrome render ảnh PNG độ phân giải cao 2x tránh vỡ nét khi chèn báo cáo.</li>
+<li>Cấu trúc Mục 5 trong <code>TEMPLATE1_DRAFT_MASTER.md</code> từ Hình 5.1 đến Hình 5.22b đối chiếu chính xác Node Figma và tệp ảnh trong <code>docs/design/anh/</code>.</li>
+<li>Bổ sung link Google Drive bài mẫu K23 vào tài liệu kế hoạch.</li>
+</ul>
+</li>
+<li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong><ul>
+<li>Sinh viên trực tiếp kiểm tra độ sắc nét ảnh PNG render bằng Chrome headless, kiểm tra tính đầy đủ của các tệp sơ đồ.</li>
+<li>Đối chiếu danh sách tệp trong <code>docs/design/anh/</code> với từng Node Figma để đảm bảo không lỗi đường dẫn ảnh.</li>
+</ul>
+</li>
+<li><strong>Minh chứng:</strong> Thư mục <code>reports/template1/assets/diagrams/</code> và commit <code>58986ee</code>.</li>
+</ul>
+<hr>
+<h4>Phiên T1-05: Mở rộng 19 Use Cases theo Clarune Docs, Loại bỏ nhãn Module ABCD &amp; Hoàn thiện UI 5.5.5 - 5.5.8</h4>
+<ul>
+<li><strong>Thời gian:</strong> 21h45 - 22h15 ngày 07/11/2026</li>
+<li><strong>Tác giả chịu trách nhiệm:</strong> <code>24120269</code> - Ngô Viết Thanh Bình (Trưởng nhóm)</li>
+<li><strong>Công cụ / Model:</strong> Antigravity AI (Gemini 3.8 Flash, Google DeepMind) via Antigravity IDE</li>
+<li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong><blockquote>
+<p><em>“Đối chiếu với file doc nhóm đang chỉnh sửa NMCNPM - Clarune - 04. Nhóm đã mở rộng phạm vi lên 19 Use Cases (thêm UC-18 Lịch sử gợi ý AI và UC-19 Đánh giá gợi ý AI). Tôi không muốn giữ lại ký hiệu nội bộ Module A/B/C/D nữa mà đổi thành Phân hệ chức năng. Vẽ lại sơ đồ tổng thể 19 Use Cases, sơ đồ Trợ lý AI 5 Use Cases, thêm đặc tả chi tiết UC-18, UC-19 và bổ sung các mục giao diện 5.5.5 đến 5.5.8 (Hình 5.23a đến Hình 5.27).”</em></p>
+</blockquote>
+</li>
+<li><strong>Nội dung AI tạo:</strong><ul>
+<li>Thay thế toàn bộ tiền tố Module A/B/C/D thành tên gọi 4 Phân hệ chức năng chính thức trong toàn bộ sơ đồ và tài liệu.</li>
+<li>Vẽ mới <code>uc_overall_19_usecases.svg</code> (.drawio, .png) chứa trọn vẹn 19 Use Cases.</li>
+<li>Cập nhật <code>uc_module_ai_analytics.svg</code> (.drawio, .png) gồm 5 Use Cases: phân quyền Agent thao tác UC-19 (Admin không có quyền); UC-18 cho cả Agent và Admin; UC-17 cho Admin.</li>
+<li>Thêm 2 bảng đặc tả chi tiết <code>4.2.18 [UC-18]</code> và <code>4.2.19 [UC-19]</code>.</li>
+<li>Hoàn thiện Mục 5.5.5 đến 5.5.8 (Hình 5.23a đến Hình 5.27), trích xuất linh kiện <code>81-7560.png</code> vào <code>docs/design/anh/thanh-phan/</code>.</li>
+</ul>
+</li>
+<li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong><ul>
+<li>Sinh viên rà soát tính logic của ma trận quyền truy cập đối với UC-18 và UC-19 theo đúng nghiệp vụ Helpdesk.</li>
+<li>Chạy headless Chrome xuất lại ảnh PNG cho toàn bộ sơ đồ mới; kiểm tra cú pháp commit-msg hook đạt chuẩn.</li>
+</ul>
+</li>
+<li><strong>Minh chứng:</strong> File <code>reports/template1/TEMPLATE1_DRAFT_MASTER.md</code>, <code>PLAN_TEMPLATE1_AND_DEVELOPMENT.md</code> và commit <code>dc7231c</code>.</li>
+</ul>
+<hr>
+<h4>Phiên T1-06: Review và Merge Pull Request #9 (Clarune Design v2), Sửa lỗi CI Marker Đóng góp Git</h4>
+<ul>
+<li><strong>Thời gian:</strong> 08h45 - 08h55 ngày 09/11/2026</li>
+<li><strong>Tác giả chịu trách nhiệm:</strong> <code>24120269</code> - Ngô Viết Thanh Bình (Trưởng nhóm)</li>
+<li><strong>Công cụ / Model:</strong> Antigravity AI (Gemini 3.8 Flash, Google DeepMind) via Antigravity IDE</li>
+<li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong><blockquote>
+<p><em>“merge nhánh của phúc đang yêu cầu PR”</em></p>
+</blockquote>
+</li>
+<li><strong>Nội dung AI tạo:</strong><ul>
+<li>Kiểm tra thông tin PR #9 từ nhánh <code>docs/t1-ai-quyphuc</code>, phân tích nguyên nhân lỗi CI của GitHub Actions (<code>Documentation &amp; Reports Quality Assurance</code> fail do thiếu cặp thẻ marker <code>&lt;!-- GENERATED:START --&gt;</code> và <code>&lt;!-- GENERATED:END --&gt;</code>).</li>
+<li>Thực hiện lệnh merge PR #9 trên GitHub thông qua <code>gh pr merge 9 --merge</code>.</li>
+<li>Rebase nhánh <code>main</code> cục bộ lên <code>origin/main</code> giữ trọn vẹn lịch sử commit và các cập nhật 19 Use Cases trước đó.</li>
+<li>Chỉnh sửa <code>scripts/git_contributions.py</code> để tự động tạo đúng cặp thẻ marker và chạy cập nhật <code>reports/08-git-contributions.md</code>.</li>
+<li>Đẩy lên <code>origin/main</code>, theo dõi workflow GitHub Actions chạy đạt kết quả xanh (<code>✓ PASS</code>).</li>
+</ul>
+</li>
+<li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong><ul>
+<li>Sinh viên xác nhận PR #9 đã được đóng trên GitHub với đầy đủ các màn hình prototype Clarune Redesign v2.</li>
+<li>Kiểm tra trạng thái CI GitHub Actions chuyển sang trạng thái xanh (PASS 100%).</li>
+</ul>
+</li>
+<li><strong>Minh chứng:</strong> Pull Request #9 trên GitHub, commit <code>1b6fc76</code> và <code>43c725f</code>.</li>
+</ul>
+<hr>
+<h4>Phiên T1-07: Tách biệt hồ sơ AI Usage Template 1, Chuẩn hóa chỉ dẫn vị trí nộp file Markdown &amp; Đồng bộ sơ đồ</h4>
+<ul>
+<li><strong>Thời gian:</strong> 08h50 - 09h20 ngày 09/11/2026</li>
+<li><strong>Tác giả chịu trách nhiệm:</strong> <code>24120269</code> - Ngô Viết Thanh Bình (Trưởng nhóm)</li>
+<li><strong>Công cụ / Model:</strong> Antigravity AI (Gemini 3.8 Flash, Google DeepMind) via Antigravity IDE</li>
+<li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong><blockquote>
+<p><em>“Phần nội dung đã nộp cho Template 0 thì giữ nguyên, các nội dung bổ sung thì bắt đầu tiếp tục với Template 1 riêng tại reports/template1/06-ai-usage.md. Rà soát xem đã có lưu ý về việc thêm nội dung AI usage trong phần giao task cho các thành viên chưa để họ biết được cần bổ sung ở đâu, và bổ sung bảng chỉ dẫn trong file Plan để các thành viên upload nội dung đúng file tương ứng (01-danh-gia-thanh-vien, 02-mo-ta-bai-toan, 03-tong-quan-yeu-cau, 04-dac-ta-use-cases, 05-prototype-mockup).”</em></p>
+</blockquote>
+</li>
+<li><strong>Nội dung AI tạo:</strong><ul>
+<li>Khởi tạo và chuẩn hóa cấu trúc tệp <code>reports/template1/06-ai-usage.md</code> dành riêng cho giai đoạn Template 1, tách biệt hoàn toàn với hồ sơ Template 0 (<code>reports/07-ai-usage.md</code>).</li>
+<li>Lập bảng chỉ dẫn tra cứu vị trí file nộp bài cho từng đầu mục báo cáo tại Mục 1.1 và Mục 1.2 của <code>PLAN_TEMPLATE1_AND_DEVELOPMENT.md</code>.</li>
+<li>Cập nhật checklist nghiệm thu bàn giao trong cả 4 tệp <code>reports/template1/inputs/{binh,gia-phuc,lam,quy-phuc}.md</code> và đồng bộ tên tệp bộ 6 sơ đồ UML trong <code>reports/template1/assets/diagrams/</code>.</li>
+</ul>
+</li>
+<li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong><ul>
+<li>Sinh viên kiểm tra trạng thái git đảm bảo hồ sơ Template 0 giữ nguyên vẹn 100%, không bị ghi đè.</li>
+<li>Đối chiếu đường dẫn từng file Markdown trong bảng chỉ dẫn khớp chính xác với cấu trúc thư mục <code>reports/template1/</code> trước khi cho phép commit và push.</li>
+</ul>
+</li>
+<li><strong>Minh chứng:</strong> File <code>reports/template1/06-ai-usage.md</code>, <code>PLAN_TEMPLATE1_AND_DEVELOPMENT.md</code> và commit <code>a47f41f</code>.</li>
+</ul>
+<hr>
+<h4>Phiên T1-08: Review chéo nội dung Template 1 trên Google Docs &amp; Chuẩn hóa đặc tả Phân hệ Định danh</h4>
+<ul>
+<li><strong>Thời gian:</strong> 10h15 - 11h45 ngày 10/11/2026</li>
+<li><strong>Tác giả chịu trách nhiệm:</strong> <code>24120269</code> - Ngô Viết Thanh Bình (Trưởng nhóm · Reviewer chéo cho Nguyễn Đức Lãm)</li>
+<li><strong>Công cụ / Model:</strong> Antigravity AI (Gemini 3.8 Flash, Google DeepMind) via Antigravity IDE</li>
+<li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong><blockquote>
+<p><em>“Dựa trên tài liệu hệ thống hiện tại và nghiệp vụ, giúp tôi review phần bài làm của Lãm (Mục 3.1, 3.2.2, 4.1.4, UC-11..13, 5.4) và nhận xét tổng thể các nội dung còn lại trong bản thảo của nhóm: chỉ ra những chỗ chưa hợp lý, cần sửa lại như thế nào kèm bằng chứng cụ thể. Đồng thời đối soát các góp ý nhận xét cho phần của Bình (tách Guest và Authenticated User trên sơ đồ tổng thể 4.1, sửa đánh số kịch bản phụ A.1a/A.4a trong UC-04 và lược bỏ từ ngữ kỹ thuật sâu ở UC-02).”</em></p>
+</blockquote>
+</li>
+<li><strong>Nội dung AI tạo:</strong><ul>
+<li>Bản phân tích đối chiếu phần bài làm của Nguyễn Đức Lãm với <code>SRS-master.md</code> (góp ý làm rõ sự khác biệt giữa Stakeholder dự án và Actor hệ thống tại Mục 3.1, lược bỏ các thành phần nội bộ khỏi hộp trung tâm của Sơ đồ bối cảnh Hình 3.1, rà soát điều kiện tài liệu <code>READY</code> vs <code>published</code> ở UC-11..13).</li>
+<li>Nhận xét tổng thể các mục còn lại trong tài liệu nhóm trên Google Docs để đảm bảo tính nhất quán về thuật ngữ, số lượng 19 Use Cases và quy tắc phân quyền.</li>
+<li>Gợi ý chỉnh sửa văn phong nghiệp vụ hộp đen cho <code>UC-02</code> và chuẩn hóa quy tắc đánh số kịch bản phụ (<code>A.1a</code>, <code>A.4a</code>) khớp với bước kịch bản chính trong <code>UC-01</code>..<code>UC-04</code>, <code>UC-16</code>.</li>
+</ul>
+</li>
+<li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong><ul>
+<li>Sinh viên trực tiếp đọc thẩm định từng điểm nhận xét, chọn lọc các góp ý xác đáng để phản hồi review chéo cho Lãm và các thành viên trên Google Docs.</li>
+<li>Kiểm tra lại sơ đồ <code>uc_overall_19_usecases.svg</code> xác nhận đã tách bạch rõ <code>Guest</code> (chỉ nối <code>UC-01</code>, <code>UC-16</code>) và <code>Authenticated User</code> (nối <code>UC-02</code>, <code>UC-03</code> kèm mũi tên kế thừa tam giác rỗng từ <code>Customer</code>, <code>Support Agent</code>, <code>Admin</code>).</li>
+<li>Trực tiếp chỉnh sửa câu chữ các bảng đặc tả <code>UC-01</code>..<code>UC-04</code>, <code>UC-16</code> trên Google Docs theo đúng chuẩn nghiệp vụ.</li>
+</ul>
+</li>
+<li><strong>Minh chứng:</strong> Các nhận xét review chéo và lịch sử chỉnh sửa trên Google Docs nhóm (<code>NMCNPM - Clarune - 04</code>), <code>reports/template1/TEMPLATE1_DRAFT_MASTER.md</code>.</li>
+</ul>
+<hr>
+<h4>Phiên T1-09: Điều phối giao task chuyển đổi Markdown (<code>SCRUM-65</code>), Chuẩn hóa Bảng 3.1 Stakeholders &amp; Rà soát tổng thể bản thảo</h4>
+<ul>
+<li><strong>Thời gian:</strong> 10h20 - 11h20 ngày 11/11/2026</li>
+<li><strong>Tác giả chịu trách nhiệm:</strong> <code>24120269</code> - Ngô Viết Thanh Bình (Trưởng nhóm)</li>
+<li><strong>Công cụ / Model:</strong> Antigravity AI (Gemini 3.8 Flash, Google DeepMind) via Antigravity IDE</li>
+<li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong><blockquote>
+<p><em>“Cập nhật lưu ý vào phần giao task: yêu cầu các thành viên chuyển nội dung tương ứng phần mình đảm nhiệm từ Google Docs thành file .md (giữ nguyên 100% nội dung đã chốt; những phần có ảnh chỉ cần ghi tiêu đề ảnh, ảnh thật trưởng nhóm sẽ tự thêm vào bản tổng hợp sau; cập nhật nhật ký AI vào 06-ai-usage.md). Tạo thông báo giao task này trên Jira (deadline trước 23h). Đồng thời đối chiếu đề xuất bảng 9 Stakeholders &amp; Actors với SRS-master.md (chỉ lưu trong bản draft, không đụng vào file riêng của thành viên khác) và kiểm tra toàn bộ nội dung bản thảo để phát hiện các ghi chú nội bộ hoặc lỗi typo còn sót lại.”</em></p>
+</blockquote>
+</li>
+<li><strong>Nội dung AI tạo:</strong><ul>
+<li>Cập nhật quy định chuyển đổi Markdown vào <code>PLAN_TEMPLATE1_AND_DEVELOPMENT.md</code> và 4 biên bản bàn giao <code>reports/template1/inputs/*.md</code>; khởi tạo Jira Issue <code>SCRUM-65</code> thông báo phân công cho cả nhóm.</li>
+<li>Định dạng bảng 3.1 gồm 9 bên liên quan và tác nhân (bổ sung <em>Giảng viên hướng dẫn &amp; Bộ môn CNPM</em>, <em>Nhóm phát triển phần mềm - Nhóm 4</em>, <em>Đơn vị vận hành</em>, cùng các tác nhân chính và tác nhân ngoài) trong <code>TEMPLATE1_DRAFT_MASTER.md</code>.</li>
+<li>Danh sách rà soát toàn diện các ghi chú phân công nội bộ còn sót lại trong các mục kỹ thuật, các lỗi gõ phím (typo) và điểm cần đồng bộ chú thích hình ảnh trước khi xuất bản.</li>
+</ul>
+</li>
+<li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong><ul>
+<li>Sinh viên yêu cầu hoàn tác ngay thay đổi trên file riêng <code>03.1-stakeholders.md</code> để tôn trọng phạm vi công việc của thành viên phụ trách (Lãm), chỉ lưu bảng đề xuất trong <code>TEMPLATE1_DRAFT_MASTER.md</code>.</li>
+<li>Kiểm tra nội dung Jira Issue <code>SCRUM-65</code> và gửi thông báo hướng dẫn chi tiết cho các thành viên trong nhóm.</li>
+<li>Đối chiếu danh sách các ghi chú nội bộ và lỗi chính tả để làm sạch bản thảo chính thức.</li>
+</ul>
+</li>
+<li><strong>Minh chứng:</strong> Jira Issue <code>SCRUM-65</code>, <code>reports/template1/TEMPLATE1_DRAFT_MASTER.md</code>, <code>reports/template1/inputs/binh.md</code>.</li>
+</ul>
+<hr>
+<h4>Phiên T1-10: Chuyển phần bài làm của Thanh Bình sang Markdown nộp repo</h4>
+<ul>
+<li><strong>Thời gian:</strong> 12/11/2026.</li>
+<li><strong>Tác giả chịu trách nhiệm:</strong> <code>24120269</code> — Ngô Viết Thanh Bình.</li>
+<li><strong>Công cụ / Model:</strong> Codex, OpenAI.</li>
+<li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong> “Dựa vào file Markdown đã cung cấp và quy định nộp bài của nhóm, lấy phần nội dung tôi đã làm và AI usage của tôi, tạo nhánh mới và đẩy lên repo; không đụng main.”</li>
+<li><strong>Nội dung AI tạo / áp dụng:</strong> Trích các mục 4.1.1, 4.1.2, 5 đặc tả UC-01..04/UC-16 và 5.1; bỏ mã nhúng hình, giữ tiêu đề hình theo quy định; chuyển vào các file được phân công. Kế thừa các mục T1-01..T1-09 từ nhật ký cục bộ của Bình, giữ nguyên phần của thành viên khác.</li>
+<li><strong>Kiểm chứng:</strong> Công cụ đối chiếu nội dung với file nguồn, kiểm tra đủ 5 bảng × 9 trường, tiêu đề hình và phạm vi diff.</li>
+<li><strong>Minh chứng:</strong> <code>04-dac-ta-use-cases/04.1-so-do-tong-the.md</code>, <code>04-dac-ta-use-cases/04.2-module-D-identity.md</code>, phần bàn giao Identity cuối <code>05-prototype-mockup.md</code>; <code>T1-DOC-MD</code> / <code>SCRUM-34</code>, nhánh <code>docs/t1-identity-binh</code>.</li>
+</ul>
+<hr>
+<h3>2.2 Nguyễn Đức Lãm — 24120083</h3>
+<table><colgroup><col style="width:8%"><col style="width:13%"><col style="width:12%"><col style="width:13%"><col style="width:18%"><col style="width:25%"><col style="width:11%"></colgroup>
+<thead>
+<tr>
+<th style="text-align: center;">STT</th>
+<th style="text-align: center;">Thời gian</th>
+<th style="text-align: left;">Thành viên (MSSV)</th>
+<th style="text-align: left;">Công cụ &amp; Nền tảng</th>
+<th style="text-align: left;">Nội dung công việc trong Template 1</th>
+<th style="text-align: left;">Nội dung AI tạo &amp; Con người tự kiểm chứng</th>
+<th style="text-align: center;">Minh chứng / Commit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>T1-11</strong></td>
+<td style="text-align: center;">09/11/2026</td>
+<td style="text-align: left;">Nguyễn Đức Lãm<br><code>24120083</code></td>
+<td style="text-align: left;">GPT-6.1-Sol<br>OpenAI</td>
+<td style="text-align: left;">Rà soát UC-11 — Tải lên và xử lý tài liệu tri thức</td>
+<td style="text-align: left;">AI hỗ trợ rà soát đặc tả theo SRS, chỉ ra nội dung chưa rõ và gợi ý chỉnh sửa. Sinh viên tự kiểm chứng: Đối chiếu quyền tải tài liệu, giới hạn tệp và sự tách biệt giữa xử lý với công bố.</td>
+<td style="text-align: center;">File <code>reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>T1-12</strong></td>
+<td style="text-align: center;">09/11/2026</td>
+<td style="text-align: left;">Nguyễn Đức Lãm<br><code>24120083</code></td>
+<td style="text-align: left;">GPT-6.1-Sol<br>OpenAI</td>
+<td style="text-align: left;">Rà soát UC-12 — Công bố và lưu trữ tài liệu tri thức</td>
+<td style="text-align: left;">AI hỗ trợ đối chiếu điều kiện, kết quả và các kịch bản với SRS; gợi ý điều chỉnh nội dung và cách diễn đạt. Sinh viên tự kiểm chứng: Đối chiếu hai luồng công bố, lưu trữ và yêu cầu giữ lịch sử trích dẫn.</td>
+<td style="text-align: center;">File <code>reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>T1-13</strong></td>
+<td style="text-align: center;">09/11/2026</td>
+<td style="text-align: left;">Nguyễn Đức Lãm<br><code>24120083</code></td>
+<td style="text-align: left;">GPT-6.1-Sol<br>OpenAI</td>
+<td style="text-align: left;">Rà soát UC-13 — Tìm kiếm tri thức</td>
+<td style="text-align: left;">AI hỗ trợ rà soát tính nhất quán giữa tác nhân, điều kiện tiên quyết, luồng xử lý và kết quả; gợi ý chỉnh sửa. Sinh viên tự kiểm chứng: Đối chiếu quyền tìm kiếm, điều kiện tài liệu và các nhánh ngoại lệ.</td>
+<td style="text-align: center;">File <code>reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>T1-14</strong></td>
+<td style="text-align: center;">10/11/2026</td>
+<td style="text-align: left;">Nguyễn Đức Lãm<br><code>24120083</code></td>
+<td style="text-align: left;">GPT-6.1-Sol<br>OpenAI</td>
+<td style="text-align: left;">Trau chuốt lại cách diễn đạt trong báo cáo phần UC-11</td>
+<td style="text-align: left;">AI gợi ý đơn giản hóa các chi tiết kỹ thuật về tải lên và xử lý tài liệu, giữ ý nghĩa nghiệp vụ. Sinh viên tự kiểm chứng: So sánh trước và sau khi sửa để giữ đúng ý nghĩa nghiệp vụ của UC-11.</td>
+<td style="text-align: center;">File <code>reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>T1-15</strong></td>
+<td style="text-align: center;">10/11/2026</td>
+<td style="text-align: left;">Nguyễn Đức Lãm<br><code>24120083</code></td>
+<td style="text-align: left;">GPT-6.1-Sol<br>OpenAI</td>
+<td style="text-align: left;">Trau chuốt lại cách diễn đạt trong báo cáo phần UC-12</td>
+<td style="text-align: left;">AI gợi ý diễn đạt dễ hiểu hơn về điều kiện công bố, lưu trữ và ảnh hưởng của từng thao tác. Sinh viên tự kiểm chứng: Rà soát cách diễn đạt, điều kiện và kết quả công bố, lưu trữ.</td>
+<td style="text-align: center;">File <code>reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>T1-16</strong></td>
+<td style="text-align: center;">10/11/2026</td>
+<td style="text-align: left;">Nguyễn Đức Lãm<br><code>24120083</code></td>
+<td style="text-align: left;">GPT-6.1-Sol<br>OpenAI</td>
+<td style="text-align: left;">Trau chuốt lại cách diễn đạt trong báo cáo phần UC-13</td>
+<td style="text-align: left;">AI gợi ý mô tả tìm kiếm ở mức nghiệp vụ, giữ rõ quyền truy cập, điều kiện tìm thấy tài liệu và ngoại lệ. Sinh viên tự kiểm chứng: Rà soát quyền truy cập và các ngoại lệ sau khi đơn giản hóa UC-13.</td>
+<td style="text-align: center;">File <code>reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>T1-17</strong></td>
+<td style="text-align: center;">11/11/2026</td>
+<td style="text-align: left;">Nguyễn Đức Lãm<br><code>24120083</code></td>
+<td style="text-align: left;">GPT-6.1-Sol<br>OpenAI</td>
+<td style="text-align: left;">Hệ thống lại Danh sách các stakeholder</td>
+<td style="text-align: left;">AI hỗ trợ tổng hợp các bên liên quan và mô tả nhiệm vụ, chức năng theo SRS. Sinh viên tự kiểm chứng: Đối chiếu vai trò và phân loại các bên liên quan với SRS.</td>
+<td style="text-align: center;"><code>reports/template1/03-tong-quan-yeu-cau/03.1-stakeholders.md</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>T1-18</strong></td>
+<td style="text-align: center;">11/11/2026</td>
+<td style="text-align: left;">Nguyễn Đức Lãm<br><code>24120083</code></td>
+<td style="text-align: left;">GPT-6.1-Sol<br>OpenAI</td>
+<td style="text-align: left;">Chỉnh sửa Context Diagram</td>
+<td style="text-align: left;">AI hỗ trợ rà soát, gợi ý điều chỉnh tên ứng dụng, tác nhân và đường nối theo bảng các bên liên quan. Sinh viên tự kiểm chứng: Đối chiếu tác nhân, ranh giới hệ thống và bố cục sơ đồ theo quy ước nhóm.</td>
+<td style="text-align: center;"><code>reports/template1/assets/diagrams/context_diagram_system.drawio</code>, <code>reports/template1/assets/diagrams/context_diagram_system.png</code>, <code>reports/template1/assets/diagrams/context_diagram_system.svg</code></td>
+</tr>
+</tbody>
+</table>
+<h4>Phiên T1-11: Rà soát đặc tả UC-11 — Tải lên và xử lý tài liệu tri thức</h4>
+<ul>
+<li><strong>Thời gian:</strong> 09/11/2026</li>
+<li><strong>Tác giả chịu trách nhiệm:</strong> <code>24120083</code> - Nguyễn Đức Lãm (Phân hệ Knowledge Base)</li>
+<li><strong>Công cụ / Model:</strong> GPT-6.1-Sol, OpenAI</li>
+<li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong><blockquote>
+<p><em>"Hãy rà soát đặc tả UC-11 trong ảnh, đối chiếu với tài liệu SRS hiện tại. Chỉ ra những nội dung mâu thuẫn, chưa chính xác hoặc chưa rõ ràng và gợi ý chỉnh sửa."</em></p>
+</blockquote>
+</li>
+<li><strong>Nội dung AI tạo:</strong><ul>
+<li>Nhận xét về những điểm chưa thống nhất hoặc chưa rõ trong đặc tả UC-11 và gợi ý điều chỉnh tương ứng.</li>
+</ul>
+</li>
+<li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong><ul>
+<li>Đối chiếu từng mục của UC-11 với SRS và tài liệu nguồn, tập trung vào quyền tải tài liệu, định dạng được hỗ trợ, giới hạn 10 MiB và các trường hợp xử lý thất bại.</li>
+<li>Rà soát để phân biệt việc xử lý thành công với việc công bố tài liệu; lựa chọn và điều chỉnh các gợi ý phù hợp với phạm vi Use Case.</li>
+</ul>
+</li>
+<li><strong>Minh chứng:</strong> File <code>reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md</code></li>
+</ul>
+<hr>
+<h4>Phiên T1-12: Rà soát đặc tả UC-12 — Công bố và lưu trữ tài liệu tri thức</h4>
+<ul>
+<li><strong>Thời gian:</strong> 09/11/2026</li>
+<li><strong>Tác giả chịu trách nhiệm:</strong> <code>24120083</code> - Nguyễn Đức Lãm (Phân hệ Knowledge Base)</li>
+<li><strong>Công cụ / Model:</strong> GPT-6.1-Sol, OpenAI</li>
+<li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong><blockquote>
+<p><em>"Hãy tiếp tục rà soát đặc tả UC-12, đối chiếu các điều kiện thực hiện, kết quả, kịch bản chính và kịch bản phụ với tài liệu SRS hiện tại. Chỉ ra những điểm cần điều chỉnh và gợi ý cách diễn đạt phù hợp."</em></p>
+</blockquote>
+</li>
+<li><strong>Nội dung AI tạo:</strong><ul>
+<li>Nhận xét và gợi ý chỉnh sửa điều kiện thực hiện, kết quả, kịch bản chính và kịch bản phụ của UC-12 theo SRS.</li>
+</ul>
+</li>
+<li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong><ul>
+<li>Đối chiếu hai luồng công bố và lưu trữ với SRS; rà soát quyền quản trị viên, điều kiện tài liệu và các nhánh từ chối thao tác.</li>
+<li>Kiểm tra cách mô tả việc ngừng sử dụng tài liệu đã lưu trữ cho yêu cầu mới.</li>
+</ul>
+</li>
+<li><strong>Minh chứng:</strong> File <code>reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md</code></li>
+</ul>
+<hr>
+<h4>Phiên T1-13: Rà soát đặc tả UC-13 — Tìm kiếm tri thức</h4>
+<ul>
+<li><strong>Thời gian:</strong> 09/11/2026</li>
+<li><strong>Tác giả chịu trách nhiệm:</strong> <code>24120083</code> - Nguyễn Đức Lãm (Phân hệ Knowledge Base)</li>
+<li><strong>Công cụ / Model:</strong> GPT-6.1-Sol, OpenAI</li>
+<li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong><blockquote>
+<p><em>"Hãy rà soát đặc tả UC-13 và đối chiếu với tài liệu SRS hiện tại. Kiểm tra tính nhất quán giữa tác nhân, điều kiện tiên quyết, các luồng xử lý và kết quả; gợi ý chỉnh sửa những nội dung chưa phù hợp."</em></p>
+</blockquote>
+</li>
+<li><strong>Nội dung AI tạo:</strong><ul>
+<li>Nhận xét và gợi ý điều chỉnh tác nhân, điều kiện tiên quyết, luồng xử lý và kết quả của UC-13.</li>
+</ul>
+</li>
+<li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong><ul>
+<li>Đối chiếu tác nhân và điều kiện tiên quyết của UC-13 với SRS, bảo đảm mô tả dành cho nhân viên hỗ trợ hoặc quản trị viên có quyền.</li>
+<li>Rà soát điều kiện tài liệu được tìm thấy, việc kiểm tra lại quyền khi mở chi tiết và các trường hợp không có kết quả hoặc tài liệu không còn khả dụng.</li>
+</ul>
+</li>
+<li><strong>Minh chứng:</strong> File <code>reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md</code></li>
+</ul>
+<hr>
+<h4>Phiên T1-14: Gợi ý đơn giản hóa cách diễn đạt của UC-11</h4>
+<ul>
+<li><strong>Thời gian:</strong> 10/11/2026</li>
+<li><strong>Tác giả chịu trách nhiệm:</strong> <code>24120083</code> - Nguyễn Đức Lãm (Phân hệ Knowledge Base)</li>
+<li><strong>Công cụ / Model:</strong> GPT-6.1-Sol, OpenAI</li>
+<li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong><blockquote>
+<p><em>"Đặc tả UC-11 đang chứa nhiều chi tiết kỹ thuật như READY, FAILED, UPLOADED, PENDING, RUNNING và PROCESSING. Hãy chỉ ra những phần quá sâu về triển khai và gợi ý diễn đạt bằng ngôn ngữ đơn giản, phù hợp với báo cáo, đồng thời giữ đúng ý nghĩa nghiệp vụ."</em></p>
+</blockquote>
+</li>
+<li><strong>Nội dung AI tạo:</strong><ul>
+<li>Gợi ý thay các trạng thái và mô tả xử lý nội bộ bằng cách diễn đạt dễ hiểu ở mức nghiệp vụ.</li>
+</ul>
+</li>
+<li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong><ul>
+<li>Rà soát các thuật ngữ kỹ thuật trong UC-11 và lựa chọn cách diễn đạt tiếng Việt phù hợp với báo cáo.</li>
+<li>Đối chiếu trước và sau khi chỉnh sửa để giữ nguyên ý nghĩa về tiếp nhận, xử lý, thử lại, thông báo lỗi và việc công bố riêng qua UC-12.</li>
+</ul>
+</li>
+<li><strong>Minh chứng:</strong> File <code>reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md</code></li>
+</ul>
+<hr>
+<h4>Phiên T1-15: Gợi ý đơn giản hóa cách diễn đạt của UC-12</h4>
+<ul>
+<li><strong>Thời gian:</strong> 10/11/2026</li>
+<li><strong>Tác giả chịu trách nhiệm:</strong> <code>24120083</code> - Nguyễn Đức Lãm (Phân hệ Knowledge Base)</li>
+<li><strong>Công cụ / Model:</strong> GPT-6.1-Sol, OpenAI</li>
+<li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong><blockquote>
+<p><em>"Hãy tiếp tục rà soát cách diễn đạt trong UC-12. Gợi ý thay thế các thuật ngữ về trạng thái dữ liệu, mã lỗi và xử lý nội bộ bằng lời giải thích dễ hiểu, giữ rõ điều kiện công bố, lưu trữ và ảnh hưởng của từng thao tác."</em></p>
+</blockquote>
+</li>
+<li><strong>Nội dung AI tạo:</strong><ul>
+<li>Gợi ý đơn giản hóa thuật ngữ kỹ thuật trong UC-12, làm rõ điều kiện và kết quả của thao tác công bố, lưu trữ.</li>
+</ul>
+</li>
+<li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong><ul>
+<li>Đọc lại hai luồng công bố và lưu trữ sau khi đơn giản hóa cách diễn đạt; đối chiếu với SRS để giữ đúng điều kiện thực hiện và kết quả của từng thao tác.</li>
+<li>Rà soát các nhánh hủy, từ chối và lỗi lưu thay đổi, cùng yêu cầu giữ nguyên lịch sử trích dẫn.</li>
+</ul>
+</li>
+<li><strong>Minh chứng:</strong> File <code>reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md</code></li>
+</ul>
+<hr>
+<h4>Phiên T1-16: Gợi ý đơn giản hóa cách diễn đạt của UC-13</h4>
+<ul>
+<li><strong>Thời gian:</strong> 10/11/2026</li>
+<li><strong>Tác giả chịu trách nhiệm:</strong> <code>24120083</code> - Nguyễn Đức Lãm (Phân hệ Knowledge Base)</li>
+<li><strong>Công cụ / Model:</strong> GPT-6.1-Sol, OpenAI</li>
+<li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong><blockquote>
+<p><em>"Hãy rà soát những phần mô tả quá chi tiết về kỹ thuật tìm kiếm trong UC-13 và gợi ý cách diễn đạt ở mức nghiệp vụ. Nội dung cần dễ hiểu nhưng vẫn thể hiện đúng quyền truy cập, điều kiện tài liệu được tìm thấy và các trường hợp ngoại lệ."</em></p>
+</blockquote>
+</li>
+<li><strong>Nội dung AI tạo:</strong><ul>
+<li>Gợi ý thay mô tả triển khai tìm kiếm bằng mô tả nghiệp vụ về truy cập tài liệu, kết quả tìm kiếm và ngoại lệ.</li>
+</ul>
+</li>
+<li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong><ul>
+<li>Rà soát cách diễn đạt của UC-13 sau khi lược bớt chi tiết triển khai tìm kiếm.</li>
+<li>Đối chiếu với SRS để giữ rõ quyền truy cập, điều kiện sử dụng tài liệu, cách hiển thị kết quả và các trường hợp ngoại lệ; điều chỉnh những câu có thể làm sai ý nghĩa nghiệp vụ.</li>
+</ul>
+</li>
+<li><strong>Minh chứng:</strong> File <code>reports/template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md</code></li>
+</ul>
+<hr>
+<h4>Phiên T1-17: Rà soát stakeholder theo SRS</h4>
+<ul>
+<li><strong>Thời gian:</strong> 11/11/2026</li>
+<li><strong>Tác giả chịu trách nhiệm:</strong> <code>24120083</code> - Nguyễn Đức Lãm (Phân hệ Knowledge Base)</li>
+<li><strong>Công cụ / Model:</strong> GPT-6.1-Sol, OpenAI</li>
+<li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong><blockquote>
+<p><em>"Hãy rà soát các stakeholder trong file SRS, xác định những bên liên quan được đề cập và mô tả nhiệm vụ, chức năng của từng bên theo nội dung tài liệu."</em></p>
+</blockquote>
+</li>
+<li><strong>Nội dung AI tạo:</strong><ul>
+<li>Tổng hợp các bên liên quan trong SRS và mô tả nhiệm vụ, chức năng của từng bên.</li>
+</ul>
+</li>
+<li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong><ul>
+<li>Đối chiếu danh sách các bên liên quan và mô tả vai trò với SRS.</li>
+<li>Rà soát sự khác nhau giữa bên liên quan của dự án, người dùng tương tác trực tiếp và dịch vụ bên ngoài; kiểm tra để tránh xem worker, cơ sở dữ liệu hoặc nơi lưu trữ nội bộ là tác nhân ngoài hệ thống.</li>
+</ul>
+</li>
+<li><strong>Minh chứng:</strong> <code>reports/template1/03-tong-quan-yeu-cau/03.1-stakeholders.md</code></li>
+</ul>
+<hr>
+<h4>Phiên T1-18: Rà soát và gợi ý điều chỉnh Context Diagram</h4>
+<ul>
+<li><strong>Thời gian:</strong> 11/11/2026</li>
+<li><strong>Tác giả chịu trách nhiệm:</strong> <code>24120083</code> - Nguyễn Đức Lãm (Phân hệ Knowledge Base)</li>
+<li><strong>Công cụ / Model:</strong> GPT-6.1-Sol, OpenAI</li>
+<li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong><blockquote>
+<p><em>"Hãy rà soát hình context_diagram_system và đối chiếu với bảng các bên liên quan được cung cấp. Gợi ý lược bỏ các chi tiết kỹ thuật trong hình chữ nhật trung tâm, chỉ giữ tên ứng dụng Clarune, đồng thời điều chỉnh các tác nhân và đường nối cho phù hợp."</em></p>
+</blockquote>
+</li>
+<li><strong>Nội dung AI tạo:</strong><ul>
+<li>Nhận xét, gợi ý điều chỉnh và bản sửa sơ đồ với tên ứng dụng Clarune ở trung tâm, các tác nhân và đường nối theo bảng các bên liên quan.</li>
+</ul>
+</li>
+<li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong><ul>
+<li>Đối chiếu các tác nhân và quan hệ trên sơ đồ với bảng các bên liên quan; rà soát ranh giới hệ thống và tên ứng dụng Clarune.</li>
+<li>Kiểm tra bố cục, nhãn và đường nối, chú ý tránh chữ đè lên nét vẽ và chừa khoảng cách giữa biểu tượng người que với đường nối; lựa chọn các điều chỉnh phù hợp với quy ước của nhóm.</li>
+</ul>
+</li>
+<li><strong>Minh chứng:</strong> <code>reports/template1/assets/diagrams/context_diagram_system.drawio</code>, <code>reports/template1/assets/diagrams/context_diagram_system.png</code>, <code>reports/template1/assets/diagrams/context_diagram_system.svg</code></li>
+</ul>
+<hr>
+<h3>2.3 Lê Quý Phúc — 24120121</h3>
+<table><colgroup><col style="width:8%"><col style="width:13%"><col style="width:12%"><col style="width:13%"><col style="width:18%"><col style="width:25%"><col style="width:11%"></colgroup>
+<thead>
+<tr>
+<th style="text-align: center;">STT</th>
+<th style="text-align: center;">Thời gian</th>
+<th style="text-align: left;">Thành viên (MSSV)</th>
+<th style="text-align: left;">Công cụ &amp; Nền tảng</th>
+<th style="text-align: left;">Nội dung công việc trong Template 1</th>
+<th style="text-align: left;">Nội dung AI tạo &amp; Con người tự kiểm chứng</th>
+<th style="text-align: center;">Minh chứng / Commit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>T1-19</strong></td>
+<td style="text-align: center;">26/10 - 03/11/2026</td>
+<td style="text-align: left;">Lê Quý Phúc<br><code>24120121</code></td>
+<td style="text-align: left;">Claude Code (Claude Opus 5.5), Anthropic<br>Codex, OpenAI</td>
+<td style="text-align: left;">Thiết kế giao diện Quiet Workspace Redesign v2 trên Figma (<code>docs/design/</code>)</td>
+<td style="text-align: left;">AI hỗ trợ dựng component và flow prototype theo phong cách B2B Minimalism; sinh viên trực tiếp đối chiếu SRS, duyệt phương án và chỉnh sửa</td>
+<td style="text-align: center;">Figma Node <code>49:58</code>, PR #9</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>T1-20</strong></td>
+<td style="text-align: center;">06–11/11/2026</td>
+<td style="text-align: left;">Lê Quý Phúc<br><code>24120121</code></td>
+<td style="text-align: left;">Codex, OpenAI</td>
+<td style="text-align: left;">Soạn thảo, rà soát và chuyển phần Template 1 được phân công sang Markdown: Mục 1, Mục 2, UC-14/15/17/18/19 và Mục 5.5</td>
+<td style="text-align: left;">AI hỗ trợ brainstorm Use Case, đề xuất luồng chính/phụ, viết NFR bằng lời, tạo DOCX highlight và chuyển định dạng. Sinh viên đối chiếu SRS, yêu cầu hiệu chỉnh và chỉnh thủ công bản DOCX; nội dung Markdown được lấy từ bản đã chốt và kiểm tra tự động từng đoạn/ô bảng</td>
+<td style="text-align: center;"><code>01-danh-gia-thanh-vien.md</code>, <code>02-mo-ta-bai-toan.md</code>, các file đặc tả AI/Analytics, Mục 5.5; commit <code>af1e190</code>, PR #10</td>
+</tr>
+</tbody>
+</table>
+<h4>Phiên T1-19: Thiết kế giao diện Quiet Workspace Redesign v2 trên Figma — Lê Quý Phúc</h4>
+<ul>
+<li><strong>Thời gian:</strong> 26/10 – 03/11/2026.</li>
+<li><strong>Thành viên chịu trách nhiệm:</strong> Lê Quý Phúc — <code>24120121</code>.</li>
+<li><strong>Công cụ:</strong> Claude Code, Anthropic; Codex, OpenAI.</li>
+<li><strong>Mục đích và yêu cầu tóm tắt:</strong> Thiết kế prototype Helpdesk theo phong cách “Bàn làm việc yên tĩnh” (Quiet Workspace), ưu tiên khả năng đọc và xử lý ticket liên tục; bám sát quyền Customer, Agent, Admin và luồng kiểm duyệt gợi ý AI trong SRS.</li>
+<li><strong>Nội dung AI hỗ trợ:</strong><ul>
+<li>Đề xuất bố cục, màu sắc, typography, khoảng cách và các thành phần giao diện dùng chung; tổ chức thành Foundations và Components để tái sử dụng trong Figma.</li>
+<li>Dựng các màn hình cho Agent Workspace, Customer Portal, định danh/tài khoản, Kho tri thức và quản trị; bổ sung các trạng thái đang tải, trống và lỗi.</li>
+<li>Thiết kế bố cục desktop, tablet, mobile và chế độ sáng/tối; nối các màn hình thành luồng prototype để minh họa thao tác.</li>
+<li>Xuất ảnh PNG, lập danh mục màn hình và lưu ánh xạ Node Figma để nhóm sử dụng khi viết báo cáo và triển khai giao diện.</li>
+</ul>
+</li>
+<li><strong>Nội dung con người kiểm chứng và hiệu chỉnh:</strong><ul>
+<li>Sinh viên đối chiếu phương án với SRS, lựa chọn hướng Quiet Workspace và yêu cầu chỉnh sửa bố cục, cách trình bày thông tin, thành phần và luồng thao tác.</li>
+<li>Rà soát cách phân biệt trả lời công khai với ghi chú nội bộ, quyền thao tác theo vai trò và việc chèn gợi ý AI không tự gửi phản hồi.</li>
+<li>Kiểm tra các màn hình và ảnh xuất phục vụ báo cáo; tiếp nhận phản hồi và hiệu chỉnh phương án trước khi bàn giao cho nhóm.</li>
+</ul>
+</li>
+<li><strong>Giới hạn:</strong> Đây là prototype minh họa, không phải bằng chứng backend, xác thực hoặc lưu dữ liệu đã hoạt động. Các kiểm tra bàn phím, screen reader và hành vi đầu cuối của ứng dụng cần thực hiện khi triển khai frontend.</li>
+<li><strong>Minh chứng:</strong> Figma SE, Node <code>49:58</code>; <a href="../../docs/design/README.md">tài liệu thiết kế</a>, <a href="../../docs/design/man-hinh.md">danh mục màn hình</a>, <a href="../../docs/design/figma-map.json">ánh xạ Node Figma</a>, <a href="../../design-system/helpdesk-workspace/MASTER.md">Design System MASTER</a> và <a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/pull/9">PR #9</a>.</li>
+</ul>
+<hr>
+<h4>Phiên T1-20: Soạn thảo và hoàn thiện nội dung Template 1 — Lê Quý Phúc</h4>
+<ul>
+<li><strong>Thời gian:</strong> 06–11/11/2026.</li>
+<li><strong>Thành viên chịu trách nhiệm:</strong> Lê Quý Phúc — <code>24120121</code>.</li>
+<li><strong>Công cụ:</strong> Codex, OpenAI.</li>
+<li><strong>Mục đích và yêu cầu tóm tắt:</strong> Hỗ trợ hoàn thiện phần được phân công trong Template 1; phân tích sâu Use Case và ngoại lệ; chỉ chỉnh phần Quý Phúc; trình bày theo UC-01, viết ràng buộc phi chức năng bằng lời; chuyển đúng nội dung đã chốt sang Markdown và chỉ giữ chú thích hình.</li>
+<li><strong>Nội dung AI hỗ trợ:</strong><ul>
+<li>Brainstorm và rà soát đặc tả UC-14, UC-15, UC-17, UC-18, UC-19; làm rõ tác nhân, điều kiện, luồng chính/phụ, kết quả và phân quyền.</li>
+<li>Gợi ý cách trình bày các bảng UC theo UC-01; diễn đạt NFR thành yêu cầu bằng lời; tạo DOCX highlight để người dùng đối chiếu và sửa thủ công.</li>
+<li>Hỗ trợ biên tập mô tả giao diện Mục 5.5, rà soát hình minh họa và liên kết với các UC tương ứng.</li>
+<li>Chuyển Mục 1, Mục 2, năm UC và Mục 5.5 từ DOCX đã chốt sang đúng các file Markdown được giao, giữ nguyên câu chữ và chú thích hình.</li>
+</ul>
+</li>
+<li><strong>Nội dung con người kiểm chứng và hiệu chỉnh:</strong> Sinh viên đối chiếu từng đề xuất, yêu cầu sửa luồng bỏ gợi ý, cách trình bày NFR và nội dung mockup, rồi chỉnh thủ công trong tài liệu nhóm. Bản DOCX cuối do người dùng cung cấp được dùng làm nguồn chuyển đổi, không lấy các bản gợi ý hoặc highlight cũ làm nội dung nộp.</li>
+<li><strong>Kiểm tra bằng công cụ:</strong> Đối chiếu từng đoạn/ô bảng giữa DOCX và Markdown; kiểm đủ năm UC, mỗi UC chín trường và 12 chú thích hình ở Mục 5.5; kiểm tra diff để bảo toàn phần của thành viên khác.</li>
+<li><strong>Giới hạn:</strong> Kiểm tra cấu trúc tài liệu và prototype không chứng minh nghiệp vụ backend đã được triển khai; lượt chuyển Markdown không truy cập Google Docs để kiểm tra cập nhật mới hơn DOCX.</li>
+<li><strong>Minh chứng:</strong> Các file Markdown phần Quý Phúc trong <code>reports/template1/</code>, commit <code>af1e190</code> và <a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/pull/10">PR #10</a>.</li>
+</ul>
+<hr>
+<h3>2.4 Phan Gia Phúc — 24120503</h3>
+<table><colgroup><col style="width:8%"><col style="width:13%"><col style="width:12%"><col style="width:13%"><col style="width:18%"><col style="width:25%"><col style="width:11%"></colgroup>
+<thead>
+<tr>
+<th style="text-align: center;">STT</th>
+<th style="text-align: center;">Thời gian</th>
+<th style="text-align: left;">Thành viên (MSSV)</th>
+<th style="text-align: left;">Công cụ &amp; Nền tảng</th>
+<th style="text-align: left;">Nội dung công việc trong Template 1</th>
+<th style="text-align: left;">Nội dung AI tạo &amp; Con người tự kiểm chứng</th>
+<th style="text-align: center;">Minh chứng / Commit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>T1-21</strong></td>
+<td style="text-align: center;">7h00<br>08/11/2026 - 11h40<br>12/11/2026</td>
+<td style="text-align: left;">Phan Gia Phúc<br><code>24120503</code></td>
+<td style="text-align: left;">OpenAI - ChatGPT, Codex</td>
+<td style="text-align: left;">Đặc tả các UC-05 đến UC-10, các FR/NFR, mô tả giao diện Customer Portal, Agent Workspace; Tổng kết các nội dung cho đặc tả các UC đang phụ trách, các nội dung cho phần 5.2, 5.3 cho phần 5 Prototype trong Template1</td>
+<td style="text-align: left;">Gợi ý cách trình bày nội dung/bảng cho phần 3.2 cho Template1, cho các UC-05 đến UC-10, cho các mô tả của phần 5.2, 5.3 trong Template1; AI kiểm tra/so sánh lại với SRS và siên viên tự review lại.</td>
+<td style="text-align: center;">Commit <code>5c0fbe2</code> trên nhánh docs/t1-ticket-giaphuc</td>
+</tr>
+</tbody>
+</table>
+<h4>Phiên T1-21: Đặc tả phân hệ Quản lý ticket &amp; Mô tả giao diện Customer Portal, Agent Workspace</h4>
+<ul>
+<li><strong>Thời gian:</strong> 07h00 ngày 08/11/2026 - 11h40 ngày 12/11/2026</li>
+<li><strong>Tác giả chịu trách nhiệm:</strong> <code>24120503</code> - Phan Gia Phúc (Phân hệ Quản lý ticket)</li>
+<li><strong>Công cụ / Nền tảng:</strong> ChatGPT và Codex, OpenAI</li>
+<li><strong>Prompt đã khử dữ liệu nhạy cảm (tổng hợp lại từ các yêu cầu trong phiên):</strong><blockquote>
+<p><em>“Đọc SRS của nhóm và đối chiếu với nội dung tôi đang soạn cho phân hệ Quản lý ticket trong Template 1. Gợi ý cách trình bày bảng yêu cầu chức năng ở Mục 3.2 và hoàn thiện cách diễn đạt các đặc tả UC-05 đến UC-10 theo mẫu 9 trường: mã, tên, tóm tắt, tác nhân, điều kiện tiên quyết, kết quả, kịch bản chính, kịch bản phụ và ràng buộc phi chức năng. Kiểm tra quyền của Customer, Agent, Admin; việc nhận ticket đồng thời chỉ cho một người thành công; phạm vi tin nhắn công khai, ghi chú nội bộ; các thao tác chuyển trạng thái và quyền xem lịch sử. Phân biệt yêu cầu P0 với phần mở rộng P1, không tự thêm chức năng hoặc số liệu ngoài tài liệu nguồn. Với phần bản mẫu, hỗ trợ trình bày mô tả Customer Portal ở Mục 5.2 và Agent Workspace ở Mục 5.3, bảo đảm các thao tác khớp với Use Case phụ trách. Tổng hợp nội dung từ bản báo cáo tôi cung cấp, thay các ký hiệu ảnh bằng đường dẫn PNG tương ứng trong kho mã nguồn. Chỉ bổ sung phần của Phan Gia Phúc, giữ nguyên nội dung có sẵn và chỉ ra điểm chưa thống nhất để tôi tự rà soát trước khi đưa vào báo cáo.”</em></p>
+</blockquote>
+</li>
+<li><strong>Nội dung AI tạo:</strong><ul>
+<li>Gợi ý cấu trúc bảng và cách diễn đạt các yêu cầu chức năng thuộc phân hệ Quản lý ticket trong Mục 3.2 của Template 1.</li>
+<li>Hỗ trợ trình bày 6 bảng đặc tả UC-05 đến UC-10, gồm luồng chính, luồng phụ và các ràng buộc phi chức năng liên quan đến phân quyền, tính toàn vẹn, xử lý đồng thời và trải nghiệm người dùng.</li>
+<li>Hỗ trợ đối chiếu các quy tắc nghiệp vụ với SRS: quyền sở hữu ticket, nhận và phân công xử lý, phân biệt PUBLIC/INTERNAL, chuyển trạng thái và xem lịch sử sự kiện.</li>
+<li>Tổng hợp mô tả 5 màn hình Customer Portal và 3 màn hình Agent Workspace từ bản báo cáo được cung cấp; thay 8 ký hiệu ảnh bằng đường dẫn PNG trong <code>05-prototype-mockup.md</code>.</li>
+</ul>
+</li>
+<li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong><ul>
+<li>Sinh viên tự review nội dung AI gợi ý, đối chiếu các FR/NFR và đặc tả UC-05 đến UC-10 với <code>reports/SRS-master.md</code> trước khi sử dụng trong báo cáo.</li>
+<li>Rà soát quyền thao tác theo vai trò và trạng thái ticket: Customer không xem ghi chú nội bộ hoặc lịch sử nội bộ; Agent chưa nhận ticket không được xử lý; ticket CLOSED chỉ được xem lại và không được mở lại.</li>
+<li>Đối chiếu mô tả Customer Portal, Agent Workspace với các Use Case phụ trách; yêu cầu chỉ lấy phần 5.2, 5.3 từ file nguồn và bổ sung vào cuối file đích, giữ nguyên nội dung có sẵn.</li>
+<li>Yêu cầu AI hỗ trợ trình bày và kiểm tra tính nhất quán; sinh viên tự rà soát, chỉnh sửa và chịu trách nhiệm về nội dung cuối cùng.</li>
+</ul>
+</li>
+<li><strong>Minh chứng:</strong> Các file <code>reports/template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md</code>, <code>reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md</code>, <code>reports/template1/05-prototype-mockup.md</code>; commit <code>5c0fbe2</code> trên nhánh <code>docs/t1-ticket-giaphuc</code> ghi nhận phần bổ sung mô tả giao diện 5.2, 5.3.</li>
+</ul>
+<hr>
+<h3>2.5 Ngô Viết Thanh Bình — Đóng gói Template 1</h3>
+<table><colgroup><col style="width:8%"><col style="width:13%"><col style="width:12%"><col style="width:13%"><col style="width:18%"><col style="width:25%"><col style="width:11%"></colgroup>
+<thead>
+<tr>
+<th style="text-align: center;">STT</th>
+<th style="text-align: center;">Thời gian</th>
+<th style="text-align: left;">Thành viên (MSSV)</th>
+<th style="text-align: left;">Công cụ &amp; Nền tảng</th>
+<th style="text-align: left;">Nội dung công việc trong Template 1</th>
+<th style="text-align: left;">Nội dung AI tạo &amp; Con người tự kiểm chứng</th>
+<th style="text-align: center;">Minh chứng / Commit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>T1-22</strong></td>
+<td style="text-align: center;">12/11/2026</td>
+<td style="text-align: left;">Ngô Viết Thanh Bình<br><code>24120269</code></td>
+<td style="text-align: left;">Codex, OpenAI</td>
+<td style="text-align: left;">Tổng hợp và chỉnh định dạng gói nộp Template 1</td>
+<td style="text-align: left;">Đóng gói report, assets, nhật ký AI và lịch sử Git; đối chiếu nội dung, hình ảnh và bố cục HTML bằng công cụ</td>
+<td style="text-align: center;"><code>report/report.md</code>; <code>git-contributions/git-contributions.md</code>; nhánh <code>merge-template1</code></td>
+</tr>
+</tbody>
+</table>
+<h4>Phiên T1-22: Tổng hợp gói nộp Template 1</h4>
+<ul>
+<li><strong>Thời gian:</strong> 12/11/2026.</li>
+<li><strong>Tác giả chịu trách nhiệm:</strong> Ngô Viết Thanh Bình — <code>24120269</code>.</li>
+<li><strong>Công cụ / Nền tảng:</strong> Codex, OpenAI.</li>
+<li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong> Tổng hợp bản Markdown final, thay hình nhúng mờ bằng assets đúng mã, điều chỉnh sơ đồ theo bản final, tổng hợp Git contributions và AI usage như Template 0, giữ nguyên nội dung gốc và làm trên nhánh <code>merge-template1</code>.</li>
+<li><strong>Nội dung AI tạo / áp dụng:</strong> Công cụ đóng gói, ánh xạ 37 hình, 5 sơ đồ Use Case vector cùng nguồn drawio, tích hợp nguyên bản sơ đồ bối cảnh của Lãm, bản Markdown và HTML của nhật ký AI và đóng góp Git. Chuẩn hóa mã phiên và định dạng theo yêu cầu của trưởng nhóm.</li>
+<li><strong>Kiểm chứng bằng công cụ:</strong> Đối chiếu toàn bộ chữ của report và 19 bảng Use Case với nguồn; kiểm tra mã ảnh, SHA commit, đường dẫn assets, mã phiên trong bảng/chi tiết và bố cục HTML qua trình duyệt.</li>
+<li><strong>Minh chứng:</strong> <code>report/report.md</code>, <code>git-contributions/git-contributions.md</code>, nhánh <code>merge-template1</code>; task <code>T1-PUB-01</code> / <code>SCRUM-41</code> và <code>T1-SUBMIT-01</code> / <code>SCRUM-52</code>.</li>
+</ul>
+<hr>
+<h3>2.6 Ngô Viết Thanh Bình — Hoàn thiện bản nộp</h3>
+<table><colgroup><col style="width:8%"><col style="width:13%"><col style="width:12%"><col style="width:13%"><col style="width:18%"><col style="width:25%"><col style="width:11%"></colgroup>
+<thead>
+<tr>
+<th style="text-align: center;">STT</th>
+<th style="text-align: center;">Thời gian</th>
+<th style="text-align: left;">Thành viên (MSSV)</th>
+<th style="text-align: left;">Công cụ &amp; Nền tảng</th>
+<th style="text-align: left;">Nội dung công việc trong Template 1</th>
+<th style="text-align: left;">Nội dung AI tạo &amp; Con người tự kiểm chứng</th>
+<th style="text-align: center;">Minh chứng / Commit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>T1-23</strong></td>
+<td style="text-align: center;">13/11/2026</td>
+<td style="text-align: left;">Ngô Viết Thanh Bình<br><code>24120269</code></td>
+<td style="text-align: left;">Codex, OpenAI</td>
+<td style="text-align: left;">Hiệu chỉnh sơ đồ UML, đồng bộ PDF và hoàn thiện gói nộp</td>
+<td style="text-align: left;">AI chỉnh bố cục và đường nối; đối chiếu 19 UC, 37 hình và các thay đổi trong PDF; người dùng xem hình, góp ý và yêu cầu hiệu chỉnh</td>
+<td style="text-align: center;"><code>report/Report.pdf</code>; <code>report/report.md</code>; <code>ai-usage/ai-usage.md</code>; <code>git-contributions/git-contributions.md</code></td>
+</tr>
+</tbody>
+</table>
+<h4>Phiên T1-23: Hiệu chỉnh sơ đồ và hoàn thiện bản nộp</h4>
+<ul>
+<li><strong>Thời gian:</strong> 13/11/2026.</li>
+<li><strong>Tác giả chịu trách nhiệm:</strong> Ngô Viết Thanh Bình — <code>24120269</code>.</li>
+<li><strong>Công cụ / Nền tảng:</strong> Codex, OpenAI.</li>
+<li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong> Cân đối khung sơ đồ, dùng association thẳng riêng, sửa đường giao nhau và bố trí kế thừa actor; bỏ chú thích khỏi ảnh; đồng bộ Markdown với PDF mới; rà soát bản nộp, cập nhật lịch sử Git và tạo <code>4.zip</code> gồm ba thư mục ai-usage, git-contributions và report.</li>
+<li><strong>Nội dung AI tạo / áp dụng:</strong> Hiệu chỉnh sáu sơ đồ SVG/drawio và ảnh PNG; đồng bộ nội dung Markdown, các mục trích và ảnh với PDF 70 trang; cập nhật nhật ký AI, lịch sử Git, HTML và công cụ đóng gói.</li>
+<li><strong>Kiểm chứng và hiệu chỉnh:</strong> Người dùng xem các hình, chỉ ra khoảng trống, đường giao nhau, lỗi đường kế thừa đè khung và yêu cầu chỉnh lại bố cục. Công cụ đối chiếu toàn bộ thay đổi văn bản giữa hai PDF, kiểm tra 19 bảng UC và 37 hình, thử tải ảnh/liên kết mục lục và kiểm tra bố cục HTML bằng trình duyệt.</li>
+<li><strong>Minh chứng:</strong> <code>report/Report.pdf</code>, <code>report/report.md</code>, các sơ đồ trong <code>report/assets/diagrams/</code> và lịch sử commit trên kho GitHub của nhóm.</li>
+</ul>
+<hr>
+<h2>3. CAM KẾT ĐẠO ĐỨC HỌC THUẬT</h2>
+<p>Nhóm cam kết thực hiện đúng Quy định về việc sử dụng AI của Khoa CNTT - Trường ĐHKHTN:</p>
+<ol>
+<li>Mọi công cụ AI chỉ đóng vai trò hỗ trợ gợi ý cấu trúc, định dạng và tăng tốc quy trình làm việc; sinh viên tự thực hiện việc kiểm chứng, chỉnh sửa chuyên môn và chịu hoàn toàn trách nhiệm về nội dung báo cáo.</li>
+<li>Tuyệt đối không sao chép máy móc, không làm sai lệch số liệu thực nghiệm và không đưa thông tin nhạy cảm/khóa bảo mật lên các dịch vụ AI công cộng.</li>
+</ol></div>
+<template id="tpl-header"><div class="template-header-bar"><div class="header-tab">Nhập môn công nghệ phần mềm</div><div class="header-title">Template 1 — Sử dụng AI</div></div></template>
+<template id="tpl-footer"><div class="template-footer-bar"><div class="footer-left">ĐH Khoa học tự nhiên TP HCM | Bộ môn Công nghệ phần mềm</div><div class="footer-tab">Trang <span class="pn"></span></div></div></template>
+<a href="#trang-bia" class="back-to-top">▲ Lên đầu trang</a>
+<script>
+(function () {
+  var pages = document.getElementById('pages'), src = document.getElementById('source');
+  var HEAD = document.getElementById('tpl-header').innerHTML, FOOT = document.getElementById('tpl-footer').innerHTML;
+  var pg, bd, n = 0;
+
+  function newPage() {
+    n++; pg = document.createElement('section'); pg.className = 'page';
+    pg.innerHTML = HEAD + '<div class="page-body"></div>' + FOOT;
+    pg.querySelector('.pn').textContent = n;
+    pages.appendChild(pg); bd = pg.querySelector('.page-body');
+  }
+  function fits() { return bd.scrollHeight <= bd.clientHeight; }
+  function probe(node) { bd.appendChild(node); var ok = fits(); bd.removeChild(node); return ok; }
+  function maxK(cnt, make) {
+    var lo = 0, hi = cnt;
+    while (lo < hi) { var m = Math.ceil((lo + hi) / 2); if (probe(make(m))) lo = m; else hi = m - 1; }
+    return lo;
+  }
+  function stripIds(e) { e.removeAttribute('id'); e.querySelectorAll('[id]').forEach(function (x) { x.removeAttribute('id'); }); }
+
+  // Tách đoạn văn theo từ/khoảng trắng, giữ tối thiểu 2 dòng mỗi bên (orphans/widows)
+  function textSplit(el) {
+    var txt = el.textContent, N = txt.length;
+    function part(a, b) {
+      var c = el.cloneNode(true), pos = 0, ns = [], w = document.createTreeWalker(c, NodeFilter.SHOW_TEXT);
+      while (w.nextNode()) ns.push(w.currentNode);
+      ns.forEach(function (x) {
+        var L = x.nodeValue.length, s = Math.max(a - pos, 0), e = Math.min(b - pos, L);
+        x.nodeValue = e > s ? x.nodeValue.slice(s, e) : ''; pos += L;
+      });
+      c.querySelectorAll('*').forEach(function (x) { if (!x.textContent && !x.querySelector('img,br')) x.remove(); });
+      return c;
+    }
+    bd.appendChild(el); var lh = parseFloat(getComputedStyle(el).lineHeight) || 24; bd.removeChild(el);
+    function lines(node) { bd.appendChild(node); var h = node.getBoundingClientRect().height; bd.removeChild(node); return Math.round(h / lh); }
+    var lo = 0, hi = N;
+    while (lo < hi) { var m = Math.ceil((lo + hi) / 2); if (probe(part(0, m))) lo = m; else hi = m - 1; }
+    var b = txt.lastIndexOf(' ', lo);
+    for (var t = 0; t < 12 && b > 0; t++) {
+      var head = part(0, b), tail = part(b + 1, N);
+      if (lines(head) < 2) return null;
+      if (lines(tail) >= 2) { stripIds(tail); return [head, tail]; }
+      b = txt.lastIndexOf(' ', b - 40);
+    }
+    return null;
+  }
+
+  // Tách khối dài thành [phần đầu vừa trang, phần còn lại]
+  function split(el) {
+    var t = el.tagName, kids, mk, k, tail;
+    if (t === 'P') return textSplit(el);
+    if (t === 'UL' || t === 'OL') {
+      kids = [].slice.call(el.children);
+      mk = function (a, b) { var c = el.cloneNode(false); kids.slice(a, b).forEach(function (x) { c.appendChild(x.cloneNode(true)); }); return c; };
+      k = maxK(kids.length, function (m) { return mk(0, m); });
+      if (k < 1 || k >= kids.length) return null;
+      if (k === 1 && /:\s*$/.test(kids[0].textContent)) return null; // nhãn không đứng một mình cuối trang
+      tail = mk(k, kids.length); stripIds(tail);
+      if (t === 'OL') tail.setAttribute('start', (parseInt(el.getAttribute('start') || 1, 10)) + k);
+      return [mk(0, k), tail];
+    }
+    if (t === 'TABLE') {
+      var th = el.querySelector('thead'), rows = [].slice.call(el.tBodies[0] ? el.tBodies[0].rows : []), hdr = null;
+      if (!th && rows[0] && rows[0].querySelector('th') && !rows[0].querySelector('td')) hdr = rows.shift();
+      mk = function (a, b) {
+        var c = el.cloneNode(false); var cols=el.querySelector("colgroup"); if(cols) c.appendChild(cols.cloneNode(true)); if (th) c.appendChild(th.cloneNode(true));
+        var tb = document.createElement('tbody'); if (hdr) tb.appendChild(hdr.cloneNode(true));
+        rows.slice(a, b).forEach(function (r) { tb.appendChild(r.cloneNode(true)); });
+        c.appendChild(tb); return c;
+      };
+      k = maxK(rows.length, function (m) { return mk(0, m); });
+      if (k < 1 || k >= rows.length) return null;
+      tail = mk(k, rows.length); stripIds(tail); return [mk(0, k), tail];
+    }
+    if (t === 'BLOCKQUOTE' || t === 'DIV') {
+      kids = [].slice.call(el.children);
+      mk = function (a, b) { var c = el.cloneNode(false); kids.slice(a, b).forEach(function (x) { c.appendChild(x.cloneNode(true)); }); return c; };
+      k = maxK(kids.length, function (m) { return mk(0, m); });
+      if (k < 1 || k >= kids.length) return null;
+      tail = mk(k, kids.length); stripIds(tail); return [mk(0, k), tail];
+    }
+    return null;
+  }
+
+  function keepNext(e) {
+    return /^(H[1-6]|HR)$/.test(e.tagName) || (e.tagName === 'UL' && e.children.length === 1 && /:\s*$/.test(e.textContent));
+  }
+
+  // Sang trang mới; heading/hr/nhãn mồ côi cuối trang được đẩy theo sang trang sau
+  function breakPage(q) {
+    var mv = [];
+    while (bd.children.length > 1 && keepNext(bd.lastElementChild)) mv.unshift(bd.removeChild(bd.lastElementChild));
+    newPage(); q.unshift.apply(q, mv);
+  }
+
+  function place(blocks) {
+    var q = blocks.slice();
+    while (q.length) {
+      var el = q.shift();
+      if (el.classList.contains('page-break-before')) {
+        el.classList.remove('page-break-before');
+        if (bd.children.length) { q.unshift(el); breakPage(q); continue; }
+      }
+      if (el.tagName === 'HR' && !bd.children.length) continue;
+      bd.appendChild(el);
+      if (fits()) continue;
+      bd.removeChild(el);
+      var s = split(el);
+      if (s) { bd.appendChild(s[0]); q.unshift(s[1]); breakPage(q); }
+      else if (bd.children.length) { q.unshift(el); breakPage(q); }
+      else { bd.appendChild(el); breakPage(q); }
+    }
+  }
+
+  function toc() {
+    document.querySelectorAll('.toc-link').forEach(function (a) {
+      var id = a.getAttribute('href').slice(1), t = document.getElementById(id), box = t && t.closest('.page'), num = a.querySelector('.toc-page-num');
+      if (box && num) num.textContent = box.querySelector('.pn').textContent;
+    });
+  }
+  function run() {
+    newPage(); place([].slice.call(src.children)); src.remove(); toc(); document.documentElement.dataset.ready="true"; }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(run); else run();
+})();
+</script>
+</body></html>

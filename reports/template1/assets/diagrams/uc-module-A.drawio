@@ -1,0 +1,59 @@
+<mxfile host="app.diagrams.net" modified="2026-11-07T15:00:00.000Z" agent="Antigravity" version="24.0.0" type="device">
+  <diagram id="module-ai-analytics" name="Phân hệ Trợ lý AI và Thống kê">
+    <mxGraphModel dx="1200" dy="680" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="680" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- System Boundary -->
+        <mxCell id="sys-boundary" value="Phân hệ Trợ lý AI và Thống kê&#xa;(AI Assistance &amp;amp; Analytics Subsystem)" style="shape=rect;html=1;verticalAlign=top;fontStyle=1;whiteSpace=wrap;align=center;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.8;fontSize=14;fontColor=#000000;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="40" width="540" height="600" as="geometry" />
+        </mxCell>
+
+        <!-- Actors -->
+        <mxCell id="actor-agent" value="Support Agent&#xa;(Nhân viên được giao ticket)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="165" width="35" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-admin" value="System Administrator&#xa;(Quản trị viên hệ thống)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="425" width="35" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-llm" value="«system»&#xa;Embedding / LLM Provider" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="120" width="35" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 5 Use Cases -->
+        <mxCell id="uc-14" value="&lt;b&gt;UC-14&lt;/b&gt;&lt;br&gt;Tạo gợi ý trả lời tự động bằng AI" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="430" y="108" width="340" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-15" value="&lt;b&gt;UC-15&lt;/b&gt;&lt;br&gt;Kiểm duyệt chỉnh sửa và gửi gợi ý AI" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="430" y="213" width="340" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-18" value="&lt;b&gt;UC-18&lt;/b&gt;&lt;br&gt;Xem lịch sử gợi ý AI" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="430" y="318" width="340" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-19" value="&lt;b&gt;UC-19 (P1)&lt;/b&gt;&lt;br&gt;Đánh giá gợi ý AI hữu ích hoặc không hữu ích" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="430" y="423" width="340" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-17" value="&lt;b&gt;UC-17 (P1)&lt;/b&gt;&lt;br&gt;Xem thống kê tổng quan ticket" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="430" y="528" width="340" height="64" as="geometry" />
+        </mxCell>
+
+        <!-- Edges: Support Agent -->
+        <mxCell id="e-agent-14" edge="1" parent="1" source="actor-agent" target="uc-14" style="endArrow=none;strokeColor=#000000;strokeWidth=1.4;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-agent-15" edge="1" parent="1" source="actor-agent" target="uc-15" style="endArrow=none;strokeColor=#000000;strokeWidth=1.4;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-agent-18" edge="1" parent="1" source="actor-agent" target="uc-18" style="endArrow=none;strokeColor=#000000;strokeWidth=1.4;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-agent-19" edge="1" parent="1" source="actor-agent" target="uc-19" style="endArrow=none;strokeColor=#000000;strokeWidth=1.4;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Edges: Admin -->
+        <mxCell id="e-admin-14" edge="1" parent="1" source="actor-admin" target="uc-14" style="endArrow=none;strokeColor=#000000;strokeWidth=1.4;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-admin-15" edge="1" parent="1" source="actor-admin" target="uc-15" style="endArrow=none;strokeColor=#000000;strokeWidth=1.4;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-admin-18" edge="1" parent="1" source="actor-admin" target="uc-18" style="endArrow=none;strokeColor=#000000;strokeWidth=1.4;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-admin-17" edge="1" parent="1" source="actor-admin" target="uc-17" style="endArrow=none;strokeColor=#000000;strokeWidth=1.4;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Edges: LLM Provider -->
+        <mxCell id="e-llm-14" edge="1" parent="1" source="actor-llm" target="uc-14" style="endArrow=none;strokeColor=#000000;strokeWidth=1.4;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

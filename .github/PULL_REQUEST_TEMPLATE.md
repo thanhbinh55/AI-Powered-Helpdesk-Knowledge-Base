@@ -1,65 +1,48 @@
-## 🔗 Liên kết Jira Task
-- Jira Issue: [SCRUM-XXX](https://your-domain.atlassian.net/browse/SCRUM-XXX) *(Thay XXX bằng số task tương ứng)*
+## Vấn đề và kết quả
 
----
+<!-- Trigger, hành vi trước/sau hoặc nội dung tài liệu được sửa. Không tick mục chưa làm. -->
 
-## 🎯 Phạm vi thay đổi (Scope)
-<!-- Mô tả tóm tắt nội dung thay đổi và mục đích của Pull Request này -->
-- [ ] Tài liệu báo cáo (Reports / Docs)
-- [ ] Cấu hình hệ thống / DevOps / Scripts
-- [ ] Module A: User & Auth
-- [ ] Module B: Ticket & Helpdesk
-- [ ] Module C: Knowledge Base & Vector Search
-- [ ] Module D: AI Service & Analytics
+- Task ref / Jira key đã xác minh:
+- Jira link:
+- GitHub issue thật (nếu có): Closes #...
+- FR / US (SRS Phụ lục D) / UC / BR / TC liên quan:
+- Owner / reviewer / owner phía nhận contract:
 
-**Chi tiết nội dung thực hiện:**
-- ...
+## Phạm vi
 
----
+- [ ] identity
+- [ ] ticket / workflow
+- [ ] knowledge / EmbeddingProvider
+- [ ] ai
+- [ ] Tài liệu / mockup / quy trình
+- [ ] Schema / CI / môi trường
 
-## 📸 Ảnh chụp màn hình / Mẫu API (Screenshots / API Payloads)
-<!-- Nếu là giao diện, đính kèm ảnh chụp màn hình hoặc GIF. Nếu là API, đính kèm JSON request/response mẫu -->
-```json
-// Request / Response mẫu (nếu có)
-```
+<!-- Chỉ đánh dấu phạm vi thay đổi thực tế. A–D không dùng làm định danh module. -->
 
----
+## Bằng chứng kiểm tra
 
-## 🧪 Các bước kiểm thử (Test Steps)
-<!-- Hướng dẫn cụ thể cách reviewer chạy và kiểm tra kết quả -->
-1. Checkout nhánh: `git checkout <tên_nhánh>`
-2. Thực hiện lệnh kiểm tra: `...`
-3. Kết quả mong đợi: `...`
+| Kịch bản | Command / fixture / trang đối chiếu | Expected | Actual / PASS / FAIL / NOT RUN |
+|---|---|---|---|
+| Happy path có ý nghĩa | | | |
+| Nhánh lỗi / quyền / state | | | |
 
----
+- Mode: fake / mock embedding / live (chọn đúng); dataset/model/dimension nếu có:
+- CI checks đã chạy và link kết quả (nếu chưa cấu hình, ghi chưa có):
+- Với Docs: actor, trigger/precondition, luồng thay thế/hậu điều kiện, BR và mockup đã đối soát:
+- Với UI/API: screenshot / JSON success, empty, error; adapter có đổi không:
+- Reviewer ghi điều đã kiểm tra và kết quả, không chỉ Approve hoặc tick checklist. NOT RUN cần nêu phần còn thiếu, không suy PASS từ build.
 
-## 🗄️ Ảnh hưởng Migration / Database (Migration Impact)
-- [ ] Không có thay đổi CSDL / schema.
-- [ ] Có thay đổi CSDL / Liquibase / Flyway migration script (mô tả chi tiết bên dưới):
-  - ...
+## Schema / contract / quyền
 
----
+- Migration mới, version/dependency, kiểm tra fresh DB và upgrade (hoặc không áp dụng):
+- Thay đổi DTO/error/enum/port; fake/caller/OpenAPI đã đồng bộ (hoặc không áp dụng):
+- Authorization/ownership/reassign/disabled; rollback/concurrency và internal note (hoặc không áp dụng):
+- Nếu send suggestion: same ticket, GENERATED, quyền hiện tại, PUBLIC; message+APPLIED cùng transaction, double-send/send-discard và rollback:
+- Không commit secrets/PII; không đưa internal note vào Customer DTO/prompt; log lỗi đã khử dữ liệu nhạy cảm:
 
-## 🔒 Ảnh hưởng bảo mật (Security Impact)
-- [ ] Đã kiểm tra: Không để lộ API Key, Secret Token, file `.env` hoặc thông tin nhạy cảm.
-- [ ] Không có lỗ hổng bảo mật mới (SQL Injection, XSS, IDOR, v.v.).
-- [ ] Đã tuân thủ phân quyền người dùng (Role-based Access Control).
+## Truy vết và review
 
----
-
-## ✅ Checklist Definition of Done (DoD)
-- [ ] Tiêu đề PR và thông điệp commit tuân thủ Conventional Commits và có chứa mã `SCRUM-<số>`.
-- [ ] Nội dung tài liệu Markdown (.md) hiển thị tốt, không có lỗi định dạng (`markdownlint`).
-- [ ] Đã ghi nhận việc sử dụng AI (nếu có) vào `reports/07-ai-usage.md`.
-- [ ] Code/Tài liệu đã được tự kiểm tra (Self-review) trước khi mở PR.
-- [ ] Đã chỉ định Reviewer khác người viết theo quy tắc xoay vòng:
-  - **A** (User & Auth) ➔ review cho **B**
-  - **B** (Ticket) ➔ review cho **C**
-  - **C** (Knowledge Base) ➔ review cho **D**
-  - **D** (AI Service) ➔ review cho **A**
-
----
-
-## 👥 Người thực hiện & Người review
-- **Người tạo PR:** `@<git_username_author>`
-- **Reviewer được chỉ định:** `@<git_username_reviewer>` *(Bắt buộc khác người tạo PR)*
+- AI Usage: link log cá nhân/phiên, điều AI tạo và kiểm chứng thực tế; không xác nhận thay người chưa kiểm tra.
+- Nội dung còn thiếu / blocker / P1 hoãn:
+- Reviewer mặc định: Bình review Lãm; Lãm review Gia Phúc; Gia Phúc review Quý Phúc; Quý Phúc review Bình. Release Lãm do Gia Phúc kiểm tra. Contract liên module cần owner phía nhận.
+- Merge bởi người có quyền thực tế, khác tác giả, sau review/checks. Không mặc định branch protection đã bật hoặc mọi PR phải chờ Bình duyệt lại. Giữ liên kết task/PR/tác giả nếu squash.

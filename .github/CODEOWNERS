@@ -1,27 +1,36 @@
-# ==============================================================================
-# CODEOWNERS - AI-Powered Helpdesk & Knowledge Base (Group 4)
-# Định nghĩa quyền sở hữu mã nguồn và người chịu trách nhiệm review theo Module
-# ==============================================================================
+# Đề nghị reviewer theo đường dẫn; không tự cấp quyền merge hay bật branch protection.
+# Username giữ theo cấu hình repo hiện có; quyền thực tế cần được xác minh.
+/reports/ @Shinkiisme @t4lf4n @Lamnguyen-code @thanhbinh55
+/scripts/ @Shinkiisme @t4lf4n @Lamnguyen-code @thanhbinh55
+/.github/ @thanhbinh55 @Shinkiisme
+/.github/workflows/ @Shinkiisme @thanhbinh55
 
-# Toàn bộ tài liệu báo cáo và quy trình chung: Toàn bộ nhóm
-/reports/             @Shinkiisme @t4lf4n @Lamnguyen-code @thanhbinh55
-/scripts/             @Shinkiisme @t4lf4n @Lamnguyen-code @thanhbinh55
-.github/              @thanhbinh55
+# identity — Bình; auth là đường dẫn legacy, code mới dùng identity.
+/backend/src/main/java/vn/edu/hcmus/helpdesk/identity/ @thanhbinh55
+/backend/src/main/java/vn/edu/hcmus/helpdesk/auth/ @thanhbinh55
+/frontend/src/features/auth/ @thanhbinh55
+/frontend/src/features/admin/ @thanhbinh55
+/infra/ @thanhbinh55
 
-# Module A: AI Assistant & LLM Integration (Lê Quý Phúc)
-/backend/src/main/java/vn/edu/hcmus/helpdesk/ai/         @Shinkiisme
+# ticket/workflow — Gia Phúc; apply phải được Quý Phúc review phía nhận.
+/backend/src/main/java/vn/edu/hcmus/helpdesk/ticket/ @t4lf4n
+/backend/src/main/java/vn/edu/hcmus/helpdesk/workflow/ @t4lf4n @Shinkiisme
+/frontend/src/features/ticket/ @t4lf4n
+/frontend/src/features/customer/ @t4lf4n
 
-# Module B: Knowledge Base & Vector Search (Nguyễn Đức Lãm)
-/backend/src/main/java/vn/edu/hcmus/helpdesk/knowledge/  @Lamnguyen-code
-/frontend/src/features/knowledge/                        @Lamnguyen-code
+# knowledge/schema — Lãm; model/dimension phối hợp với Quý Phúc.
+/backend/src/main/java/vn/edu/hcmus/helpdesk/knowledge/ @Lamnguyen-code
+/backend/src/main/java/vn/edu/hcmus/helpdesk/common/ai/ @Lamnguyen-code @Shinkiisme
+/backend/src/main/resources/db/migration/ @Lamnguyen-code @thanhbinh55
+/frontend/src/features/knowledge/ @Lamnguyen-code
 
-# Module C: Ticket Management & Helpdesk Core Workflow (Phan Gia Phúc)
-/backend/src/main/java/vn/edu/hcmus/helpdesk/ticket/     @t4lf4n
-/frontend/src/features/ticket/                           @t4lf4n
+# ai — Quý Phúc; analytics là P1 thuộc nghiệp vụ Ticket, Gia Phúc review.
+/backend/src/main/java/vn/edu/hcmus/helpdesk/ai/ @Shinkiisme
+/backend/src/main/java/vn/edu/hcmus/helpdesk/analytics/ @Shinkiisme @t4lf4n
+/frontend/src/features/analytics/ @Shinkiisme @t4lf4n
+/frontend/src/features/ticket/components/AISuggestionCard.tsx @Shinkiisme @t4lf4n
+/frontend/src/features/ticket/components/CitationModal.tsx @Shinkiisme @t4lf4n
 
-# Module D: Identity & Access, Authentication & Infrastructure (Ngô Viết Thanh Bình - Lead)
-/backend/src/main/java/vn/edu/hcmus/helpdesk/auth/       @thanhbinh55
-/frontend/src/features/auth/                             @thanhbinh55
-/backend/src/main/java/vn/edu/hcmus/helpdesk/analytics/  @thanhbinh55
-/frontend/src/features/admin/                            @thanhbinh55
-/infra/                                                  @thanhbinh55
+# Release: Lãm chính, Gia Phúc dự phòng. Review vòng tròn theo TEAM_GUIDE vẫn áp dụng.
+/reports/template1/ @Lamnguyen-code @t4lf4n
+/reports/MVP_CONTRACTS.md @t4lf4n @Lamnguyen-code @Shinkiisme @thanhbinh55

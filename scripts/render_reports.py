@@ -16,156 +16,7 @@ import shutil
 REPORTS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "reports"))
 OUTPUT_DIR = os.path.join(REPORTS_DIR, "rendered")
 
-CSS_STYLES = """
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
-
-:root {
-  --primary-color: #2563eb;
-  --text-color: #1e293b;
-  --bg-color: #ffffff;
-  --border-color: #e2e8f0;
-  --code-bg: #f8fafc;
-  --table-stripe: #f8fafc;
-  --accent-color: #0284c7;
-}
-
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.65;
-  color: var(--text-color);
-  background-color: var(--bg-color);
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 40px 24px;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: #0f172a;
-  font-weight: 700;
-  margin-top: 1.8em;
-  margin-bottom: 0.6em;
-  line-height: 1.25;
-}
-
-h1 {
-  font-size: 2.2rem;
-  border-bottom: 2px solid var(--border-color);
-  padding-bottom: 0.4em;
-  margin-top: 0.5em;
-  color: #1e3a8a;
-}
-
-h2 {
-  font-size: 1.5rem;
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 0.3em;
-}
-
-h3 { font-size: 1.25rem; }
-h4 { font-size: 1.1rem; }
-
-p, ul, ol {
-  margin-top: 0;
-  margin-bottom: 1em;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.5em 0;
-  font-size: 0.95rem;
-}
-
-th, td {
-  border: 1px solid var(--border-color);
-  padding: 10px 14px;
-  text-align: left;
-}
-
-th {
-  background-color: #f1f5f9;
-  font-weight: 600;
-  color: #334155;
-}
-
-tr:nth-child(even) {
-  background-color: var(--table-stripe);
-}
-
-blockquote {
-  border-left: 4px solid var(--primary-color);
-  margin: 1.2em 0;
-  padding: 10px 18px;
-  background-color: #eff6ff;
-  color: #1e40af;
-  border-radius: 0 6px 6px 0;
-}
-
-code {
-  font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
-  font-size: 0.88em;
-  background-color: var(--code-bg);
-  padding: 2px 6px;
-  border-radius: 4px;
-  border: 1px solid var(--border-color);
-}
-
-pre {
-  background-color: #0f172a;
-  color: #f8fafc;
-  padding: 16px;
-  border-radius: 8px;
-  overflow-x: auto;
-  font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-pre code {
-  background-color: transparent;
-  color: inherit;
-  padding: 0;
-  border: none;
-}
-
-hr {
-  border: 0;
-  border-top: 1px solid var(--border-color);
-  margin: 2em 0;
-}
-
-.mermaid {
-  background-color: #f8fafc;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 20px;
-  margin: 1.5em 0;
-  text-align: center;
-}
-
-.rendered-footer {
-  margin-top: 40px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border-color);
-  font-size: 0.85rem;
-  color: #64748b;
-  text-align: center;
-}
-
-@media print {
-  body {
-    max-width: 100%;
-    padding: 10mm;
-    font-size: 11pt;
-  }
-  pre, table {
-    page-break-inside: avoid;
-  }
-  .rendered-footer {
-    display: none;
-  }
-}
-"""
+from template0_styles import UNIFIED_TEMPLATE0_CSS as CSS_STYLES
 
 def simple_markdown_to_html(md_text):
     """Bộ chuyển đổi Markdown sang HTML hỗ trợ tiếng Việt, bảng biểu và mermaid."""
@@ -202,7 +53,6 @@ def simple_markdown_to_html(md_text):
 
     def format_inline(text):
         # Escape html
-        # First protect already escaped or tags? We escape raw characters
         text = html.escape(text)
         # Bold
         text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
@@ -214,13 +64,34 @@ def simple_markdown_to_html(md_text):
         text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
         # Links [text](url)
         text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2" target="_blank">\1</a>', text)
+        # Restore safe inline tags
+        text = text.replace("&lt;code&gt;", "<code>").replace("&lt;/code&gt;", "</code>")
+        text = text.replace("&lt;br&gt;", "<br>").replace("&lt;br/&gt;", "<br>").replace("&lt;br /&gt;", "<br>")
+        text = text.replace("&lt;strong&gt;", "<strong>").replace("&lt;/strong&gt;", "</strong>")
+        text = text.replace("&lt;em&gt;", "<em>").replace("&lt;/em&gt;", "</em>")
         return text
+
+    in_ul = False
+    in_ol = False
+
+    def flush_lists():
+        nonlocal in_ul, in_ol
+        res = []
+        if in_ul:
+            res.append("</ul>")
+            in_ul = False
+        if in_ol:
+            res.append("</ol>")
+            in_ol = False
+        return "\n".join(res)
 
     for line in lines:
         stripped = line.strip()
 
         # Code block marker
         if stripped.startswith("```"):
+            if in_ul or in_ol:
+                html_lines.append(flush_lists())
             if in_code_block:
                 in_code_block = False
                 code_content = html.escape("\n".join(code_buffer))
@@ -244,6 +115,8 @@ def simple_markdown_to_html(md_text):
 
         # Tables
         if stripped.startswith("|") and stripped.endswith("|"):
+            if in_ul or in_ol:
+                html_lines.append(flush_lists())
             in_table = True
             table_buffer.append(stripped)
             continue
@@ -252,8 +125,38 @@ def simple_markdown_to_html(md_text):
 
         # Empty line
         if not stripped:
+            if in_ul or in_ol:
+                html_lines.append(flush_lists())
             html_lines.append("")
             continue
+
+        # Bullet lists
+        m_ul = re.match(r'^[-*+]\s+(.*)$', stripped)
+        if m_ul:
+            if in_ol:
+                html_lines.append(flush_lists())
+            if not in_ul:
+                html_lines.append("<ul>")
+                in_ul = True
+            item_text = format_inline(m_ul.group(1))
+            html_lines.append(f"  <li>{item_text}</li>")
+            continue
+
+        # Numbered lists
+        m_ol = re.match(r'^\d+\.\s+(.*)$', stripped)
+        if m_ol:
+            if in_ul:
+                html_lines.append(flush_lists())
+            if not in_ol:
+                html_lines.append("<ol>")
+                in_ol = True
+            item_text = format_inline(m_ol.group(1))
+            html_lines.append(f"  <li>{item_text}</li>")
+            continue
+
+        # Flush any open list before other block elements
+        if in_ul or in_ol:
+            html_lines.append(flush_lists())
 
         # Headings
         m_h = re.match(r'^(#{1,6})\s+(.*)$', line)
@@ -274,23 +177,13 @@ def simple_markdown_to_html(md_text):
             html_lines.append("<hr>")
             continue
 
-        # Bullet lists
-        if re.match(r'^[-*+]\s+(.*)$', stripped):
-            item_text = format_inline(re.sub(r'^[-*+]\s+', '', stripped))
-            html_lines.append(f"<ul><li>{item_text}</li></ul>")
-            continue
-
-        # Numbered lists
-        if re.match(r'^\d+\.\s+(.*)$', stripped):
-            item_text = format_inline(re.sub(r'^\d+\.\s+', '', stripped))
-            html_lines.append(f"<ol><li>{item_text}</li></ol>")
-            continue
-
         # Regular paragraph
         html_lines.append(f"<p>{format_inline(stripped)}</p>")
 
     if in_table:
         html_lines.append(flush_table())
+    if in_ul or in_ol:
+        html_lines.append(flush_lists())
 
     return "\n".join(html_lines)
 
@@ -320,11 +213,15 @@ def build_full_html(title, body_html):
 """
 
 
-def render_file(file_path):
+def render_file(file_path, out_html=None, out_pdf=None):
     base_name = os.path.basename(file_path)
     file_stem, _ = os.path.splitext(base_name)
-    out_html = os.path.join(OUTPUT_DIR, f"{file_stem}.html")
-    out_pdf = os.path.join(OUTPUT_DIR, f"{file_stem}.pdf")
+    if out_html is None:
+        out_html = os.path.join(OUTPUT_DIR, f"{file_stem}.html")
+    if out_pdf is None:
+        out_pdf = os.path.join(OUTPUT_DIR, f"{file_stem}.pdf")
+
+    os.makedirs(os.path.dirname(out_html), exist_ok=True)
 
     with open(file_path, "r", encoding="utf-8") as f:
         md_content = f.read()
@@ -333,7 +230,6 @@ def render_file(file_path):
     has_pandoc = shutil.which("pandoc") is not None
 
     if has_pandoc:
-        print(f"📄 [Pandoc] Đang render: {base_name} -> HTML...")
         pandoc_cmd = [
             "pandoc",
             file_path,
@@ -344,9 +240,8 @@ def render_file(file_path):
         ]
         try:
             subprocess.run(pandoc_cmd, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            print(f"  ✅ Đã tạo: {out_html}")
-        except Exception as e:
-            print(f"  ⚠️ Pandoc gặp lỗi ({e}), chuyển sang bộ render Python dự phòng...")
+            print(f"  ✅ Đã tạo (Pandoc): {out_html}")
+        except Exception:
             body = simple_markdown_to_html(md_content)
             full_html = build_full_html(file_stem, body)
             with open(out_html, "w", encoding="utf-8") as f_out:
@@ -376,9 +271,6 @@ def render_file(file_path):
             print(f"  📄 Đã xuất PDF (wkhtmltopdf): {out_pdf}")
         except Exception as e:
             print(f"  ⚠️ Lỗi khi xuất PDF bằng wkhtmltopdf: {e}")
-    else:
-        # Không có PDF engine cài sẵn, ghi nhận hướng dẫn
-        pass
 
 
 def main():
@@ -390,7 +282,7 @@ def main():
         print("❌ Không tìm thấy file markdown nào trong thư mục reports/.")
         sys.exit(1)
 
-    print(f"🚀 Bắt đầu quá trình render {len(target_files)} báo cáo từ Markdown...")
+    print(f"🚀 Bắt đầu quá trình render {len(target_files)} báo cáo từ reports/ sang HTML...")
     print(f"📂 Thư mục nguồn: {REPORTS_DIR}")
     print(f"📂 Thư mục đầu ra: {OUTPUT_DIR}\n")
 
@@ -398,9 +290,50 @@ def main():
         src = os.path.join(REPORTS_DIR, tf)
         render_file(src)
 
+    # Render thư mục submit và các thư mục con
+    submit_dir = os.path.join(REPORTS_DIR, "submit")
+    if os.path.exists(submit_dir):
+        submit_mds = []
+        for root, _, files in os.walk(submit_dir):
+            for f in files:
+                if f.endswith(".md"):
+                    submit_mds.append(os.path.join(root, f))
+        submit_mds.sort()
+        print(f"\n📦 Bắt đầu quá trình render {len(submit_mds)} báo cáo nộp bài trong reports/submit/...")
+        for src in submit_mds:
+            folder = os.path.dirname(src)
+            stem, _ = os.path.splitext(os.path.basename(src))
+            if "project-proposal" in src:
+                try:
+                    import render_proposal_template0
+                    render_proposal_template0.build_template0_document()
+                    print(f"  🎨 Đã render Project Proposal chuẩn Template 0: {os.path.join(folder, f'{stem}.html')}")
+                except Exception as e:
+                    print(f"  ⚠️ Lỗi khi render Project Proposal bằng Template 0: {e}")
+                    render_file(src, out_html=os.path.join(folder, f"{stem}.html"), out_pdf=os.path.join(folder, f"{stem}.pdf"))
+            elif "git-contributions" in src:
+                try:
+                    import render_git_contributions_template0
+                    render_git_contributions_template0.build_git_contributions_document()
+                    print(f"  🎨 Đã render Git Contributions chuẩn Template 0: {os.path.join(folder, f'{stem}.html')}")
+                except Exception as e:
+                    print(f"  ⚠️ Lỗi khi render Git Contributions bằng Template 0: {e}")
+                    render_file(src, out_html=os.path.join(folder, f"{stem}.html"), out_pdf=os.path.join(folder, f"{stem}.pdf"))
+            elif "ai-usage" in src:
+                try:
+                    import render_ai_usage_template0
+                    render_ai_usage_template0.build_ai_usage_document()
+                    print(f"  🎨 Đã render AI Usage chuẩn Template 0: {os.path.join(folder, f'{stem}.html')}")
+                except Exception as e:
+                    print(f"  ⚠️ Lỗi khi render AI Usage bằng Template 0: {e}")
+                    render_file(src, out_html=os.path.join(folder, f"{stem}.html"), out_pdf=os.path.join(folder, f"{stem}.pdf"))
+            else:
+                render_file(src, out_html=os.path.join(folder, f"{stem}.html"), out_pdf=os.path.join(folder, f"{stem}.pdf"))
+
     print("\n✨ Quá trình render hoàn tất!")
     print("💡 Mẹo: Bạn có thể mở các file .html trong trình duyệt và chọn 'In' -> 'Lưu dưới dạng PDF' để có bản in PDF chuẩn nộp bài.")
 
 
 if __name__ == "__main__":
     main()
+

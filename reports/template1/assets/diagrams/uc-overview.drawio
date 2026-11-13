@@ -1,0 +1,131 @@
+<mxfile host="app.diagrams.net" modified="2026-11-07T15:00:00.000Z" agent="Antigravity" version="24.0.0" type="device">
+  <diagram id="overall-19-uc" name="Overall 19 Use Cases">
+    <mxGraphModel dx="1320" dy="1480" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1320" pageHeight="1480" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- System Boundary -->
+        <mxCell id="sys-boundary" value="AI-Powered Helpdesk &amp;amp; Knowledge Base System (Tổng thể 19 Use Cases)" style="shape=rect;html=1;verticalAlign=top;fontStyle=1;whiteSpace=wrap;align=center;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.8;fontSize=15;fontColor=#000000;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="30" width="600" height="1420" as="geometry" />
+        </mxCell>
+
+        <!-- Subsystem Boxes -->
+        <mxCell id="box-identity" value="Phân hệ Định danh và phân quyền" style="shape=rect;html=1;verticalAlign=top;fontStyle=1;whiteSpace=wrap;align=left;fillColor=none;strokeColor=#555555;strokeWidth=1;dashed=1;fontSize=12;fontColor=#000000;spacingTop=6;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="385" y="95" width="550" height="355" as="geometry" />
+        </mxCell>
+        <mxCell id="box-ticketing" value="Phân hệ Quản lý ticket" style="shape=rect;html=1;verticalAlign=top;fontStyle=1;whiteSpace=wrap;align=left;fillColor=none;strokeColor=#555555;strokeWidth=1;dashed=1;fontSize=12;fontColor=#000000;spacingTop=6;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="385" y="465" width="550" height="415" as="geometry" />
+        </mxCell>
+        <mxCell id="box-kb" value="Phân hệ Cơ sở tri thức" style="shape=rect;html=1;verticalAlign=top;fontStyle=1;whiteSpace=wrap;align=left;fillColor=none;strokeColor=#555555;strokeWidth=1;dashed=1;fontSize=12;fontColor=#000000;spacingTop=6;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="385" y="895" width="550" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="box-ai" value="Phân hệ Trợ lý AI và thống kê" style="shape=rect;html=1;verticalAlign=top;fontStyle=1;whiteSpace=wrap;align=left;fillColor=none;strokeColor=#555555;strokeWidth=1;dashed=1;fontSize=12;fontColor=#000000;spacingTop=6;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="385" y="1100" width="550" height="330" as="geometry" />
+        </mxCell>
+
+        <!-- Actors Left -->
+        <mxCell id="actor-guest" value="Guest / Unauthenticated" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="130" width="35" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-auth" value="Authenticated User&#xa;(Người dùng đã xác thực)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="275" width="35" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-customer" value="Customer" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="500" width="35" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-agent" value="Support Agent" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="730" width="35" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-admin" value="System Administrator" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="1010" width="35" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Secondary Actors Right -->
+        <mxCell id="actor-mail" value="«system»&#xa;Mail Service" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="180" width="35" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-llm" value="«system»&#xa;Embedding / LLM Provider" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="1015" width="35" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 19 Use Cases -->
+        <mxCell id="uc-01" value="&lt;b&gt;UC-01:&lt;/b&gt; Đăng ký và đăng nhập hệ thống" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1"><mxGeometry x="485" y="126" width="350" height="48" as="geometry" /></mxCell>
+        <mxCell id="uc-16" value="&lt;b&gt;UC-16:&lt;/b&gt; Đặt lại mật khẩu" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1"><mxGeometry x="485" y="191" width="350" height="48" as="geometry" /></mxCell>
+        <mxCell id="uc-02" value="&lt;b&gt;UC-02:&lt;/b&gt; Làm mới phiên và đăng xuất" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1"><mxGeometry x="485" y="256" width="350" height="48" as="geometry" /></mxCell>
+        <mxCell id="uc-03" value="&lt;b&gt;UC-03:&lt;/b&gt; Xem và cập nhật hồ sơ cá nhân" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1"><mxGeometry x="485" y="321" width="350" height="48" as="geometry" /></mxCell>
+        <mxCell id="uc-04" value="&lt;b&gt;UC-04:&lt;/b&gt; Quản lý tài khoản Agent" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1"><mxGeometry x="485" y="386" width="350" height="48" as="geometry" /></mxCell>
+
+        <mxCell id="uc-05" value="&lt;b&gt;UC-05:&lt;/b&gt; Tạo yêu cầu hỗ trợ" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1"><mxGeometry x="485" y="496" width="350" height="48" as="geometry" /></mxCell>
+        <mxCell id="uc-06" value="&lt;b&gt;UC-06:&lt;/b&gt; Xem danh sách và chi tiết ticket" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1"><mxGeometry x="485" y="561" width="350" height="48" as="geometry" /></mxCell>
+        <mxCell id="uc-07" value="&lt;b&gt;UC-07:&lt;/b&gt; Tiếp nhận xử lý ticket" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1"><mxGeometry x="485" y="626" width="350" height="48" as="geometry" /></mxCell>
+        <mxCell id="uc-08" value="&lt;b&gt;UC-08:&lt;/b&gt; Trao đổi trong yêu cầu hỗ trợ" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1"><mxGeometry x="485" y="691" width="350" height="48" as="geometry" /></mxCell>
+        <mxCell id="uc-09" value="&lt;b&gt;UC-09:&lt;/b&gt; Đóng và mở lại yêu cầu hỗ trợ" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1"><mxGeometry x="485" y="756" width="350" height="48" as="geometry" /></mxCell>
+        <mxCell id="uc-10" value="&lt;b&gt;UC-10:&lt;/b&gt; Phân công nhân viên xử lý ticket" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1"><mxGeometry x="485" y="821" width="350" height="48" as="geometry" /></mxCell>
+
+        <mxCell id="uc-11" value="&lt;b&gt;UC-11:&lt;/b&gt; Tải lên và xử lý tài liệu tri thức" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1"><mxGeometry x="485" y="918" width="350" height="44" as="geometry" /></mxCell>
+        <mxCell id="uc-12" value="&lt;b&gt;UC-12:&lt;/b&gt; Quản lý tài liệu tri thức" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1"><mxGeometry x="485" y="973" width="350" height="44" as="geometry" /></mxCell>
+        <mxCell id="uc-13" value="&lt;b&gt;UC-13:&lt;/b&gt; Tìm kiếm tri thức" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1"><mxGeometry x="485" y="1028" width="350" height="44" as="geometry" /></mxCell>
+
+        <mxCell id="uc-14" value="&lt;b&gt;UC-14:&lt;/b&gt; Tạo gợi ý trả lời tự động bằng AI" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1"><mxGeometry x="485" y="1128" width="350" height="44" as="geometry" /></mxCell>
+        <mxCell id="uc-15" value="&lt;b&gt;UC-15:&lt;/b&gt; Kiểm duyệt chỉnh sửa và gửi gợi ý AI" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1"><mxGeometry x="485" y="1188" width="350" height="44" as="geometry" /></mxCell>
+        <mxCell id="uc-18" value="&lt;b&gt;UC-18:&lt;/b&gt; Xem lịch sử gợi ý AI" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1"><mxGeometry x="485" y="1248" width="350" height="44" as="geometry" /></mxCell>
+        <mxCell id="uc-19" value="&lt;b&gt;UC-19:&lt;/b&gt; Đánh giá gợi ý AI hữu ích (P1)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1"><mxGeometry x="485" y="1308" width="350" height="44" as="geometry" /></mxCell>
+        <mxCell id="uc-17" value="&lt;b&gt;UC-17:&lt;/b&gt; Xem thống kê ticket (P1)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1"><mxGeometry x="485" y="1368" width="350" height="44" as="geometry" /></mxCell>
+
+        <!-- Generalization Edges -->
+        <mxCell id="gen-customer" edge="1" parent="1" source="actor-customer" target="actor-auth" style="endArrow=block;endSize=10;endFill=0;strokeColor=#000000;strokeWidth=1.4;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="gen-agent" edge="1" parent="1" source="actor-agent" target="actor-auth" style="endArrow=block;endSize=10;endFill=0;strokeColor=#000000;strokeWidth=1.4;edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.5;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="75" y="765" /><mxPoint x="75" y="315" /></Array></mxGeometry></mxCell>
+        <mxCell id="gen-admin" edge="1" parent="1" source="actor-admin" target="actor-auth" style="endArrow=block;endSize=10;endFill=0;strokeColor=#000000;strokeWidth=1.4;edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.5;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="55" y="1045" /><mxPoint x="55" y="300" /></Array></mxGeometry></mxCell>
+
+        <!-- Associations: Guest -->
+        <mxCell id="e-g-01" edge="1" parent="1" source="actor-guest" target="uc-01" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-g-16" edge="1" parent="1" source="actor-guest" target="uc-16" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Associations: Authenticated User -->
+        <mxCell id="e-u-02" edge="1" parent="1" source="actor-auth" target="uc-02" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-u-03" edge="1" parent="1" source="actor-auth" target="uc-03" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Associations: Customer -->
+        <mxCell id="e-c-05" edge="1" parent="1" source="actor-customer" target="uc-05" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-c-06" edge="1" parent="1" source="actor-customer" target="uc-06" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-c-08" edge="1" parent="1" source="actor-customer" target="uc-08" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-c-09" edge="1" parent="1" source="actor-customer" target="uc-09" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Associations: Agent -->
+        <mxCell id="e-a-06" edge="1" parent="1" source="actor-agent" target="uc-06" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-a-07" edge="1" parent="1" source="actor-agent" target="uc-07" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-a-08" edge="1" parent="1" source="actor-agent" target="uc-08" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-a-09" edge="1" parent="1" source="actor-agent" target="uc-09" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-a-10" edge="1" parent="1" source="actor-agent" target="uc-10" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-a-13" edge="1" parent="1" source="actor-agent" target="uc-13" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-a-14" edge="1" parent="1" source="actor-agent" target="uc-14" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-a-15" edge="1" parent="1" source="actor-agent" target="uc-15" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-a-18" edge="1" parent="1" source="actor-agent" target="uc-18" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-a-19" edge="1" parent="1" source="actor-agent" target="uc-19" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Associations: Admin -->
+        <mxCell id="e-ad-04" edge="1" parent="1" source="actor-admin" target="uc-04" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-ad-06" edge="1" parent="1" source="actor-admin" target="uc-06" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-ad-07" edge="1" parent="1" source="actor-admin" target="uc-07" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-ad-08" edge="1" parent="1" source="actor-admin" target="uc-08" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-ad-09" edge="1" parent="1" source="actor-admin" target="uc-09" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-ad-10" edge="1" parent="1" source="actor-admin" target="uc-10" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-ad-11" edge="1" parent="1" source="actor-admin" target="uc-11" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-ad-12" edge="1" parent="1" source="actor-admin" target="uc-12" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-ad-13" edge="1" parent="1" source="actor-admin" target="uc-13" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-ad-14" edge="1" parent="1" source="actor-admin" target="uc-14" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-ad-15" edge="1" parent="1" source="actor-admin" target="uc-15" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-ad-18" edge="1" parent="1" source="actor-admin" target="uc-18" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-ad-17" edge="1" parent="1" source="actor-admin" target="uc-17" style="endArrow=none;strokeColor=#000000;strokeWidth=1.3;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Secondary Associations -->
+        <mxCell id="e-mail-16" edge="1" parent="1" source="actor-mail" target="uc-16" style="endArrow=none;strokeColor=#000000;strokeWidth=1.4;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-llm-11" edge="1" parent="1" source="actor-llm" target="uc-11" style="endArrow=none;strokeColor=#000000;strokeWidth=1.4;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-llm-13" edge="1" parent="1" source="actor-llm" target="uc-13" style="endArrow=none;strokeColor=#000000;strokeWidth=1.4;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-llm-14" edge="1" parent="1" source="actor-llm" target="uc-14" style="endArrow=none;strokeColor=#000000;strokeWidth=1.4;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net" modified="2026-11-07T10:23:00.000Z" agent="Antigravity" version="24.0.0" type="device">
+  <diagram id="context-diagram" name="Context Diagram - System Boundary">
+    <mxGraphModel dx="1280" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Central System Boundary -->
+        <mxCell id="sys-box" value="&lt;b style=&quot;font-size:15px&quot;&gt;AI-Powered Helpdesk &amp;amp; Knowledge Base System&lt;/b&gt;&lt;hr&gt;&lt;b&gt;Thành phần nội bộ trong ranh giới hệ thống:&lt;/b&gt;&lt;br&gt;• Web Application (React + TypeScript + Tailwind CSS)&lt;br&gt;• Backend API (Spring Boot 3 — Modular Monolith)&lt;br&gt;• Background Ingestion Worker (Trích xuất &amp;amp; Chia đoạn)&lt;br&gt;• CSDL PostgreSQL + pgvector (Lưu dữ liệu &amp;amp; Embeddings)&lt;br&gt;• Private File Storage (Lưu trữ tệp tài liệu nội bộ)" style="shape=rect;html=1;verticalAlign=middle;whiteSpace=wrap;align=center;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=2;fontSize=12;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="380" y="140" width="420" height="340" as="geometry" />
+        </mxCell>
+
+        <!-- Primary Actors Left -->
+        <mxCell id="actor-guest" value="Guest" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="95" y="60" width="35" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-customer" value="Customer" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="95" y="200" width="35" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-agent" value="Support Agent" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="95" y="340" width="35" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-admin" value="System Administrator" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="95" y="480" width="35" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- External Systems Right -->
+        <mxCell id="ext-llm" value="&lt;i&gt;«external actor»&lt;/i&gt;&lt;br&gt;&lt;b&gt;Embedding / LLM Provider&lt;/b&gt;" style="shape=rect;html=1;whiteSpace=wrap;align=center;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="970" y="180" width="175" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-mail" value="&lt;i&gt;«external actor»&lt;/i&gt;&lt;br&gt;&lt;b&gt;Mail Service (P1)&lt;/b&gt;" style="shape=rect;html=1;whiteSpace=wrap;align=center;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="970" y="355" width="175" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- Edges -->
+        <mxCell id="e1" value="Đăng ký, Đăng nhập, Reset MK" style="endArrow=open;endFill=0;html=1;strokeWidth=1.5;strokeColor=#000000;fontSize=11;" edge="1" parent="1" source="actor-guest" target="sys-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="Tạo/xem ticket, Gửi tin nhắn, Đóng/Mở lại" style="endArrow=open;endFill=0;html=1;strokeWidth=1.5;strokeColor=#000000;fontSize=11;" edge="1" parent="1" source="actor-customer" target="sys-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="Claim &amp; xử lý ticket, Tra cứu KB, Duyệt AI" style="endArrow=open;endFill=0;html=1;strokeWidth=1.5;strokeColor=#000000;fontSize=11;" edge="1" parent="1" source="actor-agent" target="sys-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="Quản lý Agent, Phân công, Quản trị KB, Thống kê" style="endArrow=open;endFill=0;html=1;strokeWidth=1.5;strokeColor=#000000;fontSize=11;" edge="1" parent="1" source="actor-admin" target="sys-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="Yêu cầu Vector &amp; Sinh gợi ý RAG" style="endArrow=open;endFill=0;html=1;strokeWidth=1.5;strokeColor=#000000;fontSize=11;" edge="1" parent="1" source="sys-box" target="ext-llm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="Gửi liên kết đặt lại mật khẩu" style="endArrow=open;endFill=0;html=1;strokeWidth=1.5;strokeColor=#000000;fontSize=11;" edge="1" parent="1" source="sys-box" target="ext-mail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
+

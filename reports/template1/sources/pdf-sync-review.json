@@ -1,0 +1,507 @@
+{
+  "review_date": "2026-11-13",
+  "pdf": "report/Report.pdf",
+  "pdf_sha256": "152ce6ca368ff560abef6a405d94d7ee6306667119ec0d7c1c2da3274af16913",
+  "pages": 70,
+  "previous_pages": 80,
+  "transcription": "sources/template1-final-current.md",
+  "transcription_sha256": "634fe7f2871140540a81420a2754771c95bdc2a232645e545ee2fd21417c6bd5",
+  "method": "Compare complete previous/current PDF body after removing page headers/footers and repeated UC table headers; normalize reflow and the relocation of the FR–TK–02 cell label. Visually inspect changed text and diagram pages. Compare every embedded figure in page order.",
+  "body_changes": [
+    "Replace the old stakeholder technical note with the stakeholder-scope paragraph",
+    "Update the P0 context explanation below Figure 3.1",
+    "Add the bullet before the per-agent/per-suggestion uniqueness rule in FR–AI–10"
+  ],
+  "other_body_changes_after_documented_layout_normalization": false,
+  "unchanged_uc_tables": 19,
+  "functional_requirements": 41,
+  "nonfunctional_requirements": 19,
+  "figures": [
+    {
+      "reference": "image1",
+      "caption": "Hình 3.1  Ranh giới hệ thống và các tác nhân bên ngoài",
+      "asset": "assets/diagrams/context_diagram_system.svg",
+      "pdf_page": 8,
+      "pdf_xref": 100,
+      "pdf_dimensions": [
+        2048,
+        1236
+      ],
+      "mean_pixel_difference": 0.258771,
+      "match": "verified_vector_equivalent_after_pdf_resampling"
+    },
+    {
+      "reference": "image2",
+      "caption": "Hình 4.1  Tổng thể 19 Use Case trong ranh giới hệ thống",
+      "asset": "assets/diagrams/uc_overall_19_usecases.svg",
+      "pdf_page": 21,
+      "pdf_xref": 128,
+      "pdf_dimensions": [
+        1367,
+        2048
+      ],
+      "mean_pixel_difference": 0.867713,
+      "match": "verified_vector_equivalent_after_pdf_resampling"
+    },
+    {
+      "reference": "image3",
+      "caption": "Hình 4.2  Use Case Module Định danh và phân quyền",
+      "asset": "assets/diagrams/uc_module_d_identity.svg",
+      "pdf_page": 22,
+      "pdf_xref": 133,
+      "pdf_dimensions": [
+        2048,
+        812
+      ],
+      "mean_pixel_difference": 1.087828,
+      "match": "verified_vector_equivalent_after_pdf_resampling"
+    },
+    {
+      "reference": "image4",
+      "caption": "Hình 4.3  Use Case Module Quản lý ticket",
+      "asset": "assets/diagrams/uc_module_c_ticketing.svg",
+      "pdf_page": 22,
+      "pdf_xref": 131,
+      "pdf_dimensions": [
+        2048,
+        1282
+      ],
+      "mean_pixel_difference": 1.052046,
+      "match": "verified_vector_equivalent_after_pdf_resampling"
+    },
+    {
+      "reference": "image5",
+      "caption": "Hình 4.4  Use Case Module Cơ sở tri thức",
+      "asset": "assets/diagrams/uc_module_b_kb.svg",
+      "pdf_page": 23,
+      "pdf_xref": 136,
+      "pdf_dimensions": [
+        2048,
+        760
+      ],
+      "mean_pixel_difference": 0.718707,
+      "match": "verified_vector_equivalent_after_pdf_resampling"
+    },
+    {
+      "reference": "image6",
+      "caption": "Hình 4.5  Use Case Module Trợ lý AI",
+      "asset": "assets/diagrams/uc_module_a_ai_analytics.svg",
+      "pdf_page": 23,
+      "pdf_xref": 137,
+      "pdf_dimensions": [
+        2048,
+        1108
+      ],
+      "mean_pixel_difference": 0.649272,
+      "match": "verified_vector_equivalent_after_pdf_resampling"
+    },
+    {
+      "reference": "image7",
+      "caption": "Hình 5.1  Đăng nhập hệ thống",
+      "asset": "assets/ui/62-8214.png",
+      "pdf_page": 45,
+      "pdf_xref": 183,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image8",
+      "caption": "Hình 5.2  Đăng ký Customer",
+      "asset": "assets/ui/62-8215.png",
+      "pdf_page": 46,
+      "pdf_xref": 187,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image9",
+      "caption": "Hình 5.3  Hồ sơ cá nhân",
+      "asset": "assets/ui/62-8328.png",
+      "pdf_page": 47,
+      "pdf_xref": 190,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image10",
+      "caption": "Hình 5.4 Quản lý danh sách nhân viên (Admin)",
+      "asset": "assets/ui/62-10225.png",
+      "pdf_page": 48,
+      "pdf_xref": 193,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image11",
+      "caption": "Hình 5.5a Biểu mẫu tạo tài khoản nhân viên mới",
+      "asset": "assets/ui/62-10226.png",
+      "pdf_page": 49,
+      "pdf_xref": 196,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image12",
+      "caption": "Hình 5.5b Xác nhận vô hiệu hóa tài khoản nhân viên",
+      "asset": "assets/ui/62-13238.png",
+      "pdf_page": 49,
+      "pdf_xref": 198,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.000162,
+      "match": "equivalent_with_pdf_color_rounding_below_0.01_on_255_scale"
+    },
+    {
+      "reference": "image13",
+      "caption": "Hình 5.6  Danh sách yêu cầu của tôi",
+      "asset": "assets/ui/58-6763.png",
+      "pdf_page": 50,
+      "pdf_xref": 202,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image14",
+      "caption": "Hình 5.7  Tạo yêu cầu hỗ trợ",
+      "asset": "assets/ui/58-6764.png",
+      "pdf_page": 51,
+      "pdf_xref": 205,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image15",
+      "caption": "Hình 5.8 Chi tiết và hội thoại công khai khi yêu cầu đang được xử lý",
+      "asset": "assets/ui/58-6765.png",
+      "pdf_page": 52,
+      "pdf_xref": 209,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image16",
+      "caption": "Hình 5.9 Yêu cầu đã giải quyết, chờ Customer xác nhận đóng hoặc mở lại",
+      "asset": "assets/ui/62-6953.png",
+      "pdf_page": 53,
+      "pdf_xref": 212,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image17",
+      "caption": "Hình 5.10 Chi tiết yêu cầu đã đóng ở chế độ chỉ đọc",
+      "asset": "assets/ui/62-6954.png",
+      "pdf_page": 54,
+      "pdf_xref": 215,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image18",
+      "caption": "Hình 5.11  Hàng đợi và nhận xử lý",
+      "asset": "assets/ui/55-1992.png",
+      "pdf_page": 55,
+      "pdf_xref": 218,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image19",
+      "caption": "Hình 5.12  Xử lý ticket và ghi chú nội bộ",
+      "asset": "assets/ui/55-2537.png",
+      "pdf_page": 56,
+      "pdf_xref": 221,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image20",
+      "caption": "Hình 5.13  Xung đột nhận ticket",
+      "asset": "assets/ui/56-3104.png",
+      "pdf_page": 57,
+      "pdf_xref": 224,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image21",
+      "caption": "Hình 5.14  Tìm kiếm tri thức",
+      "asset": "assets/ui/62-9092.png",
+      "pdf_page": 58,
+      "pdf_xref": 227,
+      "pdf_dimensions": [
+        1462,
+        894
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image22",
+      "caption": "Hình 5.15  Đọc tài liệu tri thức",
+      "asset": "assets/ui/62-9094.png",
+      "pdf_page": 59,
+      "pdf_xref": 230,
+      "pdf_dimensions": [
+        1462,
+        894
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image23",
+      "caption": "Hình 5.16  Quản trị và công bố tài liệu",
+      "asset": "assets/ui/62-9240.png",
+      "pdf_page": 60,
+      "pdf_xref": 233,
+      "pdf_dimensions": [
+        1462,
+        894
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image24",
+      "caption": "Hình 5.17 Tải tài liệu mới lên Knowledge Base",
+      "asset": "assets/ui/62-9241.png",
+      "pdf_page": 61,
+      "pdf_xref": 236,
+      "pdf_dimensions": [
+        1462,
+        894
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image25",
+      "caption": "Hình 5.18 Chi tiết tài liệu ở trạng thái sẵn sàng nhưng chưa công bố",
+      "asset": "assets/ui/62-9783.png",
+      "pdf_page": 62,
+      "pdf_xref": 239,
+      "pdf_dimensions": [
+        1462,
+        894
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image26",
+      "caption": "Hình 5.19 Gợi ý AI, nguồn trích dẫn và thao tác hỗ trợ nhân viên",
+      "asset": "assets/ui/55-1994.png",
+      "pdf_page": 63,
+      "pdf_xref": 242,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image27",
+      "caption": "Hình 5.20 Xem đoạn nguồn trích dẫn của gợi ý",
+      "asset": "assets/ui/56-3578.png",
+      "pdf_page": 64,
+      "pdf_xref": 245,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image28",
+      "caption": "Hình 5.21 Danh sách yêu cầu quản trị",
+      "asset": "assets/ui/62-9943.png",
+      "pdf_page": 65,
+      "pdf_xref": 248,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image29",
+      "caption": "Hình 5.22a Chi tiết xử lý và lịch sử yêu cầu (Admin — D02)",
+      "asset": "assets/ui/62-9944.png",
+      "pdf_page": 66,
+      "pdf_xref": 251,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image30",
+      "caption": "Hình 5.22b Biểu mẫu phân công nhân viên phụ trách (Admin — D03)",
+      "asset": "assets/ui/62-9945.png",
+      "pdf_page": 66,
+      "pdf_xref": 252,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image31",
+      "caption": "Hình 5.23a Danh sách các lần tạo gợi ý AI",
+      "asset": "assets/ui/81-7585.png",
+      "pdf_page": 67,
+      "pdf_xref": 256,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image32",
+      "caption": "Hình 5.23b Chi tiết gợi ý AI đã lưu",
+      "asset": "assets/ui/81-8707.png",
+      "pdf_page": 67,
+      "pdf_xref": 257,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image33",
+      "caption": "Hình 5.24a Trạng thái đã lưu đánh giá hữu ích",
+      "asset": "assets/ui/81-7560.png",
+      "pdf_page": 68,
+      "pdf_xref": 260,
+      "pdf_dimensions": [
+        295,
+        98
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image34",
+      "caption": "Hình 5.24b Thông báo lỗi lưu đánh giá và thao tác thử lại",
+      "asset": "assets/ui/82-10422.png",
+      "pdf_page": 68,
+      "pdf_xref": 261,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image35",
+      "caption": "Hình 5.25 Xác nhận bỏ gợi ý AI",
+      "asset": "assets/ui/91-15641.png",
+      "pdf_page": 69,
+      "pdf_xref": 264,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image36",
+      "caption": "Hình 5.26 Đã bỏ gợi ý AI và lựa chọn tiếp tục soạn thủ công",
+      "asset": "assets/ui/91-15904.png",
+      "pdf_page": 69,
+      "pdf_xref": 265,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    },
+    {
+      "reference": "image37",
+      "caption": "Hình 5.27 Thống kê ticket theo trạng thái và người phụ trách",
+      "asset": "assets/ui/91-19910.png",
+      "pdf_page": 70,
+      "pdf_xref": 268,
+      "pdf_dimensions": [
+        1440,
+        900
+      ],
+      "mean_pixel_difference": 0.0,
+      "match": "exact_pixels"
+    }
+  ],
+  "ui_images_verified_against_pdf": 31,
+  "ui_images_with_exact_pdf_pixel_match": 30,
+  "vector_diagrams_verified": 6,
+  "markdown_toc_omits_pdf_page_numbers": true,
+  "pdf_modified_by_sync": false
+}

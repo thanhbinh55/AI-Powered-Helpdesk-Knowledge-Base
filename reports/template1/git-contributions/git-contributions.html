@@ -1,0 +1,1403 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Template 1 — Git Commit History Report</title><style>
+:root {
+  --page-width: 210mm;
+  --page-height: 297mm;
+  --page-margin-top: 25mm;
+  --page-margin-bottom: 20mm;
+  --page-margin-left: 30mm;
+  --page-margin-right: 20mm;
+
+  --primary-blue: #548dd4;
+  --header-blue: #548dd4;
+  --sub-blue: #4f81bd;
+  --dark-blue: #366091;
+  --text-dark: #000000;
+  --border-dark: #cbd5e1;
+  --table-stripe: #f8fafc;
+  --quote-bg: #f8fafc;
+}
+
+*, *::before, *::after,
+html, body, p, span, div, a, li, ul, ol, blockquote, table, th, td, tr, 
+h1, h2, h3, h4, h5, h6, input, button, select, textarea, b, strong, em, i, 
+code, pre, small, sub, sup, header, footer, section, article, caption {
+  font-family: 'Times New Roman', Times, serif !important;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+body {
+  font-family: 'Times New Roman', Times, serif !important;
+  color: var(--text-dark);
+  background-color: #f1f5f9;
+  margin: 0;
+  padding: 20px 0 60px 0;
+  line-height: 1.5;
+  font-size: 12pt;
+}
+
+.doc-page, .report-container, .container {
+  background-color: #ffffff;
+  max-width: 900px;
+  margin: 0 auto 35px auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.cover-page {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  min-height: 297mm;
+  height: 297mm;
+  width: var(--page-width);
+  padding: 30mm 25mm 25mm 25mm !important;
+  box-sizing: border-box !important;
+  background-color: #ffffff;
+  margin: 12mm auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+}
+
+.cover-top-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.cover-doc-id {
+  text-align: center;
+  font-size: 15pt !important;
+  font-weight: 700 !important;
+  color: #000000 !important;
+  line-height: 1.4;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+}
+
+.proposal-banner {
+  background: linear-gradient(135deg, #548dd4 0%, #366091 100%);
+  color: #ffffff !important;
+  padding: 30px 25px;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(84, 141, 212, 0.25);
+  margin-bottom: 25px;
+}
+
+.banner-title {
+  font-size: 24pt !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+  color: #ffffff !important;
+}
+
+.banner-subtitle {
+  font-size: 13.5pt !important;
+  font-style: italic;
+  opacity: 0.95;
+  color: #ffffff !important;
+}
+
+.cover-meta-box {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  padding: 16px 20px;
+  margin: 15px 0 20px 0;
+  border-radius: 4px;
+  font-size: 11pt !important;
+  line-height: 1.5;
+}
+
+.cover-institution-block-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-top: auto;
+  margin-bottom: 5px;
+}
+
+.cover-logo-wrapper {
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+}
+
+.cover-logo-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cover-inst-text {
+  text-align: left;
+  line-height: 1.35;
+}
+
+.inst-line-dept {
+  font-size: 11.5pt !important;
+  font-weight: 700 !important;
+  color: #366091;
+  text-transform: uppercase;
+}
+
+.inst-line-faculty {
+  font-size: 12.5pt !important;
+  font-weight: 700 !important;
+  color: #000000;
+  text-transform: uppercase;
+}
+
+.inst-line-school {
+  font-size: 13.5pt !important;
+  font-weight: 700 !important;
+  color: #548dd4;
+  text-transform: uppercase;
+}
+
+/* Page Frame for Word-like pagination */
+.page {
+  width: var(--page-width);
+  height: var(--page-height);
+  min-height: var(--page-height);
+  max-height: var(--page-height);
+  background-color: #ffffff;
+  margin: 12mm auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+  padding: var(--page-margin-top) var(--page-margin-right) var(--page-margin-bottom) var(--page-margin-left);
+}
+
+.page .template-header-bar {
+  flex: none;
+  margin-bottom: 4mm;
+}
+
+.page .template-footer-bar {
+  flex: none;
+  margin-top: 4mm;
+}
+
+.page-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.page-body > :first-child {
+  margin-top: 0 !important;
+}
+
+.template-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2px solid #548dd4;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  width: 100%;
+}
+
+.template-footer-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-top: 2px solid #548dd4;
+  margin-top: 0;
+  padding-top: 0;
+  width: 100%;
+}
+
+.header-tab {
+  background-color: #548dd4 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 11pt !important;
+  line-height: 1.2;
+  padding: 4px 20px;
+  display: inline-block;
+  margin-bottom: -1px;
+  letter-spacing: 0.2px;
+}
+
+.header-title {
+  color: #000000 !important;
+  font-weight: 700 !important;
+  font-size: 11pt !important;
+  line-height: 1.2;
+  padding-bottom: 4px;
+  padding-right: 2px;
+  text-align: right;
+  letter-spacing: 0.2px;
+}
+
+.footer-left {
+  color: #000000 !important;
+  font-size: 10.5pt !important;
+  padding-top: 5px;
+  line-height: 1.2;
+}
+
+.footer-tab {
+  background-color: #548dd4 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 11pt !important;
+  padding: 4px 22px;
+  min-width: 45px;
+  text-align: center;
+  line-height: 1.2;
+  margin-top: -2px;
+  display: inline-block;
+  letter-spacing: 0.2px;
+}
+
+p {
+  margin: 0 0 9px 0;
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 1.45;
+  font-size: 12pt;
+}
+
+h2 {
+  color: #000000;
+  font-size: 13.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 14px;
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+h3 {
+  color: #000000;
+  font-size: 12.5pt;
+  font-weight: 700;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+ul, ol {
+  margin: 0 0 9px 0;
+  padding-left: 22px;
+  line-height: 1.45;
+  font-size: 12pt;
+}
+
+li {
+  margin-bottom: 3px;
+  text-align: justify;
+}
+
+blockquote {
+  margin: 6px 0 9px 0;
+  padding: 7px 12px;
+  background-color: var(--quote-bg);
+  border: 1px solid var(--border-dark);
+  border-radius: 4px;
+  font-style: normal;
+  font-size: 11pt;
+  line-height: 1.45;
+}
+
+blockquote p {
+  margin: 0;
+  font-style: normal;
+  text-align: justify;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #cbd5e1;
+  margin: 8px 0 10px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 6px 0 10px 0;
+  font-size: 10.5pt;
+  line-height: 1.35;
+}
+
+th, td {
+  border: 1px solid #94a3b8;
+  padding: 4px 6px;
+  vertical-align: top;
+}
+
+th {
+  background-color: #548dd4 !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  text-align: center;
+}
+
+tr:nth-child(even) td {
+  background-color: var(--table-stripe);
+}
+
+.align-center { text-align: center; }
+.align-right { text-align: right; }
+.align-left { text-align: left; }
+
+code {
+  font-family: 'Times New Roman', Times, serif !important;
+  background-color: #f1f5f9;
+  padding: 1px 4px;
+  border-radius: 3px;
+  border: 1px solid #cbd5e1;
+  font-size: 11pt;
+}
+
+a {
+  color: #366091;
+  text-decoration: underline;
+}
+
+.toc-page-num {
+  font-weight: 700;
+  color: #366091;
+}
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+@media print {
+  html, body {
+    background: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .page, .cover-page {
+    margin: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    height: 296.5mm !important;
+    overflow: hidden !important;
+    break-after: page !important;
+    page-break-after: always !important;
+  }
+  .page:last-of-type {
+    break-after: auto !important;
+    page-break-after: auto !important;
+  }
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  #source, .back-to-top {
+    display: none !important;
+  }
+}
+
+#source {
+  position: absolute;
+  left: -99999px;
+  top: 0;
+  width: calc(var(--page-width) - var(--page-margin-left) - var(--page-margin-right));
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #548dd4;
+  color: #ffffff !important;
+  padding: 10px 18px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 11pt;
+  box-shadow: 0 4px 12px rgba(84, 141, 212, 0.4);
+  z-index: 9999;
+  transition: all 0.2s ease;
+}
+.back-to-top:hover {
+  background-color: #366091;
+  transform: translateY(-2px);
+}
+
+
+.page-body { overflow-wrap: anywhere; }
+.page-body table { table-layout: fixed; width: 100%; font-size: 9pt; line-height: 1.3; }
+.page-body td, .page-body th { overflow-wrap: anywhere; word-break: normal; }
+.page-body pre { white-space: pre-wrap; }
+.page-body table code { font-size: inherit; padding: 0 1px; }
+.page .header-title { max-width: 57%; font-size: 10pt !important; white-space: normal; text-align: right; }
+.page-body li { font-size: 11pt; }
+.page-body h1 { font-size: 18pt; }
+.page-body blockquote { margin-left: 0; margin-right: 0; }
+.cover-meta-box { font-size: 10pt; }
+#source { width: 160mm; }
+</style></head><body>
+<!-- TRANG 1: TRANG BÌA (COVER PAGE) -->
+<section class="doc-page cover-page" id="trang-bia">
+  <div class="cover-top-section">
+    <div class="cover-doc-id">NMCNPM - Clarune - Group 04 | Template 1</div>
+
+    <div class="proposal-banner">
+      <div class="banner-title">Git Commit History Report</div>
+      <div class="banner-subtitle">Báo cáo Lịch sử Commit &amp; Đóng góp cá nhân — Template 1</div>
+    </div>
+
+    <div class="cover-meta-box">
+      <div><strong>Học phần:</strong> Nhập môn Công nghệ Phần mềm (CS10014) — Học kỳ 1 / Năm học 2026 - 2027</div>
+      <div><strong>Đề tài:</strong> AI-Powered Helpdesk &amp; Knowledge Base</div>
+      <div><strong>Mã nhóm:</strong> Group 04</div>
+      <div><strong>Kho lưu trữ (Repository):</strong> <a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base" target="_blank" rel="noopener noreferrer">https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base</a></div>
+      <div><strong>Chuẩn quy định:</strong> Đối soát lịch sử Git và truy vết đóng góp cá nhân</div>
+      <div><strong>Mục đích &amp; Phạm vi tài liệu:</strong> Ghi nhận lịch sử Git và đóng góp cá nhân trong giai đoạn Template 1 của dự án Clarune.</div>
+      <div><strong>Ngày cập nhật:</strong> 13/11/2026</div>
+      <div style="margin-top: 14px;">
+        <table style="width: 100%; margin: 6px 0 0 0; border-collapse: collapse; font-size: 10.5pt;">
+          <thead>
+            <tr>
+              <th style="padding: 5px 6px; text-align: center; width: 45px;">STT</th>
+              <th style="padding: 5px 6px; text-align: center; width: 85px;">MSSV</th>
+              <th style="padding: 5px 8px; text-align: left;">Họ và Tên</th>
+              <th style="padding: 5px 8px; text-align: center; width: 120px;">GitHub</th>
+              <th style="padding: 5px 8px; text-align: left;">Module phụ trách</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center; padding: 5px 6px;">1</td>
+              <td style="text-align: center; padding: 5px 6px;"><code>24120269</code></td>
+              <td style="padding: 5px 8px;">Ngô Viết Thanh Bình (Nhóm trưởng)</td>
+              <td style="text-align: center; padding: 5px 8px;"><code>thanhbinh55</code></td>
+              <td style="padding: 5px 8px;">D - Identity &amp; Access</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 5px 6px;">2</td>
+              <td style="text-align: center; padding: 4px 6px;"><code>24120083</code></td>
+              <td style="padding: 5px 8px;">Nguyễn Đức Lãm</td>
+              <td style="text-align: center; padding: 5px 8px;"><code>Lamnguyen-code</code></td>
+              <td style="padding: 5px 8px;">B - Knowledge Base</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 5px 6px;">3</td>
+              <td style="text-align: center; padding: 5px 6px;"><code>24120503</code></td>
+              <td style="padding: 5px 8px;">Phan Gia Phúc</td>
+              <td style="text-align: center; padding: 5px 8px;"><code>t4lf4n</code></td>
+              <td style="padding: 5px 8px;">C - Ticket Management</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 5px 6px;">4</td>
+              <td style="text-align: center; padding: 5px 6px;"><code>24120121</code></td>
+              <td style="padding: 5px 8px;">Lê Quý Phúc</td>
+              <td style="text-align: center; padding: 5px 8px;"><code>Shinkiisme</code></td>
+              <td style="padding: 5px 8px;">A - AI Assistance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-bottom-section">
+    <div class="cover-institution-block-bottom">
+      <div class="cover-logo-wrapper">
+        <img src="data:image/png;base64,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" alt="HCMUS Logo">
+      </div>
+      <div class="cover-inst-text">
+        <div class="inst-line-dept">Bộ môn Công nghệ phần mềm</div>
+        <div class="inst-line-faculty">Khoa Công nghệ thông tin</div>
+        <div class="inst-line-school">Đại học Khoa học tự nhiên TP HCM</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="pages"></div><div id="source"><h1>BÁO CÁO LỊCH SỬ COMMIT GIT — TEMPLATE 1</h1>
+<blockquote>
+<p><strong>Dự án:</strong> Clarune — AI-Powered Helpdesk &amp; Knowledge Base
+<strong>Nhóm:</strong> Group 04
+<strong>Kho lưu trữ:</strong> https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base
+<strong>Thời điểm chốt dữ liệu:</strong> 2026-11-13T21:12:05+07:00</p>
+</blockquote>
+<h2>Phạm vi thống kê</h2>
+<p>Báo cáo ghi nhận lịch sử Git của giai đoạn Template 1 từ 03/11/2026 đến thời điểm chốt dữ liệu, gồm phân tích yêu cầu, đặc tả Use Case, prototype và hoàn thiện bản nộp. Mỗi commit được tính một lần theo SHA; các commit lưu trữ Template 0 không thuộc phạm vi thống kê. Tác giả, thông điệp và thời gian được lấy từ lịch sử Git; thời gian hiển thị theo UTC+7.</p>
+<table><colgroup><col style="width:35%"><col style="width:65%"></colgroup>
+<thead>
+<tr>
+<th>Nhánh nguồn</th>
+<th>SHA tại thời điểm chốt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>origin/main</code></td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/1eb62d924a97ef69a304bbfe9709f58ba4a05a0d">1eb62d924a97ef69a304bbfe9709f58ba4a05a0d</a></td>
+</tr>
+<tr>
+<td><code>origin/docs/t1-identity-binh</code></td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/4827ab99f117c448a9c7dc27688f40a45a92e3e9">4827ab99f117c448a9c7dc27688f40a45a92e3e9</a></td>
+</tr>
+<tr>
+<td><code>origin/docs/t1-knowledge-lam</code></td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/979179b55194e2010373de0b30547f966e3e59fe">979179b55194e2010373de0b30547f966e3e59fe</a></td>
+</tr>
+<tr>
+<td><code>origin/docs/t1-ai-quyphuc-markdown</code></td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/8971284b6a590c84f5e8b76a3d1ddb9bc49d3c09">8971284b6a590c84f5e8b76a3d1ddb9bc49d3c09</a></td>
+</tr>
+<tr>
+<td><code>origin/docs/t1-ticket-giaphuc</code></td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/3eb41819e02bb184a821bf1d22d7292fd65b0c02">3eb41819e02bb184a821bf1d22d7292fd65b0c02</a></td>
+</tr>
+<tr>
+<td><code>origin/merge-template1</code></td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/e9be5a25489171e1b7b579407aca234fa7201592">e9be5a25489171e1b7b579407aca234fa7201592</a></td>
+</tr>
+</tbody>
+</table>
+<p>Danh sách thay đổi được nhóm theo thư mục khi có từ 5 tệp, kèm số lượng tệp. Commit được xác định theo tài khoản hoặc email của thành viên; tác giả Git <code>PC</code> với email <code>phgphuc0609@gmail.com</code> được ghi nhận cho Phan Gia Phúc.</p>
+<h2>Bảng tổng hợp</h2>
+<table><colgroup><col style="width:16%"><col style="width:34%"><col style="width:34%"><col style="width:16%"></colgroup>
+<thead>
+<tr>
+<th>MSSV</th>
+<th>Thành viên</th>
+<th>GitHub</th>
+<th style="text-align: right;">Commit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>24120269</td>
+<td>Ngô Viết Thanh Bình</td>
+<td>thanhbinh55</td>
+<td style="text-align: right;">23</td>
+</tr>
+<tr>
+<td>24120083</td>
+<td>Nguyễn Đức Lãm</td>
+<td>Lamnguyen-code</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>24120503</td>
+<td>Phan Gia Phúc</td>
+<td>t4lf4n</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td>24120121</td>
+<td>Lê Quý Phúc</td>
+<td>Shinkiisme</td>
+<td style="text-align: right;">6</td>
+</tr>
+</tbody>
+</table>
+<h2>DANH SÁCH COMMIT CỦA MỖI THÀNH VIÊN</h2>
+<h3>1. Thành viên: 24120269 - thanhbinh55 (Ngô Viết Thanh Bình)</h3>
+<ul>
+<li><strong>Họ và tên:</strong> Ngô Viết Thanh Bình</li>
+<li><strong>Mã số sinh viên:</strong> <code>24120269</code></li>
+<li><strong>Tài khoản Git:</strong> <code>thanhbinh55</code></li>
+<li><strong>Email Git:</strong> <code>ngovietthanhbinh2006@gmail.com</code></li>
+<li><strong>Module phụ trách:</strong> D - Identity &amp; Access (Nhóm trưởng)</li>
+<li><strong>Tổng số commit ghi nhận:</strong> 23</li>
+</ul>
+<table><colgroup><col style="width:7%"><col style="width:15%"><col style="width:20%"><col style="width:50%"><col style="width:8%"></colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">STT</th>
+<th>Mã Hash</th>
+<th>Ngày commit (UTC+7)</th>
+<th>Thông điệp commit (Jira Key)</th>
+<th style="text-align: right;">Số tệp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/1eb62d924a97ef69a304bbfe9709f58ba4a05a0d">1eb62d92</a></td>
+<td>13/11/2026 21:11</td>
+<td>docs(template1): finalize diagrams and synchronize submission report SCRUM-41 SCRUM-52</td>
+<td style="text-align: right;">65</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/11ab059acbc3265c794d6ef0b84b0c10d60363bf">11ab059a</a></td>
+<td>12/11/2026 21:08</td>
+<td>docs(template1): align documentation with final Report.pdf SCRUM-41</td>
+<td style="text-align: right;">40</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/30e44830b7bdc0b38f0e1f66ff845bb0cbe31aad">30e44830</a></td>
+<td>12/11/2026 14:30</td>
+<td>Merge pull request #13 from thanhbinh55/merge-template1</td>
+<td style="text-align: right;">76</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/e9be5a25489171e1b7b579407aca234fa7201592">e9be5a25</a></td>
+<td>12/11/2026 14:06</td>
+<td>docs(template1): standardize AI sessions and apply confirmed submission edits SCRUM-41</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/d531633e09bf2309f6ec044ab3f0f0698143f857">d531633e</a></td>
+<td>12/11/2026 13:43</td>
+<td>docs(template1): group large commit file lists by folder SCRUM-41</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/e9d3272f31f490cb496f6ee667f6a6cb8a22e607">e9d3272f</a></td>
+<td>12/11/2026 13:32</td>
+<td>docs(template1): include Gia Phuc detailed AI log and latest commit SCRUM-41 SCRUM-65</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/a8bf9c16274ce061756f31f28f455c06c08e6573">a8bf9c16</a></td>
+<td>12/11/2026 13:21</td>
+<td>docs(template1): use Lam original context diagram in report SCRUM-41</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/68d766f2b8b7e7f30a750fb483e4b95bbe16bad2">68d766f2</a></td>
+<td>12/11/2026 13:05</td>
+<td>docs(template1): include Gia Phuc submission AI usage and four commits SCRUM-41 SCRUM-65</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/9a21eab8e2ab9a61bf18960faae1e3bd85ba4123">9a21eab8</a></td>
+<td>12/11/2026 11:29</td>
+<td>docs(template1): retain source-preservation notes when rebuilding SCRUM-41</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0cba8368fcbf020c80f9cba94c91d48a28a598c4">0cba8368</a></td>
+<td>12/11/2026 11:29</td>
+<td>docs(template1): package final report assets AI usage and Git evidence SCRUM-41 SCRUM-52</td>
+<td style="text-align: right;">66</td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/4827ab99f117c448a9c7dc27688f40a45a92e3e9">4827ab99</a></td>
+<td>12/11/2026 10:55</td>
+<td>docs(template1): submit Binh identity content and AI usage SCRUM-30 SCRUM-34</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/a47f41fe00aa3107fdf1a57d6b3eef0ba9e1ff03">a47f41fe</a></td>
+<td>09/11/2026 09:18</td>
+<td>docs(template1): cap nhat nhat ky ai usage, chi dan vi tri nop file va dong bo so do SCRUM-30</td>
+<td style="text-align: right;">24</td>
+</tr>
+<tr>
+<td style="text-align: right;">13</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/43c725fedf7bed0e27dd8b4f2c09f42a459c243c">43c725fe</a></td>
+<td>09/11/2026 08:49</td>
+<td>docs(reports): bo sung cap the GENERATED marker cho git contributions report SCRUM-30</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td style="text-align: right;">14</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/1b6fc763b05e0f7bfa529b1e558786fb3d96a43f">1b6fc763</a></td>
+<td>09/11/2026 08:47</td>
+<td>Merge pull request #9 from thanhbinh55/docs/t1-ai-quyphuc</td>
+<td style="text-align: right;">263</td>
+</tr>
+<tr>
+<td style="text-align: right;">15</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/dc7231c6af5066ac532e07a5b6a372bdfa4f03e8">dc7231c6</a></td>
+<td>07/11/2026 22:09</td>
+<td>docs(template1): cap nhat 19 use cases loai bo Module ABCD va bo sung UI 5.5.5-5.5.8 SCRUM-30</td>
+<td style="text-align: right;">31</td>
+</tr>
+<tr>
+<td style="text-align: right;">16</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/58986ee04b7d6cef413eb73fcabe31160c24792d">58986ee0</a></td>
+<td>07/11/2026 10:48</td>
+<td>docs(template1): chuan hoa 6 so do UML trang den va bo sung link tham khao K23 SCRUM-30</td>
+<td style="text-align: right;">21</td>
+</tr>
+<tr>
+<td style="text-align: right;">17</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/111bfb7512d36d1c817473b94844f102dd976101">111bfb75</a></td>
+<td>07/11/2026 09:54</td>
+<td>Update Google Docs link for group work document</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">18</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/bed75c1039311204999e6d1ba51437546af808fb">bed75c10</a></td>
+<td>05/11/2026 18:09</td>
+<td>feat(jira): bo sung cong cu quan ly sprint va toi uu gan task sprint SCRUM-16</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td style="text-align: right;">19</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0e785ce695b60e6e27f640c8cb23ff75304b3b9d">0e785ce6</a></td>
+<td>05/11/2026 17:57</td>
+<td>docs(plan): thong nhat deadline 23h59 va bo sung task nop markdown T1-DOC-MD SCRUM-16</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr>
+<td style="text-align: right;">20</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/48b1042560fbfce3afdbb64a9b3c569aeed7078f">48b10425</a></td>
+<td>03/11/2026 23:58</td>
+<td>docs(plan): lam ro quyen chu dong tinh chinh bo sung figma cua tung owner SCRUM-16</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td style="text-align: right;">21</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0534ad494904b3c1d5814420b4bb10b67af4f289">0534ad49</a></td>
+<td>03/11/2026 23:49</td>
+<td>docs(plan): bo sung link figma, google docs va dieu chinh task playbook SCRUM-16</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr>
+<td style="text-align: right;">22</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/728c76a10eef17acf42560f631d4fb14351df542">728c76a1</a></td>
+<td>03/11/2026 23:42</td>
+<td>docs(design): tich hop bo thiet ke giao dien redesign v2 SCRUM-35</td>
+<td style="text-align: right;">178</td>
+</tr>
+<tr>
+<td style="text-align: right;">23</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/2ffb371cfa549e2d48e63bc2c71ca7c1ba0a6b02">2ffb371c</a></td>
+<td>03/11/2026 23:40</td>
+<td>docs(plan): hop nhat ke hoach giai doan 2 va khoi tao bo khung tai lieu template 1 SCRUM-16</td>
+<td style="text-align: right;">57</td>
+</tr>
+</tbody>
+</table>
+<h4>Tệp/thư mục thay đổi và nguồn nhánh</h4>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/1eb62d924a97ef69a304bbfe9709f58ba4a05a0d">1eb62d92</a></strong> — docs(template1): finalize diagrams and synchronize submission report SCRUM-41 SCRUM-52</p>
+<p>Nguồn: <code>origin/main</code>.</p>
+<ul>
+<li><code>reports/template1/</code> — 60 tệp thay đổi</li>
+<li><code>scripts/package_template1.py</code></li>
+<li><code>scripts/package_template1_submission.py</code></li>
+<li><code>scripts/template1/diagrams.py</code></li>
+<li><code>scripts/template1/report_sync.py</code></li>
+<li><code>scripts/verify_template1.py</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/11ab059acbc3265c794d6ef0b84b0c10d60363bf">11ab059a</a></strong> — docs(template1): align documentation with final Report.pdf SCRUM-41</p>
+<p>Nguồn: <code>origin/main</code>.</p>
+<ul>
+<li><code>"reports/template1/[SE - Nh\303\263m 4] Template 1 (1).md"</code></li>
+<li><code>PLAN_TEMPLATE1_AND_DEVELOPMENT.md</code></li>
+<li><code>README.md</code></li>
+<li><code>design-system/helpdesk-workspace/MASTER.md</code></li>
+<li><code>docs/design/man-hinh.md</code></li>
+<li><code>reports/01-requirements.md</code></li>
+<li><code>reports/02-use-cases.md</code></li>
+<li><code>reports/MVP_CONTRACTS.md</code></li>
+<li><code>reports/SRS-master.md</code></li>
+<li><code>reports/planning/TEAM_READINESS.md</code></li>
+<li><code>reports/template1/</code> — 27 tệp thay đổi</li>
+<li><code>scripts/package_template1.py</code></li>
+<li><code>scripts/template1/report_sync.py</code></li>
+<li><code>scripts/verify_template1.py</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/30e44830b7bdc0b38f0e1f66ff845bb0cbe31aad">30e44830</a></strong> — Merge pull request #13 from thanhbinh55/merge-template1</p>
+<p>Nguồn: <code>origin/main</code>.</p>
+<ul>
+<li><code>reports/template1/</code> — 72 tệp thay đổi</li>
+<li><code>scripts/package_template1.py</code></li>
+<li><code>scripts/template1/diagrams.py</code></li>
+<li><code>scripts/template1/requirements.txt</code></li>
+<li><code>scripts/verify_template1.py</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/e9be5a25489171e1b7b579407aca234fa7201592">e9be5a25</a></strong> — docs(template1): standardize AI sessions and apply confirmed submission edits SCRUM-41</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>reports/template1/</code> — 12 tệp thay đổi</li>
+<li><code>scripts/package_template1.py</code></li>
+<li><code>scripts/verify_template1.py</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/d531633e09bf2309f6ec044ab3f0f0698143f857">d531633e</a></strong> — docs(template1): group large commit file lists by folder SCRUM-41</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>reports/template1/README.md</code></li>
+<li><code>reports/template1/browser-validation.json</code></li>
+<li><code>reports/template1/git-contributions/git-contributions.html</code></li>
+<li><code>reports/template1/git-contributions/git-contributions.md</code></li>
+<li><code>scripts/package_template1.py</code></li>
+<li><code>scripts/verify_template1.py</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/e9d3272f31f490cb496f6ee667f6a6cb8a22e607">e9d3272f</a></strong> — docs(template1): include Gia Phuc detailed AI log and latest commit SCRUM-41 SCRUM-65</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>reports/template1/</code> — 12 tệp thay đổi</li>
+<li><code>scripts/package_template1.py</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/a8bf9c16274ce061756f31f28f455c06c08e6573">a8bf9c16</a></strong> — docs(template1): use Lam original context diagram in report SCRUM-41</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>reports/template1/</code> — 9 tệp thay đổi</li>
+<li><code>scripts/package_template1.py</code></li>
+<li><code>scripts/template1/diagrams.py</code></li>
+<li><code>scripts/verify_template1.py</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/68d766f2b8b7e7f30a750fb483e4b95bbe16bad2">68d766f2</a></strong> — docs(template1): include Gia Phuc submission AI usage and four commits SCRUM-41 SCRUM-65</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>reports/template1/</code> — 11 tệp thay đổi</li>
+<li><code>scripts/package_template1.py</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/9a21eab8e2ab9a61bf18960faae1e3bd85ba4123">9a21eab8</a></strong> — docs(template1): retain source-preservation notes when rebuilding SCRUM-41</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>scripts/package_template1.py</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0cba8368fcbf020c80f9cba94c91d48a28a598c4">0cba8368</a></strong> — docs(template1): package final report assets AI usage and Git evidence SCRUM-41 SCRUM-52</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>reports/template1/</code> — 62 tệp thay đổi</li>
+<li><code>scripts/package_template1.py</code></li>
+<li><code>scripts/template1/diagrams.py</code></li>
+<li><code>scripts/template1/requirements.txt</code></li>
+<li><code>scripts/verify_template1.py</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/4827ab99f117c448a9c7dc27688f40a45a92e3e9">4827ab99</a></strong> — docs(template1): submit Binh identity content and AI usage SCRUM-30 SCRUM-34</p>
+<p>Nguồn: <code>origin/docs/t1-identity-binh</code>.</p>
+<ul>
+<li><code>reports/template1/</code> — 5 tệp thay đổi</li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/a47f41fe00aa3107fdf1a57d6b3eef0ba9e1ff03">a47f41fe</a></strong> — docs(template1): cap nhat nhat ky ai usage, chi dan vi tri nop file va dong bo so do SCRUM-30</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/docs/t1-identity-binh</code>, <code>origin/docs/t1-knowledge-lam</code>, <code>origin/docs/t1-ai-quyphuc-markdown</code>, <code>origin/docs/t1-ticket-giaphuc</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>PLAN_TEMPLATE1_AND_DEVELOPMENT.md</code></li>
+<li><code>reports/template1/</code> — 23 tệp thay đổi</li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/43c725fedf7bed0e27dd8b4f2c09f42a459c243c">43c725fe</a></strong> — docs(reports): bo sung cap the GENERATED marker cho git contributions report SCRUM-30</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/docs/t1-identity-binh</code>, <code>origin/docs/t1-knowledge-lam</code>, <code>origin/docs/t1-ai-quyphuc-markdown</code>, <code>origin/docs/t1-ticket-giaphuc</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>reports/08-git-contributions.md</code></li>
+<li><code>reports/submit/git-contributions/git-contributions.md</code></li>
+<li><code>scripts/git_contributions.py</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/1b6fc763b05e0f7bfa529b1e558786fb3d96a43f">1b6fc763</a></strong> — Merge pull request #9 from thanhbinh55/docs/t1-ai-quyphuc</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/docs/t1-identity-binh</code>, <code>origin/docs/t1-knowledge-lam</code>, <code>origin/docs/t1-ai-quyphuc-markdown</code>, <code>origin/docs/t1-ticket-giaphuc</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>design-system/helpdesk-workspace/MASTER.md</code></li>
+<li><code>docs/design/</code> — 242 tệp thay đổi</li>
+<li><code>frontend/index.html</code></li>
+<li><code>frontend/public/</code> — 5 tệp thay đổi</li>
+<li><code>frontend/src/components/layout/Navbar.tsx</code></li>
+<li><code>frontend/src/vite-env.d.ts</code></li>
+<li><code>reports/assets/</code> — 12 tệp thay đổi</li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/dc7231c6af5066ac532e07a5b6a372bdfa4f03e8">dc7231c6</a></strong> — docs(template1): cap nhat 19 use cases loai bo Module ABCD va bo sung UI 5.5.5-5.5.8 SCRUM-30</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/docs/t1-identity-binh</code>, <code>origin/docs/t1-knowledge-lam</code>, <code>origin/docs/t1-ai-quyphuc-markdown</code>, <code>origin/docs/t1-ticket-giaphuc</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>PLAN_TEMPLATE1_AND_DEVELOPMENT.md</code></li>
+<li><code>docs/design/anh/thanh-phan/81-7560.png</code></li>
+<li><code>reports/template1/</code> — 29 tệp thay đổi</li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/58986ee04b7d6cef413eb73fcabe31160c24792d">58986ee0</a></strong> — docs(template1): chuan hoa 6 so do UML trang den va bo sung link tham khao K23 SCRUM-30</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/docs/t1-identity-binh</code>, <code>origin/docs/t1-knowledge-lam</code>, <code>origin/docs/t1-ai-quyphuc-markdown</code>, <code>origin/docs/t1-ticket-giaphuc</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>PLAN_TEMPLATE1_AND_DEVELOPMENT.md</code></li>
+<li><code>README.md</code></li>
+<li><code>reports/template1/</code> — 19 tệp thay đổi</li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/111bfb7512d36d1c817473b94844f102dd976101">111bfb75</a></strong> — Update Google Docs link for group work document</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/docs/t1-identity-binh</code>, <code>origin/docs/t1-knowledge-lam</code>, <code>origin/docs/t1-ai-quyphuc-markdown</code>, <code>origin/docs/t1-ticket-giaphuc</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>README.md</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/bed75c1039311204999e6d1ba51437546af808fb">bed75c10</a></strong> — feat(jira): bo sung cong cu quan ly sprint va toi uu gan task sprint SCRUM-16</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/docs/t1-identity-binh</code>, <code>origin/docs/t1-knowledge-lam</code>, <code>origin/docs/t1-ai-quyphuc-markdown</code>, <code>origin/docs/t1-ticket-giaphuc</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>scripts/jira/jira_bulk_create.py</code></li>
+<li><code>scripts/jira/jira_sprint_manager.py</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0e785ce695b60e6e27f640c8cb23ff75304b3b9d">0e785ce6</a></strong> — docs(plan): thong nhat deadline 23h59 va bo sung task nop markdown T1-DOC-MD SCRUM-16</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/docs/t1-identity-binh</code>, <code>origin/docs/t1-knowledge-lam</code>, <code>origin/docs/t1-ai-quyphuc-markdown</code>, <code>origin/docs/t1-ticket-giaphuc</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>PLAN_TEMPLATE1_AND_DEVELOPMENT.md</code></li>
+<li><code>reports/01-requirements.md</code></li>
+<li><code>reports/07-ai-usage.md</code></li>
+<li><code>reports/SRS-master.md</code></li>
+<li><code>reports/planning/TEAM_READINESS.md</code></li>
+<li><code>reports/planning/TEMPLATE2_3_ALIGNMENT.md</code></li>
+<li><code>reports/template1/</code> — 6 tệp thay đổi</li>
+<li><code>reports/template2/README.md</code></li>
+<li><code>scripts/jira/tasks_template1.csv</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/48b1042560fbfce3afdbb64a9b3c569aeed7078f">48b10425</a></strong> — docs(plan): lam ro quyen chu dong tinh chinh bo sung figma cua tung owner SCRUM-16</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/docs/t1-identity-binh</code>, <code>origin/docs/t1-knowledge-lam</code>, <code>origin/docs/t1-ai-quyphuc-markdown</code>, <code>origin/docs/t1-ticket-giaphuc</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>PLAN_TEMPLATE1_AND_DEVELOPMENT.md</code></li>
+<li><code>reports/template1/05-prototype-mockup.md</code></li>
+<li><code>scripts/jira/tasks_template1.csv</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0534ad494904b3c1d5814420b4bb10b67af4f289">0534ad49</a></strong> — docs(plan): bo sung link figma, google docs va dieu chinh task playbook SCRUM-16</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/docs/t1-identity-binh</code>, <code>origin/docs/t1-knowledge-lam</code>, <code>origin/docs/t1-ai-quyphuc-markdown</code>, <code>origin/docs/t1-ticket-giaphuc</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>DESIGN.md</code></li>
+<li><code>PLAN_TEMPLATE1_AND_DEVELOPMENT.md</code></li>
+<li><code>README.md</code></li>
+<li><code>docs/design/README.md</code></li>
+<li><code>reports/planning/TEAM_READINESS.md</code></li>
+<li><code>reports/template1/</code> — 5 tệp thay đổi</li>
+<li><code>scripts/jira/tasks_template1.csv</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/728c76a10eef17acf42560f631d4fb14351df542">728c76a1</a></strong> — docs(design): tich hop bo thiet ke giao dien redesign v2 SCRUM-35</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/docs/t1-identity-binh</code>, <code>origin/docs/t1-knowledge-lam</code>, <code>origin/docs/t1-ai-quyphuc-markdown</code>, <code>origin/docs/t1-ticket-giaphuc</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>DESIGN.md</code></li>
+<li><code>README.md</code></li>
+<li><code>design-system/helpdesk-workspace/MASTER.md</code></li>
+<li><code>docs/design/</code> — 174 tệp thay đổi</li>
+<li><code>reports/07-ai-usage.md</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/2ffb371cfa549e2d48e63bc2c71ca7c1ba0a6b02">2ffb371c</a></strong> — docs(plan): hop nhat ke hoach giai doan 2 va khoi tao bo khung tai lieu template 1 SCRUM-16</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/docs/t1-identity-binh</code>, <code>origin/docs/t1-knowledge-lam</code>, <code>origin/docs/t1-ai-quyphuc-markdown</code>, <code>origin/docs/t1-ticket-giaphuc</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>.github/CODEOWNERS</code></li>
+<li><code>.github/ISSUE_TEMPLATE/task.md</code></li>
+<li><code>.github/PULL_REQUEST_TEMPLATE.md</code></li>
+<li><code>CONTRIBUTING.md</code></li>
+<li><code>PLAN_TEMPLATE1_AND_DEVELOPMENT.md</code></li>
+<li><code>backend/README.md</code></li>
+<li><code>frontend/README.md</code></li>
+<li><code>reports/</code> — 45 tệp thay đổi</li>
+<li><code>scripts/comprehensive_check.py</code></li>
+<li><code>scripts/final_comprehensive_audit.py</code></li>
+<li><code>scripts/jira/README.md</code></li>
+<li><code>scripts/jira/tasks_template1.csv</code></li>
+<li><code>scripts/package_template0_share.py</code></li>
+</ul>
+<h3>2. Thành viên: 24120083 - Lamnguyen-code (Nguyễn Đức Lãm)</h3>
+<ul>
+<li><strong>Họ và tên:</strong> Nguyễn Đức Lãm</li>
+<li><strong>Mã số sinh viên:</strong> <code>24120083</code></li>
+<li><strong>Tài khoản Git:</strong> <code>Lamnguyen-code</code></li>
+<li><strong>Email Git:</strong> <code>lamnguyenduc0118@gmail.com</code></li>
+<li><strong>Module phụ trách:</strong> B - Knowledge Base</li>
+<li><strong>Tổng số commit ghi nhận:</strong> 1</li>
+</ul>
+<table><colgroup><col style="width:7%"><col style="width:15%"><col style="width:20%"><col style="width:50%"><col style="width:8%"></colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">STT</th>
+<th>Mã Hash</th>
+<th>Ngày commit (UTC+7)</th>
+<th>Thông điệp commit (Jira Key)</th>
+<th style="text-align: right;">Số tệp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/979179b55194e2010373de0b30547f966e3e59fe">979179b5</a></td>
+<td>12/11/2026 03:13</td>
+<td>docs(template1): hoan thien phan noi dung cho SCRUM-28 va SCRUM-32</td>
+<td style="text-align: right;">9</td>
+</tr>
+</tbody>
+</table>
+<h4>Tệp/thư mục thay đổi và nguồn nhánh</h4>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/979179b55194e2010373de0b30547f966e3e59fe">979179b5</a></strong> — docs(template1): hoan thien phan noi dung cho SCRUM-28 va SCRUM-32</p>
+<p>Nguồn: <code>origin/docs/t1-knowledge-lam</code>.</p>
+<ul>
+<li><code>reports/template1/</code> — 8 tệp thay đổi</li>
+<li><code>scripts/render_reports.py</code></li>
+</ul>
+<h3>3. Thành viên: 24120503 - t4lf4n (Phan Gia Phúc)</h3>
+<ul>
+<li><strong>Họ và tên:</strong> Phan Gia Phúc</li>
+<li><strong>Mã số sinh viên:</strong> <code>24120503</code></li>
+<li><strong>Tài khoản Git:</strong> <code>t4lf4n</code></li>
+<li><strong>Email Git:</strong> <code>24120503@student.hcmus.edu.vn</code></li>
+<li><strong>Module phụ trách:</strong> C - Ticket Management</li>
+<li><strong>Tổng số commit ghi nhận:</strong> 5</li>
+</ul>
+<table><colgroup><col style="width:7%"><col style="width:15%"><col style="width:20%"><col style="width:50%"><col style="width:8%"></colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">STT</th>
+<th>Mã Hash</th>
+<th>Ngày commit (UTC+7)</th>
+<th>Thông điệp commit (Jira Key)</th>
+<th style="text-align: right;">Số tệp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/3eb41819e02bb184a821bf1d22d7292fd65b0c02">3eb41819</a></td>
+<td>12/11/2026 13:25</td>
+<td>bo sung chi tiet AI usage</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/f435005bc48a070f69f06f75bc1fc967b6746bb5">f435005b</a></td>
+<td>12/11/2026 12:20</td>
+<td>docs(template1): hoàn thiện nội dung markdown cho các phần 3.2, 5.2, 5.3 cho Template1 và thêm AI usage SCRUM-65</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/5c0fbe27b8da9e4ac532116c73e71e3dcab0e5fd">5c0fbe27</a></td>
+<td>12/11/2026 12:18</td>
+<td>xong 5.2, 5.3</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/8fb3ab9108831b442e9c95797c08c7f44130252f">8fb3ab91</a></td>
+<td>12/11/2026 10:45</td>
+<td>xong 6 dac ta use case module C</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/69c3d3cd2407b8e053861bda7efd5fddbba30998">69c3d3cd</a></td>
+<td>12/11/2026 10:43</td>
+<td>xong 3.2.1</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<h4>Tệp/thư mục thay đổi và nguồn nhánh</h4>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/3eb41819e02bb184a821bf1d22d7292fd65b0c02">3eb41819</a></strong> — bo sung chi tiet AI usage</p>
+<p>Nguồn: <code>origin/docs/t1-ticket-giaphuc</code>.</p>
+<ul>
+<li><code>reports/template1/06-ai-usage.md</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/f435005bc48a070f69f06f75bc1fc967b6746bb5">f435005b</a></strong> — docs(template1): hoàn thiện nội dung markdown cho các phần 3.2, 5.2, 5.3 cho Template1 và thêm AI usage SCRUM-65</p>
+<p>Nguồn: <code>origin/docs/t1-ticket-giaphuc</code>.</p>
+<ul>
+<li><code>reports/template1/06-ai-usage.md</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/5c0fbe27b8da9e4ac532116c73e71e3dcab0e5fd">5c0fbe27</a></strong> — xong 5.2, 5.3</p>
+<p>Nguồn: <code>origin/docs/t1-ticket-giaphuc</code>.</p>
+<ul>
+<li><code>reports/template1/05-prototype-mockup.md</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/8fb3ab9108831b442e9c95797c08c7f44130252f">8fb3ab91</a></strong> — xong 6 dac ta use case module C</p>
+<p>Nguồn: <code>origin/docs/t1-ticket-giaphuc</code>.</p>
+<ul>
+<li><code>reports/template1/04-dac-ta-use-cases/04.2-module-C-ticket.md</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/69c3d3cd2407b8e053861bda7efd5fddbba30998">69c3d3cd</a></strong> — xong 3.2.1</p>
+<p>Nguồn: <code>origin/docs/t1-ticket-giaphuc</code>.</p>
+<ul>
+<li><code>reports/template1/03-tong-quan-yeu-cau/03.2.1-yeu-cau-chuc-nang.md</code></li>
+</ul>
+<h3>4. Thành viên: 24120121 - Shinkiisme (Lê Quý Phúc)</h3>
+<ul>
+<li><strong>Họ và tên:</strong> Lê Quý Phúc</li>
+<li><strong>Mã số sinh viên:</strong> <code>24120121</code></li>
+<li><strong>Tài khoản Git:</strong> <code>Shinkiisme</code></li>
+<li><strong>Email Git:</strong> <code>quyphuc0306@gmail.com</code></li>
+<li><strong>Module phụ trách:</strong> A - AI Assistance</li>
+<li><strong>Tổng số commit ghi nhận:</strong> 6</li>
+</ul>
+<table><colgroup><col style="width:7%"><col style="width:15%"><col style="width:20%"><col style="width:50%"><col style="width:8%"></colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">STT</th>
+<th>Mã Hash</th>
+<th>Ngày commit (UTC+7)</th>
+<th>Thông điệp commit (Jira Key)</th>
+<th style="text-align: right;">Số tệp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/8971284b6a590c84f5e8b76a3d1ddb9bc49d3c09">8971284b</a></td>
+<td>12/11/2026 10:06</td>
+<td>docs(template1): bo sung nhat ky AI cua Quy Phuc SCRUM-22 SCRUM-65</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/af1e1908cc2f2407edff4617fa2b36c8d10809b1">af1e1908</a></td>
+<td>11/11/2026 20:58</td>
+<td>docs(template1): chuyen phan Quy Phuc sang Markdown SCRUM-22 SCRUM-65</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/55499dbb0ec302a3c0c46e4197fed6d3f62fdda6">55499dbb</a></td>
+<td>07/11/2026 15:34</td>
+<td>docs(design): chot mau thieu can cu, loi vao thong ke va ky hieu nguon SCRUM-35</td>
+<td style="text-align: right;">84</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/96dcd66ea08d1583db2d36bd59c71acb4b04ed42">96dcd66e</a></td>
+<td>07/11/2026 15:16</td>
+<td>docs(design): cap nhat prototype UC-15 UC-17 UC-18 UC-19 va nhan dien Clarune SCRUM-35</td>
+<td style="text-align: right;">242</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/8f001673f6dc4349e8f39c16e98ba4846db5e3dc">8f001673</a></td>
+<td>07/11/2026 15:16</td>
+<td>feat(frontend): doi logo va ten ung dung sang Clarune SCRUM-35</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/ee769454e34e7c4edb9389e89c063ec48cbd039c">ee769454</a></td>
+<td>03/11/2026 21:46</td>
+<td>docs(design): bo sung bo thiet ke giao dien redesign v2</td>
+<td style="text-align: right;">178</td>
+</tr>
+</tbody>
+</table>
+<h4>Tệp/thư mục thay đổi và nguồn nhánh</h4>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/8971284b6a590c84f5e8b76a3d1ddb9bc49d3c09">8971284b</a></strong> — docs(template1): bo sung nhat ky AI cua Quy Phuc SCRUM-22 SCRUM-65</p>
+<p>Nguồn: <code>origin/docs/t1-ai-quyphuc-markdown</code>.</p>
+<ul>
+<li><code>reports/template1/06-ai-usage.md</code></li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/af1e1908cc2f2407edff4617fa2b36c8d10809b1">af1e1908</a></strong> — docs(template1): chuyen phan Quy Phuc sang Markdown SCRUM-22 SCRUM-65</p>
+<p>Nguồn: <code>origin/docs/t1-ai-quyphuc-markdown</code>.</p>
+<ul>
+<li><code>reports/template1/</code> — 5 tệp thay đổi</li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/55499dbb0ec302a3c0c46e4197fed6d3f62fdda6">55499dbb</a></strong> — docs(design): chot mau thieu can cu, loi vao thong ke va ky hieu nguon SCRUM-35</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/docs/t1-identity-binh</code>, <code>origin/docs/t1-knowledge-lam</code>, <code>origin/docs/t1-ai-quyphuc-markdown</code>, <code>origin/docs/t1-ticket-giaphuc</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>design-system/helpdesk-workspace/MASTER.md</code></li>
+<li><code>docs/design/</code> — 83 tệp thay đổi</li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/96dcd66ea08d1583db2d36bd59c71acb4b04ed42">96dcd66e</a></strong> — docs(design): cap nhat prototype UC-15 UC-17 UC-18 UC-19 va nhan dien Clarune SCRUM-35</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/docs/t1-identity-binh</code>, <code>origin/docs/t1-knowledge-lam</code>, <code>origin/docs/t1-ai-quyphuc-markdown</code>, <code>origin/docs/t1-ticket-giaphuc</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>docs/design/</code> — 242 tệp thay đổi</li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/8f001673f6dc4349e8f39c16e98ba4846db5e3dc">8f001673</a></strong> — feat(frontend): doi logo va ten ung dung sang Clarune SCRUM-35</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/docs/t1-identity-binh</code>, <code>origin/docs/t1-knowledge-lam</code>, <code>origin/docs/t1-ai-quyphuc-markdown</code>, <code>origin/docs/t1-ticket-giaphuc</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>frontend/index.html</code></li>
+<li><code>frontend/public/</code> — 5 tệp thay đổi</li>
+<li><code>frontend/src/components/layout/Navbar.tsx</code></li>
+<li><code>frontend/src/vite-env.d.ts</code></li>
+<li><code>reports/assets/</code> — 12 tệp thay đổi</li>
+</ul>
+<p><strong><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/ee769454e34e7c4edb9389e89c063ec48cbd039c">ee769454</a></strong> — docs(design): bo sung bo thiet ke giao dien redesign v2</p>
+<p>Nguồn: <code>origin/main</code>, <code>origin/docs/t1-identity-binh</code>, <code>origin/docs/t1-knowledge-lam</code>, <code>origin/docs/t1-ai-quyphuc-markdown</code>, <code>origin/docs/t1-ticket-giaphuc</code>, <code>origin/merge-template1</code>.</p>
+<ul>
+<li><code>DESIGN.md</code></li>
+<li><code>README.md</code></li>
+<li><code>design-system/helpdesk-workspace/MASTER.md</code></li>
+<li><code>docs/design/</code> — 174 tệp thay đổi</li>
+<li><code>reports/07-ai-usage.md</code></li>
+</ul>
+<h2>Pull Request liên quan</h2>
+<table><colgroup><col style="width:8%"><col style="width:48%"><col style="width:30%"><col style="width:14%"></colgroup>
+<thead>
+<tr>
+<th>PR</th>
+<th>Nội dung</th>
+<th>Nhánh</th>
+<th>Trạng thái tại thời điểm chốt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/pull/13">#13</a></td>
+<td>docs(template1): đóng gói report, assets và minh chứng nộp bài SCRUM-41 SCRUM-52</td>
+<td><code>merge-template1</code></td>
+<td>MERGED</td>
+</tr>
+<tr>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/pull/12">#12</a></td>
+<td>docs(template1): nộp phần Identity và AI usage của Thanh Bình SCRUM-34</td>
+<td><code>docs/t1-identity-binh</code></td>
+<td>OPEN</td>
+</tr>
+<tr>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/pull/11">#11</a></td>
+<td>docs(template1): hoan thien phan noi dung cho SCRUM-28 va SCRUM-32</td>
+<td><code>docs/t1-knowledge-lam</code></td>
+<td>OPEN</td>
+</tr>
+<tr>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/pull/10">#10</a></td>
+<td>docs(template1): chuyển phần Quý Phúc sang Markdown (SCRUM-22, SCRUM-65)</td>
+<td><code>docs/t1-ai-quyphuc-markdown</code></td>
+<td>OPEN</td>
+</tr>
+<tr>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/pull/9">#9</a></td>
+<td>docs(design): cap nhat prototype UC-15/17/18/19 va nhan dien Clarune SCRUM-35</td>
+<td><code>docs/t1-ai-quyphuc</code></td>
+<td>MERGED</td>
+</tr>
+<tr>
+<td><a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/pull/8">#8</a></td>
+<td>docs(design): bo sung bo thiet ke giao dien redesign v2</td>
+<td><code>docs/thiet-ke-giao-dien-v2</code></td>
+<td>MERGED</td>
+</tr>
+</tbody>
+</table></div>
+<template id="tpl-header"><div class="template-header-bar"><div class="header-tab">Nhập môn công nghệ phần mềm</div><div class="header-title">Template 1 — Lịch sử Git</div></div></template>
+<template id="tpl-footer"><div class="template-footer-bar"><div class="footer-left">ĐH Khoa học tự nhiên TP HCM | Bộ môn Công nghệ phần mềm</div><div class="footer-tab">Trang <span class="pn"></span></div></div></template>
+<a href="#trang-bia" class="back-to-top">▲ Lên đầu trang</a>
+<script>
+(function () {
+  var pages = document.getElementById('pages'), src = document.getElementById('source');
+  var HEAD = document.getElementById('tpl-header').innerHTML, FOOT = document.getElementById('tpl-footer').innerHTML;
+  var pg, bd, n = 0;
+
+  function newPage() {
+    n++; pg = document.createElement('section'); pg.className = 'page';
+    pg.innerHTML = HEAD + '<div class="page-body"></div>' + FOOT;
+    pg.querySelector('.pn').textContent = n;
+    pages.appendChild(pg); bd = pg.querySelector('.page-body');
+  }
+  function fits() { return bd.scrollHeight <= bd.clientHeight; }
+  function probe(node) { bd.appendChild(node); var ok = fits(); bd.removeChild(node); return ok; }
+  function maxK(cnt, make) {
+    var lo = 0, hi = cnt;
+    while (lo < hi) { var m = Math.ceil((lo + hi) / 2); if (probe(make(m))) lo = m; else hi = m - 1; }
+    return lo;
+  }
+  function stripIds(e) { e.removeAttribute('id'); e.querySelectorAll('[id]').forEach(function (x) { x.removeAttribute('id'); }); }
+
+  // Tách đoạn văn theo từ/khoảng trắng, giữ tối thiểu 2 dòng mỗi bên (orphans/widows)
+  function textSplit(el) {
+    var txt = el.textContent, N = txt.length;
+    function part(a, b) {
+      var c = el.cloneNode(true), pos = 0, ns = [], w = document.createTreeWalker(c, NodeFilter.SHOW_TEXT);
+      while (w.nextNode()) ns.push(w.currentNode);
+      ns.forEach(function (x) {
+        var L = x.nodeValue.length, s = Math.max(a - pos, 0), e = Math.min(b - pos, L);
+        x.nodeValue = e > s ? x.nodeValue.slice(s, e) : ''; pos += L;
+      });
+      c.querySelectorAll('*').forEach(function (x) { if (!x.textContent && !x.querySelector('img,br')) x.remove(); });
+      return c;
+    }
+    bd.appendChild(el); var lh = parseFloat(getComputedStyle(el).lineHeight) || 24; bd.removeChild(el);
+    function lines(node) { bd.appendChild(node); var h = node.getBoundingClientRect().height; bd.removeChild(node); return Math.round(h / lh); }
+    var lo = 0, hi = N;
+    while (lo < hi) { var m = Math.ceil((lo + hi) / 2); if (probe(part(0, m))) lo = m; else hi = m - 1; }
+    var b = txt.lastIndexOf(' ', lo);
+    for (var t = 0; t < 12 && b > 0; t++) {
+      var head = part(0, b), tail = part(b + 1, N);
+      if (lines(head) < 2) return null;
+      if (lines(tail) >= 2) { stripIds(tail); return [head, tail]; }
+      b = txt.lastIndexOf(' ', b - 40);
+    }
+    return null;
+  }
+
+  // Tách khối dài thành [phần đầu vừa trang, phần còn lại]
+  function split(el) {
+    var t = el.tagName, kids, mk, k, tail;
+    if (t === 'P') return textSplit(el);
+    if (t === 'UL' || t === 'OL') {
+      kids = [].slice.call(el.children);
+      mk = function (a, b) { var c = el.cloneNode(false); kids.slice(a, b).forEach(function (x) { c.appendChild(x.cloneNode(true)); }); return c; };
+      k = maxK(kids.length, function (m) { return mk(0, m); });
+      if (k < 1 || k >= kids.length) return null;
+      if (k === 1 && /:\s*$/.test(kids[0].textContent)) return null; // nhãn không đứng một mình cuối trang
+      tail = mk(k, kids.length); stripIds(tail);
+      if (t === 'OL') tail.setAttribute('start', (parseInt(el.getAttribute('start') || 1, 10)) + k);
+      return [mk(0, k), tail];
+    }
+    if (t === 'TABLE') {
+      var th = el.querySelector('thead'), rows = [].slice.call(el.tBodies[0] ? el.tBodies[0].rows : []), hdr = null;
+      if (!th && rows[0] && rows[0].querySelector('th') && !rows[0].querySelector('td')) hdr = rows.shift();
+      mk = function (a, b) {
+        var c = el.cloneNode(false); var cols=el.querySelector("colgroup"); if(cols) c.appendChild(cols.cloneNode(true)); if (th) c.appendChild(th.cloneNode(true));
+        var tb = document.createElement('tbody'); if (hdr) tb.appendChild(hdr.cloneNode(true));
+        rows.slice(a, b).forEach(function (r) { tb.appendChild(r.cloneNode(true)); });
+        c.appendChild(tb); return c;
+      };
+      k = maxK(rows.length, function (m) { return mk(0, m); });
+      if (k < 1 || k >= rows.length) return null;
+      tail = mk(k, rows.length); stripIds(tail); return [mk(0, k), tail];
+    }
+    if (t === 'BLOCKQUOTE' || t === 'DIV') {
+      kids = [].slice.call(el.children);
+      mk = function (a, b) { var c = el.cloneNode(false); kids.slice(a, b).forEach(function (x) { c.appendChild(x.cloneNode(true)); }); return c; };
+      k = maxK(kids.length, function (m) { return mk(0, m); });
+      if (k < 1 || k >= kids.length) return null;
+      tail = mk(k, kids.length); stripIds(tail); return [mk(0, k), tail];
+    }
+    return null;
+  }
+
+  function keepNext(e) {
+    return /^(H[1-6]|HR)$/.test(e.tagName) || (e.tagName === 'UL' && e.children.length === 1 && /:\s*$/.test(e.textContent));
+  }
+
+  // Sang trang mới; heading/hr/nhãn mồ côi cuối trang được đẩy theo sang trang sau
+  function breakPage(q) {
+    var mv = [];
+    while (bd.children.length > 1 && keepNext(bd.lastElementChild)) mv.unshift(bd.removeChild(bd.lastElementChild));
+    newPage(); q.unshift.apply(q, mv);
+  }
+
+  function place(blocks) {
+    var q = blocks.slice();
+    while (q.length) {
+      var el = q.shift();
+      if (el.classList.contains('page-break-before')) {
+        el.classList.remove('page-break-before');
+        if (bd.children.length) { q.unshift(el); breakPage(q); continue; }
+      }
+      if (el.tagName === 'HR' && !bd.children.length) continue;
+      bd.appendChild(el);
+      if (fits()) continue;
+      bd.removeChild(el);
+      var s = split(el);
+      if (s) { bd.appendChild(s[0]); q.unshift(s[1]); breakPage(q); }
+      else if (bd.children.length) { q.unshift(el); breakPage(q); }
+      else { bd.appendChild(el); breakPage(q); }
+    }
+  }
+
+  function toc() {
+    document.querySelectorAll('.toc-link').forEach(function (a) {
+      var id = a.getAttribute('href').slice(1), t = document.getElementById(id), box = t && t.closest('.page'), num = a.querySelector('.toc-page-num');
+      if (box && num) num.textContent = box.querySelector('.pn').textContent;
+    });
+  }
+  function run() {
+    newPage(); place([].slice.call(src.children)); src.remove(); toc(); document.documentElement.dataset.ready="true"; }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(run); else run();
+})();
+</script>
+</body></html>

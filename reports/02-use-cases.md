@@ -1,73 +1,17 @@
-# BÁO CÁO ĐẶC TẢ CA SỬ DỤNG (USE CASE SPECIFICATION)
+# Đặc tả Use Case — chỉ mục baseline hiện hành
 
-> **Dự án:** AI-Powered Helpdesk & Knowledge Base  
-> **Mã nhóm:** Group 04  
-> **Môn học:** Nhập môn Công nghệ Phần mềm - HCMUS
+> Cập nhật 12/11/2026 theo [Report.pdf](template1/report/Report.pdf) và [report.md](template1/report/report.md).
 
----
+Danh mục gồm **UC-01 đến UC-19**, mỗi bảng đủ 9 trường; **16 P0 và 3 P1** (UC-16, UC-17, UC-19).
 
-## THÔNG TIN TÀI LIỆU
-- **Tiêu đề (Title):** Use Case Specification - AI-Powered Helpdesk & Knowledge Base
-- **Phiên bản (Version):** 1.0.0-draft
-- **Ngày tạo (Date):** 2026-10-19
-- **Tác giả & Đóng góp (Authors + Contributions):**
-  - `24120121` - `Lê Quý Phúc`: Use Cases hỏi đáp với trợ lý AI và đề xuất thông minh (Module A)
-  - `24120083` - `Nguyễn Đức Lãm`: Use Cases tạo bài viết tri thức, duyệt bài và tra cứu (Module B)
-  - `24120503` - `Phan Gia Phúc`: Use Cases tạo, cập nhật, trao đổi và đóng ticket (Module C)
-  - `24120269` - `Ngô Viết Thanh Bình`: Use Cases quản trị tài khoản, phân quyền, xác thực và báo cáo SLA (Module D) *(Nhóm trưởng)*
-- **Phạm vi (Scope):** Mô tả chi tiết danh sách tác nhân (Actors), sơ đồ Use Case tổng thể và kịch bản tương tác chính/phụ (Main/Alternative Flows).
+| Nhóm | Use Cases | Owner | Đặc tả |
+|---|---|---|---|
+| Identity | UC-01..04, UC-16 P1 | Ngô Viết Thanh Bình | [Module D](template1/04-dac-ta-use-cases/04.2-module-D-identity.md) |
+| Ticket | UC-05..10 | Phan Gia Phúc | [Module C](template1/04-dac-ta-use-cases/04.2-module-C-ticket.md) |
+| Knowledge | UC-11..13 | Nguyễn Đức Lãm | [Module B](template1/04-dac-ta-use-cases/04.2-module-B-knowledge.md) |
+| AI | UC-14/15/18, UC-19 P1 | Lê Quý Phúc | [Module A](template1/04-dac-ta-use-cases/04.2-module-A-ai.md) |
+| Thống kê ticket | UC-17 P1 | Lê Quý Phúc; Gia Phúc review nghiệp vụ | [UC-17](template1/04-dac-ta-use-cases/04.2-uc-17-analytics.md) |
 
----
+[Sáu sơ đồ final](template1/04-dac-ta-use-cases/04.1-so-do-tong-the.md) dùng SVG/drawio trong [report/assets/diagrams](template1/report/assets/diagrams/). UC-17 nằm trong sơ đồ Trợ lý AI và thống kê theo cách trình bày của PDF; chức năng thống kê chỉ tính ticket. UC-19 chỉ dành cho Agent được giao, không dành cho Admin.
 
-## 1. DANH SÁCH TÁC NHÂN (ACTORS)
-- **End-User (Người dùng cuối):** Người gửi yêu cầu hỗ trợ, tìm kiếm bài viết và tương tác với AI Bot.
-- **Support Agent (Nhân viên hỗ trợ):** Người tiếp nhận xử lý ticket, phản hồi khách hàng và biên soạn bài viết.
-- **Admin (Quản trị viên):** Quản lý người dùng, cấu hình tham số hệ thống và xem báo cáo SLA.
-- **AI System (Hệ thống AI nền tảng):** Tác nhân phụ tự động phân loại, đề xuất bài viết và sinh câu trả lời mẫu.
-
----
-
-## 2. SƠ ĐỒ USE CASE TỔNG THỂ (USE CASE DIAGRAM)
-```mermaid
-graph TD
-    User([End-User])
-    Agent([Support Agent])
-    Admin([System Admin])
-
-    User --> UC_CreateTicket[UC01: Tạo Ticket Hỗ trợ]
-    User --> UC_SearchKB[UC02: Tìm kiếm Kho tri thức]
-    User --> UC_ChatAI[UC03: Tương tác Hỏi đáp AI]
-
-    Agent --> UC_ProcessTicket[UC04: Tiếp nhận & Xử lý Ticket]
-    Agent --> UC_WriteKB[UC05: Soạn thảo Bài viết Tri thức]
-
-    Admin --> UC_ManageUser[UC06: Quản lý Người dùng]
-    Admin --> UC_ViewAnalytics[UC07: Xem Thống kê & SLA]
-```
-
----
-
-## 3. ĐẶC TẢ CHI TIẾT CÁC CA SỬ DỤNG CHÍNH
-### 3.1. UC01: Tạo Ticket Hỗ Trợ
-- **Tác nhân chính:** End-User
-- **Tiền điều kiện:** Người dùng đã đăng nhập hệ thống.
-- **Luồng sự kiện chính (Main Flow):**
-  1. Người dùng chọn chức năng "Tạo Ticket mới".
-  2. Hệ thống hiển thị form nhập: Tiêu đề, danh mục, nội dung chi tiết và tệp đính kèm.
-  3. Khi người dùng nhập tiêu đề, hệ thống AI tự động gợi ý 3 bài viết Knowledge Base liên quan nhất.
-  4. Nếu bài viết giải quyết được vấn đề, người dùng nhấn "Đã giải quyết" và kết thúc luồng.
-  5. Nếu không, người dùng bấm "Gửi yêu cầu".
-  6. Hệ thống lưu ticket, AI gán độ ưu tiên dự kiến và thông báo thành công cho người dùng.
-
----
-
-## TÀI LIỆU THAM KHẢO (REFERENCES)
-1. Alistair Cockburn, "Writing Effective Use Cases", Addison-Wesley.
-2. Tài liệu đặc tả tổng thể: `reports/SRS-master.md`.
-
----
-
-## NHẬT KÝ THAY ĐỔI (CHANGE LOG)
-| Phiên bản | Ngày | Người sửa | Nội dung thay đổi | Mã Task Jira |
-| :--- | :--- | :--- | :--- | :--- |
-| `0.1.0` | 2026-10-19 | DevOps Engineer | Khởi tạo khung tài liệu ca sử dụng | SCRUM-6 |
+Worker/DB/storage là thành phần nội bộ. Customer không tra cứu KB hoặc gọi AI trực tiếp. UC-11 kết thúc xử lý nhưng chưa tự công bố; UC-12 công bố/lưu trữ. UC-14 tạo gợi ý, UC-15 kiểm duyệt/gửi hoặc bỏ gợi ý, UC-18 đọc lịch sử và bản chụp nguồn, UC-19 lưu/đổi đánh giá. AI không tự gửi phản hồi hay thay đổi ticket.

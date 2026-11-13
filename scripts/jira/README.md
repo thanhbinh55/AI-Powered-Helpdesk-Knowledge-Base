@@ -76,3 +76,27 @@ python3 scripts/jira/jira_bulk_create.py --sprint-id 12
 
 ## 5. CƠ CHẾ CHỐNG TẠO TRÙNG LẶP (IDEMPOTENCY)
 Mỗi khi tạo thành công một issue, kịch bản sẽ ghi một dòng `ref,key` vào file `tasks_created.csv`. Trong những lần chạy tiếp theo, các dòng có `ref` đã xuất hiện trong file này sẽ tự động được bỏ qua (`[BỎ QUA]`), giúp bạn an tâm chạy lại nhiều lần mà không sợ sinh trùng lặp task trên Jira.
+
+
+## Backlog Template 1 và MVP — baseline 03/11/2026
+
+Dùng file `tasks_template1.csv`: tài liệu chốt 08/11, code/test 09–22/11. Schema vẫn tám cột; description chứa start/dependency/reviewer/DoD. `ref` là định danh ổn định, không phải Jira key; mã mới chỉ biết sau khi tạo thật. Các task test/schema/CI/contract/ops đã tách owner, xem kế hoạch và TEAM_GUIDE.
+
+```bash
+python3 scripts/jira/jira_bulk_create.py --csv scripts/jira/tasks_template1.csv --dry-run
+```
+
+**Script chỉ tạo issue; không cập nhật issue đã có.** Ref trong cache bị bỏ qua, nên sửa CSV không đổi deadline, assignee hoặc description trên Jira. Phải đối chiếu cache/ref với issue thật rồi cập nhật issue cũ riêng; không xóa cache để import lại. Cache không thay thế bảng liên kết Jira–GitHub; số GitHub Issue không tự bằng số Jira. Dry-run mô phỏng không xác minh account/permission trên Jira, và không phải bằng chứng board đã cập nhật.
+
+Baseline file giữ phạm vi/deadline; Jira theo dõi trạng thái; GitHub PR giữ bằng chứng. Không chạy live/cập nhật board hoặc gửi thông báo nếu chưa được yêu cầu. Quyền repo phải được nhóm xác nhận.
+
+
+## Cách giao task sau rà soát khả năng nhận việc
+
+[Task cards](../../TASK_PLAYBOOK_TEMPLATE1.md) và CSV cùng có nguồn đọc theo mục, bước làm, output, người nhận và gate bắt đầu/chốt. CSV vẫn tám cột, description có newline; importer chuyển mỗi dòng thành paragraph ADF. Dependency nêu theo artifact/mốc, không máy móc đợi toàn task upstream Done.
+
+Giữ các ref cũ; bổ sung READY/EMBED/SUBMIT/WF và Epic QA1 cùng ba task QA. T1 chốt22/11, QA1 đến29/11. Issue cũ cần cập nhật description/deadline/assignee riêng theo key thật; dry-run không làm việc đó. Lưu snapshot/biên nhận trong task, không tự đánh công việc ngoài repo đã xong.
+
+## Mẫu Template 2–3 mới: điều chỉnh phân công
+
+Template 2=Thiết kế, làm song song09–22/11, review/nộp23–28 trước mốc29; Template 3=Kiểm thử, ≥5 chức năng×5ca. Thêm Epic T2 vàT3/các task thiết kế/cases/release; giữ ref QA1-T2-01 nhưng đổi parent T2/summary/description từ test report sang release thiết kế. Script create không update issue cũ, nên không xóa cache/tạo trùng; update issue thật cần đối chiếu key. QA1 chỉ regression/evaluation choTemplate 3, không làgate chờ nộp Template 2.

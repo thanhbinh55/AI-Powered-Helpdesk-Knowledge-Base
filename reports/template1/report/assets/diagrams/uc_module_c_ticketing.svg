@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="826" viewBox="0 0 1320 826" role="img" aria-labelledby="title">
+<title id="title">Clarune — Quản lý ticket</title>
+<defs><marker id="generalization" viewBox="0 0 14 14" markerWidth="14" markerHeight="14" refX="13" refY="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 1 L13 7 L1 13 Z" fill="white" stroke="#111" stroke-width="1.5"/></marker><marker id="arrow" viewBox="0 0 10 10" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#111" stroke-width="1.5"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<g style="font-family:Arial,sans-serif;font-size:16px;fill:#111">
+<rect x="380.0" y="25" width="560" height="776" fill="white" stroke="#111" stroke-width="1.7"/>
+<text x="660.0" y="53" text-anchor="middle" font-weight="bold">Clarune — Quản lý ticket</text>
+<polyline data-source="actor-customer" data-target="uc-05" points="284.0,357.0 420.0,133.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-customer" data-target="uc-06" points="284.0,357.0 425.3157651167036,236.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-customer" data-target="uc-08" points="284.0,357.0 425.3157651167036,460.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-customer" data-target="uc-09" points="284.0,357.0 425.3157651167036,572.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-agent" data-target="uc-06" points="284.0,657.0 425.3157651167036,254.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-agent" data-target="uc-07" points="284.0,657.0 420.0,357.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-agent" data-target="uc-08" points="284.0,657.0 425.3157651167036,478.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-agent" data-target="uc-09" points="284.0,657.0 425.3157651167036,590.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-agent" data-target="uc-10" points="284.0,657.0 420.0,693.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-admin" data-target="uc-06" points="1036.0,469.0 900.0,245.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-admin" data-target="uc-07" points="1036.0,469.0 900.0,357.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-admin" data-target="uc-08" points="1036.0,469.0 900.0,469.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-admin" data-target="uc-09" points="1036.0,469.0 900.0,581.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-admin" data-target="uc-10" points="1036.0,469.0 900.0,693.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<ellipse cx="660.0" cy="133.0" rx="240.0" ry="43.0" fill="white" stroke="#111" stroke-width="1.7"/>
+<text x="660.0" y="127.0" text-anchor="middle" font-weight="bold">UC-05</text>
+<text x="660.0" y="149.0" text-anchor="middle">Tạo yêu cầu hỗ trợ</text>
+<ellipse cx="660.0" cy="245.0" rx="240.0" ry="43.0" fill="white" stroke="#111" stroke-width="1.7"/>
+<text x="660.0" y="239.0" text-anchor="middle" font-weight="bold">UC-06</text>
+<text x="660.0" y="261.0" text-anchor="middle">Xem danh sách và chi tiết ticket</text>
+<ellipse cx="660.0" cy="357.0" rx="240.0" ry="43.0" fill="white" stroke="#111" stroke-width="1.7"/>
+<text x="660.0" y="351.0" text-anchor="middle" font-weight="bold">UC-07</text>
+<text x="660.0" y="373.0" text-anchor="middle">Tiếp nhận và phân công ticket</text>
+<ellipse cx="660.0" cy="469.0" rx="240.0" ry="43.0" fill="white" stroke="#111" stroke-width="1.7"/>
+<text x="660.0" y="463.0" text-anchor="middle" font-weight="bold">UC-08</text>
+<text x="660.0" y="485.0" text-anchor="middle">Gửi tin nhắn công khai và ghi chú nội bộ</text>
+<ellipse cx="660.0" cy="581.0" rx="240.0" ry="43.0" fill="white" stroke="#111" stroke-width="1.7"/>
+<text x="660.0" y="575.0" text-anchor="middle" font-weight="bold">UC-09</text>
+<text x="660.0" y="597.0" text-anchor="middle">Chuyển trạng thái ticket</text>
+<ellipse cx="660.0" cy="693.0" rx="240.0" ry="43.0" fill="white" stroke="#111" stroke-width="1.7"/>
+<text x="660.0" y="687.0" text-anchor="middle" font-weight="bold">UC-10</text>
+<text x="660.0" y="709.0" text-anchor="middle">Xem lịch sử sự kiện ticket</text>
+<circle cx="260.0" cy="334.0" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
+<path d="M260.0 345.0 V378.0 M237.0 357.0 H283.0 M260.0 378.0 L238.0 403.0 M260.0 378.0 L282.0 403.0" fill="none" stroke="#111" stroke-width="1.7"/>
+<text x="272.0" y="429.0" text-anchor="end">Customer</text>
+<text x="272.0" y="451.0" text-anchor="end">(Khách hàng)</text>
+<circle cx="260.0" cy="634.0" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
+<path d="M260.0 645.0 V678.0 M237.0 657.0 H283.0 M260.0 678.0 L238.0 703.0 M260.0 678.0 L282.0 703.0" fill="none" stroke="#111" stroke-width="1.7"/>
+<text x="272.0" y="729.0" text-anchor="end">Support Agent</text>
+<text x="272.0" y="751.0" text-anchor="end">(Nhân viên hỗ trợ)</text>
+<circle cx="1060.0" cy="446.0" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
+<path d="M1060.0 457.0 V490.0 M1037.0 469.0 H1083.0 M1060.0 490.0 L1038.0 515.0 M1060.0 490.0 L1082.0 515.0" fill="none" stroke="#111" stroke-width="1.7"/>
+<text x="1048.0" y="541.0" text-anchor="start">System Administrator</text>
+<text x="1048.0" y="563.0" text-anchor="start">(Quản trị viên hệ thống)</text>
+</g></svg>
