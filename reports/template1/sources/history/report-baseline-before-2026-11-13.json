@@ -1,0 +1,22 @@
+{
+  "authority": "report/Report.pdf",
+  "pdf_sha256": "0c67ba2259117a8ccb49c253168d4ea464937e236bafaa170875206b1f2d8e92",
+  "markdown_source": "sources/template1-final-current.md",
+  "markdown_sha256": "886d0d0ab361684374886208cdeb2a0ddbc86adc00d0ca0d619ded4671e0bdb5",
+  "review_date": "2026-11-12",
+  "pages": 80,
+  "toc_entries_checked": 71,
+  "functional_requirements": 41,
+  "nonfunctional_requirements": 19,
+  "use_cases": 19,
+  "figures": 37,
+  "decisions": [
+    "FR–AI–10 chỉ lưu và thay đổi đánh giá hữu ích/không hữu ích; không có dashboard chất lượng AI.",
+    "Giữ nguyên yêu cầu phi chức năng của PDF; không bổ sung phương pháp đo mới.",
+    "Sơ đồ bối cảnh thể hiện P0; dịch vụ Email P1 được giải thích bằng văn bản.",
+    "FR–KB–05 theo dõi tiến trình/thử lại; FR–KB–09 xem danh mục tài liệu.",
+    "UC-04 dẫn nhánh lỗi A.4a, B.3a hoặc C.3a."
+  ],
+  "original_export": "sources/template1-final-original.md",
+  "status": "Đã đối chiếu toàn bộ văn bản với PDF, không sửa PDF và không xác nhận nộp bài/reviewer."
+}

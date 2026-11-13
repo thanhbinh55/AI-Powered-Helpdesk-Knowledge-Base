@@ -1,4 +1,4 @@
-> Đồng bộ theo [Report.pdf](report/Report.pdf) ngày 12/11/2026. Nội dung trích từ [report.md](report/report.md); ảnh dùng chung với bản final.
+> Đồng bộ theo [Report.pdf](report/Report.pdf) ngày 13/11/2026. Nội dung trích từ [report.md](report/report.md); ảnh dùng chung với bản final.
 
 <a id="5-bản-mẫu-(prototype)"></a>
 

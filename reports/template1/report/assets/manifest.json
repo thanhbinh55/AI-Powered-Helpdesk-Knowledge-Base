@@ -4,42 +4,42 @@
     "caption": "Hình 3.1  Ranh giới hệ thống và các tác nhân bên ngoài",
     "asset": "assets/diagrams/context_diagram_system.svg",
     "source": null,
-    "sha256": "2b05463dd7e54c4ee53a6d8d09c50689a462cabfcdaa1268348061a542e19c6a"
+    "sha256": "c84be39c1b8035dd404fdcc5ddf27a91e41aff14e5dcaf839e8731a0ba168313"
   },
   {
     "reference": "image2",
     "caption": "Hình 4.1  Tổng thể 19 Use Case trong ranh giới hệ thống",
     "asset": "assets/diagrams/uc_overall_19_usecases.svg",
     "source": null,
-    "sha256": "9c280523b15767d0158630475365f71e48c5440f8557bd2653204456424411a6"
+    "sha256": "a45dd407a2602e63dd9cf752cc7a910cb0045759cf59bc3533e79c18ea8645f0"
   },
   {
     "reference": "image3",
     "caption": "Hình 4.2  Use Case Module Định danh và phân quyền",
     "asset": "assets/diagrams/uc_module_d_identity.svg",
     "source": null,
-    "sha256": "bc9f31a730cdce7183ae4c1c8a77fd718969e06a87f7a41a1b68fc173882e78f"
+    "sha256": "8114a5e6e6d4e392f5783c85bcdcb65b57f758073d2c1847a3d738ee47472a14"
   },
   {
     "reference": "image4",
     "caption": "Hình 4.3  Use Case Module Quản lý ticket",
     "asset": "assets/diagrams/uc_module_c_ticketing.svg",
     "source": null,
-    "sha256": "16f5de5d42be52e20e5b37c77a7c3875d786222809397c9944fb221ff7a7d38c"
+    "sha256": "dc9b28fb7f031fdc16a665c01ef019d16fa0f31c456f57cb80ff324281d529b9"
   },
   {
     "reference": "image5",
     "caption": "Hình 4.4  Use Case Module Cơ sở tri thức",
     "asset": "assets/diagrams/uc_module_b_kb.svg",
     "source": null,
-    "sha256": "f0e186444990504192bd6e33a0e3d2ed391b3b3749c58939f4c372b9219e0b3d"
+    "sha256": "766291221aac73ac7b85fdeff7fa53ec42c67b73d4a37dc05d541dd807021041"
   },
   {
     "reference": "image6",
     "caption": "Hình 4.5  Use Case Module Trợ lý AI",
     "asset": "assets/diagrams/uc_module_a_ai_analytics.svg",
     "source": null,
-    "sha256": "4a2e5c3c5079b74548140674e71a4a8ad8590c2be4164fb80496888269e961db"
+    "sha256": "bec972eabb9ae04f66b2d4e9c12483e1f00c3cfaa9cdd3b9d22dd732030862ef"
   },
   {
     "reference": "image7",
@@ -143,36 +143,36 @@
     "reference": "image21",
     "caption": "Hình 5.14  Tìm kiếm tri thức",
     "asset": "assets/ui/62-9092.png",
-    "source": "docs/design/anh/62-9092.png",
-    "sha256": "8f0ac16c362b270ba75f0c2523d6ea9b690991649456b8472c97f8c91593663d"
+    "source": "reports/template1/sources/pdf-assets/62-9092.png",
+    "sha256": "532c45045d87c751e59481d6dfc685dd1cfb9f120bec182439ec4ee2f179adbc"
   },
   {
     "reference": "image22",
     "caption": "Hình 5.15  Đọc tài liệu tri thức",
     "asset": "assets/ui/62-9094.png",
-    "source": "docs/design/anh/62-9094.png",
-    "sha256": "c773d4f9647a490c995139b28aef86f124cc692739e424eb054cbae518b0dd73"
+    "source": "reports/template1/sources/pdf-assets/62-9094.png",
+    "sha256": "ae7fd381a64ab59089cdb2a1a5bea5f05d9cbc4c316e0fd9b790ce453eadbd49"
   },
   {
     "reference": "image23",
     "caption": "Hình 5.16  Quản trị và công bố tài liệu",
     "asset": "assets/ui/62-9240.png",
-    "source": "docs/design/anh/62-9240.png",
-    "sha256": "02543500bcdae6926932df1e3fcb1d935874e1924b5c65152c8649e6e45e824f"
+    "source": "reports/template1/sources/pdf-assets/62-9240.png",
+    "sha256": "f2d80f882021c2d40475c76d26cc2ed27f2acb8795803708064db41241090322"
   },
   {
     "reference": "image24",
     "caption": "Hình 5.17 Tải tài liệu mới lên Knowledge Base",
     "asset": "assets/ui/62-9241.png",
-    "source": "docs/design/anh/62-9241.png",
-    "sha256": "20d20e4eb983fa311688f82fb3a641e314ca73d89926c825ba961e5f008e5432"
+    "source": "reports/template1/sources/pdf-assets/62-9241.png",
+    "sha256": "a65e6ed0a827b729bcade0a315322659a764899cb8a4525b83ebba5ee4620f0a"
   },
   {
     "reference": "image25",
     "caption": "Hình 5.18 Chi tiết tài liệu ở trạng thái sẵn sàng nhưng chưa công bố",
     "asset": "assets/ui/62-9783.png",
-    "source": "docs/design/anh/62-9783.png",
-    "sha256": "37b967850df18dccc21dc370f9f7e843b9f56e6f90e73ca0ae911d261d149b2b"
+    "source": "reports/template1/sources/pdf-assets/62-9783.png",
+    "sha256": "46734b386b21a60d5f899d5b2e771bc2fd093542b9d3a729e9037122d9b79034"
   },
   {
     "reference": "image26",

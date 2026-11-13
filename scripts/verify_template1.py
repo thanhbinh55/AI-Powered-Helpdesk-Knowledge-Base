@@ -20,6 +20,20 @@ ROOT=package.ROOT
 T1=package.T1
 
 
+def segment_hits_box(a,b,box):
+    """Clip any segment, including diagonals, to the open actor/label rectangle."""
+    left,top,right,bottom=box
+    low,high=0.0,1.0
+    for start,delta,minimum,maximum in [(a[0],b[0]-a[0],left,right),(a[1],b[1]-a[1],top,bottom)]:
+        if abs(delta)<1e-9:
+            if not minimum<start<maximum:return False
+        else:
+            enter,leave=sorted(((minimum-start)/delta,(maximum-start)/delta))
+            low,high=max(low,enter),min(high,leave)
+            if low>=high:return False
+    return low<high
+
+
 def check_static():
     raw=package.report_source_path().read_text()
     report=(T1/'report/report.md').read_text()
@@ -27,6 +41,13 @@ def check_static():
     baseline=json.loads((T1/'sources/report-baseline.json').read_text())
     assert package.sha((T1/baseline['authority']).read_bytes())==baseline['pdf_sha256'],'PDF baseline changed; review the new PDF first'
     assert package.sha(package.report_source_path().read_bytes())==baseline['markdown_sha256'],'Reviewed transcription changed'
+    review_path=T1/'sources/pdf-sync-review.json'
+    if review_path.exists():
+        review=json.loads(review_path.read_text())
+        assert review['pdf_sha256']==baseline['pdf_sha256'] and review['transcription_sha256']==baseline['markdown_sha256'], 'PDF synchronization review is stale'
+        assert review['pages']==baseline['pages'] and len(review['figures'])==37
+        assert review['ui_images_verified_against_pdf']==31
+        assert not review['other_body_changes_after_documented_layout_normalization']
     from report_sync import working_documents
     for path, expected in working_documents(T1,report).items():
         assert path.read_text()==expected, f'Working document is stale: {path}'
@@ -45,7 +66,7 @@ def check_static():
     for table in re.findall(r'\| Use case ID \| UC-\d+ \|\n(?:\|[^\n]*\n)+',raw):
         assert table in report
         assert len(table.rstrip().splitlines())==10
-    from diagrams import uc_names
+    from diagrams import uc_names, display_uc_name
     names=uc_names(raw)
     diagrams=json.loads((T1/'report/assets/diagrams/semantics.json').read_text())
     assert len(diagrams)==6
@@ -55,13 +76,19 @@ def check_static():
         if 'provenance' in drawing:
             for suffix,item in drawing['provenance']['files'].items():
                 asset=folder/(drawing['name']+'.'+suffix)
-                assert asset.read_bytes()==(ROOT/item['path']).read_bytes()
-                assert package.sha(asset.read_bytes())==item['sha256']
+                assert package.sha((ROOT/item['path']).read_bytes())==item['sha256'], 'Archived context source changed'
+                assert asset.is_file()
+            context=ET.parse(folder/(drawing['name']+'.svg'))
+            visible=' '.join(n.text or '' for n in context.iter() if n.tag.endswith('text'))
+            assert 'Yêu cầu đặt lại mật khẩu' not in visible and 'Xem thống kê' not in visible
+            assert 'Support Agent' in visible and 'System Administrator' in visible
+            assert ET.fromstring(context.getroot().get('content')).tag=='mxfile'
         ids={n['id'] for n in drawing['nodes']}
         for e in drawing['edges']:assert e['source'] in ids and e['target'] in ids
         for n in drawing['nodes']:
             if n['kind']=='uc':
-                number=int(n['id'][3:]);assert ' '.join(n['lines'][1:])==names[number]
+                number=int(n['id'][3:]);assert ' '.join(n['lines'][1:])==display_uc_name(names[number])
+                assert n['lines'][0]==f'UC-{number:02}'+(' (P1)' if number in [16,17,19] else '')
     overall=diagrams[1]
     assert len([n for n in overall['nodes'] if n['kind']=='uc'])==19
     def normalized_edges(drawing):
@@ -73,10 +100,99 @@ def check_static():
             edges.add((a.replace('actor-embed','actor-llm'),b))
         return edges
     assert normalized_edges(overall)==set.union(*(normalized_edges(d) for d in diagrams[2:]))
+    for drawing in diagrams[1:3]:
+        inheritance={(e['source'],e['target']) for e in drawing['edges'] if e['generalization']}
+        assert inheritance=={(actor,'actor-auth') for actor in ['actor-customer','actor-agent','actor-admin']}
     for drawing in diagrams[1:]:
+        boundary=next(n for n in drawing['nodes'] if n['kind']=='boundary')
+        usecases=sorted((n for n in drawing['nodes'] if n['kind']=='uc'),key=lambda n:n['y'])
+        top=usecases[0]['y']-boundary['y']
+        bottom=boundary['y']+boundary['h']-usecases[-1]['y']-usecases[-1]['h']
+        assert top==bottom==65, f"Uneven boundary padding: {drawing['name']}"
+        assert all(b['y']-a['y']-a['h']==26 for a,b in zip(usecases,usecases[1:]))
+        # Lines must clear unrelated actors, including the labels below their bodies.
+        actors=[n for n in drawing['nodes'] if n['kind']=='actor']
+        if drawing['name']=='uc_module_d_identity':
+            parent=next(n for n in actors if n['id']=='actor-auth')
+            children=[n for n in actors if n['id'] in ['actor-customer','actor-agent','actor-admin']]
+            assert len({n['y'] for n in children})==1 and parent['y']<children[0]['y']
+            for edge in drawing['edges']:
+                if edge['generalization']:
+                    assert all(x<boundary['x']-25 for x,y in edge['points']), 'Identity inheritance must stay beside the system'
+                    assert edge['points'][-2][1]>edge['points'][-1][1], 'Inheritance arrow must point upward to parent'
+        svg=ET.parse(T1/'report/assets/diagrams'/(drawing['name']+'.svg'))
+        lines=svg.findall('.//{http://www.w3.org/2000/svg}polyline')
+        assert len(lines)==len(drawing['edges']), 'Every relationship needs its own visible line'
+        assert len(svg.findall('.//{http://www.w3.org/2000/svg}circle'))==len(actors), 'No association junction dots'
+        drawio=ET.parse(T1/'report/assets/diagrams'/(drawing['name']+'.drawio'))
+        cells={cell.get('id'):cell for cell in drawio.iter('mxCell')}
+        for actor in actors:
+            assert float(cells[actor['id']].find('mxGeometry').get('width'))==46, 'Actor body must not stretch to label width'
+        for i,(edge,line) in enumerate(zip(drawing['edges'],lines)):
+            assert (line.get('data-source'),line.get('data-target'))==(edge['source'],edge['target'])
+            style=cells[f'edge-{i}'].get('style')
+            if edge['generalization']:
+                assert line.get('marker-end')=='url(#generalization)'
+                assert 'endArrow=block;endFill=0;' in style
+                clearance=(boundary['x']-25,boundary['y']-25,
+                           boundary['x']+boundary['w']+25,boundary['y']+boundary['h']+25)
+                for a,b in zip(edge['points'],edge['points'][1:]):
+                    assert not segment_hits_box(a,b,clearance), f"Generalization too close to system boundary: {drawing['name']}"
+                canvas_width=float(svg.getroot().get('width'))
+                canvas_height=float(svg.getroot().get('height'))
+                assert all(25<=x<=canvas_width-25 and 25<=y<=canvas_height-25 for x,y in edge['points']), 'Generalization needs canvas margins'
+            else:
+                assert line.get('marker-end') is None and 'endArrow=none;' in style
+                assert len(edge['points'])==2, 'Actor–UC associations must be single straight segments'
+                assert not cells[f'edge-{i}'].findall('.//mxPoint'), 'No drawio waypoints on associations'
+        ports={}
+        segments=[]
+        uc_lines={}
+        for edge in drawing['edges']:
+            for actor in actors:
+                cx=actor['x']+actor['w']/2
+                canvas_width=float(svg.getroot().get('width'))
+                label_left,label_right=(cx-218,cx+12) if cx<canvas_width/2 else (cx-12,cx+218)
+                label_top,label_bottom=actor['y']+92,actor['y']+140
+                if actor.get('label_above'):
+                    label_left,label_right=cx-115,cx+115
+                    label_top,label_bottom=actor['y']-55,actor['y']-10
+                for a,b in zip(edge['points'],edge['points'][1:]):
+                    assert not segment_hits_box(a,b,(label_left,label_top,label_right,label_bottom)), f"Line crosses label {actor['id']}: {drawing['name']}"
+                if actor['id'] in (edge['source'],edge['target']):continue
+                left,right=(cx-218,cx+23) if cx<canvas_width/2 else (cx-23,cx+218)
+                top,bottom=actor['y'],actor['y']+140
+                for (x1,y1),(x2,y2) in zip(edge['points'],edge['points'][1:]):
+                    hits=segment_hits_box((x1,y1),(x2,y2),(left,top,right,bottom))
+                    assert not hits, f"Line crosses {actor['id']}: {drawing['name']}"
+            if not edge['generalization']:
+                uc=edge['target'] if edge['target'].startswith('uc-') else edge['source']
+                port=edge['points'][-1] if uc==edge['target'] else edge['points'][0]
+                assert tuple(port) not in ports.setdefault(uc,set()), f'Shared UC port: {uc}'
+                ports[uc].add(tuple(port))
+                uc_lines.setdefault(uc,[]).append(edge['points'])
+                segments.extend(zip(edge['points'],edge['points'][1:]))
+        for uc,connections in uc_lines.items():
+            def orientation(a,b,c):
+                return (b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0])
+            for i,(a,b) in enumerate(connections):
+                for c,d in connections[i+1:]:
+                    crossing=orientation(a,b,c)*orientation(a,b,d)<0 and orientation(c,d,a)*orientation(c,d,b)<0
+                    assert not crossing, f"Crossing lines into {uc}: {drawing['name']}"
+        # Distinct associations may intersect, but must not share a length of line.
+        for i,(a,b) in enumerate(segments):
+            dx,dy=b[0]-a[0],b[1]-a[1]
+            for c,d in segments[i+1:]:
+                cross=lambda p:dx*(p[1]-a[1])-dy*(p[0]-a[0])
+                if abs(cross(c))>1e-6 or abs(cross(d))>1e-6:continue
+                axis=0 if abs(dx)>abs(dy) else 1
+                overlap=min(max(a[axis],b[axis]),max(c[axis],d[axis]))-max(min(a[axis],b[axis]),min(c[axis],d[axis]))
+                assert overlap<1e-6, f"Overlapping association segments: {drawing['name']}"
         edges=normalized_edges(drawing)
         assert ('actor-admin','uc-19') not in edges
         assert ('actor-agent','uc-17') not in edges
+        if drawing['name'] in ['uc_module_b_kb','uc_module_a_ai_analytics']:
+            assert all(n['kind']!='note' for n in drawing['nodes']), 'No explanatory captions inside diagram images'
     ai=(T1/'ai-usage/ai-usage.md').read_text()
     index=json.loads((T1/'verification.json').read_text())['ai_sources']
     for item in index:
@@ -92,7 +208,7 @@ def check_static():
             assert expected in ai
         for block in blocks:
             assert package.ai_submission_text(block,key,item['report_ids']) in ai
-    expected_ids=[f'T1-{i:02}' for i in range(1,23)]
+    expected_ids=[f'T1-{i:02}' for i in range(1,24)]
     assert re.findall(r'^\| \*\*(T1-\d+)\*\*',ai,re.M)==expected_ids
     assert re.findall(r'^#### Phiên (T1-\d+):',ai,re.M)==expected_ids
     assert 'không ghi nhận' not in ai
@@ -113,7 +229,7 @@ def check_static():
             coverage.extend(covered)
         assert sorted(coverage)==sorted(c['files']), 'Grouping lost or duplicated paths'
 
-    print('PASS: report wording, 19 literal UC tables, 37 mapped figures, 31 original UI assets, 6 valid/consistent UML graphs, all AI source entries, unique Git metadata.')
+    print('PASS: report wording, 19 literal UC tables, 37 mapped figures, 31 source-verified UI assets, 6 valid/consistent UML graphs, all AI source entries, unique Git metadata.')
 
 
 async def check_browser(output):
@@ -165,6 +281,15 @@ async def check_browser(output):
         results['report']={'images':await page.locator('img').count(),'broken_images':bad,'broken_anchors':broken}
         await browser.close()
     (output/'browser-results.json').write_text(json.dumps(results,ensure_ascii=False,indent=2)+'\n')
+    record=dict(results)
+    record['command']='python scripts/verify_template1.py --browser'
+    baseline=json.loads((T1/'sources/report-baseline.json').read_text())
+    record['review_date']=baseline['review_date']
+    record['pdf_sha256']=baseline['pdf_sha256']
+    record['files_sha256']={path:package.sha((T1/path).read_bytes()) for path in [
+        'report/report.md','ai-usage/ai-usage.md','ai-usage/ai-usage.html',
+        'git-contributions/git-contributions.md','git-contributions/git-contributions.html']}
+    (T1/'browser-validation.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n')
     print('PASS browser:',json.dumps(results,ensure_ascii=False))
 
 

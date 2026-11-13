@@ -1,19 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="760" viewBox="0 0 1320 760" role="img" aria-labelledby="title">
-<title id="title">Clarune — Trợ lý AI và thống kê</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="714" viewBox="0 0 1320 714" role="img" aria-labelledby="title">
+<title id="title">Clarune — Trợ lý AI</title>
 <defs><marker id="generalization" viewBox="0 0 14 14" markerWidth="14" markerHeight="14" refX="13" refY="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 1 L13 7 L1 13 Z" fill="white" stroke="#111" stroke-width="1.5"/></marker><marker id="arrow" viewBox="0 0 10 10" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#111" stroke-width="1.5"/></marker></defs>
 <rect width="100%" height="100%" fill="white"/>
 <g style="font-family:Arial,sans-serif;font-size:16px;fill:#111">
-<rect x="380.0" y="25" width="560" height="710" fill="white" stroke="#111" stroke-width="1.7"/>
-<text x="660.0" y="53" text-anchor="middle" font-weight="bold">Clarune — Trợ lý AI và thống kê</text>
-<polyline points="194.0,301 380.0,301 380.0,133.0 420.0,133.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
-<polyline points="194.0,301 380.0,301 380.0,245.0 420.0,245.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
-<polyline points="194.0,301 380.0,301 380.0,357.0 420.0,357.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
-<polyline points="194.0,301 380.0,301 380.0,469.0 420.0,469.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
-<polyline points="1126.0,101 940.0,101 940.0,133.0 900.0,133.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
-<polyline points="1126.0,101 940.0,101 940.0,245.0 900.0,245.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
-<polyline points="1126.0,101 940.0,101 940.0,357.0 900.0,357.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
-<polyline points="1126.0,101 940.0,101 940.0,581.0 900.0,581.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
-<polyline points="1126.0,637 972.0,637 972.0,133.0 900.0,133.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<rect x="380.0" y="25" width="560" height="664" fill="white" stroke="#111" stroke-width="1.7"/>
+<text x="660.0" y="53" text-anchor="middle" font-weight="bold">Clarune — Trợ lý AI</text>
+<polyline data-source="actor-agent" data-target="uc-14" points="284.0,301.0 420.0,133.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-agent" data-target="uc-15" points="284.0,301.0 420.0,245.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-agent" data-target="uc-18" points="284.0,301.0 420.0,357.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-agent" data-target="uc-19" points="284.0,301.0 420.0,469.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-admin" data-target="uc-14" points="1036.0,433.0 894.6842348832964,142.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-admin" data-target="uc-15" points="1036.0,433.0 900.0,245.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-admin" data-target="uc-18" points="1036.0,433.0 900.0,357.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-admin" data-target="uc-17" points="1036.0,433.0 900.0,581.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-llm" data-target="uc-14" points="1036.0,133.0 894.6842348832964,124.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
 <ellipse cx="660.0" cy="133.0" rx="240.0" ry="43.0" fill="white" stroke="#111" stroke-width="1.7"/>
 <text x="660.0" y="127.0" text-anchor="middle" font-weight="bold">UC-14</text>
 <text x="660.0" y="149.0" text-anchor="middle">Tạo gợi ý câu trả lời bằng AI</text>
@@ -29,18 +29,18 @@
 <text x="660.0" y="474.0" text-anchor="middle">Đánh giá gợi ý AI hữu ích hoặc không hữu</text>
 <text x="660.0" y="496.0" text-anchor="middle">ích</text>
 <ellipse cx="660.0" cy="581.0" rx="240.0" ry="43.0" fill="white" stroke="#111" stroke-width="1.7"/>
-<text x="660.0" y="575.0" text-anchor="middle" font-weight="bold">UC-17</text>
-<text x="660.0" y="597.0" text-anchor="middle">Xem thống kê ticket (P1)</text>
-<circle cx="170.0" cy="278" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
-<path d="M170.0 289 V322 M147.0 301 H193.0 M170.0 322 L148.0 347 M170.0 322 L192.0 347" fill="none" stroke="#111" stroke-width="1.7"/>
-<text x="170.0" y="373" text-anchor="middle">Support Agent</text>
-<text x="170.0" y="395" text-anchor="middle">(Nhân viên hỗ trợ)</text>
-<circle cx="1150.0" cy="78" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
-<path d="M1150.0 89 V122 M1127.0 101 H1173.0 M1150.0 122 L1128.0 147 M1150.0 122 L1172.0 147" fill="none" stroke="#111" stroke-width="1.7"/>
-<text x="1150.0" y="173" text-anchor="middle">System Administrator</text>
-<text x="1150.0" y="195" text-anchor="middle">(Quản trị viên hệ thống)</text>
-<circle cx="1150.0" cy="614" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
-<path d="M1150.0 625 V658 M1127.0 637 H1173.0 M1150.0 658 L1128.0 683 M1150.0 658 L1172.0 683" fill="none" stroke="#111" stroke-width="1.7"/>
-<text x="1150.0" y="709" text-anchor="middle">«system»</text>
-<text x="1150.0" y="731" text-anchor="middle">Embedding / LLM Provider</text>
+<text x="660.0" y="575.0" text-anchor="middle" font-weight="bold">UC-17 (P1)</text>
+<text x="660.0" y="597.0" text-anchor="middle">Xem thống kê ticket</text>
+<circle cx="260.0" cy="278.0" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
+<path d="M260.0 289.0 V322.0 M237.0 301.0 H283.0 M260.0 322.0 L238.0 347.0 M260.0 322.0 L282.0 347.0" fill="none" stroke="#111" stroke-width="1.7"/>
+<text x="272.0" y="373.0" text-anchor="end">Support Agent</text>
+<text x="272.0" y="395.0" text-anchor="end">(Nhân viên hỗ trợ)</text>
+<circle cx="1060.0" cy="110.0" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
+<path d="M1060.0 121.0 V154.0 M1037.0 133.0 H1083.0 M1060.0 154.0 L1038.0 179.0 M1060.0 154.0 L1082.0 179.0" fill="none" stroke="#111" stroke-width="1.7"/>
+<text x="1048.0" y="205.0" text-anchor="start">«system»</text>
+<text x="1048.0" y="227.0" text-anchor="start">Embedding / LLM Provider</text>
+<circle cx="1060.0" cy="410.0" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
+<path d="M1060.0 421.0 V454.0 M1037.0 433.0 H1083.0 M1060.0 454.0 L1038.0 479.0 M1060.0 454.0 L1082.0 479.0" fill="none" stroke="#111" stroke-width="1.7"/>
+<text x="1048.0" y="505.0" text-anchor="start">System Administrator</text>
+<text x="1048.0" y="527.0" text-anchor="start">(Quản trị viên hệ thống)</text>
 </g></svg>

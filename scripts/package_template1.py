@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """Build the Template 1 hand-in without editing the final report's wording.
 
 Usage: python3 scripts/package_template1.py
@@ -30,7 +31,7 @@ import render_ai_usage_template0 as template0
 T1=ROOT/'reports/template1'
 SOURCES=T1/'sources'
 REPO='https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base'
-DATE='12/11/2026'
+DATE='13/11/2026'
 UI=['62-8214','62-8215','62-8328','62-10225','62-10226','62-13238',
     '58-6763','58-6764','58-6765','62-6953','62-6954','55-1992','55-2537','56-3104',
     '62-9092','62-9094','62-9240','62-9241','62-9783','55-1994','56-3578','62-9943',
@@ -93,6 +94,12 @@ def build_report():
     refs=['assets/diagrams/context_diagram_system.svg']+['assets/diagrams/'+a+'.svg' for a in BASELINES]
     refs += ['assets/ui/'+Path(a).name+'.png' for a in UI]
     assert len(refs)==37
+    overrides={}
+    override_path=SOURCES/'pdf-figure-overrides.json'
+    if override_path.exists():
+        override_data=json.loads(override_path.read_text())
+        assert sha((ROOT/override_data['pdf']).read_bytes())==override_data['pdf_sha256'], 'PDF image overrides need review after PDF changes'
+        overrides=override_data['files']
     manifest=[]
     for i,ref in enumerate(refs,1):
         match=re.search(r'!\[\]\[image'+str(i)+r'\]',body)
@@ -101,6 +108,10 @@ def build_report():
         source_path=None
         if i>=7:
             source_path='docs/design/anh/'+UI[i-7]+'.png'
+            override=overrides.get(Path(ref).name)
+            if override:
+                source_path=override['source']
+                assert sha((ROOT/source_path).read_bytes())==override['sha256'], 'Reviewed PDF image changed'
             src=ROOT/source_path;dest=T1/'report'/ref
             dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(src,dest)
         manifest.append({'reference':f'image{i}','caption':caption,'asset':ref,'source':source_path,
@@ -188,7 +199,7 @@ def build_ai():
     counter+=1;pack_id=f'T1-{counter:02}'
     mapping.append({'author':'Ngô Viết Thanh Bình','mssv':'24120269','source_id':'T1-PACK-01','report_id':pack_id,'source':'Phiên đóng gói trong cuộc hội thoại'})
     out += ['### 2.5 Ngô Viết Thanh Bình — Đóng gói Template 1\n\n',table_header+'\n',
-            f'| **{pack_id}** | 12/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Codex, OpenAI | Tổng hợp và chỉnh định dạng gói nộp Template 1 | Đóng gói report, assets, nhật ký AI và lịch sử Git; đối chiếu nội dung, hình ảnh và bố cục HTML bằng công cụ | `report/report.md`; `report/assets/manifest.json`; `git-contributions/git-contributions.md`; nhánh `merge-template1` |\n\n',
+            f'| **{pack_id}** | 12/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Codex, OpenAI | Tổng hợp và chỉnh định dạng gói nộp Template 1 | Đóng gói report, assets, nhật ký AI và lịch sử Git; đối chiếu nội dung, hình ảnh và bố cục HTML bằng công cụ | `report/report.md`; `git-contributions/git-contributions.md`; nhánh `merge-template1` |\n\n',
             f'#### Phiên {pack_id}: Tổng hợp gói nộp Template 1\n\n',
             '- **Thời gian:** 12/11/2026.\n',
             '- **Tác giả chịu trách nhiệm:** Ngô Viết Thanh Bình — `24120269`.\n',
@@ -196,17 +207,42 @@ def build_ai():
             '- **Prompt đã khử dữ liệu nhạy cảm:** Tổng hợp bản Markdown final, thay hình nhúng mờ bằng assets đúng mã, điều chỉnh sơ đồ theo bản final, tổng hợp Git contributions và AI usage như Template 0, giữ nguyên nội dung gốc và làm trên nhánh `merge-template1`.\n',
             '- **Nội dung AI tạo / áp dụng:** Công cụ đóng gói, ánh xạ 37 hình, 5 sơ đồ Use Case vector cùng nguồn drawio, tích hợp nguyên bản sơ đồ bối cảnh của Lãm, bản Markdown và HTML của nhật ký AI và đóng góp Git. Chuẩn hóa mã phiên và định dạng theo yêu cầu của trưởng nhóm.\n',
             '- **Kiểm chứng bằng công cụ:** Đối chiếu toàn bộ chữ của report và 19 bảng Use Case với nguồn; kiểm tra mã ảnh, SHA commit, đường dẫn assets, mã phiên trong bảng/chi tiết và bố cục HTML qua trình duyệt.\n',
-            '- **Minh chứng:** `report/report.md`, `report/assets/manifest.json`, `verification.json`, `browser-validation.json`, nhánh `merge-template1`; task `T1-PUB-01` / `SCRUM-41` và `T1-SUBMIT-01` / `SCRUM-52`.\n\n---\n\n',
+            '- **Minh chứng:** `report/report.md`, `git-contributions/git-contributions.md`, nhánh `merge-template1`; task `T1-PUB-01` / `SCRUM-41` và `T1-SUBMIT-01` / `SCRUM-52`.\n\n---\n\n',
             baseline[baseline.index('## 6.4'):].replace('## 6.4 ','## 3. ').replace('ĐHKHTN:\n1.','ĐHKHTN:\n\n1.')]
+    final_id=f'T1-{counter+1:02}'
+    mapping.append({'author':'Ngô Viết Thanh Bình','mssv':'24120269','source_id':'T1-FINAL-01','report_id':final_id,'source':'Phiên hiệu chỉnh và hoàn thiện bản nộp trong cuộc hội thoại ngày 13/11/2026'})
+    out.insert(-1, f'''### 2.6 Ngô Viết Thanh Bình — Hoàn thiện bản nộp
+
+{table_header}
+| **{final_id}** | 13/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Codex, OpenAI | Hiệu chỉnh sơ đồ UML, đồng bộ PDF và hoàn thiện gói nộp | AI chỉnh bố cục và đường nối; đối chiếu 19 UC, 37 hình và các thay đổi trong PDF; người dùng xem hình, góp ý và yêu cầu hiệu chỉnh | `report/Report.pdf`; `report/report.md`; `ai-usage/ai-usage.md`; `git-contributions/git-contributions.md` |
+
+#### Phiên {final_id}: Hiệu chỉnh sơ đồ và hoàn thiện bản nộp
+
+- **Thời gian:** 13/11/2026.
+- **Tác giả chịu trách nhiệm:** Ngô Viết Thanh Bình — `24120269`.
+- **Công cụ / Nền tảng:** Codex, OpenAI.
+- **Prompt đã khử dữ liệu nhạy cảm:** Cân đối khung sơ đồ, dùng association thẳng riêng, sửa đường giao nhau và bố trí kế thừa actor; bỏ chú thích khỏi ảnh; đồng bộ Markdown với PDF mới; rà soát bản nộp, cập nhật lịch sử Git và tạo `4.zip` gồm ba thư mục ai-usage, git-contributions và report.
+- **Nội dung AI tạo / áp dụng:** Hiệu chỉnh sáu sơ đồ SVG/drawio và ảnh PNG; đồng bộ nội dung Markdown, các mục trích và ảnh với PDF 70 trang; cập nhật nhật ký AI, lịch sử Git, HTML và công cụ đóng gói.
+- **Kiểm chứng và hiệu chỉnh:** Người dùng xem các hình, chỉ ra khoảng trống, đường giao nhau, lỗi đường kế thừa đè khung và yêu cầu chỉnh lại bố cục. Công cụ đối chiếu toàn bộ thay đổi văn bản giữa hai PDF, kiểm tra 19 bảng UC và 37 hình, thử tải ảnh/liên kết mục lục và kiểm tra bố cục HTML bằng trình duyệt.
+- **Minh chứng:** `report/Report.pdf`, `report/report.md`, các sơ đồ trong `report/assets/diagrams/` và lịch sử commit trên kho GitHub của nhóm.
+
+---
+
+''')
     combined=''.join(out)
     write(T1/'ai-usage/ai-usage.md',combined)
     write(T1/'sources/ai-session-index.json',json.dumps(mapping,ensure_ascii=False,indent=2)+'\n')
     return index
 
 
-def capture_git_snapshot():
+def capture_git_snapshot(refresh=False):
     path=SOURCES/'git-snapshot.json'
-    if path.exists():return json.loads(path.read_text())
+    if path.exists():
+        if not refresh:return json.loads(path.read_text())
+        previous=json.loads(path.read_text())
+        stamp=re.sub(r'[^0-9]','',previous['captured_at'])
+        archive=SOURCES/'history'/f'git-snapshot-{stamp}.json'
+        if not archive.exists():shutil.copy2(path,archive)
     members=list(csv.DictReader((ROOT/'members.csv').open()))
     refs=['origin/main','origin/docs/t1-identity-binh','origin/docs/t1-knowledge-lam','origin/docs/t1-ai-quyphuc-markdown','origin/docs/t1-ticket-giaphuc','origin/merge-template1']
     pinned={ref:git('rev-parse',ref) for ref in refs}
@@ -250,15 +286,15 @@ def summarize_changed_paths(files, threshold=5):
     return walk(tree,[])
 
 
-def build_git():
-    snapshot=capture_git_snapshot();commits=snapshot['commits'];members=snapshot['members']
+def build_git(refresh=False):
+    snapshot=capture_git_snapshot(refresh);commits=snapshot['commits'];members=snapshot['members']
     lines=['# BÁO CÁO LỊCH SỬ COMMIT GIT — TEMPLATE 1\n\n',
            f'> **Dự án:** Clarune — AI-Powered Helpdesk & Knowledge Base\n> **Nhóm:** Group 04\n> **Kho lưu trữ:** {REPO}\n> **Thời điểm chốt dữ liệu:** {snapshot["captured_at"]}\n\n',
-           '## Phạm vi và nguồn đối chiếu\n\n',
-           'Thống kê lịch sử của giai đoạn Template 1 từ 03/11/2026 đến thời điểm chốt dữ liệu, gồm chuẩn bị yêu cầu, prototype và bản Markdown đã đẩy lên remote. Hợp các commit từ những nhánh dưới đây theo SHA, mỗi commit chỉ tính một lần. Loại commit lưu trữ Template 0. Bao gồm các commit đóng gói trên merge-template1 đã có tại thời điểm chốt; các commit phát sinh sau thời điểm này không nằm trong snapshot. Giữ nguyên tên tác giả, thông điệp và thời gian đã ghi trong Git.\n\n',
+           '## Phạm vi thống kê\n\n',
+           'Báo cáo ghi nhận lịch sử Git của giai đoạn Template 1 từ 03/11/2026 đến thời điểm chốt dữ liệu, gồm phân tích yêu cầu, đặc tả Use Case, prototype và hoàn thiện bản nộp. Mỗi commit được tính một lần theo SHA; các commit lưu trữ Template 0 không thuộc phạm vi thống kê. Tác giả, thông điệp và thời gian được lấy từ lịch sử Git; thời gian hiển thị theo UTC+7.\n\n',
            '| Nhánh nguồn | SHA tại thời điểm chốt |\n| --- | --- |\n']
     for ref,h in snapshot['refs'].items():lines.append(f'| `{ref}` | [{h}]({REPO}/commit/{h}) |\n')
-    lines += ['\nCác nhóm có từ 5 tệp thay đổi được gom theo thư mục kèm số lượng để báo cáo gọn hơn; danh sách từng tệp vẫn được giữ đầy đủ trong snapshot. Chỉ số commit phản ánh lịch sử Git, không tương đương phần trăm công sức hay xác nhận đã hoàn thành nhiệm vụ. Commit trên nhánh chưa merge vẫn được ghi nhận và đánh dấu nguồn. Metadata/đường dẫn đầy đủ được giữ tại `../sources/git-snapshot.json`. Đối chiếu tác giả bằng tên GitHub hoặc email Git/Jira đã khai báo trong members.csv; Gia Phúc dùng tác giả PC với email phgphuc0609@gmail.com, trùng email Jira đã khai báo.\n\n',
+    lines += ['\nDanh sách thay đổi được nhóm theo thư mục khi có từ 5 tệp, kèm số lượng tệp. Commit được xác định theo tài khoản hoặc email của thành viên; tác giả Git `PC` với email `phgphuc0609@gmail.com` được ghi nhận cho Phan Gia Phúc.\n\n',
               '## Bảng tổng hợp\n\n| MSSV | Thành viên | GitHub | Commit |\n| --- | --- | --- | ---: |\n']
     grouped={}
     for m in members:
@@ -307,7 +343,7 @@ def render_companion(kind,title,subtitle):
     cover=cover.replace('AI Usage Report',title).replace('Báo cáo Sử dụng Trí tuệ Nhân tạo (AI Usage Transparency &amp; Accountability Report)',subtitle)
     cover=cover.replace('28/10/2026',DATE).replace('Đề tài đề xuất:','Đề tài:')
     cover=cover.replace('Ghi nhận minh bạch toàn bộ quá trình sử dụng các công cụ Trí tuệ nhân tạo (LLM, AI Coding Assistant, Prompt-based generators) trong đồ án theo đúng quy chuẩn bắt buộc của Khoa CNTT - HCMUS.',
-                        'Ghi nhận '+('việc sử dụng AI' if kind=='ai-usage' else 'lịch sử Git và bằng chứng đóng góp cá nhân')+' trong giai đoạn Template 1. Nguồn và giới hạn đối chiếu được trình bày đầy đủ trong nội dung báo cáo.')
+                        'Ghi nhận '+('việc sử dụng AI' if kind=='ai-usage' else 'lịch sử Git và đóng góp cá nhân')+' trong giai đoạn Template 1 của dự án Clarune.')
     cover=cover.replace('Mục 5 Quy định về việc sử dụng AI trong học phần — Khoa Công nghệ Thông tin, HCMUS',
                         'Mục 5 Quy định về việc sử dụng AI trong học phần — Khoa Công nghệ Thông tin, HCMUS' if kind=='ai-usage' else 'Đối soát lịch sử Git và truy vết đóng góp cá nhân')
     cover=cover.replace('NMCNPM - AI-Powered Helpdesk &amp; Knowledge Base - Group 04','NMCNPM - Clarune - Group 04 | Template 1')
@@ -356,11 +392,11 @@ def build_readme(manifest,ai_index,counts):
 - `report/Report.pdf`: bản final do trưởng nhóm xuất từ Google Docs, là nguồn chuẩn về nội dung.
 - `report/report.md`: bản Markdown đã đối chiếu với PDF final; ảnh dùng đường dẫn tương đối vào `report/assets/`.
 - Các file mục 01–05 và `TEMPLATE1_DRAFT_MASTER.md`: bản trích đồng bộ từ report hiện hành, không còn là khung chờ soạn.
-- `report/assets/ui/`: chỉ 31 ảnh giao diện có trong report, giữ nguyên tệp ảnh nguồn theo mã Figma.
-- `report/assets/diagrams/`: 6 sơ đồ SVG sắc nét và mã nguồn drawio tương ứng; Hình 3.1 giữ nguyên bản Lãm nộp, 5 sơ đồ Use Case chỉnh theo bản final.
+- `report/assets/ui/`: chỉ 31 ảnh giao diện có trong report: 26 tệp nguồn Figma và 5 ảnh Knowledge Base trích nguyên từ PDF hiện hành; nguồn được ghi trong manifest.
+- `report/assets/diagrams/`: 6 sơ đồ SVG sắc nét và mã nguồn drawio tương ứng; Hình 3.1 dựa trên bản Lãm nộp, đã hiệu chỉnh nhãn theo phạm vi P0; 5 sơ đồ Use Case chỉnh theo bản final.
 - `ai-usage/ai-usage.md` và `.html`: tổng hợp theo tác giả, đánh số phiên thống nhất và áp dụng các hiệu chỉnh do trưởng nhóm xác nhận; giữ nguồn gốc để đối soát.
 - `git-contributions/git-contributions.md` và `.html`: snapshot lịch sử Git Template 1, gồm cả nhánh nộp bài chưa merge. Nhóm nhiều tệp được gom thành thư mục kèm số lượng; danh sách đầy đủ giữ trong sources/git-snapshot.json.
-- `sources/`: bản final gốc có ảnh nhúng, draft dùng tra mã ảnh, nguyên bản nhật ký theo người và snapshot metadata Git; dùng đối soát, không thay thế nội dung report.
+- `sources/`: bản final gốc có ảnh nhúng, draft dùng tra mã ảnh, nguyên bản nhật ký theo người và snapshot metadata Git; dùng đối soát, không thay thế nội dung report. `pdf-assets/` chứa 5 ảnh Knowledge Base khớp PDF; `pdf-figure-overrides.json` ghi trang/xref/SHA-256 và khóa theo hash PDF; `pdf-sync-review.json` ghi kết quả đối chiếu PDF ngày 13/11/2026.
 
 **PDF report:** dùng đúng tên `report/Report.pdf` (phân biệt chữ hoa/thường). Công cụ không tạo hoặc sửa PDF. Việc có PDF không phải bằng chứng đã nộp lên cổng trường.
 
@@ -369,16 +405,16 @@ def build_readme(manifest,ai_index,counts):
 - Nguồn chuẩn là `report/Report.pdf`. Bản chữ đã đối chiếu dùng để đóng gói là `sources/template1-final-current.md`; SHA-256 và các quyết định đồng bộ nằm tại `sources/report-baseline.json`.
 - `sources/template1-final-original.md`, `sources/TEMPLATE1_DRAFT_MASTER.md`, các bản trong `sources/history/` và bản xuất Markdown `(1).md` là nguồn lưu trữ trước khi chốt; không dùng ghi đè nội dung hiện hành.
 - AI usage đã thu thập của cả 4 thành viên. Gia Phúc đã nộp cả dòng tổng hợp T1-08 và phần chi tiết mục 6.3 tại commit 3eb4181; giữ nguyên nội dung tác giả đã nộp.
-- Bản nộp dùng mã phiên duy nhất T1-01…T1-22 theo nhóm thành viên. Bảng và phần chi tiết khớp từng mã; bảng ánh xạ mã gốc nằm tại sources/ai-session-index.json. Nguồn lưu trữ giữ nguyên mã ban đầu.
+- Bản nộp dùng mã phiên duy nhất T1-01…T1-23 theo nhóm thành viên. Bảng và phần chi tiết khớp từng mã; bảng ánh xạ mã gốc nằm tại sources/ai-session-index.json. Nguồn lưu trữ giữ nguyên mã ban đầu.
 - Trưởng nhóm xác nhận 8 phiên của Lãm diễn ra 09–11/11/2026; bản nộp đã sửa tháng 10 thành tháng 11, nguyên bản lưu trữ giữ nguyên. Hai phiên Codex ngày 12/11 chỉ ghi ngày và tên công cụ theo xác nhận của trưởng nhóm.
 - Các PR nguồn chưa được tác vụ đóng gói này merge vào main; trạng thái ghi trong báo cáo Git là trạng thái tại snapshot. Nhánh docs/t1-ticket-giaphuc đã có 5 commit của Gia Phúc; tại lần thu thập chưa thấy PR tương ứng. Snapshot ban đầu được lưu ở sources/history/git-snapshot-initial.json.
 - Mục lục Markdown đã bỏ số trang từ Google Docs theo yêu cầu trưởng nhóm; giữ nguyên tên mục và liên kết đến nội dung.
 - Ảnh hồ sơ trong bản final là `62-8328.png`; draft nêu cả `62-8216` và `62-8328`, chỉ lấy ảnh thực sự xuất hiện trong final.
-- Tệp `report/assets/manifest.json` ghi đủ 37 ánh xạ hình và SHA-256, trong đó 1 sơ đồ bối cảnh lấy nguyên tệp của Lãm, 5 sơ đồ Use Case được dựng lại và 31 hình UI sao chép nguyên tệp.
+- Tệp `report/assets/manifest.json` ghi đủ 37 ánh xạ hình và SHA-256, trong đó 1 sơ đồ bối cảnh hiệu chỉnh nhãn từ bản gốc của Lãm, 5 sơ đồ Use Case được dựng lại và 31 hình UI sao chép nguyên tệp từ nguồn được chỉ định (26 Figma, 5 từ PDF).
 
 ## Quy tắc sơ đồ
 
-Hình 3.1 dùng nguyên văn SVG/drawio của Lãm tại commit 979179b, theo lựa chọn của trưởng nhóm; không vẽ lại hoặc thêm actor Mail Service. Sơ đồ thể hiện P0; đoạn giải thích bên dưới hình dẫn dịch vụ Email P1 tới UC-16 và sơ đồ Định danh và phân quyền. Nguồn được lưu tại sources/diagrams cùng SHA-256. Năm sơ đồ Use Case còn lại dựa vào graph của các tệp drawio hiện có; cập nhật tên Use Case theo 19 bảng đặc tả final. Người dùng là actor người que, Use Case là ellipse bên trong ranh giới hệ thống, actor/dịch vụ ngoài ranh giới. Association nét liền không mũi tên; generalization nét liền với tam giác rỗng hướng về actor cha. Không tự thêm include/extend. Worker, CSDL và storage là thành phần nội bộ, không vẽ thành actor. Các mô tả P1 và quyền hạn được đối chiếu với bản final.
+Hình 3.1 dựa trên SVG/drawio của Lãm tại commit 979179b; giữ bố cục và quan hệ, thống nhất tên actor, bỏ nhãn đặt lại mật khẩu và thống kê thuộc P1 để khớp chú thích P0. Không thêm actor Mail Service. Sơ đồ thể hiện P0; đoạn giải thích bên dưới hình dẫn dịch vụ Email P1 tới UC-16 và sơ đồ Định danh và phân quyền. Nguồn được lưu tại sources/diagrams cùng SHA-256. Năm sơ đồ Use Case còn lại dựa vào graph của các tệp drawio hiện có; cập nhật tên Use Case theo 19 bảng đặc tả final. Người dùng là actor người que, Use Case là ellipse bên trong ranh giới hệ thống, actor/dịch vụ ngoài ranh giới. Association nét liền không mũi tên; generalization nét liền với tam giác rỗng hướng về actor cha. Mỗi association actor–Use Case được vẽ bằng một đoạn thẳng liền riêng, không có điểm bẻ, không gom trục hoặc thêm chấm phân nhánh; giao cắt không biểu thị quan hệ nối. Actor được đặt gần nhóm Use Case liên quan, đường nối tránh người que và nhãn. Khung hệ thống có khoảng đệm trên/dưới bằng nhau. Quy ước ký pháp tham chiếu OMG UML 2.5.1, mục 18 (https://www.omg.org/spec/UML/2.5.1/PDF). Không tự thêm include/extend. Worker, CSDL và storage là thành phần nội bộ, không vẽ thành actor. Các mô tả P1 và quyền hạn được đối chiếu với bản final. P1 được ghi thống nhất ở dòng mã UC; hình dùng tên nhà cung cấp chung, module tri thức chỉ sử dụng năng lực embedding. Module Định danh đặt Authenticated User phía trên ba vai trò Customer, Support Agent và System Administrator cùng hàng phía dưới, với cây kế thừa ngắn bên trái hệ thống, không có đường vòng quanh hình. Các đường kế thừa có thể dùng chung thân cây và đầu tam giác; quy tắc này không áp dụng cho association. Ở sơ đồ tổng thể, đường kế thừa vòng ngoài cách đáy khung 40 đơn vị; canvas được mở rộng để chừa lề dưới 40 đơn vị. Chi tiết phản biện và các điểm cần đối chiếu đặc tả nằm trong diagram-review.md.
 
 Sơ đồ tổng thể và module dùng cùng nguồn tên UC và quan hệ; thay tên lỗi của graph tổng thể cũ (đặc biệt UC-07..10), sửa generalization Admin→Authenticated User bị thiếu target trong mã cũ, giữ UC-19 riêng cho Agent và UC-17 riêng cho Admin. Bản vẽ gốc vẫn còn nguyên ở thư mục assets/diagrams cũ; gói nộp trỏ tới bản đã chỉnh trong report/assets/diagrams.
 
@@ -408,6 +444,7 @@ Bản nguồn lưu trữ giữ nguyên cả khoảng trắng và Markdown hard-b
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--report-only',action='store_true',help='Sync report and working sections without rebuilding AI/Git companions')
+    parser.add_argument('--refresh-git',action='store_true',help='Capture the latest fetched Git refs and PR states')
     args=parser.parse_args()
     validate_report_baseline()
     raw=report_source_path().read_text()
@@ -419,7 +456,7 @@ def main():
         build_readme(manifest,audit['ai_sources'],audit['git_commit_counts'])
         print('Synced report, 12 section documents, master, README and PDF provenance.')
         return
-    ai=build_ai();counts=build_git()
+    ai=build_ai();counts=build_git(refresh=args.refresh_git)
     render_companion('ai-usage','AI Usage Report','Báo cáo Sử dụng AI — Giai đoạn Template 1')
     render_companion('git-contributions','Git Commit History Report','Báo cáo Lịch sử Commit &amp; Đóng góp cá nhân — Template 1')
     build_readme(manifest,ai,counts)

@@ -227,9 +227,7 @@ Các chỉ tiêu hiệu năng và chất lượng cần được đánh giá b�
 | 8 | Nhà cung cấp Dịch vụ AI ngoài (Embedding & LLM Provider — Gemini/OpenAI) | Dịch vụ đám mây bên thứ ba cung cấp API trích xuất vector embedding và mô hình ngôn ngữ lớn (LLM) để sinh câu trả lời RAG; không có quyền truy cập trực tiếp vào cơ sở dữ liệu hệ thống. |
 | 9 | Dịch vụ gửi Email bên thứ ba (External Mail Service Provider — SMTP/SendGrid) | Dịch vụ bên ngoài hỗ trợ gửi mã xác thực hoặc liên kết đặt lại mật khẩu một lần (P1) an toàn vào hòm thư cá nhân của người dùng. |
 
-<a id="ghi-chú:-tiến-trình-nền-bóc-tách-tài-liệu-(worker)-và-hệ-quản-trị-cơ-sở-dữ-liệu-(postgresql/pgvector)-là-các-thành-phần-kỹ-thuật-nội-bộ,-không-phải-tác-nhân-bên-ngoài-ranh-giới-hệ-thống.-bảng-trên-đã-bao-quát-trọn-vẹn-từ-các-bên-liên-quan-quản-trị-dự-án-học-thuật-đến-các-tác-nhân-tương-tác-trực-tiếp-theo-chuẩn-uml."></a>
-
-### Ghi chú: Tiến trình nền bóc tách tài liệu (Worker) và Hệ quản trị cơ sở dữ liệu (PostgreSQL/pgvector) là các thành phần kỹ thuật nội bộ, không phải tác nhân bên ngoài ranh giới hệ thống. Bảng trên đã bao quát trọn vẹn từ các bên liên quan quản trị dự án học thuật đến các tác nhân tương tác trực tiếp theo chuẩn UML.
+Bảng trên liệt kê các bên liên quan, bao gồm các tác nhân trực tiếp tương tác với hệ thống và các bên liên quan về quản trị, học thuật.
 
 <a id="3.1.1-sơ-đồ-bối-cảnh"></a>
 
@@ -239,7 +237,7 @@ Các chỉ tiêu hiệu năng và chất lượng cần được đánh giá b�
 
 **Hình 3.1  Ranh giới hệ thống và các tác nhân bên ngoài**
 
-Sơ đồ bối cảnh thể hiện phạm vi P0. Dịch vụ Email phục vụ đặt lại mật khẩu thuộc P1 nên chưa được thể hiện trong hình; tương tác này được mô tả tại UC-16 và sơ đồ Use Case Module Định danh và phân quyền. Worker, cơ sở dữ liệu và private storage là các thành phần nội bộ của hệ thống.
+Sơ đồ thể hiện các tác nhân tương tác với Clarune trong phạm vi P0. Dịch vụ Email phục vụ đặt lại mật khẩu thuộc P1 nên không xuất hiện; tương tác này được mô tả tại UC-16 và sơ đồ module Định danh và phân quyền. Worker, PostgreSQL/pgvector và private storage là các thành phần nội bộ, không được biểu diễn thành tác nhân bên ngoài.
 
 <a id="3.2-danh-sách-yêu-cầu"></a>
 
@@ -296,7 +294,7 @@ Các chức năng được nhóm theo nghiệp vụ. Những chức năng ghi �
 |  | Kiểm duyệt và gửi phản hồi | FR–AI–07 | \- Nhân viên phụ trách hoặc quản trị viên đọc bản nháp, đối chiếu nguồn và chỉnh sửa khi cần trước khi chủ động gửi. \- Gợi ý AI không tự gửi cho khách hàng. Chỉ nội dung đã được người có quyền duyệt và chọn gửi mới trở thành tin nhắn công khai. |
 |  | Lưu lịch sử gợi ý | FR–AI–08 | \- Hệ thống lưu người yêu cầu, yêu cầu hỗ trợ liên quan, mô hình AI sử dụng, thời điểm tạo, nội dung gợi ý, trạng thái xử lý và các nguồn trích dẫn. \- Lịch sử cho phép đối chiếu yêu cầu tạo gợi ý với kết quả và nguồn đã sử dụng; không lưu khóa truy cập dịch vụ AI. |
 |  | Giới hạn và xử lý sự cố | FR–AI–09 | \- Hệ thống giới hạn số lần yêu cầu tạo gợi ý và thời gian chờ dịch vụ AI. \- Khi dịch vụ AI gặp lỗi, hết hạn mức hoặc phản hồi quá chậm, hệ thống thông báo rõ tình trạng. Các chức năng tạo, xử lý và trả lời yêu cầu hỗ trợ vẫn hoạt động bình thường. |
-|  | Đánh giá gợi ý (mở rộng) | FR–AI–10 | \- Nhân viên đang được phân công ticket đánh giá gợi ý AI là Hữu ích hoặc Không hữu ích trong giai đoạn mở rộng (P1). Chỉ cho phép đánh giá gợi ý ở trạng thái GENERATED hoặc APPLIED. Mỗi cặp nhân viên-gợi ý chỉ có một đánh giá hiện hành; nhân viên có thể thay đổi lựa chọn của chính mình. Việc đánh giá không gửi phản hồi, thay đổi ticket hoặc trạng thái gợi ý. |
+|  | Đánh giá gợi ý (mở rộng) | FR–AI–10 | \- Nhân viên đang được phân công ticket đánh giá gợi ý AI là Hữu ích hoặc Không hữu ích trong giai đoạn mở rộng (P1). Chỉ cho phép đánh giá gợi ý ở trạng thái GENERATED hoặc APPLIED. \- Mỗi cặp nhân viên-gợi ý chỉ có một đánh giá hiện hành; nhân viên có thể thay đổi lựa chọn của chính mình. Việc đánh giá không gửi phản hồi, thay đổi ticket hoặc trạng thái gợi ý. |
 
 <a id="3.2.2-đặc-tả-yêu-cầu-phi-chức-năng"></a>
 

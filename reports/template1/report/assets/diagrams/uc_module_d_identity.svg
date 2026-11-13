@@ -1,46 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="760" viewBox="0 0 1320 760" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="714" viewBox="0 0 1800 714" role="img" aria-labelledby="title">
 <title id="title">Clarune — Định danh và phân quyền</title>
 <defs><marker id="generalization" viewBox="0 0 14 14" markerWidth="14" markerHeight="14" refX="13" refY="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 1 L13 7 L1 13 Z" fill="white" stroke="#111" stroke-width="1.5"/></marker><marker id="arrow" viewBox="0 0 10 10" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#111" stroke-width="1.5"/></marker></defs>
 <rect width="100%" height="100%" fill="white"/>
 <g style="font-family:Arial,sans-serif;font-size:16px;fill:#111">
-<rect x="380.0" y="25" width="560" height="710" fill="white" stroke="#111" stroke-width="1.7"/>
-<text x="660.0" y="53" text-anchor="middle" font-weight="bold">Clarune — Định danh và phân quyền</text>
-<polyline points="1150.0,147 1295,147 1295,748 25,748 25,579 170.0,579 170.0,603" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round" marker-end="url(#generalization)"/>
-<polyline points="194.0,101 380.0,101 380.0,133.0 420.0,133.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
-<polyline points="194.0,101 380.0,101 380.0,245.0 420.0,245.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
-<polyline points="194.0,637 348.0,637 348.0,357.0 420.0,357.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
-<polyline points="194.0,637 348.0,637 348.0,469.0 420.0,469.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
-<polyline points="1126.0,101 940.0,101 940.0,581.0 900.0,581.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
-<polyline points="900.0,245.0 972.0,245.0 972.0,637 1126.0,637" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
-<ellipse cx="660.0" cy="133.0" rx="240.0" ry="43.0" fill="white" stroke="#111" stroke-width="1.7"/>
-<text x="660.0" y="127.0" text-anchor="middle" font-weight="bold">UC-01</text>
-<text x="660.0" y="149.0" text-anchor="middle">Đăng ký và đăng nhập hệ thống</text>
-<ellipse cx="660.0" cy="245.0" rx="240.0" ry="43.0" fill="white" stroke="#111" stroke-width="1.7"/>
-<text x="660.0" y="239.0" text-anchor="middle" font-weight="bold">UC-16</text>
-<text x="660.0" y="261.0" text-anchor="middle">Đặt lại mật khẩu (P1)</text>
-<ellipse cx="660.0" cy="357.0" rx="240.0" ry="43.0" fill="white" stroke="#111" stroke-width="1.7"/>
-<text x="660.0" y="351.0" text-anchor="middle" font-weight="bold">UC-02</text>
-<text x="660.0" y="373.0" text-anchor="middle">Làm mới phiên và đăng xuất</text>
-<ellipse cx="660.0" cy="469.0" rx="240.0" ry="43.0" fill="white" stroke="#111" stroke-width="1.7"/>
-<text x="660.0" y="463.0" text-anchor="middle" font-weight="bold">UC-03</text>
-<text x="660.0" y="485.0" text-anchor="middle">Xem và cập nhật hồ sơ cá nhân</text>
-<ellipse cx="660.0" cy="581.0" rx="240.0" ry="43.0" fill="white" stroke="#111" stroke-width="1.7"/>
-<text x="660.0" y="575.0" text-anchor="middle" font-weight="bold">UC-04</text>
-<text x="660.0" y="597.0" text-anchor="middle">Quản lý tài khoản Agent</text>
-<circle cx="170.0" cy="78" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
-<path d="M170.0 89 V122 M147.0 101 H193.0 M170.0 122 L148.0 147 M170.0 122 L192.0 147" fill="none" stroke="#111" stroke-width="1.7"/>
-<text x="170.0" y="173" text-anchor="middle">Guest / Unauthenticated User</text>
-<text x="170.0" y="195" text-anchor="middle">(Người dùng chưa xác thực)</text>
-<circle cx="170.0" cy="614" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
-<path d="M170.0 625 V658 M147.0 637 H193.0 M170.0 658 L148.0 683 M170.0 658 L192.0 683" fill="none" stroke="#111" stroke-width="1.7"/>
-<text x="170.0" y="709" text-anchor="middle">Authenticated User</text>
-<text x="170.0" y="731" text-anchor="middle">(Người dùng đã xác thực)</text>
-<circle cx="1150.0" cy="78" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
-<path d="M1150.0 89 V122 M1127.0 101 H1173.0 M1150.0 122 L1128.0 147 M1150.0 122 L1172.0 147" fill="none" stroke="#111" stroke-width="1.7"/>
-<text x="1150.0" y="173" text-anchor="middle">System Administrator</text>
-<text x="1150.0" y="195" text-anchor="middle">(Quản trị viên hệ thống)</text>
-<circle cx="1150.0" cy="614" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
-<path d="M1150.0 625 V658 M1127.0 637 H1173.0 M1150.0 658 L1128.0 683 M1150.0 658 L1172.0 683" fill="none" stroke="#111" stroke-width="1.7"/>
-<text x="1150.0" y="709" text-anchor="middle">«system»</text>
-<text x="1150.0" y="731" text-anchor="middle">Mail Service (P1)</text>
+<rect x="800" y="25" width="560" height="664" fill="white" stroke="#111" stroke-width="1.7"/>
+<text x="1080.0" y="53" text-anchor="middle" font-weight="bold">Clarune — Định danh và phân quyền</text>
+<polyline data-source="actor-admin" data-target="actor-auth" points="670.0,502 670.0,420 410.0,420 410.0,332" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round" marker-end="url(#generalization)"/>
+<polyline data-source="actor-guest" data-target="uc-01" points="694.0,101 840.0,133.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-guest" data-target="uc-16" points="694.0,101 840.0,245.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-auth" data-target="uc-02" points="434.0,286 840.0,357.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-auth" data-target="uc-03" points="434.0,286 840.0,469.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-admin" data-target="uc-04" points="694.0,536 840.0,581.0" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="uc-16" data-target="actor-mail" points="1320.0,245.0 1516.0,245" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round"/>
+<polyline data-source="actor-customer" data-target="actor-auth" points="150.0,502 150.0,420 410.0,420 410.0,332" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round" marker-end="url(#generalization)"/>
+<polyline data-source="actor-agent" data-target="actor-auth" points="410.0,502 410.0,420 410.0,332" fill="none" stroke="#111" stroke-width="1.45" stroke-linejoin="round" marker-end="url(#generalization)"/>
+<ellipse cx="1080.0" cy="133.0" rx="240.0" ry="43.0" fill="white" stroke="#111" stroke-width="1.7"/>
+<text x="1080.0" y="127.0" text-anchor="middle" font-weight="bold">UC-01</text>
+<text x="1080.0" y="149.0" text-anchor="middle">Đăng ký và đăng nhập hệ thống</text>
+<ellipse cx="1080.0" cy="245.0" rx="240.0" ry="43.0" fill="white" stroke="#111" stroke-width="1.7"/>
+<text x="1080.0" y="239.0" text-anchor="middle" font-weight="bold">UC-16 (P1)</text>
+<text x="1080.0" y="261.0" text-anchor="middle">Đặt lại mật khẩu</text>
+<ellipse cx="1080.0" cy="357.0" rx="240.0" ry="43.0" fill="white" stroke="#111" stroke-width="1.7"/>
+<text x="1080.0" y="351.0" text-anchor="middle" font-weight="bold">UC-02</text>
+<text x="1080.0" y="373.0" text-anchor="middle">Làm mới phiên và đăng xuất</text>
+<ellipse cx="1080.0" cy="469.0" rx="240.0" ry="43.0" fill="white" stroke="#111" stroke-width="1.7"/>
+<text x="1080.0" y="463.0" text-anchor="middle" font-weight="bold">UC-03</text>
+<text x="1080.0" y="485.0" text-anchor="middle">Xem và cập nhật hồ sơ cá nhân</text>
+<ellipse cx="1080.0" cy="581.0" rx="240.0" ry="43.0" fill="white" stroke="#111" stroke-width="1.7"/>
+<text x="1080.0" y="575.0" text-anchor="middle" font-weight="bold">UC-04</text>
+<text x="1080.0" y="597.0" text-anchor="middle">Quản lý tài khoản Agent</text>
+<circle cx="670.0" cy="78" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
+<path d="M670.0 89 V122 M647.0 101 H693.0 M670.0 122 L648.0 147 M670.0 122 L692.0 147" fill="none" stroke="#111" stroke-width="1.7"/>
+<text x="682.0" y="173" text-anchor="end">Guest / Unauthenticated User</text>
+<text x="682.0" y="195" text-anchor="end">(Người dùng chưa xác thực)</text>
+<circle cx="410.0" cy="263" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
+<path d="M410.0 274 V307 M387.0 286 H433.0 M410.0 307 L388.0 332 M410.0 307 L432.0 332" fill="none" stroke="#111" stroke-width="1.7"/>
+<text x="410.0" y="210" text-anchor="middle">Authenticated User</text>
+<text x="410.0" y="232" text-anchor="middle">(Người dùng đã xác thực)</text>
+<circle cx="150.0" cy="513" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
+<path d="M150.0 524 V557 M127.0 536 H173.0 M150.0 557 L128.0 582 M150.0 557 L172.0 582" fill="none" stroke="#111" stroke-width="1.7"/>
+<text x="162.0" y="608" text-anchor="end">Customer</text>
+<text x="162.0" y="630" text-anchor="end">(Khách hàng)</text>
+<circle cx="410.0" cy="513" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
+<path d="M410.0 524 V557 M387.0 536 H433.0 M410.0 557 L388.0 582 M410.0 557 L432.0 582" fill="none" stroke="#111" stroke-width="1.7"/>
+<text x="422.0" y="608" text-anchor="end">Support Agent</text>
+<text x="422.0" y="630" text-anchor="end">(Nhân viên hỗ trợ)</text>
+<circle cx="670.0" cy="513" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
+<path d="M670.0 524 V557 M647.0 536 H693.0 M670.0 557 L648.0 582 M670.0 557 L692.0 582" fill="none" stroke="#111" stroke-width="1.7"/>
+<text x="682.0" y="608" text-anchor="end">System Administrator</text>
+<text x="682.0" y="630" text-anchor="end">(Quản trị viên hệ thống)</text>
+<circle cx="1540.0" cy="222" r="11" fill="white" stroke="#111" stroke-width="1.7"/>
+<path d="M1540.0 233 V266 M1517.0 245 H1563.0 M1540.0 266 L1518.0 291 M1540.0 266 L1562.0 291" fill="none" stroke="#111" stroke-width="1.7"/>
+<text x="1528.0" y="317" text-anchor="start">«system»</text>
+<text x="1528.0" y="339" text-anchor="start">External Mail Service Provider</text>
 </g></svg>

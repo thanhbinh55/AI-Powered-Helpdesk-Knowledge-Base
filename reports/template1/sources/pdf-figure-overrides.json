@@ -1,0 +1,56 @@
+{
+  "pdf": "reports/template1/report/Report.pdf",
+  "pdf_sha256": "152ce6ca368ff560abef6a405d94d7ee6306667119ec0d7c1c2da3274af16913",
+  "files": {
+    "62-9092.png": {
+      "source": "reports/template1/sources/pdf-assets/62-9092.png",
+      "page": 58,
+      "xref": 227,
+      "sha256": "532c45045d87c751e59481d6dfc685dd1cfb9f120bec182439ec4ee2f179adbc",
+      "dimensions": [
+        1462,
+        894
+      ]
+    },
+    "62-9094.png": {
+      "source": "reports/template1/sources/pdf-assets/62-9094.png",
+      "page": 59,
+      "xref": 230,
+      "sha256": "ae7fd381a64ab59089cdb2a1a5bea5f05d9cbc4c316e0fd9b790ce453eadbd49",
+      "dimensions": [
+        1462,
+        894
+      ]
+    },
+    "62-9240.png": {
+      "source": "reports/template1/sources/pdf-assets/62-9240.png",
+      "page": 60,
+      "xref": 233,
+      "sha256": "f2d80f882021c2d40475c76d26cc2ed27f2acb8795803708064db41241090322",
+      "dimensions": [
+        1462,
+        894
+      ]
+    },
+    "62-9241.png": {
+      "source": "reports/template1/sources/pdf-assets/62-9241.png",
+      "page": 61,
+      "xref": 236,
+      "sha256": "a65e6ed0a827b729bcade0a315322659a764899cb8a4525b83ebba5ee4620f0a",
+      "dimensions": [
+        1462,
+        894
+      ]
+    },
+    "62-9783.png": {
+      "source": "reports/template1/sources/pdf-assets/62-9783.png",
+      "page": 62,
+      "xref": 239,
+      "sha256": "46734b386b21a60d5f899d5b2e771bc2fd093542b9d3a729e9037122d9b79034",
+      "dimensions": [
+        1462,
+        894
+      ]
+    }
+  }
+}

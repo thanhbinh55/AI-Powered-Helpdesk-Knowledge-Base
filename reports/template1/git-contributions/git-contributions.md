@@ -5,9 +5,9 @@
 > **Kho lưu trữ:** https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base
 > **Thời điểm chốt dữ liệu:** 2026-11-12T14:01:19+07:00
 
-## Phạm vi và nguồn đối chiếu
+## Phạm vi thống kê
 
-Thống kê lịch sử của giai đoạn Template 1 từ 03/11/2026 đến thời điểm chốt dữ liệu, gồm chuẩn bị yêu cầu, prototype và bản Markdown đã đẩy lên remote. Hợp các commit từ những nhánh dưới đây theo SHA, mỗi commit chỉ tính một lần. Loại commit lưu trữ Template 0. Bao gồm các commit đóng gói trên merge-template1 đã có tại thời điểm chốt; các commit phát sinh sau thời điểm này không nằm trong snapshot. Giữ nguyên tên tác giả, thông điệp và thời gian đã ghi trong Git.
+Báo cáo ghi nhận lịch sử Git của giai đoạn Template 1 từ 03/11/2026 đến thời điểm chốt dữ liệu, gồm phân tích yêu cầu, đặc tả Use Case, prototype và hoàn thiện bản nộp. Mỗi commit được tính một lần theo SHA; các commit lưu trữ Template 0 không thuộc phạm vi thống kê. Tác giả, thông điệp và thời gian được lấy từ lịch sử Git; thời gian hiển thị theo UTC+7.
 
 | Nhánh nguồn | SHA tại thời điểm chốt |
 | --- | --- |
@@ -18,7 +18,7 @@ Thống kê lịch sử của giai đoạn Template 1 từ 03/11/2026 đến th�
 | `origin/docs/t1-ticket-giaphuc` | [3eb41819e02bb184a821bf1d22d7292fd65b0c02](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/3eb41819e02bb184a821bf1d22d7292fd65b0c02) |
 | `origin/merge-template1` | [d531633e09bf2309f6ec044ab3f0f0698143f857](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/d531633e09bf2309f6ec044ab3f0f0698143f857) |
 
-Các nhóm có từ 5 tệp thay đổi được gom theo thư mục kèm số lượng để báo cáo gọn hơn; danh sách từng tệp vẫn được giữ đầy đủ trong snapshot. Chỉ số commit phản ánh lịch sử Git, không tương đương phần trăm công sức hay xác nhận đã hoàn thành nhiệm vụ. Commit trên nhánh chưa merge vẫn được ghi nhận và đánh dấu nguồn. Metadata/đường dẫn đầy đủ được giữ tại `../sources/git-snapshot.json`. Đối chiếu tác giả bằng tên GitHub hoặc email Git/Jira đã khai báo trong members.csv; Gia Phúc dùng tác giả PC với email phgphuc0609@gmail.com, trùng email Jira đã khai báo.
+Danh sách thay đổi được nhóm theo thư mục khi có từ 5 tệp, kèm số lượng tệp. Commit được xác định theo tài khoản hoặc email của thành viên; tác giả Git `PC` với email `phgphuc0609@gmail.com` được ghi nhận cho Phan Gia Phúc.
 
 ## Bảng tổng hợp
 

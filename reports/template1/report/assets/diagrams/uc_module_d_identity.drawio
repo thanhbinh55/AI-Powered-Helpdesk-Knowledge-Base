@@ -1,96 +1,96 @@
 <?xml version='1.0' encoding='utf-8'?>
 <mxfile host="app.diagrams.net" type="device" version="24.0.0">
   <diagram id="uc_module_d_identity" name="Clarune — Định danh và phân quyền">
-    <mxGraphModel grid="1" gridSize="10" page="1" pageScale="1" pageWidth="1320" pageHeight="760">
+    <mxGraphModel grid="1" gridSize="10" page="1" pageScale="1" pageWidth="1800" pageHeight="714">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="system" value="Clarune — Định danh và phân quyền" style="shape=rect;verticalAlign=top;spacingTop=12;fontStyle=1;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
-          <mxGeometry x="380.0" y="25" width="560" height="710" as="geometry" />
+          <mxGeometry x="800" y="25" width="560" height="664" as="geometry" />
         </mxCell>
         <mxCell id="uc-01" value="UC-01&lt;br&gt;Đăng ký và đăng nhập hệ thống" style="ellipse;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
-          <mxGeometry x="420.0" y="90" width="480" height="86" as="geometry" />
+          <mxGeometry x="840" y="90" width="480" height="86" as="geometry" />
         </mxCell>
-        <mxCell id="uc-16" value="UC-16&lt;br&gt;Đặt lại mật khẩu (P1)" style="ellipse;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
-          <mxGeometry x="420.0" y="202" width="480" height="86" as="geometry" />
+        <mxCell id="uc-16" value="UC-16 (P1)&lt;br&gt;Đặt lại mật khẩu" style="ellipse;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="840" y="202" width="480" height="86" as="geometry" />
         </mxCell>
         <mxCell id="uc-02" value="UC-02&lt;br&gt;Làm mới phiên và đăng xuất" style="ellipse;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
-          <mxGeometry x="420.0" y="314" width="480" height="86" as="geometry" />
+          <mxGeometry x="840" y="314" width="480" height="86" as="geometry" />
         </mxCell>
         <mxCell id="uc-03" value="UC-03&lt;br&gt;Xem và cập nhật hồ sơ cá nhân" style="ellipse;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
-          <mxGeometry x="420.0" y="426" width="480" height="86" as="geometry" />
+          <mxGeometry x="840" y="426" width="480" height="86" as="geometry" />
         </mxCell>
         <mxCell id="uc-04" value="UC-04&lt;br&gt;Quản lý tài khoản Agent" style="ellipse;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
-          <mxGeometry x="420.0" y="538" width="480" height="86" as="geometry" />
+          <mxGeometry x="840" y="538" width="480" height="86" as="geometry" />
         </mxCell>
-        <mxCell id="actor-guest" value="Guest / Unauthenticated User&lt;br&gt;(Người dùng chưa xác thực)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
-          <mxGeometry x="55" y="65" width="230" height="82" as="geometry" />
+        <mxCell id="actor-guest" value="Guest / Unauthenticated User&lt;br&gt;(Người dùng chưa xác thực)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;align=center;labelWidth=230;spacingTop=14;labelPosition=left;align=right;spacingRight=-35;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="647.0" y="65" width="46" height="82" as="geometry" />
         </mxCell>
-        <mxCell id="actor-auth" value="Authenticated User&lt;br&gt;(Người dùng đã xác thực)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
-          <mxGeometry x="55" y="601" width="230" height="82" as="geometry" />
+        <mxCell id="actor-auth" value="Authenticated User&lt;br&gt;(Người dùng đã xác thực)" style="shape=umlActor;verticalLabelPosition=top;verticalAlign=bottom;labelPosition=center;align=center;labelWidth=230;spacingBottom=18;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="387.0" y="250" width="46" height="82" as="geometry" />
         </mxCell>
-        <mxCell id="actor-admin" value="System Administrator&lt;br&gt;(Quản trị viên hệ thống)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
-          <mxGeometry x="1035" y="65" width="230" height="82" as="geometry" />
+        <mxCell id="actor-customer" value="Customer&lt;br&gt;(Khách hàng)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;align=center;labelWidth=230;spacingTop=14;labelPosition=left;align=right;spacingRight=-35;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="127.0" y="500" width="46" height="82" as="geometry" />
         </mxCell>
-        <mxCell id="actor-mail" value="«system»&lt;br&gt;Mail Service (P1)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
-          <mxGeometry x="1035" y="601" width="230" height="82" as="geometry" />
+        <mxCell id="actor-agent" value="Support Agent&lt;br&gt;(Nhân viên hỗ trợ)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;align=center;labelWidth=230;spacingTop=14;labelPosition=left;align=right;spacingRight=-35;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="387.0" y="500" width="46" height="82" as="geometry" />
         </mxCell>
-        <mxCell id="edge-0" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=block;endFill=0;endSize=14;" edge="1" parent="1" source="actor-admin" target="actor-auth">
+        <mxCell id="actor-admin" value="System Administrator&lt;br&gt;(Quản trị viên hệ thống)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;align=center;labelWidth=230;spacingTop=14;labelPosition=left;align=right;spacingRight=-35;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="647.0" y="500" width="46" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-mail" value="«system»&lt;br&gt;External Mail Service Provider" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;align=center;labelWidth=230;spacingTop=14;labelPosition=right;align=left;spacingLeft=-35;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#111111;fontColor=#111111;strokeWidth=1.7;fontSize=16;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1517.0" y="209" width="46" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-0" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;jumpStyle=none;exitX=0.5;exitY=0.024390243902439025;exitPerimeter=0;entryX=0.5;entryY=1.0;entryPerimeter=0;endArrow=block;endFill=0;endSize=14;" edge="1" parent="1" source="actor-admin" target="actor-auth">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="1295" y="147" />
-              <mxPoint x="1295" y="748" />
-              <mxPoint x="25" y="748" />
-              <mxPoint x="25" y="579" />
-              <mxPoint x="170.0" y="579" />
+              <mxPoint x="670.0" y="420" />
+              <mxPoint x="410.0" y="420" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-1" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-guest" target="uc-01">
+        <mxCell id="edge-1" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;jumpStyle=none;exitX=1.0217391304347827;exitY=0.43902439024390244;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;endArrow=none;" edge="1" parent="1" source="actor-guest" target="uc-01">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-2" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;jumpStyle=none;exitX=1.0217391304347827;exitY=0.43902439024390244;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;endArrow=none;" edge="1" parent="1" source="actor-guest" target="uc-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-3" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;jumpStyle=none;exitX=1.0217391304347827;exitY=0.43902439024390244;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;endArrow=none;" edge="1" parent="1" source="actor-auth" target="uc-02">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-4" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;jumpStyle=none;exitX=1.0217391304347827;exitY=0.43902439024390244;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;endArrow=none;" edge="1" parent="1" source="actor-auth" target="uc-03">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-5" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;jumpStyle=none;exitX=1.0217391304347827;exitY=0.43902439024390244;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;endArrow=none;" edge="1" parent="1" source="actor-admin" target="uc-04">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-6" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;jumpStyle=none;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=-0.021739130434782608;entryY=0.43902439024390244;entryPerimeter=0;endArrow=none;" edge="1" parent="1" source="uc-16" target="actor-mail">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-7" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;jumpStyle=none;exitX=0.5;exitY=0.024390243902439025;exitPerimeter=0;entryX=0.5;entryY=1.0;entryPerimeter=0;endArrow=block;endFill=0;endSize=14;" edge="1" parent="1" source="actor-customer" target="actor-auth">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="380.0" y="101" />
-              <mxPoint x="380.0" y="133.0" />
+              <mxPoint x="150.0" y="420" />
+              <mxPoint x="410.0" y="420" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-2" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-guest" target="uc-16">
+        <mxCell id="edge-8" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;jumpStyle=none;exitX=0.5;exitY=0.024390243902439025;exitPerimeter=0;entryX=0.5;entryY=1.0;entryPerimeter=0;endArrow=block;endFill=0;endSize=14;" edge="1" parent="1" source="actor-agent" target="actor-auth">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="380.0" y="101" />
-              <mxPoint x="380.0" y="245.0" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="edge-3" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-auth" target="uc-02">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="348.0" y="637" />
-              <mxPoint x="348.0" y="357.0" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="edge-4" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-auth" target="uc-03">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="348.0" y="637" />
-              <mxPoint x="348.0" y="469.0" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="edge-5" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="actor-admin" target="uc-04">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="940.0" y="101" />
-              <mxPoint x="940.0" y="581.0" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="edge-6" value="" style="edgeStyle=none;html=1;strokeColor=#111111;strokeWidth=1.45;endArrow=none;" edge="1" parent="1" source="uc-16" target="actor-mail">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="972.0" y="245.0" />
-              <mxPoint x="972.0" y="637" />
+              <mxPoint x="410.0" y="420" />
             </Array>
           </mxGeometry>
         </mxCell>

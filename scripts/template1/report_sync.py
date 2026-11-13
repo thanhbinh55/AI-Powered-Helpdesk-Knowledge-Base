@@ -1,6 +1,7 @@
 """Derive the working Template 1 documents from the reviewed final report."""
 import os
 import re
+import json
 
 
 SECTION_FILES = {
@@ -36,16 +37,18 @@ def relocate_images(text, target, report_dir):
 
 def working_documents(t1, report):
     documents = {}
+    review_date=json.loads((t1/'sources/report-baseline.json').read_text())['review_date']
+    date='/'.join(reversed(review_date.split('-')))
     for relative, sections in SECTION_FILES.items():
         target = t1 / relative
         pdf = os.path.relpath(t1 / 'report/Report.pdf', target.parent)
         full = os.path.relpath(t1 / 'report/report.md', target.parent)
-        notice = (f'> Đồng bộ theo [Report.pdf]({pdf}) ngày 12/11/2026. '
+        notice = (f'> Đồng bộ theo [Report.pdf]({pdf}) ngày {date}. '
                   f'Nội dung trích từ [report.md]({full}); ảnh dùng chung với bản final.\n\n')
         content = '\n'.join(section(report, n) for n in sections)
         documents[target] = notice + relocate_images(content, target, t1 / 'report')
     target = t1 / 'TEMPLATE1_DRAFT_MASTER.md'
-    documents[target] = ('> Bản master đồng bộ theo [Report.pdf](report/Report.pdf) ngày 12/11/2026. '
+    documents[target] = (f'> Bản master đồng bộ theo [Report.pdf](report/Report.pdf) ngày {date}. '
                          'Tên tệp được giữ để các liên kết hiện có tiếp tục hoạt động. '
                          'Bản nháp trước khi chốt được lưu tại '
                          '[sources/history/template1-master-before-final-pdf.md](sources/history/template1-master-before-final-pdf.md).\n\n'

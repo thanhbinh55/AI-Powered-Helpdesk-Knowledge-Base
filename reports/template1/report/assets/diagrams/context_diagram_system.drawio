@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
 <mxfile host="app.diagrams.net" modified="2026-11-10T16:03:58Z" agent="Codex" version="24.0.0" type="device">
   <diagram id="context-diagram" name="Clarune - Context Diagram">
     <mxGraphModel dx="1160" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1160" pageHeight="700" math="0" shadow="0" background="#FFFFFF">
@@ -7,22 +8,22 @@
         <mxCell id="sys-box" value="&lt;b&gt;Clarune&lt;/b&gt;" style="html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;shape=rect;verticalAlign=middle;whiteSpace=wrap;align=center;fontSize=28;spacing=0;" vertex="1" parent="1">
           <mxGeometry x="500" y="230" width="220" height="240" as="geometry" />
         </mxCell>
-        <mxCell id="actor-guest" value="Guest" style="html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;fontSize=12;fontStyle=0;spacingTop=8;" vertex="1" parent="1">
+        <mxCell id="actor-guest" value="Guest / Unauthenticated User" style="html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;fontSize=12;fontStyle=0;spacingTop=8;" vertex="1" parent="1">
           <mxGeometry x="80" y="113.33333333333333" width="40" height="80" as="geometry" />
         </mxCell>
         <mxCell id="actor-customer" value="Customer" style="html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;fontSize=12;fontStyle=0;spacingTop=8;" vertex="1" parent="1">
           <mxGeometry x="80" y="253.33333333333334" width="40" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="actor-agent" value="Agent" style="html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;fontSize=12;fontStyle=0;spacingTop=8;" vertex="1" parent="1">
+        <mxCell id="actor-agent" value="Support Agent" style="html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;fontSize=12;fontStyle=0;spacingTop=8;" vertex="1" parent="1">
           <mxGeometry x="80" y="393.3333333333333" width="40" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="actor-admin" value="Admin" style="html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;fontSize=12;fontStyle=0;spacingTop=8;" vertex="1" parent="1">
+        <mxCell id="actor-admin" value="System Administrator" style="html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;fontSize=12;fontStyle=0;spacingTop=8;" vertex="1" parent="1">
           <mxGeometry x="80" y="533.3333333333334" width="40" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="ext-llm" value="«system»&lt;br&gt;Embedding hoặc LLM&lt;br&gt;Provider" style="html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;fontSize=12;fontStyle=0;spacingTop=8;" vertex="1" parent="1">
+        <mxCell id="ext-llm" value="«system»&lt;br&gt;Embedding / LLM&lt;br&gt;Provider" style="html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;fontSize=12;fontStyle=0;spacingTop=8;" vertex="1" parent="1">
           <mxGeometry x="1010" y="323.3333333333333" width="40" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="e1" value="Đăng ký, đăng nhập&lt;br&gt;Yêu cầu đặt lại mật khẩu" style="html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;edgeStyle=none;rounded=0;startArrow=none;endArrow=none;fontSize=12;align=center;verticalAlign=middle;labelBackgroundColor=#FFFFFF;spacing=0;exitX=1;exitY=0.3333333333333333;exitDx=12;exitPerimeter=0;entryX=0;entryY=0.1875;entryDx=0;entryPerimeter=0;" edge="1" parent="1" source="actor-guest" target="sys-box">
+        <mxCell id="e1" value="Đăng ký, đăng nhập" style="html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;edgeStyle=none;rounded=0;startArrow=none;endArrow=none;fontSize=12;align=center;verticalAlign=middle;labelBackgroundColor=#FFFFFF;spacing=0;exitX=1;exitY=0.3333333333333333;exitDx=12;exitPerimeter=0;entryX=0;entryY=0.1875;entryDx=0;entryPerimeter=0;" edge="1" parent="1" source="actor-guest" target="sys-box">
           <mxGeometry relative="1" as="geometry" x="-0.38532529672659155" y="0">
             <Array as="points">
               <mxPoint x="400" y="140" />
@@ -46,7 +47,7 @@
             <mxPoint x="0" y="-30" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="e4" value="Quản lý nhân viên, yêu cầu và tri thức&lt;br&gt;Xem thống kê" style="html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;edgeStyle=none;rounded=0;startArrow=none;endArrow=none;fontSize=12;align=center;verticalAlign=middle;labelBackgroundColor=#FFFFFF;spacing=0;exitX=1;exitY=0.3333333333333333;exitDx=12;exitPerimeter=0;entryX=0;entryY=0.8125;entryDx=0;entryPerimeter=0;" edge="1" parent="1" source="actor-admin" target="sys-box">
+        <mxCell id="e4" value="Quản lý nhân viên, yêu cầu và tri thức" style="html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontColor=#000000;shadow=0;edgeStyle=none;rounded=0;startArrow=none;endArrow=none;fontSize=12;align=center;verticalAlign=middle;labelBackgroundColor=#FFFFFF;spacing=0;exitX=1;exitY=0.3333333333333333;exitDx=12;exitPerimeter=0;entryX=0;entryY=0.8125;entryDx=0;entryPerimeter=0;" edge="1" parent="1" source="actor-admin" target="sys-box">
           <mxGeometry relative="1" as="geometry" x="-0.38532529672659155" y="0">
             <Array as="points">
               <mxPoint x="400" y="560" />

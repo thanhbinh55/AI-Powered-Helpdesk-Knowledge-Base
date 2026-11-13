@@ -152,5 +152,12 @@
     "source_id": "T1-PACK-01",
     "report_id": "T1-22",
     "source": "Phiên đóng gói trong cuộc hội thoại"
+  },
+  {
+    "author": "Ngô Viết Thanh Bình",
+    "mssv": "24120269",
+    "source_id": "T1-FINAL-01",
+    "report_id": "T1-23",
+    "source": "Phiên hiệu chỉnh và hoàn thiện bản nộp trong cuộc hội thoại ngày 13/11/2026"
   }
 ]

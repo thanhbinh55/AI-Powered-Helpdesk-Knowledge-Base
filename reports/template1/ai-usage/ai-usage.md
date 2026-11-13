@@ -412,7 +412,7 @@
 
 | STT | Thời gian | Thành viên (MSSV) | Công cụ & Nền tảng | Nội dung công việc trong Template 1 | Nội dung AI tạo & Con người tự kiểm chứng | Minh chứng / Commit |
 | :---: | :---: | :--- | :--- | :--- | :--- | :---: |
-| **T1-22** | 12/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Codex, OpenAI | Tổng hợp và chỉnh định dạng gói nộp Template 1 | Đóng gói report, assets, nhật ký AI và lịch sử Git; đối chiếu nội dung, hình ảnh và bố cục HTML bằng công cụ | `report/report.md`; `report/assets/manifest.json`; `git-contributions/git-contributions.md`; nhánh `merge-template1` |
+| **T1-22** | 12/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Codex, OpenAI | Tổng hợp và chỉnh định dạng gói nộp Template 1 | Đóng gói report, assets, nhật ký AI và lịch sử Git; đối chiếu nội dung, hình ảnh và bố cục HTML bằng công cụ | `report/report.md`; `git-contributions/git-contributions.md`; nhánh `merge-template1` |
 
 #### Phiên T1-22: Tổng hợp gói nộp Template 1
 
@@ -422,7 +422,25 @@
 - **Prompt đã khử dữ liệu nhạy cảm:** Tổng hợp bản Markdown final, thay hình nhúng mờ bằng assets đúng mã, điều chỉnh sơ đồ theo bản final, tổng hợp Git contributions và AI usage như Template 0, giữ nguyên nội dung gốc và làm trên nhánh `merge-template1`.
 - **Nội dung AI tạo / áp dụng:** Công cụ đóng gói, ánh xạ 37 hình, 5 sơ đồ Use Case vector cùng nguồn drawio, tích hợp nguyên bản sơ đồ bối cảnh của Lãm, bản Markdown và HTML của nhật ký AI và đóng góp Git. Chuẩn hóa mã phiên và định dạng theo yêu cầu của trưởng nhóm.
 - **Kiểm chứng bằng công cụ:** Đối chiếu toàn bộ chữ của report và 19 bảng Use Case với nguồn; kiểm tra mã ảnh, SHA commit, đường dẫn assets, mã phiên trong bảng/chi tiết và bố cục HTML qua trình duyệt.
-- **Minh chứng:** `report/report.md`, `report/assets/manifest.json`, `verification.json`, `browser-validation.json`, nhánh `merge-template1`; task `T1-PUB-01` / `SCRUM-41` và `T1-SUBMIT-01` / `SCRUM-52`.
+- **Minh chứng:** `report/report.md`, `git-contributions/git-contributions.md`, nhánh `merge-template1`; task `T1-PUB-01` / `SCRUM-41` và `T1-SUBMIT-01` / `SCRUM-52`.
+
+---
+
+### 2.6 Ngô Viết Thanh Bình — Hoàn thiện bản nộp
+
+| STT | Thời gian | Thành viên (MSSV) | Công cụ & Nền tảng | Nội dung công việc trong Template 1 | Nội dung AI tạo & Con người tự kiểm chứng | Minh chứng / Commit |
+| :---: | :---: | :--- | :--- | :--- | :--- | :---: |
+| **T1-23** | 13/11/2026 | Ngô Viết Thanh Bình<br>`24120269` | Codex, OpenAI | Hiệu chỉnh sơ đồ UML, đồng bộ PDF và hoàn thiện gói nộp | AI chỉnh bố cục và đường nối; đối chiếu 19 UC, 37 hình và các thay đổi trong PDF; người dùng xem hình, góp ý và yêu cầu hiệu chỉnh | `report/Report.pdf`; `report/report.md`; `ai-usage/ai-usage.md`; `git-contributions/git-contributions.md` |
+
+#### Phiên T1-23: Hiệu chỉnh sơ đồ và hoàn thiện bản nộp
+
+- **Thời gian:** 13/11/2026.
+- **Tác giả chịu trách nhiệm:** Ngô Viết Thanh Bình — `24120269`.
+- **Công cụ / Nền tảng:** Codex, OpenAI.
+- **Prompt đã khử dữ liệu nhạy cảm:** Cân đối khung sơ đồ, dùng association thẳng riêng, sửa đường giao nhau và bố trí kế thừa actor; bỏ chú thích khỏi ảnh; đồng bộ Markdown với PDF mới; rà soát bản nộp, cập nhật lịch sử Git và tạo `4.zip` gồm ba thư mục ai-usage, git-contributions và report.
+- **Nội dung AI tạo / áp dụng:** Hiệu chỉnh sáu sơ đồ SVG/drawio và ảnh PNG; đồng bộ nội dung Markdown, các mục trích và ảnh với PDF 70 trang; cập nhật nhật ký AI, lịch sử Git, HTML và công cụ đóng gói.
+- **Kiểm chứng và hiệu chỉnh:** Người dùng xem các hình, chỉ ra khoảng trống, đường giao nhau, lỗi đường kế thừa đè khung và yêu cầu chỉnh lại bố cục. Công cụ đối chiếu toàn bộ thay đổi văn bản giữa hai PDF, kiểm tra 19 bảng UC và 37 hình, thử tải ảnh/liên kết mục lục và kiểm tra bố cục HTML bằng trình duyệt.
+- **Minh chứng:** `report/Report.pdf`, `report/report.md`, các sơ đồ trong `report/assets/diagrams/` và lịch sử commit trên kho GitHub của nhóm.
 
 ---
 
