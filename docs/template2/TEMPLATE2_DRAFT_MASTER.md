@@ -5,7 +5,7 @@
 > **Lưu ý sử dụng bản nháp (Draft Master):**
 > - Tài liệu này được biên soạn theo đúng cấu trúc chuẩn của mẫu **Template 2** (đối chiếu các bài mẫu K23: *Planora*, *Katling*, *SmartSpend* và biểu mẫu `Template2-ThietKe.docx`), khớp **100%** với `Template 0`, `Template 1` ([`report.md`](../../reports/template1/report/report.md)), [`SRS-master.md`](../../reports/SRS-master.md), [`MVP_CONTRACTS.md`](../../reports/MVP_CONTRACTS.md) và thiết kế UI/UX **Figma ver3 (`node-id=111-3978`)**.
 > - **Phạm vi Domain Knowledge MVP:** Lĩnh vực **Đồ điện tử** (FAQ & Chính sách bảo hành, đổi trả, lắp đặt, hướng dẫn xử lý sự cố thiết bị điện tử).
-> - **Cách đưa vào Google Doc chung ([`Template2-ThietKe.docx`](https://docs.google.com/document/d/1VrXi7rRO8nY6pnksHw7wJgMWs6SoptZQ/edit)):** Copy từng mục vào Google Doc, thay thế các khối `[CẦN BỔ SUNG: ...]` bằng thông tin/ảnh/sơ đồ thực tế, và **xóa toàn bộ các khối `> [GÓP Ý / ĐỀ XUẤT CẢI THIỆN]` trước khi xuất bản PDF nộp bài**.
+> - **Cách đưa vào Google Doc chung ([`[SE - Nhóm 4] Template2-ThietKe-Clarune-04`](https://docs.google.com/document/d/1xI8hj6xi6dqKEPklbn9H8nXUGhvN8OpxdDhpVNPSLc8/edit?tab=t.0)):** Copy từng mục vào Google Doc, thay thế các khối `[CẦN BỔ SUNG: ...]` bằng thông tin/ảnh/sơ đồ thực tế, và **xóa toàn bộ các khối `> [GÓP Ý / ĐỀ XUẤT CẢI THIỆN]` trước khi xuất bản PDF nộp bài**.
 
 ---
 
@@ -18,7 +18,7 @@
 | **Tên đề tài (Tiếng Việt)** | Hệ thống quản lý yêu cầu hỗ trợ và tra cứu cơ sở tri thức tích hợp AI |
 | **Mã nhóm** | Nhóm **04** |
 | **Miền tri thức dữ liệu (Domain)** | Hỗ trợ khách hàng lĩnh vực **Đồ điện tử** (Electronics FAQ & Policy) |
-| **Google Doc làm việc chung** | [Template2-ThietKe.docx](https://docs.google.com/document/d/1VrXi7rRO8nY6pnksHw7wJgMWs6SoptZQ/edit) |
+| **Google Doc làm việc chung** | [[SE - Nhóm 4] Template2-ThietKe-Clarune-04](https://docs.google.com/document/d/1xI8hj6xi6dqKEPklbn9H8nXUGhvN8OpxdDhpVNPSLc8/edit?tab=t.0) |
 | **Thiết kế UI/UX chính thức** | [Figma SE — Bản ver3 (`node-id=111-3978`)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=111-3978&p=f&m=dev) |
 | **Phiên bản tài liệu** | Draft v1.0 (Ngày 20/11/2026) — Sẵn sàng hoàn thiện tới 23/11 và Review chéo ngày 24/11 |
 

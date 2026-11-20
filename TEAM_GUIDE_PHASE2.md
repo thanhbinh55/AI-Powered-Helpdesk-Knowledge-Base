@@ -3,7 +3,7 @@
 > **Cập nhật:** 20/11/2026 | **Đọc trong 3 phút để biết: Làm gì · Nộp ở đâu · Khi nào xong**
 >
 > **Liên kết bắt buộc:**
-> - **Google Doc chung Template 2 (`Template2-ThietKe.docx`):** [Mở Google Doc Template 2](https://docs.google.com/document/d/1VrXi7rRO8nY6pnksHw7wJgMWs6SoptZQ/edit)
+> - **Google Doc chung Template 2 (`[SE - Nhóm 4] Template2-ThietKe-Clarune-04`):** [Mở Google Doc Template 2](https://docs.google.com/document/d/1xI8hj6xi6dqKEPklbn9H8nXUGhvN8OpxdDhpVNPSLc8/edit?tab=t.0)
 > - **Figma UI/UX chính thức (ver3):** [Figma SE ver3 (`node-id=111-3978`)](https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=111-3978&p=f&m=dev)
 > - **Kho bài mẫu K23 tham khảo (Planora, Katling, SmartSpend):** [Thư mục Google Drive K23](https://drive.google.com/drive/folders/1Vk7wPTVLxhoxhTLnqAhIQlQxfslToMGU)
 > - **Tài liệu gốc nhóm:** [`reports/template1/report/report.md`](reports/template1/report/report.md) · [`reports/SRS-master.md`](reports/SRS-master.md) · [`reports/MVP_CONTRACTS.md`](reports/MVP_CONTRACTS.md)
@@ -98,7 +98,7 @@ Mỗi thành viên chỉ làm việc và commit vào **đúng thư mục riêng 
 
 ### 4.1. Ngày 24/11 — Review chéo trên Google Doc chung
 * **Vòng xoay review:** **Bình $\to$ Lãm $\to$ Gia Phúc $\to$ Quý Phúc $\to$ Bình** *(Gia Phúc tổng hợp đối soát chéo toàn bài tại `SCRUM-62`)*.
-* **Thao tác:** Dùng chế độ **Suggesting / Comment** trực tiếp trên [Google Doc chung](https://docs.google.com/document/d/1VrXi7rRO8nY6pnksHw7wJgMWs6SoptZQ/edit).
+* **Thao tác:** Dùng chế độ **Suggesting / Comment** trực tiếp trên [Google Doc chung](https://docs.google.com/document/d/1xI8hj6xi6dqKEPklbn9H8nXUGhvN8OpxdDhpVNPSLc8/edit?tab=t.0).
 * **4 điểm bắt buộc kiểm tra:**
   1. **EER $\neq$ ERD:** Mục 2 là mô hình quan niệm (nghiệp vụ), không copy bảng khóa ngoại của Mục 4 sang.
   2. **Khớp Schema V1–V5:** Tên bảng, kiểu dữ liệu (`pgvector`), FK ở Mục 4 khớp 100% với SQL migrations.

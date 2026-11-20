@@ -2,7 +2,7 @@
 
 > **Tài liệu hướng dẫn chính thức & checklist phân công:** Xem chi tiết tại [`TEAM_GUIDE_PHASE2.md`](../../TEAM_GUIDE_PHASE2.md).
 >
-> - **Google Doc làm việc chung:** https://docs.google.com/document/d/1VrXi7rRO8nY6pnksHw7wJgMWs6SoptZQ/edit
+> - **Google Doc làm việc chung:** https://docs.google.com/document/d/1xI8hj6xi6dqKEPklbn9H8nXUGhvN8OpxdDhpVNPSLc8/edit?tab=t.0
 > - **Figma UI/UX ver3 (`node-id=111-3978`):** https://www.figma.com/design/Ofvm9udw9coBOxadTN4PXB/SE?node-id=111-3978&p=f&m=dev
 > - **Hạn hoàn thiện Google Doc:** `23/11` | **Review chéo:** `24/11` | **Commit GitHub:** `25/11` | **Chốt bản nộp:** `trước 26/11` *(Hạn trường: `28/11`)*.
 

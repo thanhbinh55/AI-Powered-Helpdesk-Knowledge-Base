@@ -1,7 +1,7 @@
 # Task Template 2 — Ngô Viết Thanh Bình (`24120269`)
 
 > **Luồng 1:** Thiết kế phần mềm (`Template2-ThietKe.docx`)  
-> **Google Doc chung:** https://docs.google.com/document/d/1VrXi7rRO8nY6pnksHw7wJgMWs6SoptZQ/edit  
+> **Google Doc chung:** https://docs.google.com/document/d/1xI8hj6xi6dqKEPklbn9H8nXUGhvN8OpxdDhpVNPSLc8/edit?tab=t.0  
 > **Thư mục bàn giao cá nhân:** `docs/template2/members/binh/`
 
 ## Danh mục công việc & Mốc thời gian
