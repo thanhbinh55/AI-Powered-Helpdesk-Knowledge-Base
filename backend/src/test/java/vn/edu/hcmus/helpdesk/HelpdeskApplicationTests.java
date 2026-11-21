@@ -12,3 +12,4 @@ class HelpdeskApplicationTests {
         assertTrue(true);
     }
 }
+

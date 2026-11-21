@@ -54,3 +54,4 @@ public class GlobalExceptionHandler {
         return (reqId != null && !reqId.isBlank()) ? reqId : UUID.randomUUID().toString();
     }
 }
+

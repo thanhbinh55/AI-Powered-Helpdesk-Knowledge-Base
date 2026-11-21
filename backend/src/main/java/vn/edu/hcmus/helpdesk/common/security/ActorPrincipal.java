@@ -20,3 +20,4 @@ public record ActorPrincipal(
         return role == UserRole.ADMIN;
     }
 }
+

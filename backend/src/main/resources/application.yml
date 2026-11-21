@@ -40,3 +40,4 @@ app:
     secret: ${JWT_SECRET:default_dev_jwt_secret_must_be_over_256_bits_for_hmac_sha256}
     access-token-expiration-seconds: 900 # 15 minutes (FR-ID-05)
     refresh-token-expiration-seconds: 604800 # 7 days
+

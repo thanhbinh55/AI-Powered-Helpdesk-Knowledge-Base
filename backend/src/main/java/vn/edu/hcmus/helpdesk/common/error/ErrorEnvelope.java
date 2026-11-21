@@ -24,3 +24,4 @@ public record ErrorEnvelope(ErrorBody error) {
         return new ErrorEnvelope(new ErrorBody(code, message, requestId, Instant.now(), details));
     }
 }
+

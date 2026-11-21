@@ -5,3 +5,4 @@ public record ApiResponse<T>(T data) {
         return new ApiResponse<>(data);
     }
 }
+

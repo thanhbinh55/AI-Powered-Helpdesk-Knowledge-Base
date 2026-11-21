@@ -9,3 +9,4 @@ public record PageResponse<T>(List<T> data, PageMetadata page) {
         return new PageResponse<>(data, new PageMetadata(number, size, totalElements, totalPages));
     }
 }
+

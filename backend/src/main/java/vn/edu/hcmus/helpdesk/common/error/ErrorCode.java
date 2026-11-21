@@ -13,3 +13,4 @@ public enum ErrorCode {
     SUGGESTION_NOT_APPLICABLE,
     INTERNAL_SERVER_ERROR
 }
+
