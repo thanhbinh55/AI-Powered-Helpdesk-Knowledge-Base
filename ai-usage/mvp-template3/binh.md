@@ -20,4 +20,4 @@
   - Kiểm tra tính tương thích của Java 21 và Spring Boot 3.3.5.
   - Đối chiếu cấu trúc JSON của `ErrorEnvelope` khớp 100% với mục 8 của `reports/MVP_CONTRACTS.md` (`error: {code, message, requestId, timestamp, details}`).
   - Kiểm tra `ActorPrincipal` đầy đủ thuộc tính `userId`, `email`, `role`, `enabled` theo đúng Mục 2 `MVP_CONTRACTS.md`.
-* **Minh chứng:** Commit trên nhánh `feat/backend-foundation-scrum26` (Jira: `SCRUM-26`).
+* **Minh chứng:** Commit `f561235` & `0bc6f33` trên nhánh `feat/backend-foundation-scrum26`, Pull Request [#14](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/pull/14) (Jira: `SCRUM-26`).
