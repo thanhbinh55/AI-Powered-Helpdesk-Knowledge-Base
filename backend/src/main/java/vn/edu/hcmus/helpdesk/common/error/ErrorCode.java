@@ -2,6 +2,8 @@ package vn.edu.hcmus.helpdesk.common.error;
 
 public enum ErrorCode {
     VALIDATION_FAILED,
+    MALFORMED_JSON,
+    METHOD_NOT_ALLOWED,
     UNAUTHORIZED,
     FORBIDDEN,
     ACCOUNT_DISABLED,

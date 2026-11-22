@@ -3,7 +3,9 @@ package vn.edu.hcmus.helpdesk.common.error;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.FieldError;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -36,6 +38,28 @@ public class GlobalExceptionHandler {
                 details
         );
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(envelope);
+    }
+
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<ErrorEnvelope> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpServletRequest request) {
+        String requestId = getOrCreateRequestId(request);
+        ErrorEnvelope envelope = ErrorEnvelope.of(
+                ErrorCode.MALFORMED_JSON,
+                "Định dạng JSON yêu cầu không hợp lệ hoặc thiếu body",
+                requestId
+        );
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(envelope);
+    }
+
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    public ResponseEntity<ErrorEnvelope> handleMethodNotSupported(HttpRequestMethodNotSupportedException ex, HttpServletRequest request) {
+        String requestId = getOrCreateRequestId(request);
+        ErrorEnvelope envelope = ErrorEnvelope.of(
+                ErrorCode.METHOD_NOT_ALLOWED,
+                "Phương thức HTTP " + ex.getMethod() + " không được hỗ trợ cho endpoint này",
+                requestId
+        );
+        return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).body(envelope);
     }
 
     @ExceptionHandler(Exception.class)
