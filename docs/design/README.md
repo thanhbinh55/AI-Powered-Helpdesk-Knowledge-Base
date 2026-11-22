@@ -12,7 +12,9 @@ Thiết kế giao diện Helpdesk cho ba vai trò Customer, Agent và Admin, d�
 
 | Đường dẫn | Nội dung |
 | --- | --- |
-| [man-hinh.md](man-hinh.md) | Bảng 229 frame theo module, ảnh từng màn, luồng prototype và giới hạn |
+| [man-hinh-v3.md](man-hinh-v3.md) | Bảng 105 frame Redesign v3 "Phiếu bảo hành" kèm node ID, luồng prototype, thay đổi và giới hạn |
+| [anh/v3/](anh/v3/) | Ảnh PNG từng frame v3, bảng màu và component phiếu đoạn, tên file là ID node |
+| [man-hinh.md](man-hinh.md) | Bảng 229 frame theo module (v2), ảnh từng màn, luồng prototype và giới hạn |
 | [dac-ta-inbox.md](dac-ta-inbox.md) | Đặc tả luồng, bố cục, responsive và hành vi AI; mục 7 (thị giác) đã thay bằng MASTER |
 | [figma-map.json](figma-map.json) | Manifest: ID page/frame Figma, reaction đã nối và link bị bỏ qua |
 | [anh/](anh/) | Ảnh PNG từng frame, tên file là ID node (`55-1992.png` là node `55:1992`) |

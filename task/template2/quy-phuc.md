@@ -6,7 +6,8 @@
 > **Thư mục bàn giao cá nhân:** `docs/template2/members/quy-phuc/`
 
 ## Danh mục công việc & Mốc thời gian
-- [ ] **`SCRUM-61` (`T2-UI-01`)**: Soạn Mục 5.1 Sơ đồ màn hình & Mục 5.2 Đặc tả giao diện theo Figma ver3 *(Hạn: 2026-11-23)*
+- [x] **`SCRUM-61` (`T2-UI-01`)**: Soạn Mục 5.1 Sơ đồ màn hình & Mục 5.2 Đặc tả giao diện theo Figma ver3 *(Hạn: 2026-11-23)*
+  - Đã cập nhật Google Doc chung các mục 5.1.1, 5.1.2, 5.2.4 và 5.2.6. Đã kiểm tra sơ đồ và sáu ảnh Figma trong tài liệu. [Bản bàn giao cá nhân](../../docs/template2/members/quy-phuc/05-thiet-ke-giao-dien.md).
 - [ ] **`SCRUM-62` (`T2-REVIEW-01`)**: Tham gia Review chéo trên Google Doc chung *(Hạn: 2026-11-24)*
 - [ ] **`SCRUM-55` (`QA1-T2-01`)**: Commit tài liệu/minh chứng UI ver3 lên GitHub trước khi Leader tổng hợp *(Hạn: 2026-11-25)*
 
