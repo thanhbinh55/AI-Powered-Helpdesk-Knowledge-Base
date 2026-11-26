@@ -52,18 +52,40 @@ def simple_markdown_to_html(md_text):
         return "\n".join(out)
 
     def format_inline(text):
-        # Escape html
+        # Escape html first
         text = html.escape(text)
-        # Bold
+        tokens = []
+
+        def stash(html_fragment):
+            idx = len(tokens)
+            tokens.append(html_fragment)
+            return f"\x00TOK{idx}\x00"
+
+        # 1. Extract inline code `...` BEFORE bold/italic so underscores/asterisks inside code are never stripped
+        text = re.sub(r'`([^`]+)`', lambda m: stash(f"<code>{m.group(1)}</code>"), text)
+
+        # 2. Extract markdown links [label](url) so URLs with underscores are never corrupted,
+        #    while allowing bold/italic/code inside the link label
+        def replace_link(m):
+            label, url = m.group(1), m.group(2)
+            label = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', label)
+            label = re.sub(r'__(.+?)__', r'<strong>\1</strong>', label)
+            label = re.sub(r'\*(.+?)\*', r'<em>\1</em>', label)
+            label = re.sub(r'(?<!\w)_(.+?)_(?!\w)', r'<em>\1</em>', label)
+            return stash(f'<a href="{url}" target="_blank">{label}</a>')
+
+        text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', replace_link, text)
+
+        # 3. Bold & Italic on remaining prose (use word boundary for _..._ so snake_case identifiers in prose stay intact)
         text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
         text = re.sub(r'__(.+?)__', r'<strong>\1</strong>', text)
-        # Italic
         text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
-        text = re.sub(r'_(.+?)_', r'<em>\1</em>', text)
-        # Inline code
-        text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
-        # Links [text](url)
-        text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2" target="_blank">\1</a>', text)
+        text = re.sub(r'(?<!\w)_(.+?)_(?!\w)', r'<em>\1</em>', text)
+
+        # 4. Restore stashed links and inline code
+        for idx in range(len(tokens) - 1, -1, -1):
+            text = text.replace(f"\x00TOK{idx}\x00", tokens[idx])
+
         # Restore safe inline tags
         text = text.replace("&lt;code&gt;", "<code>").replace("&lt;/code&gt;", "</code>")
         text = text.replace("&lt;br&gt;", "<br>").replace("&lt;br/&gt;", "<br>").replace("&lt;br /&gt;", "<br>")

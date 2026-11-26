@@ -40,7 +40,7 @@
   > *"Tái cấu trúc kho mã nguồn để chuẩn bị cho Giai đoạn 2 (chạy song song Thiết kế Template 2 và Code MVP P0 lĩnh vực Đồ điện tử). Thiết lập thư mục bàn giao cá nhân `docs/template2/members/<ten>/`, `task/template2/<ten>.md`, `ai-usage/template2/<ten>.md` đảm bảo 0% xung đột Git khi 4 thành viên làm việc độc lập. Soạn thảo hướng dẫn `TEAM_GUIDE_PHASE2.md` và bản khung `TEMPLATE2_DRAFT_MASTER.md` bám sát biểu mẫu `Template2-ThietKe.docx`, bài mẫu K23 (Planora, Katling, SmartSpend), `Template 1`, `SRS-master.md` và `MVP_CONTRACTS.md`."*
 * **5. Nội dung AI tạo:**
   - Cấu trúc thư mục `docs/template2/members/{binh,gia-phuc,lam,quy-phuc}/`, `task/template2/`, `ai-usage/template2/`.
-  - Tài liệu hướng dẫn điều phối [`TEAM_GUIDE_PHASE2.md`](../../TEAM_GUIDE_PHASE2.md) quy định rõ 2 luồng công việc, 6 cột mốc cứng, quy tắc đặt tên nhánh `docs/t2-<ten>` và quy chuẩn commit gắn mã Jira `SCRUM-xx`.
+  - Tài liệu hướng dẫn điều phối [`TEAM_GUIDE_PHASE2.md`](../../../TEAM_GUIDE_PHASE2.md) quy định rõ 2 luồng công việc, 6 cột mốc cứng, quy tắc đặt tên nhánh `docs/t2-<ten>` và quy chuẩn commit gắn mã Jira `SCRUM-xx`.
   - Bản khung `TEMPLATE2_DRAFT_MASTER.md` gồm 6 mục (Đánh giá thành viên, Mô hình quan niệm EER, Thiết kế kiến trúc & Class Diagram, Thiết kế dữ liệu ERD & Data Dictionary V1–V5, Thiết kế giao diện Figma ver3, Ghi chú sử dụng AI).
 * **6. Nội dung tự kiểm chứng & hiệu chỉnh:**
   - Sinh viên kiểm tra đối chiếu cấu trúc đề mục của `TEMPLATE2_DRAFT_MASTER.md` với file biểu mẫu gốc `Template2-ThietKe.docx` của môn học.
@@ -113,7 +113,7 @@
   - Sinh viên kiểm tra từng mã Use Case từ `UC-01` đến `UC-19` trên **Hình 3.1**, đối chiếu tên tiếng Việt với bảng danh mục Use Case ở `Template 1`.
   - Trên **Hình 3.2**, kiểm tra từng nhãn giao thức trên mũi tên (`HTTPS / REST`, `Public Port`, `Lease & Extract`, `JDBC SSL`, `File I/O`, `SMTP [P1]`) và bảng chú giải ở góc dưới bên trái.
 * **7. Minh chứng / Commit:**
-  - Bộ 6 tệp sơ đồ tại [`docs/template2/members/binh/diagrams/`](../../docs/template2/members/binh/diagrams/) và [`docs/template2/assets/diagrams/`](../../docs/template2/assets/diagrams/) (`SCRUM-59`).
+  - Bộ 6 tệp sơ đồ tại [`docs/template2/members/binh/diagrams/`](../../../docs/template2/members/binh/diagrams/) và [`docs/template2/assets/diagrams/`](../../../docs/template2/assets/diagrams/) (`SCRUM-59`).
 
 ---
 
@@ -165,7 +165,7 @@
 * **4. Prompt đã khử dữ liệu nhạy cảm:**
   > *"Phần Google Doc nhóm đã chốt và tôi đã tải file dạng `.md` về trong `~/Downloads/[SE - Nhóm 4] Template2-ThietKe-Clarune-04.md`. Hãy tuân thủ đúng quy định của nhóm: chuyển thể nguyên bản phần Markdown Mục 3.1 tương ứng của tôi vào `docs/template2/members/binh/03-thiet-ke-kien-truc.md` (đảm bảo chính xác 100% nội dung trong doc đã chốt), hoàn thiện chi tiết nhật ký AI usage tại `ai-usage/template2/binh.md`, cập nhật `task/template2/binh.md`, không chạm vào file của thành viên khác và tạo Pull Request lên repo."*
 * **5. Nội dung AI tạo:**
-  - Trích xuất nguyên bản 100% văn bản Mục `3.1` (`3.1.1` đến hết `3.1.7`) từ file `/Users/ngovietthanhbinh/Downloads/[SE - Nhóm 4] Template2-ThietKe-Clarune-04.md` sang [`docs/template2/members/binh/03-thiet-ke-kien-truc.md`](../../docs/template2/members/binh/03-thiet-ke-kien-truc.md) và thay thế thẻ ảnh bằng đường dẫn tương đối tới `diagrams/system-decomposition-tree.png` (**Hình 3.1**) và `diagrams/system-architecture.png` (**Hình 3.2**).
+  - Trích xuất nguyên bản 100% văn bản Mục `3.1` (`3.1.1` đến hết `3.1.7`) từ file `/Users/ngovietthanhbinh/Downloads/[SE - Nhóm 4] Template2-ThietKe-Clarune-04.md` sang [`docs/template2/members/binh/03-thiet-ke-kien-truc.md`](../../../docs/template2/members/binh/03-thiet-ke-kien-truc.md) và thay thế thẻ ảnh bằng đường dẫn tương đối tới `diagrams/system-decomposition-tree.png` (**Hình 3.1**) và `diagrams/system-architecture.png` (**Hình 3.2**).
   - Tổng hợp đầy đủ bảng tóm tắt và 8 phiên chi tiết (`T2-01` đến `T2-08`) vào `ai-usage/template2/binh.md`.
   - Khởi tạo nội dung Pull Request theo đúng mẫu `.github/PULL_REQUEST_TEMPLATE.md`.
 * **6. Nội dung tự kiểm chứng & hiệu chỉnh:**
@@ -194,7 +194,7 @@
 
 * **5. Nội dung AI tạo** Bản phác thảo EER cho Hình 2.1, gồm tệp nguồn draw.io và ảnh PNG.
 * **6. Nội dung tự kiểm chứng & hiệu chỉnh** Em dùng SRS và các tài liệu đặc tả nghiệp vụ nhóm đã thống nhất để đối chiếu tên thực thể, quan hệ và lực lượng trên ảnh PNG. Em kiểm tra phần ISA thể hiện mỗi `User` thuộc đúng một trong ba kiểu con. Các FK vật lý được trình bày ở mục thiết kế dữ liệu.
-* **7. Minh chứng / Commit** `SCRUM-58`. Commit `aeee95eb635de08158cc51535531be55fb402e4f` ghi nhận tệp nguồn và ảnh Hình 2.1. [Draw.io](../../docs/template2/assets/diagrams/conceptual-model.drawio) · [PNG](../../docs/template2/assets/diagrams/conceptual-model.png)
+* **7. Minh chứng / Commit** `SCRUM-58`. Commit `aeee95eb635de08158cc51535531be55fb402e4f` ghi nhận tệp nguồn và ảnh Hình 2.1. [Draw.io](../../../docs/template2/assets/diagrams/conceptual-model.drawio) · [PNG](../../../docs/template2/assets/diagrams/conceptual-model.png)
 
 ---
 
@@ -209,7 +209,7 @@
 
 * **5. Nội dung AI tạo** Bản draw.io và PNG cho lược đồ 10 bảng P0. Hình ghi kiểu `vector(768)` và đánh dấu liên kết được bổ sung trong V5.
 * **6. Nội dung tự kiểm chứng & hiệu chỉnh** Em xác nhận số chiều của vector nhúng trước khi đưa hình vào tài liệu và dùng Data Dictionary để đối chiếu tên cột, kiểu dữ liệu và các khóa trên hình. Em lưu ý `source_suggestion_id` cho phép `NULL`. Mỗi giá trị khác `NULL` chỉ được xuất hiện một lần.
-* **7. Minh chứng / Commit** `SCRUM-60`. Commit `aa7e99c5a5b9e5d98c0141d9ea130d7c8299e555` chứa sơ đồ nguồn và ảnh. [Draw.io](../../docs/template2/assets/diagrams/physical-erd.drawio) · [PNG](../../docs/template2/assets/diagrams/physical-erd.png)
+* **7. Minh chứng / Commit** `SCRUM-60`. Commit `aa7e99c5a5b9e5d98c0141d9ea130d7c8299e555` chứa sơ đồ nguồn và ảnh. [Draw.io](../../../docs/template2/assets/diagrams/physical-erd.drawio) · [PNG](../../../docs/template2/assets/diagrams/physical-erd.png)
 
 ---
 
@@ -254,7 +254,7 @@
 
 * **5. Nội dung AI tạo** Ba tệp Markdown và kết quả đối chiếu từng đoạn, từng ô của 17 bảng. Hai chú thích hình được giữ ở mục 2.2 và 4.1.
 * **6. Nội dung tự kiểm chứng & hiệu chỉnh** Em chọn bản Word đã chốt, xác nhận ba mục cần chuyển và duyệt tên tệp trước khi ghi. Em dựa vào kết quả đối chiếu để xem lại phần bàn giao. Khi chuyển định dạng, em giữ câu chữ theo bản Word, kể cả tên chỉ mục `idx_msg_source_suggestion_unique` ở Bảng 4.4.
-* **7. Minh chứng / Commit** Nhánh `docs/t2-lam`. Commit `aeee95e` lúc 09:21:17 (+07:00) chứa mục 1–2 (`SCRUM-58`). Commit `aa7e99c` lúc 09:24:07 (+07:00) chứa mục 4 (`SCRUM-60`). [Mục 1](../../docs/template2/members/lam/danh-gia-dong-gop-cac-thanh-vien.md) · [Mục 2](../../docs/template2/members/lam/mo-hinh-quan-niem.md) · [Mục 4](../../docs/template2/members/lam/thiet-ke-du-lieu.md)
+* **7. Minh chứng / Commit** Nhánh `docs/t2-lam`. Commit `aeee95e` lúc 09:21:17 (+07:00) chứa mục 1–2 (`SCRUM-58`). Commit `aa7e99c` lúc 09:24:07 (+07:00) chứa mục 4 (`SCRUM-60`). [Mục 1](../../../docs/template2/members/lam/danh-gia-dong-gop-cac-thanh-vien.md) · [Mục 2](../../../docs/template2/members/lam/mo-hinh-quan-niem.md) · [Mục 4](../../../docs/template2/members/lam/thiet-ke-du-lieu.md)
 
 ---
 
@@ -262,9 +262,9 @@
 
 | STT | Thời gian | Thành viên (MSSV) | Công cụ & Model | Nội dung công việc trong Template 2 | Nội dung AI tạo & Con người tự kiểm chứng | Minh chứng / Commit |
 | :---: | :---: | :--- | :--- | :--- | :--- | :--- |
-| **T2-14** | 23/11/2026. | Phan Gia Phúc (24120503). | OpenAI Codex (GPT-6). | Đối chiếu SRS và chỉnh sửa thiết kế lớp | **AI tạo:** Bảng đối chiếu theo trang và yêu cầu SRS, năm sơ đồ lớp, nội dung bổ sung thêm cho các bảng đặc tả Identity, Ticket, Knowledge, AI và Workflow. **Kiểm chứng:** Sinh viên yêu cầu lấy SRS làm căn cứ. Codex đối chiếu hợp đồng các port, thứ tự khóa Ticket rồi Suggestion, phạm vi P0/P1 và quyết định DEC-06. Codex đọc lại Google Doc, kiểm tra hình cùng chú thích trên bản xuất PDF và cập nhật mục lục. | [Bản thiết kế dùng trong phiên](https://docs.google.com/document/d/1s2inl8eKlSDA5KhdDgZFqpT7YM0uKQJDtrFz_QQEk5U/edit?tab=t.0#heading=h.yz9k5ytl267u) và [SRS của dự án](../../reports/SRS-master.md). |
+| **T2-14** | 23/11/2026. | Phan Gia Phúc (24120503). | OpenAI Codex (GPT-6). | Đối chiếu SRS và chỉnh sửa thiết kế lớp | **AI tạo:** Bảng đối chiếu theo trang và yêu cầu SRS, năm sơ đồ lớp, nội dung bổ sung thêm cho các bảng đặc tả Identity, Ticket, Knowledge, AI và Workflow. **Kiểm chứng:** Sinh viên yêu cầu lấy SRS làm căn cứ. Codex đối chiếu hợp đồng các port, thứ tự khóa Ticket rồi Suggestion, phạm vi P0/P1 và quyết định DEC-06. Codex đọc lại Google Doc, kiểm tra hình cùng chú thích trên bản xuất PDF và cập nhật mục lục. | [Bản thiết kế dùng trong phiên](https://docs.google.com/document/d/1s2inl8eKlSDA5KhdDgZFqpT7YM0uKQJDtrFz_QQEk5U/edit?tab=t.0#heading=h.yz9k5ytl267u) và [SRS của dự án](../../../reports/SRS-master.md). |
 | **T2-15** | 25/11/2026. | Phan Gia Phúc (24120503). | OpenAI Codex (GPT-6). | Rà soát năm hình và sửa nhãn bị che | **AI tạo:** Bổ sung nhánh AISuggestionController → AISuggestionApplicationService, tách hai controller ở Identity, bổ sung đường gửi tin soạn tay trong Ticket và đường tiếp nhận tài liệu trong Knowledge. Làm rõ bội số trên hình dữ liệu AI. **Kiểm chứng:** Sinh viên chỉ ra các controller bị thiếu. Codex chuyển nhãn xuống dưới các ô lớp, xuất lại PDF và kiểm tra dòng chữ ở trang in 18. | [Google Doc được rà soát, mục 3.2–3.3](https://docs.google.com/document/d/1s2inl8eKlSDA5KhdDgZFqpT7YM0uKQJDtrFz_QQEk5U/edit?tab=t.0#heading=h.yz9k5ytl267u). |
-| **T2-16** | 26/11/2026. | Phan Gia Phúc (24120503). | OpenAI Codex (GPT-6). | Trích bản Markdown bàn giao cá nhân | **AI tạo:** File bàn giao lấy nguyên văn hai mục từ bản Markdown được chỉ định, kèm định nghĩa ảnh của các hình trong hai mục. **Kiểm chứng:** Codex kiểm tra ranh giới bằng tiêu đề trong thân bài, so sánh nội dung đã ghi với nguồn, đếm bốn tiểu mục module, năm chú thích hình. | [Phần bàn giao 3.2–3.3 của Gia Phúc](../../task/template2/gia-phuc.md) tại commit `317dfe6` trên nhánh `docs/t2-giaphuc`. |
+| **T2-16** | 26/11/2026. | Phan Gia Phúc (24120503). | OpenAI Codex (GPT-6). | Trích bản Markdown bàn giao cá nhân | **AI tạo:** File bàn giao lấy nguyên văn hai mục từ bản Markdown được chỉ định, kèm định nghĩa ảnh của các hình trong hai mục. **Kiểm chứng:** Codex kiểm tra ranh giới bằng tiêu đề trong thân bài, so sánh nội dung đã ghi với nguồn, đếm bốn tiểu mục module, năm chú thích hình. | [Phần bàn giao 3.2–3.3 của Gia Phúc](../../../task/template2/gia-phuc.md) tại commit `317dfe6` trên nhánh `docs/t2-giaphuc`. |
 
 #### Phiên T2-14: 23/11/2026 — Đối chiếu SRS và chỉnh sửa thiết kế lớp
 
@@ -274,7 +274,7 @@
 - **Prompt đã khử dữ liệu nhạy cảm** “Đọc SRS, kiểm tra mục 3.2 và 3.3 trong bản thiết kế còn thiếu, dư hoặc sai gì. Có thể bổ sung vào Google Doc và ghi nhật ký.”
 - **Nội dung AI tạo** Bảng đối chiếu theo trang và yêu cầu SRS, năm sơ đồ lớp, nội dung bổ sung thêm cho các bảng đặc tả Identity, Ticket, Knowledge, AI và Workflow.
 - **Nội dung tự kiểm chứng & hiệu chỉnh** Sinh viên yêu cầu lấy SRS làm căn cứ. Codex đối chiếu hợp đồng các port, thứ tự khóa Ticket rồi Suggestion, phạm vi P0/P1 và quyết định DEC-06. Codex đọc lại Google Doc, kiểm tra hình cùng chú thích trên bản xuất PDF và cập nhật mục lục.
-- **Minh chứng/Commit** [Bản thiết kế dùng trong phiên](https://docs.google.com/document/d/1s2inl8eKlSDA5KhdDgZFqpT7YM0uKQJDtrFz_QQEk5U/edit?tab=t.0#heading=h.yz9k5ytl267u) và [SRS của dự án](../../reports/SRS-master.md).
+- **Minh chứng/Commit** [Bản thiết kế dùng trong phiên](https://docs.google.com/document/d/1s2inl8eKlSDA5KhdDgZFqpT7YM0uKQJDtrFz_QQEk5U/edit?tab=t.0#heading=h.yz9k5ytl267u) và [SRS của dự án](../../../reports/SRS-master.md).
 
 ---
 
@@ -298,7 +298,7 @@
 - **Prompt đã khử dữ liệu nhạy cảm** “Trích mục 3.2 và 3.3 từ bản Markdown Template 2 của nhóm vào file task.”
 - **Nội dung AI tạo** File bàn giao lấy nguyên văn hai mục từ bản Markdown được chỉ định, kèm định nghĩa ảnh của các hình trong hai mục.
 - **Nội dung tự kiểm chứng & hiệu chỉnh** Codex kiểm tra ranh giới bằng tiêu đề trong thân bài, so sánh nội dung đã ghi với nguồn, đếm bốn tiểu mục module, năm chú thích hình.
-- **Minh chứng/Commit** [Phần bàn giao 3.2–3.3 của Gia Phúc](../../task/template2/gia-phuc.md) tại commit `317dfe6` trên nhánh `docs/t2-giaphuc`.
+- **Minh chứng/Commit** [Phần bàn giao 3.2–3.3 của Gia Phúc](../../../task/template2/gia-phuc.md) tại commit `317dfe6` trên nhánh `docs/t2-giaphuc`.
 
 ---
 
@@ -306,8 +306,8 @@
 
 | STT | Thời gian | Thành viên (MSSV) | Công cụ & Model | Nội dung công việc trong Template 2 | Nội dung AI tạo & Con người tự kiểm chứng | Minh chứng / Commit |
 | :---: | :---: | :--- | :--- | :--- | :--- | :--- |
-| **T2-17** | 21/11/2026 (UTC+7) | Lê Quý Phúc (`24120121`) | OpenAI Codex (GPT-6), Google Workspace MCP | Hoàn thành SCRUM-61 theo SRS và Figma v3, cập nhật Google Doc chung. | **AI tạo:** Sơ đồ luồng, danh mục Node ID, đặc tả Copilot/Admin, bảng sự kiện và bộ ảnh bàn giao. **Kiểm chứng:** Đối chiếu ảnh PNG với bộ xuất Figma v3, hành vi API với SRS/MVP Contracts. Khôi phục tiêu đề 5.1.1 và dùng tài khoản đã xác thực để chèn ảnh. Kiểm tra lại 7 hình trong bản xuất Google Docs và đối chiếu các mục liền kề. Các trạng thái chưa thấy frame v3 được ghi rõ. | [Google Doc chung](https://docs.google.com/document/d/1xI8hj6xi6dqKEPklbn9H8nXUGhvN8OpxdDhpVNPSLc8/edit?tab=t.0), [bản bàn giao](../../docs/template2/members/quy-phuc/05-thiet-ke-giao-dien.md). |
-| **T2-18** | 26/11/2026 (UTC+7) | Lê Quý Phúc (`24120121`) | OpenAI Codex (GPT-6) | Đọc README, xác định các mục Template 2 cá nhân và xuất Markdown theo hướng dẫn. | **AI tạo:** Đồng bộ 5.1.1, 5.1.2, 5.2.4 và 5.2.6 với PDF nhóm. Trích Hình 5.1, cập nhật danh mục màn hình và bảng sự kiện. **Kiểm chứng:** Codex đối chiếu phạm vi với checklist SCRUM-61, bảng sự kiện với PDF, bảy hình với ảnh nhúng và đường dẫn tệp trong repo. | [Bản bàn giao](../../docs/template2/members/quy-phuc/05-thiet-ke-giao-dien.md) · [Checklist SCRUM-61](../../task/template2/quy-phuc.md) |
+| **T2-17** | 21/11/2026 (UTC+7) | Lê Quý Phúc (`24120121`) | OpenAI Codex (GPT-6), Google Workspace MCP | Hoàn thành SCRUM-61 theo SRS và Figma v3, cập nhật Google Doc chung. | **AI tạo:** Sơ đồ luồng, danh mục Node ID, đặc tả Copilot/Admin, bảng sự kiện và bộ ảnh bàn giao. **Kiểm chứng:** Đối chiếu ảnh PNG với bộ xuất Figma v3, hành vi API với SRS/MVP Contracts. Khôi phục tiêu đề 5.1.1 và dùng tài khoản đã xác thực để chèn ảnh. Kiểm tra lại 7 hình trong bản xuất Google Docs và đối chiếu các mục liền kề. Các trạng thái chưa thấy frame v3 được ghi rõ. | [Google Doc chung](https://docs.google.com/document/d/1xI8hj6xi6dqKEPklbn9H8nXUGhvN8OpxdDhpVNPSLc8/edit?tab=t.0), [bản bàn giao](../../../docs/template2/members/quy-phuc/05-thiet-ke-giao-dien.md). |
+| **T2-18** | 26/11/2026 (UTC+7) | Lê Quý Phúc (`24120121`) | OpenAI Codex (GPT-6) | Đọc README, xác định các mục Template 2 cá nhân và xuất Markdown theo hướng dẫn. | **AI tạo:** Đồng bộ 5.1.1, 5.1.2, 5.2.4 và 5.2.6 với PDF nhóm. Trích Hình 5.1, cập nhật danh mục màn hình và bảng sự kiện. **Kiểm chứng:** Codex đối chiếu phạm vi với checklist SCRUM-61, bảng sự kiện với PDF, bảy hình với ảnh nhúng và đường dẫn tệp trong repo. | [Bản bàn giao](../../../docs/template2/members/quy-phuc/05-thiet-ke-giao-dien.md) · [Checklist SCRUM-61](../../../task/template2/quy-phuc.md) |
 
 #### Phiên T2-17: Hoàn thành SCRUM-61 theo SRS và Figma v3, cập nhật Google Doc chung.
 
@@ -317,7 +317,7 @@
 - **Prompt đã khử dữ liệu nhạy cảm:** Hoàn thành SCRUM-61 theo SRS và Figma v3, cập nhật Google Doc chung.
 - **Nội dung AI tạo:** Sơ đồ luồng, danh mục Node ID, đặc tả Copilot/Admin, bảng sự kiện và bộ ảnh bàn giao.
 - **Nội dung tự kiểm chứng & hiệu chỉnh:** Đối chiếu ảnh PNG với bộ xuất Figma v3, hành vi API với SRS/MVP Contracts. Khôi phục tiêu đề 5.1.1 và dùng tài khoản đã xác thực để chèn ảnh. Kiểm tra lại 7 hình trong bản xuất Google Docs và đối chiếu các mục liền kề. Các trạng thái chưa thấy frame v3 được ghi rõ.
-- **Minh chứng/Commit:** [Google Doc chung](https://docs.google.com/document/d/1xI8hj6xi6dqKEPklbn9H8nXUGhvN8OpxdDhpVNPSLc8/edit?tab=t.0), [bản bàn giao](../../docs/template2/members/quy-phuc/05-thiet-ke-giao-dien.md).
+- **Minh chứng/Commit:** [Google Doc chung](https://docs.google.com/document/d/1xI8hj6xi6dqKEPklbn9H8nXUGhvN8OpxdDhpVNPSLc8/edit?tab=t.0), [bản bàn giao](../../../docs/template2/members/quy-phuc/05-thiet-ke-giao-dien.md).
 
 ---
 
@@ -329,7 +329,7 @@
 - **Prompt đã khử dữ liệu nhạy cảm:** Đọc README, xác định các mục Template 2 cá nhân và xuất Markdown theo hướng dẫn.
 - **Nội dung AI tạo:** Đồng bộ 5.1.1, 5.1.2, 5.2.4 và 5.2.6 với PDF nhóm. Trích Hình 5.1, cập nhật danh mục màn hình và bảng sự kiện.
 - **Nội dung tự kiểm chứng & hiệu chỉnh:** Codex đối chiếu phạm vi với checklist SCRUM-61, bảng sự kiện với PDF, bảy hình với ảnh nhúng và đường dẫn tệp trong repo.
-- **Minh chứng/Commit:** [Bản bàn giao](../../docs/template2/members/quy-phuc/05-thiet-ke-giao-dien.md) · [Checklist SCRUM-61](../../task/template2/quy-phuc.md)
+- **Minh chứng/Commit:** [Bản bàn giao](../../../docs/template2/members/quy-phuc/05-thiet-ke-giao-dien.md) · [Checklist SCRUM-61](../../../task/template2/quy-phuc.md)
 
 ---
 

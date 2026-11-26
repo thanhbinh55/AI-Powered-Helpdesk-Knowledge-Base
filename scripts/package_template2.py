@@ -470,6 +470,9 @@ def build_ai() -> list:
     )
 
     combined = ''.join(out)
+    # Adjust relative links copied from ai-usage/template2/*.md (depth 2: ../../)
+    # so they resolve accurately from reports/template2/ai-usage/ai-usage.md (depth 3: ../../../)
+    combined = re.sub(r'\]\(\.\./\.\./([^)]+)\)', r'](../../../\1)', combined)
     write(T2 / 'ai-usage/ai-usage.md', combined)
     write(SOURCES / 'ai-session-index.json', json.dumps(mapping, ensure_ascii=False, indent=2) + '\n')
     return index
@@ -795,6 +798,10 @@ def build_zip_and_sync_release() -> dict:
         if dst_folder.exists():
             shutil.rmtree(dst_folder)
         shutil.copytree(T2 / folder, dst_folder)
+    # Remove any leftover .gitkeep in RELEASE so both trees match identically
+    gitkeep = RELEASE / '.gitkeep'
+    if gitkeep.exists():
+        gitkeep.unlink()
     shutil.copy2(target_zip, RELEASE / '4.zip')
 
     return {
@@ -832,3 +839,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
