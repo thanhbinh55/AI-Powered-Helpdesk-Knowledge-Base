@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-11-26T23:50:42+07:00",
+  "captured_at": "2026-11-26T23:54:07+07:00",
   "period_start": "2026-11-14T00:00:00+07:00",
   "refs": {
     "origin/main": "d8757188712b6344fcce47f1a13ada1cdd18120b",
@@ -7,7 +7,7 @@
     "origin/docs/t2-giaphuc": "a0abbd4bdc90a746594b18da19de49320a53f906",
     "origin/docs/t2-lam": "026fc600b67d354f55a3d344ba74d53ad6ae5069",
     "origin/docs/t2-quy-phuc": "235bc3da578d37804857e439324b09bfcd5e57ab",
-    "merge-template2": "0478233d9b039e58074c8452944606ac9fbd98aa"
+    "merge-template2": "0ce438e8a0f5a30ea7b3458edff4a7e0c5c81b47"
   },
   "members": [
     {
@@ -45,13 +45,13 @@
   ],
   "commits": [
     {
-      "sha": "0478233d9b039e58074c8452944606ac9fbd98aa",
+      "sha": "0ce438e8a0f5a30ea7b3458edff4a7e0c5c81b47",
       "author": "Ngô Viết Thanh Bình",
       "author_email": "ngovietthanhbinh2006@gmail.com",
       "authored_at": "2026-11-26T23:50:21+07:00",
       "committer": "Ngô Viết Thanh Bình",
       "committer_email": "ngovietthanhbinh2006@gmail.com",
-      "committed_at": "2026-11-26T23:50:21+07:00",
+      "committed_at": "2026-11-26T23:50:43+07:00",
       "subject": "fix(template2): preserve inline code underscores in HTML renderer and fix relative links SCRUM-55",
       "parents": "8cf0ed086f0fe994f4eb713e11a0656e7957117d",
       "files": [

@@ -3,7 +3,7 @@
 > **Dự án:** Clarune — AI-Powered Helpdesk & Knowledge Base
 > **Nhóm:** Group 04
 > **Kho lưu trữ:** https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base
-> **Thời điểm chốt dữ liệu:** 2026-11-26T23:50:42+07:00
+> **Thời điểm chốt dữ liệu:** 2026-11-26T23:54:07+07:00
 
 ## Phạm vi thống kê
 
@@ -16,7 +16,7 @@ Báo cáo ghi nhận lịch sử Git của giai đoạn Template 2 từ 14/11/20
 | `origin/docs/t2-giaphuc` | [a0abbd4bdc90a746594b18da19de49320a53f906](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/a0abbd4bdc90a746594b18da19de49320a53f906) |
 | `origin/docs/t2-lam` | [026fc600b67d354f55a3d344ba74d53ad6ae5069](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/026fc600b67d354f55a3d344ba74d53ad6ae5069) |
 | `origin/docs/t2-quy-phuc` | [235bc3da578d37804857e439324b09bfcd5e57ab](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/235bc3da578d37804857e439324b09bfcd5e57ab) |
-| `merge-template2` | [0478233d9b039e58074c8452944606ac9fbd98aa](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0478233d9b039e58074c8452944606ac9fbd98aa) |
+| `merge-template2` | [0ce438e8a0f5a30ea7b3458edff4a7e0c5c81b47](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0ce438e8a0f5a30ea7b3458edff4a7e0c5c81b47) |
 
 Danh sách thay đổi được nhóm theo thư mục khi có từ 5 tệp, kèm số lượng tệp. Commit được xác định theo tài khoản hoặc email của thành viên; tác giả Git `PC` với email `phgphuc0609@gmail.com` được ghi nhận cho Phan Gia Phúc.
 
@@ -42,7 +42,7 @@ Danh sách thay đổi được nhóm theo thư mục khi có từ 5 tệp, kèm
 
 | STT | Mã Hash | Ngày commit (UTC+7) | Thông điệp commit (Jira Key) | Số tệp |
 | ---: | --- | --- | --- | ---: |
-| 1 | [0478233d](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0478233d9b039e58074c8452944606ac9fbd98aa) | 26/11/2026 23:50 | fix(template2): preserve inline code underscores in HTML renderer and fix relative links SCRUM-55 | 15 |
+| 1 | [0ce438e8](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0ce438e8a0f5a30ea7b3458edff4a7e0c5c81b47) | 26/11/2026 23:50 | fix(template2): preserve inline code underscores in HTML renderer and fix relative links SCRUM-55 | 15 |
 | 2 | [8cf0ed08](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/8cf0ed086f0fe994f4eb713e11a0656e7957117d) | 26/11/2026 19:05 | docs(template2): update git contributions snapshot with final packaging commit SCRUM-55 | 6 |
 | 3 | [a0f871ef](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/a0f871ef640649ab7f4c297a3896cd4011b303aa) | 26/11/2026 19:05 | docs(template2): package final report assets AI usage and Git evidence on merge-template2 SCRUM-55 SCRUM-58 SCRUM-59 SCRUM-60 SCRUM-61 SCRUM-62 SCRUM-66 | 103 |
 | 4 | [97235083](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/9723508377529b67107ba0a4abc34a96b48485bc) | 26/11/2026 18:56 | Merge branch 'docs/t2-binh', remote-tracking branches 'origin/docs/t2-giaphuc', 'origin/docs/t2-lam' and 'origin/docs/t2-quy-phuc' into merge-template2 | 14 |
@@ -58,7 +58,7 @@ Danh sách thay đổi được nhóm theo thư mục khi có từ 5 tệp, kèm
 
 #### Tệp/thư mục thay đổi và nguồn nhánh
 
-**[0478233d](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0478233d9b039e58074c8452944606ac9fbd98aa)** — fix(template2): preserve inline code underscores in HTML renderer and fix relative links SCRUM-55
+**[0ce438e8](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0ce438e8a0f5a30ea7b3458edff4a7e0c5c81b47)** — fix(template2): preserve inline code underscores in HTML renderer and fix relative links SCRUM-55
 
 Nguồn: `merge-template2`.
 
