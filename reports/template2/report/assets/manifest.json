@@ -1,0 +1,205 @@
+[
+  {
+    "reference": "image1",
+    "caption": "Hình 2.1 — Mô hình quan niệm (EER) của hệ thống Clarune theo ký pháp Chen.",
+    "asset": "assets/diagrams/conceptual-model.png",
+    "source": "docs/template2/assets/diagrams/conceptual-model.png",
+    "sha256": "603ded227721acad0f8ffdb532f29b2ea5917df78111f6f73dc87d2b022752ce"
+  },
+  {
+    "reference": "image2",
+    "caption": "Hình 3.1 — Sơ đồ cây phân rã chức năng hệ thống Clarune theo chiều dọc",
+    "asset": "assets/diagrams/system-decomposition-tree.png",
+    "source": "docs/template2/assets/diagrams/system-decomposition-tree.png",
+    "sha256": "ef048d09af595cc67ee1448694c9aa11245236b1762180500b187c960a53194f"
+  },
+  {
+    "reference": "image3",
+    "caption": "Hình 3.2 — Sơ đồ tổng quan kiến trúc 3 tầng kết hợp Modular Monolith của hệ thống Clarune",
+    "asset": "assets/diagrams/system-architecture.png",
+    "source": "docs/template2/assets/diagrams/system-architecture.png",
+    "sha256": "1cb3844caa16d3349d85af9679ffb0d609b4cc36000228ac801e8a84a807dfc9"
+  },
+  {
+    "reference": "image4",
+    "caption": "Hình 3.3a — Các cổng giao tiếp và thứ tự khóa khi áp dụng gợi ý",
+    "asset": "assets/diagrams/class-diagram-3.3a-workflow-ports.png",
+    "source": "reports/template2/sources/pdf-assets/class-diagram-3.3a-workflow-ports.png",
+    "sha256": "6f6267b6ef8eb0f36d8317569c41df09a48f286387fadece046dc324941d51ea",
+    "note": "image4+image5 (PDF obj 102)"
+  },
+  {
+    "reference": "image6",
+    "caption": "Hình 3.3b — Định danh, tài khoản và phiên đăng nhập",
+    "asset": "assets/diagrams/class-diagram-3.3b-identity.png",
+    "source": "reports/template2/sources/pdf-assets/class-diagram-3.3b-identity.png",
+    "sha256": "6e8cbddd92a6a3f7a4f2dc424fe5469f52553f3b402a2b588dfc72ad8a931257",
+    "note": "image6+image7 (PDF obj 105)"
+  },
+  {
+    "reference": "image8",
+    "caption": "Hình 3.3c — Dịch vụ Ticket, cổng ngữ cảnh và lịch sử xử lý",
+    "asset": "assets/diagrams/class-diagram-3.3c-ticket.png",
+    "source": "reports/template2/sources/pdf-assets/class-diagram-3.3c-ticket.png",
+    "sha256": "656869b0e99679e576b92eac5ec915319284348a3abae57a22c8491bca532050",
+    "note": "PDF obj 108"
+  },
+  {
+    "reference": "image9",
+    "caption": "Hình 3.3d — Các lớp xử lý tài liệu và sinh vector",
+    "asset": "assets/diagrams/class-diagram-3.3d-knowledge.png",
+    "source": "reports/template2/sources/pdf-assets/class-diagram-3.3d-knowledge.png",
+    "sha256": "6bd7902d03b9519ac1b8f7a7c9e35896b07cdd07287e52d405a110bdc62d427b",
+    "note": "PDF obj 109"
+  },
+  {
+    "reference": "image10",
+    "caption": "Hình 3.3e — Gợi ý AI, tin nhắn đã duyệt và nguồn trích dẫn",
+    "asset": "assets/diagrams/class-diagram-3.3e-ai-data.png",
+    "source": "reports/template2/sources/pdf-assets/class-diagram-3.3e-ai-data.png",
+    "sha256": "459a9432ec6d2e7ee9ee15a7e6d3e0bbc37f8eab79e703ee9f475835e3512008",
+    "note": "PDF obj 112"
+  },
+  {
+    "reference": "image11",
+    "caption": "Hình 4.1 — Sơ đồ cơ sở dữ liệu vật lý của hệ thống Clarune.",
+    "asset": "assets/diagrams/physical-erd.png",
+    "source": "docs/template2/assets/diagrams/physical-erd.png",
+    "sha256": "bdb6f1f80db96865e5e2440771bc5a709f122b11bb7e2b9bef7baa403e898605"
+  },
+  {
+    "reference": "image12",
+    "caption": "Hình 5.1. Luồng màn hình Clarune theo vai trò. Đăng nhập thành công đưa Khách hàng đến Yêu cầu của tôi, Nhân viên đến hàng đợi và Quản trị viên đến Tất cả yêu cầu. Chức năng P1 có nhãn PLANNED (P1).",
+    "asset": "assets/diagrams/screen-flow-template2.png",
+    "source": "docs/template2/members/quy-phuc/diagrams/screen-flow-template2.png",
+    "sha256": "3cc13d66d18d991a82e4dfe113cc47f5485d3eaedac0dc6d8564b538442cbdfb"
+  },
+  {
+    "reference": "image13",
+    "caption": "Hình 5.2.1a. I01 · Đăng nhập hệ thống.",
+    "asset": "assets/ui/113-4387.png",
+    "source": "docs/design/anh/v3/113-4387.png",
+    "sha256": "dbf8860e9036946f2506b07f982efdaa888ce8b2a7465e07d64619769028f428",
+    "note": "I01"
+  },
+  {
+    "reference": "image14",
+    "caption": "Hình 5.2.1b. I02 · Đăng ký tài khoản Khách hàng.",
+    "asset": "assets/ui/114-4766.png",
+    "source": "docs/design/anh/v3/114-4766.png",
+    "sha256": "5e18815c14d2f738ab492466eea344465d905a67f04b012d7f02e4bdb3a00219",
+    "note": "I02"
+  },
+  {
+    "reference": "image15",
+    "caption": "Hình 5.2.1c. I03 · Hồ sơ cá nhân Khách hàng.",
+    "asset": "assets/ui/113-3580.png",
+    "source": "docs/design/anh/v3/113-3580.png",
+    "sha256": "d9172a56123abbe1d80c853519980210f6911f8e1ae9b6455c1ff3d2271dfcfd",
+    "note": "I03"
+  },
+  {
+    "reference": "image16",
+    "caption": "Hình 5.2.2a. C01 · Danh sách yêu cầu của tôi.",
+    "asset": "assets/ui/111-2664.png",
+    "source": "docs/design/anh/v3/111-2664.png",
+    "sha256": "d115f51e338a655dcb52dc2101260a60745951334394ce6929bf6aab8634608a",
+    "note": "C01"
+  },
+  {
+    "reference": "image17",
+    "caption": "Hình 5.2.2b. C02 · Tạo yêu cầu hỗ trợ mới.",
+    "asset": "assets/ui/132-6237.png",
+    "source": "docs/design/anh/v3/132-6237.png",
+    "sha256": "7f86d71eafdd053d7334afc7f1af3f3a2c42ab191ab01a5f38bcebd63e62afa8",
+    "note": "C02"
+  },
+  {
+    "reference": "image18",
+    "caption": "Hình 5.2.2c. C03 · Chi tiết yêu cầu đang xử lý.",
+    "asset": "assets/ui/111-2763.png",
+    "source": "docs/design/anh/v3/111-2763.png",
+    "sha256": "6cbf9ca96d18d065218bc55cea224a9f15e9fd9becdf47354bb10a83ee6e3ae2",
+    "note": "C03"
+  },
+  {
+    "reference": "image19",
+    "caption": "Hình 5.2.3a. A01 · Hàng đợi phiếu mới nhận xử lý.",
+    "asset": "assets/ui/132-5524.png",
+    "source": "docs/design/anh/v3/132-5524.png",
+    "sha256": "79c66766b51994957636fd4c865c5b06c0630376c0f52d20d3fffd4eff7eb273",
+    "note": "A01"
+  },
+  {
+    "reference": "image20",
+    "caption": "Hình 5.2.3b. A02 · Xử lý chi tiết yêu cầu với Copilot đóng.",
+    "asset": "assets/ui/132-5676.png",
+    "source": "docs/design/anh/v3/132-5676.png",
+    "sha256": "9834dfa9b085bddd8111463ac22ce77049fe3b546f147e03d31cc832ea5c5fff",
+    "note": "A02"
+  },
+  {
+    "reference": "image21",
+    "caption": "Hình 5.2.4a. A03 · Gợi ý câu trả lời Copilot & trích dẫn nguồn.",
+    "asset": "assets/ui/111-1700.png",
+    "source": "docs/design/anh/v3/111-1700.png",
+    "sha256": "cb9b5f2a9338238195019b51c974b753e52a0e76a2a2949f97ee38b290d88495",
+    "note": "A03"
+  },
+  {
+    "reference": "image22",
+    "caption": "Hình 5.2.4b. A-DiscardConfirm · Xác nhận bỏ qua gợi ý câu trả lời AI.",
+    "asset": "assets/ui/118-8823.png",
+    "source": "docs/design/anh/v3/118-8823.png",
+    "sha256": "76ef5b86b40f579eb3734f8621394d246736e7dd4b0b261bf5e1a04ecb0ab01c",
+    "note": "A-DiscardConfirm"
+  },
+  {
+    "reference": "image23",
+    "caption": "Hình 5.2.4c. A11 · Lịch sử gợi ý và đánh giá phản hồi Copilot.",
+    "asset": "assets/ui/118-6210.png",
+    "source": "docs/design/anh/v3/118-6210.png",
+    "sha256": "b1f5038bda113c1f0042b09327a3a3d6555f6adc7b5b2a05e4b7e0fa002c6be6",
+    "note": "A11"
+  },
+  {
+    "reference": "image24",
+    "caption": "Hình 5.2.5a. K01 · Tìm kiếm cơ sở tri thức.",
+    "asset": "assets/ui/111-3691.png",
+    "source": "docs/design/anh/v3/111-3691.png",
+    "sha256": "d46dbaf8e83d79bf99a313d9182749576dec81f35084ae20169eac647fc51e5d",
+    "note": "K01"
+  },
+  {
+    "reference": "image25",
+    "caption": "Hình 5.2.5b. K04 · Quản lý danh sách tài liệu tri thức.",
+    "asset": "assets/ui/111-4066.png",
+    "source": "docs/design/anh/v3/111-4066.png",
+    "sha256": "cf75766aef3af6d4102651f1dcb460424dcbbd22fd8a4cbac24ba7de70142e03",
+    "note": "K04"
+  },
+  {
+    "reference": "image26",
+    "caption": "Hình 5.2.6a. D01 · Quản trị viên phân công nhân viên hỗ trợ.",
+    "asset": "assets/ui/133-7972.png",
+    "source": "docs/design/anh/v3/133-7972.png",
+    "sha256": "5d86bbd3ad2433aae76451bf9544f0dcf212ebab2525bb45d7d5e7b9351f92e6",
+    "note": "D01-PhanCong"
+  },
+  {
+    "reference": "image27",
+    "caption": "Hình 5.2.6b. D02 · Quản lý kích hoạt tài khoản nhân viên hỗ trợ.",
+    "asset": "assets/ui/112-2142.png",
+    "source": "docs/design/anh/v3/112-2142.png",
+    "sha256": "f6271ffeeba78c9445512528f02817cbd4f07cce7277131461be5dfaacf9e09f",
+    "note": "D02"
+  },
+  {
+    "reference": "image28",
+    "caption": "Hình 5.2.6c. D03 · Thống kê tổng quan và số liệu Ticket.",
+    "asset": "assets/ui/112-2268.png",
+    "source": "docs/design/anh/v3/112-2268.png",
+    "sha256": "45e66f188c9f499f096954438b2519ff107caebb60635653479c3de5e0167f8c",
+    "note": "D03"
+  }
+]

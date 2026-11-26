@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1760" height="990" viewBox="0 0 1760 990" font-family="DejaVu Sans, Arial, sans-serif" xmlns:c2pa="http://c2pa.org/manifest">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<rect width="1760" height="990" fill="#FFFFFF"/>
+<rect x="130" y="15" width="200" height="42" rx="8" fill="#FFFFFF" stroke="#444" stroke-width="1.6"/>
+<text x="230.0" y="32.0" font-size="12" text-anchor="middle" fill="#111" font-weight="bold">Người dùng</text>
+<text x="230.0" y="47.0" font-size="11" text-anchor="middle" fill="#111">Customer / Agent / Admin</text>
+<rect x="30" y="100" width="400" height="440" rx="8" fill="#FFFFFF" stroke="#2E6DA4" stroke-width="2.2"/>
+<rect x="30" y="100" width="400" height="46" rx="8" fill="#DCEBFA" stroke="#2E6DA4" stroke-width="2.2"/>
+<text x="230.0" y="119.0" font-size="13" text-anchor="middle" fill="#111" font-weight="bold">TẦNG 1 — PRESENTATION</text>
+<text x="230.0" y="135.0" font-size="12" text-anchor="middle" fill="#111">Client: Web Browser</text>
+<rect x="50" y="160" width="360" height="150" rx="8" fill="#FFFFFF" stroke="#2E6DA4" stroke-width="1.6"/>
+<rect x="50" y="160" width="360" height="30" rx="8" fill="#DCEBFA" stroke="#2E6DA4" stroke-width="1.6"/>
+<text x="230.0" y="178.5" font-size="12" text-anchor="middle" fill="#111" font-weight="bold">React 18 + TypeScript SPA (Vite + Tailwind CSS)</text>
+<rect x="70" y="200" width="160" height="44" rx="8" fill="#FFFFFF" stroke="#2E6DA4" stroke-width="1.6"/>
+<text x="150.0" y="226.0" font-size="12" text-anchor="middle" fill="#111">Identity UI</text>
+<rect x="250" y="200" width="160" height="44" rx="8" fill="#FFFFFF" stroke="#2E6DA4" stroke-width="1.6"/>
+<text x="330.0" y="226.0" font-size="12" text-anchor="middle" fill="#111">Ticket UI</text>
+<rect x="70" y="254" width="160" height="44" rx="8" fill="#FFFFFF" stroke="#2E6DA4" stroke-width="1.6"/>
+<text x="150.0" y="280.0" font-size="12" text-anchor="middle" fill="#111">Knowledge UI</text>
+<rect x="250" y="254" width="160" height="44" rx="8" fill="#FFFFFF" stroke="#2E6DA4" stroke-width="1.6"/>
+<text x="330.0" y="280.0" font-size="12" text-anchor="middle" fill="#111">AI Workspace UI</text>
+<rect x="50" y="350" width="360" height="50" rx="8" fill="#FFFFFF" stroke="#2E6DA4" stroke-width="1.6"/>
+<text x="230.0" y="380.0" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">State &amp; Data Adapters</text>
+<rect x="50" y="440" width="360" height="54" rx="8" fill="#FFFFFF" stroke="#2E6DA4" stroke-width="1.6"/>
+<text x="230.0" y="473.0" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">API Client (Axios)</text>
+<rect x="570" y="100" width="730" height="725" rx="8" fill="#FFFFFF" stroke="#B7791F" stroke-width="2.2"/>
+<rect x="570" y="100" width="730" height="46" rx="8" fill="#FFE9B8" stroke="#B7791F" stroke-width="2.2"/>
+<text x="935.0" y="119.0" font-size="13" text-anchor="middle" fill="#111" font-weight="bold">TẦNG 2 — APPLICATION / BUSINESS LOGIC</text>
+<text x="935.0" y="135.0" font-size="12" text-anchor="middle" fill="#111">Spring Boot 3 (Java 21) — Modular Monolith</text>
+<rect x="585" y="155" width="700" height="110" rx="8" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.6"/>
+<rect x="585" y="155" width="700" height="30" rx="8" fill="#FFF4D6" stroke="#B7791F" stroke-width="1.6"/>
+<text x="935.0" y="174.0" font-size="13" text-anchor="middle" fill="#111" font-weight="bold">Common Security &amp; Filter</text>
+<rect x="603" y="195" width="155" height="52" rx="8" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.6"/>
+<text x="680.5" y="226.0" font-size="13" text-anchor="middle" fill="#111" font-weight="bold">JWT Auth Filter</text>
+<rect x="773" y="195" width="155" height="52" rx="8" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.6"/>
+<text x="850.5" y="226.0" font-size="13" text-anchor="middle" fill="#111" font-weight="bold">CORS Filter</text>
+<rect x="943" y="195" width="155" height="52" rx="8" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.6"/>
+<text x="1020.5" y="226.0" font-size="13" text-anchor="middle" fill="#111" font-weight="bold">CSRF Filter</text>
+<rect x="1113" y="195" width="155" height="52" rx="8" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.6"/>
+<text x="1190.5" y="226.0" font-size="13" text-anchor="middle" fill="#111" font-weight="bold">Global Exception</text>
+<rect x="585" y="295" width="700" height="510" rx="8" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.6"/>
+<rect x="585" y="295" width="700" height="30" rx="8" fill="#FFF4D6" stroke="#B7791F" stroke-width="1.6"/>
+<text x="935.0" y="313.5" font-size="12" text-anchor="middle" fill="#111" font-weight="bold">4 Module nghiệp vụ + Workflow + Worker — Public Ports một chiều (DAG)</text>
+<rect x="835" y="341" width="200" height="74" rx="8" fill="#FCE4EC" stroke="#C2185B" stroke-width="1.6"/>
+<text x="935.0" y="373.0" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">Workflow</text>
+<text x="935.0" y="395.0" font-size="12" text-anchor="middle" fill="#555">Orchestration (1 Tx)</text>
+<rect x="835" y="461" width="200" height="74" rx="8" fill="#EEE5F7" stroke="#7D4E9E" stroke-width="1.6"/>
+<text x="935.0" y="493.0" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">AI</text>
+<text x="935.0" y="515.0" font-size="12" text-anchor="middle" fill="#555">RAG &amp; Suggestion</text>
+<rect x="615" y="581" width="200" height="74" rx="8" fill="#FFF1D6" stroke="#B7791F" stroke-width="1.6"/>
+<text x="715.0" y="613.0" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">Ticket</text>
+<text x="715.0" y="635.0" font-size="12" text-anchor="middle" fill="#555">Ticket State &amp; Audit</text>
+<rect x="1055" y="581" width="200" height="74" rx="8" fill="#E3F4E8" stroke="#2E8B57" stroke-width="1.6"/>
+<text x="1155.0" y="613.0" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">Knowledge</text>
+<text x="1155.0" y="635.0" font-size="12" text-anchor="middle" fill="#555">Vector &amp; Document</text>
+<rect x="835" y="701" width="200" height="74" rx="8" fill="#DCEBFA" stroke="#2E6DA4" stroke-width="1.6"/>
+<text x="935.0" y="733.0" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">Identity</text>
+<text x="935.0" y="755.0" font-size="12" text-anchor="middle" fill="#555">Auth &amp; Session</text>
+<rect x="1055" y="701" width="200" height="74" rx="8" fill="#E3F4E8" stroke="#2E8B57" stroke-width="1.6" stroke-dasharray="6,4"/>
+<text x="1155.0" y="733.0" font-size="13" text-anchor="middle" fill="#111" font-weight="bold">Ingestion Worker</text>
+<text x="1155.0" y="755.0" font-size="11" text-anchor="middle" fill="#555">Async Background Task</text>
+<path d="M1420,114 L1420,336 A155.0,14 0 0 0 1730,336 L1730,114 A155.0,14 0 0 0 1420,114 Z" fill="#E3F4E8" stroke="#2E8B57" stroke-width="1.8"/>
+<path d="M1420,114 A155.0,14 0 0 0 1730,114" fill="none" stroke="#2E8B57" stroke-width="1.8"/>
+<text x="1575.0" y="215.0" font-size="15" text-anchor="middle" fill="#111" font-weight="bold">DATABASE (PostgreSQL)</text>
+<text x="1575.0" y="238.0" font-size="13" text-anchor="middle" fill="#444">Supabase Cloud &amp; pgvector</text>
+<rect x="1420" y="440" width="310" height="100" rx="8" fill="#EEE5F7" stroke="#7D4E9E" stroke-width="2"/>
+<text x="1575.0" y="482.0" font-size="15" text-anchor="middle" fill="#111" font-weight="bold">EXTERNAL AI SERVICE</text>
+<text x="1575.0" y="506.0" font-size="13" text-anchor="middle" fill="#444">OpenAI API (GPT-4o &amp; Embedding)</text>
+<rect x="1420" y="600" width="310" height="90" rx="8" fill="#E3F4E8" stroke="#2E8B57" stroke-width="2"/>
+<text x="1575.0" y="642.0" font-size="15" text-anchor="middle" fill="#111" font-weight="bold">FILE STORAGE</text>
+<text x="1575.0" y="664.0" font-size="13" text-anchor="middle" fill="#444">Private Document Storage</text>
+<rect x="1420" y="880" width="310" height="70" rx="8" fill="#F7F7F7" stroke="#7D4E9E" stroke-width="2" stroke-dasharray="6,4"/>
+<text x="1575.0" y="912.0" font-size="14" text-anchor="middle" fill="#444" font-weight="bold">MAIL SERVICE [P1]</text>
+<text x="1575.0" y="932.0" font-size="12" text-anchor="middle" fill="#666">SMTP (Password Reset)</text>
+<rect x="30" y="620" width="400" height="100" rx="8" fill="#FFFFFF" stroke="#555" stroke-width="1.4"/>
+<text x="230.0" y="639.0" font-size="12" text-anchor="middle" fill="#111" font-weight="bold">Chú giải</text>
+<text x="230.0" y="654.0" font-size="11" text-anchor="middle" fill="#111">→ Lời gọi / luồng dữ liệu (nhãn = giao thức)</text>
+<text x="230.0" y="669.0" font-size="11" text-anchor="middle" fill="#111">Public Port: lời gọi một chiều giữa module (DAG)</text>
+<text x="230.0" y="684.0" font-size="11" text-anchor="middle" fill="#111">- - - Thành phần chạy ngầm / hoãn P1</text>
+<path d="M230,57 L230,100" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)" marker-start="url(#a)"/>
+<path d="M230,310 L230,350" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)" marker-start="url(#a)"/>
+<path d="M230,400 L230,440" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)" marker-start="url(#a)"/>
+<path d="M410,475 L500,475 L500,210 L585,210" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)" marker-start="url(#a)"/>
+<path d="M935,265 L935,295" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)" marker-start="url(#a)"/>
+<path d="M935,425 L935,461" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M835,383 L660,383 L660,581" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M935,545 L935,563 L760,563 L760,581" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M935,545 L935,563 L1155,563 L1155,581" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M1200,701 L1200,665" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M1285,330 L1420,330" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)" marker-start="url(#a)"/>
+<path d="M1035,503 L1420,503" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)" marker-start="url(#a)"/>
+<path d="M1255,625 L1420,625" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)" marker-start="url(#a)"/>
+<path d="M1255,705 L1420,705" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)" marker-start="url(#a)"/>
+<path d="M935,785 L935,855 L1575,855 L1575,880" fill="none" stroke="#222" stroke-width="1.6" stroke-dasharray="7,5" marker-end="url(#a)"/>
+<rect x="445.0" y="337.0" width="110.0" height="20" fill="#FFFFFF" fill-opacity="0.95"/>
+<text x="500.0" y="351.0" font-size="11" font-style="italic" text-anchor="middle" fill="#222">HTTPS / REST</text>
+<rect x="904.7" y="435.5" width="60.6" height="15" fill="#FFFFFF" fill-opacity="0.95"/>
+<text x="935.0" y="445.5" font-size="10" font-style="italic" text-anchor="middle" fill="#222">Public Port</text>
+<rect x="629.7" y="387.0" width="60.6" height="15" fill="#FFFFFF" fill-opacity="0.95"/>
+<text x="660.0" y="397.0" font-size="10" font-style="italic" text-anchor="middle" fill="#222">Public Port</text>
+<rect x="785.0" y="555.5" width="125" height="15" fill="#FFFFFF" fill-opacity="0.95"/>
+<text x="847.5" y="565.5" font-size="10" font-style="italic" text-anchor="middle" fill="#222">Public Port</text>
+<rect x="985.0" y="555.5" width="120" height="15" fill="#FFFFFF" fill-opacity="0.95"/>
+<text x="1045.0" y="565.5" font-size="10" font-style="italic" text-anchor="middle" fill="#222">Public Port</text>
+<rect x="1150.0" y="675.5" width="100" height="15" fill="#FFFFFF" fill-opacity="0.95"/>
+<text x="1200.0" y="685.5" font-size="10" font-style="italic" text-anchor="middle" fill="#222">Lease &amp; Extract</text>
+<rect x="1323.3" y="322.0" width="58.3" height="16" fill="#FFFFFF" fill-opacity="0.95"/>
+<text x="1352.5" y="333.0" font-size="11" font-style="italic" text-anchor="middle" fill="#222">JDBC SSL</text>
+<rect x="1175.0" y="495.0" width="105.0" height="18" fill="#FFFFFF" fill-opacity="0.95"/>
+<text x="1227.5" y="508.0" font-size="11" font-style="italic" text-anchor="middle" fill="#222">HTTPS / REST</text>
+<rect x="1295.9" y="610.0" width="83.1" height="30" fill="#FFFFFF" fill-opacity="0.95"/>
+<text x="1337.5" y="621.0" font-size="11" font-style="italic" text-anchor="middle" fill="#222">File I/O</text>
+<text x="1337.5" y="635.0" font-size="11" font-style="italic" text-anchor="middle" fill="#222"></text>
+<rect x="1314.7" y="697.0" width="45.5" height="16" fill="#FFFFFF" fill-opacity="0.95"/>
+<text x="1337.5" y="708.0" font-size="11" font-style="italic" text-anchor="middle" fill="#222">File I/O</text>
+<rect x="1200.7" y="847.0" width="63.5" height="16" fill="#FFFFFF" fill-opacity="0.95"/>
+<text x="1232.5" y="858.0" font-size="11" font-style="italic" text-anchor="middle" fill="#222">SMTP [P1]</text>
+<!-- EmbeddingPort arrow from knowledge to OpenAI -->
+<path d="M1255,595 L1335,595 L1335,540 L1420,540" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)" marker-start="url(#a)"/>
+<rect x="1280.0" y="555.0" width="110.0" height="18" fill="#FFFFFF" fill-opacity="0.95"/>
+<text x="1335.0" y="568.0" font-size="11" font-style="italic" text-anchor="middle" fill="#222">HTTPS / REST</text>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTpiOTg4YWVkZC1hYjVkLTQxMzYtYjRkOS0xZTU3MmYyMzk2NTcAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaAkuiQE3Ya4tarFE8ttcs78AAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDoyMDU4MjM2NC00ZTg4LTQ0ZmEtOTQyOC04MWEwMzBlNjMxZmZscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoh6vzW6SWRlRd+2/F6h/0wwAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFgg2qUb3rYnWuJ5ZxPUuads2Xhv6tEF1XPD5jME9yzFfimkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaPqsP48hGxIcGJ+ZHBKHc/UAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIL1QPmkEh4Q0vqCIzKDH6HQPin/7Psudrglu0lzSfezvZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GT58Zmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmI5ODhhZWRkLWFiNWQtNDEzNi1iNGQ5LTFlNTcyZjIzOTY1Ny9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmRlOGU1YjliLWEwNGEtNDVkZi1hN2Q0LWJjZDc1MmI1MDgwZHJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCDapRvetida4nlnE9S5p2zZeG/q0QXVc8PmMwT3LMV+KaJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggjX+K1dLATnphivN3OZLkABog9ZSMhWYpotEAIlZMAYGiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggWIt6apg2wzxLeSod/6/98vXLriC6/4fZS+zIo5qw32R0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQGS24T/oeiu+ojrY3gIm/FX3GgBzVU3wvSrB91+IEhdidaWipryXZefhsejXfiL2uOufbqA5fWxQPgn7M4D+IxE=</c2pa:manifest></metadata></svg>

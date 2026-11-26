@@ -1,0 +1,80 @@
+{
+  "report_wording_preserved": true,
+  "pdf_baseline": {
+    "authority": "report/Report.pdf",
+    "pdf_sha256": "140eb651c4abb5d7aa813371d2496e043e1c800bb677814f22d599661eac04c1",
+    "pages": 84,
+    "markdown_source": "sources/template2-final-current.md",
+    "markdown_sha256": "9b05b32c48d236e641ec37752c3708825abaa0d484a6756ed245506319fd0c6d",
+    "review_date": "2026-11-26"
+  },
+  "figures_mapped": 26,
+  "ai_sources": [
+    {
+      "author": "Ngô Viết Thanh Bình",
+      "mssv": "24120269",
+      "summary_rows": 8,
+      "detailed_sessions": 8,
+      "source": "ai-usage/template2/binh.md",
+      "report_ids": {
+        "T2-01": "T2-01",
+        "T2-02": "T2-02",
+        "T2-03": "T2-03",
+        "T2-04": "T2-04",
+        "T2-05": "T2-05",
+        "T2-06": "T2-06",
+        "T2-07": "T2-07",
+        "T2-08": "T2-08"
+      }
+    },
+    {
+      "author": "Nguyễn Đức Lãm",
+      "mssv": "24120083",
+      "summary_rows": 5,
+      "detailed_sessions": 5,
+      "source": "ai-usage/template2/lam.md",
+      "report_ids": {
+        "T2-01": "T2-09",
+        "T2-02": "T2-10",
+        "T2-03": "T2-11",
+        "T2-04": "T2-12",
+        "T2-05": "T2-13"
+      }
+    },
+    {
+      "author": "Phan Gia Phúc",
+      "mssv": "24120503",
+      "summary_rows": 3,
+      "detailed_sessions": 3,
+      "source": "ai-usage/template2/gia-phuc.md",
+      "report_ids": {
+        "GP-01": "T2-14",
+        "GP-02": "T2-15",
+        "GP-03": "T2-16"
+      }
+    },
+    {
+      "author": "Lê Quý Phúc",
+      "mssv": "24120121",
+      "summary_rows": 2,
+      "detailed_sessions": 2,
+      "source": "ai-usage/template2/quy-phuc.md",
+      "report_ids": {
+        "QP-01": "T2-17",
+        "QP-02": "T2-18"
+      }
+    }
+  ],
+  "git_commit_counts": {
+    "Ngô Viết Thanh Bình": 10,
+    "Nguyễn Đức Lãm": 3,
+    "Phan Gia Phúc": 2,
+    "Lê Quý Phúc": 3
+  },
+  "package": {
+    "zip_path": "reports/template2/4.zip",
+    "zip_files": 42,
+    "zip_bytes": 14214894,
+    "zip_sha256": "9269c6f1d6a4f0af16ca416a03b72d1c3331764f36f22fa41a934bad5efb85de"
+  }
+}

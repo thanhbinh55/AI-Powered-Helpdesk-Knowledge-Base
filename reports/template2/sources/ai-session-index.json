@@ -1,0 +1,135 @@
+[
+  {
+    "author": "Ngô Viết Thanh Bình",
+    "mssv": "24120269",
+    "source_id": "T2-01",
+    "report_id": "T2-01",
+    "source": "ai-usage/template2/binh.md"
+  },
+  {
+    "author": "Ngô Viết Thanh Bình",
+    "mssv": "24120269",
+    "source_id": "T2-02",
+    "report_id": "T2-02",
+    "source": "ai-usage/template2/binh.md"
+  },
+  {
+    "author": "Ngô Viết Thanh Bình",
+    "mssv": "24120269",
+    "source_id": "T2-03",
+    "report_id": "T2-03",
+    "source": "ai-usage/template2/binh.md"
+  },
+  {
+    "author": "Ngô Viết Thanh Bình",
+    "mssv": "24120269",
+    "source_id": "T2-04",
+    "report_id": "T2-04",
+    "source": "ai-usage/template2/binh.md"
+  },
+  {
+    "author": "Ngô Viết Thanh Bình",
+    "mssv": "24120269",
+    "source_id": "T2-05",
+    "report_id": "T2-05",
+    "source": "ai-usage/template2/binh.md"
+  },
+  {
+    "author": "Ngô Viết Thanh Bình",
+    "mssv": "24120269",
+    "source_id": "T2-06",
+    "report_id": "T2-06",
+    "source": "ai-usage/template2/binh.md"
+  },
+  {
+    "author": "Ngô Viết Thanh Bình",
+    "mssv": "24120269",
+    "source_id": "T2-07",
+    "report_id": "T2-07",
+    "source": "ai-usage/template2/binh.md"
+  },
+  {
+    "author": "Ngô Viết Thanh Bình",
+    "mssv": "24120269",
+    "source_id": "T2-08",
+    "report_id": "T2-08",
+    "source": "ai-usage/template2/binh.md"
+  },
+  {
+    "author": "Nguyễn Đức Lãm",
+    "mssv": "24120083",
+    "source_id": "T2-01",
+    "report_id": "T2-09",
+    "source": "ai-usage/template2/lam.md"
+  },
+  {
+    "author": "Nguyễn Đức Lãm",
+    "mssv": "24120083",
+    "source_id": "T2-02",
+    "report_id": "T2-10",
+    "source": "ai-usage/template2/lam.md"
+  },
+  {
+    "author": "Nguyễn Đức Lãm",
+    "mssv": "24120083",
+    "source_id": "T2-03",
+    "report_id": "T2-11",
+    "source": "ai-usage/template2/lam.md"
+  },
+  {
+    "author": "Nguyễn Đức Lãm",
+    "mssv": "24120083",
+    "source_id": "T2-04",
+    "report_id": "T2-12",
+    "source": "ai-usage/template2/lam.md"
+  },
+  {
+    "author": "Nguyễn Đức Lãm",
+    "mssv": "24120083",
+    "source_id": "T2-05",
+    "report_id": "T2-13",
+    "source": "ai-usage/template2/lam.md"
+  },
+  {
+    "author": "Phan Gia Phúc",
+    "mssv": "24120503",
+    "source_id": "23/11/2026 — Đối chiếu SRS và chỉnh sửa thiết kế lớp",
+    "report_id": "T2-14",
+    "source": "ai-usage/template2/gia-phuc.md"
+  },
+  {
+    "author": "Phan Gia Phúc",
+    "mssv": "24120503",
+    "source_id": "25/11/2026 — Rà soát năm hình và sửa nhãn bị che",
+    "report_id": "T2-15",
+    "source": "ai-usage/template2/gia-phuc.md"
+  },
+  {
+    "author": "Phan Gia Phúc",
+    "mssv": "24120503",
+    "source_id": "26/11/2026 — Trích bản Markdown bàn giao cá nhân",
+    "report_id": "T2-16",
+    "source": "ai-usage/template2/gia-phuc.md"
+  },
+  {
+    "author": "Lê Quý Phúc",
+    "mssv": "24120121",
+    "source_id": "21/11/2026 (UTC+7)",
+    "report_id": "T2-17",
+    "source": "ai-usage/template2/quy-phuc.md"
+  },
+  {
+    "author": "Lê Quý Phúc",
+    "mssv": "24120121",
+    "source_id": "26/11/2026 (UTC+7)",
+    "report_id": "T2-18",
+    "source": "ai-usage/template2/quy-phuc.md"
+  },
+  {
+    "author": "Ngô Viết Thanh Bình",
+    "mssv": "24120269",
+    "source_id": "T2-PACK-01",
+    "report_id": "T2-19",
+    "source": "Phiên đóng gói bản nộp Template 2 trên nhánh merge-template2 ngày 26/11/2026"
+  }
+]
