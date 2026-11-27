@@ -28,7 +28,6 @@ import render_ai_usage_template0 as template0
 import render_reports
 
 T2 = ROOT / 'reports/template2'
-RELEASE = ROOT / 'docs/template2/release'
 SOURCES = T2 / 'sources'
 REPO = 'https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base'
 DATE = '26/11/2026'
@@ -113,8 +112,9 @@ def stage_sources() -> None:
         shutil.copy2(DOWNLOAD_PDF, T2 / 'report/Report.pdf')
     for member in ('binh', 'lam', 'gia-phuc', 'quy-phuc'):
         src = ROOT / f'ai-usage/template2/{member}.md'
-        assert src.is_file(), f'Missing member AI usage: {src}'
-        shutil.copy2(src, SOURCES / f'ai-usage-{member}.md')
+        if src.is_file():
+            shutil.copy2(src, SOURCES / f'ai-usage-{member}.md')
+        assert (SOURCES / f'ai-usage-{member}.md').is_file(), f'Missing member AI usage snapshot for {member}'
     pdf_bytes = (T2 / 'report/Report.pdf').read_bytes()
     md_bytes = (SOURCES / 'template2-final-current.md').read_bytes()
     page_count = len(re.findall(rb'/Type\s*/Page\b', pdf_bytes))
@@ -147,10 +147,10 @@ def build_report() -> list:
     diag_dest_dir = T2 / 'report/assets/diagrams'
     diag_dest_dir.mkdir(parents=True, exist_ok=True)
     for stem, folder in [
-        ('conceptual-model', ROOT / 'docs/template2/assets/diagrams'),
-        ('system-decomposition-tree', ROOT / 'docs/template2/assets/diagrams'),
-        ('system-architecture', ROOT / 'docs/template2/assets/diagrams'),
-        ('physical-erd', ROOT / 'docs/template2/assets/diagrams'),
+        ('conceptual-model', SOURCES / 'diagrams'),
+        ('system-decomposition-tree', SOURCES / 'diagrams'),
+        ('system-architecture', SOURCES / 'diagrams'),
+        ('physical-erd', SOURCES / 'diagrams'),
     ]:
         for ext in ('.drawio', '.svg'):
             candidate = folder / (stem + ext)
@@ -160,21 +160,21 @@ def build_report() -> list:
         ('screen-flow.drawio', 'screen-flow-template2.drawio'),
         ('screen-flow-figma.svg', 'screen-flow-template2.svg'),
     ]:
-        candidate = ROOT / 'docs/template2/members/quy-phuc/diagrams' / qp_src
+        candidate = SOURCES / 'diagrams' / qp_src
         if candidate.is_file():
             shutil.copy2(candidate, diag_dest_dir / qp_dst)
 
     image_plan = [
-        ('image1', 'assets/diagrams/conceptual-model.png', 'docs/template2/assets/diagrams/conceptual-model.png', None),
-        ('image2', 'assets/diagrams/system-decomposition-tree.png', 'docs/template2/assets/diagrams/system-decomposition-tree.png', None),
-        ('image3', 'assets/diagrams/system-architecture.png', 'docs/template2/assets/diagrams/system-architecture.png', None),
+        ('image1', 'assets/diagrams/conceptual-model.png', 'reports/template2/sources/diagrams/conceptual-model.png', None),
+        ('image2', 'assets/diagrams/system-decomposition-tree.png', 'reports/template2/sources/diagrams/system-decomposition-tree.png', None),
+        ('image3', 'assets/diagrams/system-architecture.png', 'reports/template2/sources/diagrams/system-architecture.png', None),
         ('image4', 'assets/diagrams/class-diagram-3.3a-workflow-ports.png', 'reports/template2/sources/pdf-assets/class-diagram-3.3a-workflow-ports.png', 'image4+image5 (PDF obj 102)'),
         ('image6', 'assets/diagrams/class-diagram-3.3b-identity.png', 'reports/template2/sources/pdf-assets/class-diagram-3.3b-identity.png', 'image6+image7 (PDF obj 105)'),
         ('image8', 'assets/diagrams/class-diagram-3.3c-ticket.png', 'reports/template2/sources/pdf-assets/class-diagram-3.3c-ticket.png', 'PDF obj 108'),
         ('image9', 'assets/diagrams/class-diagram-3.3d-knowledge.png', 'reports/template2/sources/pdf-assets/class-diagram-3.3d-knowledge.png', 'PDF obj 109'),
         ('image10', 'assets/diagrams/class-diagram-3.3e-ai-data.png', 'reports/template2/sources/pdf-assets/class-diagram-3.3e-ai-data.png', 'PDF obj 112'),
-        ('image11', 'assets/diagrams/physical-erd.png', 'docs/template2/assets/diagrams/physical-erd.png', None),
-        ('image12', 'assets/diagrams/screen-flow-template2.png', 'docs/template2/members/quy-phuc/diagrams/screen-flow-template2.png', None),
+        ('image11', 'assets/diagrams/physical-erd.png', 'reports/template2/sources/diagrams/physical-erd.png', None),
+        ('image12', 'assets/diagrams/screen-flow-template2.png', 'reports/template2/sources/diagrams/screen-flow-template2.png', None),
         ('image13', 'assets/ui/113-4387.png', 'docs/design/anh/v3/113-4387.png', 'I01'),
         ('image14', 'assets/ui/114-4766.png', 'docs/design/anh/v3/114-4766.png', 'I02'),
         ('image15', 'assets/ui/113-3580.png', 'docs/design/anh/v3/113-3580.png', 'I03'),
@@ -229,22 +229,6 @@ def build_report() -> list:
 
     write(T2 / 'report/report.md', body)
     write(T2 / 'report/assets/manifest.json', json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
-
-    # Sync TEMPLATE2_DRAFT_MASTER.md with final report wording
-    relocated_t2 = re.sub(r'!\[\]\((assets/[^)]+)\)', r'![](report/\1)', body)
-    write(
-        T2 / 'TEMPLATE2_DRAFT_MASTER.md',
-        f'> Bản master đồng bộ theo [Report.pdf](report/Report.pdf) ngày {DATE}. '
-        'Nội dung trích từ [report.md](report/report.md); ảnh dùng chung với bản final.\n\n'
-        + relocated_t2,
-    )
-    relocated_docs = re.sub(r'!\[\]\((assets/[^)]+)\)', r'![](release/report/\1)', body)
-    write(
-        ROOT / 'docs/template2/TEMPLATE2_DRAFT_MASTER.md',
-        f'> Bản master đồng bộ theo [Report.pdf](release/report/Report.pdf) ngày {DATE}. '
-        'Nội dung trích từ [report.md](release/report/report.md); ảnh dùng chung với bản final.\n\n'
-        + relocated_docs,
-    )
     return manifest
 
 
@@ -858,19 +842,6 @@ def build_zip_and_sync_release() -> dict:
         for path in files:
             assert archive.read(path.relative_to(T2).as_posix()) == path.read_bytes()
     temp_zip.replace(target_zip)
-
-    # Also mirror the 3 submission folders and 4.zip into docs/template2/release/
-    RELEASE.mkdir(parents=True, exist_ok=True)
-    for folder in folders:
-        dst_folder = RELEASE / folder
-        if dst_folder.exists():
-            shutil.rmtree(dst_folder)
-        shutil.copytree(T2 / folder, dst_folder)
-    # Remove any leftover .gitkeep in RELEASE so both trees match identically
-    gitkeep = RELEASE / '.gitkeep'
-    if gitkeep.exists():
-        gitkeep.unlink()
-    shutil.copy2(target_zip, RELEASE / '4.zip')
 
     return {
         'zip_path': str(target_zip.relative_to(ROOT)),

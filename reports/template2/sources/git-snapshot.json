@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-11-27T14:02:39+07:00",
+  "captured_at": "2026-11-27T14:16:07+07:00",
   "period_start": "2026-11-14T00:00:00+07:00",
   "refs": {
     "origin/main": "d8757188712b6344fcce47f1a13ada1cdd18120b",
@@ -7,7 +7,7 @@
     "origin/docs/t2-giaphuc": "a0abbd4bdc90a746594b18da19de49320a53f906",
     "origin/docs/t2-lam": "026fc600b67d354f55a3d344ba74d53ad6ae5069",
     "origin/docs/t2-quy-phuc": "235bc3da578d37804857e439324b09bfcd5e57ab",
-    "merge-template2": "f294ad9c4d5b33ecb4669ecbb18a0217b4f64116"
+    "merge-template2": "4142fd3f7931380ea3c852dc03d8638177c04550"
   },
   "members": [
     {
@@ -44,6 +44,30 @@
     }
   ],
   "commits": [
+    {
+      "sha": "4142fd3f7931380ea3c852dc03d8638177c04550",
+      "author": "Ngô Viết Thanh Bình",
+      "author_email": "ngovietthanhbinh2006@gmail.com",
+      "authored_at": "2026-11-27T14:02:41+07:00",
+      "committer": "Ngô Viết Thanh Bình",
+      "committer_email": "ngovietthanhbinh2006@gmail.com",
+      "committed_at": "2026-11-27T14:02:41+07:00",
+      "subject": "docs(template2): refresh git contributions snapshot for final standardized AI usage SCRUM-55",
+      "parents": "f294ad9c4d5b33ecb4669ecbb18a0217b4f64116",
+      "files": [
+        "docs/template2/release/4.zip",
+        "docs/template2/release/git-contributions/git-contributions.html",
+        "docs/template2/release/git-contributions/git-contributions.md",
+        "reports/template2/4.zip",
+        "reports/template2/git-contributions/git-contributions.html",
+        "reports/template2/git-contributions/git-contributions.md",
+        "reports/template2/sources/git-snapshot.json",
+        "reports/template2/verification.json"
+      ],
+      "refs": [
+        "merge-template2"
+      ]
+    },
     {
       "sha": "f294ad9c4d5b33ecb4669ecbb18a0217b4f64116",
       "author": "Ngô Viết Thanh Bình",

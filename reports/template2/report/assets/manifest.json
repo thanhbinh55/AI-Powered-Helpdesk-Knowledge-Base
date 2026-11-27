@@ -3,21 +3,21 @@
     "reference": "image1",
     "caption": "Hình 2.1 — Mô hình quan niệm (EER) của hệ thống Clarune theo ký pháp Chen.",
     "asset": "assets/diagrams/conceptual-model.png",
-    "source": "docs/template2/assets/diagrams/conceptual-model.png",
+    "source": "reports/template2/sources/diagrams/conceptual-model.png",
     "sha256": "603ded227721acad0f8ffdb532f29b2ea5917df78111f6f73dc87d2b022752ce"
   },
   {
     "reference": "image2",
     "caption": "Hình 3.1 — Sơ đồ cây phân rã chức năng hệ thống Clarune theo chiều dọc",
     "asset": "assets/diagrams/system-decomposition-tree.png",
-    "source": "docs/template2/assets/diagrams/system-decomposition-tree.png",
+    "source": "reports/template2/sources/diagrams/system-decomposition-tree.png",
     "sha256": "ef048d09af595cc67ee1448694c9aa11245236b1762180500b187c960a53194f"
   },
   {
     "reference": "image3",
     "caption": "Hình 3.2 — Sơ đồ tổng quan kiến trúc 3 tầng kết hợp Modular Monolith của hệ thống Clarune",
     "asset": "assets/diagrams/system-architecture.png",
-    "source": "docs/template2/assets/diagrams/system-architecture.png",
+    "source": "reports/template2/sources/diagrams/system-architecture.png",
     "sha256": "1cb3844caa16d3349d85af9679ffb0d609b4cc36000228ac801e8a84a807dfc9"
   },
   {
@@ -64,14 +64,14 @@
     "reference": "image11",
     "caption": "Hình 4.1 — Sơ đồ cơ sở dữ liệu vật lý của hệ thống Clarune.",
     "asset": "assets/diagrams/physical-erd.png",
-    "source": "docs/template2/assets/diagrams/physical-erd.png",
+    "source": "reports/template2/sources/diagrams/physical-erd.png",
     "sha256": "bdb6f1f80db96865e5e2440771bc5a709f122b11bb7e2b9bef7baa403e898605"
   },
   {
     "reference": "image12",
     "caption": "Hình 5.1. Luồng màn hình Clarune theo vai trò. Đăng nhập thành công đưa Khách hàng đến Yêu cầu của tôi, Nhân viên đến hàng đợi và Quản trị viên đến Tất cả yêu cầu. Chức năng P1 có nhãn PLANNED (P1).",
     "asset": "assets/diagrams/screen-flow-template2.png",
-    "source": "docs/template2/members/quy-phuc/diagrams/screen-flow-template2.png",
+    "source": "reports/template2/sources/diagrams/screen-flow-template2.png",
     "sha256": "3cc13d66d18d991a82e4dfe113cc47f5485d3eaedac0dc6d8564b538442cbdfb"
   },
   {
