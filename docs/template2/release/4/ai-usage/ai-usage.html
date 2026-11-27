@@ -1,0 +1,1279 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Template 2 — AI Usage Report</title><style>
+:root {
+  --page-width: 210mm;
+  --page-height: 297mm;
+  --page-margin-top: 25mm;
+  --page-margin-bottom: 20mm;
+  --page-margin-left: 30mm;
+  --page-margin-right: 20mm;
+
+  --primary-blue: #548dd4;
+  --header-blue: #548dd4;
+  --sub-blue: #4f81bd;
+  --dark-blue: #366091;
+  --text-dark: #000000;
+  --border-dark: #cbd5e1;
+  --table-stripe: #f8fafc;
+  --quote-bg: #f8fafc;
+}
+
+*, *::before, *::after,
+html, body, p, span, div, a, li, ul, ol, blockquote, table, th, td, tr, 
+h1, h2, h3, h4, h5, h6, input, button, select, textarea, b, strong, em, i, 
+code, pre, small, sub, sup, header, footer, section, article, caption {
+  font-family: 'Times New Roman', Times, serif !important;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+body {
+  font-family: 'Times New Roman', Times, serif !important;
+  color: var(--text-dark);
+  background-color: #f1f5f9;
+  margin: 0;
+  padding: 20px 0 60px 0;
+  line-height: 1.5;
+  font-size: 12pt;
+}
+
+.doc-page, .report-container, .container {
+  background-color: #ffffff;
+  max-width: 900px;
+  margin: 0 auto 35px auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.cover-page {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  min-height: 297mm;
+  height: 297mm;
+  width: var(--page-width);
+  padding: 30mm 25mm 25mm 25mm !important;
+  box-sizing: border-box !important;
+  background-color: #ffffff;
+  margin: 12mm auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+}
+
+.cover-top-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.cover-doc-id {
+  text-align: center;
+  font-size: 15pt !important;
+  font-weight: 700 !important;
+  color: #000000 !important;
+  line-height: 1.4;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+}
+
+.proposal-banner {
+  background: linear-gradient(135deg, #548dd4 0%, #366091 100%);
+  color: #ffffff !important;
+  padding: 30px 25px;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(84, 141, 212, 0.25);
+  margin-bottom: 25px;
+}
+
+.banner-title {
+  font-size: 24pt !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+  color: #ffffff !important;
+}
+
+.banner-subtitle {
+  font-size: 13.5pt !important;
+  font-style: italic;
+  opacity: 0.95;
+  color: #ffffff !important;
+}
+
+.cover-meta-box {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  padding: 16px 20px;
+  margin: 15px 0 20px 0;
+  border-radius: 4px;
+  font-size: 11pt !important;
+  line-height: 1.5;
+}
+
+.cover-institution-block-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-top: auto;
+  margin-bottom: 5px;
+}
+
+.cover-logo-wrapper {
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+}
+
+.cover-logo-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cover-inst-text {
+  text-align: left;
+  line-height: 1.35;
+}
+
+.inst-line-dept {
+  font-size: 11.5pt !important;
+  font-weight: 700 !important;
+  color: #366091;
+  text-transform: uppercase;
+}
+
+.inst-line-faculty {
+  font-size: 12.5pt !important;
+  font-weight: 700 !important;
+  color: #000000;
+  text-transform: uppercase;
+}
+
+.inst-line-school {
+  font-size: 13.5pt !important;
+  font-weight: 700 !important;
+  color: #548dd4;
+  text-transform: uppercase;
+}
+
+/* Page Frame for Word-like pagination */
+.page {
+  width: var(--page-width);
+  height: var(--page-height);
+  min-height: var(--page-height);
+  max-height: var(--page-height);
+  background-color: #ffffff;
+  margin: 12mm auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+  padding: var(--page-margin-top) var(--page-margin-right) var(--page-margin-bottom) var(--page-margin-left);
+}
+
+.page .template-header-bar {
+  flex: none;
+  margin-bottom: 4mm;
+}
+
+.page .template-footer-bar {
+  flex: none;
+  margin-top: 4mm;
+}
+
+.page-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.page-body > :first-child {
+  margin-top: 0 !important;
+}
+
+.template-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2px solid #548dd4;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  width: 100%;
+}
+
+.template-footer-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-top: 2px solid #548dd4;
+  margin-top: 0;
+  padding-top: 0;
+  width: 100%;
+}
+
+.header-tab {
+  background-color: #548dd4 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 11pt !important;
+  line-height: 1.2;
+  padding: 4px 20px;
+  display: inline-block;
+  margin-bottom: -1px;
+  letter-spacing: 0.2px;
+}
+
+.header-title {
+  color: #000000 !important;
+  font-weight: 700 !important;
+  font-size: 11pt !important;
+  line-height: 1.2;
+  padding-bottom: 4px;
+  padding-right: 2px;
+  text-align: right;
+  letter-spacing: 0.2px;
+}
+
+.footer-left {
+  color: #000000 !important;
+  font-size: 10.5pt !important;
+  padding-top: 5px;
+  line-height: 1.2;
+}
+
+.footer-tab {
+  background-color: #548dd4 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 11pt !important;
+  padding: 4px 22px;
+  min-width: 45px;
+  text-align: center;
+  line-height: 1.2;
+  margin-top: -2px;
+  display: inline-block;
+  letter-spacing: 0.2px;
+}
+
+p {
+  margin: 0 0 9px 0;
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 1.45;
+  font-size: 12pt;
+}
+
+h2 {
+  color: #000000;
+  font-size: 13.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 14px;
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+h3 {
+  color: #000000;
+  font-size: 12.5pt;
+  font-weight: 700;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+ul, ol {
+  margin: 0 0 9px 0;
+  padding-left: 22px;
+  line-height: 1.45;
+  font-size: 12pt;
+}
+
+li {
+  margin-bottom: 3px;
+  text-align: justify;
+}
+
+blockquote {
+  margin: 6px 0 9px 0;
+  padding: 7px 12px;
+  background-color: var(--quote-bg);
+  border: 1px solid var(--border-dark);
+  border-radius: 4px;
+  font-style: normal;
+  font-size: 11pt;
+  line-height: 1.45;
+}
+
+blockquote p {
+  margin: 0;
+  font-style: normal;
+  text-align: justify;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #cbd5e1;
+  margin: 8px 0 10px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 6px 0 10px 0;
+  font-size: 10.5pt;
+  line-height: 1.35;
+}
+
+th, td {
+  border: 1px solid #94a3b8;
+  padding: 4px 6px;
+  vertical-align: top;
+}
+
+th {
+  background-color: #548dd4 !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  text-align: center;
+}
+
+tr:nth-child(even) td {
+  background-color: var(--table-stripe);
+}
+
+.align-center { text-align: center; }
+.align-right { text-align: right; }
+.align-left { text-align: left; }
+
+code {
+  font-family: 'Times New Roman', Times, serif !important;
+  background-color: #f1f5f9;
+  padding: 1px 4px;
+  border-radius: 3px;
+  border: 1px solid #cbd5e1;
+  font-size: 11pt;
+}
+
+a {
+  color: #366091;
+  text-decoration: underline;
+}
+
+.toc-page-num {
+  font-weight: 700;
+  color: #366091;
+}
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+@media print {
+  html, body {
+    background: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .page, .cover-page {
+    margin: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    height: 296.5mm !important;
+    overflow: hidden !important;
+    break-after: page !important;
+    page-break-after: always !important;
+  }
+  .page:last-of-type {
+    break-after: auto !important;
+    page-break-after: auto !important;
+  }
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  #source, .back-to-top {
+    display: none !important;
+  }
+}
+
+#source {
+  position: absolute;
+  left: -99999px;
+  top: 0;
+  width: calc(var(--page-width) - var(--page-margin-left) - var(--page-margin-right));
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #548dd4;
+  color: #ffffff !important;
+  padding: 10px 18px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 11pt;
+  box-shadow: 0 4px 12px rgba(84, 141, 212, 0.4);
+  z-index: 9999;
+  transition: all 0.2s ease;
+}
+.back-to-top:hover {
+  background-color: #366091;
+  transform: translateY(-2px);
+}
+
+
+.page-body { overflow-wrap: anywhere; }
+.page-body table { table-layout: fixed; width: 100%; font-size: 9pt; line-height: 1.3; }
+.page-body td, .page-body th { overflow-wrap: anywhere; word-break: normal; }
+.page-body pre { white-space: pre-wrap; }
+.page-body table code { font-size: inherit; padding: 0 1px; }
+.page .header-title { max-width: 57%; font-size: 10pt !important; white-space: normal; text-align: right; }
+.page-body li { font-size: 11pt; }
+.page-body h1 { font-size: 18pt; }
+.page-body blockquote { margin-left: 0; margin-right: 0; }
+.cover-meta-box { font-size: 10pt; }
+#source { width: 160mm; }
+</style></head><body>
+<!-- TRANG 1: TRANG BÌA (COVER PAGE) -->
+<section class="doc-page cover-page" id="trang-bia">
+  <div class="cover-top-section">
+    <div class="cover-doc-id">NMCNPM - Clarune - Group 04 | Template 2</div>
+
+    <div class="proposal-banner">
+      <div class="banner-title">AI Usage Report</div>
+      <div class="banner-subtitle">Báo cáo Sử dụng AI — Giai đoạn Template 2</div>
+    </div>
+
+    <div class="cover-meta-box">
+      <div><strong>Học phần:</strong> Nhập môn Công nghệ Phần mềm (CS10014) — Học kỳ 1 / Năm học 2026 - 2027</div>
+      <div><strong>Đề tài:</strong> AI-Powered Helpdesk &amp; Knowledge Base</div>
+      <div><strong>Mã nhóm:</strong> Group 04</div>
+      <div><strong>Kho lưu trữ (Repository):</strong> <a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base" target="_blank" rel="noopener noreferrer">https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base</a></div>
+      <div><strong>Chuẩn quy định:</strong> Mục 5 Quy định về việc sử dụng AI trong học phần — Khoa Công nghệ Thông tin, HCMUS</div>
+      <div><strong>Mục đích &amp; Phạm vi tài liệu:</strong> Ghi nhận việc sử dụng AI trong giai đoạn Template 2 của dự án Clarune.</div>
+      <div><strong>Ngày cập nhật:</strong> 26/11/2026</div>
+      <div style="margin-top: 14px;">
+        <table style="width: 100%; margin: 6px 0 0 0; border-collapse: collapse; font-size: 10.5pt;">
+          <thead>
+            <tr>
+              <th style="padding: 5px 6px; text-align: center; width: 45px;">STT</th>
+              <th style="padding: 5px 6px; text-align: center; width: 85px;">MSSV</th>
+              <th style="padding: 5px 8px; text-align: left;">Họ và Tên</th>
+              <th style="padding: 5px 8px; text-align: center; width: 120px;">GitHub</th>
+              <th style="padding: 5px 8px; text-align: left;">Module phụ trách</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center; padding: 5px 6px;">1</td>
+              <td style="text-align: center; padding: 5px 6px;"><code>24120269</code></td>
+              <td style="padding: 5px 8px;">Ngô Viết Thanh Bình (Nhóm trưởng)</td>
+              <td style="text-align: center; padding: 5px 8px;"><code>thanhbinh55</code></td>
+              <td style="padding: 5px 8px;">D - Identity &amp; Access</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 5px 6px;">2</td>
+              <td style="text-align: center; padding: 4px 6px;"><code>24120083</code></td>
+              <td style="padding: 5px 8px;">Nguyễn Đức Lãm</td>
+              <td style="text-align: center; padding: 5px 8px;"><code>Lamnguyen-code</code></td>
+              <td style="padding: 5px 8px;">B - Knowledge Base</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 5px 6px;">3</td>
+              <td style="text-align: center; padding: 5px 6px;"><code>24120503</code></td>
+              <td style="padding: 5px 8px;">Phan Gia Phúc</td>
+              <td style="text-align: center; padding: 5px 8px;"><code>t4lf4n</code></td>
+              <td style="padding: 5px 8px;">C - Ticket Management</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 5px 6px;">4</td>
+              <td style="text-align: center; padding: 5px 6px;"><code>24120121</code></td>
+              <td style="padding: 5px 8px;">Lê Quý Phúc</td>
+              <td style="text-align: center; padding: 5px 8px;"><code>Shinkiisme</code></td>
+              <td style="padding: 5px 8px;">A - AI Assistance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-bottom-section">
+    <div class="cover-institution-block-bottom">
+      <div class="cover-logo-wrapper">
+        <img src="data:image/png;base64,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" alt="HCMUS Logo">
+      </div>
+      <div class="cover-inst-text">
+        <div class="inst-line-dept">Bộ môn Công nghệ phần mềm</div>
+        <div class="inst-line-faculty">Khoa Công nghệ thông tin</div>
+        <div class="inst-line-school">Đại học Khoa học tự nhiên TP HCM</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="pages"></div><div id="source"><h1>BÁO CÁO SỬ DỤNG AI — TEMPLATE 2</h1>
+
+<blockquote><strong>Dự án:</strong> AI-Powered Helpdesk &amp; Knowledge Base (Clarune)</blockquote>
+<blockquote><strong>Nhóm thực hiện:</strong> Nhóm 04 — Lớp Nhập môn Công nghệ Phần mềm (CS10014), Trường ĐHKHTN, ĐHQG-HCM</blockquote>
+<blockquote><strong>Kho lưu trữ:</strong> https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base</blockquote>
+<blockquote><strong>Chuẩn quy định:</strong> Mục 5 Quy định về việc sử dụng AI trong học phần — Khoa Công nghệ Thông tin, HCMUS</blockquote>
+<blockquote><strong>Phạm vi tài liệu:</strong> Nhật ký ghi nhận các phiên sử dụng công cụ AI phục vụ trực tiếp cho Báo cáo Thiết kế Phần mềm Template 2 (kế thừa và tiếp nối độc lập sau khi đã nộp hoàn tất Template 0 và Template 1).</blockquote>
+
+<hr>
+
+<h2>1. NGUYÊN TẮC MINH BẠCH &amp; KIỂM CHỨNG TRONG TEMPLATE 2</h2>
+
+<ol>
+  <li><strong>Minh bạch câu lệnh (Prompts):</strong> Toàn bộ các câu prompt đưa vào AI đều được ghi nhận trung thực từ nhật ký của từng thành viên, tóm tắt rõ mục đích và đã khử các thông tin nhạy cảm (secrets/credentials/PII).</li>
+  <li><strong>Không sao chép máy móc:</strong> Mọi sơ đồ EER, sơ đồ kiến trúc, sơ đồ lớp (Class Diagram), sơ đồ cơ sở dữ liệu vật lý (Physical ERD), đặc tả dữ liệu Flyway V1–V5 và thiết kế giao diện Figma ver3 do AI hỗ trợ đều được thành viên phụ trách đối chiếu chéo với <code>SRS-master.md</code>, <code>MVP_CONTRACTS.md</code>, mã nguồn kho lưu trữ và tài liệu nhóm trên Google Docs (<code>[SE - Nhóm 4] Template2-ThietKe-Clarune-04</code>) trước khi chốt.</li>
+  <li><strong>Phân định trách nhiệm cá nhân:</strong> Tác giả từng mục chịu trách nhiệm trực tiếp về phần nội dung con người đã kiểm chứng; báo cáo tổng hợp này giữ nguyên trung thực 100% nội dung các phiên AI mà 4 thành viên đã ghi nhận trên nhánh cá nhân.</li>
+</ol>
+
+<hr>
+
+<h2>2. NHẬT KÝ SỬ DỤNG AI THEO THÀNH VIÊN</h2>
+
+<h3>2.1 Ngô Viết Thanh Bình — 24120269</h3>
+
+<table><colgroup><col style="width:8%"><col style="width:13%"><col style="width:12%"><col style="width:13%"><col style="width:18%"><col style="width:25%"><col style="width:11%"></colgroup><thead><tr>
+    <th>STT</th>
+    <th>Thời gian</th>
+    <th>Thành viên (MSSV)</th>
+    <th>Công cụ &amp; Model</th>
+    <th>Nội dung công việc trong Template 2</th>
+    <th>Nội dung AI tạo &amp; Con người tự kiểm chứng</th>
+    <th>Minh chứng / Commit</th>
+  </tr></thead><tbody><tr>
+    <td><strong>T2-01</strong></td>
+    <td>16h30 – 20h35<br>20/11/2026</td>
+    <td>Ngô Viết Thanh Bình<br><code>24120269</code></td>
+    <td>Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE</td>
+    <td>Tái cấu trúc repo Giai đoạn 2, lập <code>TEAM_GUIDE_PHASE2.md</code>, phân công Jira và khởi tạo khung <code>TEMPLATE2_DRAFT_MASTER.md</code></td>
+    <td>AI hỗ trợ dựng cấu trúc thư mục tách biệt <code>members/&lt;ten&gt;/</code>, lập bảng phân công và khung nháp 6 mục Template 2 từ SRS &amp; Template 1; sinh viên đối chiếu biểu mẫu <code>Template2-ThietKe.docx</code>, chốt quy tắc <code>0% Conflict</code> và mốc hạn cứng</td>
+    <td>Commit <code>e1ab591</code>, <code>TEAM_GUIDE_PHASE2.md</code>, <code>SCRUM-58..61</code>, <code>SCRUM-66</code></td>
+  </tr>
+<tr>
+    <td><strong>T2-02</strong></td>
+    <td>20h40 – 21h20<br>20/11/2026</td>
+    <td>Ngô Viết Thanh Bình<br><code>24120269</code></td>
+    <td>Antigravity AI (Gemini 3.8 Flash)<br>via Antigravity IDE</td>
+    <td>Chuẩn hóa liên kết Google Doc làm việc chung, hiện đại hóa <code>README.md</code> và đồng bộ danh mục task Jira Giai đoạn 2</td>
+    <td>AI hỗ trợ cập nhật URL Google Doc chính thức và Figma ver3 (<code>node-id=111-3978</code>) xuyên suốt các file hướng dẫn, <code>task/template2/*.md</code> và CSV Jira; sinh viên kiểm tra từng link truy cập và quyền chia sẻ trên Google Doc</td>
+    <td>Commit <code>3a3e5b2</code>, <code>4c0e056</code>, <code>task/jira/tasks_phase2_updated.csv</code>, <code>SCRUM-55</code></td>
+  </tr>
+<tr>
+    <td><strong>T2-03</strong></td>
+    <td>10h15 – 12h10<br>21/11/2026</td>
+    <td>Ngô Viết Thanh Bình<br><code>24120269</code></td>
+    <td>Antigravity AI (Gemini 2.5 Flash &amp; Gemini 3.8 Flash)<br>via Antigravity IDE</td>
+    <td>Đối soát kiến trúc Tầng Server &amp; Tầng Dữ liệu (Mục 3.1.5–3.1.7) với khung nền tảng Spring Boot 3.3.5 &amp; Supabase Cloud <code>pgvector</code></td>
+    <td>AI hỗ trợ đối chiếu thiết kế kết nối JDBC SSL, HikariCP, <code>ErrorEnvelope</code>, <code>ActorPrincipal</code>, <code>UserRole</code> và Docker Compose <code>pgvector</code> với mã nguồn scaffold; sinh viên loại bỏ thông tin nhạy cảm khỏi <code>application.yml</code>, xác minh build Maven Java 21</td>
+    <td>Commit <code>67f18d2</code>, <code>f561235</code>, <code>0bc6f33</code>, <code>a14ef99</code>, PR <code>#14</code> (<code>SCRUM-26</code>, <code>SCRUM-59</code>)</td>
+  </tr>
+<tr>
+    <td><strong>T2-04</strong></td>
+    <td>18h00 – 20h45<br>22/11/2026</td>
+    <td>Ngô Viết Thanh Bình<br><code>24120269</code></td>
+    <td>Antigravity AI (Gemini 3.8 Flash &amp; Claude 3.5 Sonnet)<br>via Antigravity IDE</td>
+    <td>Soạn thảo chi tiết Mục 3.1 (<code>3.1.1</code>–<code>3.1.7</code>): Tổng quan kiến trúc 3-Tier / Modular Monolith, Bảng công nghệ &amp; 6 Design Patterns</td>
+    <td>AI hỗ trợ diễn giải kiến trúc 3 tầng, cơ chế cô lập thực thể/repository, bảng công nghệ 8 lớp và 6 mẫu thiết kế; sinh viên chuẩn hóa nguyên tắc tách rời phụ thuộc một chiều (DAG) giữa <code>Ticket</code> và <code>Workflow</code> qua Public Ports</td>
+    <td>Commit <code>f3cc774</code>, <code>9e96e10</code>, <code>SCRUM-59</code></td>
+  </tr>
+<tr>
+    <td><strong>T2-05</strong></td>
+    <td>21h00 – 23h30<br>22/11/2026</td>
+    <td>Ngô Viết Thanh Bình<br><code>24120269</code></td>
+    <td>Antigravity AI (Gemini 3.8 Flash) &amp; Draw.io</td>
+    <td>Thiết kế tệp nguồn <code>.drawio</code>, kết xuất <code>.svg</code> và <code>.png</code> Retina (<code>1760×990</code>) cho <strong>Hình 3.1</strong> (Cây phân rã) và <strong>Hình 3.2</strong> (Kiến trúc 3 tầng)</td>
+    <td>AI sinh cấu trúc XML <code>.drawio</code> và <code>.svg</code> cho Hình 3.1 (19 UCs) và Hình 3.2 (3-Tier + Modular Monolith); sinh viên kiểm tra từng mã <code>UC-01..UC-19</code>, đóng khung nét đứt <code>[P1]</code> cho <code>UC-16/17/19</code> &amp; <code>SMTP [P1]</code>, kiểm tra chiều mũi tên Public Ports</td>
+    <td><code>docs/template2/members/binh/diagrams/system-decomposition-tree.*</code>, <code>system-architecture.*</code>, <code>SCRUM-59</code></td>
+  </tr>
+<tr>
+    <td><strong>T2-06</strong></td>
+    <td>17h45 – 18h30<br>24/11/2026</td>
+    <td>Ngô Viết Thanh Bình<br><code>24120269</code></td>
+    <td>Antigravity AI (Gemini 3.8 Flash)<br>+ Google Workspace <code>gdocs</code> CLI</td>
+    <td>Rà soát độc lập toàn bộ Google Doc Template 2 đối chiếu với repo, SRS, Figma ver3 và xử lý 15 điểm chưa nhất quán</td>
+    <td>AI hỗ trợ quét đối chiếu giữa Google Doc và repo (<code>pom.xml</code>, <code>package.json</code>, <code>SRS-master.md</code>); sinh viên duyệt và cập nhật trực tiếp lên Google Doc: thống nhất &quot;4 Module nghiệp vụ + 1 gói Workflow&quot;, làm sạch thuộc tính vật lý ở EER Mục 2.3.1, đồng bộ mã màn hình Mục 5.1.2, sửa chú thích Hình 5.2.4b (<code>A-DiscardConfirm</code>) và <code>D-Detail</code></td>
+    <td>Lịch sử phiên bản Google Doc ngày 24/11/2026 (<code>SCRUM-62</code>)</td>
+  </tr>
+<tr>
+    <td><strong>T2-07</strong></td>
+    <td>16h00 – 17h15<br>25/11/2026</td>
+    <td>Ngô Viết Thanh Bình<br><code>24120269</code></td>
+    <td>Antigravity AI (Gemini 4 Argon Medium)<br>+ Google Workspace <code>gdocs</code> CLI</td>
+    <td>Xử lý 8 bình luận review chéo của Lê Quý Phúc trên Google Doc, cập nhật nhãn Hình 3.2 và đồng bộ với 5 sơ đồ lớp mới (Hình 3.3a..e) của Phan Gia Phúc</td>
+    <td>AI hỗ trợ tải sơ đồ từ Google Doc, sửa nhãn Hình 3.2 thành <code>&quot;4 Module nghiệp vụ + Workflow + Worker — Public Ports một chiều (DAG)&quot;</code>, kết xuất lại PNG bằng Chrome headless và cập nhật bảng đặc tả; sinh viên kiểm tra trực quan từng hình, phản hồi từng comment trên Google Doc</td>
+    <td>Lịch sử comment &amp; phiên bản Google Doc ngày 25/11/2026 (<code>SCRUM-59</code>, <code>SCRUM-62</code>)</td>
+  </tr>
+<tr>
+    <td><strong>T2-08</strong></td>
+    <td>00h10 – 00h35<br>26/11/2026</td>
+    <td>Ngô Viết Thanh Bình<br><code>24120269</code></td>
+    <td>Antigravity AI (Gemini 4 Argon Medium)<br>via Antigravity IDE</td>
+    <td>Chuyển thể nguyên bản Mục 3.1 từ bản xuất Markdown chốt cuối của Google Doc sang <code>docs/template2/members/binh/03-thiet-ke-kien-truc.md</code> &amp; mở PR <code>#18</code></td>
+    <td>AI trích xuất chính xác 100% văn bản Mục 3.1 từ file <code>.md</code> tải về từ Google Doc, gắn đường dẫn sơ đồ Hình 3.1 &amp; 3.2, tổng hợp nhật ký AI 8 phiên; sinh viên kiểm tra <code>git diff</code> đảm bảo 0% chạm vào file của thành viên khác, push nhánh <code>docs/t2-binh</code> và mở PR <code>#18</code></td>
+    <td>Commit <code>134a1fa</code>, PR <a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/pull/18" target="_blank"><code>#18</code></a> (<code>SCRUM-59</code>, <code>SCRUM-62</code>, <code>SCRUM-55</code>)</td>
+  </tr></tbody></table>
+
+<h4>Phiên T2-01: Tái cấu trúc repo Giai đoạn 2, lập <code>TEAM_GUIDE_PHASE2.md</code> &amp; Khởi tạo khung <code>TEMPLATE2_DRAFT_MASTER.md</code> (20/11/2026)</h4>
+
+<ul>
+  <li><strong>1. Thời gian:</strong> 16h30 – 20h35 ngày 20/11/2026</li>
+  <li><strong>2. Tác giả:</strong> Ngô Viết Thanh Bình (MSSV: <code>24120269</code> — Trưởng nhóm)</li>
+  <li><strong>3. Công cụ / Model:</strong> Antigravity AI (Gemini 3.8 Flash, Google DeepMind) via Antigravity IDE</li>
+  <li><strong>4. Prompt đã khử dữ liệu nhạy cảm:</strong></li>
+</ul>
+<blockquote><em>&quot;Tái cấu trúc kho mã nguồn để chuẩn bị cho Giai đoạn 2 (chạy song song Thiết kế Template 2 và Code MVP P0 lĩnh vực Đồ điện tử). Thiết lập thư mục bàn giao cá nhân <code>docs/template2/members/&lt;ten&gt;/</code>, <code>task/template2/&lt;ten&gt;.md</code>, <code>ai-usage/template2/&lt;ten&gt;.md</code> đảm bảo 0% xung đột Git khi 4 thành viên làm việc độc lập. Soạn thảo hướng dẫn <code>TEAM_GUIDE_PHASE2.md</code> và bản khung <code>TEMPLATE2_DRAFT_MASTER.md</code> bám sát biểu mẫu <code>Template2-ThietKe.docx</code>, bài mẫu K23 (Planora, Katling, SmartSpend), <code>Template 1</code>, <code>SRS-master.md</code> và <code>MVP_CONTRACTS.md</code>.&quot;</em></blockquote>
+<ul>
+  <li><strong>5. Nội dung AI tạo:</strong></li>
+  <li>Cấu trúc thư mục <code>docs/template2/members/{binh,gia-phuc,lam,quy-phuc}/</code>, <code>task/template2/</code>, <code>ai-usage/template2/</code>.</li>
+  <li>Tài liệu hướng dẫn điều phối <a href="../../../TEAM_GUIDE_PHASE2.md" target="_blank"><code>TEAM_GUIDE_PHASE2.md</code></a> quy định rõ 2 luồng công việc, 6 cột mốc cứng, quy tắc đặt tên nhánh <code>docs/t2-&lt;ten&gt;</code> và quy chuẩn commit gắn mã Jira <code>SCRUM-xx</code>.</li>
+  <li>Bản khung <code>TEMPLATE2_DRAFT_MASTER.md</code> gồm 6 mục (Đánh giá thành viên, Mô hình quan niệm EER, Thiết kế kiến trúc &amp; Class Diagram, Thiết kế dữ liệu ERD &amp; Data Dictionary V1–V5, Thiết kế giao diện Figma ver3, Ghi chú sử dụng AI).</li>
+  <li><strong>6. Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong></li>
+  <li>Sinh viên kiểm tra đối chiếu cấu trúc đề mục của <code>TEMPLATE2_DRAFT_MASTER.md</code> với file biểu mẫu gốc <code>Template2-ThietKe.docx</code> của môn học.</li>
+  <li>Phân chia rõ trách nhiệm từng mục cho 4 thành viên (<code>SCRUM-58</code> Lãm Mục 1–2; <code>SCRUM-59</code> Bình Mục 3.1; <code>SCRUM-66</code> Gia Phúc Mục 3.2–3.3; <code>SCRUM-60</code> Lãm Mục 4; <code>SCRUM-61</code> Quý Phúc Mục 5; <code>SCRUM-62</code> Review chéo; <code>SCRUM-55</code> Đóng gói release).</li>
+  <li><strong>7. Minh chứng / Commit:</strong></li>
+  <li>Commit <code>e1ab591</code> (<code>docs(phase2): restructure repo, add team guide and template2 draft master SCRUM-58 SCRUM-59 SCRUM-60 SCRUM-61 SCRUM-66</code>).</li>
+</ul>
+
+<hr>
+
+<h4>Phiên T2-02: Chuẩn hóa liên kết Google Doc chung, hiện đại hóa <code>README.md</code> &amp; Đồng bộ danh mục Jira (20/11/2026)</h4>
+
+<ul>
+  <li><strong>1. Thời gian:</strong> 20h40 – 21h20 ngày 20/11/2026</li>
+  <li><strong>2. Tác giả:</strong> Ngô Viết Thanh Bình (MSSV: <code>24120269</code> — Trưởng nhóm)</li>
+  <li><strong>3. Công cụ / Model:</strong> Antigravity AI (Gemini 3.8 Flash, Google DeepMind) via Antigravity IDE</li>
+  <li><strong>4. Prompt đã khử dữ liệu nhạy cảm:</strong></li>
+</ul>
+<blockquote><em>&quot;Cập nhật đường dẫn Google Doc làm việc chung chính thức của nhóm cho Template 2 (<code>[SE - Nhóm 4] Template2-ThietKe-Clarune-04</code>) và liên kết Figma ver3 (<code>node-id=111-3978</code>) vào toàn bộ các file hướng dẫn (<code>README.md</code>, <code>TEAM_GUIDE_PHASE2.md</code>, <code>docs/template2/README.md</code>, <code>task/template2/*.md</code> và file CSV Jira <code>task/jira/tasks_phase2_updated.csv</code>).&quot;</em></blockquote>
+<ul>
+  <li><strong>5. Nội dung AI tạo:</strong></li>
+  <li>Cập nhật đồng bộ URL Google Doc chung và Figma ver3 trên toàn bộ tài liệu điều hướng và 4 file checklist <code>task/template2/*.md</code>.</li>
+  <li>Bổ sung bảng liên kết nhanh Giai đoạn 2 trên <code>README.md</code> ở thư mục gốc của dự án.</li>
+  <li><strong>6. Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong></li>
+  <li>Sinh viên trực tiếp mở kiểm tra từng liên kết Google Doc và Figma ver3 từ <code>README.md</code> và <code>task/template2/binh.md</code>, xác nhận quyền truy cập chỉnh sửa/comment hoạt động bình thường cho cả 4 thành viên.</li>
+  <li><strong>7. Minh chứng / Commit:</strong></li>
+  <li>Commit <code>3a3e5b2</code> (<code>docs(template2): update official shared Google Doc URL across guides and draft SCRUM-55</code>) và Commit <code>4c0e056</code> (<code>docs(repo): modernize main README for phase 2 navigation and sync Jira CSV URLs SCRUM-55</code>).</li>
+</ul>
+
+<hr>
+
+<h4>Phiên T2-03: Đối soát thiết kế kiến trúc Mục 3.1 với khung nền tảng Spring Boot 3.3.5 &amp; Supabase Cloud <code>pgvector</code> (21/11/2026)</h4>
+
+<ul>
+  <li><strong>1. Thời gian:</strong> 10h15 – 12h10 ngày 21/11/2026</li>
+  <li><strong>2. Tác giả:</strong> Ngô Viết Thanh Bình (MSSV: <code>24120269</code>)</li>
+  <li><strong>3. Công cụ / Model:</strong> Antigravity AI (Gemini 2.5 Flash &amp; Gemini 3.8 Flash) via Antigravity IDE</li>
+  <li><strong>4. Prompt đã khử dữ liệu nhạy cảm:</strong></li>
+</ul>
+<blockquote><em>&quot;Đối chiếu phần thiết kế Tầng Server (3.1.5), Tầng Cơ sở dữ liệu &amp; Lưu trữ (3.1.6) và Bảng công nghệ (3.1.7.A) của Template 2 với cấu hình thực tế vừa dựng trong <code>backend/</code> (Spring Boot 3.3.5, Java 21, <code>application.yml</code>, <code>ErrorEnvelope</code>, <code>ActorPrincipal</code>, <code>UserRole</code>, <code>HealthController</code>) và <code>infra/docker-compose.yml</code> (PostgreSQL 16 + extension <code>vector</code>). Đảm bảo thông số thiết kế trong Mục 3.1 phản ánh đúng kiến trúc triển khai trên Supabase Cloud (Singapore) kèm Docker Compose dự phòng.&quot;</em></blockquote>
+<ul>
+  <li><strong>5. Nội dung AI tạo:</strong></li>
+  <li>Nội dung mô tả chi tiết tại Mục <code>3.1.5</code> (4 lớp bên trong mỗi Module: Controller Layer <code>/api/v1/*</code>, Application Service Layer quản lý ranh giới transaction ngắn tách khỏi lời gọi AI, Domain Layer, Infrastructure Layer kèm <code>JwtAuthenticationFilter</code> kiểm tra <code>enabled = true</code>) và Mục <code>3.1.6</code> (PostgreSQL 16 &amp; <code>pgvector</code> trên Supabase Cloud Singapore + Docker Compose fallback + Private File Storage).</li>
+  <li><strong>6. Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong></li>
+  <li>Sinh viên kiểm tra lại <code>backend/src/main/resources/application.yml</code> (loại bỏ các giá trị mặc định nhạy cảm, chỉ nhận qua biến môi trường <code>${DB_URL}</code>, <code>${DB_USERNAME}</code>, <code>${DB_PASSWORD}</code>, <code>${JWT_SECRET}</code> và xác nhận thời hạn Access Token <code>900s</code> = 15 phút, Refresh Token <code>604800s</code> = 7 ngày khớp với đặc tả Mục 3.1).</li>
+  <li><strong>7. Minh chứng / Commit:</strong></li>
+  <li>Commit <code>67f18d2</code>, <code>f561235</code>, <code>0bc6f33</code>, <code>a14ef99</code>, Pull Request <a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/pull/14" target="_blank"><code>#14</code></a> (<code>SCRUM-26</code>, <code>SCRUM-59</code>).</li>
+</ul>
+
+<hr>
+
+<h4>Phiên T2-04: Soạn thảo chi tiết Mục 3.1 (<code>3.1.1</code>–<code>3.1.7</code>) &amp; Chuẩn hóa nguyên tắc tách rời phụ thuộc một chiều DAG (22/11/2026)</h4>
+
+<ul>
+  <li><strong>1. Thời gian:</strong> 18h00 – 20h45 ngày 22/11/2026</li>
+  <li><strong>2. Tác giả:</strong> Ngô Viết Thanh Bình (MSSV: <code>24120269</code>)</li>
+  <li><strong>3. Công cụ / Model:</strong> Antigravity AI (Gemini 3.8 Flash &amp; Claude 3.5 Sonnet) via Antigravity IDE</li>
+  <li><strong>4. Prompt đã khử dữ liệu nhạy cảm:</strong></li>
+</ul>
+<blockquote><em>&quot;Hoàn thiện văn bản học thuật cho toàn bộ Mục 3.1 Thiết kế kiến trúc (từ 3.1.1 đến 3.1.7) để đưa vào Google Doc của nhóm. Làm rõ nguyên tắc Modular Monolith: cô lập thực thể và kho dữ liệu theo từng Module, giao tiếp liên Module qua Public Ports và DTO bất biến theo đồ thị có hướng không chu trình (DAG), giải thích rõ vì sao cần gói điều phối Workflow đứng ở tầng trên để xử lý giao dịch nguyên tử giữa Ticket và AI mà không gây phụ thuộc vòng hai chiều.&quot;</em></blockquote>
+<ul>
+  <li><strong>5. Nội dung AI tạo:</strong></li>
+  <li>Bản văn bản hoàn chỉnh của các mục <code>3.1.1</code>, <code>3.1.2</code>, <code>3.1.3</code>, <code>3.1.4</code>, <code>3.1.5</code>, <code>3.1.6</code> và <code>3.1.7</code> (gồm Bảng công nghệ <code>A</code> và 6 Mẫu thiết kế <code>B</code>: State Machine Pattern, Optimistic Locking &amp; Atomic Claim, Lease-Based Background Worker, Strategy &amp; Adapter Pattern, Human-in-the-Loop Workflow, Phòng chống Prompt Injection &amp; Kiểm chứng Trích dẫn).</li>
+  <li><strong>6. Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong></li>
+  <li>Sinh viên rà soát lại luồng phụ thuộc giữa <code>Ticket</code>, <code>AI</code>, <code>Knowledge</code> và <code>Workflow</code>: khẳng định rõ Module <code>Ticket</code> không phụ thuộc hay import gói <code>Workflow</code>; <code>Workflow</code> đứng ở tầng điều phối gọi xuống Public Ports của <code>Ticket</code> và <code>AI</code> theo thứ tự khóa cố định (<code>Ticket</code> trước $\to$ <code>AISuggestion</code> sau).</li>
+  <li><strong>7. Minh chứng / Commit:</strong></li>
+  <li>Commit <code>f3cc774</code> &amp; <code>9e96e10</code> (<code>docs(template2): sync ticket-workflow decoupling to draft master SCRUM-59</code>).</li>
+</ul>
+
+<hr>
+
+<h4>Phiên T2-05: Thiết kế sơ đồ nguồn Draw.io &amp; Kết xuất SVG/PNG Retina cho Hình 3.1 và Hình 3.2 (22/11/2026)</h4>
+
+<ul>
+  <li><strong>1. Thời gian:</strong> 21h00 – 23h30 ngày 22/11/2026</li>
+  <li><strong>2. Tác giả:</strong> Ngô Viết Thanh Bình (MSSV: <code>24120269</code>)</li>
+  <li><strong>3. Công cụ / Model:</strong> Antigravity AI (Gemini 3.8 Flash) &amp; Draw.io + Google Chrome Headless Renderer</li>
+  <li><strong>4. Prompt đã khử dữ liệu nhạy cảm:</strong></li>
+</ul>
+<blockquote><em>&quot;Tạo file nguồn sơ đồ <code>.drawio</code> và <code>.svg</code> chuẩn kích thước <code>1760×990</code> cho 2 hình của Mục 3.1: (1) Hình 3.1 Sơ đồ cây phân rã chức năng hệ thống Clarune theo chiều dọc chia thành 4 Module ánh xạ đủ 19 Use Cases (<code>UC-01..UC-19</code>, trong đó <code>UC-16</code>, <code>UC-17</code>, <code>UC-19</code> đóng khung nét đứt ghi rõ <code>Hoãn P1</code>) nối xuống <code>SERVER (Spring Boot)</code> và <code>DATABASE (PostgreSQL)</code>; (2) Hình 3.2 Sơ đồ tổng quan kiến trúc 3 tầng kết hợp Modular Monolith thể hiện đầy đủ Tầng 1 Presentation (React 18 + TypeScript SPA, 4 cụm UI, State &amp; Data Adapters, API Client Axios), Tầng 2 Application/Business Logic (Common Security &amp; Filter gồm JWT Auth Filter, CORS Filter, CSRF Filter, Global Exception; khối các Module nghiệp vụ + Workflow + Ingestion Worker giao tiếp qua Public Port) và Tầng 3 Data &amp; External Services (PostgreSQL Supabase Cloud &amp; pgvector, External AI Service, Private File Storage, Mail Service SMTP [P1]).&quot;</em></blockquote>
+<ul>
+  <li><strong>5. Nội dung AI tạo:</strong></li>
+  <li>Tệp nguồn XML <code>system-decomposition-tree.drawio</code>, <code>system-decomposition-tree.svg</code> và <code>system-architecture.drawio</code>, <code>system-architecture.svg</code>.</li>
+  <li>Kết xuất ảnh PNG độ phân giải cao (<code>1760 × 990</code>) qua Google Chrome Headless để chèn vào Google Doc không bị vỡ nét.</li>
+  <li><strong>6. Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong></li>
+  <li>Sinh viên kiểm tra từng mã Use Case từ <code>UC-01</code> đến <code>UC-19</code> trên <strong>Hình 3.1</strong>, đối chiếu tên tiếng Việt với bảng danh mục Use Case ở <code>Template 1</code>.</li>
+  <li>Trên <strong>Hình 3.2</strong>, kiểm tra từng nhãn giao thức trên mũi tên (<code>HTTPS / REST</code>, <code>Public Port</code>, <code>Lease &amp; Extract</code>, <code>JDBC SSL</code>, <code>File I/O</code>, <code>SMTP [P1]</code>) và bảng chú giải ở góc dưới bên trái.</li>
+  <li><strong>7. Minh chứng / Commit:</strong></li>
+  <li>Bộ 6 tệp sơ đồ tại <a href="../../../docs/template2/members/binh/diagrams/" target="_blank"><code>docs/template2/members/binh/diagrams/</code></a> và <a href="../../../docs/template2/assets/diagrams/" target="_blank"><code>docs/template2/assets/diagrams/</code></a> (<code>SCRUM-59</code>).</li>
+</ul>
+
+<hr>
+
+<h4>Phiên T2-06: Rà soát độc lập toàn bộ tài liệu Google Doc Template 2 đối chiếu với Repo &amp; SRS (24/11/2026)</h4>
+
+<ul>
+  <li><strong>1. Thời gian:</strong> 17h45 – 18h30 ngày 24/11/2026</li>
+  <li><strong>2. Tác giả:</strong> Ngô Viết Thanh Bình (MSSV: <code>24120269</code> — Trưởng nhóm)</li>
+  <li><strong>3. Công cụ / Model:</strong> Antigravity AI (Gemini 3.8 Flash) + Google Workspace <code>gdocs</code> CLI</li>
+  <li><strong>4. Prompt đã khử dữ liệu nhạy cảm:</strong></li>
+</ul>
+<blockquote><em>&quot;Kết nối với Google Doc làm việc của nhóm (<code>1xI8hj6xi6dqKEPklbn9H8nXUGhvN8OpxdDhpVNPSLc8</code>), kéo toàn bộ nội dung hiện tại về đối chiếu chéo giữa các mục (Mục 1, 2, 3, 4, 5) với <code>SRS-master.md</code>, <code>MVP_CONTRACTS.md</code>, <code>pom.xml</code>, <code>package.json</code> và Figma ver3. Lập danh sách các điểm tự mâu thuẫn (số lượng module giữa 3.1.1/3.1.3/3.2, thuộc tính vật lý lẫn trong bảng thực thể quan niệm EER 2.3.1, mã màn hình thiếu trong bảng 5.1.2, chú thích Hình 5.2.4b, phiên bản thư viện dự kiến trong bảng 3.1.7.A) và sửa trực tiếp trên Google Doc.&quot;</em></blockquote>
+<ul>
+  <li><strong>5. Nội dung AI tạo:</strong></li>
+  <li>Báo cáo rà soát 15 điểm chưa nhất quán trên bản nháp Google Doc và tập lệnh <code>gdocs mutate replace</code> để cập nhật đồng bộ.</li>
+  <li><strong>6. Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong></li>
+  <li>Sinh viên kiểm tra từng thay đổi trên Google Doc sau khi chạy lệnh:</li>
+</ul>
+<ol>
+  <li>Thống nhất cách gọi <strong>&quot;4 Module nghiệp vụ độc lập (<code>Identity</code>, <code>Ticket</code>, <code>Knowledge</code>, <code>AI</code>) cùng 1 gói điều phối <code>Workflow</code> chung&quot;</strong> tại cả <code>3.1.1</code>, <code>3.1.3</code> và <code>3.2</code>.</li>
+  <li>Lược bỏ các cột kỹ thuật cài đặt (<code>passwordHash</code>, <code>refreshTokenHash</code>, <code>tokenHash</code>, <code>version</code>, <code>storageKey</code>, <code>contentHash</code>, <code>embedding</code>, <code>leaseToken</code>, <code>lockedUntil</code>) khỏi bảng thực thể ngữ nghĩa EER (<code>2.3.1</code>), đổi tên <code>IngestionJob</code> thành <code>KnowledgeIngestionJob</code> và chuẩn hóa nhãn quan hệ tại bảng <code>2.3.2</code>.</li>
+  <li>Bổ sung các mã màn hình <code>I05</code>, <code>A04</code>, <code>A-Resolved</code>, <code>K02</code>, <code>K03</code>, <code>K-ReadyDetail</code> vào Bảng <code>5.1.2</code>; sửa chú thích Hình <code>5.2.4b</code> từ <code>A05</code> thành <code>A-DiscardConfirm</code>; sửa tham chiếu màn hình Admin tại <code>5.2.3.2</code> từ <code>D02</code> thành <code>D-Detail</code>.</li>
+  <li>Đổi tiêu đề cột cuối Bảng công nghệ (<code>3.1.7.A</code>) thành <em>&quot;Phiên bản / Tiêu chuẩn áp dụng&quot;</em> và chuẩn hóa thông tin thư viện khớp với repo.</li>
+</ol>
+<ul>
+  <li><strong>7. Minh chứng / Commit:</strong></li>
+  <li>Lịch sử chỉnh sửa trực tiếp trên Google Doc <code>[SE - Nhóm 4] Template2-ThietKe-Clarune-04</code> ngày 24/11/2026 (<code>SCRUM-62</code>).</li>
+</ul>
+
+<hr>
+
+<h4>Phiên T2-07: Xử lý 8 bình luận review chéo của Lê Quý Phúc, cập nhật Hình 3.2 &amp; Đồng bộ với bộ sơ đồ lớp mới của Phan Gia Phúc (25/11/2026)</h4>
+
+<ul>
+  <li><strong>1. Thời gian:</strong> 16h00 – 17h15 ngày 25/11/2026</li>
+  <li><strong>2. Tác giả:</strong> Ngô Viết Thanh Bình (MSSV: <code>24120269</code>)</li>
+  <li><strong>3. Công cụ / Model:</strong> Antigravity AI (Gemini 4 Argon Medium) + Google Workspace <code>gdocs</code> CLI + Google Chrome Headless</li>
+  <li><strong>4. Prompt đã khử dữ liệu nhạy cảm:</strong></li>
+</ul>
+<blockquote><em>&quot;Kiểm tra toàn bộ các comment mới nhất trên Google Doc Template 2. Sửa Comment #3 của Quý Phúc trên Hình 3.2 (đổi nhãn <code>5 Business Modules + Worker</code> thành <code>4 Module nghiệp vụ + Workflow + Worker — Public Ports một chiều (DAG)</code> trong file <code>.drawio</code>, <code>.svg</code>, render lại <code>.png</code> và thay ảnh trực tiếp trên Google Doc). Tiếp tục phân tích và xử lý các Comment #7, #8, #4 (đồng bộ chữ ký Public Ports, <code>WorkflowController</code>, đánh dấu Backlog/P1 cho <code>updatePriority</code> &amp; <code>PRIORITY_CHANGED</code>), Comment #5 (<code>confirmPassword</code> ở UC-01 &amp; UC-03), Comment #6 (truyền <code>version</code> và trả 409 ở UC-07 &amp; UC-09), Comment #1 (vị trí hiển thị <code>ARCHIVED</code> trên bảng <code>K04</code>), phản hồi từng comment và kiểm tra khớp với 5 sơ đồ lớp mới (Hình 3.3a..3.3e) Gia Phúc vừa cập nhật.&quot;</em></blockquote>
+<ul>
+  <li><strong>5. Nội dung AI tạo:</strong></li>
+  <li>Cập nhật <code>system-architecture.drawio</code>, <code>system-architecture.svg</code>, kết xuất lại <code>system-architecture.png</code> (<code>1760 × 990</code>) với nhãn <strong><code>4 Module nghiệp vụ + Workflow + Worker — Public Ports một chiều (DAG)</code></strong> và thay thế trực tiếp đối tượng ảnh <code>kix.qnu0ormxhhvr</code> (<strong>Hình 3.2</strong>) trên Google Doc.</li>
+  <li>Cập nhật các bảng đặc tả lớp ở Mục <code>3.3.2</code>, <code>3.3.3</code>, <code>3.3.4</code>, Bảng <code>4.3</code>, <code>4.5</code> và các bảng xử lý sự kiện giao diện ở Mục <code>5.2.1.2</code>, <code>5.2.1.4</code>, <code>5.2.2.3</code>, <code>5.2.3.1</code>, <code>5.2.3.2</code>, <code>5.2.5.2</code>, <code>5.2.6.1</code>.</li>
+  <li>Đăng phản hồi chi tiết vào toàn bộ các luồng comment trên Google Doc.</li>
+  <li><strong>6. Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong></li>
+  <li>Sinh viên tải toàn bộ 5 sơ đồ lớp mới của Phan Gia Phúc (<strong>Hình 3.3a, 3.3b, 3.3c, 3.3d, 3.3e</strong>) từ Google Doc về kiểm tra trực quan:</li>
+  <li>Phát hiện trên <strong>Hình 3.3c</strong> mới của Gia Phúc có mũi tên <strong><code>Tin soạn tay</code></strong> từ <code>WorkflowController (+ postMessage(...))</code> trỏ sang <code>TicketApplicationService (+ addMessage(...))</code> và trên <strong>Hình 3.3d</strong> có phương thức <code>+ searchPublished(...)</code>; sinh viên đã điều chỉnh ngay mô tả của <code>TicketController</code> (§3.3.2), <code>KnowledgeApplicationService</code> (§3.3.3) và <code>WorkflowController</code> (§3.3.4) để khớp tuyệt đối 100% với bộ hình mới của Gia Phúc.</li>
+  <li>Kiểm tra lại quyết định <code>DEC-06</code> đã được Lãm và Quý Phúc chốt thống nhất trên Hình 4.1 ERD, Bảng Flyway V3, Bảng 4.8 và Bảng 3.1.7.A là <strong><code>gemini-embedding-2, 768 chiều</code> (<code>vector(768)</code>)</strong>.</li>
+  <li><strong>7. Minh chứng / Commit:</strong></li>
+  <li>Các phản hồi comment trên Google Doc: <code>doco.mKNfx-aRg-AccyCxa5Bsfg</code>, <code>doco.G3-v0SXvRsVr7VMfQLVgCA</code>, <code>doco.5ad3qC_WokDdF-RApf7fnw</code>, <code>doco.0dOhjWAgXFiYrAna6tRxng</code>, <code>doco.RynBVzzxhTMwxJJDPPLmwQ</code>, <code>doco.vNlGTtofpDHryxudvJUlbw</code>, <code>doco.SAqvA26nLeZcsSpGt_xCVw</code>, <code>doco.6Olc5pl2kgf48qUhzZ_dwg</code> (<code>SCRUM-59</code>, <code>SCRUM-62</code>).</li>
+</ul>
+
+<hr>
+
+<h4>Phiên T2-08: Chuyển thể Markdown Mục 3.1 từ bản chốt Google Doc, đóng gói minh chứng cá nhân &amp; Mở Pull Request <code>#18</code> (26/11/2026)</h4>
+
+<ul>
+  <li><strong>1. Thời gian:</strong> 00h10 – 00h35 ngày 26/11/2026</li>
+  <li><strong>2. Tác giả:</strong> Ngô Viết Thanh Bình (MSSV: <code>24120269</code> — Trưởng nhóm)</li>
+  <li><strong>3. Công cụ / Model:</strong> Antigravity AI (Gemini 4 Argon Medium) via Antigravity IDE + GitHub CLI (<code>gh</code>)</li>
+  <li><strong>4. Prompt đã khử dữ liệu nhạy cảm:</strong></li>
+</ul>
+<blockquote><em>&quot;Phần Google Doc nhóm đã chốt và tôi đã tải file dạng <code>.md</code> về trong <code>~/Downloads/[SE - Nhóm 4] Template2-ThietKe-Clarune-04.md</code>. Hãy tuân thủ đúng quy định của nhóm: chuyển thể nguyên bản phần Markdown Mục 3.1 tương ứng của tôi vào <code>docs/template2/members/binh/03-thiet-ke-kien-truc.md</code> (đảm bảo chính xác 100% nội dung trong doc đã chốt), hoàn thiện chi tiết nhật ký AI usage tại <code>ai-usage/template2/binh.md</code>, cập nhật <code>task/template2/binh.md</code>, không chạm vào file của thành viên khác và tạo Pull Request lên repo.&quot;</em></blockquote>
+<ul>
+  <li><strong>5. Nội dung AI tạo:</strong></li>
+  <li>Trích xuất nguyên bản 100% văn bản Mục <code>3.1</code> (<code>3.1.1</code> đến hết <code>3.1.7</code>) từ file <code>/Users/ngovietthanhbinh/Downloads/[SE - Nhóm 4] Template2-ThietKe-Clarune-04.md</code> sang <a href="../../../docs/template2/members/binh/03-thiet-ke-kien-truc.md" target="_blank"><code>docs/template2/members/binh/03-thiet-ke-kien-truc.md</code></a> và thay thế thẻ ảnh bằng đường dẫn tương đối tới <code>diagrams/system-decomposition-tree.png</code> (<strong>Hình 3.1</strong>) và <code>diagrams/system-architecture.png</code> (<strong>Hình 3.2</strong>).</li>
+  <li>Tổng hợp đầy đủ bảng tóm tắt và 8 phiên chi tiết (<code>T2-01</code> đến <code>T2-08</code>) vào <code>ai-usage/template2/binh.md</code>.</li>
+  <li>Khởi tạo nội dung Pull Request theo đúng mẫu <code>.github/PULL_REQUEST_TEMPLATE.md</code>.</li>
+  <li><strong>6. Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong></li>
+  <li>Sinh viên kiểm tra <code>git status</code> và <code>git diff --stat</code> trên nhánh <code>docs/t2-binh</code> để xác nhận chỉ có đúng các file thuộc phạm vi cá nhân của Bình (<code>docs/template2/members/binh/</code>, <code>docs/template2/assets/diagrams/</code>, <code>ai-usage/template2/binh.md</code>, <code>task/template2/binh.md</code>), tuyệt đối không gây xung đột với nhánh của Gia Phúc, Lãm và Quý Phúc.</li>
+  <li><strong>7. Minh chứng / Commit:</strong></li>
+  <li>Commit <code>134a1fa</code> trên nhánh <code>docs/t2-binh</code>, Pull Request <a href="https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/pull/18" target="_blank"><code>#18</code></a> (<code>SCRUM-59</code>, <code>SCRUM-62</code>, <code>SCRUM-55</code>).</li>
+</ul>
+
+<h3>2.2 Nguyễn Đức Lãm — 24120083</h3>
+
+<table><colgroup><col style="width:8%"><col style="width:13%"><col style="width:12%"><col style="width:13%"><col style="width:18%"><col style="width:25%"><col style="width:11%"></colgroup><thead><tr>
+    <th>STT</th>
+    <th>Thời gian</th>
+    <th>Thành viên (MSSV)</th>
+    <th>Công cụ &amp; Model</th>
+    <th>Nội dung công việc trong Template 2</th>
+    <th>Nội dung AI tạo &amp; Con người tự kiểm chứng</th>
+    <th>Minh chứng / Commit</th>
+  </tr></thead><tbody><tr>
+    <td><strong>T2-09</strong></td>
+    <td>Đợt soạn thiết kế, trước lần rà soát ngày 23/11/2026</td>
+    <td>Nguyễn Đức Lãm (<code>24120083</code>)</td>
+    <td>OpenAI Codex</td>
+    <td>Phác thảo mô hình quan niệm EER (mục 2)</td>
+    <td>Em xác định phạm vi và yêu cầu thể hiện ISA. Codex hỗ trợ phác thảo sơ đồ Chen và xuất ảnh PNG để em đối chiếu với SRS và đặc tả nghiệp vụ đã được nhóm thống nhất.</td>
+    <td><code>SCRUM-58</code>, <code>aeee95e</code> (nguồn draw.io và PNG)</td>
+  </tr>
+<tr>
+    <td><strong>T2-10</strong></td>
+    <td>Đợt soạn thiết kế, trước lần rà soát ngày 23/11/2026</td>
+    <td>Nguyễn Đức Lãm (<code>24120083</code>)</td>
+    <td>OpenAI Codex</td>
+    <td>Phác thảo Physical ERD (mục 4.1)</td>
+    <td>Em cung cấp quyết định của nhóm về <code>gemini-embedding-2</code> với đầu ra 768 chiều. Codex hỗ trợ dựng Hình 4.1 từ đặc tả để em đối chiếu các cột và khóa với mục 4.2.</td>
+    <td><code>SCRUM-60</code>, <code>aa7e99c</code> (nguồn draw.io và PNG)</td>
+  </tr>
+<tr>
+    <td><strong>T2-11</strong></td>
+    <td>Đợt soạn thiết kế, trước lần rà soát ngày 23/11/2026</td>
+    <td>Nguyễn Đức Lãm (<code>24120083</code>)</td>
+    <td>OpenAI Codex</td>
+    <td>Soạn bản nháp Flyway V1–V5 để đối chiếu mục 4.2</td>
+    <td>Em xác nhận tên V2, cách sinh UUID, mô hình nhúng và số chiều đầu ra, rồi cung cấp quy ước V5 của nhóm. Codex dựa trên các thông tin đó để soạn năm tệp SQL nháp.</td>
+    <td><code>SCRUM-60</code>, bản nháp tại <code>backend/src/main/resources/db/migration/</code></td>
+  </tr>
+<tr>
+    <td><strong>T2-12</strong></td>
+    <td>23/11/2026</td>
+    <td>Nguyễn Đức Lãm (<code>24120083</code>)</td>
+    <td>OpenAI Codex, LibreOffice để xem bố cục</td>
+    <td>Đối chiếu bản nháp Template 2 với kho mã nguồn</td>
+    <td>Codex liệt kê các điểm chưa nhất quán và lỗi trình bày. Em đối chiếu các nhận xét với quyết định của nhóm, trong đó có tên chỉ mục ở Bảng 4.4.</td>
+    <td>Báo cáo rà soát bản Word, liên quan <code>SCRUM-58</code> và <code>SCRUM-60</code></td>
+  </tr>
+<tr>
+    <td><strong>T2-13</strong></td>
+    <td>26/11/2026</td>
+    <td>Nguyễn Đức Lãm (<code>24120083</code>)</td>
+    <td>OpenAI Codex</td>
+    <td>Chuyển mục 1, 2 và 4 từ bản Word đã chốt sang Markdown</td>
+    <td>Em chọn bản Word làm nguồn, xác nhận phạm vi chuyển đổi và commit ba tệp bàn giao. Codex hỗ trợ chuyển định dạng và đối chiếu nội dung, bảng và chú thích hình với Word.</td>
+    <td><code>aeee95e</code> (<code>SCRUM-58</code>), <code>aa7e99c</code> (<code>SCRUM-60</code>)</td>
+  </tr></tbody></table>
+
+<h4>Phiên T2-09: Phác thảo và đối chiếu sơ đồ EER</h4>
+
+<ul>
+  <li><strong>1. Thời gian</strong> Đợt soạn thiết kế, trước lần rà soát ngày 23/11/2026.</li>
+  <li><strong>2. Tác giả</strong> Nguyễn Đức Lãm (MSSV <code>24120083</code>).</li>
+  <li><strong>3. Công cụ / Model</strong> OpenAI Codex.</li>
+  <li><strong>4. Prompt đã khử dữ liệu nhạy cảm</strong></li>
+</ul>
+
+<blockquote>Dựa vào SRS và các tài liệu đặc tả nghiệp vụ Clarune đã được nhóm thống nhất, hãy đề xuất danh sách thực thể và quan hệ cho mục 2. Ghi lực lượng min–max và quy tắc nghiệp vụ tương ứng. Phác thảo sơ đồ Chen với quan hệ kế thừa ISA từ <code>User</code> đến <code>Customer</code>, <code>Support Agent</code> và <code>System Administrator</code>. Thể hiện quan hệ nghiệp vụ trên hình và bỏ các FK vật lý như <code>ticket_id</code>. Chuẩn bị tệp nguồn draw.io và xuất ảnh PNG. Sau khi xuất ảnh, hãy đối chiếu tên thực thể, các nhánh ISA, quan hệ và lực lượng trên PNG với những tài liệu nhóm đã thống nhất. Ghi rõ điểm chưa khớp và nguồn tương ứng để em kiểm tra.</blockquote>
+
+<ul>
+  <li><strong>5. Nội dung AI tạo</strong> Bản phác thảo EER cho Hình 2.1, gồm tệp nguồn draw.io và ảnh PNG.</li>
+  <li><strong>6. Nội dung tự kiểm chứng &amp; hiệu chỉnh</strong> Em dùng SRS và các tài liệu đặc tả nghiệp vụ nhóm đã thống nhất để đối chiếu tên thực thể, quan hệ và lực lượng trên ảnh PNG. Em kiểm tra phần ISA thể hiện mỗi <code>User</code> thuộc đúng một trong ba kiểu con. Các FK vật lý được trình bày ở mục thiết kế dữ liệu.</li>
+  <li><strong>7. Minh chứng / Commit</strong> <code>SCRUM-58</code>. Commit <code>aeee95eb635de08158cc51535531be55fb402e4f</code> ghi nhận tệp nguồn và ảnh Hình 2.1. <a href="../../../docs/template2/assets/diagrams/conceptual-model.drawio" target="_blank">Draw.io</a> · <a href="../../../docs/template2/assets/diagrams/conceptual-model.png" target="_blank">PNG</a></li>
+</ul>
+
+<hr>
+
+<h4>Phiên T2-10: Phác thảo Physical ERD cho Hình 4.1</h4>
+
+<ul>
+  <li><strong>1. Thời gian</strong> Đợt soạn thiết kế, trước lần rà soát ngày 23/11/2026.</li>
+  <li><strong>2. Tác giả</strong> Nguyễn Đức Lãm (MSSV <code>24120083</code>).</li>
+  <li><strong>3. Công cụ / Model</strong> OpenAI Codex.</li>
+  <li><strong>4. Prompt đã khử dữ liệu nhạy cảm</strong></li>
+</ul>
+
+<blockquote>Dùng Data Dictionary ở mục 4.2 để phác thảo Physical ERD cho PostgreSQL. Ghi đủ tên bảng, tên cột, kiểu dữ liệu, khả năng nhận <code>NULL</code>, PK, FK và ràng buộc duy nhất. Mô hình nhúng nhóm đã chốt là Google <code>gemini-embedding-2</code> với đầu ra 768 chiều, nên cột <code>knowledge_chunks.embedding</code> có kiểu <code>vector(768)</code>. Thể hiện FK và chỉ mục duy nhất có điều kiện của <code>source_suggestion_id</code> được thêm ở V5. Xuất PNG vào <code>docs/template2/assets/diagrams/physical-erd.png</code> và liệt kê những chỗ cần đối chiếu với mục 4.2.</blockquote>
+
+<ul>
+  <li><strong>5. Nội dung AI tạo</strong> Bản draw.io và PNG cho lược đồ 10 bảng P0. Hình ghi kiểu <code>vector(768)</code> và đánh dấu liên kết được bổ sung trong V5.</li>
+  <li><strong>6. Nội dung tự kiểm chứng &amp; hiệu chỉnh</strong> Em xác nhận số chiều của vector nhúng trước khi đưa hình vào tài liệu và dùng Data Dictionary để đối chiếu tên cột, kiểu dữ liệu và các khóa trên hình. Em lưu ý <code>source_suggestion_id</code> cho phép <code>NULL</code>. Mỗi giá trị khác <code>NULL</code> chỉ được xuất hiện một lần.</li>
+  <li><strong>7. Minh chứng / Commit</strong> <code>SCRUM-60</code>. Commit <code>aa7e99c5a5b9e5d98c0141d9ea130d7c8299e555</code> chứa sơ đồ nguồn và ảnh. <a href="../../../docs/template2/assets/diagrams/physical-erd.drawio" target="_blank">Draw.io</a> · <a href="../../../docs/template2/assets/diagrams/physical-erd.png" target="_blank">PNG</a></li>
+</ul>
+
+<hr>
+
+<h4>Phiên T2-11: Soạn bản nháp Flyway V1–V5</h4>
+
+<ul>
+  <li><strong>1. Thời gian</strong> Đợt soạn thiết kế, trước lần rà soát ngày 23/11/2026.</li>
+  <li><strong>2. Tác giả</strong> Nguyễn Đức Lãm (MSSV <code>24120083</code>).</li>
+  <li><strong>3. Công cụ / Model</strong> OpenAI Codex.</li>
+  <li><strong>4. Prompt đã khử dữ liệu nhạy cảm</strong></li>
+</ul>
+
+<blockquote>Giải thích từng migration V1–V5 và chỉ ra bảng đặc tả tương ứng. Dựa vào đó, soạn bản nháp SQL trong <code>backend/src/main/resources/db/migration/</code> để đối chiếu kiểu dữ liệu, giá trị mặc định, khóa và chỉ mục. Dùng tên <code>V2__init_ticketing.sql</code> và để ứng dụng sinh UUID. Trong V3, bật pgvector trước khi tạo cột <code>vector(768)</code>. V2 khai báo cột <code>source_suggestion_id</code> cho phép <code>NULL</code>. Sau khi V4 tạo <code>ai_suggestions</code>, V5 mới thêm FK và chỉ mục duy nhất có điều kiện theo quy ước của nhóm.</blockquote>
+
+<ul>
+  <li><strong>5. Nội dung AI tạo</strong> Năm bản nháp <code>V1__init_identity.sql</code>, <code>V2__init_ticketing.sql</code>, <code>V3__init_knowledge.sql</code>, <code>V4__init_ai.sql</code> và <code>V5__add_ticket_message_suggestion_fk.sql</code>. Bản nháp V5 dùng tên <code>idx_unique_applied_suggestion</code> theo ảnh quy ước của nhóm tại thời điểm đó.</li>
+  <li><strong>6. Nội dung tự kiểm chứng &amp; hiệu chỉnh</strong> Em chốt tên V2 và cách sinh UUID trước khi cung cấp yêu cầu cho Codex. Khi rà soát mục 4, em dùng kết quả đối chiếu SQL để kiểm tra lại tên cột, điều kiện của chỉ mục duy nhất và thứ tự thêm FK. Việc chạy Flyway trên PostgreSQL 16 là bước kiểm tra riêng.</li>
+  <li><strong>7. Minh chứng / Commit</strong> <code>SCRUM-60</code> và năm bản nháp SQL trong <code>backend/src/main/resources/db/migration/</code>. Commit <code>aa7e99c</code> là minh chứng cho phần thiết kế mục 4 và Physical ERD.</li>
+</ul>
+
+<hr>
+
+<h4>Phiên T2-12: Rà soát bản nháp Word</h4>
+
+<ul>
+  <li><strong>1. Thời gian</strong> 23/11/2026.</li>
+  <li><strong>2. Tác giả</strong> Nguyễn Đức Lãm (MSSV <code>24120083</code>).</li>
+  <li><strong>3. Công cụ / Model</strong> OpenAI Codex, LibreOffice để xem bố cục.</li>
+  <li><strong>4. Prompt đã khử dữ liệu nhạy cảm</strong></li>
+</ul>
+
+<blockquote>Đọc bản nháp Word Template 2 và đối chiếu với SRS, MVP Contracts cùng các tệp hiện có trong kho mã nguồn. Chia nhận xét thành mâu thuẫn nội dung, thông tin chưa rõ hoặc chưa đồng bộ, lỗi định dạng và góp ý cải thiện. Ghi số mục, bảng, hình hoặc trang và nguồn cần xem lại để thành viên phụ trách có căn cứ quyết định cách sửa.</blockquote>
+
+<ul>
+  <li><strong>5. Nội dung AI tạo</strong> Báo cáo ghi vị trí của từng vấn đề. Trong phần em phụ trách, dòng V1 vẫn nhắc <code>pgcrypto</code> dù ứng dụng sinh UUID, tên chỉ mục ở Bảng 4.4 lệch với SQL và tên mô hình nhúng chưa được ghi nhất quán trong phần chữ. Báo cáo cũng đánh dấu những sơ đồ khó đọc khi đặt trên trang dọc.</li>
+  <li><strong>6. Nội dung tự kiểm chứng &amp; hiệu chỉnh</strong> Em đối chiếu các nhận xét về V1 và mô hình nhúng với quyết định của nhóm. Đối với Bảng 4.4, em xác nhận trong trao đổi tên chỉ mục cần dùng là <code>idx_msg_source_unique_applied_suggession</code>. Khi chuyển định dạng ở phiên sau, em dùng bản Word đã chốt làm nguồn cho nội dung Markdown.</li>
+  <li><strong>7. Minh chứng / Commit</strong> Bản nháp <code>[SE - Nhóm 4] Template2-ThietKe-Clarune-04.docx</code> và báo cáo rà soát ngày 23/11/2026. Hai commit <code>aeee95e</code> và <code>aa7e99c</code> ghi nhận các tệp em bàn giao.</li>
+</ul>
+
+<hr>
+
+<h4>Phiên T2-13: Chuyển mục 1, 2 và 4 từ Word sang Markdown</h4>
+
+<ul>
+  <li><strong>1. Thời gian</strong> 26/11/2026.</li>
+  <li><strong>2. Tác giả</strong> Nguyễn Đức Lãm (MSSV <code>24120083</code>).</li>
+  <li><strong>3. Công cụ / Model</strong> OpenAI Codex.</li>
+  <li><strong>4. Prompt đã khử dữ liệu nhạy cảm</strong></li>
+</ul>
+
+<blockquote>Chuyển mục 1, 2 và 4 từ bản Word Template 2 đã chốt sang ba tệp Markdown trong <code>docs/template2/members/lam/</code>. Đặt tên theo tiêu đề mục, bỏ dấu và nối các từ bằng gạch ngang. Giữ nguyên thứ tự tiêu đề, câu chữ và nội dung ô bảng. Bỏ ảnh nhúng và giữ chú thích Hình 2.1, Hình 4.1. Đối chiếu nội dung hiển thị trong Markdown với Word và ghi lại kết quả để em xem trước khi commit.</blockquote>
+
+<ul>
+  <li><strong>5. Nội dung AI tạo</strong> Ba tệp Markdown và kết quả đối chiếu từng đoạn, từng ô của 17 bảng. Hai chú thích hình được giữ ở mục 2.2 và 4.1.</li>
+  <li><strong>6. Nội dung tự kiểm chứng &amp; hiệu chỉnh</strong> Em chọn bản Word đã chốt, xác nhận ba mục cần chuyển và duyệt tên tệp trước khi ghi. Em dựa vào kết quả đối chiếu để xem lại phần bàn giao. Khi chuyển định dạng, em giữ câu chữ theo bản Word, kể cả tên chỉ mục <code>idx_msg_source_suggestion_unique</code> ở Bảng 4.4.</li>
+  <li><strong>7. Minh chứng / Commit</strong> Nhánh <code>docs/t2-lam</code>. Commit <code>aeee95e</code> lúc 09:21:17 (+07:00) chứa mục 1–2 (<code>SCRUM-58</code>). Commit <code>aa7e99c</code> lúc 09:24:07 (+07:00) chứa mục 4 (<code>SCRUM-60</code>). <a href="../../../docs/template2/members/lam/danh-gia-dong-gop-cac-thanh-vien.md" target="_blank">Mục 1</a> · <a href="../../../docs/template2/members/lam/mo-hinh-quan-niem.md" target="_blank">Mục 2</a> · <a href="../../../docs/template2/members/lam/thiet-ke-du-lieu.md" target="_blank">Mục 4</a></li>
+</ul>
+
+<hr>
+
+<h3>2.3 Phan Gia Phúc — 24120503</h3>
+
+<table><colgroup><col style="width:8%"><col style="width:13%"><col style="width:12%"><col style="width:13%"><col style="width:18%"><col style="width:25%"><col style="width:11%"></colgroup><thead><tr>
+    <th>STT</th>
+    <th>Thời gian</th>
+    <th>Thành viên (MSSV)</th>
+    <th>Công cụ &amp; Model</th>
+    <th>Nội dung công việc trong Template 2</th>
+    <th>Nội dung AI tạo &amp; Con người tự kiểm chứng</th>
+    <th>Minh chứng / Commit</th>
+  </tr></thead><tbody><tr>
+    <td><strong>T2-14</strong></td>
+    <td>23/11/2026.</td>
+    <td>Phan Gia Phúc (24120503).</td>
+    <td>OpenAI Codex (GPT-6).</td>
+    <td>Đối chiếu SRS và chỉnh sửa thiết kế lớp</td>
+    <td><strong>AI tạo:</strong> Bảng đối chiếu theo trang và yêu cầu SRS, năm sơ đồ lớp, nội dung bổ sung thêm cho các bảng đặc tả Identity, Ticket, Knowledge, AI và Workflow. <strong>Kiểm chứng:</strong> Sinh viên yêu cầu lấy SRS làm căn cứ. Codex đối chiếu hợp đồng các port, thứ tự khóa Ticket rồi Suggestion, phạm vi P0/P1 và quyết định DEC-06. Codex đọc lại Google Doc, kiểm tra hình cùng chú thích trên bản xuất PDF và cập nhật mục lục.</td>
+    <td><a href="https://docs.google.com/document/d/1s2inl8eKlSDA5KhdDgZFqpT7YM0uKQJDtrFz_QQEk5U/edit?tab=t.0#heading=h.yz9k5ytl267u" target="_blank">Bản thiết kế dùng trong phiên</a> và <a href="../../../reports/SRS-master.md" target="_blank">SRS của dự án</a>.</td>
+  </tr>
+<tr>
+    <td><strong>T2-15</strong></td>
+    <td>25/11/2026.</td>
+    <td>Phan Gia Phúc (24120503).</td>
+    <td>OpenAI Codex (GPT-6).</td>
+    <td>Rà soát năm hình và sửa nhãn bị che</td>
+    <td><strong>AI tạo:</strong> Bổ sung nhánh AISuggestionController → AISuggestionApplicationService, tách hai controller ở Identity, bổ sung đường gửi tin soạn tay trong Ticket và đường tiếp nhận tài liệu trong Knowledge. Làm rõ bội số trên hình dữ liệu AI. <strong>Kiểm chứng:</strong> Sinh viên chỉ ra các controller bị thiếu. Codex chuyển nhãn xuống dưới các ô lớp, xuất lại PDF và kiểm tra dòng chữ ở trang in 18.</td>
+    <td><a href="https://docs.google.com/document/d/1s2inl8eKlSDA5KhdDgZFqpT7YM0uKQJDtrFz_QQEk5U/edit?tab=t.0#heading=h.yz9k5ytl267u" target="_blank">Google Doc được rà soát, mục 3.2–3.3</a>.</td>
+  </tr>
+<tr>
+    <td><strong>T2-16</strong></td>
+    <td>26/11/2026.</td>
+    <td>Phan Gia Phúc (24120503).</td>
+    <td>OpenAI Codex (GPT-6).</td>
+    <td>Trích bản Markdown bàn giao cá nhân</td>
+    <td><strong>AI tạo:</strong> File bàn giao lấy nguyên văn hai mục từ bản Markdown được chỉ định, kèm định nghĩa ảnh của các hình trong hai mục. <strong>Kiểm chứng:</strong> Codex kiểm tra ranh giới bằng tiêu đề trong thân bài, so sánh nội dung đã ghi với nguồn, đếm bốn tiểu mục module, năm chú thích hình.</td>
+    <td><a href="../../../task/template2/gia-phuc.md" target="_blank">Phần bàn giao 3.2–3.3 của Gia Phúc</a> tại commit <code>317dfe6</code> trên nhánh <code>docs/t2-giaphuc</code>.</td>
+  </tr></tbody></table>
+
+<h4>Phiên T2-14: 23/11/2026 — Đối chiếu SRS và chỉnh sửa thiết kế lớp</h4>
+
+<ul>
+  <li><strong>Thời gian</strong> 23/11/2026.</li>
+  <li><strong>Tác giả</strong> Phan Gia Phúc (24120503).</li>
+  <li><strong>Công cụ/Model</strong> OpenAI Codex (GPT-6).</li>
+  <li><strong>Prompt đã khử dữ liệu nhạy cảm</strong> “Đọc SRS, kiểm tra mục 3.2 và 3.3 trong bản thiết kế còn thiếu, dư hoặc sai gì. Có thể bổ sung vào Google Doc và ghi nhật ký.”</li>
+  <li><strong>Nội dung AI tạo</strong> Bảng đối chiếu theo trang và yêu cầu SRS, năm sơ đồ lớp, nội dung bổ sung thêm cho các bảng đặc tả Identity, Ticket, Knowledge, AI và Workflow.</li>
+  <li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh</strong> Sinh viên yêu cầu lấy SRS làm căn cứ. Codex đối chiếu hợp đồng các port, thứ tự khóa Ticket rồi Suggestion, phạm vi P0/P1 và quyết định DEC-06. Codex đọc lại Google Doc, kiểm tra hình cùng chú thích trên bản xuất PDF và cập nhật mục lục.</li>
+  <li><strong>Minh chứng/Commit</strong> <a href="https://docs.google.com/document/d/1s2inl8eKlSDA5KhdDgZFqpT7YM0uKQJDtrFz_QQEk5U/edit?tab=t.0#heading=h.yz9k5ytl267u" target="_blank">Bản thiết kế dùng trong phiên</a> và <a href="../../../reports/SRS-master.md" target="_blank">SRS của dự án</a>.</li>
+</ul>
+
+<hr>
+
+<h4>Phiên T2-15: 25/11/2026 — Rà soát năm hình và sửa nhãn bị che</h4>
+
+<ul>
+  <li><strong>Thời gian</strong> 25/11/2026.</li>
+  <li><strong>Tác giả</strong> Phan Gia Phúc (24120503).</li>
+  <li><strong>Công cụ/Model</strong> OpenAI Codex (GPT-6).</li>
+  <li><strong>Prompt đã khử dữ liệu nhạy cảm</strong> “Bổ sung vào Hình 3.3a controller gọi AI suggestion service. Tách 2 controller Identity, thêm đường gửi tin soạn tay cho rõ ràng. Rà soát thêm các lỗi hiển thị.”</li>
+  <li><strong>Nội dung AI tạo</strong> Bổ sung nhánh AISuggestionController → AISuggestionApplicationService, tách hai controller ở Identity, bổ sung đường gửi tin soạn tay trong Ticket và đường tiếp nhận tài liệu trong Knowledge. Làm rõ bội số trên hình dữ liệu AI.</li>
+  <li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh</strong> Sinh viên chỉ ra các controller bị thiếu. Codex chuyển nhãn xuống dưới các ô lớp, xuất lại PDF và kiểm tra dòng chữ ở trang in 18.</li>
+  <li><strong>Minh chứng/Commit</strong> <a href="https://docs.google.com/document/d/1s2inl8eKlSDA5KhdDgZFqpT7YM0uKQJDtrFz_QQEk5U/edit?tab=t.0#heading=h.yz9k5ytl267u" target="_blank">Google Doc được rà soát, mục 3.2–3.3</a>.</li>
+</ul>
+
+<hr>
+
+<h4>Phiên T2-16: 26/11/2026 — Trích bản Markdown bàn giao cá nhân</h4>
+
+<ul>
+  <li><strong>Thời gian</strong> 26/11/2026.</li>
+  <li><strong>Tác giả</strong> Phan Gia Phúc (24120503).</li>
+  <li><strong>Công cụ/Model</strong> OpenAI Codex (GPT-6).</li>
+  <li><strong>Prompt đã khử dữ liệu nhạy cảm</strong> “Trích mục 3.2 và 3.3 từ bản Markdown Template 2 của nhóm vào file task.”</li>
+  <li><strong>Nội dung AI tạo</strong> File bàn giao lấy nguyên văn hai mục từ bản Markdown được chỉ định, kèm định nghĩa ảnh của các hình trong hai mục.</li>
+  <li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh</strong> Codex kiểm tra ranh giới bằng tiêu đề trong thân bài, so sánh nội dung đã ghi với nguồn, đếm bốn tiểu mục module, năm chú thích hình.</li>
+  <li><strong>Minh chứng/Commit</strong> <a href="../../../task/template2/gia-phuc.md" target="_blank">Phần bàn giao 3.2–3.3 của Gia Phúc</a> tại commit <code>317dfe6</code> trên nhánh <code>docs/t2-giaphuc</code>.</li>
+</ul>
+
+<hr>
+
+<h3>2.4 Lê Quý Phúc — 24120121</h3>
+
+<table><colgroup><col style="width:8%"><col style="width:13%"><col style="width:12%"><col style="width:13%"><col style="width:18%"><col style="width:25%"><col style="width:11%"></colgroup><thead><tr>
+    <th>STT</th>
+    <th>Thời gian</th>
+    <th>Thành viên (MSSV)</th>
+    <th>Công cụ &amp; Model</th>
+    <th>Nội dung công việc trong Template 2</th>
+    <th>Nội dung AI tạo &amp; Con người tự kiểm chứng</th>
+    <th>Minh chứng / Commit</th>
+  </tr></thead><tbody><tr>
+    <td><strong>T2-17</strong></td>
+    <td>21/11/2026 (UTC+7)</td>
+    <td>Lê Quý Phúc (<code>24120121</code>)</td>
+    <td>OpenAI Codex (GPT-6), Google Workspace MCP</td>
+    <td>Hoàn thành SCRUM-61 theo SRS và Figma v3, cập nhật Google Doc chung.</td>
+    <td><strong>AI tạo:</strong> Sơ đồ luồng, danh mục Node ID, đặc tả Copilot/Admin, bảng sự kiện và bộ ảnh bàn giao. <strong>Kiểm chứng:</strong> Đối chiếu ảnh PNG với bộ xuất Figma v3, hành vi API với SRS/MVP Contracts. Khôi phục tiêu đề 5.1.1 và dùng tài khoản đã xác thực để chèn ảnh. Kiểm tra lại 7 hình trong bản xuất Google Docs và đối chiếu các mục liền kề. Các trạng thái chưa thấy frame v3 được ghi rõ.</td>
+    <td><a href="https://docs.google.com/document/d/1xI8hj6xi6dqKEPklbn9H8nXUGhvN8OpxdDhpVNPSLc8/edit?tab=t.0" target="_blank">Google Doc chung</a>, <a href="../../../docs/template2/members/quy-phuc/05-thiet-ke-giao-dien.md" target="_blank">bản bàn giao</a>.</td>
+  </tr>
+<tr>
+    <td><strong>T2-18</strong></td>
+    <td>26/11/2026 (UTC+7)</td>
+    <td>Lê Quý Phúc (<code>24120121</code>)</td>
+    <td>OpenAI Codex (GPT-6)</td>
+    <td>Đọc README, xác định các mục Template 2 cá nhân và xuất Markdown theo hướng dẫn.</td>
+    <td><strong>AI tạo:</strong> Đồng bộ 5.1.1, 5.1.2, 5.2.4 và 5.2.6 với PDF nhóm. Trích Hình 5.1, cập nhật danh mục màn hình và bảng sự kiện. <strong>Kiểm chứng:</strong> Codex đối chiếu phạm vi với checklist SCRUM-61, bảng sự kiện với PDF, bảy hình với ảnh nhúng và đường dẫn tệp trong repo.</td>
+    <td><a href="../../../docs/template2/members/quy-phuc/05-thiet-ke-giao-dien.md" target="_blank">Bản bàn giao</a> · <a href="../../../task/template2/quy-phuc.md" target="_blank">Checklist SCRUM-61</a></td>
+  </tr></tbody></table>
+
+<h4>Phiên T2-17: Hoàn thành SCRUM-61 theo SRS và Figma v3, cập nhật Google Doc chung.</h4>
+
+<ul>
+  <li><strong>Thời gian:</strong> 21/11/2026 (UTC+7)</li>
+  <li><strong>Tác giả:</strong> Lê Quý Phúc (<code>24120121</code>)</li>
+  <li><strong>Công cụ/Model:</strong> OpenAI Codex (GPT-6), Google Workspace MCP</li>
+  <li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong> Hoàn thành SCRUM-61 theo SRS và Figma v3, cập nhật Google Doc chung.</li>
+  <li><strong>Nội dung AI tạo:</strong> Sơ đồ luồng, danh mục Node ID, đặc tả Copilot/Admin, bảng sự kiện và bộ ảnh bàn giao.</li>
+  <li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong> Đối chiếu ảnh PNG với bộ xuất Figma v3, hành vi API với SRS/MVP Contracts. Khôi phục tiêu đề 5.1.1 và dùng tài khoản đã xác thực để chèn ảnh. Kiểm tra lại 7 hình trong bản xuất Google Docs và đối chiếu các mục liền kề. Các trạng thái chưa thấy frame v3 được ghi rõ.</li>
+  <li><strong>Minh chứng/Commit:</strong> <a href="https://docs.google.com/document/d/1xI8hj6xi6dqKEPklbn9H8nXUGhvN8OpxdDhpVNPSLc8/edit?tab=t.0" target="_blank">Google Doc chung</a>, <a href="../../../docs/template2/members/quy-phuc/05-thiet-ke-giao-dien.md" target="_blank">bản bàn giao</a>.</li>
+</ul>
+
+<hr>
+
+<h4>Phiên T2-18: Đọc README, xác định các mục Template 2 cá nhân và xuất Markdown theo hướng dẫn.</h4>
+
+<ul>
+  <li><strong>Thời gian:</strong> 26/11/2026 (UTC+7)</li>
+  <li><strong>Tác giả:</strong> Lê Quý Phúc (<code>24120121</code>)</li>
+  <li><strong>Công cụ/Model:</strong> OpenAI Codex (GPT-6)</li>
+  <li><strong>Prompt đã khử dữ liệu nhạy cảm:</strong> Đọc README, xác định các mục Template 2 cá nhân và xuất Markdown theo hướng dẫn.</li>
+  <li><strong>Nội dung AI tạo:</strong> Đồng bộ 5.1.1, 5.1.2, 5.2.4 và 5.2.6 với PDF nhóm. Trích Hình 5.1, cập nhật danh mục màn hình và bảng sự kiện.</li>
+  <li><strong>Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong> Codex đối chiếu phạm vi với checklist SCRUM-61, bảng sự kiện với PDF, bảy hình với ảnh nhúng và đường dẫn tệp trong repo.</li>
+  <li><strong>Minh chứng/Commit:</strong> <a href="../../../docs/template2/members/quy-phuc/05-thiet-ke-giao-dien.md" target="_blank">Bản bàn giao</a> · <a href="../../../task/template2/quy-phuc.md" target="_blank">Checklist SCRUM-61</a></li>
+</ul>
+
+<hr>
+
+<h3>2.5 Ngô Viết Thanh Bình — Đóng gói Template 2</h3>
+
+<table><colgroup><col style="width:8%"><col style="width:13%"><col style="width:12%"><col style="width:13%"><col style="width:18%"><col style="width:25%"><col style="width:11%"></colgroup><thead><tr>
+    <th>STT</th>
+    <th>Thời gian</th>
+    <th>Thành viên (MSSV)</th>
+    <th>Công cụ &amp; Model</th>
+    <th>Nội dung công việc trong Template 2</th>
+    <th>Nội dung AI tạo &amp; Con người tự kiểm chứng</th>
+    <th>Minh chứng / Commit</th>
+  </tr></thead><tbody><tr>
+    <td><strong>T2-19</strong></td>
+    <td>26/11/2026</td>
+    <td>Ngô Viết Thanh Bình<br><code>24120269</code></td>
+    <td>Antigravity AI (Gemini 4 Argon Medium)</td>
+    <td>Hợp nhất 4 nhánh thành viên và đóng gói bộ nộp Template 2 (<code>ai-usage</code>, <code>report</code>, <code>git-contributions</code>, <code>4.zip</code>)</td>
+    <td>AI hỗ trợ merge 4 nhánh thành viên vào <code>merge-template2</code>, tổng hợp nguyên văn nhật ký AI của 4 thành viên, ánh xạ 26 hình từ <code>Report.pdf</code> &amp; kho ảnh Figma ver3/draw.io vào <code>report/report.md</code> (giữ nguyên 100% câu chữ bản chốt), cập nhật lịch sử Git và xuất HTML chuẩn Template 1; sinh viên kiểm chứng SHA-256, đường dẫn ảnh và bố cục HTML</td>
+    <td><code>report/Report.pdf</code>; <code>report/report.md</code>; <code>ai-usage/ai-usage.md</code>; <code>git-contributions/git-contributions.md</code>; nhánh <code>merge-template2</code> (<code>SCRUM-55</code>)</td>
+  </tr></tbody></table>
+
+<h4>Phiên T2-19: Hợp nhất nhánh và đóng gói bộ nộp Template 2</h4>
+
+<ul>
+  <li><strong>1. Thời gian:</strong> 26/11/2026.</li>
+  <li><strong>2. Tác giả:</strong> Ngô Viết Thanh Bình (MSSV: <code>24120269</code> — Trưởng nhóm).</li>
+  <li><strong>3. Công cụ / Model:</strong> Antigravity AI (Gemini 4 Argon Medium) via Antigravity IDE.</li>
+  <li><strong>4. Prompt đã khử dữ liệu nhạy cảm:</strong> Tạo nhánh <code>merge-template2</code> hợp nhất bài làm của tất cả thành viên; tổng hợp file <code>ai-usage</code> (<code>.md</code> và <code>.html</code>) dựa theo chính xác nội dung các thành viên đã thực hiện theo chuẩn định dạng Template 1; đưa hai bản tải về từ Google Docs (<code>Report.pdf</code> và <code>report.md</code>) vào phần nộp bài kèm đầy đủ hình ảnh trong <code>assets/</code> mà tuyệt đối không sửa nội dung chữ; cập nhật <code>git-contributions</code> (<code>.md</code> và <code>.html</code>) mới nhất từ repo.</li>
+  <li><strong>5. Nội dung AI tạo:</strong> Script đóng gói <code>scripts/package_template2.py</code>, bộ báo cáo <code>ai-usage/ai-usage.md</code> &amp; <code>.html</code>, <code>report/Report.pdf</code>, <code>report/report.md</code> kèm 26 tệp hình ảnh sắc nét trong <code>report/assets/{diagrams,ui}/</code>, <code>git-contributions/git-contributions.md</code> &amp; <code>.html</code> và tệp nén <code>4.zip</code>.</li>
+  <li><strong>6. Nội dung tự kiểm chứng &amp; hiệu chỉnh:</strong> Đối chiếu fingerprint văn bản giữa file Markdown tải từ Google Docs và <code>report/report.md</code> đạt khớp 100% từng từ; kiểm tra 5 sơ đồ lớp trích nguyên gốc từ đối tượng ảnh 2000px trong <code>Report.pdf</code>, 5 sơ đồ kiến trúc/EER/ERD/Screen Flow và 16 ảnh giao diện Figma ver3; xác minh toàn bộ 18 phiên AI cá nhân và toàn bộ lịch sử commit Git không sai lệch.</li>
+  <li><strong>7. Minh chứng / Commit:</strong> <code>reports/template2/</code>, <code>docs/template2/release/</code>, nhánh <code>merge-template2</code> (<code>SCRUM-55</code>).</li>
+</ul>
+
+<hr>
+
+<h2>3. CAM KẾT ĐẠO ĐỨC HỌC THUẬT</h2>
+
+<p>Nhóm cam kết thực hiện đúng Quy định về việc sử dụng AI của Khoa CNTT - Trường ĐHKHTN:</p>
+
+<ol>
+  <li>Mọi công cụ AI chỉ đóng vai trò hỗ trợ gợi ý cấu trúc, định dạng và tăng tốc quy trình làm việc; sinh viên tự thực hiện việc kiểm chứng, chỉnh sửa chuyên môn và chịu hoàn toàn trách nhiệm về nội dung báo cáo.</li>
+  <li>Tuyệt đối không sao chép máy móc, không làm sai lệch số liệu thực nghiệm và không đưa thông tin nhạy cảm/khóa bảo mật lên các dịch vụ AI công cộng.</li>
+</ol></div>
+<template id="tpl-header"><div class="template-header-bar"><div class="header-tab">Nhập môn công nghệ phần mềm</div><div class="header-title">Template 2 — Sử dụng AI</div></div></template>
+<template id="tpl-footer"><div class="template-footer-bar"><div class="footer-left">ĐH Khoa học tự nhiên TP HCM | Bộ môn Công nghệ phần mềm</div><div class="footer-tab">Trang <span class="pn"></span></div></div></template>
+<a href="#trang-bia" class="back-to-top">▲ Lên đầu trang</a>
+<script>
+(function () {
+  var pages = document.getElementById('pages'), src = document.getElementById('source');
+  var HEAD = document.getElementById('tpl-header').innerHTML, FOOT = document.getElementById('tpl-footer').innerHTML;
+  var pg, bd, n = 0;
+
+  function newPage() {
+    n++; pg = document.createElement('section'); pg.className = 'page';
+    pg.innerHTML = HEAD + '<div class="page-body"></div>' + FOOT;
+    pg.querySelector('.pn').textContent = n;
+    pages.appendChild(pg); bd = pg.querySelector('.page-body');
+  }
+  function fits() { return bd.scrollHeight <= bd.clientHeight; }
+  function probe(node) { bd.appendChild(node); var ok = fits(); bd.removeChild(node); return ok; }
+  function maxK(cnt, make) {
+    var lo = 0, hi = cnt;
+    while (lo < hi) { var m = Math.ceil((lo + hi) / 2); if (probe(make(m))) lo = m; else hi = m - 1; }
+    return lo;
+  }
+  function stripIds(e) { e.removeAttribute('id'); e.querySelectorAll('[id]').forEach(function (x) { x.removeAttribute('id'); }); }
+
+  // Tách đoạn văn theo từ/khoảng trắng, giữ tối thiểu 2 dòng mỗi bên (orphans/widows)
+  function textSplit(el) {
+    var txt = el.textContent, N = txt.length;
+    function part(a, b) {
+      var c = el.cloneNode(true), pos = 0, ns = [], w = document.createTreeWalker(c, NodeFilter.SHOW_TEXT);
+      while (w.nextNode()) ns.push(w.currentNode);
+      ns.forEach(function (x) {
+        var L = x.nodeValue.length, s = Math.max(a - pos, 0), e = Math.min(b - pos, L);
+        x.nodeValue = e > s ? x.nodeValue.slice(s, e) : ''; pos += L;
+      });
+      c.querySelectorAll('*').forEach(function (x) { if (!x.textContent && !x.querySelector('img,br')) x.remove(); });
+      return c;
+    }
+    bd.appendChild(el); var lh = parseFloat(getComputedStyle(el).lineHeight) || 24; bd.removeChild(el);
+    function lines(node) { bd.appendChild(node); var h = node.getBoundingClientRect().height; bd.removeChild(node); return Math.round(h / lh); }
+    var lo = 0, hi = N;
+    while (lo < hi) { var m = Math.ceil((lo + hi) / 2); if (probe(part(0, m))) lo = m; else hi = m - 1; }
+    var b = txt.lastIndexOf(' ', lo);
+    for (var t = 0; t < 12 && b > 0; t++) {
+      var head = part(0, b), tail = part(b + 1, N);
+      if (lines(head) < 2) return null;
+      if (lines(tail) >= 2) { stripIds(tail); return [head, tail]; }
+      b = txt.lastIndexOf(' ', b - 40);
+    }
+    return null;
+  }
+
+  // Tách khối dài thành [phần đầu vừa trang, phần còn lại]
+  function split(el) {
+    var t = el.tagName, kids, mk, k, tail;
+    if (t === 'P') return textSplit(el);
+    if (t === 'UL' || t === 'OL') {
+      kids = [].slice.call(el.children);
+      mk = function (a, b) { var c = el.cloneNode(false); kids.slice(a, b).forEach(function (x) { c.appendChild(x.cloneNode(true)); }); return c; };
+      k = maxK(kids.length, function (m) { return mk(0, m); });
+      if (k < 1 || k >= kids.length) return null;
+      if (k === 1 && /:\s*$/.test(kids[0].textContent)) return null; // nhãn không đứng một mình cuối trang
+      tail = mk(k, kids.length); stripIds(tail);
+      if (t === 'OL') tail.setAttribute('start', (parseInt(el.getAttribute('start') || 1, 10)) + k);
+      return [mk(0, k), tail];
+    }
+    if (t === 'TABLE') {
+      var th = el.querySelector('thead'), rows = [].slice.call(el.tBodies[0] ? el.tBodies[0].rows : []), hdr = null;
+      if (!th && rows[0] && rows[0].querySelector('th') && !rows[0].querySelector('td')) hdr = rows.shift();
+      mk = function (a, b) {
+        var c = el.cloneNode(false); var cols=el.querySelector("colgroup"); if(cols) c.appendChild(cols.cloneNode(true)); if (th) c.appendChild(th.cloneNode(true));
+        var tb = document.createElement('tbody'); if (hdr) tb.appendChild(hdr.cloneNode(true));
+        rows.slice(a, b).forEach(function (r) { tb.appendChild(r.cloneNode(true)); });
+        c.appendChild(tb); return c;
+      };
+      k = maxK(rows.length, function (m) { return mk(0, m); });
+      if (k < 1 || k >= rows.length) return null;
+      tail = mk(k, rows.length); stripIds(tail); return [mk(0, k), tail];
+    }
+    if (t === 'BLOCKQUOTE' || t === 'DIV') {
+      kids = [].slice.call(el.children);
+      mk = function (a, b) { var c = el.cloneNode(false); kids.slice(a, b).forEach(function (x) { c.appendChild(x.cloneNode(true)); }); return c; };
+      k = maxK(kids.length, function (m) { return mk(0, m); });
+      if (k < 1 || k >= kids.length) return null;
+      tail = mk(k, kids.length); stripIds(tail); return [mk(0, k), tail];
+    }
+    return null;
+  }
+
+  function keepNext(e) {
+    return /^(H[1-6]|HR)$/.test(e.tagName) || (e.tagName === 'UL' && e.children.length === 1 && /:\s*$/.test(e.textContent));
+  }
+
+  // Sang trang mới; heading/hr/nhãn mồ côi cuối trang được đẩy theo sang trang sau
+  function breakPage(q) {
+    var mv = [];
+    while (bd.children.length > 1 && keepNext(bd.lastElementChild)) mv.unshift(bd.removeChild(bd.lastElementChild));
+    newPage(); q.unshift.apply(q, mv);
+  }
+
+  function place(blocks) {
+    var q = blocks.slice();
+    while (q.length) {
+      var el = q.shift();
+      if (el.classList.contains('page-break-before')) {
+        el.classList.remove('page-break-before');
+        if (bd.children.length) { q.unshift(el); breakPage(q); continue; }
+      }
+      if (el.tagName === 'HR' && !bd.children.length) continue;
+      bd.appendChild(el);
+      if (fits()) continue;
+      bd.removeChild(el);
+      var s = split(el);
+      if (s) { bd.appendChild(s[0]); q.unshift(s[1]); breakPage(q); }
+      else if (bd.children.length) { q.unshift(el); breakPage(q); }
+      else { bd.appendChild(el); breakPage(q); }
+    }
+  }
+
+  function toc() {
+    document.querySelectorAll('.toc-link').forEach(function (a) {
+      var id = a.getAttribute('href').slice(1), t = document.getElementById(id), box = t && t.closest('.page'), num = a.querySelector('.toc-page-num');
+      if (box && num) num.textContent = box.querySelector('.pn').textContent;
+    });
+  }
+  function run() {
+    newPage(); place([].slice.call(src.children)); src.remove(); toc(); document.documentElement.dataset.ready="true"; }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(run); else run();
+})();
+</script>
+</body></html>

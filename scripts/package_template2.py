@@ -249,11 +249,12 @@ def build_report() -> list:
 
 
 def build_ai() -> list:
-    """Synthesize all 4 members' authentic AI usage logs into reports/template2/ai-usage/ai-usage.md."""
+    """Synthesize all 4 members' authentic AI usage logs into reports/template2/ai-usage/ai-usage.md
+    using the exact unified structure of Template 1 while preserving 100% factual content and evidence."""
     table_header = (
-        '| STT | Thời gian | Thành viên (MSSV) | Công cụ & Model | Nội dung công việc trong Template 2 | '
+        '| STT | Thời gian | Thành viên (MSSV) | Công cụ & Nền tảng | Nội dung công việc trong Template 2 | '
         'Nội dung AI tạo & Con người tự kiểm chứng | Minh chứng / Commit |\n'
-        '| :---: | :---: | :--- | :--- | :--- | :--- | :--- |'
+        '| :---: | :---: | :--- | :--- | :--- | :--- | :---: |'
     )
 
     out = [
@@ -271,6 +272,32 @@ def build_ai() -> list:
         '---\n\n'
         '## 2. NHẬT KÝ SỬ DỤNG AI THEO THÀNH VIÊN\n\n',
     ]
+
+    def strip_md_links_for_table(s: str) -> str:
+        """Convert markdown links in summary table cells into clean plain/code text like Template 1."""
+        def repl(m):
+            label, url = m.group(1).strip(), m.group(2).strip()
+            if url.startswith('http://') or url.startswith('https://'):
+                if label.startswith('#') or label.startswith('`#'):
+                    return f'PR {label.strip("`")}'
+                return label
+            clean_path = re.sub(r'^(\.\./)+', '', url)
+            if label == clean_path or label.endswith('.md') or label.endswith('.png') or label.endswith('.drawio'):
+                return f'`{clean_path}`'
+            return f'{label} (`{clean_path}`)'
+        return re.sub(r'\[([^\]]+)\]\(([^)]+)\)', repl, s)
+
+    def normalize_detail_links(s: str) -> str:
+        """Convert relative ../../ paths into clean repo-relative code paths or external links like Template 1."""
+        def repl(m):
+            label, url = m.group(1).strip(), m.group(2).strip()
+            if url.startswith('http://') or url.startswith('https://'):
+                return f'[{label}]({url})'
+            clean_path = re.sub(r'^(\.\./)+', '', url)
+            if label.strip('`') == clean_path or label.strip('`') == Path(clean_path).name:
+                return f'`{clean_path}`'
+            return f'{label} (`{clean_path}`)'
+        return re.sub(r'\[([^\]]+)\]\(([^)]+)\)', repl, s)
 
     mapping = []
     index = []
@@ -293,11 +320,25 @@ def build_ai() -> list:
             'report_id': new_id,
             'source': 'ai-usage/template2/binh.md',
         })
-    shown_binh_rows = [re.sub(r'\bT2-\d+\b', lambda m: binh_id_map.get(m[0], m[0]), r) for r in binh_rows]
+    shown_binh_rows = []
+    for r in binh_rows:
+        r2 = re.sub(r'\bT2-\d+\b', lambda m: binh_id_map.get(m[0], m[0]), r)
+        r2 = strip_md_links_for_table(r2)
+        # Keep evidence paths concise in the summary table like Template 1 (full path remains in detail block)
+        r2 = r2.replace('`docs/template2/members/binh/diagrams/system-decomposition-tree.*`', '`system-decomposition-tree.*`')
+        shown_binh_rows.append(r2)
     shown_binh_blocks = []
     for b in binh_blocks:
         b2 = re.sub(r'\bT2-\d+\b', lambda m: binh_id_map.get(m[0], m[0]), b)
         b2 = re.sub(r'^### Phiên (T2-\d+) — ', r'#### Phiên \1: ', b2, flags=re.M)
+        b2 = re.sub(r'^\* \*\*1\. Thời gian:\*\*', '- **Thời gian:**', b2, flags=re.M)
+        b2 = re.sub(r'^\* \*\*2\. Tác giả:\*\*', '- **Tác giả chịu trách nhiệm:**', b2, flags=re.M)
+        b2 = re.sub(r'^\* \*\*3\. Công cụ / Model:\*\*', '- **Công cụ / Model:**', b2, flags=re.M)
+        b2 = re.sub(r'^\* \*\*4\. Prompt đã khử dữ liệu nhạy cảm:\*\*', '- **Prompt đã khử dữ liệu nhạy cảm:**', b2, flags=re.M)
+        b2 = re.sub(r'^\* \*\*5\. Nội dung AI tạo:\*\*', '- **Nội dung AI tạo:**', b2, flags=re.M)
+        b2 = re.sub(r'^\* \*\*6\. Nội dung tự kiểm chứng & hiệu chỉnh:\*\*', '- **Nội dung tự kiểm chứng & hiệu chỉnh:**', b2, flags=re.M)
+        b2 = re.sub(r'^\* \*\*7\. Minh chứng / Commit:\*\*', '- **Minh chứng:**', b2, flags=re.M)
+        b2 = normalize_detail_links(b2)
         shown_binh_blocks.append(b2.strip() + '\n\n')
     out.append('### 2.1 Ngô Viết Thanh Bình — 24120269\n\n')
     out.append(table_header + '\n' + '\n'.join(shown_binh_rows) + '\n\n')
@@ -328,11 +369,24 @@ def build_ai() -> list:
             'report_id': new_id,
             'source': 'ai-usage/template2/lam.md',
         })
-    shown_lam_rows = [re.sub(r'\bT2-\d+\b', lambda m: lam_id_map.get(m[0], m[0]), r) for r in lam_rows]
+    shown_lam_rows = []
+    for r in lam_rows:
+        r2 = re.sub(r'\bT2-\d+\b', lambda m: lam_id_map.get(m[0], m[0]), r)
+        r2 = r2.replace('Nguyễn Đức Lãm (`24120083`)', 'Nguyễn Đức Lãm<br>`24120083`')
+        r2 = strip_md_links_for_table(r2)
+        shown_lam_rows.append(r2)
     shown_lam_blocks = []
     for b in lam_blocks:
         b2 = re.sub(r'\bT2-\d+\b', lambda m: lam_id_map.get(m[0], m[0]), b)
         b2 = re.sub(r'^### Phiên (T2-\d+) — ', r'#### Phiên \1: ', b2, flags=re.M)
+        b2 = re.sub(r'^\* \*\*1\. Thời gian\*\*', '- **Thời gian:**', b2, flags=re.M)
+        b2 = re.sub(r'^\* \*\*2\. Tác giả\*\*', '- **Tác giả chịu trách nhiệm:**', b2, flags=re.M)
+        b2 = re.sub(r'^\* \*\*3\. Công cụ / Model\*\*', '- **Công cụ / Model:**', b2, flags=re.M)
+        b2 = re.sub(r'^\* \*\*4\. Prompt đã khử dữ liệu nhạy cảm\*\*', '- **Prompt đã khử dữ liệu nhạy cảm:**', b2, flags=re.M)
+        b2 = re.sub(r'^\* \*\*5\. Nội dung AI tạo\*\*', '- **Nội dung AI tạo:**', b2, flags=re.M)
+        b2 = re.sub(r'^\* \*\*6\. Nội dung tự kiểm chứng & hiệu chỉnh\*\*', '- **Nội dung tự kiểm chứng & hiệu chỉnh:**', b2, flags=re.M)
+        b2 = re.sub(r'^\* \*\*7\. Minh chứng / Commit\*\*', '- **Minh chứng:**', b2, flags=re.M)
+        b2 = normalize_detail_links(b2)
         shown_lam_blocks.append(b2.strip() + '\n\n---\n\n')
     out.append('### 2.2 Nguyễn Đức Lãm — 24120083\n\n')
     out.append(table_header + '\n' + '\n'.join(shown_lam_rows) + '\n\n')
@@ -372,14 +426,27 @@ def build_ai() -> list:
             m_f = re.match(r'^- \*\*([^*]+)\*\*\s+(.+)$', line.strip())
             if m_f:
                 fields[m_f.group(1).strip()] = m_f.group(2).strip()
+        when_clean = fields['Thời gian'].rstrip('.')
+        tool_clean = fields['Công cụ/Model'].rstrip('.')
+        ai_gen_clean = fields['Nội dung AI tạo'].rstrip('.')
+        verify_clean = fields['Nội dung tự kiểm chứng & hiệu chỉnh']
+        ev_table = strip_md_links_for_table(fields['Minh chứng/Commit']).rstrip('.')
         row = (
-            f'| **{new_id}** | {fields["Thời gian"]} | {fields["Tác giả"]} | {fields["Công cụ/Model"]} | '
-            f'{title_part} | **AI tạo:** {fields["Nội dung AI tạo"]} **Kiểm chứng:** {fields["Nội dung tự kiểm chứng & hiệu chỉnh"]} | '
-            f'{fields["Minh chứng/Commit"]} |'
+            f'| **{new_id}** | {when_clean} | Phan Gia Phúc<br>`24120503` | {tool_clean} | '
+            f'{title_part} | {ai_gen_clean}; {verify_clean} | '
+            f'{ev_table} |'
         )
         gp_rows.append(row)
-        b_body = '\n'.join(b.splitlines()[1:]).strip()
-        shown_gp_blocks.append(f'#### Phiên {new_id}: {raw_heading}\n\n{b_body}\n\n---\n\n')
+        shown_gp_blocks.append(
+            f'#### Phiên {new_id}: {title_part} ({date_part})\n\n'
+            f'- **Thời gian:** {fields["Thời gian"]}\n'
+            f'- **Tác giả chịu trách nhiệm:** Phan Gia Phúc (MSSV: `24120503`)\n'
+            f'- **Công cụ / Model:** {fields["Công cụ/Model"]}\n'
+            f'- **Prompt đã khử dữ liệu nhạy cảm:** {fields["Prompt đã khử dữ liệu nhạy cảm"]}\n'
+            f'- **Nội dung AI tạo:** {fields["Nội dung AI tạo"]}\n'
+            f'- **Nội dung tự kiểm chứng & hiệu chỉnh:** {fields["Nội dung tự kiểm chứng & hiệu chỉnh"]}\n'
+            f'- **Minh chứng:** {normalize_detail_links(fields["Minh chứng/Commit"])}\n\n---\n\n'
+        )
     out.append('### 2.3 Phan Gia Phúc — 24120503\n\n')
     out.append(table_header + '\n' + '\n'.join(gp_rows) + '\n\n')
     out.append(''.join(shown_gp_blocks))
@@ -412,19 +479,23 @@ def build_ai() -> list:
             'report_id': new_id,
             'source': 'ai-usage/template2/quy-phuc.md',
         })
+        when_clean = when.replace(' (UTC+7)', '')
+        prompt_title = prompt.rstrip('.')
+        ai_gen_clean = ai_gen.rstrip('.')
+        ev_table = strip_md_links_for_table(evidence).rstrip('.')
         qp_rows.append(
-            f'| **{new_id}** | {when} | {author} | {tool} | {prompt} | '
-            f'**AI tạo:** {ai_gen} **Kiểm chứng:** {verify} | {evidence} |'
+            f'| **{new_id}** | {when_clean} | Lê Quý Phúc<br>`24120121` | {tool} | {prompt_title} | '
+            f'{ai_gen_clean}; {verify} | {ev_table} |'
         )
         shown_qp_blocks.append(
-            f'#### Phiên {new_id}: {prompt}\n\n'
+            f'#### Phiên {new_id}: {prompt_title} ({when_clean})\n\n'
             f'- **Thời gian:** {when}\n'
-            f'- **Tác giả:** {author}\n'
-            f'- **Công cụ/Model:** {tool}\n'
+            f'- **Tác giả chịu trách nhiệm:** Lê Quý Phúc (MSSV: `24120121`)\n'
+            f'- **Công cụ / Model:** {tool}\n'
             f'- **Prompt đã khử dữ liệu nhạy cảm:** {prompt}\n'
             f'- **Nội dung AI tạo:** {ai_gen}\n'
             f'- **Nội dung tự kiểm chứng & hiệu chỉnh:** {verify}\n'
-            f'- **Minh chứng/Commit:** {evidence}\n\n---\n\n'
+            f'- **Minh chứng:** {normalize_detail_links(evidence)}\n\n---\n\n'
         )
     out.append('### 2.4 Lê Quý Phúc — 24120121\n\n')
     out.append(table_header + '\n' + '\n'.join(qp_rows) + '\n\n')
@@ -455,14 +526,14 @@ def build_ai() -> list:
         f'Hợp nhất 4 nhánh thành viên và đóng gói bộ nộp Template 2 (`ai-usage`, `report`, `git-contributions`, `4.zip`) | '
         f'AI hỗ trợ merge 4 nhánh thành viên vào `merge-template2`, tổng hợp nguyên văn nhật ký AI của 4 thành viên, ánh xạ 26 hình từ `Report.pdf` & kho ảnh Figma ver3/draw.io vào `report/report.md` (giữ nguyên 100% câu chữ bản chốt), cập nhật lịch sử Git và xuất HTML chuẩn Template 1; sinh viên kiểm chứng SHA-256, đường dẫn ảnh và bố cục HTML | '
         f'`report/Report.pdf`; `report/report.md`; `ai-usage/ai-usage.md`; `git-contributions/git-contributions.md`; nhánh `merge-template2` (`SCRUM-55`) |\n\n'
-        f'#### Phiên {pack_id}: Hợp nhất nhánh và đóng gói bộ nộp Template 2\n\n'
-        '- **1. Thời gian:** 26/11/2026.\n'
-        '- **2. Tác giả:** Ngô Viết Thanh Bình (MSSV: `24120269` — Trưởng nhóm).\n'
-        '- **3. Công cụ / Model:** Antigravity AI (Gemini 4 Argon Medium) via Antigravity IDE.\n'
-        '- **4. Prompt đã khử dữ liệu nhạy cảm:** Tạo nhánh `merge-template2` hợp nhất bài làm của tất cả thành viên; tổng hợp file `ai-usage` (`.md` và `.html`) dựa theo chính xác nội dung các thành viên đã thực hiện theo chuẩn định dạng Template 1; đưa hai bản tải về từ Google Docs (`Report.pdf` và `report.md`) vào phần nộp bài kèm đầy đủ hình ảnh trong `assets/` mà tuyệt đối không sửa nội dung chữ; cập nhật `git-contributions` (`.md` và `.html`) mới nhất từ repo.\n'
-        '- **5. Nội dung AI tạo:** Script đóng gói `scripts/package_template2.py`, bộ báo cáo `ai-usage/ai-usage.md` & `.html`, `report/Report.pdf`, `report/report.md` kèm 26 tệp hình ảnh sắc nét trong `report/assets/{diagrams,ui}/`, `git-contributions/git-contributions.md` & `.html` và tệp nén `4.zip`.\n'
-        '- **6. Nội dung tự kiểm chứng & hiệu chỉnh:** Đối chiếu fingerprint văn bản giữa file Markdown tải từ Google Docs và `report/report.md` đạt khớp 100% từng từ; kiểm tra 5 sơ đồ lớp trích nguyên gốc từ đối tượng ảnh 2000px trong `Report.pdf`, 5 sơ đồ kiến trúc/EER/ERD/Screen Flow và 16 ảnh giao diện Figma ver3; xác minh toàn bộ 18 phiên AI cá nhân và toàn bộ lịch sử commit Git không sai lệch.\n'
-        '- **7. Minh chứng / Commit:** `reports/template2/`, `docs/template2/release/`, nhánh `merge-template2` (`SCRUM-55`).\n\n---\n\n'
+        f'#### Phiên {pack_id}: Hợp nhất nhánh và đóng gói bộ nộp Template 2 (26/11/2026)\n\n'
+        '- **Thời gian:** 26/11/2026.\n'
+        '- **Tác giả chịu trách nhiệm:** Ngô Viết Thanh Bình (MSSV: `24120269` — Trưởng nhóm).\n'
+        '- **Công cụ / Model:** Antigravity AI (Gemini 4 Argon Medium) via Antigravity IDE.\n'
+        '- **Prompt đã khử dữ liệu nhạy cảm:** Tạo nhánh `merge-template2` hợp nhất bài làm của tất cả thành viên; tổng hợp file `ai-usage` (`.md` và `.html`) dựa theo chính xác nội dung các thành viên đã thực hiện theo chuẩn định dạng Template 1; đưa hai bản tải về từ Google Docs (`Report.pdf` và `report.md`) vào phần nộp bài kèm đầy đủ hình ảnh trong `assets/` mà tuyệt đối không sửa nội dung chữ; cập nhật `git-contributions` (`.md` và `.html`) mới nhất từ repo.\n'
+        '- **Nội dung AI tạo:** Script đóng gói `scripts/package_template2.py`, bộ báo cáo `ai-usage/ai-usage.md` & `.html`, `report/Report.pdf`, `report/report.md` kèm 26 tệp hình ảnh sắc nét trong `report/assets/{diagrams,ui}/`, `git-contributions/git-contributions.md` & `.html` và tệp nén `4.zip`.\n'
+        '- **Nội dung tự kiểm chứng & hiệu chỉnh:** Đối chiếu fingerprint văn bản giữa file Markdown tải từ Google Docs và `report/report.md` đạt khớp 100% từng từ; kiểm tra 5 sơ đồ lớp trích nguyên gốc từ đối tượng ảnh 2000px trong `Report.pdf`, 5 sơ đồ kiến trúc/EER/ERD/Screen Flow và 16 ảnh giao diện Figma ver3; xác minh toàn bộ 18 phiên AI cá nhân và toàn bộ lịch sử commit Git không sai lệch.\n'
+        '- **Minh chứng:** `reports/template2/`, `docs/template2/release/`, nhánh `merge-template2` (`SCRUM-55`).\n\n---\n\n'
         '## 3. CAM KẾT ĐẠO ĐỨC HỌC THUẬT\n\n'
         'Nhóm cam kết thực hiện đúng Quy định về việc sử dụng AI của Khoa CNTT - Trường ĐHKHTN:\n\n'
         '1. Mọi công cụ AI chỉ đóng vai trò hỗ trợ gợi ý cấu trúc, định dạng và tăng tốc quy trình làm việc; sinh viên tự thực hiện việc kiểm chứng, chỉnh sửa chuyên môn và chịu hoàn toàn trách nhiệm về nội dung báo cáo.\n'
@@ -470,9 +541,6 @@ def build_ai() -> list:
     )
 
     combined = ''.join(out)
-    # Adjust relative links copied from ai-usage/template2/*.md (depth 2: ../../)
-    # so they resolve accurately from reports/template2/ai-usage/ai-usage.md (depth 3: ../../../)
-    combined = re.sub(r'\]\(\.\./\.\./([^)]+)\)', r'](../../../\1)', combined)
     write(T2 / 'ai-usage/ai-usage.md', combined)
     write(SOURCES / 'ai-session-index.json', json.dumps(mapping, ensure_ascii=False, indent=2) + '\n')
     return index
