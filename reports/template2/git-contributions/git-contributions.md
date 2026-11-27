@@ -3,7 +3,7 @@
 > **Dự án:** Clarune — AI-Powered Helpdesk & Knowledge Base
 > **Nhóm:** Group 04
 > **Kho lưu trữ:** https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base
-> **Thời điểm chốt dữ liệu:** 2026-11-27T14:01:47+07:00
+> **Thời điểm chốt dữ liệu:** 2026-11-27T14:01:53+07:00
 
 ## Phạm vi thống kê
 
@@ -16,7 +16,7 @@ Báo cáo ghi nhận lịch sử Git của giai đoạn Template 2 từ 14/11/20
 | `origin/docs/t2-giaphuc` | [a0abbd4bdc90a746594b18da19de49320a53f906](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/a0abbd4bdc90a746594b18da19de49320a53f906) |
 | `origin/docs/t2-lam` | [026fc600b67d354f55a3d344ba74d53ad6ae5069](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/026fc600b67d354f55a3d344ba74d53ad6ae5069) |
 | `origin/docs/t2-quy-phuc` | [235bc3da578d37804857e439324b09bfcd5e57ab](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/235bc3da578d37804857e439324b09bfcd5e57ab) |
-| `merge-template2` | [621638b68bfbf4fdc0f7edc1612a68e7581ea26a](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/621638b68bfbf4fdc0f7edc1612a68e7581ea26a) |
+| `merge-template2` | [7ebc236648614ed861889c11128e3d445338c689](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/7ebc236648614ed861889c11128e3d445338c689) |
 
 Danh sách thay đổi được nhóm theo thư mục khi có từ 5 tệp, kèm số lượng tệp. Commit được xác định theo tài khoản hoặc email của thành viên; tác giả Git `PC` với email `phgphuc0609@gmail.com` được ghi nhận cho Phan Gia Phúc.
 
@@ -24,7 +24,7 @@ Danh sách thay đổi được nhóm theo thư mục khi có từ 5 tệp, kèm
 
 | MSSV | Thành viên | GitHub | Commit |
 | --- | --- | --- | ---: |
-| 24120269 | Ngô Viết Thanh Bình | thanhbinh55 | 14 |
+| 24120269 | Ngô Viết Thanh Bình | thanhbinh55 | 15 |
 | 24120083 | Nguyễn Đức Lãm | Lamnguyen-code | 3 |
 | 24120503 | Phan Gia Phúc | t4lf4n | 2 |
 | 24120121 | Lê Quý Phúc | Shinkiisme | 3 |
@@ -38,26 +38,35 @@ Danh sách thay đổi được nhóm theo thư mục khi có từ 5 tệp, kèm
 - **Tài khoản Git:** `thanhbinh55`
 - **Email Git:** `ngovietthanhbinh2006@gmail.com`
 - **Module phụ trách:** D - Identity & Access (Nhóm trưởng)
-- **Tổng số commit ghi nhận:** 14
+- **Tổng số commit ghi nhận:** 15
 
 | STT | Mã Hash | Ngày commit (UTC+7) | Thông điệp commit (Jira Key) | Số tệp |
 | ---: | --- | --- | --- | ---: |
-| 1 | [621638b6](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/621638b68bfbf4fdc0f7edc1612a68e7581ea26a) | 26/11/2026 23:54 | docs(template2): synchronize git-contributions snapshot with active merge-template2 history SCRUM-55 | 8 |
-| 2 | [0ce438e8](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0ce438e8a0f5a30ea7b3458edff4a7e0c5c81b47) | 26/11/2026 23:50 | fix(template2): preserve inline code underscores in HTML renderer and fix relative links SCRUM-55 | 15 |
-| 3 | [8cf0ed08](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/8cf0ed086f0fe994f4eb713e11a0656e7957117d) | 26/11/2026 19:05 | docs(template2): update git contributions snapshot with final packaging commit SCRUM-55 | 6 |
-| 4 | [a0f871ef](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/a0f871ef640649ab7f4c297a3896cd4011b303aa) | 26/11/2026 19:05 | docs(template2): package final report assets AI usage and Git evidence on merge-template2 SCRUM-55 SCRUM-58 SCRUM-59 SCRUM-60 SCRUM-61 SCRUM-62 SCRUM-66 | 103 |
-| 5 | [97235083](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/9723508377529b67107ba0a4abc34a96b48485bc) | 26/11/2026 18:56 | Merge branch 'docs/t2-binh', remote-tracking branches 'origin/docs/t2-giaphuc', 'origin/docs/t2-lam' and 'origin/docs/t2-quy-phuc' into merge-template2 | 14 |
-| 6 | [50fa073a](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/50fa073a4d26649907696b34c0ac881bacd65e28) | 26/11/2026 00:32 | docs(ai-usage): bo sung day du 8 phien su dung AI giai doan template 2 cua Binh SCRUM-59 SCRUM-62 SCRUM-55 | 1 |
-| 7 | [134a1fac](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/134a1fac26a65e36e0696bc8797dd0ceaf95758b) | 26/11/2026 00:26 | docs(template2): ban giao muc 3.1 kien truc he thong va nhat ky AI SCRUM-59 SCRUM-62 | 15 |
-| 8 | [d8757188](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/d8757188712b6344fcce47f1a13ada1cdd18120b) | 23/11/2026 21:27 | Merge pull request #16 from thanhbinh55/feat/ci-scrum43 | 1 |
-| 9 | [8f140015](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/8f1400154bf1603d3e253df244a8f6cb71e4cd0f) | 23/11/2026 17:24 | feat(backend): init spring boot 3 foundation and error envelope SCRUM-26 (#14) | 23 |
-| 10 | [29129051](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/291290517816ac30a2bed2796525f4085790b860) | 23/11/2026 00:25 | Merge pull request #15 from thanhbinh55/docs/scrum-61-clarune-v3 | 134 |
-| 11 | [67f18d2d](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/67f18d2de234c7b5cceaec7cef368de56486dddb) | 21/11/2026 10:55 | chore(infra): add Supabase Singapore cloud database config SCRUM-26 | 2 |
-| 12 | [4c0e0564](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/4c0e05646dd85a14aabb96ba4f5e1fe9ef995874) | 20/11/2026 21:13 | docs(repo): modernize main README for phase 2 navigation and sync Jira CSV URLs SCRUM-55 | 3 |
-| 13 | [3a3e5b24](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/3a3e5b24585301a622e562ad84f7d9a6ee231c1d) | 20/11/2026 21:11 | docs(template2): update official shared Google Doc URL across guides and draft SCRUM-55 | 8 |
-| 14 | [e1ab5912](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/e1ab591200b383b7130c61b04297b22d276017ac) | 20/11/2026 20:34 | docs(phase2): restructure repo, add team guide and template2 draft master SCRUM-58 SCRUM-59 SCRUM-60 SCRUM-61 SCRUM-66 | 37 |
+| 1 | [7ebc2366](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/7ebc236648614ed861889c11128e3d445338c689) | 27/11/2026 14:01 | docs(template2): standardize AI usage structure across all members to match Template 1 SCRUM-55 | 55 |
+| 2 | [621638b6](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/621638b68bfbf4fdc0f7edc1612a68e7581ea26a) | 26/11/2026 23:54 | docs(template2): synchronize git-contributions snapshot with active merge-template2 history SCRUM-55 | 8 |
+| 3 | [0ce438e8](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/0ce438e8a0f5a30ea7b3458edff4a7e0c5c81b47) | 26/11/2026 23:50 | fix(template2): preserve inline code underscores in HTML renderer and fix relative links SCRUM-55 | 15 |
+| 4 | [8cf0ed08](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/8cf0ed086f0fe994f4eb713e11a0656e7957117d) | 26/11/2026 19:05 | docs(template2): update git contributions snapshot with final packaging commit SCRUM-55 | 6 |
+| 5 | [a0f871ef](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/a0f871ef640649ab7f4c297a3896cd4011b303aa) | 26/11/2026 19:05 | docs(template2): package final report assets AI usage and Git evidence on merge-template2 SCRUM-55 SCRUM-58 SCRUM-59 SCRUM-60 SCRUM-61 SCRUM-62 SCRUM-66 | 103 |
+| 6 | [97235083](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/9723508377529b67107ba0a4abc34a96b48485bc) | 26/11/2026 18:56 | Merge branch 'docs/t2-binh', remote-tracking branches 'origin/docs/t2-giaphuc', 'origin/docs/t2-lam' and 'origin/docs/t2-quy-phuc' into merge-template2 | 14 |
+| 7 | [50fa073a](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/50fa073a4d26649907696b34c0ac881bacd65e28) | 26/11/2026 00:32 | docs(ai-usage): bo sung day du 8 phien su dung AI giai doan template 2 cua Binh SCRUM-59 SCRUM-62 SCRUM-55 | 1 |
+| 8 | [134a1fac](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/134a1fac26a65e36e0696bc8797dd0ceaf95758b) | 26/11/2026 00:26 | docs(template2): ban giao muc 3.1 kien truc he thong va nhat ky AI SCRUM-59 SCRUM-62 | 15 |
+| 9 | [d8757188](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/d8757188712b6344fcce47f1a13ada1cdd18120b) | 23/11/2026 21:27 | Merge pull request #16 from thanhbinh55/feat/ci-scrum43 | 1 |
+| 10 | [8f140015](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/8f1400154bf1603d3e253df244a8f6cb71e4cd0f) | 23/11/2026 17:24 | feat(backend): init spring boot 3 foundation and error envelope SCRUM-26 (#14) | 23 |
+| 11 | [29129051](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/291290517816ac30a2bed2796525f4085790b860) | 23/11/2026 00:25 | Merge pull request #15 from thanhbinh55/docs/scrum-61-clarune-v3 | 134 |
+| 12 | [67f18d2d](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/67f18d2de234c7b5cceaec7cef368de56486dddb) | 21/11/2026 10:55 | chore(infra): add Supabase Singapore cloud database config SCRUM-26 | 2 |
+| 13 | [4c0e0564](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/4c0e05646dd85a14aabb96ba4f5e1fe9ef995874) | 20/11/2026 21:13 | docs(repo): modernize main README for phase 2 navigation and sync Jira CSV URLs SCRUM-55 | 3 |
+| 14 | [3a3e5b24](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/3a3e5b24585301a622e562ad84f7d9a6ee231c1d) | 20/11/2026 21:11 | docs(template2): update official shared Google Doc URL across guides and draft SCRUM-55 | 8 |
+| 15 | [e1ab5912](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/e1ab591200b383b7130c61b04297b22d276017ac) | 20/11/2026 20:34 | docs(phase2): restructure repo, add team guide and template2 draft master SCRUM-58 SCRUM-59 SCRUM-60 SCRUM-61 SCRUM-66 | 37 |
 
 #### Tệp/thư mục thay đổi và nguồn nhánh
+
+**[7ebc2366](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/7ebc236648614ed861889c11128e3d445338c689)** — docs(template2): standardize AI usage structure across all members to match Template 1 SCRUM-55
+
+Nguồn: `merge-template2`.
+
+- `docs/template2/` — 47 tệp thay đổi
+- `reports/template2/` — 7 tệp thay đổi
+- `scripts/package_template2.py`
 
 **[621638b6](https://github.com/thanhbinh55/AI-Powered-Helpdesk-Knowledge-Base/commit/621638b68bfbf4fdc0f7edc1612a68e7581ea26a)** — docs(template2): synchronize git-contributions snapshot with active merge-template2 history SCRUM-55
 
