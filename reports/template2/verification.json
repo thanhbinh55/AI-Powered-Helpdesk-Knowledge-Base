@@ -66,7 +66,7 @@
     }
   ],
   "git_commit_counts": {
-    "Ngô Viết Thanh Bình": 16,
+    "Ngô Viết Thanh Bình": 17,
     "Nguyễn Đức Lãm": 3,
     "Phan Gia Phúc": 2,
     "Lê Quý Phúc": 3
@@ -74,7 +74,7 @@
   "package": {
     "zip_path": "reports/template2/4.zip",
     "zip_files": 42,
-    "zip_bytes": 14215874,
-    "zip_sha256": "de840aa3bd29cfa63282db7d06461124b4dff0c6cf8813d833ddfbdbda37c0f6"
+    "zip_bytes": 14216051,
+    "zip_sha256": "aaf9c1ed87156b80193418e13860e2fd33a56e84fd7451a5efb2a75947de3f3e"
   }
 }
